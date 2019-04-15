@@ -1,4 +1,4 @@
-# Security Policies and Procedures
+# Security Policy
 
 This document outlines security procedures and general policies for Raivo.
 
