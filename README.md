@@ -2,7 +2,7 @@
 <p align="center">
     <a href="https://github.com/tijme/raivo/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=License&secondText=CC%20BY-NC%204.0" /></a>
     <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=iOS%20(10%20or%20higher)" /></a>
-    <a href="https://github.com/tijme/raivo/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue1=raivo&typeValue2=master&typeValue4=Beta"></a>
+    <a href="https://github.com/tijme/raivo/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue1=raivo&typeValue2=master&typeValue4=Beta&cache=1"></a>
     <br/>
     <b>A native, lightweight and secure one-time & time-based password client built for iOS</b>
     <br/>
@@ -32,36 +32,19 @@
 * It's fast (native, built in Swift v4.2)
 * It's secure (developed by a security specialist)
 
-## Upcoming features:
+## Upcoming updates:
 
 * Custom issuer logos
 * Multilingual support
 * HOTP (counter-based token)
-* TouchID unlock
+* Optional TouchID unlock
 * Scan OTP seeds from shared password managers
 * Backup/sync OTPs to other third-party services
+* Raivo will be become open-source
 
 ## Contributing
 
-#### Cloning the project
-
-You can clone the project using GIT. The master branch always contains the latest stable code. The `develop` branch always contains the latest changes (but is unstable).
-
-`git clone git@github.com:tijme/raivo.git`
-
-#### CocoaPods
-
-CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. Install it using the instructions on their website [www.cocoapods.org](https://cocoapods.org/). Afterwards, navigate to the project root and install all the pods.
-
-`pod install`
-
-#### Making changes
-
-Make sure you open **Raivo.xcworkspace** instead of the default project file. Opening Raivo.xcworkspace will make sure Xcode loads all the pods.
-
-#### Compiling
-
-You can now compile the app for every iOS 11 device using Xcode!
+At this moment it is not possible to contribute to Raivo due to the fact that Riavo is not open-source yet. Raivo will become open-source software when the first version is published to the Apple App Store.
 
 ## Issues
 
@@ -69,7 +52,11 @@ Issues or new features can be reported via the [issue tracker](https://github.co
 
 ## Security
 
-If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. Please contact us at `security[at]finnwea[dot]com`.
+If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. Please refer to the [security policy](https://github.com/tijme/raivo/blob/master/PRIVACY.md) for information on reporting vulnerabilities.
+
+## Privacy
+
+Raivo does not collect personally identifiable information in any way. Please refer to the [privacy policy](https://github.com/tijme/raivo/blob/master/PRIVACY.md) for information.
 
 ## License
 

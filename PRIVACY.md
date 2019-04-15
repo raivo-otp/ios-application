@@ -1,6 +1,6 @@
 ## Privacy Policy
 
-Tijme Gommers built the Raivo app as an open-source service. This service is provided by Tijme Gommers at no cost and is intended for use as is.
+Tijme Gommers built the Raivo app as a non-commercial open-source service, licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license. This service is provided by Tijme Gommers at no cost and is intended for use as is.
 
 This page is used to inform visitors regarding the policies with the collection, use, and disclosure of personal information if anyone decided to use this service.
 
@@ -14,7 +14,7 @@ Raivo does not use third party services that collect personally identifiable inf
 
 **Security**
 
-If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. Please contact us at security[at]finnwea[dot]com.
+If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. Please refer to the [security policy](https://github.com/tijme/raivo/blob/master/PRIVACY.md) for information on reporting vulnerabilities.
 
 **Links to other sites**
 
@@ -26,4 +26,4 @@ I may update this privacy policy from time to time. Thus, you are advised to rev
 
 **Contact Us**
 
-If you have any questions or suggestions about the privacy policy, do not hesitate to contact us at tijme[at]finnwea[dot]com.
+If you have any questions or suggestions about the privacy policy, do not hesitate to contact us at `privacy[at]finnwea[dot]com`.
