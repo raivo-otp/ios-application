@@ -1,3 +1,6 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/tijme/raivo/master/Assets/app-icon.jpg" width="200"/>
+</p>
 <h1 align="center">Raivo</h1>
 <p align="center">
     <a href="https://github.com/tijme/raivo/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=License&secondText=CC%20BY-NC%204.0" /></a>
@@ -8,10 +11,6 @@
     <br/>
     <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Donate via <a href="https://bunq.me/tijme/0/Raivo;%20a%20native,%20lightweight%20and%20secure%20one-time%20&%20time-based%20password%20client%20built%20for%20iOS">Bunq</a></sup>
     <br/>
-</p>
-
-<p align="center">
-    <a href="#features">Features</a> — <a href="#upcoming">Upcoming</a> — <a href="#contributing">Contributing</a> — <a href="#issues">Issues</a> — <a href="#security">Security</a> — <a href="#privacy">Privacy</a> — <a href="#license">License</a>
 </p>
 
 <p align="center">
