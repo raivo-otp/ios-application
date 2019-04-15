@@ -52,7 +52,7 @@ Issues or new features can be reported via the [issue tracker](https://github.co
 
 ## Security
 
-If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. Please refer to the [security policy](https://github.com/tijme/raivo/blob/master/PRIVACY.md) for information on reporting vulnerabilities.
+If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. Please refer to the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for information on reporting vulnerabilities.
 
 ## Privacy
 
