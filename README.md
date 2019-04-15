@@ -1,3 +1,6 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/tijme/raivo/master/Assets/app-icon.jpg" width="200"/>
+</p>
 <h1 align="center">Raivo</h1>
 <p align="center">
     <a href="https://github.com/tijme/raivo/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=License&secondText=CC%20BY-NC%204.0" /></a>
@@ -16,13 +19,6 @@
     <img src="https://github.com/tijme/raivo/raw/master/.github/preview_right.png" width="280">
 </p>
 
-**Table of Contents:**
-* [Features](#features)
-* [Contributing](#contributing)
-* [Issues](#issues)
-* [Security](#security)
-* [License](#license)
-
 ## Features
 
 * Backup/sync OTPs to iCloud automagically
@@ -32,7 +28,7 @@
 * It's fast (native, built in Swift v4.2)
 * It's secure (developed by a security specialist)
 
-## Upcoming updates:
+## Upcoming
 
 * Custom issuer logos
 * Multilingual support
