@@ -6,20 +6,20 @@ This page is used to inform visitors regarding the policies with the collection,
 
 ## Information collection and use
 
-Raivo does not collect personally identifiable information in any way, nor does it use third party services that collect personally identifiable information in any way.
+Raivo does not collect personally identifiable information in any way, nor does it use third-party services that collect personally identifiable information in any way.
 
-## Links to other sites
+## Links to third-party sites
 
-This service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, I strongly advise you to review the privacy policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+Raivo may contain links to third-party sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by Raivo. Therefore, it is strongly recommended to review the privacy policy of these websites. Raivo has no control over and assumes no responsibility for the content, privacy policies, or practices of any third-party sites or services.
 
 ## Changes to this privacy policy
 
-I may update this privacy policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new privacy policy on this page. These changes are effective immediately after they are posted on this page.
+Tijme Gommers may update this privacy policy from time to time. Thus, you are advised to review this page periodically for any changes. Tijme Gommers will notify you of any changes by posting the new privacy policy on this page. These changes are effective immediately after they are posted on this page.
 
 ## Security
 
-If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. Please refer to the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for information on reporting vulnerabilities.
+Please refer to the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for information on reporting security vulnerabilities.
 
 ## Contact us
 
-If you have any questions or suggestions about the privacy policy, do not hesitate to contact us at `privacy[at]finnwea[dot]com`.
+If you have any questions or suggestions about the privacy policy, do not hesitate to get in touch via `privacy[at]finnwea[dot]com`.
