@@ -11,17 +11,14 @@
 </p>
 
 <p align="center">
+    <a href="#features">Features</a> — <a href="#upcoming">Upcoming</a> — <a href="#contributing">Contributing</a> — <a href="#issues">Issues</a> — <a href="#security">Security</a> — <a href="#privacy">Privacy</a> — <a href="#license">License</a>
+</p>
+
+<p align="center">
     <img src="https://github.com/tijme/raivo/raw/master/.github/preview_left.png" width="280">
     <img src="https://github.com/tijme/raivo/raw/master/.github/preview_middle.png" width="280">
     <img src="https://github.com/tijme/raivo/raw/master/.github/preview_right.png" width="280">
 </p>
-
-**Table of Contents:**
-* [Features](#features)
-* [Contributing](#contributing)
-* [Issues](#issues)
-* [Security](#security)
-* [License](#license)
 
 ## Features
 
@@ -32,7 +29,7 @@
 * It's fast (native, built in Swift v4.2)
 * It's secure (developed by a security specialist)
 
-## Upcoming updates:
+## Upcoming
 
 * Custom issuer logos
 * Multilingual support
