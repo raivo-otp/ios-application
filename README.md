@@ -44,7 +44,7 @@
 
 ## Contributing
 
-At this moment it is not possible to contribute to Raivo due to the fact that Riavo is not open-source yet. Raivo will become open-source software when the first version is published to the Apple App Store.
+At this moment it is not possible to contribute to Raivo due to the fact that Raivo is not open-source yet. Raivo will become open-source software when the first version is published to the Apple App Store.
 
 ## Issues
 

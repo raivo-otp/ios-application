@@ -4,7 +4,7 @@ This document outlines security procedures and general policies for Raivo.
 
   * [Reporting a vulnerability](#reporting-a-vulnerability)
   * [Disclosure policy](#disclosure-policy)
-  * [Third party modules](#third-party-modules)
+  * [Third-party modules](#third-party-modules)
 
 ## Reporting a vulnerability
 
@@ -25,6 +25,6 @@ When the security team receives a security vulnerability report, they will assig
   * Prepare a fix for the upcoming release or a dedicated release. 
   * Publish the fix to the Apple App Store as soon as possible.
 
-## Third party modules
+## Third-party modules
 
-If you find a security vulnerability in a third party module that is in use by Raivo, please report the vulnerability to the person or team maintaining the module.
+If you find a security vulnerability in a third-party module that is in use by Raivo, please report the vulnerability to the person or team maintaining the module.
