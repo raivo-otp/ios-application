@@ -7,9 +7,9 @@
     <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=iOS%20(10%20or%20higher)" /></a>
     <a href="https://github.com/tijme/raivo/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue1=raivo&typeValue2=master&typeValue4=Beta&cache=1"></a>
     <br/>
-    <b>A native, lightweight and secure one-time & time-based password client built for iOS</b>
+    <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
     <br/>
-    <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Donate via <a href="https://bunq.me/tijme/0/Raivo;%20a%20native,%20lightweight%20and%20secure%20one-time%20&%20time-based%20password%20client%20built%20for%20iOS">Bunq</a></sup>
+    <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Donate via <a href="https://bunq.me/tijme/0/Raivo;%20A%20native,%20lightweight%20and%20secure%20one-time-password%20(OTP)%20client%20built%20for%20iOS.">Bunq</a></sup>
     <br/>
 </p>
 

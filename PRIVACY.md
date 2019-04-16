@@ -1,25 +1,40 @@
 # Privacy Policy
 
-Tijme Gommers built the Raivo app as a non-commercial open-source service, licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license. This service is provided by Tijme Gommers at no cost and is intended for use as is.
+> Effective date: April 16, 2019
 
-This page is used to inform visitors regarding the policies with the collection, use, and disclosure of personal information if anyone decided to use this service. If you choose to use this service, then you agree to the statements regarding collection and use of information in relation to this policy.
+Raivo ("us", "we", or "our") operates the Raivo mobile application (the "Service"), licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license.
 
-## Information collection and use
+This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
 
-Raivo does not collect personally identifiable information in any way, nor does it use third-party services that collect personally identifiable information in any way.
+By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.
 
-## Links to third-party sites
+  * [Information Collection And Use](#information-collection-and-use)
+  * [Service Providers](#service-providers)
+  * [Links To Other Sites](#links-to-other-sites)
+  * [Security](#security)
+  * [Changes To This Privacy Policy](#changes-to-this-privacy-policy)
+  * [Contact us](#contact-us)
 
-Raivo may contain links to third-party sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by Raivo. Therefore, it is strongly recommended to review the privacy policy of these websites. Raivo has no control over and assumes no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+## Information Collection And Use
 
-## Changes to this privacy policy
+Our Service does not collect any personally identifiable information that can be used to contact or identify you ("Personal Data"), nor does it use third-party Service Providers that collect personally identifiable information in any way.
 
-Tijme Gommers may update this privacy policy from time to time. Thus, you are advised to review this page periodically for any changes. Tijme Gommers will notify you of any changes by posting the new privacy policy on this page. These changes are effective immediately after they are posted on this page.
+## Service Providers
+
+We may employ third party companies and individuals to facilitate our Service ("Service Providers"), to provide the Service on our behalf or to perform Service-related services. These third parties do not have access to your Personal Data.
+
+## Links To Other Sites
+
+Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.
 
 ## Security
 
-Please refer to the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for information on reporting security vulnerabilities.
+Please refer to the [Security Policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for information on the security procedures, policies and features of the Service.
+
+## Changes To This Privacy Policy
+
+We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and by updating the "effective date" at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
 
 ## Contact us
 
-If you have any questions or suggestions about the privacy policy, do not hesitate to get in touch via `privacy[at]finnwea[dot]com`.
+If you have any questions or suggestions about the privacy policy, do not hesitate to get in touch via `privacy [at] finnwea [dot] com`.
