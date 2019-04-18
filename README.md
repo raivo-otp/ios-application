@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/tijme/raivo/master/Assets/app-icon.jpg" width="200"/>
+    <img src="https://raw.githubusercontent.com/tijme/raivo/master/Assets/app-icon.png" width="200"/>
 </p>
 <h1 align="center">Raivo</h1>
 <p align="center">
