@@ -18,10 +18,11 @@ class MiscViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        raivoForm = MiscForm(form, controller: self)
+        raivoForm = MiscForm(form)
+        raivoForm!.load(controller: self)
         
         // Set default/prefilled values
-        if let inactivityLockString = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_LOCKSCREEN_TIMEOUT) {
+        if let inactivityLockString = StorageHelper.settings().string(forKey: StorageHelper.KEY_LOCKSCREEN_TIMEOUT) {
             (form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscInactivityLock>).value = getInactivityLockValue(Int(inactivityLockString)!)
         }
         

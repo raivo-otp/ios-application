@@ -60,7 +60,7 @@ class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
     func onPincodeComplete(pincode: String) {
 
         DispatchQueue.main.async {
-            let salt = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PASSWORD)!
+            let salt = StorageHelper.settings().string(forKey: StorageHelper.KEY_PASSWORD)!
             
             
             if self.initialPincode == nil {
@@ -80,9 +80,9 @@ class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     private func createDatabase(_ pincode: String, _ salt: String) {
-        getAppDelagate().encryptionKey = KeyDerivationHelper.derivePincode(pincode, salt)
+        getAppDelagate().updateEncryptionKey(KeyDerivationHelper.derivePincode(pincode, salt))
 
-        RealmHelper.initDefaultRealmConfiguration(encryptionKey: getAppDelagate().encryptionKey!)
+        RealmHelper.initDefaultRealmConfiguration(encryptionKey: getAppDelagate().getEncryptionKey()!)
         
         let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
 

@@ -15,12 +15,12 @@ class Migration4: MigrationProtocol {
     static var build: Int = 4
     
     let keychainMigrations = [
-        KeychainHelper.KEY_PASSWORD: "salt",
-        KeychainHelper.KEY_LOCKSCREEN_TIMEOUT: "inactivity_lock",
-        KeychainHelper.KEY_REALM_FILENAME: "realm_file",
-        KeychainHelper.KEY_SYNCHRONIZATION_PROVIDER: "syncer",
-        KeychainHelper.KEY_PINCODE_TRIED_AMOUNT: "pincode_tries_amount",
-        KeychainHelper.KEY_PINCODE_TRIED_TIMESTAMP: "pincode_last_try_timestamp",
+        StorageHelper.KEY_PASSWORD: "salt",
+        StorageHelper.KEY_LOCKSCREEN_TIMEOUT: "inactivity_lock",
+        StorageHelper.KEY_REALM_FILENAME: "realm_file",
+        StorageHelper.KEY_SYNCHRONIZATION_PROVIDER: "syncer",
+        StorageHelper.KEY_PINCODE_TRIED_AMOUNT: "pincode_tries_amount",
+        StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP: "pincode_last_try_timestamp",
     ]
     
     /// This build does not require Realm migrations
@@ -54,7 +54,7 @@ class Migration4: MigrationProtocol {
         for newKey in keychainMigrations.keys {
             let oldKey = keychainMigrations[newKey]!
             if let value = KeychainSwift().get(oldKey) {
-                KeychainHelper.settings().set(string: value, forKey: newKey)
+                StorageHelper.settings().set(string: value, forKey: newKey)
                 KeychainSwift().delete(oldKey)
             }
         }

@@ -75,7 +75,7 @@
 		70D534F822398B8100CDD228 /* ChoosePincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F722398B8100CDD228 /* ChoosePincodeViewController.swift */; };
 		70D534FA22398D5300CDD228 /* PincodeDigitsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F922398D5300CDD228 /* PincodeDigitsProtocol.swift */; };
 		70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */; };
-		70D7D7CF225BBCDC008DA2FD /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CE225BBCDC008DA2FD /* KeychainHelper.swift */; };
+		70D7D7CF225BBCDC008DA2FD /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */; };
 		70F46AAA22637FEB0059EFDB /* ProvidersForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46AA922637FEB0059EFDB /* ProvidersForm.swift */; };
 		70F8BE7D2205EAFB006FDB5A /* GenericUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */; };
 		70F8BE812205F51A006FDB5A /* KeyDerivationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */; };
@@ -156,7 +156,7 @@
 		70D534F722398B8100CDD228 /* ChoosePincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePincodeViewController.swift; sourceTree = "<group>"; };
 		70D534F922398D5300CDD228 /* PincodeDigitsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeDigitsProtocol.swift; sourceTree = "<group>"; };
 		70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternImage.swift; sourceTree = "<group>"; };
-		70D7D7CE225BBCDC008DA2FD /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		70F46AA922637FEB0059EFDB /* ProvidersForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersForm.swift; sourceTree = "<group>"; };
 		70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUIViewExtension.swift; sourceTree = "<group>"; };
 		70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDerivationHelper.swift; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 				70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */,
 				70B143AB222AB9360015896F /* RealmHelper.swift */,
 				70BC3EDD225664D7005C98EF /* SyncerHelper.swift */,
-				70D7D7CE225BBCDC008DA2FD /* KeychainHelper.swift */,
+				70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */,
 				702A140722635ABE00B278BB /* EncryptionHelper.swift */,
 				7016DE412265193D006C45B6 /* ColorHelper.swift */,
 				70617A582270DBD80032076A /* QueryHelper.swift */,
@@ -734,7 +734,7 @@
 				70A7B10E223061D60084F15B /* PasswordsViewController.swift in Sources */,
 				70BC3EDE225664D7005C98EF /* SyncerHelper.swift in Sources */,
 				700908F621FD0A0100603AA2 /* ChooseSyncerServiceViewController.swift in Sources */,
-				70D7D7CF225BBCDC008DA2FD /* KeychainHelper.swift in Sources */,
+				70D7D7CF225BBCDC008DA2FD /* StorageHelper.swift in Sources */,
 				70B143AC222AB9360015896F /* RealmHelper.swift in Sources */,
 				70AE33232273B422007A12A2 /* AppHelper.swift in Sources */,
 				70D534FA22398D5300CDD228 /* PincodeDigitsProtocol.swift in Sources */,

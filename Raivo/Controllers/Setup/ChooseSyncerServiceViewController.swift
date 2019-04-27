@@ -118,7 +118,7 @@ class ChooseSyncerServiceViewController: FormViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DatabaseEncryptionSegue" {
             if let destination = segue.destination as? ChooseEncryptionKeyViewController {
-                KeychainHelper.settings().set(string: raivoForm!.getSelectedSyncer()!, forKey: KeychainHelper.KEY_SYNCHRONIZATION_PROVIDER)
+                StorageHelper.settings().set(string: raivoForm!.getSelectedSyncer()!, forKey: StorageHelper.KEY_SYNCHRONIZATION_PROVIDER)
                 destination.account = self.accounts[raivoForm!.getSelectedSyncer()!]
                 destination.challenge = self.challenges[raivoForm!.getSelectedSyncer()!]
             }

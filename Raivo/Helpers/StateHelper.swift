@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class StateHelper {
+class StateHelper: BaseClass {
     
     public struct States {
         static let DATABASE_UNKNOWN = "DATABASE_UNKNOWN"
@@ -29,17 +29,17 @@ class StateHelper {
     
     public static func reset(clearKeychain: Bool = true) {
         try? FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-        getAppDelagate().encryptionKey = nil
+        getAppDelagate().updateEncryptionKey(nil)
         
         SyncerHelper.clear()
         
         if clearKeychain {
-            KeychainHelper.clear()
+            StorageHelper.clear()
         }
     }
     
     public static func lock() {
-        getAppDelagate().encryptionKey = nil
+        getAppDelagate().updateEncryptionKey(nil)
     }
     
     public static func isFirstRun() -> Bool {
@@ -58,11 +58,7 @@ class StateHelper {
     }
     
     private static func isEncryptionKeyKnown() -> Bool {
-        return getAppDelagate().encryptionKey != nil
-    }
-    
-    private static func getAppDelagate() -> AppDelegate {
-        return (UIApplication.shared.delegate as! AppDelegate)
+        return getAppDelagate().getEncryptionKey() != nil
     }
     
 }

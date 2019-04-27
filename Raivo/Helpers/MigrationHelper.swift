@@ -26,11 +26,11 @@ class MigrationHelper {
             previous += 1
         }
         
-        KeychainHelper.settings().set(string: String(AppHelper.build), forKey: KeychainHelper.KEY_PREVIOUS_BUILD)
+        StorageHelper.settings().set(string: String(AppHelper.build), forKey: StorageHelper.KEY_PREVIOUS_BUILD)
     }
     
     private static func getPreviousBuild() -> Int {
-        if let previousVersion = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PREVIOUS_BUILD) {
+        if let previousVersion = StorageHelper.settings().string(forKey: StorageHelper.KEY_PREVIOUS_BUILD) {
             return Int(previousVersion)!
         }
         

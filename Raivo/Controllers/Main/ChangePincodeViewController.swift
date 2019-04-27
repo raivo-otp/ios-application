@@ -60,7 +60,7 @@ class ChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
     func onPincodeComplete(pincode: String) {
         
         DispatchQueue.main.async {
-            let salt = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PASSWORD)!
+            let salt = StorageHelper.settings().string(forKey: StorageHelper.KEY_PASSWORD)!
             
             if self.initialPincode == nil {
                 self.pincodeDigitsView.resetAndFocus()
@@ -92,7 +92,7 @@ class ChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
             return
         }
         
-        KeychainHelper.settings().set(string: newName, forKey: KeychainHelper.KEY_REALM_FILENAME)
+        StorageHelper.settings().set(string: newName, forKey: StorageHelper.KEY_REALM_FILENAME)
         
         StateHelper.reset(clearKeychain: false)
         updateStoryboard()

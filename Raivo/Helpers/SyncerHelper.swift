@@ -18,7 +18,7 @@ class SyncerHelper {
     ]
     
     public static func getSyncer(_ type: String? = nil) -> SyncerProtocol {
-        let defaultSyncerType = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_SYNCHRONIZATION_PROVIDER)
+        let defaultSyncerType = StorageHelper.settings().string(forKey: StorageHelper.KEY_SYNCHRONIZATION_PROVIDER)
         let type = type ?? defaultSyncerType
         
         if type != nil && !availableSyncers.contains(type!) {

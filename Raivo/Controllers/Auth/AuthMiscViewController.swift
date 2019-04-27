@@ -18,7 +18,8 @@ class AuthMiscViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        raivoForm = MiscForm(form, controller: self, authenticated: false)
+        raivoForm = MiscForm(form)
+        raivoForm!.load(controller: self, authenticated: false)
     }
 
 }

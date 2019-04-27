@@ -20,16 +20,15 @@ class BannerHelper {
         
         let view = MessageView.viewFromNib(layout: .cardView)
         
-//        (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
         view.configureTheme(backgroundColor: ColorHelper.getLightBackground(), foregroundColor: ColorHelper.getTint(), iconImage: .none, iconText: .none)
-        
         view.bodyLabel?.attributedText = message
-        
+
         view.titleLabel?.isHidden = true
         view.iconLabel?.isHidden = true
         view.iconImageView?.isHidden = true
         view.button?.isHidden = true
-
+        
+        SwiftMessages.hideAll()
         SwiftMessages.show(config: config, view: view)
     }
     

@@ -80,7 +80,7 @@ class ChooseEncryptionKeyViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        KeychainHelper.settings().set(string: viewEncryptionKey.text!, forKey: KeychainHelper.KEY_PASSWORD)
+        StorageHelper.settings().set(string: viewEncryptionKey.text!, forKey: StorageHelper.KEY_PASSWORD)
         
         performSegue(withIdentifier: "ChoosePincodeSegue", sender: sender)
     }

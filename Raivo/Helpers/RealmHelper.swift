@@ -39,14 +39,12 @@ class RealmHelper {
             return ORIGINAL_URL!.deletingLastPathComponent().appendingPathComponent(filename)
         }
         
-        
-        
-        if let realmfile = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_REALM_FILENAME) {
+        if let realmfile = StorageHelper.settings().string(forKey: StorageHelper.KEY_REALM_FILENAME) {
             return ORIGINAL_URL!.deletingLastPathComponent().appendingPathComponent(realmfile)
         }
         
         let realmfile = String(Int(Date().timeIntervalSince1970)) + ".realm"
-        KeychainHelper.settings().set(string: realmfile, forKey: KeychainHelper.KEY_REALM_FILENAME)
+        StorageHelper.settings().set(string: realmfile, forKey: StorageHelper.KEY_REALM_FILENAME)
         
         return getFileURL()
     }

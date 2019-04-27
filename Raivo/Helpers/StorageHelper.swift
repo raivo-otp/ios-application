@@ -1,5 +1,5 @@
 //
-//  KeychainHelper.swift
+//  StorageHelper.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 08/04/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import Valet
 
-class KeychainHelper {
+class StorageHelper {
     
     static let KEY_PASSWORD = "EncryptionPassword"
     
@@ -24,6 +24,10 @@ class KeychainHelper {
     static let KEY_PINCODE_TRIED_TIMESTAMP = "PincodeTriedTimestamp"
     
     static let KEY_PREVIOUS_BUILD = "PreviousBuild"
+    
+    static let KEY_ENCRYPTION_KEY = "EncryptionKey"
+    
+    static let KEY_TOUCHID_ENABLED = "TouchIDEnabled"
     
     static func settings() -> Valet {
         return Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .whenUnlocked)

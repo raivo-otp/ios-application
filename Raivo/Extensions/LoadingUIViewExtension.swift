@@ -12,6 +12,7 @@ import UIKit
 extension UIViewController {
     
     /// Show a loading animation on the right of the navbar
+    @discardableResult
     public func displayNavBarActivity() -> UIBarButtonItem? {
         let indicator = UIActivityIndicatorView(style: .gray)
         indicator.startAnimating()

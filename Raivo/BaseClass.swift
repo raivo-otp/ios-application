@@ -19,6 +19,10 @@ class BaseClass {
         return AppHelper.identifier + String(describing: self).split(separator: ".").last!
     }
     
+    static func getAppDelagate() -> AppDelegate {
+        return (UIApplication.shared.delegate as! AppDelegate)
+    }
+    
 }
 
 extension Object {
@@ -29,6 +33,10 @@ extension Object {
     
     public var UNIQUE_ID: String {
         return AppHelper.identifier + String(describing: self).split(separator: ".").last!
+    }
+    
+    static func getAppDelagate() -> AppDelegate {
+        return (UIApplication.shared.delegate as! AppDelegate)
     }
     
 }

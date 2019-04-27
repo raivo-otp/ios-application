@@ -57,7 +57,7 @@ class MyApplication: UIApplication {
         
         invalidateInactivityTimer()
         
-        let inactivityTimeoutString = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_LOCKSCREEN_TIMEOUT) ?? "3000"
+        let inactivityTimeoutString = StorageHelper.settings().string(forKey: StorageHelper.KEY_LOCKSCREEN_TIMEOUT) ?? "3000"
         inactivityTimer = Timer.scheduledTimer(withTimeInterval: Double(inactivityTimeoutString)!, repeats: false, block: { timer in
             guard self.inactivityTimerEnabled else {
                 return

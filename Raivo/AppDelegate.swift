@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var encryptionKey: Data?
+    private var encryptionKey: Data?
     
     /// When the application finished launching
     ///
@@ -34,13 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // It could be a reinstall of the app (reinstalls don't flush the keychain)
         // https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
         if StateHelper.isFirstRun() {
-           KeychainHelper.clear()
+           StorageHelper.clear()
         }
         
         // Run all migrations except Realm migrations
         MigrationHelper.runGenericMigrations()
         
-        RealmHelper.initDefaultRealmConfiguration(encryptionKey: encryptionKey)
+        updateEncryptionKey(encryptionKey)
         
         // Preload the synchronization information
         SyncerHelper.getSyncer().preloadAccount()
@@ -49,6 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setCorrectStoryboard()
         
         return true
+    }
+    
+    public func updateEncryptionKey(_ encryptionKey: Data?) {
+        self.encryptionKey = encryptionKey
+        RealmHelper.initDefaultRealmConfiguration(encryptionKey: encryptionKey)
+    }
+    
+    public func getEncryptionKey() -> Data? {
+        return encryptionKey
     }
     
     private func beforeStoryboardChange(_ storyboard: String) {
@@ -132,6 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func updateStoryboard() {
         self.setCorrectStoryboard()
+        
         UIView.transition(
             with: UIApplication.shared.keyWindow!,
             duration: 0.5,

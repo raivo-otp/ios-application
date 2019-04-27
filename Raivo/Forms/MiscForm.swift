@@ -9,7 +9,7 @@
 import Foundation
 import Eureka
 
-class MiscForm {
+class MiscForm: BaseClass {
     
     private var form: Form
     
@@ -21,9 +21,11 @@ class MiscForm {
         MiscInactivityLock(600, "10 minutes")
     ]
     
-    init(_ form: Form, controller: UIViewController, authenticated: Bool = true) {
+    init(_ form: Form) {
         self.form = form
-        
+    }
+    
+    func load(controller: UIViewController, authenticated: Bool = true) {
         self.form
             
             +++ Section("Synchronization") { section in
@@ -61,7 +63,7 @@ class MiscForm {
                 cell.textLabel?.textColor = ColorHelper.getTint()
                 cell.imageView?.image = UIImage(named: "form-lock")
             }.onChange { row in
-                KeychainHelper.settings().set(string: String(row.value!.seconds), forKey: KeychainHelper.KEY_LOCKSCREEN_TIMEOUT)
+                StorageHelper.settings().set(string: String(row.value!.seconds), forKey: StorageHelper.KEY_LOCKSCREEN_TIMEOUT)
                 (MyApplication.shared as! MyApplication).scheduleInactivityTimer()
                 row.collapseInlineRow()
             }
@@ -73,6 +75,42 @@ class MiscForm {
                 cell.imageView?.image = UIImage(named: "form-pincode")
             }.onCellSelection {  cell, row in
                 controller.performSegue(withIdentifier: "ChangePincodeSegue", sender: nil)
+            }
+            
+            <<< ButtonRow() { row in
+                let enabled = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
+                row.title = enabled ? "Disable TouchID" : "Enable TouchID"
+                row.hidden = Condition(booleanLiteral: !StorageHelper.secrets().canAccessKeychain())
+            }.cellUpdate { cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-touchid")
+            }.onCellSelection {  cell, row in
+                guard let key = MiscForm.getAppDelagate().getEncryptionKey() else {
+                    return
+                }
+                
+                let enabled = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
+                
+                if enabled {
+                    StorageHelper.secrets().removeObject(forKey: StorageHelper.KEY_ENCRYPTION_KEY)
+                    StorageHelper.settings().set(string: String(false), forKey: StorageHelper.KEY_TOUCHID_ENABLED)
+                    row.title = "Enable TouchID"
+                } else {
+                    StorageHelper.secrets().set(string: key.base64EncodedString(), forKey: StorageHelper.KEY_ENCRYPTION_KEY)
+                    
+                    let prompt = "Enable TouchID to unlock Raivo"
+                    let result = StorageHelper.secrets().string(forKey: StorageHelper.KEY_ENCRYPTION_KEY, withPrompt: prompt)
+                    
+                    switch result {
+                    case .success(_):
+                        StorageHelper.settings().set(string: String(true), forKey: StorageHelper.KEY_TOUCHID_ENABLED)
+                        row.title = "Disable TouchID"
+                    default:
+                        return
+                    }
+                }
+                
+                row.reload()
             }
             
             

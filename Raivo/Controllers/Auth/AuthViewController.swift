@@ -36,6 +36,7 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.tryTouchID()
         self.pincodeDigitsView.focus()
     }
     
@@ -56,7 +57,7 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     func onPincodeComplete(pincode: String) {
-        let salt = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PASSWORD)!
+        let salt = StorageHelper.settings().string(forKey: StorageHelper.KEY_PASSWORD)!
         
         let encryptionKey = KeyDerivationHelper.derivePincode(pincode, salt)
         let isCorrect = RealmHelper.isCorrectEncryptionKey(encryptionKey)
@@ -69,7 +70,7 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
             }
             
             if isCorrect {
-                self.getAppDelagate().encryptionKey = encryptionKey
+                self.getAppDelagate().updateEncryptionKey(encryptionKey)
                 
                 self.resetPincodeTries()
                 self.updateStoryboard()
@@ -82,27 +83,27 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     internal func resetPincodeTries() {
-        KeychainHelper.settings().set(string: "0", forKey: KeychainHelper.KEY_PINCODE_TRIED_TIMESTAMP)
-        KeychainHelper.settings().set(string: "0", forKey:  KeychainHelper.KEY_PINCODE_TRIED_AMOUNT)
+        StorageHelper.settings().set(string: "0", forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP)
+        StorageHelper.settings().set(string: "0", forKey:  StorageHelper.KEY_PINCODE_TRIED_AMOUNT)
     }
     
     internal func getTriesLeft() -> Int {
-        return maximumTries - Int(KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PINCODE_TRIED_AMOUNT) ?? "0")!
+        return maximumTries - Int(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT) ?? "0")!
     }
     
     internal func getSecondsLeft() -> Int {
-        let lastTryTimestamp = Double(KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PINCODE_TRIED_TIMESTAMP) ?? "0")!
+        let lastTryTimestamp = Double(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP) ?? "0")!
         return Int((lastTryTimestamp + (lockoutTime * 60)) - Date().timeIntervalSince1970)
     }
     
     internal func tryNewPincode() -> Bool {
-        let currentTries = Int(KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PINCODE_TRIED_AMOUNT) ?? "0")!
-        let lastTryTimestamp = Double(KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PINCODE_TRIED_TIMESTAMP) ?? "0")!
+        let currentTries = Int(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT) ?? "0")!
+        let lastTryTimestamp = Double(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP) ?? "0")!
         
         // If can try
         guard currentTries >= maximumTries else {
-            KeychainHelper.settings().set(string: String(Date().timeIntervalSince1970), forKey: KeychainHelper.KEY_PINCODE_TRIED_TIMESTAMP)
-            KeychainHelper.settings().set(string: String(currentTries + 1), forKey: KeychainHelper.KEY_PINCODE_TRIED_AMOUNT)
+            StorageHelper.settings().set(string: String(Date().timeIntervalSince1970), forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP)
+            StorageHelper.settings().set(string: String(currentTries + 1), forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT)
             return true
         }
         
@@ -116,4 +117,23 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
         return false
     }
     
+    internal func tryTouchID() {
+        let enabled = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
+        
+        guard enabled else {
+            return
+        }
+        
+        let prompt = "Unlock Raivo in one touch"
+        let result = StorageHelper.secrets().string(forKey: StorageHelper.KEY_ENCRYPTION_KEY, withPrompt: prompt)
+        
+        switch result {
+        case .success(let key):
+            getAppDelagate().updateEncryptionKey(Data(base64Encoded: key))
+            
+            updateStoryboard()
+        default:
+            return
+        }
+    }
 }

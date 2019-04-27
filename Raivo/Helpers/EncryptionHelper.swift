@@ -12,7 +12,7 @@ import RNCryptor
 class EncryptionHelper {
     
     public static func encrypt(_ plaintextMessage: String) throws -> String {
-        let salt = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PASSWORD)!
+        let salt = StorageHelper.settings().string(forKey: StorageHelper.KEY_PASSWORD)!
         
         let messageData = plaintextMessage.data(using: .utf8)!
         let cipherData = RNCryptor.encrypt(data: messageData, withPassword: salt)
@@ -26,7 +26,7 @@ class EncryptionHelper {
         if withKey != nil {
             salt = withKey!
         } else {
-            salt = KeychainHelper.settings().string(forKey: KeychainHelper.KEY_PASSWORD)
+            salt = StorageHelper.settings().string(forKey: StorageHelper.KEY_PASSWORD)
         }
         
         let encryptedData = Data.init(base64Encoded: encryptedMessage)!
