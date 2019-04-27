@@ -1,7 +1,7 @@
 <p align="center">
     <img src="https://raw.githubusercontent.com/tijme/raivo/master/Assets/app-icon.png" width="200"/>
 </p>
-<h1 align="center">Raivo</h1>
+<h1 align="center">Raivo OTP</h1>
 <p align="center">
     <a href="https://github.com/tijme/raivo/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=License&secondText=CC%20BY-NC%204.0" /></a>
     <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=iOS%20(10%20or%20higher)" /></a>
@@ -26,7 +26,8 @@
 * Show the current and previous token
 * Search using powerful search capabilities
 * It's fast (native, built in Swift v4.2)
-* It's secure (developed by a security specialist)
+* It's secure (check our [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md))
+* It's open-source (check our [contribution policy](https://github.com/tijme/raivo/blob/master/CONTRIBUTING.md))
 
 ## Upcoming
 
@@ -36,11 +37,6 @@
 * Optional TouchID unlock
 * Scan OTP seeds from shared password managers
 * Backup/sync OTPs to other third-party services
-* Raivo will be become open-source
-
-## Contributing
-
-At this moment it is not possible to contribute to Raivo due to the fact that Raivo is not open-source yet. Raivo will become open-source software when the first version is published to the Apple App Store.
 
 ## Issues
 
