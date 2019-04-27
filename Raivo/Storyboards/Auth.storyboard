@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome-->
+        <scene sceneID="7Rl-A0-TS6">
+            <objects>
+                <viewController restorationIdentifier="AuthViewController" storyboardIdentifier="AuthViewController" id="Tz4-fS-Gxb" customClass="AuthViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sY6-tf-x4h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="dog-y3-0kE" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piU-Jc-vpv">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="GWG-jo-ayS">
+                                        <rect key="frame" x="107.5" y="151.5" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="GWG-jo-ayS" secondAttribute="height" multiplier="1:1" id="XCs-YV-xbC"/>
+                                            <constraint firstAttribute="height" constant="160" id="rPH-Hw-d49"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo, OTP management done right." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8l-CF-6Gs">
+                                        <rect key="frame" x="44" y="327.5" width="287" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-Mv-OHZ" customClass="SpringLabel" customModule="Spring">
+                                        <rect key="frame" x="8" y="352" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsg-66-pHf" customClass="PincodeDigitsView" customModule="Raivo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="376.5" width="375" height="80"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="kvT-5w-eBm"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="W8l-CF-6Gs" firstAttribute="centerX" secondItem="piU-Jc-vpv" secondAttribute="centerX" id="DW8-5R-Ttp"/>
+                                    <constraint firstItem="rsg-66-pHf" firstAttribute="leading" secondItem="piU-Jc-vpv" secondAttribute="leading" id="IyR-Qk-YsM"/>
+                                    <constraint firstAttribute="trailing" secondItem="rsg-66-pHf" secondAttribute="trailing" id="LLn-ip-qBV"/>
+                                    <constraint firstItem="rOQ-Mv-OHZ" firstAttribute="leading" secondItem="piU-Jc-vpv" secondAttribute="leading" constant="8" id="TIm-2p-YMv"/>
+                                    <constraint firstItem="rsg-66-pHf" firstAttribute="top" secondItem="rOQ-Mv-OHZ" secondAttribute="bottom" constant="4" id="UPL-JS-fgc"/>
+                                    <constraint firstItem="GWG-jo-ayS" firstAttribute="centerX" secondItem="piU-Jc-vpv" secondAttribute="centerX" id="VsD-Pd-o9I"/>
+                                    <constraint firstItem="rOQ-Mv-OHZ" firstAttribute="top" secondItem="W8l-CF-6Gs" secondAttribute="bottom" constant="4" id="bng-6O-Gae"/>
+                                    <constraint firstItem="GWG-jo-ayS" firstAttribute="bottom" secondItem="piU-Jc-vpv" secondAttribute="centerY" constant="10" id="hwO-Je-1sh"/>
+                                    <constraint firstItem="W8l-CF-6Gs" firstAttribute="top" secondItem="GWG-jo-ayS" secondAttribute="bottom" constant="16" id="iDx-8Z-Zld"/>
+                                    <constraint firstAttribute="trailing" secondItem="rOQ-Mv-OHZ" secondAttribute="trailing" constant="8" id="xjL-w7-Ps0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Moq-iI-3Hf" firstAttribute="top" secondItem="dog-y3-0kE" secondAttribute="top" id="363-FX-gQ8"/>
+                            <constraint firstItem="dog-y3-0kE" firstAttribute="leading" secondItem="Moq-iI-3Hf" secondAttribute="leading" id="3rP-mh-lm6"/>
+                            <constraint firstItem="Moq-iI-3Hf" firstAttribute="bottom" secondItem="dog-y3-0kE" secondAttribute="bottom" id="Bso-4Q-jcb"/>
+                            <constraint firstItem="piU-Jc-vpv" firstAttribute="leading" secondItem="Moq-iI-3Hf" secondAttribute="leading" id="Eza-BK-XgI"/>
+                            <constraint firstItem="Moq-iI-3Hf" firstAttribute="trailing" secondItem="dog-y3-0kE" secondAttribute="trailing" id="OCK-c2-ewO"/>
+                            <constraint firstItem="piU-Jc-vpv" firstAttribute="top" secondItem="Moq-iI-3Hf" secondAttribute="top" id="OgN-Hm-gyG"/>
+                            <constraint firstItem="Moq-iI-3Hf" firstAttribute="bottom" secondItem="piU-Jc-vpv" secondAttribute="bottom" id="SmM-dw-Mcv"/>
+                            <constraint firstItem="Moq-iI-3Hf" firstAttribute="trailing" secondItem="piU-Jc-vpv" secondAttribute="trailing" id="hOu-va-j9c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Moq-iI-3Hf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="bVQ-2M-w4Y">
+                        <barButtonItem key="rightBarButtonItem" title="Misc" image="icon-misc" id="g3Y-1J-8Ci">
+                            <connections>
+                                <segue destination="qNU-ah-yuG" kind="show" id="ENC-Qm-pLY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottomPadding" destination="SmM-dw-Mcv" id="gXg-jo-LtQ"/>
+                        <outlet property="pincodeDigitsView" destination="rsg-66-pHf" id="CMT-Oa-tNq"/>
+                        <outlet property="viewExtra" destination="rOQ-Mv-OHZ" id="PCc-2T-4Yn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KfA-m6-rjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="437.60000000000002" y="321.58920539730138"/>
+        </scene>
+        <!--Misc-->
+        <scene sceneID="3ck-I9-pbb">
+            <objects>
+                <viewController id="qNU-ah-yuG" customClass="AuthMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B6u-tF-wOl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jM8-rR-XOj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Misc" id="DE9-4w-90n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="slK-zn-DG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="-419"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PJd-Wa-Ls1">
+            <objects>
+                <navigationController restorationIdentifier="AuthRootController" storyboardIdentifier="AuthRootController" id="gmH-zH-eht" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NvE-Ep-Hsc">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Tz4-fS-Gxb" kind="relationship" relationship="rootViewController" id="8T7-eO-oDu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSV-o4-eO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-530" y="323"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="app-icon" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="icon-misc" width="30" height="30"/>
+        <image name="pattern" width="67" height="100"/>
+    </resources>
+    <color key="tintColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

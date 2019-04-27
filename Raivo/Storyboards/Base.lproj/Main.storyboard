@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="jpu-Ev-k8S">
+            <objects>
+                <viewController restorationIdentifier="SearchViewController" storyboardIdentifier="SearchViewController" id="3fu-P0-KYe" customClass="SearchViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m9f-7z-bfb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VJX-QR-P9d"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="tabbar-search" id="sDp-5N-GOt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTz-NN-Voq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2980" y="35"/>
+        </scene>
+        <!--Scan-->
+        <scene sceneID="f4l-0E-nB9">
+            <objects>
+                <viewController title="Scan" id="I4h-xK-fAb" customClass="ScanPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zc4-fI-UmP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-pd-f2P">
+                                <rect key="frame" x="16" y="80" width="343" height="343"/>
+                                <subviews>
+                                    <view alpha="0.0" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-rB-tZr">
+                                        <rect key="frame" x="3" y="3" width="337" height="337"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QRCodes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
+                                        <rect key="frame" x="15" y="141" width="313" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Y9c-rB-tZr" firstAttribute="leading" secondItem="tRN-pd-f2P" secondAttribute="leading" constant="3" id="4sI-dg-0XI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y9c-rB-tZr" secondAttribute="trailing" constant="3" id="CBP-JF-xep"/>
+                                    <constraint firstAttribute="bottom" secondItem="Y9c-rB-tZr" secondAttribute="bottom" constant="3" id="Oji-xf-MHW"/>
+                                    <constraint firstItem="LNY-AU-Znv" firstAttribute="leading" secondItem="tRN-pd-f2P" secondAttribute="leading" constant="15" id="f48-Mp-NLN"/>
+                                    <constraint firstAttribute="trailing" secondItem="LNY-AU-Znv" secondAttribute="trailing" constant="15" id="m3z-lU-ZNi"/>
+                                    <constraint firstAttribute="width" secondItem="tRN-pd-f2P" secondAttribute="height" multiplier="1:1" id="qqv-AS-7H4"/>
+                                    <constraint firstItem="Y9c-rB-tZr" firstAttribute="top" secondItem="tRN-pd-f2P" secondAttribute="top" constant="3" id="shj-Zh-ygK"/>
+                                    <constraint firstItem="LNY-AU-Znv" firstAttribute="centerY" secondItem="tRN-pd-f2P" secondAttribute="centerY" id="tAa-yS-yb4"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPC-LA-oL8">
+                                <rect key="frame" x="16" y="552" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
+                                <state key="normal" title="Don't have a QR code? Continue manually!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="x2c-1h-doB" kind="show" identifier="CreatePasswordManually" id="ap9-86-9w1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="tRN-pd-f2P" secondAttribute="trailing" constant="16" id="1eu-JZ-uEw"/>
+                            <constraint firstItem="aJL-SM-eC0" firstAttribute="bottom" secondItem="MPC-LA-oL8" secondAttribute="bottom" constant="16" id="BOu-Xm-SvN"/>
+                            <constraint firstItem="MPC-LA-oL8" firstAttribute="leading" secondItem="aJL-SM-eC0" secondAttribute="leading" constant="16" id="DMr-J8-JFz"/>
+                            <constraint firstItem="tRN-pd-f2P" firstAttribute="leading" secondItem="aJL-SM-eC0" secondAttribute="leading" constant="16" id="Jwh-F1-8OQ"/>
+                            <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="MPC-LA-oL8" secondAttribute="trailing" constant="16" id="Y92-dK-r9H"/>
+                            <constraint firstItem="tRN-pd-f2P" firstAttribute="top" secondItem="aJL-SM-eC0" secondAttribute="top" constant="16" id="mN2-dN-LLc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aJL-SM-eC0"/>
+                    </view>
+                    <connections>
+                        <outlet property="cameraPreview" destination="Y9c-rB-tZr" id="hSa-V1-wvg"/>
+                        <outlet property="cameraUnavailableLabel" destination="LNY-AU-Znv" id="Ndc-97-EAA"/>
+                        <segue destination="x2c-1h-doB" kind="show" identifier="CreatePasswordAutomatically" id="POH-4S-sTl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eig-ku-mOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3933.5999999999999" y="-1531.4842578710645"/>
+        </scene>
+        <!--Create Password-->
+        <scene sceneID="JiU-sJ-Ajr">
+            <objects>
+                <viewController id="x2c-1h-doB" customClass="CreatePasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BE6-kL-9Iw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="agh-vy-GIo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Password" id="B8I-jh-gwg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wRy-iv-iCx">
+                            <connections>
+                                <action selector="onSave:" destination="x2c-1h-doB" id="DQW-cP-VvT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqi-7u-P3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4895" y="-1531"/>
+        </scene>
+        <!--Passwords-->
+        <scene sceneID="zgE-9c-30Q">
+            <objects>
+                <viewController id="aG0-Sx-MMn" customClass="PasswordsViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qHX-Uj-Cbk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZYE-xS-Xob">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="8H7-jl-tI7" userLabel="Footer">
+                                    <rect key="frame" x="0.0" y="188" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Z5Y-pn-jqP" customClass="TimeBasedPasswordCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z5Y-pn-jqP" id="FcU-ce-Myc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2er-T5-Zws" customClass="TimeBasedPasswordCell">
+                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2er-T5-Zws" id="Ws1-gj-tFo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZYE-xS-Xob" firstAttribute="top" secondItem="WSM-vr-gJL" secondAttribute="top" id="I0H-VF-U3U"/>
+                            <constraint firstItem="WSM-vr-gJL" firstAttribute="trailing" secondItem="ZYE-xS-Xob" secondAttribute="trailing" id="sxN-To-Rfm"/>
+                            <constraint firstItem="ZYE-xS-Xob" firstAttribute="leading" secondItem="WSM-vr-gJL" secondAttribute="leading" id="uak-2h-iJg"/>
+                            <constraint firstItem="WSM-vr-gJL" firstAttribute="bottom" secondItem="ZYE-xS-Xob" secondAttribute="bottom" id="zDH-kG-cff"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WSM-vr-gJL"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Passwords" id="Rqw-bM-Zhl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yGK-UY-Xc4">
+                            <connections>
+                                <segue destination="I4h-xK-fAb" kind="show" identifier="ScanPassword" id="ch3-mr-f4W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottomPadding" destination="zDH-kG-cff" id="EQ4-5e-8b7"/>
+                        <outlet property="tableView" destination="ZYE-xS-Xob" id="6DY-i7-Rot"/>
+                        <segue destination="6aa-25-buz" kind="show" identifier="PasswordSelectedSegue" id="3L5-BL-qpg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="brY-NW-mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3934" y="-739"/>
+        </scene>
+        <!--Edit Password-->
+        <scene sceneID="ZaQ-AD-jZ3">
+            <objects>
+                <viewController id="6aa-25-buz" customClass="EditPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nqk-RL-Ogy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="j0L-dn-8mA"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Password" id="fWU-Md-GCH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0r9-Ba-kbs">
+                            <connections>
+                                <action selector="onSave:" destination="6aa-25-buz" id="7Qd-im-Y5h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1n-HP-L86" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4894" y="-740"/>
+        </scene>
+        <!--Misc-->
+        <scene sceneID="Ogz-oo-NQf">
+            <objects>
+                <navigationController id="JqB-dd-yVm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Misc" image="tabbar-misc" id="Fj5-sw-Yre"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OZY-Ml-0et">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NSd-7i-At7" kind="relationship" relationship="rootViewController" id="ELQ-8b-ZsS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibK-2H-Xjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2980" y="806"/>
+        </scene>
+        <!--Misc-->
+        <scene sceneID="1TX-0c-T7X">
+            <objects>
+                <viewController id="NSd-7i-At7" customClass="MiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tiu-g6-CWn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6fs-mC-1eZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Misc" id="5Cb-dt-5Cj"/>
+                    <connections>
+                        <segue destination="F9t-JF-c77" kind="show" identifier="ChangePincodeSegue" id="xHJ-LE-rn2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lc6-jd-fiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3934" y="806"/>
+        </scene>
+        <!--New Pincode-->
+        <scene sceneID="0zb-Hm-etg">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="ChangePincodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RLv-3W-khe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="9wa-hk-cHr" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-ii-oP4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1k-E7-fs8">
+                                        <rect key="frame" x="0.0" y="260.5" width="375" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-NT-HA5" customClass="SpringLabel" customModule="Spring">
+                                        <rect key="frame" x="8" y="291.5" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umv-KD-VhE" customClass="PincodeDigitsView" customModule="Raivo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="312" width="375" height="80"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="hFO-xS-1xs"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="I1k-E7-fs8" secondAttribute="trailing" id="6cO-Sr-JxO"/>
+                                    <constraint firstItem="umv-KD-VhE" firstAttribute="leading" secondItem="bvi-ii-oP4" secondAttribute="leading" id="Ydd-DW-0Gq"/>
+                                    <constraint firstItem="Mi3-NT-HA5" firstAttribute="leading" secondItem="bvi-ii-oP4" secondAttribute="leading" constant="8" id="cBj-0f-juD"/>
+                                    <constraint firstAttribute="trailing" secondItem="umv-KD-VhE" secondAttribute="trailing" id="gHH-SN-Fmm"/>
+                                    <constraint firstItem="Mi3-NT-HA5" firstAttribute="centerY" secondItem="bvi-ii-oP4" secondAttribute="centerY" id="ggP-2C-xLP"/>
+                                    <constraint firstItem="I1k-E7-fs8" firstAttribute="leading" secondItem="bvi-ii-oP4" secondAttribute="leading" id="iJ2-ge-fIj"/>
+                                    <constraint firstItem="Mi3-NT-HA5" firstAttribute="top" secondItem="I1k-E7-fs8" secondAttribute="bottom" constant="8" id="kFG-br-wsk"/>
+                                    <constraint firstItem="umv-KD-VhE" firstAttribute="top" secondItem="Mi3-NT-HA5" secondAttribute="bottom" id="qIn-2P-nZQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mi3-NT-HA5" secondAttribute="trailing" constant="8" id="sPs-7P-eXf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ons-YR-CD1" firstAttribute="bottom" secondItem="bvi-ii-oP4" secondAttribute="bottom" id="0YB-jZ-fzy"/>
+                            <constraint firstItem="bvi-ii-oP4" firstAttribute="top" secondItem="Ons-YR-CD1" secondAttribute="top" id="1Jm-BZ-NhU"/>
+                            <constraint firstItem="bvi-ii-oP4" firstAttribute="leading" secondItem="Ons-YR-CD1" secondAttribute="leading" id="HuN-Zh-KJV"/>
+                            <constraint firstItem="Ons-YR-CD1" firstAttribute="trailing" secondItem="9wa-hk-cHr" secondAttribute="trailing" id="YKm-0V-87o"/>
+                            <constraint firstItem="9wa-hk-cHr" firstAttribute="top" secondItem="Ons-YR-CD1" secondAttribute="top" id="eod-Va-AUf"/>
+                            <constraint firstItem="Ons-YR-CD1" firstAttribute="trailing" secondItem="bvi-ii-oP4" secondAttribute="trailing" id="gmH-VI-ClQ"/>
+                            <constraint firstItem="Ons-YR-CD1" firstAttribute="bottom" secondItem="9wa-hk-cHr" secondAttribute="bottom" id="pnl-AX-7aR"/>
+                            <constraint firstItem="9wa-hk-cHr" firstAttribute="leading" secondItem="Ons-YR-CD1" secondAttribute="leading" id="v84-o6-Omc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ons-YR-CD1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Pincode" id="R3d-hy-Vna"/>
+                    <connections>
+                        <outlet property="bottomPadding" destination="0YB-jZ-fzy" id="XGE-8Z-c8E"/>
+                        <outlet property="pincodeDigitsView" destination="umv-KD-VhE" id="4Yw-FB-3XC"/>
+                        <outlet property="viewExtra" destination="Mi3-NT-HA5" id="CZF-ZS-h8e"/>
+                        <outlet property="viewTitle" destination="I1k-E7-fs8" id="v4e-Hl-ao2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OI5-9A-Ein" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4844" y="805.54722638680664"/>
+        </scene>
+        <!--Passwords-->
+        <scene sceneID="d7d-tb-6Dc">
+            <objects>
+                <navigationController id="j5u-qg-LTV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Passwords" image="tabbar-passwords" id="Jpk-b9-jm1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GN6-3m-WBS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aG0-Sx-MMn" kind="relationship" relationship="rootViewController" id="qyN-q7-KdZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4pS-ya-tLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2980" y="-739"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="cUE-Wc-pa4">
+            <objects>
+                <tabBarController restorationIdentifier="MainRootController" storyboardIdentifier="MainRootController" id="zK7-fc-90e" userLabel="Main" customClass="MainViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Test1" id="ZJJ-qn-Xez"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sY2-RF-ZGl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="j5u-qg-LTV" kind="relationship" relationship="viewControllers" id="F57-jh-f8D"/>
+                        <segue destination="3fu-P0-KYe" kind="relationship" relationship="viewControllers" id="BzW-oZ-wWl"/>
+                        <segue destination="JqB-dd-yVm" kind="relationship" relationship="viewControllers" id="Y33-LH-qeV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oaa-3w-TyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2062" y="35"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pattern" width="67" height="100"/>
+        <image name="tabbar-misc" width="30" height="30"/>
+        <image name="tabbar-passwords" width="30" height="30"/>
+        <image name="tabbar-search" width="30" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ap9-86-9w1"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.90980392156862744" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

@@ -4,6 +4,8 @@
 
 Raivo ("us", "we", or "our") operates the Raivo mobile application (the "Service"), licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license.
 
+The key words "must", "must not", "required", "shall", "shall not", "should", "should not", "recommended", "may" and "optional" in this document are to be interpreted as described in RFC 2119 [(Bradner, 1997)](https://www.ietf.org/rfc/rfc2119.txt).
+
 This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
 
 By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.

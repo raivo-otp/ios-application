@@ -1,0 +1,82 @@
+PODS:
+  - Base32 (1.1.2)
+  - Eureka (4.3.1)
+  - Haptica (3.0.0)
+  - KeychainSwift (15.0.0)
+  - OneTimePassword (3.1.4):
+    - Base32 (~> 1.1.2)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
+  - RNCryptor (5.0.3)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
+  - SimpleCheckbox (1.5.0)
+  - Spring (1.0.6)
+  - SwiftMessages (6.0.2):
+    - SwiftMessages/App (= 6.0.2)
+  - SwiftMessages/App (6.0.2)
+  - SwiftyBeaver (1.7.0)
+  - Valet (3.2.3)
+
+DEPENDENCIES:
+  - Eureka (= 4.3.1)
+  - Haptica (= 3.0.0)
+  - KeychainSwift
+  - OneTimePassword (= 3.1.4)
+  - RealmSwift (= 3.13.1)
+  - RNCryptor (= 5.0.3)
+  - SDWebImage (= 4.4.3)
+  - SimpleCheckbox (= 1.5.0)
+  - Spring (from `https://github.com/MengTo/Spring.git`)
+  - SwiftMessages (= 6.0.2)
+  - SwiftyBeaver (= 1.7.0)
+  - Valet (= 3.2.3)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Base32
+    - Eureka
+    - Haptica
+    - KeychainSwift
+    - OneTimePassword
+    - Realm
+    - RealmSwift
+    - RNCryptor
+    - SDWebImage
+    - SimpleCheckbox
+    - SwiftMessages
+    - SwiftyBeaver
+    - Valet
+
+EXTERNAL SOURCES:
+  Spring:
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: fafd0b2e8d4d46405bd86fa7ba84bb7f73a20b13
+    :git: https://github.com/MengTo/Spring.git
+
+SPEC CHECKSUMS:
+  Base32: 163c298644d184e89ca4e00a996bad6bf5166390
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  Haptica: ee4abaf262f456fe3854b493f506debe421ddf2c
+  KeychainSwift: c6fc018d287804faf1ce3f258a1e51a7178c8382
+  OneTimePassword: 2fcf5d0e393a8e630a6bfeed1b250fb008aad487
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  RNCryptor: c93d19029dcf7ff160aca0f24d6c9e7b0d82f664
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
+  SimpleCheckbox: 1e59697852ef3caa56a0ed1b40be0f034763b9b9
+  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
+  SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
+  SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
+  Valet: 4af0382d4a94db5c7861504f751884f653437d24
+
+PODFILE CHECKSUM: 2f4e5b74fbc15bf653e883d35d09eae445623c5a
+
+COCOAPODS: 1.5.3

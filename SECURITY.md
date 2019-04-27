@@ -2,6 +2,8 @@
 
 Raivo ("us", "we", or "our") operates the Raivo mobile application (the "Service"), licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license.
 
+The key words "must", "must not", "required", "shall", "shall not", "should", "should not", "recommended", "may" and "optional" in this document are to be interpreted as described in RFC 2119 [(Bradner, 1997)](https://www.ietf.org/rfc/rfc2119.txt).
+
 The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
 
 This document outlines security procedures, policies and features for the Service.
@@ -31,12 +33,20 @@ When the security team receives a security vulnerability report, they will assig
 
 ## Data protection
 
-The service stores personal data such OTP seeds and the information that is required to build the token. This data can be synchronized with third party companies to facilitate our Service ("Service Providers"), depending on what synchronized option you choose during the setup. We strive to encrypt this data in such a way that a Service Provider is never able to decrypt any of the data. 
+The Service stores personal data such OTP seeds and the information that is required to build the token. This data can be synchronized with third party companies to facilitate our Service ("Service Providers"), depending on what synchronized option you choose during the setup. We strive to encrypt this data in such a way that a Service Provider is never able to decrypt any of the data. 
 
-### Synchronization: Offline (none)
+### PIN code
 
-If you choose "Offline (none)" as synchronization method, none of your data will be sent to a Service Provider. All the data will be stored in a local database on your device. This data is AES-256 encrypted with a key that is derived using PBKDF2 based on a combination of your encryption key and pincode. Your encryption key (that was defined during setup) is stored in the iOS keychain. Your pincode is not stored on the device.
+A PIN code must be used to unlock the Service on your device. After entering a PIN code, a key will be derived using PBKDF2 based on a combination of your encryption key (that is stored in Secure Enclave) and the given PIN code. Using this derived key, the Service tries to decrypt the local database.
 
-### Synchronization: Apple iCloud
+*Please note that the confidentiality, integrity and availability of the Service, including all your data, can be affected if one gains sufficient privileges (e.g. root privileges) on the device to read the local database from disk and the encryption key from Secure Enclave.*
 
-If you choose "Apple iCloud" as synchronization method, the statements of the "Offline (none)" synchronization method apply to the local database, with in addition that the data in the local database is sent to CloudKit (a database in Apple iCloud). The data that is sent to CloudKit is AES-256 encrypted using your encryption key. Your encryption key (that was defined during setup) is stored in the iOS keychain.
+### Synchronization
+
+#### Offline (none)
+
+If you choose "Offline (none)" as synchronization method, none of your data will be sent to a Service Provider. All the data will be stored in a local database on your device. This data is AES-256 encrypted with a key that is derived using PBKDF2 based on a combination of your encryption key and PIN code. Your encryption key (that was defined during setup) is stored in Secure Enclave. Your PIN code is not stored on the device.
+
+#### Apple iCloud
+
+If you choose "Apple iCloud" as synchronization method, the statements of the "Offline (none)" synchronization method apply to the local database, with in addition that the data in the local database is sent to CloudKit (a database in Apple iCloud). The data that is sent to CloudKit is AES-256 encrypted using your encryption key. Your encryption key (that was defined during setup) is stored in Secure Enclave.
