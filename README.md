@@ -9,7 +9,7 @@
     <br/>
     <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
     <br/>
-    <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Donate via <a href="https://bunq.me/tijme/0/Raivo;%20A%20native,%20lightweight%20and%20secure%20one-time-password%20(OTP)%20client%20built%20for%20iOS.">Bunq</a></sup>
+    <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Buy me a coffee via <a href="https://www.paypal.me/tijmegommers">PayPal</a></sup>
     <br/>
 </p>
 

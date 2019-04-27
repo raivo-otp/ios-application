@@ -9,7 +9,7 @@ The security of your data is important to us, but remember that no method of tra
 This document outlines security procedures, policies and features for the Service.
 
   * [Reporting a vulnerability](#reporting-a-vulnerability)
-  * [Vulnerability Disclosure policy](#vulnerability-disclosure-policy)
+  * [Vulnerability disclosure policy](#vulnerability-disclosure-policy)
   * [Data protection](#data-protection)
 
 ## Reporting a vulnerability
@@ -22,7 +22,7 @@ The lead maintainer will acknowledge your email within 2 business days, and will
 
 We strive to resolve all problems as quickly as possible, and we would like to play an active role in the ultimate publication on the problem after it is resolved.
 
-## Vulnerability Disclosure policy
+## Vulnerability disclosure policy
 
 When the security team receives a security vulnerability report, they will assign it to a primary handler. This person will coordinate the fix and release process, involving the following steps:
 

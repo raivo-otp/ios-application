@@ -89,8 +89,8 @@ class Password: Object {
         return Password.TABLE + "-" + String(id)
     }
     
-    public func getToken() -> Token {
-        if cachedToken == nil {
+    public func getToken(_ recache: Bool = false) -> Token {
+        if cachedToken == nil || recache {
             cachedToken = TokenHelper.getTokenFromPassword(password: self)
         }
         
