@@ -26,8 +26,8 @@
 * Show the current and previous token
 * Search using powerful search capabilities
 * It's fast (native, built in Swift v4.2)
-* It's secure (check our [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md))
-* It's open-source (check our [contribution policy](https://github.com/tijme/raivo/blob/master/CONTRIBUTING.md))
+* It's secure (see the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for more information)
+* It's open-source (check the [contribution policy](https://github.com/tijme/raivo/blob/master/CONTRIBUTING.md))
 
 ## Upcoming
 
