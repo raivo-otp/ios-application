@@ -28,7 +28,7 @@ class PasswordForm {
                 row.title = "Unknown"
                 row.cell.textLabel?.numberOfLines = 0
             }.cellUpdate { cell, row in
-                cell.imageView?.image = UIImage(named: "icon-lightning")
+                cell.imageView?.image = UIImage(named: "icon-lightning-tint")
             }
             
             // Product

@@ -27,10 +27,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8c-mQ-4hX">
-                    <rect key="frame" x="46.5" y="0.0" width="324" height="64"/>
+                    <rect key="frame" x="21" y="0.0" width="375" height="64"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="9fR-34-vb4" customClass="UIDigitField" customModule="Raivo" customModuleProvider="target">
-                            <rect key="frame" x="8" y="8" width="48" height="48"/>
+                            <rect key="frame" x="8" y="8" width="47.5" height="47.5"/>
                             <color key="backgroundColor" white="0.80000000000000004" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -45,7 +45,7 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="9MP-UM-raU" customClass="UIDigitField" customModule="Raivo" customModuleProvider="target">
-                            <rect key="frame" x="60" y="8" width="48" height="48"/>
+                            <rect key="frame" x="59.5" y="8" width="47" height="47.5"/>
                             <color key="backgroundColor" white="0.80000000000000004" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -60,7 +60,7 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="z6O-SV-oGX" customClass="UIDigitField" customModule="Raivo" customModuleProvider="target">
-                            <rect key="frame" x="112" y="8" width="48" height="48"/>
+                            <rect key="frame" x="110.5" y="8" width="47.5" height="47.5"/>
                             <color key="backgroundColor" white="0.80000000000000004" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -75,7 +75,7 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="IKt-PK-3Ug" customClass="UIDigitField" customModule="Raivo" customModuleProvider="target">
-                            <rect key="frame" x="164" y="8" width="48" height="48"/>
+                            <rect key="frame" x="162" y="8" width="47" height="47.5"/>
                             <color key="backgroundColor" white="0.80000000000000004" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -90,7 +90,7 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="zQ0-df-mxr" customClass="UIDigitField" customModule="Raivo" customModuleProvider="target">
-                            <rect key="frame" x="216" y="8" width="48" height="48"/>
+                            <rect key="frame" x="213" y="8" width="47.5" height="47.5"/>
                             <color key="backgroundColor" white="0.80000000000000004" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -105,7 +105,7 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="enf-en-rkn" customClass="UIDigitField" customModule="Raivo" customModuleProvider="target">
-                            <rect key="frame" x="268" y="8" width="48" height="48"/>
+                            <rect key="frame" x="264.5" y="8" width="47" height="47.5"/>
                             <color key="backgroundColor" white="0.80000000000000004" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <accessibility key="accessibilityConfiguration">
@@ -119,21 +119,46 @@
                             <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
                         </textField>
+                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4o-KK-MyZ">
+                            <rect key="frame" x="319.5" y="8" width="47.5" height="47.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="b4o-KK-MyZ" secondAttribute="height" multiplier="1:1" id="L0f-8G-yFT"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="icon-touchid-tint"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="flash"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="repeatCount">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onBiometricsInitiate:" destination="-1" eventType="touchUpInside" id="Aer-b0-in8"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="b4o-KK-MyZ" firstAttribute="leading" secondItem="enf-en-rkn" secondAttribute="trailing" constant="8" id="Dt5-sp-iG1"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zQ0-df-mxr" secondAttribute="bottom" constant="8" id="E47-In-Kiq"/>
                         <constraint firstItem="IKt-PK-3Ug" firstAttribute="top" secondItem="Q8c-mQ-4hX" secondAttribute="top" constant="8" id="EPm-X3-eRG"/>
+                        <constraint firstItem="b4o-KK-MyZ" firstAttribute="top" secondItem="Q8c-mQ-4hX" secondAttribute="top" constant="8" id="JCw-Mh-cie"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="z6O-SV-oGX" secondAttribute="bottom" constant="8" id="JMB-JX-5qo"/>
                         <constraint firstItem="z6O-SV-oGX" firstAttribute="leading" secondItem="9MP-UM-raU" secondAttribute="trailing" constant="4" id="Jtu-w0-DmL"/>
                         <constraint firstItem="IKt-PK-3Ug" firstAttribute="leading" secondItem="z6O-SV-oGX" secondAttribute="trailing" constant="4" id="MaG-Hw-ZOK"/>
                         <constraint firstItem="zQ0-df-mxr" firstAttribute="leading" secondItem="IKt-PK-3Ug" secondAttribute="trailing" constant="4" id="P9R-l7-Q4d"/>
                         <constraint firstItem="9fR-34-vb4" firstAttribute="leading" secondItem="Q8c-mQ-4hX" secondAttribute="leading" constant="8" id="PW5-Uz-VHy"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="b4o-KK-MyZ" secondAttribute="bottom" constant="8" id="Qtg-Rc-gKf"/>
+                        <constraint firstAttribute="trailing" secondItem="b4o-KK-MyZ" secondAttribute="trailing" constant="8" id="TdY-Li-Dly"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9fR-34-vb4" secondAttribute="bottom" constant="8" id="U6D-Ra-0af"/>
                         <constraint firstItem="9fR-34-vb4" firstAttribute="top" secondItem="Q8c-mQ-4hX" secondAttribute="top" constant="8" id="X8I-ey-Wt6"/>
                         <constraint firstItem="9MP-UM-raU" firstAttribute="leading" secondItem="9fR-34-vb4" secondAttribute="trailing" constant="4" id="YDF-5I-UbZ"/>
                         <constraint firstItem="enf-en-rkn" firstAttribute="top" secondItem="Q8c-mQ-4hX" secondAttribute="top" constant="8" id="YSn-zs-NMu"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="enf-en-rkn" secondAttribute="bottom" constant="8" id="ZZL-mT-d3T"/>
+                        <constraint firstItem="b4o-KK-MyZ" firstAttribute="height" secondItem="enf-en-rkn" secondAttribute="height" id="Zfc-43-AAJ"/>
                         <constraint firstItem="z6O-SV-oGX" firstAttribute="top" secondItem="Q8c-mQ-4hX" secondAttribute="top" constant="8" id="atT-H6-BGh"/>
                         <constraint firstItem="zQ0-df-mxr" firstAttribute="top" secondItem="Q8c-mQ-4hX" secondAttribute="top" constant="8" id="bI2-9C-pI8"/>
                         <constraint firstItem="9MP-UM-raU" firstAttribute="width" secondItem="z6O-SV-oGX" secondAttribute="width" id="dRs-VG-lB8"/>
@@ -141,7 +166,6 @@
                         <constraint firstItem="enf-en-rkn" firstAttribute="leading" secondItem="zQ0-df-mxr" secondAttribute="trailing" constant="4" id="fNg-eN-gzv"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IKt-PK-3Ug" secondAttribute="bottom" constant="8" id="jxu-Ym-tjl"/>
                         <constraint firstItem="IKt-PK-3Ug" firstAttribute="width" secondItem="zQ0-df-mxr" secondAttribute="width" id="kgG-oo-Jc8"/>
-                        <constraint firstAttribute="trailing" secondItem="enf-en-rkn" secondAttribute="trailing" constant="8" id="krT-Mr-f9r"/>
                         <constraint firstItem="9fR-34-vb4" firstAttribute="width" secondItem="9MP-UM-raU" secondAttribute="width" id="mNA-Tq-Lds"/>
                         <constraint firstItem="z6O-SV-oGX" firstAttribute="width" secondItem="IKt-PK-3Ug" secondAttribute="width" id="pzJ-nM-5ZT"/>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="wWE-zb-4ZE"/>
@@ -163,4 +187,7 @@
             <point key="canvasLocation" x="101.59999999999999" y="266.26686656671666"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-touchid-tint" width="30" height="30"/>
+    </resources>
 </document>

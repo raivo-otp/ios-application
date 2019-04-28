@@ -12,7 +12,7 @@ import RealmSwift
 import Spring
 
 class ChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
-    
+ 
     @IBOutlet weak var pincodeDigitsView: PincodeDigitsView!
     
     @IBOutlet weak var bottomPadding: NSLayoutConstraint!
@@ -30,6 +30,20 @@ class ChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
         
         self.pincodeDigitsView.delegate = self
         self.showPincodeView("Choose a new PIN code", "You need it to unlock Raivo, so make sure you'll be able to remember it.", focus: false)
+    }
+    
+    // Bugfix for grey shadow under navigation bar
+    // https://stackoverflow.com/a/25421617/2491049
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.view.backgroundColor = UIColor.white
+    }
+
+    // Bugfix for grey shadow under navigation bar
+    // https://stackoverflow.com/a/25421617/2491049
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.view.backgroundColor = UIColor.clear
     }
     
     override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
@@ -55,6 +69,10 @@ class ChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
         }
+    }
+    
+    func onBiometricsTrigger() {
+        // Not implemented
     }
     
     func onPincodeComplete(pincode: String) {

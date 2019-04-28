@@ -28,23 +28,23 @@
                                         <rect key="frame" x="107.5" y="151.5" width="160" height="160"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GWG-jo-ayS" secondAttribute="height" multiplier="1:1" id="XCs-YV-xbC"/>
-                                            <constraint firstAttribute="height" constant="160" id="rPH-Hw-d49"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="160" id="rPH-Hw-d49"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo, OTP management done right." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8l-CF-6Gs">
-                                        <rect key="frame" x="44" y="327.5" width="287" height="20.5"/>
+                                        <rect key="frame" x="44" y="321.5" width="287" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-Mv-OHZ" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="352" width="359" height="20.5"/>
+                                        <rect key="frame" x="8" y="346" width="359" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsg-66-pHf" customClass="PincodeDigitsView" customModule="Raivo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="376.5" width="375" height="80"/>
+                                        <rect key="frame" x="8" y="370.5" width="359" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="kvT-5w-eBm"/>
@@ -52,15 +52,16 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="GWG-jo-ayS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="piU-Jc-vpv" secondAttribute="top" constant="8" id="D33-Km-qcX"/>
                                     <constraint firstItem="W8l-CF-6Gs" firstAttribute="centerX" secondItem="piU-Jc-vpv" secondAttribute="centerX" id="DW8-5R-Ttp"/>
-                                    <constraint firstItem="rsg-66-pHf" firstAttribute="leading" secondItem="piU-Jc-vpv" secondAttribute="leading" id="IyR-Qk-YsM"/>
-                                    <constraint firstAttribute="trailing" secondItem="rsg-66-pHf" secondAttribute="trailing" id="LLn-ip-qBV"/>
+                                    <constraint firstItem="rsg-66-pHf" firstAttribute="leading" secondItem="piU-Jc-vpv" secondAttribute="leading" constant="8" id="IyR-Qk-YsM"/>
+                                    <constraint firstAttribute="trailing" secondItem="rsg-66-pHf" secondAttribute="trailing" constant="8" id="LLn-ip-qBV"/>
                                     <constraint firstItem="rOQ-Mv-OHZ" firstAttribute="leading" secondItem="piU-Jc-vpv" secondAttribute="leading" constant="8" id="TIm-2p-YMv"/>
                                     <constraint firstItem="rsg-66-pHf" firstAttribute="top" secondItem="rOQ-Mv-OHZ" secondAttribute="bottom" constant="4" id="UPL-JS-fgc"/>
                                     <constraint firstItem="GWG-jo-ayS" firstAttribute="centerX" secondItem="piU-Jc-vpv" secondAttribute="centerX" id="VsD-Pd-o9I"/>
                                     <constraint firstItem="rOQ-Mv-OHZ" firstAttribute="top" secondItem="W8l-CF-6Gs" secondAttribute="bottom" constant="4" id="bng-6O-Gae"/>
                                     <constraint firstItem="GWG-jo-ayS" firstAttribute="bottom" secondItem="piU-Jc-vpv" secondAttribute="centerY" constant="10" id="hwO-Je-1sh"/>
-                                    <constraint firstItem="W8l-CF-6Gs" firstAttribute="top" secondItem="GWG-jo-ayS" secondAttribute="bottom" constant="16" id="iDx-8Z-Zld"/>
+                                    <constraint firstItem="W8l-CF-6Gs" firstAttribute="top" secondItem="GWG-jo-ayS" secondAttribute="bottom" constant="10" id="iDx-8Z-Zld"/>
                                     <constraint firstAttribute="trailing" secondItem="rOQ-Mv-OHZ" secondAttribute="trailing" constant="8" id="xjL-w7-Ps0"/>
                                 </constraints>
                             </view>

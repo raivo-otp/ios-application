@@ -41,5 +41,5 @@ target 'Raivo' do
   
   # Haptic feedback while e.g. entering PIN code or copying an OTP
   pod 'Haptica', '3.0.0'
-
+  
 end

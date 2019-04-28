@@ -14,7 +14,7 @@ class MyApplication: UIApplication {
     
     private var inactivityTimer: Timer?
     
-    private var inactivityTimeout: TimeInterval = 3000
+    private var inactivityTimeout: TimeInterval = 120
     
     func enableInactivityTimer() {
         inactivityTimerEnabled = true

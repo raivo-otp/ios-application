@@ -23,20 +23,20 @@ class MiscViewController: FormViewController {
         
         // Set default/prefilled values
         if let inactivityLockString = StorageHelper.settings().string(forKey: StorageHelper.KEY_LOCKSCREEN_TIMEOUT) {
-            (form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscInactivityLock>).value = getInactivityLockValue(Int(inactivityLockString)!)
+            (form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscInactivityLockOption>).value = getInactivityLockValue(Int(inactivityLockString)!)
         }
         
         SyncerHelper.getSyncer().getAccount(success: accountSuccess, error: accountError)
     }
     
-    private func getInactivityLockValue(_ seconds: Int) -> MiscInactivityLock {
-        for option in (form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscInactivityLock>).options {
+    private func getInactivityLockValue(_ seconds: Int) -> MiscInactivityLockOption {
+        for option in MiscInactivityLockOption.options {
             if option.seconds == seconds {
                 return option
             }
         }
         
-        return self.raivoForm!.inactivityLockOptions[2]
+        return MiscInactivityLockOption.defaultOption
     }
     
     private func accountSuccess(_ account: SyncerAccount, _ syncerID: String) {

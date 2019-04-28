@@ -13,14 +13,6 @@ class MiscForm: BaseClass {
     
     private var form: Form
     
-    public let inactivityLockOptions = [
-        MiscInactivityLock(20, "20 seconds"),
-        MiscInactivityLock(30, "30 seconds"),
-        MiscInactivityLock(60, "1 minute"),
-        MiscInactivityLock(300, "5 minutes"),
-        MiscInactivityLock(600, "10 minutes")
-    ]
-    
     init(_ form: Form) {
         self.form = form
     }
@@ -54,11 +46,11 @@ class MiscForm: BaseClass {
                 section.hidden = Condition(booleanLiteral: !authenticated)
             }
             
-            <<< PickerInlineRow<MiscInactivityLock>() { row in
+            <<< PickerInlineRow<MiscInactivityLockOption>() { row in
                 row.tag = "inactivity_lock"
                 row.title = "Inactivity lock"
-                row.options = self.inactivityLockOptions
-                row.value = self.inactivityLockOptions[3]
+                row.options = MiscInactivityLockOption.options
+                row.value = MiscInactivityLockOption.defaultOption
             }.cellUpdate { cell, row in
                 cell.textLabel?.textColor = ColorHelper.getTint()
                 cell.imageView?.image = UIImage(named: "form-lock")
@@ -68,49 +60,48 @@ class MiscForm: BaseClass {
                 row.collapseInlineRow()
             }
             
-            <<< ButtonRow() { row in
-                row.title = "Change PIN code"
-            }.cellUpdate { cell, row in
-                cell.textLabel?.textAlignment = .left
-                cell.imageView?.image = UIImage(named: "form-pincode")
-            }.onCellSelection {  cell, row in
-                controller.performSegue(withIdentifier: "ChangePincodeSegue", sender: nil)
-            }
-            
-            <<< ButtonRow() { row in
-                let enabled = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
-                row.title = enabled ? "Disable TouchID" : "Enable TouchID"
+            <<< SwitchRow() { row in
+                row.title = "TouchID unlock"
                 row.hidden = Condition(booleanLiteral: !StorageHelper.secrets().canAccessKeychain())
+                row.value = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
             }.cellUpdate { cell, row in
-                cell.textLabel?.textAlignment = .left
-                cell.imageView?.image = UIImage(named: "form-touchid")
-            }.onCellSelection {  cell, row in
+                cell.textLabel?.textColor = ColorHelper.getTint()
+                cell.imageView?.image = UIImage(named: "form-biometric")
+                cell.switchControl.tintColor = ColorHelper.getTint()
+                cell.switchControl.onTintColor = ColorHelper.getTint()
+            }.onChange { row in
                 guard let key = MiscForm.getAppDelagate().getEncryptionKey() else {
                     return
                 }
                 
-                let enabled = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
-                
-                if enabled {
+                if !(row.value ?? false) {
                     StorageHelper.secrets().removeObject(forKey: StorageHelper.KEY_ENCRYPTION_KEY)
                     StorageHelper.settings().set(string: String(false), forKey: StorageHelper.KEY_TOUCHID_ENABLED)
-                    row.title = "Enable TouchID"
+//                    BannerHelper.success("You've disabled TouchID!", seconds: 1.5, vibrate: .success)
                 } else {
                     StorageHelper.secrets().set(string: key.base64EncodedString(), forKey: StorageHelper.KEY_ENCRYPTION_KEY)
                     
-                    let prompt = "Enable TouchID to unlock Raivo"
+                    let prompt = "Confirm to enable TouchID"
                     let result = StorageHelper.secrets().string(forKey: StorageHelper.KEY_ENCRYPTION_KEY, withPrompt: prompt)
                     
                     switch result {
                     case .success(_):
                         StorageHelper.settings().set(string: String(true), forKey: StorageHelper.KEY_TOUCHID_ENABLED)
-                        row.title = "Disable TouchID"
+//                        BannerHelper.success("You've enabled TouchID!", seconds: 1.5, vibrate: .success)
                     default:
+                        row.cell.switchControl.setOn(false, animated: true)
                         return
                     }
                 }
-                
-                row.reload()
+            }
+            
+            <<< ButtonRow() { row in
+                row.title = "Change PIN code"
+                }.cellUpdate { cell, row in
+                    cell.textLabel?.textAlignment = .left
+                    cell.imageView?.image = UIImage(named: "form-pincode")
+                }.onCellSelection {  cell, row in
+                    controller.performSegue(withIdentifier: "ChangePincodeSegue", sender: nil)
             }
             
             

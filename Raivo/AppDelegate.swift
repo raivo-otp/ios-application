@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    public var currentStoryboardName: String? = nil
+    
+    public var previousStoryboardName: String? = nil
+    
     private var encryptionKey: Data?
     
     /// When the application finished launching
@@ -100,6 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        previousStoryboardName = nil
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -131,6 +136,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         beforeStoryboardChange(storyboardName)
+        
+        if let current = currentStoryboardName {
+            previousStoryboardName = current
+        }
+        
+        currentStoryboardName = storyboardName
         
         log.verbose("Changing Storyboard: " + storyboardName)
         

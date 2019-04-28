@@ -12,4 +12,6 @@ protocol PincodeDigitsProtocol : class {
     
     func onPincodeComplete(pincode: String) -> Void
     
+    func onBiometricsTrigger() -> Void
+    
 }

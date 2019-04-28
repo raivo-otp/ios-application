@@ -11,7 +11,6 @@ import RealmSwift
 import SDWebImage
 import OneTimePassword
 import AVFoundation
-import Haptica
 
 class PasswordsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
@@ -218,22 +217,19 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
             return
         }
         
-        let token = password.getToken()
-        let formatted = TokenHelper.formatPassword(token)
+        let current = password.getToken().currentPassword!
         
         // Copy to clipboard, vibrate and show banner
-        UIPasteboard.general.string = password.getToken().currentPassword
-        Haptic.notification(.success).generate()
-        BannerHelper.show(BannerHelper.attributedText("Copied OTP \"\(formatted)\" to the clipboard!", formatted))
+        UIPasteboard.general.string = current
+        BannerHelper.success(BannerHelper.boldText("Copied \(current) to your clipboard!"))
 
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             let deleteAlert = UIAlertController(title: "Warning!", message: "Do you want to delete this password?", preferredStyle: UIAlertController.Style.alert)
-            
+
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
                 if let result = self.results?[indexPath.row] {
                     let realm = try! Realm()
@@ -244,22 +240,26 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
                     }
                 }
             }))
-            
-            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+
+            deleteAlert.addAction(UIAlertAction(title: "", style: .cancel, handler: { (action: UIAlertAction!) in
                 deleteAlert.dismiss(animated: true, completion: nil)
             }))
-            
+
             self.present(deleteAlert, animated: true, completion: nil)
         }
-        
+
+        delete.image = UIImage(named: "action-delete")
+
+
         let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
             if let result = self.results?[indexPath.row] {
                 self.performSegue(withIdentifier: "PasswordSelectedSegue", sender: result)
             }
         }
-        
+
         edit.backgroundColor = UIColor.lightGray
-        
+        edit.image = UIImage(named: "action-edit")
+
         return [delete, edit]
     }
     

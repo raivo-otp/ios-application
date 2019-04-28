@@ -14,6 +14,12 @@ protocol UIDigitFieldDelegate {
 
 class UIDigitField: UITextField {
     
+    override var bounds: CGRect {
+        didSet {
+            self.evaluateView()
+        }
+    }
+    
     var controlDelegate: UIDigitFieldDelegate?
     
     override init(frame: CGRect) {
@@ -27,6 +33,10 @@ class UIDigitField: UITextField {
     }
     
     private func commonInit() {
+        self.evaluateView()
+    }
+        
+    public func evaluateView() {
         self.layer.cornerRadius = self.frame.width / 2
         self.layer.masksToBounds = true
     }

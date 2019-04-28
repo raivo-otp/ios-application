@@ -39,7 +39,7 @@ class StorageHelper {
     
     static func clear() {
         settings().removeAllObjects()
-//        secrets().removeAllObjects()
+        secrets().removeAllObjects()
     }
     
 }

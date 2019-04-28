@@ -22,22 +22,34 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
     
     final let lockoutTime = 3.0
     
+    var didTryTouchID = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         adjustConstraintToKeyboard()
         
+        let biometrics = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
+        
+        self.pincodeDigitsView.showBiometrics(biometrics)
         self.pincodeDigitsView.delegate = self
         self.showPincodeView("Enter your PIN code to continue.")
     }
-    
+                                                                                                                                                                                                              
     override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
         return bottomPadding
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tryTouchID()
+        if getAppDelagate().previousStoryboardName == nil {
+            self.tryTouchID()
+        }
+        
         self.pincodeDigitsView.focus()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        didTryTouchID = false
     }
     
     func showPincodeView(_ extra: String, focus: Bool = true, flash: Bool = false) {
@@ -54,6 +66,10 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
         }
+    }
+    
+    func onBiometricsTrigger() {
+        self.tryTouchID()
     }
     
     func onPincodeComplete(pincode: String) {
@@ -124,14 +140,13 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
             return
         }
         
-        let prompt = "Unlock Raivo in one touch"
+        let prompt = "Unlock Raivo in no time"
         let result = StorageHelper.secrets().string(forKey: StorageHelper.KEY_ENCRYPTION_KEY, withPrompt: prompt)
         
         switch result {
         case .success(let key):
-            getAppDelagate().updateEncryptionKey(Data(base64Encoded: key))
-            
-            updateStoryboard()
+            self.getAppDelagate().updateEncryptionKey(Data(base64Encoded: key))
+            self.updateStoryboard()
         default:
             return
         }

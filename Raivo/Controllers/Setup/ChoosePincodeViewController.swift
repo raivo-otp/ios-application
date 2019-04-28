@@ -12,7 +12,7 @@ import RealmSwift
 import Spring
 
 class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
-    
+   
     @IBOutlet weak var pincodeDigitsView: PincodeDigitsView!
     
     @IBOutlet weak var bottomPadding: NSLayoutConstraint!
@@ -55,6 +55,10 @@ class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
         }
+    }
+    
+    func onBiometricsTrigger() {
+        // Not implemented
     }
     
     func onPincodeComplete(pincode: String) {

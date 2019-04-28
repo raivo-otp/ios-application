@@ -21,10 +21,11 @@
 
 ## Features
 
-* Backup/sync OTPs to iCloud automagically
+* Backup/sync (T/H)OTPs to iCloud automagically
 * Scan a QR code or add an OTP manually
 * Show the current and previous token
 * Search using powerful search capabilities
+* Optional FaceID or TouchID unlock
 * It's fast (native, built in Swift v4.2)
 * It's secure (see the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for more information)
 * It's open-source (check the [contribution policy](https://github.com/tijme/raivo/blob/master/CONTRIBUTING.md))
@@ -33,10 +34,7 @@
 
 * Custom issuer logos
 * Multilingual support
-* HOTP (counter-based token)
-* Optional TouchID unlock
 * Scan OTP seeds from shared password managers
-* Backup/sync OTPs to other third-party services
 
 ## Issues
 

@@ -41,7 +41,10 @@
 		70684DED225A1BD40038BDB4 /* MyApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEC225A1BD40038BDB4 /* MyApplication.swift */; };
 		70684DEF225A1BF70038BDB4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEE225A1BF70038BDB4 /* main.swift */; };
 		70684DF1225A2ED90038BDB4 /* MiscForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF0225A2ED90038BDB4 /* MiscForm.swift */; };
-		70684DF4225A37630038BDB4 /* MiscInactivityLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF3225A37630038BDB4 /* MiscInactivityLock.swift */; };
+		70684DF4225A37630038BDB4 /* MiscInactivityLockOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF3225A37630038BDB4 /* MiscInactivityLockOption.swift */; };
+		707B38DD2275E57200D35897 /* TintentUIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707B38DC2275E57200D35897 /* TintentUIImageExtension.swift */; };
+		707B38DF2275EBA600D35897 /* PincodeDigitsViewBiometrics.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707B38DE2275EBA600D35897 /* PincodeDigitsViewBiometrics.xib */; };
+		707B38E22275F87100D35897 /* CenteredBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707B38E12275F87100D35897 /* CenteredBanner.xib */; };
 		7088B94B22554AF50024BB87 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088B94A22554AF50024BB87 /* CloudKit.framework */; };
 		709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D90C4224AC05F0041713A /* SeedValueValidator.swift */; };
 		709D90C7224AC5FB0041713A /* LoadingUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D90C6224AC5FB0041713A /* LoadingUIViewExtension.swift */; };
@@ -121,7 +124,10 @@
 		70684DEC225A1BD40038BDB4 /* MyApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplication.swift; sourceTree = "<group>"; };
 		70684DEE225A1BF70038BDB4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		70684DF0225A2ED90038BDB4 /* MiscForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscForm.swift; sourceTree = "<group>"; };
-		70684DF3225A37630038BDB4 /* MiscInactivityLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscInactivityLock.swift; sourceTree = "<group>"; };
+		70684DF3225A37630038BDB4 /* MiscInactivityLockOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscInactivityLockOption.swift; sourceTree = "<group>"; };
+		707B38DC2275E57200D35897 /* TintentUIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintentUIImageExtension.swift; sourceTree = "<group>"; };
+		707B38DE2275EBA600D35897 /* PincodeDigitsViewBiometrics.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PincodeDigitsViewBiometrics.xib; sourceTree = "<group>"; };
+		707B38E12275F87100D35897 /* CenteredBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredBanner.xib; sourceTree = "<group>"; };
 		7088B94922554AF10024BB87 /* Raivo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Raivo.entitlements; sourceTree = "<group>"; };
 		7088B94A22554AF50024BB87 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		709D90C4224AC05F0041713A /* SeedValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedValueValidator.swift; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 		700908D921FCE27000603AA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				707B38E02275F85C00D35897 /* Banners */,
 				70B55860225E760A00F83A34 /* PasswordCell */,
 				70D7D7CB225BB0CF008DA2FD /* PatternImage */,
 				70A7B11F22306DDE0084F15B /* PasswordsView */,
@@ -324,6 +331,7 @@
 				70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */,
 				703414C3223D8EA500D220A4 /* KeyboardConstraintExtension.swift */,
 				709D90C6224AC5FB0041713A /* LoadingUIViewExtension.swift */,
+				707B38DC2275E57200D35897 /* TintentUIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -399,14 +407,23 @@
 		70684DF2225A37530038BDB4 /* Options */ = {
 			isa = PBXGroup;
 			children = (
-				70684DF3225A37630038BDB4 /* MiscInactivityLock.swift */,
+				70684DF3225A37630038BDB4 /* MiscInactivityLockOption.swift */,
 			);
 			path = Options;
+			sourceTree = "<group>";
+		};
+		707B38E02275F85C00D35897 /* Banners */ = {
+			isa = PBXGroup;
+			children = (
+				707B38E12275F87100D35897 /* CenteredBanner.xib */,
+			);
+			path = Banners;
 			sourceTree = "<group>";
 		};
 		70A7B11922306D850084F15B /* PincodeDigits */ = {
 			isa = PBXGroup;
 			children = (
+				707B38DE2275EBA600D35897 /* PincodeDigitsViewBiometrics.xib */,
 				70F8BE8222061979006FDB5A /* PincodeDigitsView.xib */,
 				70F8BE84220619BF006FDB5A /* PincodeDigitsView.swift */,
 				70F8BE86220633EF006FDB5A /* UIDigitField.swift */,
@@ -587,6 +604,7 @@
 			files = (
 				700908E721FCE38700603AA2 /* Setup.storyboard in Resources */,
 				702BAEAA2259481A008E5C5F /* TimeBasedPasswordCell.xib in Resources */,
+				707B38DF2275EBA600D35897 /* PincodeDigitsViewBiometrics.xib in Resources */,
 				700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */,
 				700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */,
 				70F8BE8322061979006FDB5A /* PincodeDigitsView.xib in Resources */,
@@ -595,6 +613,7 @@
 				70A7B12722306E210084F15B /* PasswordsViewEmptySearch.xib in Resources */,
 				70A7B12522306E0C0084F15B /* PasswordsViewEmptyList.xib in Resources */,
 				70B5585F225E74AE00F83A34 /* CounterBasedPasswordCell.xib in Resources */,
+				707B38E22275F87100D35897 /* CenteredBanner.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,7 +715,7 @@
 				702A140822635ABE00B278BB /* EncryptionHelper.swift in Sources */,
 				70684DEF225A1BF70038BDB4 /* main.swift in Sources */,
 				70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */,
-				70684DF4225A37630038BDB4 /* MiscInactivityLock.swift in Sources */,
+				70684DF4225A37630038BDB4 /* MiscInactivityLockOption.swift in Sources */,
 				709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */,
 				70F8BE85220619BF006FDB5A /* PincodeDigitsView.swift in Sources */,
 				70AE332922748229007A12A2 /* BannerHelper.swift in Sources */,
@@ -706,6 +725,7 @@
 				702CA6CA2263A119000DCC1D /* MockSyncer.swift in Sources */,
 				700908EC21FCE7DE00603AA2 /* StateHelper.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
+				707B38DD2275E57200D35897 /* TintentUIImageExtension.swift in Sources */,
 				70F8BE812205F51A006FDB5A /* KeyDerivationHelper.swift in Sources */,
 				70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */,
 				7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */,

@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import Spring
 
 class PincodeDigitsView: UIView, UITextFieldDelegate, UIDigitFieldDelegate {
+    
+    private var biometrics = false
     
     weak var delegate: PincodeDigitsProtocol?
     
@@ -38,6 +41,11 @@ class PincodeDigitsView: UIView, UITextFieldDelegate, UIDigitFieldDelegate {
         commonInit()
     }
 
+    public func showBiometrics(_ show: Bool = true) {
+        biometrics = show
+        commonInit()
+    }
+    
     public func reset() {
         self.currentDigit = 1
         
@@ -46,7 +54,7 @@ class PincodeDigitsView: UIView, UITextFieldDelegate, UIDigitFieldDelegate {
             digitField.isEnabled = index == 0
         }
     }
-
+    
     public func focus() {
         self.digit1.becomeFirstResponder()
     }
@@ -59,11 +67,15 @@ class PincodeDigitsView: UIView, UITextFieldDelegate, UIDigitFieldDelegate {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("PincodeDigitsView", owner: self, options: nil)
+        Bundle.main.loadNibNamed(biometrics ? "PincodeDigitsViewBiometrics" : "PincodeDigitsView", owner: self, options: nil)
+        
+        self.subviews.first?.removeFromSuperview()
         self.addSubview(self.contentView)
         
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        digitFields.removeAll()
         
         digitFields.append(digit1)
         digit1.controlDelegate = self;
@@ -143,5 +155,9 @@ class PincodeDigitsView: UIView, UITextFieldDelegate, UIDigitFieldDelegate {
                 self.focusOnNextDigit()
             }
         }
+    }
+    
+    @IBAction func onBiometricsInitiate(_ sender: Any) {
+        delegate?.onBiometricsTrigger()
     }
 }
