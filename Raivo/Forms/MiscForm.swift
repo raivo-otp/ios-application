@@ -74,23 +74,24 @@ class MiscForm: BaseClass {
                     return
                 }
                 
-                if !(row.value ?? false) {
-                    StorageHelper.secrets().removeObject(forKey: StorageHelper.KEY_ENCRYPTION_KEY)
-                    StorageHelper.settings().set(string: String(false), forKey: StorageHelper.KEY_TOUCHID_ENABLED)
-//                    BannerHelper.success("You've disabled TouchID!", seconds: 1.5, vibrate: .success)
-                } else {
-                    StorageHelper.secrets().set(string: key.base64EncodedString(), forKey: StorageHelper.KEY_ENCRYPTION_KEY)
-                    
-                    let prompt = "Confirm to enable TouchID"
-                    let result = StorageHelper.secrets().string(forKey: StorageHelper.KEY_ENCRYPTION_KEY, withPrompt: prompt)
-                    
-                    switch result {
-                    case .success(_):
-                        StorageHelper.settings().set(string: String(true), forKey: StorageHelper.KEY_TOUCHID_ENABLED)
-//                        BannerHelper.success("You've enabled TouchID!", seconds: 1.5, vibrate: .success)
-                    default:
-                        row.cell.switchControl.setOn(false, animated: true)
-                        return
+                // Bugfix for invalid SwitchRow background if TouchID was cancelled
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    if !(row.value ?? false) {
+                        StorageHelper.secrets().removeObject(forKey: StorageHelper.KEY_ENCRYPTION_KEY)
+                        StorageHelper.settings().set(string: String(false), forKey: StorageHelper.KEY_TOUCHID_ENABLED)
+                    } else {
+                        StorageHelper.secrets().set(string: key.base64EncodedString(), forKey: StorageHelper.KEY_ENCRYPTION_KEY)
+                        
+                        let prompt = "Confirm to enable TouchID"
+                        let result = StorageHelper.secrets().string(forKey: StorageHelper.KEY_ENCRYPTION_KEY, withPrompt: prompt)
+                        
+                        switch result {
+                        case .success(_):
+                            StorageHelper.settings().set(string: String(true), forKey: StorageHelper.KEY_TOUCHID_ENABLED)
+                        default:
+                            row.value = false
+                            row.cell.switchControl.setOn(false, animated: true)
+                        }
                     }
                 }
             }

@@ -29,6 +29,10 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
     let textCellIdentifierTOTP = "TimeBasedPasswordCell"
     let textCellIdentifierHOTP = "CounterBasedPasswordCell"
     
+    /// Empty TableView cached views
+    var tableViewEmptyList: UIView? = nil
+    var tableViewEmptySearch: UIView? = nil
+    
     /// Keep track of Realm result set changes using this notification token
     /// More info can be found on realm.io (https://realm.io/docs/swift/latest/#collection-notifications)
     var notificationToken: NotificationToken? = nil
@@ -40,10 +44,11 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableViewEmptyList = loadXIBAsUIView("PasswordsViewEmptyList")
+        tableViewEmptySearch = loadXIBAsUIView("PasswordsViewEmptySearch")
+        
         initializeSearchBar()
         initializeTableView()
-        
-        adjustConstraintToKeyboard()
         
         let realm = try! Realm()
         results = realm.objects(Password.self).filter("deleted == 0").sorted(byKeyPath: "issuer", ascending: true)
@@ -90,10 +95,6 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
-    }
-    
     private func initializeSearchBar() {
         searchBar.delegate = self
         searchBar.placeholder = "Search..."
@@ -104,7 +105,7 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
     private func initializeTableView() {
         tableView.register(UINib(nibName: textCellIdentifierTOTP, bundle: Bundle.main), forCellReuseIdentifier: textCellIdentifierTOTP)
         tableView.register(UINib(nibName: textCellIdentifierHOTP, bundle: Bundle.main), forCellReuseIdentifier: textCellIdentifierHOTP)
-        tableView.backgroundView = loadXIBAsUIView("PasswordsViewEmptyList")
+        tableView.backgroundView = tableViewEmptyList
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -175,10 +176,10 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
         
         if (searchText.count > 0) {
             self.searchBar.showsCancelButton = true
-            tableView.backgroundView = loadXIBAsUIView("PasswordsViewEmptySearch")
+            tableView.backgroundView = tableViewEmptySearch
             results = results?.filter(QueryHelper.passwordSearch(searchText))
         } else {
-            tableView.backgroundView = loadXIBAsUIView("PasswordsViewEmptyList")
+            tableView.backgroundView = tableViewEmptyList
         }
         
         initializeTableViewNotifications()
@@ -191,6 +192,8 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
         let resultCount = results?.count ?? 0
         
         tableView.backgroundView?.isHidden = resultCount != 0
+        searchBar.isUserInteractionEnabled = resultCount != 0 || isSearching
+        searchBar.alpha = !(resultCount != 0 || isSearching) ? CGFloat(0.5) : CGFloat(1.0)
         
         return resultCount
     }
@@ -221,7 +224,7 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
         
         // Copy to clipboard, vibrate and show banner
         UIPasteboard.general.string = current
-        BannerHelper.success(BannerHelper.boldText("Copied \(current) to your clipboard!"))
+        BannerHelper.success(BannerHelper.boldText("Copied \(current) to your clipboard!"), seconds: 0.5)
 
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
@@ -241,7 +244,7 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
                 }
             }))
 
-            deleteAlert.addAction(UIAlertAction(title: "", style: .cancel, handler: { (action: UIAlertAction!) in
+            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
                 deleteAlert.dismiss(animated: true, completion: nil)
             }))
 

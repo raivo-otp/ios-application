@@ -66,7 +66,6 @@ class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
         DispatchQueue.main.async {
             let salt = StorageHelper.settings().string(forKey: StorageHelper.KEY_PASSWORD)!
             
-            
             if self.initialPincode == nil {
                 self.pincodeDigitsView.resetAndFocus()
                 self.initialPincode = KeyDerivationHelper.derivePincode(pincode, salt)
@@ -90,7 +89,7 @@ class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
         
         let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
 
-        updateStoryboard()
+        performSegue(withIdentifier: "EnableBiometricsSegue", sender: nil)
     }
     
 }

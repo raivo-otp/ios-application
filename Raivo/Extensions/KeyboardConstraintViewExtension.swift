@@ -1,16 +1,16 @@
 //
-//  KeyboardConstraintExtension.swift
+//  KeyboardConstraintViewExtension.swift
 //  Raivo
 //
-//  Created by Tijme Gommers on 16/03/2019.
+//  Created by Tijme Gommers on 01/05/2019.
 //  Copyright © 2019 Tijme Gommers. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-extension UIViewController {
- 
+extension UIView {
+    
     @objc public func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
         return nil
     }
@@ -27,24 +27,24 @@ extension UIViewController {
             var keyboardHeight = keyboardRectangle.height
             
             if #available(iOS 11.0, *) {
-                let bottomInset = view.safeAreaInsets.bottom
+                let bottomInset = safeAreaInsets.bottom
                 keyboardHeight -= bottomInset
             }
             
             getConstraintToAdjustToKeyboard()!.constant = keyboardHeight
             
-            UIView.animate(withDuration: 0.5) {
-                self.view.layoutIfNeeded()
-            }
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
+                self.layoutIfNeeded()
+            }, completion: nil)
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        getConstraintToAdjustToKeyboard()!.constant = CGFloat(0)
         
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
-        }
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
+            self.getConstraintToAdjustToKeyboard()!.constant = CGFloat(0)
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
     
 }

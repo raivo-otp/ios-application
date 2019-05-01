@@ -18,6 +18,7 @@ class MyApplication: UIApplication {
     
     func enableInactivityTimer() {
         inactivityTimerEnabled = true
+        scheduleInactivityTimer()
     }
     
     func disableInactivityTimer() {

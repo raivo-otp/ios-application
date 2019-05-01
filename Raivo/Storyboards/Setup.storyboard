@@ -428,11 +428,116 @@
                         <outlet property="pincodeDigitsView" destination="hIV-th-70S" id="ykA-6w-Fpz"/>
                         <outlet property="viewExtra" destination="0OU-Fc-wZm" id="uF8-R5-nAT"/>
                         <outlet property="viewTitle" destination="1qp-gl-0w1" id="hse-0O-3ZR"/>
+                        <segue destination="aRj-9S-j16" kind="show" identifier="EnableBiometricsSegue" id="7rR-lb-O9A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PyN-zx-qmM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2265" y="321"/>
+        </scene>
+        <!--TouchID-->
+        <scene sceneID="1OL-4w-bgB">
+            <objects>
+                <viewController id="aRj-9S-j16" customClass="EnableBiometricsViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xbv-FZ-BS3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="dmR-8Y-LFH" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxM-c7-MzO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock Raivo with TouchID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX1-ui-8Mc">
+                                        <rect key="frame" x="0.0" y="250" width="375" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TouchID allows you to unlock Raivo with your fingerprint, instead of the PIN code." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-qx-5TC">
+                                        <rect key="frame" x="8" y="281" width="359" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU9-YJ-WIB">
+                                        <rect key="frame" x="16" y="535" width="343" height="52"/>
+                                        <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
+                                        <state key="normal" title="Enable TouchID"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onContinue:" destination="YVk-0a-onT" eventType="touchUpInside" id="a65-JW-hYf"/>
+                                            <action selector="onEnableTouchID:" destination="aRj-9S-j16" eventType="touchUpInside" id="dEX-NJ-Cxf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqQ-9w-z3g">
+                                        <rect key="frame" x="8" y="330" width="359" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="I don't want to use TouchID"/>
+                                        <connections>
+                                            <action selector="onDismissTouchID:" destination="aRj-9S-j16" eventType="touchUpInside" id="hlU-aJ-t49"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EU7-Ek-El2" customClass="SVGKFastImageView">
+                                        <rect key="frame" x="137.5" y="134" width="100" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Fdm-iw-YfF"/>
+                                            <constraint firstAttribute="width" secondItem="EU7-Ek-El2" secondAttribute="height" multiplier="1:1" id="wah-Cg-xFX"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="SVGName" value="vector-touchid"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KQm-qx-5TC" firstAttribute="leading" secondItem="sxM-c7-MzO" secondAttribute="leading" constant="8" id="761-NG-m6q"/>
+                                    <constraint firstItem="aqQ-9w-z3g" firstAttribute="leading" secondItem="sxM-c7-MzO" secondAttribute="leading" constant="8" id="9PI-zX-SPI"/>
+                                    <constraint firstItem="gU9-YJ-WIB" firstAttribute="leading" secondItem="sxM-c7-MzO" secondAttribute="leading" constant="16" id="ENg-iy-lSP"/>
+                                    <constraint firstItem="mX1-ui-8Mc" firstAttribute="leading" secondItem="sxM-c7-MzO" secondAttribute="leading" id="LZy-DC-E5c"/>
+                                    <constraint firstItem="EU7-Ek-El2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sxM-c7-MzO" secondAttribute="top" constant="8" id="OAl-HJ-34l"/>
+                                    <constraint firstAttribute="trailing" secondItem="aqQ-9w-z3g" secondAttribute="trailing" constant="8" id="U1P-TK-PpC"/>
+                                    <constraint firstItem="KQm-qx-5TC" firstAttribute="top" secondItem="mX1-ui-8Mc" secondAttribute="bottom" constant="8" id="V5S-X0-iky"/>
+                                    <constraint firstItem="KQm-qx-5TC" firstAttribute="centerY" secondItem="sxM-c7-MzO" secondAttribute="centerY" id="VlR-fO-xle"/>
+                                    <constraint firstAttribute="trailing" secondItem="KQm-qx-5TC" secondAttribute="trailing" constant="8" id="aaF-wl-DnY"/>
+                                    <constraint firstItem="mX1-ui-8Mc" firstAttribute="top" secondItem="EU7-Ek-El2" secondAttribute="bottom" constant="16" id="bYE-kR-uEb"/>
+                                    <constraint firstAttribute="trailing" secondItem="gU9-YJ-WIB" secondAttribute="trailing" constant="16" id="bjM-Yk-ls5"/>
+                                    <constraint firstAttribute="bottom" secondItem="gU9-YJ-WIB" secondAttribute="bottom" constant="16" id="cPj-TY-wiH"/>
+                                    <constraint firstItem="EU7-Ek-El2" firstAttribute="centerX" secondItem="sxM-c7-MzO" secondAttribute="centerX" id="o7M-wG-YtF"/>
+                                    <constraint firstAttribute="trailing" secondItem="mX1-ui-8Mc" secondAttribute="trailing" id="pIu-Pu-cT4"/>
+                                    <constraint firstItem="aqQ-9w-z3g" firstAttribute="top" secondItem="KQm-qx-5TC" secondAttribute="bottom" constant="8" id="qLh-S1-PRJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sxM-c7-MzO" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="17z-YZ-Qa0"/>
+                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="dmR-8Y-LFH" secondAttribute="trailing" id="3rU-Vc-WiA"/>
+                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="sxM-c7-MzO" secondAttribute="trailing" id="EbP-W4-cb2"/>
+                            <constraint firstItem="dmR-8Y-LFH" firstAttribute="top" secondItem="aAO-MI-4Sj" secondAttribute="top" id="EeH-Mc-m9u"/>
+                            <constraint firstItem="dmR-8Y-LFH" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="Prk-KL-aLB"/>
+                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="sxM-c7-MzO" secondAttribute="bottom" id="ehp-Gq-tch"/>
+                            <constraint firstItem="sxM-c7-MzO" firstAttribute="top" secondItem="aAO-MI-4Sj" secondAttribute="top" id="h85-Se-B0v"/>
+                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="dmR-8Y-LFH" secondAttribute="bottom" id="kbM-nO-ShI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aAO-MI-4Sj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="TouchID" id="Ylo-oa-mo1"/>
+                    <connections>
+                        <outlet property="bottomPadding" destination="ehp-Gq-tch" id="PYE-ED-Pxg"/>
+                        <outlet property="viewIcon" destination="EU7-Ek-El2" id="pZH-qp-gpw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ilo-4V-Jjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3120.8000000000002" y="320.68965517241384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZRI-4y-BlE">

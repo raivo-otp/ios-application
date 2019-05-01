@@ -8,7 +8,25 @@
 
 import Foundation
 import UIKit
+import SVGKit
 
 class PasswordsViewEmptyList: UIView {
+    
+    @IBOutlet weak var bottomPadding: NSLayoutConstraint! {
+        didSet {
+            adjustConstraintToKeyboard()
+        }
+    }
+    
+    @IBOutlet weak var viewEmptyImage: SVGKFastImageView! {
+        didSet {
+            let url = Bundle.main.url(forResource: "empty", withExtension: "svg")
+            viewEmptyImage.image = SVGKImage(contentsOf: url)
+        }
+    }
+    
+    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
+        return bottomPadding
+    }
     
 }

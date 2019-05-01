@@ -36,7 +36,7 @@ class OfflineSyncer: BaseSyncer, SyncerProtocol {
             
             account = SyncerAccount(
                 serviceName: "None (offline)",
-                accountName: "Unknown",
+                accountName: "None (offline)",
                 accountIdentifier: "Offline"
             )
             

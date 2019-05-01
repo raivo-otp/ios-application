@@ -1,5 +1,8 @@
 PODS:
   - Base32 (1.1.2)
+  - CocoaLumberjack (3.5.3):
+    - CocoaLumberjack/Core (= 3.5.3)
+  - CocoaLumberjack/Core (3.5.3)
   - Eureka (4.3.1)
   - Haptica (3.0.0)
   - KeychainSwift (15.0.0)
@@ -16,6 +19,8 @@ PODS:
   - SDWebImage/Core (4.4.3)
   - SimpleCheckbox (1.5.0)
   - Spring (1.0.6)
+  - SVGKit (2.1.0):
+    - CocoaLumberjack (~> 3.0)
   - SwiftMessages (6.0.2):
     - SwiftMessages/App (= 6.0.2)
   - SwiftMessages/App (6.0.2)
@@ -32,6 +37,7 @@ DEPENDENCIES:
   - SDWebImage (= 4.4.3)
   - SimpleCheckbox (= 1.5.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
+  - SVGKit (= 2.1.0)
   - SwiftMessages (= 6.0.2)
   - SwiftyBeaver (= 1.7.0)
   - Valet (= 3.2.3)
@@ -39,6 +45,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Base32
+    - CocoaLumberjack
     - Eureka
     - Haptica
     - KeychainSwift
@@ -48,6 +55,7 @@ SPEC REPOS:
     - RNCryptor
     - SDWebImage
     - SimpleCheckbox
+    - SVGKit
     - SwiftMessages
     - SwiftyBeaver
     - Valet
@@ -63,6 +71,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
+  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   Haptica: ee4abaf262f456fe3854b493f506debe421ddf2c
   KeychainSwift: c6fc018d287804faf1ce3f258a1e51a7178c8382
@@ -73,10 +82,11 @@ SPEC CHECKSUMS:
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SimpleCheckbox: 1e59697852ef3caa56a0ed1b40be0f034763b9b9
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
+  SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
   Valet: 4af0382d4a94db5c7861504f751884f653437d24
 
-PODFILE CHECKSUM: cec42f7e49f4dd51632afacb64de63a159f7a93f
+PODFILE CHECKSUM: bec256671a8df65107c9d3c99ea625a9e6448277
 
 COCOAPODS: 1.5.3
