@@ -110,6 +110,10 @@ class ChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
             return
         }
         
+        if Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")! {
+            StorageHelper.secrets().set(string: newKey!.base64EncodedString(), forKey: StorageHelper.KEY_ENCRYPTION_KEY)
+        }
+        
         StorageHelper.settings().set(string: newName, forKey: StorageHelper.KEY_REALM_FILENAME)
         
         StateHelper.reset(clearKeychain: false)
