@@ -73,7 +73,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     private func preloadAccountSuccess(_ recordID: CKRecord.ID) {
-        self.account = SyncerAccount(serviceName: "iCloud", accountName: "Personal iCloud", accountIdentifier: recordID.recordName)
+        self.account = SyncerAccount(serviceName: "Apple iCloud", accountName: "Personal iCloud", accountIdentifier: recordID.recordName)
         self.accountError = nil
         self.accountPreloaded = true
         self.accountPreloading = false

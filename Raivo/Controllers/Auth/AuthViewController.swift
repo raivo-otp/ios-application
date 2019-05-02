@@ -112,14 +112,16 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
         return Int((lastTryTimestamp + (lockoutTime * 60)) - Date().timeIntervalSince1970)
     }
     
-    internal func tryNewPincode() -> Bool {
+    internal func tryNewPincode(increase: Bool = true) -> Bool {
         let currentTries = Int(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT) ?? "0")!
         let lastTryTimestamp = Double(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP) ?? "0")!
         
         // If can try
         guard currentTries >= maximumTries else {
-            StorageHelper.settings().set(string: String(Date().timeIntervalSince1970), forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP)
-            StorageHelper.settings().set(string: String(currentTries + 1), forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT)
+            if increase {
+                StorageHelper.settings().set(string: String(Date().timeIntervalSince1970), forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP)
+                StorageHelper.settings().set(string: String(currentTries + 1), forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT)
+            }
             return true
         }
         
@@ -140,11 +142,18 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
             return
         }
         
+        guard self.tryNewPincode(increase: false) else {
+            self.pincodeDigitsView.resetAndFocus()
+            self.showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
+            return
+        }
+        
         let prompt = "Unlock Raivo in no time"
         let result = StorageHelper.secrets().string(forKey: StorageHelper.KEY_ENCRYPTION_KEY, withPrompt: prompt)
         
         switch result {
         case .success(let key):
+            let _ = self.tryNewPincode()
             self.getAppDelagate().updateEncryptionKey(Data(base64Encoded: key))
             self.updateStoryboard()
         default:
