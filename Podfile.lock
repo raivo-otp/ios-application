@@ -14,9 +14,12 @@ PODS:
   - RealmSwift (3.13.1):
     - Realm (= 3.13.1)
   - RNCryptor (5.0.3)
-  - SDWebImage (4.4.3):
-    - SDWebImage/Core (= 4.4.3)
-  - SDWebImage/Core (4.4.3)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
+  - SDWebImageSVGCoder (0.2.0):
+    - SDWebImage/Core (~> 5.0)
+    - SVGKit (>= 2.1)
   - SimpleCheckbox (1.5.0)
   - Spring (1.0.6)
   - SVGKit (2.1.0):
@@ -34,7 +37,8 @@ DEPENDENCIES:
   - OneTimePassword (= 3.1.4)
   - RealmSwift (= 3.13.1)
   - RNCryptor (= 5.0.3)
-  - SDWebImage (= 4.4.3)
+  - SDWebImage (= 5.0.2)
+  - SDWebImageSVGCoder (= 0.2.0)
   - SimpleCheckbox (= 1.5.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SVGKit (= 2.1.0)
@@ -54,6 +58,7 @@ SPEC REPOS:
     - RealmSwift
     - RNCryptor
     - SDWebImage
+    - SDWebImageSVGCoder
     - SimpleCheckbox
     - SVGKit
     - SwiftMessages
@@ -79,7 +84,8 @@ SPEC CHECKSUMS:
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   RNCryptor: c93d19029dcf7ff160aca0f24d6c9e7b0d82f664
-  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
+  SDWebImageSVGCoder: 61f60a3064db079de646a34a5f5aa8d3ac258345
   SimpleCheckbox: 1e59697852ef3caa56a0ed1b40be0f034763b9b9
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
@@ -87,6 +93,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
   Valet: 4af0382d4a94db5c7861504f751884f653437d24
 
-PODFILE CHECKSUM: bec256671a8df65107c9d3c99ea625a9e6448277
+PODFILE CHECKSUM: b3fbcf6d8b7e733a85644ce4cd68bf00910e2959
 
 COCOAPODS: 1.5.3

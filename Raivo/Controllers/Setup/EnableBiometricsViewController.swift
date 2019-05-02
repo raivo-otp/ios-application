@@ -23,7 +23,7 @@ class EnableBiometricsViewController: UIViewController {
         
         adjustConstraintToKeyboard()
         
-        let url = Bundle.main.url(forResource: "fingerprint", withExtension: "svg")
+        let url = Bundle.main.url(forResource: "fingerprint", withExtension: "svg", subdirectory: "Vectors")
         viewIcon.image = SVGKImage(contentsOf: url)
     }
     

@@ -1,0 +1,3 @@
+[submodule "Raivo/Supporting/Issuers"]
+	path = Raivo/Supporting/Issuers
+	url = git@github.com:tijme/raivo-issuer-icons.git

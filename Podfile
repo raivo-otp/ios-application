@@ -25,8 +25,9 @@ target 'Raivo' do
   pod 'Eureka', '4.3.1'
   
   # Retrieves, caches and displays images from the web (for issuer logos)
-  pod 'SDWebImage', '4.4.3'
-  
+  pod 'SDWebImage', '5.0.2'
+  pod 'SDWebImageSVGCoder', '0.2.0'
+
   # Easy view animations (like flikkering error messages)
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 

@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import CloudKit
 import SwiftyBeaver
+import SDWebImageSVGCoder
 
 let log = SwiftyBeaver.self
 
@@ -33,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize debug logging (if applicable)
         let console = ConsoleDestination()
         log.addDestination(console)
+        
+        // Initialize SVG decoder
+        SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
         
         // If this is the first run of the app, flush the keychain
         // It could be a reinstall of the app (reinstalls don't flush the keychain)
