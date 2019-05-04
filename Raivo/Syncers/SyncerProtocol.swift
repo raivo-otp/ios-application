@@ -14,6 +14,10 @@ protocol SyncerProtocol: BaseClass {
     
     var challenge: SyncerChallenge? { get set }
     
+    var name: String { get }
+    
+    var help: String { get }
+    
     var accountPreloading: Bool { get set }
     
     var accountPreloaded: Bool { get set }

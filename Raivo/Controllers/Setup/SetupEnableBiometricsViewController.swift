@@ -1,5 +1,5 @@
 //
-//  EnableBiometricsViewController.swift
+//  SetupEnableBiometricsViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 01/05/2019.
@@ -11,7 +11,7 @@ import UIKit
 import Spring
 import SVGKit
 
-class EnableBiometricsViewController: UIViewController {
+class SetupEnableBiometricsViewController: UIViewController {
     
     //EnableBiometricsSegue
     @IBOutlet weak var viewIcon: SVGKFastImageView!

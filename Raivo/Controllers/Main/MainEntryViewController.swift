@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  MainEntryViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 26/01/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// This ViewController is basically a tabbar controller, it can be managed using the storyboard.
-class MainViewController: UITabBarController, UITabBarControllerDelegate {
+class MainEntryViewController: UITabBarController, UITabBarControllerDelegate {
     
     /// Triggers after the view was parsed
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
             if (selectedIndex == 0) {
                 log.verbose("SearchViewController selectedIndex = 0")
                 // PasswordsViewController is active, show search bar
-                let passwordsController = (selectedViewController!.children[0] as! PasswordsViewController)
+                let passwordsController = (selectedViewController!.children[0] as! MainPasswordsViewController)
                 passwordsController.showSearchBar()
             } else {
                 log.verbose("SearchViewController selectedIndex != 0")
@@ -38,7 +38,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
                 selectedIndex = 0
                 
                 // PasswordsViewController is not yet active, notify that it has to show the search bar asap
-                let passwordsController = (selectedViewController!.children[0] as! PasswordsViewController)
+                let passwordsController = (selectedViewController!.children[0] as! MainPasswordsViewController)
                 passwordsController.startSearching = true
             }
             

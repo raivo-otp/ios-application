@@ -15,12 +15,12 @@ class Migration4: MigrationProtocol {
     static var build: Int = 4
     
     let keychainMigrations = [
-        StorageHelper.KEY_PASSWORD: "salt",
-        StorageHelper.KEY_LOCKSCREEN_TIMEOUT: "inactivity_lock",
-        StorageHelper.KEY_REALM_FILENAME: "realm_file",
-        StorageHelper.KEY_SYNCHRONIZATION_PROVIDER: "syncer",
-        StorageHelper.KEY_PINCODE_TRIED_AMOUNT: "pincode_tries_amount",
-        StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP: "pincode_last_try_timestamp",
+        "EncryptionPassword": "salt",
+        "LockscreenTimeout": "inactivity_lock",
+        "RealmFilename": "realm_file",
+        "SynchronizationProvider": "syncer",
+        "PincodeTriedAmount": "pincode_tries_amount",
+        "PincodeTriedTimestamp": "pincode_last_try_timestamp",
     ]
     
     /// This build does not require Realm migrations

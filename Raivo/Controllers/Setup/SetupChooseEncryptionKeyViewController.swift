@@ -1,5 +1,5 @@
 //
-//  ChooseEncryptionKeyViewController.swift
+//  SetupChooseEncryptionKeyViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 13/03/2019.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Spring
 
-class ChooseEncryptionKeyViewController: UIViewController, UITextFieldDelegate {
+class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDelegate {
     
     public var account: SyncerAccount?
     
@@ -80,7 +80,7 @@ class ChooseEncryptionKeyViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        StorageHelper.settings().set(string: viewEncryptionKey.text!, forKey: StorageHelper.KEY_PASSWORD)
+        StorageHelper.setEncryptionKey(viewEncryptionKey.text!)
         
         performSegue(withIdentifier: "ChoosePincodeSegue", sender: sender)
     }

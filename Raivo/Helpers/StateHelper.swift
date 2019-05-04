@@ -11,19 +11,59 @@ import RealmSwift
 
 class StateHelper: BaseClass {
     
-    public struct States {
+    public struct Storyboard {
+        static let SETUP = "Setup"
+        static let AUTH = "Auth"
+        static let MAIN = "Main"
+    }
+    
+    public struct StoryboardController {
+        static let SETUP = "SetupRootController"
+        static let AUTH = "AuthRootController"
+        static let MAIN = "MainRootController"
+    }
+    
+    public struct State {
         static let DATABASE_UNKNOWN = "DATABASE_UNKNOWN"
         static let ENCRYPTION_KEY_UNKNOWN = "ENCRYPTION_KEY_UNKNOWN"
         static let DATABASE_AND_ENCRYPTION_KEY_AVAILABLE = "DATABASE_AND_ENCRYPTION_KEY_AVAILABLE"
     }
     
     public static func getCurrentState() -> String {
-        if !self.isDatabaseKnown() {
-            return States.DATABASE_UNKNOWN
-        } else if !self.isEncryptionKeyKnown() {
-            return States.ENCRYPTION_KEY_UNKNOWN
-        } else {
-            return States.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE
+        guard databaseIsKnown() else {
+            return State.DATABASE_UNKNOWN
+        }
+        
+        guard encryptionKeyIsKnown() else {
+            return State.ENCRYPTION_KEY_UNKNOWN
+        }
+   
+        return State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE
+    }
+    
+    public static func getCurrentStoryboard() -> String {
+        switch getCurrentState() {
+        case State.DATABASE_UNKNOWN:
+            return Storyboard.SETUP
+        case State.ENCRYPTION_KEY_UNKNOWN:
+            return Storyboard.AUTH
+        case State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE:
+            return Storyboard.MAIN
+        default:
+            fatalError("Unknown current state.")
+        }
+    }
+    
+    public static func getCurrentStoryboardController() -> String {
+        switch getCurrentStoryboard() {
+        case Storyboard.SETUP:
+            return StoryboardController.SETUP
+        case Storyboard.AUTH:
+            return StoryboardController.AUTH
+        case Storyboard.MAIN:
+            return StoryboardController.MAIN
+        default:
+            fatalError("Unknown storyboard.")
         }
     }
     
@@ -38,10 +78,19 @@ class StateHelper: BaseClass {
         }
     }
     
+    /// Remove the encryption key that is in memory and then update the storyboard
     public static func lock() {
         getAppDelagate().updateEncryptionKey(nil)
+        getAppDelagate().updateStoryboard()
     }
     
+    /// Check if this is the first time that the app runs after being (re)installed
+    ///
+    /// - Returns: `true` if app runs for the first time after being (re)installed
+    ///
+    /// - Note: This method uses the `UserDefaults` (which are flushed on reinstall) to check wether nthis is the first run
+    /// - Note: The `Keychain` can't be used since it's persistent even after uninstalling the app
+    /// https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
     public static func isFirstRun() -> Bool {
         let userDefaults = UserDefaults.standard
         
@@ -53,11 +102,11 @@ class StateHelper: BaseClass {
         }
     }
     
-    private static func isDatabaseKnown() -> Bool {
+    private static func databaseIsKnown() -> Bool {
         return RealmHelper.fileURLExists()
     }
     
-    private static func isEncryptionKeyKnown() -> Bool {
+    private static func encryptionKeyIsKnown() -> Bool {
         return getAppDelagate().getEncryptionKey() != nil
     }
     

@@ -1,5 +1,5 @@
 //
-//  ChooseSyncerServiceViewController.swift
+//  SetupChooseSyncerServiceViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 26/01/2019.
@@ -10,9 +10,9 @@ import UIKit
 import Spring
 import Eureka
 
-class ChooseSyncerServiceViewController: FormViewController {
+class SetupChooseSyncerServiceViewController: FormViewController {
     
-    private var raivoForm: ProvidersForm?
+    private var synchronizationProviderForm: SynchronizationProviderForm?
     
     public var accounts: [String: SyncerAccount] = [:]
     
@@ -29,7 +29,7 @@ class ChooseSyncerServiceViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        raivoForm = ProvidersForm(form, controller: self)
+        synchronizationProviderForm = SynchronizationProviderForm(form).build()
         
         continueButton.setTitle("Hold on!", for: UIControl.State.disabled)
         
@@ -100,14 +100,14 @@ class ChooseSyncerServiceViewController: FormViewController {
         viewTitle.text = allow ? "Synchronization providers" : "Loading providers..."
         
         if (allow) {
-            raivoForm?.selectFirstSyncer()
+            synchronizationProviderForm?.selectFirstSyncer()
             dismissNavBarActivity()
         }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
          if identifier == "DatabaseEncryptionSegue" {
-            guard let _ = raivoForm!.getSelectedSyncer() else {
+            guard let _ = synchronizationProviderForm!.getSelectedSyncer() else {
                 return false
             }
         }
@@ -117,10 +117,10 @@ class ChooseSyncerServiceViewController: FormViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DatabaseEncryptionSegue" {
-            if let destination = segue.destination as? ChooseEncryptionKeyViewController {
-                StorageHelper.settings().set(string: raivoForm!.getSelectedSyncer()!, forKey: StorageHelper.KEY_SYNCHRONIZATION_PROVIDER)
-                destination.account = self.accounts[raivoForm!.getSelectedSyncer()!]
-                destination.challenge = self.challenges[raivoForm!.getSelectedSyncer()!]
+            if let destination = segue.destination as? SetupChooseEncryptionKeyViewController {
+                StorageHelper.settings().set(string: synchronizationProviderForm!.getSelectedSyncer()!, forKey: StorageHelper.KEY_SYNCHRONIZATION_PROVIDER)
+                destination.account = self.accounts[synchronizationProviderForm!.getSelectedSyncer()!]
+                destination.challenge = self.challenges[synchronizationProviderForm!.getSelectedSyncer()!]
             }
         }
     }

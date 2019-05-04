@@ -1,5 +1,5 @@
 //
-//  ScanPasswordViewController.swift
+//  MainScanPasswordViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 06/03/2019.
@@ -11,7 +11,7 @@ import UIKit
 import AVFoundation
 import OneTimePassword
 
-class ScanPasswordViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     @IBOutlet weak var cameraPreview: UIView!
 
@@ -133,7 +133,7 @@ class ScanPasswordViewController: UIViewController, AVCaptureMetadataOutputObjec
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier != "CreatePasswordManually" {
-            let newViewController = segue.destination as! CreatePasswordViewController
+            let newViewController = segue.destination as! MainCreatePasswordViewController
             newViewController.token = lastScannedToken
             newViewController.navigationItem.title = "Verify Details"
         }

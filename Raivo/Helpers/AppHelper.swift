@@ -24,5 +24,14 @@ class AppHelper {
     ///
     /// - note: Our version cannot be nil since it's hardcoded in the 'info.plist' file
     public static let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+ 
+    /// The main bundle compilation method (e.g. 'Debug' or 'Release').
+    ///
+    /// - note: The App Store receipt URL ends with "sandboxReceipt" if installed via TestFlight
+    #if DEBUG
+    public static let compilation = "Debug"
+    #else
+    public static let compilation =  Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" ? "TestFlight" : "Release"
+    #endif
     
 }

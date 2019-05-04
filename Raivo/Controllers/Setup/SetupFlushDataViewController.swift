@@ -1,5 +1,5 @@
 //
-//  FlushDataViewController.swift
+//  SetupFlushDataViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 24/04/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FlushDataViewController: UIViewController {
+class SetupFlushDataViewController: UIViewController {
     
     @IBAction func confirm(_ sender: Any) {
         let popup = UIAlertController(title: "Are you sure?", message: "ALL your data will be deleted and you will NOT be able to recover it!", preferredStyle: .alert)

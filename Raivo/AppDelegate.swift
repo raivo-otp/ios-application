@@ -17,7 +17,7 @@ let log = SwiftyBeaver.self
 //@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    public var window: UIWindow?
     
     public var currentStoryboardName: String? = nil
     
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func beforeStoryboardChange(_ storyboard: String) {
         switch storyboard {
-        case "Main":
+        case StateHelper.Storyboard.MAIN:
             // Enable lockscreen timer
             (MyApplication.shared as! MyApplication).enableInactivityTimer()
             
@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SyncerHelper.getSyncer().enable()
             SyncerHelper.getSyncer().resyncModel(Password.UNIQUE_ID)
             UIApplication.shared.registerForRemoteNotifications()
-        case "Setup":
+        case StateHelper.Storyboard.SETUP:
             // Disable lockscreen timer
             (MyApplication.shared as! MyApplication).disableInactivityTimer()
             
@@ -124,20 +124,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setCorrectStoryboard() {
-        var storyboardName = ""
-        var controllerName = ""
-        
-        switch StateHelper.getCurrentState() {
-        case StateHelper.States.DATABASE_UNKNOWN:
-            storyboardName = "Setup"
-            controllerName = "SetupRootController"
-        case StateHelper.States.ENCRYPTION_KEY_UNKNOWN:
-            storyboardName = "Auth"
-            controllerName = "AuthRootController"
-        default:
-            storyboardName = "Main"
-            controllerName = "MainRootController"
-        }
+        let storyboardName = StateHelper.getCurrentStoryboard()
+        let controllerName = StateHelper.getCurrentStoryboardController()
         
         beforeStoryboardChange(storyboardName)
         

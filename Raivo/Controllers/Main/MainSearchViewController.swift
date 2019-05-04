@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  MainSearchViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 06/03/2019.
@@ -10,6 +10,6 @@ import UIKit
 
 /// Please note that this is a stub controller for search TabBarItem.
 /// When one navigates to 'search', the PasswordsViewController is opened with a search interaface.
-class SearchViewController: UIViewController {
+class MainSearchViewController: UIViewController {
     // Stub...
 }

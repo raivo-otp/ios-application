@@ -1,8 +1,8 @@
 //
-//  ChoosePincodeViewController.swift
+//  MainChangePincodeViewController.swift
 //  Raivo
 //
-//  Created by Tijme Gommers on 13/03/2019.
+//  Created by Tijme Gommers on 14/04/2019.
 //  Copyright © 2019 Tijme Gommers. All rights reserved.
 //
 
@@ -11,8 +11,8 @@ import UIKit
 import RealmSwift
 import Spring
 
-class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
-   
+class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
+ 
     @IBOutlet weak var pincodeDigitsView: PincodeDigitsView!
     
     @IBOutlet weak var bottomPadding: NSLayoutConstraint!
@@ -29,7 +29,21 @@ class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
         adjustConstraintToKeyboard()
         
         self.pincodeDigitsView.delegate = self
-        self.showPincodeView("Choose Your PIN code", "You need it to unlock Raivo, so make sure you'll be able to remember it.", focus: false)
+        self.showPincodeView("Choose a new PIN code", "You need it to unlock Raivo, so make sure you'll be able to remember it.", focus: false)
+    }
+    
+    // Bugfix for grey shadow under navigation bar
+    // https://stackoverflow.com/a/25421617/2491049
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.view.backgroundColor = UIColor.white
+    }
+
+    // Bugfix for grey shadow under navigation bar
+    // https://stackoverflow.com/a/25421617/2491049
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.view.backgroundColor = UIColor.clear
     }
     
     override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
@@ -62,17 +76,17 @@ class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     func onPincodeComplete(pincode: String) {
-
+        
         DispatchQueue.main.async {
-            let salt = StorageHelper.settings().string(forKey: StorageHelper.KEY_PASSWORD)!
+            let salt = StorageHelper.getEncryptionPassword()!
             
             if self.initialPincode == nil {
                 self.pincodeDigitsView.resetAndFocus()
                 self.initialPincode = KeyDerivationHelper.derivePincode(pincode, salt)
-                self.showPincodeView("Almost there!", "Confirm your PIN code to continue.")
+                self.showPincodeView("Almost there!", "Confirm your PIN code to continue (you'll be signed out after this step).")
             } else {
                 if self.initialPincode == KeyDerivationHelper.derivePincode(pincode, salt) {
-                    self.createDatabase(pincode, salt)
+                    self.changePincode(pincode, salt)
                 } else {
                     self.initialPincode = nil
                     self.pincodeDigitsView.resetAndFocus()
@@ -82,14 +96,28 @@ class ChoosePincodeViewController: UIViewController, PincodeDigitsProtocol {
         }
     }
     
-    private func createDatabase(_ pincode: String, _ salt: String) {
-        getAppDelagate().updateEncryptionKey(KeyDerivationHelper.derivePincode(pincode, salt))
-
-        RealmHelper.initDefaultRealmConfiguration(encryptionKey: getAppDelagate().getEncryptionKey()!)
+    private func changePincode(_ pincode: String, _ salt: String) {
+        let newKey = KeyDerivationHelper.derivePincode(pincode, salt)
+        let newName = RealmHelper.getProposedNewFileName()
+        let newFile = RealmHelper.getFileURL(forceFilename: newName)
         
-        let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
-
-        performSegue(withIdentifier: "EnableBiometricsSegue", sender: nil)
+        let oldRealm = try! Realm()
+        
+        do {
+            try oldRealm.writeCopy(toFile: newFile!, encryptionKey: newKey)
+        } catch let error {
+            log.error(error)
+            return
+        }
+        
+        if Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")! {
+            StorageHelper.secrets().set(string: newKey!.base64EncodedString(), forKey: StorageHelper.KEY_ENCRYPTION_KEY)
+        }
+        
+        StorageHelper.settings().set(string: newName, forKey: StorageHelper.KEY_REALM_FILENAME)
+        
+        StateHelper.reset(clearKeychain: false)
+        updateStoryboard()
     }
     
 }

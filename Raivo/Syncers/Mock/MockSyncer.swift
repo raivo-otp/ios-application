@@ -10,6 +10,10 @@ import Foundation
 
 class MockSyncer: BaseSyncer, SyncerProtocol {
     
+    var name = "None (mock)"
+    
+    var help = "Synchronization is currently disabled."
+    
     func notify(_ userInfo: [AnyHashable : Any]) {
         // Not implemented
     }

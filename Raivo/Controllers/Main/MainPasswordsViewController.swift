@@ -1,5 +1,5 @@
 //
-//  PasswordsViewController.swift
+//  MainPasswordsViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 06/03/2019.
@@ -12,7 +12,7 @@ import SDWebImage
 import OneTimePassword
 import AVFoundation
 
-class PasswordsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     /// Is programatically set to true if user tapped the search button
     var startSearching: Bool = false
@@ -203,7 +203,7 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
         var cell:PasswordCell?
         
         switch password.kind {
-        case Password.Kinds.HOTP:
+        case PasswordKindFormOption.OPTION_HOTP.value:
             cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifierHOTP, for: indexPath as IndexPath) as! CounterBasedPasswordCell
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifierTOTP, for: indexPath as IndexPath) as! TimeBasedPasswordCell
@@ -270,7 +270,7 @@ class PasswordsViewController: UIViewController, UITableViewDataSource, UITableV
         searchBar.resignFirstResponder()
         
         if segue.identifier == "PasswordSelectedSegue" {
-            guard let destination = segue.destination as? EditPasswordViewController else {
+            guard let destination = segue.destination as? MainEditPasswordViewController else {
                 return
             }
             

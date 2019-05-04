@@ -23,6 +23,10 @@ class BaseClass {
         return (UIApplication.shared.delegate as! AppDelegate)
     }
     
+    func getAppDelagate() -> AppDelegate {
+        return (UIApplication.shared.delegate as! AppDelegate)
+    }
+    
 }
 
 extension Object {
@@ -36,6 +40,10 @@ extension Object {
     }
     
     static func getAppDelagate() -> AppDelegate {
+        return (UIApplication.shared.delegate as! AppDelegate)
+    }
+    
+    func getAppDelagate() -> AppDelegate {
         return (UIApplication.shared.delegate as! AppDelegate)
     }
     

@@ -65,7 +65,6 @@ class MyApplication: UIApplication {
             }
             
             StateHelper.lock()
-            (MyApplication.shared.delegate as! AppDelegate).updateStoryboard()
         })
     }
     

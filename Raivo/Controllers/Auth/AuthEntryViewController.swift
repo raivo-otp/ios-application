@@ -1,5 +1,5 @@
 //
-//  AuthViewController.swift
+//  AuthEntryViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 26/01/2019.
@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import Spring
 
-class AuthViewController: UIViewController, PincodeDigitsProtocol {
+class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     
     @IBOutlet weak var pincodeDigitsView: PincodeDigitsView!
     
@@ -73,7 +73,7 @@ class AuthViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     func onPincodeComplete(pincode: String) {
-        let salt = StorageHelper.settings().string(forKey: StorageHelper.KEY_PASSWORD)!
+        let salt = StorageHelper.getEncryptionPassword()!
         
         let encryptionKey = KeyDerivationHelper.derivePincode(pincode, salt)
         let isCorrect = RealmHelper.isCorrectEncryptionKey(encryptionKey)

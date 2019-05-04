@@ -10,14 +10,13 @@ import Foundation
 
 class SyncerAccount {
     
-    let serviceName: String
-    let accountName: String
-    let accountIdentifier: String
+    let name: String
+
+    let identifier: String
     
-    init(serviceName: String, accountName: String, accountIdentifier: String) {
-        self.serviceName = serviceName
-        self.accountName = accountName
-        self.accountIdentifier = accountIdentifier
+    init(name: String, identifier: String) {
+        self.name = name
+        self.identifier = identifier
     }
     
 }

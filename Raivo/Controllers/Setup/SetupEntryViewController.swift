@@ -1,5 +1,5 @@
 //
-//  SetupViewController.swift
+//  SetupEntryViewController.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 26/01/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetupViewController: UIViewController {
+class SetupEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
