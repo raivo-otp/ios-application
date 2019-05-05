@@ -110,11 +110,12 @@ class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
             return
         }
         
-        if Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")! {
-            StorageHelper.secrets().set(string: newKey!.base64EncodedString(), forKey: StorageHelper.KEY_ENCRYPTION_KEY)
+        
+        if StorageHelper.getBiometricUnlockEnabled() {
+            StorageHelper.setEncryptionKey(newKey!.base64EncodedString())
         }
         
-        StorageHelper.settings().set(string: newName, forKey: StorageHelper.KEY_REALM_FILENAME)
+        StorageHelper.setRealmFilename(newName)
         
         StateHelper.reset(clearKeychain: false)
         updateStoryboard()

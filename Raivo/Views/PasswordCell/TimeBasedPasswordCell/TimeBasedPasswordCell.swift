@@ -43,14 +43,12 @@ class TimeBasedPasswordCell: PasswordCell {
         self.password = password
         
         issuer.text = password.issuer
-        account.text = password.issuer
         account.text = "(" + password.account + ")"
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
         previousPassword.text = TokenHelper.formatPassword(password.getToken(), previous: true)
         notSyncedView.isHidden = password.synced || password.syncing
         
-        let url = Bundle.main.url(forResource: "twitter", withExtension: "svg", subdirectory: "Issuers/vectors")
-        logo.sd_setImage(with: url, placeholderImage: UIImage(named: "password-placeholder"))
+        logo.sd_setImage(with: password.getLogoURL(), placeholderImage: UIImage(named: "password-placeholder"))
     }
     
     deinit {

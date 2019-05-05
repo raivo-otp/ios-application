@@ -58,8 +58,8 @@ class MyApplication: UIApplication {
         
         invalidateInactivityTimer()
         
-        let inactivityTimeoutString = StorageHelper.settings().string(forKey: StorageHelper.KEY_LOCKSCREEN_TIMEOUT) ?? "3000"
-        inactivityTimer = Timer.scheduledTimer(withTimeInterval: Double(inactivityTimeoutString)!, repeats: false, block: { timer in
+        let inactivityTimeoutString = StorageHelper.getLockscreenTimeout() ?? MiscellaneousInactivityLockFormOption.OPTION_DEFAULT.value
+        inactivityTimer = Timer.scheduledTimer(withTimeInterval: inactivityTimeoutString, repeats: false, block: { timer in
             guard self.inactivityTimerEnabled else {
                 return
             }

@@ -21,7 +21,7 @@ class MainCreatePasswordViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        passwordForm = PasswordForm(form).build()
+        passwordForm = PasswordForm(form).build(self)
         
         // Set default/prefilled values
         if let token = token {
@@ -72,8 +72,8 @@ class MainCreatePasswordViewController: FormViewController {
         let password = Password()
         
         password.id = password.getNewPrimaryKey()
-        password.issuer = passwordForm!.issuerRow.value!
-        password.account = passwordForm!.accountRow.value!
+        password.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
+        password.account = passwordForm!.accountRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
         password.secret = passwordForm!.secretRow.value!
         password.algorithm = passwordForm!.algorithmRow.value!.value
         password.digits = passwordForm!.digitsRow.value!.value

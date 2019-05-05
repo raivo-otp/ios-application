@@ -11,12 +11,12 @@ import Eureka
 
 class MiscellaneousInactivityLockFormOption: BaseFormOption {
     
-    static let OPTION_20_SECONDS = MiscellaneousInactivityLockFormOption(20, description: "20 seconds")
-    static let OPTION_30_SECONDS = MiscellaneousInactivityLockFormOption(30, description: "30 seconds")
-    static let OPTION_60_SECONDS = MiscellaneousInactivityLockFormOption(60, description: "1 minute")
-    static let OPTION_120_SECONDS = MiscellaneousInactivityLockFormOption(120, description: "2 minutes")
-    static let OPTION_300_SECONDS = MiscellaneousInactivityLockFormOption(300, description: "5 minutes")
-    static let OPTION_600_SECONDS = MiscellaneousInactivityLockFormOption(600, description: "10 minutes")
+    static let OPTION_20_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(20), description: "20 seconds")
+    static let OPTION_30_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(30), description: "30 seconds")
+    static let OPTION_60_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(60), description: "1 minute")
+    static let OPTION_120_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(120), description: "2 minutes")
+    static let OPTION_300_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(300), description: "5 minutes")
+    static let OPTION_600_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(600), description: "10 minutes")
     
     static let OPTION_DEFAULT = OPTION_300_SECONDS
     
@@ -29,15 +29,15 @@ class MiscellaneousInactivityLockFormOption: BaseFormOption {
         OPTION_600_SECONDS
     ]
     
-    var value: Int
+    var value: TimeInterval
     var description: String
     
-    init(_ value: Int, description: String) {
+    init(_ value: TimeInterval, description: String) {
         self.value = value
         self.description = description
     }
     
-    static func build(_ value: Int) -> MiscellaneousInactivityLockFormOption? {
+    static func build(_ value: TimeInterval) -> MiscellaneousInactivityLockFormOption? {
         for option in options {
             if option.value == value {
                 return option

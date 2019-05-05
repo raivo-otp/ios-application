@@ -11,8 +11,9 @@ import Valet
 
 class MigrationHelper {
     
-    private static let migrations: [Int: MigrationProtocol] = [
-        Migration4.build: Migration4()
+    public static let migrations: [Int: MigrationProtocol] = [
+        MigrationToBuild4.build: MigrationToBuild4(),
+        MigrationToBuild6.build: MigrationToBuild6()
     ]
     
     static func runGenericMigrations() {
@@ -26,17 +27,12 @@ class MigrationHelper {
             previous += 1
         }
         
-        StorageHelper.settings().set(string: String(AppHelper.build), forKey: StorageHelper.KEY_PREVIOUS_BUILD)
+        StorageHelper.setPreviousBuild(AppHelper.build)
     }
     
     private static func getPreviousBuild() -> Int {
-        if let previousVersion = StorageHelper.settings().string(forKey: StorageHelper.KEY_PREVIOUS_BUILD) {
-            return Int(previousVersion)!
-        }
-        
-        // This could be a newly installed app, but lets first check if the previous version could be a version that didn't have this update mechanism yet.
-        if (migrations[4]! as! Migration4).hasToMigrate() {
-            return AppHelper.build - 1
+        if let previousVersion = StorageHelper.getPreviousBuild() {
+            return previousVersion
         }
         
         return AppHelper.build

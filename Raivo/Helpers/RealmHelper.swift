@@ -11,20 +11,16 @@ import RealmSwift
 
 class RealmHelper {
 
-    private static let SCHEMA_VERSION: UInt64 = 0
-    
     private static let ORIGINAL_URL = Realm.Configuration.defaultConfiguration.fileURL
     
     public static func initDefaultRealmConfiguration(encryptionKey: Data?) {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             fileURL: getFileURL(),
             encryptionKey: encryptionKey,
-            schemaVersion: SCHEMA_VERSION,
+            schemaVersion: UInt64(AppHelper.build),
             migrationBlock: { migration, oldSchemaVersion in
                 // Walk through every migration that is needed
-//                if (oldSchemaVersion < 1) { Migration1.migrateRealm(migration) }
-//                if (oldSchemaVersion < 2) { Migration2.migrateRealm(using: migration) }
-//                if (oldSchemaVersion < 3) { Migration3.migrateRealm(using: migration) }
+                if (oldSchemaVersion < 6) { MigrationHelper.migrations[6]?.migrateRealm(migration) }
             }
         )
     }
@@ -39,12 +35,12 @@ class RealmHelper {
             return ORIGINAL_URL!.deletingLastPathComponent().appendingPathComponent(filename)
         }
         
-        if let realmfile = StorageHelper.settings().string(forKey: StorageHelper.KEY_REALM_FILENAME) {
+        if let realmfile = StorageHelper.getRealmFilename() {
             return ORIGINAL_URL!.deletingLastPathComponent().appendingPathComponent(realmfile)
         }
         
         let realmfile = String(Int(Date().timeIntervalSince1970)) + ".realm"
-        StorageHelper.settings().set(string: realmfile, forKey: StorageHelper.KEY_REALM_FILENAME)
+        StorageHelper.setRealmFilename(realmfile)
         
         return getFileURL()
     }

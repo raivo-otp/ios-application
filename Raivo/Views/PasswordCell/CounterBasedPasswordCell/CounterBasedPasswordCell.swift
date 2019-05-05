@@ -38,7 +38,6 @@ class CounterBasedPasswordCell: PasswordCell {
         self.password = password
         
         issuer.text = password.issuer
-        account.text = password.issuer
         account.text = "(" + password.account + ")"
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
         logo.sd_setImage(with: nil, placeholderImage: UIImage(named: "password-placeholder"))

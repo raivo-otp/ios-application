@@ -33,9 +33,9 @@ class PasswordForm: BaseClass {
         self.form = form
     }
     
-    public func build() -> Self {
+    public func build(_ controller: UIViewController) -> Self {
         buildSynchronizationSection()
-        buildGenericSection()
+        buildGenericSection(controller)
         buildTokenSection()
         buildTOTPSection()
         buildHOTPSection()
@@ -81,7 +81,7 @@ class PasswordForm: BaseClass {
             })
     }
     
-    private func buildGenericSection() {
+    private func buildGenericSection(_ controller: UIViewController) {
         form +++ Section("Information", { section in
             section.tag = "generic"
         })
@@ -110,6 +110,11 @@ class PasswordForm: BaseClass {
                 if !row.isValid {
                     cell.titleLabel?.textColor = .red
                 }
+            })
+        
+            <<< LogoFormRow(tag: "logo_url", controller: controller, { row in
+                row.title = "Logo"
+                row.options = PasswordLogoTypeFormOption.options
             })
     }
     

@@ -21,8 +21,8 @@ class MainMiscViewController: FormViewController {
         miscellaneousForm = MiscellaneousForm(form).build(controller: self)
         
         // Set default/prefilled values
-        if let inactivityLockString = StorageHelper.settings().string(forKey: StorageHelper.KEY_LOCKSCREEN_TIMEOUT) {
-            miscellaneousForm!.inactivityLockRow.value = MiscellaneousInactivityLockFormOption.build(Int(inactivityLockString)!)
+        if let inactivityLockString = StorageHelper.getLockscreenTimeout() {
+            miscellaneousForm!.inactivityLockRow.value = MiscellaneousInactivityLockFormOption.build(inactivityLockString)
         }
         
         SyncerHelper.getSyncer().getAccount(success: accountSuccess, error: accountError)

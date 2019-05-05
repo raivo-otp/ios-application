@@ -19,7 +19,7 @@ class MainEditPasswordViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        passwordForm = PasswordForm(form).build()
+        passwordForm = PasswordForm(form).build(self)
         
         // Set default/prefilled values
         if let password = password {
@@ -50,8 +50,8 @@ class MainEditPasswordViewController: FormViewController {
         
         let realm = try! Realm()
         try! realm.write {
-            password!.issuer = passwordForm!.issuerRow.value!
-            password!.account = passwordForm!.accountRow.value!
+            password!.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
+            password!.account = passwordForm!.accountRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
             password!.secret = passwordForm!.secretRow.value!
             password!.algorithm = passwordForm!.algorithmRow.value!.value
             password!.digits = passwordForm!.digitsRow.value!.value

@@ -118,7 +118,7 @@ class SetupChooseSyncerServiceViewController: FormViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DatabaseEncryptionSegue" {
             if let destination = segue.destination as? SetupChooseEncryptionKeyViewController {
-                StorageHelper.settings().set(string: synchronizationProviderForm!.getSelectedSyncer()!, forKey: StorageHelper.KEY_SYNCHRONIZATION_PROVIDER)
+                StorageHelper.setSynchronizationProvider(synchronizationProviderForm!.getSelectedSyncer()!)
                 destination.account = self.accounts[synchronizationProviderForm!.getSelectedSyncer()!]
                 destination.challenge = self.challenges[synchronizationProviderForm!.getSelectedSyncer()!]
             }

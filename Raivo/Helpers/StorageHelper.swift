@@ -58,16 +58,16 @@ class StorageHelper {
         return settings().string(forKey: KEY_PASSWORD)
     }
     
-    public static func setLockscreenTimeout(_ seconds: Int) {
+    public static func setLockscreenTimeout(_ seconds: TimeInterval) {
         settings().set(string: String(seconds), forKey: KEY_LOCKSCREEN_TIMEOUT)
     }
     
-    public static func getLockscreenTimeout() -> Int? {
+    public static func getLockscreenTimeout() -> TimeInterval? {
         guard let timeout = settings().string(forKey: KEY_LOCKSCREEN_TIMEOUT) else {
             return nil
         }
         
-        return Int(timeout)
+        return TimeInterval(timeout)
     }
     
     public static func setRealmFilename(_ filename: String) {

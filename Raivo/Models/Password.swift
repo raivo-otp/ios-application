@@ -37,13 +37,17 @@ class Password: Object {
     
     @objc dynamic var digits = PasswordDigitsFormOption.OPTION_DEFAULT.value
     
-    @objc dynamic var deleted = false
+    @objc dynamic var logoType = ""
+    
+    @objc dynamic var logoValue = ""
     
     // Required if HOTP
     @objc dynamic var counter: Int = 0
     
     // Required if TOTP
     @objc dynamic var timer = 30
+    
+    @objc dynamic var deleted = false
     
     @objc dynamic var syncing = false
     
@@ -73,6 +77,10 @@ class Password: Object {
         }
         
         return cachedToken!
+    }
+    
+    public func getLogoURL() -> URL? {
+        return nil
     }
 
 }

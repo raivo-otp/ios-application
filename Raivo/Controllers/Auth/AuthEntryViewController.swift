@@ -29,9 +29,7 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         
         adjustConstraintToKeyboard()
         
-        let biometrics = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
-        
-        self.pincodeDigitsView.showBiometrics(biometrics)
+        self.pincodeDigitsView.showBiometrics(StorageHelper.getBiometricUnlockEnabled())
         self.pincodeDigitsView.delegate = self
         self.showPincodeView("Enter your PIN code to continue.")
     }
@@ -99,29 +97,30 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     internal func resetPincodeTries() {
-        StorageHelper.settings().set(string: "0", forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP)
-        StorageHelper.settings().set(string: "0", forKey:  StorageHelper.KEY_PINCODE_TRIED_AMOUNT)
+        StorageHelper.setPincodeTriedAmount(0)
+        StorageHelper.setPincodeTriedTimestamp(0)
     }
     
     internal func getTriesLeft() -> Int {
-        return maximumTries - Int(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT) ?? "0")!
+        return maximumTries - (StorageHelper.getPincodeTriedAmount() ?? 0)
     }
     
     internal func getSecondsLeft() -> Int {
-        let lastTryTimestamp = Double(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP) ?? "0")!
+        let lastTryTimestamp = StorageHelper.getPincodeTriedTimestamp() ?? TimeInterval(0)
         return Int((lastTryTimestamp + (lockoutTime * 60)) - Date().timeIntervalSince1970)
     }
     
     internal func tryNewPincode(increase: Bool = true) -> Bool {
-        let currentTries = Int(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT) ?? "0")!
-        let lastTryTimestamp = Double(StorageHelper.settings().string(forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP) ?? "0")!
+        let currentTries = StorageHelper.getPincodeTriedAmount() ?? 0
+        let lastTryTimestamp = StorageHelper.getPincodeTriedTimestamp() ?? TimeInterval(0)
         
         // If can try
         guard currentTries >= maximumTries else {
             if increase {
-                StorageHelper.settings().set(string: String(Date().timeIntervalSince1970), forKey: StorageHelper.KEY_PINCODE_TRIED_TIMESTAMP)
-                StorageHelper.settings().set(string: String(currentTries + 1), forKey: StorageHelper.KEY_PINCODE_TRIED_AMOUNT)
+                StorageHelper.setPincodeTriedTimestamp(Date().timeIntervalSince1970)
+                StorageHelper.setPincodeTriedAmount(currentTries + 1)
             }
+            
             return true
         }
         
@@ -136,9 +135,7 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     internal func tryTouchID() {
-        let enabled = Bool(StorageHelper.settings().string(forKey: StorageHelper.KEY_TOUCHID_ENABLED) ?? "false")!
-        
-        guard enabled else {
+        guard StorageHelper.getBiometricUnlockEnabled() else {
             return
         }
         
@@ -148,16 +145,13 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
             return
         }
         
-        let prompt = "Unlock Raivo in no time"
-        let result = StorageHelper.secrets().string(forKey: StorageHelper.KEY_ENCRYPTION_KEY, withPrompt: prompt)
-        
-        switch result {
-        case .success(let key):
-            let _ = self.tryNewPincode()
+        if let key = StorageHelper.getEncryptionKey(prompt: "Unlock Raivo in no time") {
             self.getAppDelagate().updateEncryptionKey(Data(base64Encoded: key))
+            self.resetPincodeTries()
             self.updateStoryboard()
-        default:
-            return
+        } else {
+            let _ = self.tryNewPincode()
         }
+        
     }
 }
