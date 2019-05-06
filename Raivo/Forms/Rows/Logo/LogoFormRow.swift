@@ -11,6 +11,7 @@ import Eureka
 
 final class LogoFormRow: _ActionSheetRow<LogoFormCell>, RowType {
     
+    
     public var valueURL: URL? = nil
 //    
 //    required public init(tag: String?) {
@@ -24,9 +25,12 @@ final class LogoFormRow: _ActionSheetRow<LogoFormCell>, RowType {
         cellProvider = CellProvider<LogoFormCell>(nibName: "LogoFormCell", bundle: Bundle.main)
         
         onChange { (row) in
-            switch row.value {
+            let value = row.value
+            row.value = nil // Ensure that onchange triggers the next time
+            
+            switch value {
             case PasswordLogoTypeFormOption.OPTION_RAIVO_VECTOR:
-                self.selectFromRaivoVectors(controller)
+                self.selectFromRaivoVectors(controller, row)
             default:
                 return
             }
@@ -34,10 +38,11 @@ final class LogoFormRow: _ActionSheetRow<LogoFormCell>, RowType {
         
     }
 
-    private func selectFromRaivoVectors(_ controller: UIViewController) {
-        let vectorController = LogoFormViewController()
+    private func selectFromRaivoVectors(_ sender: UIViewController, _ row: LogoFormRow) {
+        let controller = LogoFormVectorViewController()
+        controller.set(logoFormRow: row)
         
-        controller.navigationController?.pushViewController(vectorController, animated: true)
+        sender.navigationController?.pushViewController(controller, animated: true)
     }
     
 }
