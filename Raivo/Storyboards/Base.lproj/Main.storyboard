@@ -120,6 +120,7 @@
                         <viewLayoutGuide key="safeArea" id="agh-vy-GIo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Password" id="B8I-jh-gwg">
+                        <barButtonItem key="backBarButtonItem" title="Create" id="ZAw-mY-4Yc"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wRy-iv-iCx">
                             <connections>
                                 <action selector="onSave:" destination="x2c-1h-doB" id="DQW-cP-VvT"/>
