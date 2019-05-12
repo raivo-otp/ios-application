@@ -25,6 +25,8 @@ class MainEditPasswordViewController: FormViewController {
         if let password = password {
             passwordForm?.issuerRow.value = password.issuer
             passwordForm?.accountRow.value = password.account
+            passwordForm?.iconRow.iconType = password.iconType
+            passwordForm?.iconRow.iconValue = password.iconValue
             passwordForm?.secretRow.value = password.secret
             passwordForm?.algorithmRow.value = PasswordAlgorithmFormOption.build(password.algorithm)
             passwordForm?.digitsRow.value = PasswordDigitsFormOption.build(password.digits)
@@ -52,6 +54,8 @@ class MainEditPasswordViewController: FormViewController {
         try! realm.write {
             password!.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
             password!.account = passwordForm!.accountRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
+            password!.iconType = passwordForm!.iconRow.iconType ?? ""
+            password!.iconValue = passwordForm!.iconRow.iconValue ?? ""
             password!.secret = passwordForm!.secretRow.value!
             password!.algorithm = passwordForm!.algorithmRow.value!.value
             password!.digits = passwordForm!.digitsRow.value!.value

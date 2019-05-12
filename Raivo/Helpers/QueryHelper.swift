@@ -27,4 +27,5 @@ class QueryHelper {
         
         return NSPredicate(format: query.joined(separator: " AND "), argumentArray: values)
     }
+    
 }

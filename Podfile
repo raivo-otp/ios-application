@@ -43,7 +43,7 @@ target 'Raivo' do
   # Haptic feedback while e.g. entering PIN code or copying an OTP
   pod 'Haptica', '3.0.0'
   
-  # Allow SVG rendering in the app
-  pod 'SVGKit', '2.1.0'
+  # HTTP requests for custom issuer icons
+  pod 'Alamofire', '4.8.1'
 
 end

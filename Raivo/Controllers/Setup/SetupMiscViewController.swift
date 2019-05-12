@@ -1,8 +1,8 @@
 //
-//  AuthMiscViewController.swift
+//  SetupMiscViewController.swift
 //  Raivo
 //
-//  Created by Tijme Gommers on 20/04/2019.
+//  Created by Tijme Gommers on 12/05/2019.
 //  Copyright © 2019 Tijme Gommers. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Eureka
 import CloudKit
 import RealmSwift
 
-class AuthMiscViewController: FormViewController {
+class SetupMiscViewController: FormViewController {
     
     private var miscellaneousForm: MiscellaneousForm?
     
@@ -20,5 +20,5 @@ class AuthMiscViewController: FormViewController {
         
         miscellaneousForm = MiscellaneousForm(form).build(controller: self).ready()
     }
-
+    
 }

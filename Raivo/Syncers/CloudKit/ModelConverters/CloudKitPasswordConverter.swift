@@ -25,6 +25,8 @@ class CloudKitPasswordConverter: BaseClass, CloudKitModelConverterProtocol {
         
         password.id = record.value(forKey: "id") as! Int64
         password.kind = record.value(forKey: "kind") as! String
+        password.iconType = record.value(forKey: "iconType") as? String ?? ""
+        password.iconValue = record.value(forKey: "iconValue") as? String ?? ""
         password.algorithm = record.value(forKey: "algorithm") as! String
         password.digits = record.value(forKey: "digits") as! Int
         password.counter = record.value(forKey: "counter") as! Int
@@ -69,6 +71,8 @@ class CloudKitPasswordConverter: BaseClass, CloudKitModelConverterProtocol {
             record.setValue(try EncryptionHelper.encrypt(password.issuer), forKey: "issuer")
             record.setValue(try EncryptionHelper.encrypt(password.account), forKey: "account")
             record.setValue(try EncryptionHelper.encrypt(password.secret), forKey: "secret")
+            record.setValue(password.iconType, forKey: "iconType")
+            record.setValue(password.iconValue, forKey: "iconValue")
             record.setValue(password.algorithm, forKey: "algorithm")
             record.setValue(password.digits, forKey: "digits")
             record.setValue(password.deleted, forKey: "deleted")

@@ -25,7 +25,13 @@ class MainMiscViewController: FormViewController {
             miscellaneousForm!.inactivityLockRow.value = MiscellaneousInactivityLockFormOption.build(inactivityLockString)
         }
         
+        if let iconsEffect = StorageHelper.getIconsEffect() {
+            miscellaneousForm!.iconsEffectRow.value = MiscellaneousIconsEffectFormOption.build(iconsEffect)
+        }
+        
         SyncerHelper.getSyncer().getAccount(success: accountSuccess, error: accountError)
+        
+        miscellaneousForm!.ready()
     }
     
     private func accountSuccess(_ account: SyncerAccount, _ syncerID: String) {

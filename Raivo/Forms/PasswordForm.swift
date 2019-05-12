@@ -22,6 +22,7 @@ class PasswordForm: BaseClass {
     public var errorRow: LabelRow { return form.rowBy(tag: "error") as! LabelRow }
     public var issuerRow: TextRow { return form.rowBy(tag: "issuer") as! TextRow }
     public var accountRow: TextRow { return form.rowBy(tag: "account") as! TextRow }
+    public var iconRow: IconFormRow { return form.rowBy(tag: "icon_url") as! IconFormRow }
     public var secretRow: TextRow { return form.rowBy(tag: "secret") as! TextRow }
     public var algorithmRow: PickerInlineRow<PasswordAlgorithmFormOption> { return form.rowBy(tag: "algorithm") as! PickerInlineRow<PasswordAlgorithmFormOption> }
     public var digitsRow: PickerInlineRow<PasswordDigitsFormOption> { return form.rowBy(tag: "digits") as! PickerInlineRow<PasswordDigitsFormOption> }
@@ -33,6 +34,7 @@ class PasswordForm: BaseClass {
         self.form = form
     }
     
+    @discardableResult
     public func build(_ controller: UIViewController) -> Self {
         buildSynchronizationSection()
         buildGenericSection(controller)
@@ -84,6 +86,11 @@ class PasswordForm: BaseClass {
     private func buildGenericSection(_ controller: UIViewController) {
         form +++ Section("Information", { section in
             section.tag = "generic"
+            
+            let iconEffectValue = self.getAppDelagate().getIconEffect()
+            if let iconEffect = MiscellaneousIconsEffectFormOption.build(iconEffectValue) {
+                section.footer = HeaderFooterView(title: iconEffect.help)
+            }
         })
             
             <<< TextRow("issuer", { row in
@@ -112,9 +119,9 @@ class PasswordForm: BaseClass {
                 }
             })
         
-            <<< LogoFormRow(tag: "logo_url", controller: controller, { row in
-                row.title = "Logo"
-                row.options = PasswordLogoTypeFormOption.options
+            <<< IconFormRow(tag: "icon_url", controller: controller, { row in
+                row.title = "Icon"
+                row.options = PasswordIconTypeFormOption.options
             })
     }
     

@@ -12,32 +12,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LogoFormVectorCell" id="dOt-kB-dpz" customClass="LogoFormVectorCell" customModule="Raivo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IconFormCell" id="dOt-kB-dpz" customClass="IconFormCell" customModule="Raivo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50F-zZ-oa2">
-                        <rect key="frame" x="29" y="44.5" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JMn-Vw-H8C">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="50F-zZ-oa2" firstAttribute="centerX" secondItem="IPE-FJ-Xud" secondAttribute="centerX" id="9m6-Ps-sLg"/>
-                <constraint firstItem="50F-zZ-oa2" firstAttribute="centerY" secondItem="IPE-FJ-Xud" secondAttribute="centerY" id="Ty4-IX-rWl"/>
+                <constraint firstAttribute="bottom" secondItem="JMn-Vw-H8C" secondAttribute="bottom" id="CfQ-FQ-yhh"/>
+                <constraint firstItem="JMn-Vw-H8C" firstAttribute="top" secondItem="dOt-kB-dpz" secondAttribute="top" id="NL6-0T-824"/>
+                <constraint firstAttribute="trailing" secondItem="JMn-Vw-H8C" secondAttribute="trailing" id="Xbn-J6-pTM"/>
+                <constraint firstItem="JMn-Vw-H8C" firstAttribute="leading" secondItem="dOt-kB-dpz" secondAttribute="leading" id="qZe-Kr-0gV"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="IPE-FJ-Xud"/>
-            <size key="customSize" width="205" height="173"/>
+            <size key="customSize" width="343" height="319"/>
             <connections>
-                <outlet property="label" destination="50F-zZ-oa2" id="s4K-zB-E9c"/>
+                <outlet property="imageView" destination="JMn-Vw-H8C" id="2gP-Ab-dmj"/>
             </connections>
-            <point key="canvasLocation" x="-124.6376811594203" y="134.59821428571428"/>
+            <point key="canvasLocation" x="-401.44927536231887" y="149.33035714285714"/>
         </collectionViewCell>
     </objects>
 </document>

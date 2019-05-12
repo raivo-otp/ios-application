@@ -37,9 +37,9 @@ class Password: Object {
     
     @objc dynamic var digits = PasswordDigitsFormOption.OPTION_DEFAULT.value
     
-    @objc dynamic var logoType = ""
+    @objc dynamic var iconType = ""
     
-    @objc dynamic var logoValue = ""
+    @objc dynamic var iconValue = ""
     
     // Required if HOTP
     @objc dynamic var counter: Int = 0
@@ -79,8 +79,8 @@ class Password: Object {
         return cachedToken!
     }
     
-    public func getLogoURL() -> URL? {
-        return nil
+    public func getIconURL() -> URL? {
+        return URL(string: AppHelper.iconsURL + self.iconValue)
     }
 
 }

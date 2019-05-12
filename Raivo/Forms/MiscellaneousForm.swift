@@ -13,8 +13,11 @@ class MiscellaneousForm: BaseClass {
     
     private var form: Form
     
+    private var isReady = false
+    
     public var synchronizationSection: Section { return form.sectionBy(tag: "synchronization")! }
-    public var settingsSection: Section { return form.sectionBy(tag: "settings")! }
+    public var authenticationSection: Section { return form.sectionBy(tag: "authentication")! }
+    public var interfaceSection: Section { return form.sectionBy(tag: "interface")! }
     public var aboutSection: Section { return form.sectionBy(tag: "about")! }
     public var legalSection: Section { return form.sectionBy(tag: "legal")! }
     public var advancedSection: Section { return form.sectionBy(tag: "advanced")! }
@@ -24,6 +27,7 @@ class MiscellaneousForm: BaseClass {
     public var inactivityLockRow: PickerInlineRow<MiscellaneousInactivityLockFormOption> { return form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscellaneousInactivityLockFormOption> }
     public var touchIDUnlockRow: SwitchRow { return form.rowBy(tag: "touchid_unlock") as! SwitchRow }
     public var changePINCodeRow: ButtonRow { return form.rowBy(tag: "change_pin_code") as! ButtonRow }
+    public var iconsEffectRow: PickerInlineRow<MiscellaneousIconsEffectFormOption> { return form.rowBy(tag: "icons_effect") as! PickerInlineRow<MiscellaneousIconsEffectFormOption> }
     public var versionRow: LabelRow { return form.rowBy(tag: "version") as! LabelRow }
     public var compilationRow: LabelRow { return form.rowBy(tag: "compilation") as! LabelRow }
     public var authorRow: LabelRow { return form.rowBy(tag: "author") as! LabelRow }
@@ -37,13 +41,21 @@ class MiscellaneousForm: BaseClass {
         self.form = form
     }
     
+    @discardableResult
     public func build(controller: UIViewController) -> Self {
         buildSynchronizationSection(controller)
-        buildSettingsSection(controller)
+        buildAuthenticationSection(controller)
+        buildInterfaceSection(controller)
         buildAboutSection(controller)
         buildLegalSection(controller)
         buildAdvancedSection(controller)
         
+        return self
+    }
+    
+    @discardableResult
+    public func ready() -> Self {
+        self.isReady = true
         return self
     }
     
@@ -85,11 +97,11 @@ class MiscellaneousForm: BaseClass {
             })
     }
     
-    private func buildSettingsSection(_ controller: UIViewController) {
+    private func buildAuthenticationSection(_ controller: UIViewController) {
         let authenticated = StateHelper.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
         
-        form +++ Section("Settings", { section in
-            section.tag = "settings"
+        form +++ Section("Authentication", { section in
+            section.tag = "authentication"
             section.hidden = Condition(booleanLiteral: !authenticated)
         })
             
@@ -128,7 +140,7 @@ class MiscellaneousForm: BaseClass {
                     } else {
                         StorageHelper.setEncryptionKey(key.base64EncodedString())
                         
-                        if let key = StorageHelper.getEncryptionKey(prompt: "Confirm to enable TouchID") {
+                        if StorageHelper.getEncryptionKey(prompt: "Confirm to enable TouchID") != nil {
                             StorageHelper.setBiometricUnlockEnabled(true)
                         } else {
                             row.value = false
@@ -146,7 +158,38 @@ class MiscellaneousForm: BaseClass {
             }).onCellSelection({ cell, row in
                 controller.performSegue(withIdentifier: "ChangePincodeSegue", sender: nil)
             })
+    }
+    
+    private func buildInterfaceSection(_ controller: UIViewController) {
+        let authenticated = StateHelper.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        
+        form +++ Section("Interface", { section in
+            section.tag = "interface"
+            section.hidden = Condition(booleanLiteral: !authenticated)
+        })
             
+            <<< PickerInlineRow<MiscellaneousIconsEffectFormOption>("icons_effect", { row in
+                row.title = "Icons effect"
+                row.options = MiscellaneousIconsEffectFormOption.options
+                row.value = MiscellaneousIconsEffectFormOption.OPTION_DEFAULT
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textColor = ColorHelper.getTint()
+                cell.imageView?.image = UIImage(named: "form-icons-effect")
+            }).onChange({ row in
+                guard self.isReady else { return }
+                
+                StorageHelper.setIconsEffect(row.value!.value)
+                row.collapseInlineRow()
+                
+                let refreshAlert = UIAlertController(
+                    title: "Restart required!",
+                    message: "The effect of the icons will change after you've restarted Raivo.",
+                    preferredStyle: UIAlertController.Style.alert
+                )
+                
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                controller.present(refreshAlert, animated: true, completion: nil)
+            })
     }
     
     private func buildAboutSection(_ controller: UIViewController) {
@@ -219,8 +262,11 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildAdvancedSection(_ controller: UIViewController) {
+        let show = [StateHelper.Storyboard.MAIN, StateHelper.Storyboard.AUTH].contains(StateHelper.getCurrentStoryboard())
+        
         form +++ Section("Advanced", { section in
             section.tag = "advanced"
+            section.hidden = Condition(booleanLiteral: !show)
             
             let footerTitle = "Signing out will remove all data from your device."
             if [MockSyncer.UNIQUE_ID, OfflineSyncer.UNIQUE_ID].contains(SyncerHelper.getSyncer().UNIQUE_ID) {

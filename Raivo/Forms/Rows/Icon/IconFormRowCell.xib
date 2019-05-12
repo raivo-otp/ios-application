@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="77" id="ukX-jA-mEu" customClass="LogoFormCell" customModule="Raivo" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="77" id="ukX-jA-mEu" customClass="IconFormRowCell" customModule="Raivo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ukX-jA-mEu" id="yGB-ge-tbb">
@@ -33,7 +33,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="logoView" destination="CdK-NB-BuT" id="GGx-6S-kNm"/>
+                <outlet property="iconView" destination="CdK-NB-BuT" id="GGx-6S-kNm"/>
             </connections>
             <point key="canvasLocation" x="-171.01449275362319" y="117.52232142857142"/>
         </tableViewCell>

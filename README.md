@@ -22,6 +22,7 @@
 ## Features
 
 * Backup/sync (T/H)OTPs to iCloud automagically
+* Add custom issuer icons for your OTPs
 * Scan a QR code or add an OTP manually
 * Show the current and previous token
 * Search using powerful search capabilities
@@ -30,11 +31,9 @@
 * It's secure (see the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for more information)
 * It's open-source (check the [contribution policy](https://github.com/tijme/raivo/blob/master/CONTRIBUTING.md))
 
-## Upcoming
+## Icons
 
-* Custom issuer logos
-* Multilingual support
-* Scan OTP seeds from shared password managers
+Raivo enables you to add your own icons to OTPs. You can add your own icon via the [Raivo icon repository](https://github.com/tijme/raivo-issuer-icons). Make sure to read the contribution guidelines before making a pull request.
 
 ## Issues
 

@@ -16,6 +16,7 @@ class StorageHelper {
     private static let KEY_LOCKSCREEN_TIMEOUT = "LockscreenTimeout"
     private static let KEY_REALM_FILENAME = "RealmFilename"
     private static let KEY_SYNCHRONIZATION_PROVIDER = "SynchronizationProvider"
+    private static let KEY_ICONS_EFFECT = "IconsEffect"
     private static let KEY_PINCODE_TRIED_AMOUNT = "PincodeTriedAmount"
     private static let KEY_PINCODE_TRIED_TIMESTAMP = "PincodeTriedTimestamp"
     private static let KEY_PREVIOUS_BUILD = "PreviousBuild"
@@ -84,6 +85,14 @@ class StorageHelper {
     
     public static func getSynchronizationProvider() -> String? {
         return settings().string(forKey: KEY_SYNCHRONIZATION_PROVIDER)
+    }
+    
+    public static func setIconsEffect(_ effect: String) {
+        settings().set(string: effect, forKey: KEY_ICONS_EFFECT)
+    }
+    
+    public static func getIconsEffect() -> String? {
+        return settings().string(forKey: KEY_ICONS_EFFECT)
     }
     
     public static func setPincodeTriedAmount(_ tries: Int) {

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.1)
   - Base32 (1.1.2)
   - CocoaLumberjack (3.5.3):
     - CocoaLumberjack/Core (= 3.5.3)
@@ -31,6 +32,7 @@ PODS:
   - Valet (3.2.3)
 
 DEPENDENCIES:
+  - Alamofire (= 4.8.1)
   - Eureka (= 4.3.1)
   - Haptica (= 3.0.0)
   - KeychainSwift
@@ -41,13 +43,13 @@ DEPENDENCIES:
   - SDWebImageSVGCoder (= 0.2.0)
   - SimpleCheckbox (= 1.5.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
-  - SVGKit (= 2.1.0)
   - SwiftMessages (= 6.0.2)
   - SwiftyBeaver (= 1.7.0)
   - Valet (= 3.2.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Base32
     - CocoaLumberjack
     - Eureka
@@ -75,6 +77,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
@@ -93,6 +96,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
   Valet: 4af0382d4a94db5c7861504f751884f653437d24
 
-PODFILE CHECKSUM: b3fbcf6d8b7e733a85644ce4cd68bf00910e2959
+PODFILE CHECKSUM: b1ae67e47317939324337c344a5d6abc26bdf140
 
 COCOAPODS: 1.5.3

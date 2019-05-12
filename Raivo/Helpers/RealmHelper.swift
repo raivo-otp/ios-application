@@ -10,14 +10,14 @@ import Foundation
 import RealmSwift
 
 class RealmHelper {
-
+    
     private static let ORIGINAL_URL = Realm.Configuration.defaultConfiguration.fileURL
     
     public static func initDefaultRealmConfiguration(encryptionKey: Data?) {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             fileURL: getFileURL(),
             encryptionKey: encryptionKey,
-            schemaVersion: UInt64(AppHelper.build),
+            schemaVersion: UInt64(AppHelper.build) + 1,
             migrationBlock: { migration, oldSchemaVersion in
                 // Walk through every migration that is needed
                 if (oldSchemaVersion < 6) { MigrationHelper.migrations[6]?.migrateRealm(migration) }

@@ -33,7 +33,7 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         self.pincodeDigitsView.delegate = self
         self.showPincodeView("Enter your PIN code to continue.")
     }
-                                                                                                                                                                                                              
+
     override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
         return bottomPadding
     }

@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import CloudKit
 import SwiftyBeaver
+import SDWebImage
 import SDWebImageSVGCoder
 
 let log = SwiftyBeaver.self
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var encryptionKey: Data?
     
+    private var iconsEffect: String? = nil
+    
     /// When the application finished launching
     ///
     /// - Parameter application: The application as passed to `UIApplicationDelegate`
@@ -35,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let console = ConsoleDestination()
         log.addDestination(console)
         
-        // Initialize SVG decoder
+        // Initialize SDImage configurations
+        SDImageCache.shared.config.maxDiskAge = TimeInterval(60 * 60 * 24 * 365 * 4)
         SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
         
         // If this is the first run of the app, flush the keychain
@@ -66,6 +70,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public func getEncryptionKey() -> Data? {
         return encryptionKey
+    }
+    
+    public func getIconEffect() -> String {
+        if let iconEffect = self.iconsEffect {
+            return iconEffect
+        }
+        
+        self.iconsEffect = StorageHelper.getIconsEffect()
+        
+        if self.iconsEffect == nil {
+            self.iconsEffect = MiscellaneousIconsEffectFormOption.OPTION_DEFAULT.value
+        }
+        
+        return self.iconsEffect!
     }
     
     private func beforeStoryboardChange(_ storyboard: String) {

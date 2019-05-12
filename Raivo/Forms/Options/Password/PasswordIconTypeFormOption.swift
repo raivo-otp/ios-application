@@ -1,5 +1,5 @@
 //
-//  PasswordLogoTypeFormOption.swift
+//  PasswordIconTypeFormOption.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 05/05/2019.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class PasswordLogoTypeFormOption: BaseFormOption {
+public class PasswordIconTypeFormOption: BaseFormOption {
     
-    static let OPTION_RAIVO_VECTOR = PasswordLogoTypeFormOption("raivo_vector", description: "Choose from Raivo vectors")
+    static let OPTION_RAIVO_REPOSITORY = PasswordIconTypeFormOption("raivo_repository", description: "Raivo's icon repository")
     
     static let options = [
-        OPTION_RAIVO_VECTOR
+        OPTION_RAIVO_REPOSITORY
     ]
     
     public var value: String
@@ -25,7 +25,7 @@ public class PasswordLogoTypeFormOption: BaseFormOption {
         self.description = description
     }
     
-    static func build(_ value: String) -> PasswordLogoTypeFormOption? {
+    static func build(_ value: String) -> PasswordIconTypeFormOption? {
         for option in options {
             if option.value.elementsEqual(value) {
                 return option
@@ -35,7 +35,7 @@ public class PasswordLogoTypeFormOption: BaseFormOption {
         return nil
     }
     
-    public static func == (lhs: PasswordLogoTypeFormOption, rhs: PasswordLogoTypeFormOption) -> Bool {
+    public static func == (lhs: PasswordIconTypeFormOption, rhs: PasswordIconTypeFormOption) -> Bool {
         return lhs.value == rhs.value
     }
     

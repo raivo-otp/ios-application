@@ -34,4 +34,12 @@ class AppHelper {
     public static let compilation =  Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" ? "TestFlight" : "Release"
     #endif
     
+    /// The domain (including directory) that hosts the custom issuer icons
+    ///
+    /// - todo: Convert this to a Content Delivery Network (CDN).
+    public static let iconsURL = "https://raw.finnwea.com/raivo-issuer-icons/dist/"
+    
+    /// User agent for HTTP requests (e.g. searching icons)
+    public static let userAgent = identifier + "/" + version
+    
 }

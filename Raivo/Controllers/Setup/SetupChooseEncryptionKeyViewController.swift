@@ -22,14 +22,14 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     
     @IBOutlet weak var viewExtra: SpringLabel!
     
-    @IBOutlet weak var viewEncryptionKey: UITextField!
+    @IBOutlet weak var viewEncryptionPassword: UITextField!
     
     @IBOutlet weak var forgotView: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewEncryptionKey.delegate = self
+        viewEncryptionPassword.delegate = self
         adjustConstraintToKeyboard()
         
         if let _ = self.challenge?.challenge {
@@ -40,7 +40,7 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        viewEncryptionKey.becomeFirstResponder()
+        viewEncryptionPassword.becomeFirstResponder()
     }
     
     override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
@@ -55,7 +55,7 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     private func verifyChallenge() -> Bool {
         if let challenge = self.challenge?.challenge {
             do {
-                let _ = try EncryptionHelper.decrypt(challenge, withKey: viewEncryptionKey.text ?? "")
+                let _ = try EncryptionHelper.decrypt(challenge, withKey: viewEncryptionPassword.text ?? "")
                 return true
             } catch {
                 return false
@@ -66,7 +66,7 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     }
     
     @IBAction func onContinue(_ sender: Any) {
-        guard viewEncryptionKey.text?.length ?? 0 >= 8 else {
+        guard viewEncryptionPassword.text?.length ?? 0 >= 8 else {
             self.viewExtra.text = "Your encryption key must consist of 8 characters or more."
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
@@ -80,7 +80,7 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
             return
         }
         
-        StorageHelper.setEncryptionKey(viewEncryptionKey.text!)
+        StorageHelper.setEncryptionPassword(viewEncryptionPassword.text!)
         
         performSegue(withIdentifier: "ChoosePincodeSegue", sender: sender)
     }

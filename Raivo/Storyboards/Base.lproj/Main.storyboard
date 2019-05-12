@@ -187,6 +187,7 @@
                         <viewLayoutGuide key="safeArea" id="j0L-dn-8mA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Password" id="fWU-Md-GCH">
+                        <barButtonItem key="backBarButtonItem" title="Edit" id="gLm-9e-Sec"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0r9-Ba-kbs">
                             <connections>
                                 <action selector="onSave:" destination="6aa-25-buz" id="7Qd-im-Y5h"/>

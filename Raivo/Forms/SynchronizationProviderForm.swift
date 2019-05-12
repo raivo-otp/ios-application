@@ -34,6 +34,7 @@ class SynchronizationProviderForm: BaseClass {
         self.form = form
     }
     
+    @discardableResult
     public func build() -> Self {
         initProvidersSection()
         

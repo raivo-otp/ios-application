@@ -1,5 +1,5 @@
 //
-//  LogoFormVectorCell.swift
+//  IconFormCell.swift
 //  Raivo
 //
 //  Created by Tijme Gommers on 06/05/2019.
@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class LogoFormVectorCell: UICollectionViewCell {
+class IconFormCell: UICollectionViewCell {
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
 }
