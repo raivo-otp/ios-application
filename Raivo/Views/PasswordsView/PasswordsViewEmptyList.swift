@@ -18,13 +18,6 @@ class PasswordsViewEmptyList: UIView {
         }
     }
     
-    @IBOutlet weak var viewEmptyImage: SVGKFastImageView! {
-        didSet {
-            let url = Bundle.main.url(forResource: "empty", withExtension: "svg")
-            viewEmptyImage.image = SVGKImage(contentsOf: url)
-        }
-    }
-    
     override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
         return bottomPadding
     }

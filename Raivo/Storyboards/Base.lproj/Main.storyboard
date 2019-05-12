@@ -13,7 +13,7 @@
         <!--Search-->
         <scene sceneID="jpu-Ev-k8S">
             <objects>
-                <viewController restorationIdentifier="SearchViewController" storyboardIdentifier="SearchViewController" id="3fu-P0-KYe" customClass="SearchViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SearchViewController" storyboardIdentifier="SearchViewController" id="3fu-P0-KYe" customClass="MainSearchViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m9f-7z-bfb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
         <!--Scan-->
         <scene sceneID="f4l-0E-nB9">
             <objects>
-                <viewController title="Scan" id="I4h-xK-fAb" customClass="ScanPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Scan" id="I4h-xK-fAb" customClass="MainScanPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zc4-fI-UmP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
         <!--Create Password-->
         <scene sceneID="JiU-sJ-Ajr">
             <objects>
-                <viewController id="x2c-1h-doB" customClass="CreatePasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x2c-1h-doB" customClass="MainCreatePasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BE6-kL-9Iw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,6 +120,7 @@
                         <viewLayoutGuide key="safeArea" id="agh-vy-GIo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Password" id="B8I-jh-gwg">
+                        <barButtonItem key="backBarButtonItem" title="Create" id="ZAw-mY-4Yc"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wRy-iv-iCx">
                             <connections>
                                 <action selector="onSave:" destination="x2c-1h-doB" id="DQW-cP-VvT"/>
@@ -134,7 +135,7 @@
         <!--Passwords-->
         <scene sceneID="zgE-9c-30Q">
             <objects>
-                <viewController id="aG0-Sx-MMn" customClass="PasswordsViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aG0-Sx-MMn" customClass="MainPasswordsViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qHX-Uj-Cbk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +145,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="8H7-jl-tI7" userLabel="Footer">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -179,7 +180,7 @@
         <!--Edit Password-->
         <scene sceneID="ZaQ-AD-jZ3">
             <objects>
-                <viewController id="6aa-25-buz" customClass="EditPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6aa-25-buz" customClass="MainEditPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nqk-RL-Ogy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,6 +188,7 @@
                         <viewLayoutGuide key="safeArea" id="j0L-dn-8mA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Password" id="fWU-Md-GCH">
+                        <barButtonItem key="backBarButtonItem" title="Edit" id="gLm-9e-Sec"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0r9-Ba-kbs">
                             <connections>
                                 <action selector="onSave:" destination="6aa-25-buz" id="7Qd-im-Y5h"/>
@@ -218,7 +220,7 @@
         <!--Misc-->
         <scene sceneID="1TX-0c-T7X">
             <objects>
-                <viewController id="NSd-7i-At7" customClass="MiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NSd-7i-At7" customClass="MainMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tiu-g6-CWn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,7 +239,7 @@
         <!--New Pincode-->
         <scene sceneID="0zb-Hm-etg">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="ChangePincodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="MainChangePincodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RLv-3W-khe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,7 +328,7 @@
         <!--Main-->
         <scene sceneID="cUE-Wc-pa4">
             <objects>
-                <tabBarController restorationIdentifier="MainRootController" storyboardIdentifier="MainRootController" id="zK7-fc-90e" userLabel="Main" customClass="MainViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="MainRootController" storyboardIdentifier="MainRootController" id="zK7-fc-90e" userLabel="Main" customClass="MainEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Test1" id="ZJJ-qn-Xez"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sY2-RF-ZGl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>

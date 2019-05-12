@@ -10,19 +10,23 @@ import UIKit
 import RealmSwift
 import CloudKit
 import SwiftyBeaver
+import SDWebImage
+import SDWebImageSVGCoder
 
 let log = SwiftyBeaver.self
 
 //@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    public var window: UIWindow?
     
     public var currentStoryboardName: String? = nil
     
     public var previousStoryboardName: String? = nil
     
     private var encryptionKey: Data?
+    
+    private var iconsEffect: String? = nil
     
     /// When the application finished launching
     ///
@@ -33,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize debug logging (if applicable)
         let console = ConsoleDestination()
         log.addDestination(console)
+        
+        // Initialize SDImage configurations
+        SDImageCache.shared.config.maxDiskAge = TimeInterval(60 * 60 * 24 * 365 * 4)
+        SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
         
         // If this is the first run of the app, flush the keychain
         // It could be a reinstall of the app (reinstalls don't flush the keychain)
@@ -64,9 +72,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return encryptionKey
     }
     
+    public func getIconEffect() -> String {
+        if let iconEffect = self.iconsEffect {
+            return iconEffect
+        }
+        
+        self.iconsEffect = StorageHelper.getIconsEffect()
+        
+        if self.iconsEffect == nil {
+            self.iconsEffect = MiscellaneousIconsEffectFormOption.OPTION_DEFAULT.value
+        }
+        
+        return self.iconsEffect!
+    }
+    
     private func beforeStoryboardChange(_ storyboard: String) {
         switch storyboard {
-        case "Main":
+        case StateHelper.Storyboard.MAIN:
             // Enable lockscreen timer
             (MyApplication.shared as! MyApplication).enableInactivityTimer()
             
@@ -74,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SyncerHelper.getSyncer().enable()
             SyncerHelper.getSyncer().resyncModel(Password.UNIQUE_ID)
             UIApplication.shared.registerForRemoteNotifications()
-        case "Setup":
+        case StateHelper.Storyboard.SETUP:
             // Disable lockscreen timer
             (MyApplication.shared as! MyApplication).disableInactivityTimer()
             
@@ -120,20 +142,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setCorrectStoryboard() {
-        var storyboardName = ""
-        var controllerName = ""
-        
-        switch StateHelper.getCurrentState() {
-        case StateHelper.States.DATABASE_UNKNOWN:
-            storyboardName = "Setup"
-            controllerName = "SetupRootController"
-        case StateHelper.States.ENCRYPTION_KEY_UNKNOWN:
-            storyboardName = "Auth"
-            controllerName = "AuthRootController"
-        default:
-            storyboardName = "Main"
-            controllerName = "MainRootController"
-        }
+        let storyboardName = StateHelper.getCurrentStoryboard()
+        let controllerName = StateHelper.getCurrentStoryboardController()
         
         beforeStoryboardChange(storyboardName)
         

@@ -11,7 +11,20 @@ import UIKit
 
 extension UIImage {
     
-    func maskWithColor(_ color: UIColor) -> UIImage? {
+    var withIconEffect: UIImage? {
+        let effect = (UIApplication.shared.delegate as! AppDelegate).getIconEffect()
+        
+        switch effect {
+        case MiscellaneousIconsEffectFormOption.OPTION_GRAYSCALE.value:
+            return applying(saturation: 0)
+//        case MiscellaneousIconsEffectFormOption.OPTION_RED_TINT.value:
+//            return fillWithColor(ColorHelper.getTint())
+        default:
+            return self
+        }
+    }
+    
+    func fillWithColor(_ color: UIColor) -> UIImage? {
         let maskImage = cgImage!
         
         let width = size.width
@@ -32,6 +45,24 @@ extension UIImage {
         } else {
             return nil
         }
+    }
+    
+    func applying(saturation value: NSNumber) -> UIImage? {
+        return CIImage(image: self)?
+            .applyingFilter("CIColorControls", parameters: [kCIInputSaturationKey: value])
+            .image
+    }
+    
+}
+
+extension CIImage {
+    
+    var image: UIImage? {
+        let image = UIImage(ciImage: self)
+        UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+        defer { UIGraphicsEndImageContext() }
+        image.draw(in: CGRect(origin: .zero, size: image.size))
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
 }

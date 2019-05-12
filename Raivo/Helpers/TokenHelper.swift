@@ -33,40 +33,46 @@ class TokenHelper {
     }
 
     public static func getTokenFactorFromPassword(password: Password) -> Generator.Factor {
-        if password.kind == Password.Kinds.HOTP {
+        switch password.kind {
+        case PasswordKindFormOption.OPTION_HOTP.value:
             return Generator.Factor.counter(UInt64(password.counter))
-        } else {
+        case PasswordKindFormOption.OPTION_TOTP.value:
             return Generator.Factor.timer(period: Double(password.timer))
+        default:
+            fatalError("Invalid password kind.")
         }
     }
 
     public static func getTokenAlgorithmFromPassword(password: Password) -> Generator.Algorithm {
-        if password.algorithm == Password.Algorithms.SHA256 {
-            return Generator.Algorithm.sha512
-        } else if password.algorithm == Password.Algorithms.SHA256 {
-            return Generator.Algorithm.sha256
-        } else {
+        switch password.algorithm {
+        case PasswordAlgorithmFormOption.OPTION_SHA1.value:
             return Generator.Algorithm.sha1
+        case PasswordAlgorithmFormOption.OPTION_SHA256.value:
+            return Generator.Algorithm.sha256
+        case PasswordAlgorithmFormOption.OPTION_SHA512.value:
+            return Generator.Algorithm.sha512
+        default:
+            fatalError("Invalid password algorithm.")
         }
     }
     
-    public static func getPasswordAlgorithmFromToken(token: Token) -> String {
+    public static func getPasswordAlgorithmFromToken(token: Token) -> PasswordAlgorithmFormOption {
         switch token.generator.algorithm {
         case .sha1:
-            return Password.Algorithms.SHA1
+            return PasswordAlgorithmFormOption.OPTION_SHA1
         case .sha256:
-            return Password.Algorithms.SHA256
+            return PasswordAlgorithmFormOption.OPTION_SHA256
         case .sha512:
-            return Password.Algorithms.SHA512
+            return PasswordAlgorithmFormOption.OPTION_SHA512
         }
     }
     
-    public static func getPasswordKindFromToken(token: Token) -> String {
+    public static func getPasswordKindFromToken(token: Token) -> PasswordKindFormOption {
         switch token.generator.factor {
         case .counter( _):
-                return Password.Kinds.HOTP
+            return PasswordKindFormOption.OPTION_HOTP
         case .timer( _):
-                return Password.Kinds.TOTP
+            return PasswordKindFormOption.OPTION_TOTP
         }
     }
     

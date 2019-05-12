@@ -13,13 +13,12 @@ import RealmSwift
 
 class AuthMiscViewController: FormViewController {
     
-    private var raivoForm: MiscForm?
+    private var miscellaneousForm: MiscellaneousForm?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        raivoForm = MiscForm(form)
-        raivoForm!.load(controller: self, authenticated: false)
+        miscellaneousForm = MiscellaneousForm(form).build(controller: self).ready()
     }
 
 }

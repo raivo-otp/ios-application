@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.8.1)
   - Base32 (1.1.2)
   - CocoaLumberjack (3.5.3):
     - CocoaLumberjack/Core (= 3.5.3)
@@ -14,9 +15,12 @@ PODS:
   - RealmSwift (3.13.1):
     - Realm (= 3.13.1)
   - RNCryptor (5.0.3)
-  - SDWebImage (4.4.3):
-    - SDWebImage/Core (= 4.4.3)
-  - SDWebImage/Core (4.4.3)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
+  - SDWebImageSVGCoder (0.2.0):
+    - SDWebImage/Core (~> 5.0)
+    - SVGKit (>= 2.1)
   - SimpleCheckbox (1.5.0)
   - Spring (1.0.6)
   - SVGKit (2.1.0):
@@ -28,22 +32,24 @@ PODS:
   - Valet (3.2.3)
 
 DEPENDENCIES:
+  - Alamofire (= 4.8.1)
   - Eureka (= 4.3.1)
   - Haptica (= 3.0.0)
   - KeychainSwift
   - OneTimePassword (= 3.1.4)
   - RealmSwift (= 3.13.1)
   - RNCryptor (= 5.0.3)
-  - SDWebImage (= 4.4.3)
+  - SDWebImage (= 5.0.2)
+  - SDWebImageSVGCoder (= 0.2.0)
   - SimpleCheckbox (= 1.5.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
-  - SVGKit (= 2.1.0)
   - SwiftMessages (= 6.0.2)
   - SwiftyBeaver (= 1.7.0)
   - Valet (= 3.2.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Base32
     - CocoaLumberjack
     - Eureka
@@ -54,6 +60,7 @@ SPEC REPOS:
     - RealmSwift
     - RNCryptor
     - SDWebImage
+    - SDWebImageSVGCoder
     - SimpleCheckbox
     - SVGKit
     - SwiftMessages
@@ -70,6 +77,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
@@ -79,7 +87,8 @@ SPEC CHECKSUMS:
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   RNCryptor: c93d19029dcf7ff160aca0f24d6c9e7b0d82f664
-  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
+  SDWebImageSVGCoder: 61f60a3064db079de646a34a5f5aa8d3ac258345
   SimpleCheckbox: 1e59697852ef3caa56a0ed1b40be0f034763b9b9
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
@@ -87,6 +96,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
   Valet: 4af0382d4a94db5c7861504f751884f653437d24
 
-PODFILE CHECKSUM: bec256671a8df65107c9d3c99ea625a9e6448277
+PODFILE CHECKSUM: b1ae67e47317939324337c344a5d6abc26bdf140
 
 COCOAPODS: 1.5.3

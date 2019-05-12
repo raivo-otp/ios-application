@@ -14,7 +14,7 @@ class CounterBasedPasswordCell: PasswordCell {
     
     var password: Password?
     
-    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var icon: UIImageView!
     
     @IBOutlet weak var issuer: UILabel!
     
@@ -38,11 +38,12 @@ class CounterBasedPasswordCell: PasswordCell {
         self.password = password
         
         issuer.text = password.issuer
-        account.text = password.issuer
         account.text = "(" + password.account + ")"
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
-        logo.sd_setImage(with: nil, placeholderImage: UIImage(named: "password-placeholder"))
         notSyncedView.isHidden = password.synced || password.syncing
+        
+        icon.sd_setImage(with: password.getIconURL(), placeholderImage: UIImage(named: "password-placeholder"))
+        icon.image = icon.image?.withIconEffect
     }
     
     override internal func updateState(force: Bool = false) {

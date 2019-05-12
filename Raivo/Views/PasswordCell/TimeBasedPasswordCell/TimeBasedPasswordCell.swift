@@ -17,7 +17,7 @@ class TimeBasedPasswordCell: PasswordCell {
     
     var isAnimating:Bool = false
     
-    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var icon: UIImageView!
     
     @IBOutlet weak var issuer: UILabel!
     
@@ -43,12 +43,13 @@ class TimeBasedPasswordCell: PasswordCell {
         self.password = password
         
         issuer.text = password.issuer
-        account.text = password.issuer
         account.text = "(" + password.account + ")"
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
         previousPassword.text = TokenHelper.formatPassword(password.getToken(), previous: true)
-        logo.sd_setImage(with: nil, placeholderImage: UIImage(named: "password-placeholder"))
         notSyncedView.isHidden = password.synced || password.syncing
+        
+        icon.sd_setImage(with: password.getIconURL(), placeholderImage: UIImage(named: "password-placeholder"))
+        icon.image = icon.image?.withIconEffect
     }
     
     deinit {

@@ -14,6 +14,10 @@ class OfflineSyncer: BaseSyncer, SyncerProtocol {
     @available(*, deprecated, renamed: "UNIQUE_ID")
     public static let DEPRECATED_ID = "OFFLINE_SYNCER"
     
+    var name = "None (offline)"
+    
+    var help = "Synchronization is currently disabled."
+    
     func notify(_ userInfo: [AnyHashable : Any]) {
         // Not implemented
     }
@@ -35,9 +39,8 @@ class OfflineSyncer: BaseSyncer, SyncerProtocol {
             accountPreloading = false
             
             account = SyncerAccount(
-                serviceName: "None (offline)",
-                accountName: "None (offline)",
-                accountIdentifier: "Offline"
+                name: "None (offline)",
+                identifier: "Offline"
             )
             
             accountPreloaded = true

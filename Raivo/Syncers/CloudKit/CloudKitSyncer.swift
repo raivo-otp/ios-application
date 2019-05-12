@@ -15,6 +15,10 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     @available(*, deprecated, renamed: "UNIQUE_ID")
     public static let DEPRECATED_ID = "CLOUD_KIT_SYNCER"
     
+    var name = "Apple iCloud"
+    
+    var help = "Your Apple iCloud account is used to store your passwords (encrypted)."
+  
     let modelSyncers = [
         Password.UNIQUE_ID: CloudKitPasswordSyncer()
     ]
@@ -73,7 +77,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     private func preloadAccountSuccess(_ recordID: CKRecord.ID) {
-        self.account = SyncerAccount(serviceName: "Apple iCloud", accountName: "Personal iCloud", accountIdentifier: recordID.recordName)
+        self.account = SyncerAccount(name: "Personal iCloud", identifier: recordID.recordName)
         self.accountError = nil
         self.accountPreloaded = true
         self.accountPreloading = false

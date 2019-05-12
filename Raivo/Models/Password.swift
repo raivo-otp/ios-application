@@ -14,29 +14,7 @@ import OneTimePassword
 class Password: Object {
     
     public static let TABLE = "Password"
-    
-    public struct Kinds {
-        static let TOTP = "TOTP"
-        static let HOTP = "HOTP"
-    }
-    
-    public static let KindsArray = [
-        Kinds.TOTP.description,
-        Kinds.HOTP.description
-    ]
-    
-    public struct Algorithms {
-        static let SHA1 = "SHA1"
-        static let SHA256 = "SHA256"
-        static let SHA512 = "SHA512"
-    }
-    
-    public static let AlgorithmsArray = [
-        Algorithms.SHA1.description,
-        Algorithms.SHA256.description,
-        Algorithms.SHA512.description
-    ]
-    
+        
     public struct SyncErrorTypes {
         static let INSERT = "insert"
         static let UPDATE = "update"
@@ -47,7 +25,7 @@ class Password: Object {
     
     @objc dynamic var id = Int64(0)
     
-    @objc dynamic var kind = ""
+    @objc dynamic var kind = PasswordKindFormOption.OPTION_DEFAULT.value
     
     @objc dynamic var issuer = ""
     
@@ -55,17 +33,21 @@ class Password: Object {
     
     @objc dynamic var secret = ""
     
-    @objc dynamic var algorithm = Algorithms.SHA1
+    @objc dynamic var algorithm = PasswordAlgorithmFormOption.OPTION_DEFAULT.value
     
-    @objc dynamic var digits = 6
+    @objc dynamic var digits = PasswordDigitsFormOption.OPTION_DEFAULT.value
     
-    @objc dynamic var deleted = false
+    @objc dynamic var iconType = ""
+    
+    @objc dynamic var iconValue = ""
     
     // Required if HOTP
     @objc dynamic var counter: Int = 0
     
     // Required if TOTP
     @objc dynamic var timer = 30
+    
+    @objc dynamic var deleted = false
     
     @objc dynamic var syncing = false
     
@@ -95,6 +77,10 @@ class Password: Object {
         }
         
         return cachedToken!
+    }
+    
+    public func getIconURL() -> URL? {
+        return URL(string: AppHelper.iconsURL + self.iconValue)
     }
 
 }
