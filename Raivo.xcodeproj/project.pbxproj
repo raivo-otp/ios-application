@@ -282,8 +282,8 @@
 		700908D721FCE25D00603AA2 /* Migrations */ = {
 			isa = PBXGroup;
 			children = (
-				702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */,
 				70AE33242273B73D007A12A2 /* MigrationProtocol.swift */,
+				702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */,
 				7077A34D227F675200338CA3 /* MigrationToBuild6.swift */,
 			);
 			path = Migrations;
