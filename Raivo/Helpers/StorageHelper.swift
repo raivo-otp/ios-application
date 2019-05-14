@@ -28,7 +28,7 @@ class StorageHelper {
     }
     
     private static func secrets() -> SecureEnclaveValet {
-        return SecureEnclaveValet.valet(with: Identifier(nonEmpty: "secrets")!, accessControl: .biometricAny)
+        return SecureEnclaveValet.valet(with: Identifier(nonEmpty: "secrets")!, accessControl: .userPresence)
     }
     
     public static func clear() {
