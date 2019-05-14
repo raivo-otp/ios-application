@@ -80,7 +80,12 @@ class Password: Object {
     }
     
     public func getIconURL() -> URL? {
-        return URL(string: AppHelper.iconsURL + self.iconValue)
+        switch iconType {
+        case PasswordIconTypeFormOption.OPTION_RAIVO_REPOSITORY.value:
+            return URL(string: AppHelper.iconsURL + self.iconValue)
+        default:
+            return nil
+        }
     }
 
 }
