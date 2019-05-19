@@ -60,7 +60,6 @@ class SetupChooseSyncerServiceViewController: FormViewController {
             self.evaluateAllowContinue()
             
             (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).disabled = Condition(booleanLiteral: false)
-            (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).evaluateDisabled()
         }
     }
     
@@ -71,7 +70,6 @@ class SetupChooseSyncerServiceViewController: FormViewController {
             self.evaluateAllowContinue()
             
             (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).disabled = Condition(booleanLiteral: true)
-            (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).evaluateDisabled()
         }
     }
     
@@ -100,6 +98,10 @@ class SetupChooseSyncerServiceViewController: FormViewController {
         viewTitle.text = allow ? "Synchronization providers" : "Loading providers..."
         
         if (allow) {
+            for availableSyncer in SyncerHelper.availableSyncers {
+                (self.form.rowBy(tag: availableSyncer) as! ListCheckRow<String>).evaluateDisabled()
+            }
+            
             synchronizationProviderForm?.selectFirstSyncer()
             dismissNavBarActivity()
         }
