@@ -39,7 +39,7 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if getAppDelagate().previousStoryboardName == nil {
+        if getAppDelagate().previousStoryboardName == StateHelper.Storyboard.LOAD {
             self.tryTouchID()
         }
         

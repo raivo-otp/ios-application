@@ -94,6 +94,11 @@
 		70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EE122567603005C98EF /* BaseSyncer.swift */; };
 		70BC3EE522569881005C98EF /* OfflineSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EE422569881005C98EF /* OfflineSyncer.swift */; };
 		70BEE09D226B248200D5CF4B /* AuthMiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BEE09C226B248200D5CF4B /* AuthMiscViewController.swift */; };
+		70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */; };
+		70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD612291B00E0016BD95 /* Load.storyboard */; };
+		70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */; };
+		70D0FD672291B8CF0016BD95 /* ErrorEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD662291B8CF0016BD95 /* ErrorEntryViewController.swift */; };
+		70D0FD692291B8F10016BD95 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD682291B8F10016BD95 /* Error.storyboard */; };
 		70D534F622398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */; };
 		70D534F822398B8100CDD228 /* SetupChoosePincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */; };
 		70D534FA22398D5300CDD228 /* PincodeDigitsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F922398D5300CDD228 /* PincodeDigitsProtocol.swift */; };
@@ -204,6 +209,11 @@
 		70BC3EE122567603005C98EF /* BaseSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSyncer.swift; sourceTree = "<group>"; };
 		70BC3EE422569881005C98EF /* OfflineSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineSyncer.swift; sourceTree = "<group>"; };
 		70BEE09C226B248200D5CF4B /* AuthMiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMiscViewController.swift; sourceTree = "<group>"; };
+		70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild9.swift; sourceTree = "<group>"; };
+		70D0FD612291B00E0016BD95 /* Load.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Load.storyboard; sourceTree = "<group>"; };
+		70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEntryViewController.swift; sourceTree = "<group>"; };
+		70D0FD662291B8CF0016BD95 /* ErrorEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEntryViewController.swift; sourceTree = "<group>"; };
+		70D0FD682291B8F10016BD95 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
 		70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChooseEncryptionKeyViewController.swift; sourceTree = "<group>"; };
 		70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChoosePincodeViewController.swift; sourceTree = "<group>"; };
 		70D534F922398D5300CDD228 /* PincodeDigitsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeDigitsProtocol.swift; sourceTree = "<group>"; };
@@ -285,6 +295,7 @@
 				70AE33242273B73D007A12A2 /* MigrationProtocol.swift */,
 				702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */,
 				7077A34D227F675200338CA3 /* MigrationToBuild6.swift */,
+				70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -292,6 +303,8 @@
 		700908D821FCE26900603AA2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				70D0FD652291B8C20016BD95 /* Error */,
+				70D0FD602291AFE70016BD95 /* Load */,
 				700908DC21FCE2A900603AA2 /* Main */,
 				700908DB21FCE2A400603AA2 /* Auth */,
 				700908DA21FCE29F00603AA2 /* Setup */,
@@ -358,6 +371,8 @@
 				700908CD21FCCE6100603AA2 /* Splash.storyboard */,
 				700908E421FCE37B00603AA2 /* Auth.storyboard */,
 				700908E621FCE38700603AA2 /* Setup.storyboard */,
+				70D0FD612291B00E0016BD95 /* Load.storyboard */,
+				70D0FD682291B8F10016BD95 /* Error.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -625,6 +640,22 @@
 			path = Offline;
 			sourceTree = "<group>";
 		};
+		70D0FD602291AFE70016BD95 /* Load */ = {
+			isa = PBXGroup;
+			children = (
+				70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */,
+			);
+			path = Load;
+			sourceTree = "<group>";
+		};
+		70D0FD652291B8C20016BD95 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				70D0FD662291B8CF0016BD95 /* ErrorEntryViewController.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		70D7D7CB225BB0CF008DA2FD /* PatternImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,7 +767,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				700908E721FCE38700603AA2 /* Setup.storyboard in Resources */,
+				70D0FD692291B8F10016BD95 /* Error.storyboard in Resources */,
 				70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */,
+				70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */,
 				702BAEAA2259481A008E5C5F /* TimeBasedPasswordCell.xib in Resources */,
 				707B38DF2275EBA600D35897 /* PincodeDigitsViewBiometrics.xib in Resources */,
 				700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */,
@@ -849,8 +882,10 @@
 				70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */,
 				700908F221FCFADF00603AA2 /* Password.swift in Sources */,
 				7028592C226212EA0045DA26 /* CloudKitPasswordSyncer.swift in Sources */,
+				70D0FD672291B8CF0016BD95 /* ErrorEntryViewController.swift in Sources */,
 				702CA6D12263B2CD000DCC1D /* MigrationToBuild4.swift in Sources */,
 				700908EE21FCEC2800603AA2 /* AuthEntryViewController.swift in Sources */,
+				70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */,
 				70D534F822398B8100CDD228 /* SetupChoosePincodeViewController.swift in Sources */,
 				700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */,
 				702BAEA82258FD1B008E5C5F /* PasswordForm.swift in Sources */,
@@ -865,6 +900,7 @@
 				702A140822635ABE00B278BB /* EncryptionHelper.swift in Sources */,
 				70684DEF225A1BF70038BDB4 /* main.swift in Sources */,
 				70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */,
+				70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */,
 				7077A340227F0FAE00338CA3 /* IconFormRow.swift in Sources */,
 				7077A34E227F675200338CA3 /* MigrationToBuild6.swift in Sources */,
 				70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */,

@@ -11,10 +11,7 @@ import CloudKit
 import RealmSwift
 
 class CloudKitSyncer: BaseSyncer, SyncerProtocol {
-    
-    @available(*, deprecated, renamed: "UNIQUE_ID")
-    public static let DEPRECATED_ID = "CLOUD_KIT_SYNCER"
-    
+        
     var name = "Apple iCloud"
     
     var help = "Your Apple iCloud account is used to store your passwords (encrypted)."
@@ -22,7 +19,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     let modelSyncers = [
         Password.UNIQUE_ID: CloudKitPasswordSyncer()
     ]
-
+    
     override func enable() -> Void {
         super.enable()
         enableModels()

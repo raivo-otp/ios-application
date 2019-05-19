@@ -10,8 +10,6 @@ import UIKit
 import RealmSwift
 import CloudKit
 import SwiftyBeaver
-import SDWebImage
-import SDWebImageSVGCoder
 
 let log = SwiftyBeaver.self
 
@@ -24,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     public var previousStoryboardName: String? = nil
     
+    public var applicationIsLoaded: Bool = false
+    
+    public var syncerAccountIdentifier: String? = nil
+    
     private var encryptionKey: Data?
     
     private var iconsEffect: String? = nil
@@ -34,30 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter launchOptions: The launchOptions as passed to `UIApplicationDelegate`
     /// - Returns: `true` if the url contained in the `launchOptions` was intended for Raivo
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Initialize debug logging (if applicable)
-        let console = ConsoleDestination()
-        log.addDestination(console)
-        
-        // Initialize SDImage configurations
-        SDImageCache.shared.config.maxDiskAge = TimeInterval(60 * 60 * 24 * 365 * 4)
-        SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
-        
-        // If this is the first run of the app, flush the keychain
-        // It could be a reinstall of the app (reinstalls don't flush the keychain)
-        // https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
-        if StateHelper.isFirstRun() {
-           StorageHelper.clear()
-        }
-        
-        // Run all migrations except Realm migrations
-        MigrationHelper.runGenericMigrations()
-        
         updateEncryptionKey(encryptionKey)
-        
-        // Preload the synchronization information
-        SyncerHelper.getSyncer().preloadAccount()
-        
-        // Show the correct storyboard
         self.setCorrectStoryboard()
         
         return true
@@ -96,6 +75,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SyncerHelper.getSyncer().enable()
             SyncerHelper.getSyncer().resyncModel(Password.UNIQUE_ID)
             UIApplication.shared.registerForRemoteNotifications()
+        case StateHelper.Storyboard.LOAD, StateHelper.Storyboard.AUTH:
+            // Disable lockscreen timer
+            (MyApplication.shared as! MyApplication).disableInactivityTimer()
+            
+            // Disable syncer notifications
+            UIApplication.shared.unregisterForRemoteNotifications()
         case StateHelper.Storyboard.SETUP:
             // Disable lockscreen timer
             (MyApplication.shared as! MyApplication).disableInactivityTimer()
@@ -104,13 +89,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SyncerHelper.getSyncer().preloadChallenge()
             UIApplication.shared.unregisterForRemoteNotifications()
             SyncerHelper.getSyncer().disable()
-        default:
+        case StateHelper.Storyboard.ERROR:
             // Disable lockscreen timer
             (MyApplication.shared as! MyApplication).disableInactivityTimer()
             
             // Disable syncer notifications
             UIApplication.shared.unregisterForRemoteNotifications()
             SyncerHelper.getSyncer().disable()
+        default:
+            fatalError("Unknown storyboard!")
         }
     }
     
@@ -145,28 +132,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboardName = StateHelper.getCurrentStoryboard()
         let controllerName = StateHelper.getCurrentStoryboardController()
         
-        beforeStoryboardChange(storyboardName)
-        
-        if let current = currentStoryboardName {
-            previousStoryboardName = current
+        self.beforeStoryboardChange(storyboardName)
+    
+        if let current = self.currentStoryboardName {
+            self.previousStoryboardName = current
         }
-        
-        currentStoryboardName = storyboardName
-        
+
+        self.currentStoryboardName = storyboardName
+
         log.verbose("Changing Storyboard: " + storyboardName)
-        
+
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: controllerName)
         self.window?.rootViewController = controller
     }
     
-    func updateStoryboard() {
+    func updateStoryboard(_ options: UIView.AnimationOptions = .transitionFlipFromLeft) {
         self.setCorrectStoryboard()
         
         UIView.transition(
             with: UIApplication.shared.keyWindow!,
             duration: 0.5,
-            options: UIView.AnimationOptions.transitionFlipFromLeft,
+            options: options,
             animations: nil,
             completion: nil
         )

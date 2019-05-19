@@ -25,4 +25,9 @@ class MigrationToBuild6: MigrationProtocol {
         
     }
     
+    /// This build does not require generic migrations
+    func migrateGeneric(withAccount: SyncerAccount) {
+        
+    }
+    
 }

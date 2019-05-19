@@ -22,9 +22,7 @@ class SyncerHelper {
         let type = type ?? defaultSyncerType
         
         if type != nil && !availableSyncers.contains(type!) {
-            if ![OfflineSyncer.DEPRECATED_ID, CloudKitSyncer.DEPRECATED_ID].contains(type!) {
-                fatalError("getSyncer(" + type! + "): SYNCER DOES NOT EXIST!")
-            }
+            fatalError("getSyncer(" + type! + "): SYNCER DOES NOT EXIST!")
         }
         
         if type == nil {
@@ -37,9 +35,9 @@ class SyncerHelper {
     private static func getOrCreateSyncer(_ type: String) -> SyncerProtocol{
         if !syncers.keys.contains(type) {
             switch type {
-            case OfflineSyncer.UNIQUE_ID, OfflineSyncer.DEPRECATED_ID:
+            case OfflineSyncer.UNIQUE_ID:
                 syncers[type] = OfflineSyncer()
-            case CloudKitSyncer.UNIQUE_ID, CloudKitSyncer.DEPRECATED_ID:
+            case CloudKitSyncer.UNIQUE_ID:
                 syncers[type] = CloudKitSyncer()
             default:
                 fatalError("getSyncer(" + type + "): SYNCER DOES NOT EXIST!")

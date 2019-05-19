@@ -18,10 +18,16 @@ class MigrationToBuild4: MigrationProtocol {
     ///
     /// - Parameter migration: The Realm migration containing the old and new entities
     func migrateRealm(_ migration: Migration) {
+        
     }
     
     /// This build does not require generic migrations
     func migrateGeneric() {
+        
+    }
+    
+    /// This build does not require generic migrations
+    func migrateGeneric(withAccount: SyncerAccount) {
         
     }
     

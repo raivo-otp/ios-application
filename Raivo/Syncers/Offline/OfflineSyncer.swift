@@ -11,9 +11,6 @@ import RealmSwift
 
 class OfflineSyncer: BaseSyncer, SyncerProtocol {
     
-    @available(*, deprecated, renamed: "UNIQUE_ID")
-    public static let DEPRECATED_ID = "OFFLINE_SYNCER"
-    
     var name = "None (offline)"
     
     var help = "Synchronization is currently disabled."

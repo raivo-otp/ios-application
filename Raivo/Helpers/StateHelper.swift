@@ -12,39 +12,57 @@ import RealmSwift
 class StateHelper: BaseClass {
     
     public struct Storyboard {
+        static let LOAD = "Load"
         static let SETUP = "Setup"
+        static let ERROR = "Error"
         static let AUTH = "Auth"
         static let MAIN = "Main"
     }
     
     public struct StoryboardController {
+        static let LOAD = "LoadRootController"
         static let SETUP = "SetupRootController"
+        static let ERROR = "ErrorRootController"
         static let AUTH = "AuthRootController"
         static let MAIN = "MainRootController"
     }
     
     public struct State {
+        static let APPLICATION_NOT_LOADED = "APPLICATION_NOT_LOADED"
         static let DATABASE_UNKNOWN = "DATABASE_UNKNOWN"
+        static let SYNCER_ACCOUNT_UNAVAILABLE = "SYNCER_ACCOUNT_UNAVAILABLE"
         static let ENCRYPTION_KEY_UNKNOWN = "ENCRYPTION_KEY_UNKNOWN"
         static let DATABASE_AND_ENCRYPTION_KEY_AVAILABLE = "DATABASE_AND_ENCRYPTION_KEY_AVAILABLE"
     }
     
     public static func getCurrentState() -> String {
+        guard applicationIsLoaded() else {
+            return State.APPLICATION_NOT_LOADED
+        }
+        
         guard databaseIsKnown() else {
             return State.DATABASE_UNKNOWN
+        }
+        
+        guard getAppDelagate().syncerAccountIdentifier == StorageHelper.getSynchronizationAccountIdentifier() else {
+            return State.SYNCER_ACCOUNT_UNAVAILABLE
         }
         
         guard encryptionKeyIsKnown() else {
             return State.ENCRYPTION_KEY_UNKNOWN
         }
-   
+       
         return State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE
     }
-    
+
     public static func getCurrentStoryboard() -> String {
         switch getCurrentState() {
+        case State.APPLICATION_NOT_LOADED:
+            return Storyboard.LOAD
         case State.DATABASE_UNKNOWN:
             return Storyboard.SETUP
+        case State.SYNCER_ACCOUNT_UNAVAILABLE:
+            return Storyboard.ERROR
         case State.ENCRYPTION_KEY_UNKNOWN:
             return Storyboard.AUTH
         case State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE:
@@ -56,8 +74,12 @@ class StateHelper: BaseClass {
     
     public static func getCurrentStoryboardController() -> String {
         switch getCurrentStoryboard() {
+        case Storyboard.LOAD:
+            return StoryboardController.LOAD
         case Storyboard.SETUP:
             return StoryboardController.SETUP
+        case Storyboard.ERROR:
+            return StoryboardController.ERROR
         case Storyboard.AUTH:
             return StoryboardController.AUTH
         case Storyboard.MAIN:
@@ -100,6 +122,10 @@ class StateHelper: BaseClass {
         } else {
             return false
         }
+    }
+    
+    private static func applicationIsLoaded() -> Bool {
+        return getAppDelagate().applicationIsLoaded
     }
     
     private static func databaseIsKnown() -> Bool {

@@ -16,4 +16,6 @@ protocol MigrationProtocol {
     
     func migrateGeneric() -> Void
     
+    func migrateGeneric(withAccount: SyncerAccount) -> Void
+    
 }

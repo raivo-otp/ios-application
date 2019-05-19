@@ -11,6 +11,7 @@ import Eureka
 import RealmSwift
 import OneTimePassword
 import Base32
+import CloudKit
 
 class MainCreatePasswordViewController: FormViewController {
     
@@ -70,7 +71,7 @@ class MainCreatePasswordViewController: FormViewController {
     
     private func createPasswordFromForm() -> Password {
         let password = Password()
-        
+                
         password.id = password.getNewPrimaryKey()
         password.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
         password.account = passwordForm!.accountRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
