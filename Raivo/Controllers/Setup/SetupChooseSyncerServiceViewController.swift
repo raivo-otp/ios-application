@@ -124,6 +124,7 @@ class SetupChooseSyncerServiceViewController: FormViewController {
                 
                 StorageHelper.setSynchronizationProvider(selectedSyncer)
                 StorageHelper.setSynchronizationAccountIdentifier(self.accounts[selectedSyncer]!.identifier)
+                getAppDelagate().syncerAccountIdentifier = self.accounts[selectedSyncer]!.identifier
                 
                 destination.account = self.accounts[selectedSyncer]
                 destination.challenge = self.challenges[selectedSyncer]

@@ -33,7 +33,7 @@ class SetupEnableBiometricsViewController: UIViewController {
     
     
     @IBAction func onDismissTouchID(_ sender: Any) {
-        updateStoryboard()
+        getAppDelagate().updateStoryboard()
     }
     
     @IBAction func onEnableTouchID(_ sender: Any) {
@@ -41,7 +41,7 @@ class SetupEnableBiometricsViewController: UIViewController {
         
         if let _ = StorageHelper.getEncryptionKey(prompt: "Confirm to enable TouchID") {
             StorageHelper.setBiometricUnlockEnabled(true)
-            updateStoryboard()
+            getAppDelagate().updateStoryboard()
         }
     }
 }

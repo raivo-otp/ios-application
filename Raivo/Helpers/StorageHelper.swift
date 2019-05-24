@@ -88,8 +88,12 @@ class StorageHelper {
         return settings().string(forKey: KEY_SYNCHRONIZATION_PROVIDER)
     }
     
-    public static func setSynchronizationAccountIdentifier(_ accountIdentifier: String) {
-        settings().set(string: accountIdentifier, forKey: KEY_SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+    public static func setSynchronizationAccountIdentifier(_ accountIdentifier: String?) {
+        if let accountIdentifier = accountIdentifier {
+            settings().set(string: accountIdentifier, forKey: KEY_SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+        } else {
+            settings().removeObject(forKey: KEY_SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+        }
     }
     
     public static func getSynchronizationAccountIdentifier() -> String? {

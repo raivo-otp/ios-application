@@ -22,7 +22,7 @@ class StateHelper: BaseClass {
     public struct StoryboardController {
         static let LOAD = "LoadRootController"
         static let SETUP = "SetupRootController"
-        static let ERROR = "ErrorRootController"
+        static let ERROR_SAU = "ErrorSyncerAccountChangedViewController"
         static let AUTH = "AuthRootController"
         static let MAIN = "MainRootController"
     }
@@ -44,8 +44,11 @@ class StateHelper: BaseClass {
             return State.DATABASE_UNKNOWN
         }
         
-        guard getAppDelagate().syncerAccountIdentifier == StorageHelper.getSynchronizationAccountIdentifier() else {
-            return State.SYNCER_ACCOUNT_UNAVAILABLE
+        let currentSAI = getAppDelagate().syncerAccountIdentifier
+        if let storedSAI = StorageHelper.getSynchronizationAccountIdentifier() {
+            guard currentSAI?.elementsEqual(storedSAI) ?? false else {
+                return State.SYNCER_ACCOUNT_UNAVAILABLE
+            }
         }
         
         guard encryptionKeyIsKnown() else {
@@ -79,7 +82,7 @@ class StateHelper: BaseClass {
         case Storyboard.SETUP:
             return StoryboardController.SETUP
         case Storyboard.ERROR:
-            return StoryboardController.ERROR
+            return StoryboardController.ERROR_SAU
         case Storyboard.AUTH:
             return StoryboardController.AUTH
         case Storyboard.MAIN:

@@ -20,12 +20,6 @@ extension UIViewController {
         return (nib.instantiate(withOwner: nil, options: nil)[0] as? UIView)!
     }
     
-    public func updateStoryboard() {
-        DispatchQueue.main.async {
-            self.getAppDelagate().updateStoryboard()
-        }
-    }
-    
     internal func getAppDelagate() -> AppDelegate {
         return (MyApplication.shared.delegate as! AppDelegate)
     }

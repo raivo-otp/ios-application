@@ -15,19 +15,25 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     var name = "Apple iCloud"
     
     var help = "Your Apple iCloud account is used to store your passwords (encrypted)."
-  
+    
     let modelSyncers = [
         Password.UNIQUE_ID: CloudKitPasswordSyncer()
     ]
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func enable() -> Void {
         super.enable()
         enableModels()
+        enableAccountChangeListener()
     }
     
     override func disable() -> Void {
         super.disable()
         disableModels()
+        disableAccountChangeListener()
     }
     
     func notify(_ userInfo: [AnyHashable : Any]) {
@@ -39,10 +45,11 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func getAccount(success: @escaping ((SyncerAccount, String) -> Void), error: @escaping ((Error, String) -> Void)) -> Void {
+        
         if accountPreloaded {
             accountError == nil ? success(account!, UNIQUE_ID) : error(accountError!, UNIQUE_ID)
         } else {
-            NotificationCenter.default.addObserver(forName: BaseSyncer.ACCOUNT_NOTIFICATION, object: nil, queue: nil) { note in
+            NotificationHelper.shared.listenOnce(to: BaseSyncer.ACCOUNT_NOTIFICATION) {
                 self.getAccount(success: success, error: error)
             }
             
@@ -83,10 +90,11 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func getChallenge(success: @escaping ((SyncerChallenge, String) -> Void), error: @escaping ((Error, String) -> Void)) {
+        
         if challengePreloaded {
             challengeError == nil ? success(challenge!, UNIQUE_ID) : error(challengeError!, UNIQUE_ID)
         } else {
-            NotificationCenter.default.addObserver(forName: BaseSyncer.CHALLENGE_NOTIFICATION, object: nil, queue: nil) { note in
+            NotificationHelper.shared.listenOnce(to: BaseSyncer.CHALLENGE_NOTIFICATION) {
                 self.getChallenge(success: success, error: error)
             }
             
@@ -182,6 +190,41 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         for (_, modelSyncer) in modelSyncers {
             modelSyncer.disable()
         }
+    }
+    
+    private func enableAccountChangeListener() {
+        
+        // TODO:
+        // Fix;
+        // * Raivo iCloud sign-in
+        // * iCloud sign-out
+        // * Raivo iCloud sign-out
+        // * Raivo sign-in
+        //      * iCloud not available?
+        
+        NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: UNIQUE_ID) {
+            self.accountPreloaded = false
+            
+            self.getAccount(success: { (account, syncerID) in
+                DispatchQueue.main.async {
+                    guard account.identifier != StorageHelper.getSynchronizationAccountIdentifier() else {
+                        return
+                    }
+                    
+                    self.getAppDelagate().syncerAccountIdentifier = account.identifier
+                    self.getAppDelagate().updateStoryboard()
+                }
+            }, error: { (error, syncerID) in
+                DispatchQueue.main.async {
+                    self.getAppDelagate().syncerAccountIdentifier = nil
+                    self.getAppDelagate().updateStoryboard()
+                }
+            })
+        }
+    }
+    
+    private func disableAccountChangeListener() {
+        NotificationCenter.default.removeObserver(self)
     }
     
 }

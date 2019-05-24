@@ -30,7 +30,7 @@ class SetupFlushDataViewController: UIViewController {
         
         SyncerHelper.getSyncer().flushAllData(success: { (syncerType) in
             StateHelper.reset()
-            (MyApplication.shared.delegate as! AppDelegate).updateStoryboard()
+            self.getAppDelagate().updateStoryboard()
             self.dismissNavBarActivity()
         }) { (error, syncerType) in
             self.dismissNavBarActivity()

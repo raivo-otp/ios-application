@@ -89,11 +89,11 @@ class SetupChoosePincodeViewController: UIViewController, PincodeDigitsProtocol 
         RealmHelper.initDefaultRealmConfiguration(encryptionKey: getAppDelagate().getEncryptionKey()!)
         
         let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
-        
+                
         if StorageHelper.canAccessSecrets() {
             performSegue(withIdentifier: "EnableBiometricsSegue", sender: nil)
         } else {
-            updateStoryboard()
+            getAppDelagate().updateStoryboard()
         }
     }
     

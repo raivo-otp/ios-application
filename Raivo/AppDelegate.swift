@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter launchOptions: The launchOptions as passed to `UIApplicationDelegate`
     /// - Returns: `true` if the url contained in the `launchOptions` was intended for Raivo
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        updateEncryptionKey(encryptionKey)
         self.setCorrectStoryboard()
         
         return true
@@ -148,15 +147,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func updateStoryboard(_ options: UIView.AnimationOptions = .transitionFlipFromLeft) {
-        self.setCorrectStoryboard()
-        
-        UIView.transition(
-            with: UIApplication.shared.keyWindow!,
-            duration: 0.5,
-            options: options,
-            animations: nil,
-            completion: nil
-        )
+        DispatchQueue.main.async {
+            self.setCorrectStoryboard()
+            
+            UIView.transition(
+                with: UIApplication.shared.keyWindow!,
+                duration: 0.5,
+                options: options,
+                animations: nil,
+                completion: nil
+            )
+        }
     }
 
 }

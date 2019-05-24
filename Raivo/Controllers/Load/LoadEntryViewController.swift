@@ -15,6 +15,9 @@ import SDWebImageSVGCoder
 class LoadEntryViewController: UIViewController {
     
     override func viewDidLoad() {
+        // Trigger Realm to use the current encryption key
+        getAppDelagate().updateEncryptionKey(getAppDelagate().getEncryptionKey())
+
         // Initialize debug logging (if applicable)
         let console = ConsoleDestination()
         log.addDestination(console)

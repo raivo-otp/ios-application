@@ -290,7 +290,7 @@ class MiscellaneousForm: BaseClass {
                 
                 refreshAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action: UIAlertAction!) in
                     StateHelper.reset()
-                    (MyApplication.shared.delegate as! AppDelegate).updateStoryboard()
+                    controller.getAppDelagate().updateStoryboard()
                 }))
                 
                 refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in

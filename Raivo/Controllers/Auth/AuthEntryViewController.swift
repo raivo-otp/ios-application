@@ -87,7 +87,7 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
                 self.getAppDelagate().updateEncryptionKey(encryptionKey)
                 
                 self.resetPincodeTries()
-                self.updateStoryboard()
+                self.getAppDelagate().updateStoryboard()
             } else {
                 self.pincodeDigitsView.resetAndFocus()
                 let message = self.getTriesLeft() == 0 ? "Invalid PIN code. That was your last try." : "Invalid PIN code. " + String(self.getTriesLeft()) + " tries left."
@@ -148,7 +148,7 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         if let key = StorageHelper.getEncryptionKey(prompt: "Unlock Raivo in no time") {
             self.getAppDelagate().updateEncryptionKey(Data(base64Encoded: key))
             self.resetPincodeTries()
-            self.updateStoryboard()
+            self.getAppDelagate().updateStoryboard()
         } else {
             let _ = self.tryNewPincode()
         }

@@ -93,6 +93,14 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: .AVCaptureSessionDidStartRunning,
+            object: nil
+        )
+    }
+    
     @objc func captureSessionDidStart() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.25, animations: {

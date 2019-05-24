@@ -97,13 +97,14 @@
 		70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */; };
 		70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD612291B00E0016BD95 /* Load.storyboard */; };
 		70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */; };
-		70D0FD672291B8CF0016BD95 /* ErrorEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD662291B8CF0016BD95 /* ErrorEntryViewController.swift */; };
 		70D0FD692291B8F10016BD95 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD682291B8F10016BD95 /* Error.storyboard */; };
+		70D0FD6B2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD6A2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift */; };
 		70D534F622398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */; };
 		70D534F822398B8100CDD228 /* SetupChoosePincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */; };
 		70D534FA22398D5300CDD228 /* PincodeDigitsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F922398D5300CDD228 /* PincodeDigitsProtocol.swift */; };
 		70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */; };
 		70D7D7CF225BBCDC008DA2FD /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */; };
+		70E42298229891D50020D725 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E42297229891D50020D725 /* NotificationHelper.swift */; };
 		70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */; };
 		70F8BE7D2205EAFB006FDB5A /* GenericUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */; };
 		70F8BE812205F51A006FDB5A /* KeyDerivationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */; };
@@ -212,13 +213,14 @@
 		70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild9.swift; sourceTree = "<group>"; };
 		70D0FD612291B00E0016BD95 /* Load.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Load.storyboard; sourceTree = "<group>"; };
 		70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEntryViewController.swift; sourceTree = "<group>"; };
-		70D0FD662291B8CF0016BD95 /* ErrorEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEntryViewController.swift; sourceTree = "<group>"; };
 		70D0FD682291B8F10016BD95 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
+		70D0FD6A2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSyncerAccountChangedViewController.swift; sourceTree = "<group>"; };
 		70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChooseEncryptionKeyViewController.swift; sourceTree = "<group>"; };
 		70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChoosePincodeViewController.swift; sourceTree = "<group>"; };
 		70D534F922398D5300CDD228 /* PincodeDigitsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeDigitsProtocol.swift; sourceTree = "<group>"; };
 		70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternImage.swift; sourceTree = "<group>"; };
 		70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
+		70E42297229891D50020D725 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationProviderForm.swift; sourceTree = "<group>"; };
 		70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUIViewExtension.swift; sourceTree = "<group>"; };
 		70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDerivationHelper.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				7088B94922554AF10024BB87 /* Raivo.entitlements */,
 				702CA6CB2263A160000DCC1D /* Errors */,
 				70BC3ED722566379005C98EF /* Syncers */,
+				70E42296229891AB0020D725 /* HelpersImproved */,
 				700908EA21FCE7D200603AA2 /* Helpers */,
 				700908E321FCE34800603AA2 /* Supporting */,
 				700908E221FCE30D00603AA2 /* Models */,
@@ -651,7 +654,7 @@
 		70D0FD652291B8C20016BD95 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				70D0FD662291B8CF0016BD95 /* ErrorEntryViewController.swift */,
+				70D0FD6A2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -662,6 +665,14 @@
 				70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */,
 			);
 			path = PatternImage;
+			sourceTree = "<group>";
+		};
+		70E42296229891AB0020D725 /* HelpersImproved */ = {
+			isa = PBXGroup;
+			children = (
+				70E42297229891D50020D725 /* NotificationHelper.swift */,
+			);
+			path = HelpersImproved;
 			sourceTree = "<group>";
 		};
 		70FA4C4D2287526400A3B754 /* IconFormSelectorView */ = {
@@ -882,7 +893,7 @@
 				70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */,
 				700908F221FCFADF00603AA2 /* Password.swift in Sources */,
 				7028592C226212EA0045DA26 /* CloudKitPasswordSyncer.swift in Sources */,
-				70D0FD672291B8CF0016BD95 /* ErrorEntryViewController.swift in Sources */,
+				70D0FD6B2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift in Sources */,
 				702CA6D12263B2CD000DCC1D /* MigrationToBuild4.swift in Sources */,
 				700908EE21FCEC2800603AA2 /* AuthEntryViewController.swift in Sources */,
 				70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */,
@@ -928,6 +939,7 @@
 				7077A337227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift in Sources */,
 				70AE33272274566B007A12A2 /* MigrationHelper.swift in Sources */,
 				70617A5B2270E55D0032076A /* SetupFlushDataViewController.swift in Sources */,
+				70E42298229891D50020D725 /* NotificationHelper.swift in Sources */,
 				700908C521FCCE5F00603AA2 /* AppDelegate.swift in Sources */,
 				7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */,
 				70A7B118223062380084F15B /* MainMiscViewController.swift in Sources */,

@@ -118,7 +118,7 @@ class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
         StorageHelper.setRealmFilename(newName)
         
         StateHelper.reset(clearKeychain: false)
-        updateStoryboard()
+        getAppDelagate().updateStoryboard()
     }
     
 }

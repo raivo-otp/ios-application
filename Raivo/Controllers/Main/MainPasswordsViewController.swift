@@ -55,8 +55,12 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
 
         initializeTableViewNotifications()
         
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appMovedToForeground),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
     }
     
     @objc func appMovedToForeground() {
@@ -66,6 +70,12 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     /// Remove Realm notifications
     deinit {
         notificationToken?.invalidate()
+        
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
     }
     
     private func initializeTableViewNotifications() {
