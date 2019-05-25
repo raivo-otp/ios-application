@@ -13,7 +13,7 @@ import SwiftyBeaver
 
 let log = SwiftyBeaver.self
 
-//@UIApplicationMain
+/// Shows the password list and search controls
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     public var window: UIWindow?

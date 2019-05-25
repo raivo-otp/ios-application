@@ -45,7 +45,6 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func getAccount(success: @escaping ((SyncerAccount, String) -> Void), error: @escaping ((Error, String) -> Void)) -> Void {
-        
         if accountPreloaded {
             accountError == nil ? success(account!, UNIQUE_ID) : error(accountError!, UNIQUE_ID)
         } else {
@@ -90,7 +89,6 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func getChallenge(success: @escaping ((SyncerChallenge, String) -> Void), error: @escaping ((Error, String) -> Void)) {
-        
         if challengePreloaded {
             challengeError == nil ? success(challenge!, UNIQUE_ID) : error(challengeError!, UNIQUE_ID)
         } else {
@@ -193,15 +191,6 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     private func enableAccountChangeListener() {
-        
-        // TODO:
-        // Fix;
-        // * Raivo iCloud sign-in
-        // * iCloud sign-out
-        // * Raivo iCloud sign-out
-        // * Raivo sign-in
-        //      * iCloud not available?
-        
         NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: UNIQUE_ID) {
             self.accountPreloaded = false
             
@@ -224,7 +213,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     private func disableAccountChangeListener() {
-        NotificationCenter.default.removeObserver(self)
+        NotificationHelper.shared.discard(.CKAccountChanged, byDistinctName: UNIQUE_ID)
     }
     
 }
