@@ -31,7 +31,7 @@ class MigrationToBuild9: MigrationProtocol {
     }
     
     private func migrateSyncerTypeInStorage() {
-        guard let syncerType = StorageHelper.getSynchronizationProvider() else {
+        guard let syncerType = StorageHelper.shared.getSynchronizationProvider() else {
             return
         }
             
@@ -50,11 +50,11 @@ class MigrationToBuild9: MigrationProtocol {
             return
         }
         
-        StorageHelper.setSynchronizationProvider(newSyncerType)
+        StorageHelper.shared.setSynchronizationProvider(newSyncerType)
     }
     
     private func migrateSyncerAccountIdentifierInStorage(_ account: SyncerAccount) {
-        StorageHelper.setSynchronizationAccountIdentifier(account.identifier)
+        StorageHelper.shared.setSynchronizationAccountIdentifier(account.identifier)
     }
     
 }

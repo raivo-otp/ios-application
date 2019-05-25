@@ -37,10 +37,10 @@ class SetupEnableBiometricsViewController: UIViewController {
     }
     
     @IBAction func onEnableTouchID(_ sender: Any) {
-        StorageHelper.setEncryptionKey(getAppDelagate().getEncryptionKey()!.base64EncodedString())
+        StorageHelper.shared.setEncryptionKey(getAppDelagate().getEncryptionKey()!.base64EncodedString())
         
-        if let _ = StorageHelper.getEncryptionKey(prompt: "Confirm to enable TouchID") {
-            StorageHelper.setBiometricUnlockEnabled(true)
+        if let _ = StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable TouchID") {
+            StorageHelper.shared.setBiometricUnlockEnabled(true)
             getAppDelagate().updateStoryboard()
         }
     }

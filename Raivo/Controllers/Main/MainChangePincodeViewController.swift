@@ -78,7 +78,7 @@ class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
     func onPincodeComplete(pincode: String) {
         
         DispatchQueue.main.async {
-            let salt = StorageHelper.getEncryptionPassword()!
+            let salt = StorageHelper.shared.getEncryptionPassword()!
             
             if self.initialPincode == nil {
                 self.pincodeDigitsView.resetAndFocus()
@@ -111,11 +111,11 @@ class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
         }
         
         
-        if StorageHelper.getBiometricUnlockEnabled() {
-            StorageHelper.setEncryptionKey(newKey!.base64EncodedString())
+        if StorageHelper.shared.getBiometricUnlockEnabled() {
+            StorageHelper.shared.setEncryptionKey(newKey!.base64EncodedString())
         }
         
-        StorageHelper.setRealmFilename(newName)
+        StorageHelper.shared.setRealmFilename(newName)
         StateHelper.shared.reset(dueToPINCodeChange: true)
         
         getAppDelagate().updateStoryboard()

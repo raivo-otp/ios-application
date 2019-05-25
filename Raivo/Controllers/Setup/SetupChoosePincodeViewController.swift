@@ -65,7 +65,7 @@ class SetupChoosePincodeViewController: UIViewController, PincodeDigitsProtocol 
     func onPincodeComplete(pincode: String) {
 
         DispatchQueue.main.async {
-            let salt = StorageHelper.getEncryptionPassword()!
+            let salt = StorageHelper.shared.getEncryptionPassword()!
             
             if self.initialPincode == nil {
                 self.pincodeDigitsView.resetAndFocus()
@@ -90,7 +90,7 @@ class SetupChoosePincodeViewController: UIViewController, PincodeDigitsProtocol 
         
         let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
                 
-        if StorageHelper.canAccessSecrets() {
+        if StorageHelper.shared.canAccessSecrets() {
             performSegue(withIdentifier: "EnableBiometricsSegue", sender: nil)
         } else {
             getAppDelagate().updateStoryboard()

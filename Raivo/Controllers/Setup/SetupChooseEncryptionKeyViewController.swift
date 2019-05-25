@@ -80,7 +80,7 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
             return
         }
         
-        StorageHelper.setEncryptionPassword(viewEncryptionPassword.text!)
+        StorageHelper.shared.setEncryptionPassword(viewEncryptionPassword.text!)
         
         performSegue(withIdentifier: "ChoosePincodeSegue", sender: sender)
     }

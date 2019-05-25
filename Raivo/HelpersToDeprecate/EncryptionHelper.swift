@@ -13,7 +13,7 @@ class EncryptionHelper {
     
     public static func encrypt(_ plaintextMessage: String) throws -> String {
         let messageData = plaintextMessage.data(using: .utf8)!
-        let cipherData = RNCryptor.encrypt(data: messageData, withPassword: StorageHelper.getEncryptionPassword()!)
+        let cipherData = RNCryptor.encrypt(data: messageData, withPassword: StorageHelper.shared.getEncryptionPassword()!)
         
         return cipherData.base64EncodedString()
     }
@@ -24,7 +24,7 @@ class EncryptionHelper {
         if withKey != nil {
             salt = withKey!
         } else {
-            salt = StorageHelper.getEncryptionPassword()
+            salt = StorageHelper.shared.getEncryptionPassword()
         }
         
         let encryptedData = Data.init(base64Encoded: encryptedMessage)!

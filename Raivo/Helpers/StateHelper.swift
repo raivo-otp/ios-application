@@ -170,7 +170,7 @@ class StateHelper: BaseClass {
     /// - Returns: Positive if synchronization account is available
     private func syncerAccountIsAvailable() -> Bool {
         let currentSAI = getAppDelagate().syncerAccountIdentifier
-        let storedSAI = StorageHelper.getSynchronizationAccountIdentifier()
+        let storedSAI = StorageHelper.shared.getSynchronizationAccountIdentifier()
         
         return currentSAI == storedSAI
     }

@@ -196,7 +196,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
             
             self.getAccount(success: { (account, syncerID) in
                 DispatchQueue.main.async {
-                    guard account.identifier != StorageHelper.getSynchronizationAccountIdentifier() else {
+                    guard account.identifier != StorageHelper.shared.getSynchronizationAccountIdentifier() else {
                         return
                     }
                     

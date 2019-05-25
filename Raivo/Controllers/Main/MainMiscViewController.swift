@@ -21,11 +21,11 @@ class MainMiscViewController: FormViewController {
         miscellaneousForm = MiscellaneousForm(form).build(controller: self)
         
         // Set default/prefilled values
-        if let inactivityLockString = StorageHelper.getLockscreenTimeout() {
+        if let inactivityLockString = StorageHelper.shared.getLockscreenTimeout() {
             miscellaneousForm!.inactivityLockRow.value = MiscellaneousInactivityLockFormOption.build(inactivityLockString)
         }
         
-        if let iconsEffect = StorageHelper.getIconsEffect() {
+        if let iconsEffect = StorageHelper.shared.getIconsEffect() {
             miscellaneousForm!.iconsEffectRow.value = MiscellaneousIconsEffectFormOption.build(iconsEffect)
         }
         

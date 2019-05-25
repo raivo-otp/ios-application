@@ -35,6 +35,7 @@
 		703B6B44227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B43227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift */; };
 		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
 		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
+		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
 		70617A592270DBD80032076A /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A582270DBD80032076A /* QueryHelper.swift */; };
 		70617A5B2270E55D0032076A /* SetupFlushDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A5A2270E55D0032076A /* SetupFlushDataViewController.swift */; };
 		7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C796226A455800C1A949 /* SyncerChallenge.swift */; };
@@ -90,7 +91,6 @@
 		70B55862225E761800F83A34 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B55861225E761800F83A34 /* PasswordCell.swift */; };
 		70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3ED9225663A1005C98EF /* SyncerProtocol.swift */; };
 		70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDB22566408005C98EF /* CloudKitSyncer.swift */; };
-		70BC3EDE225664D7005C98EF /* SyncerHelperOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDD225664D7005C98EF /* SyncerHelperOld.swift */; };
 		70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDF22567223005C98EF /* SyncerAccount.swift */; };
 		70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EE122567603005C98EF /* BaseSyncer.swift */; };
 		70BC3EE522569881005C98EF /* OfflineSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EE422569881005C98EF /* OfflineSyncer.swift */; };
@@ -104,7 +104,6 @@
 		70D534F822398B8100CDD228 /* SetupChoosePincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */; };
 		70D534FA22398D5300CDD228 /* PincodeDigitsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F922398D5300CDD228 /* PincodeDigitsProtocol.swift */; };
 		70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */; };
-		70D7D7CF225BBCDC008DA2FD /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */; };
 		70E42298229891D50020D725 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E42297229891D50020D725 /* NotificationHelper.swift */; };
 		70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */; };
 		70F8BE7D2205EAFB006FDB5A /* GenericUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */; };
@@ -150,6 +149,7 @@
 		703B6B43227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintViewExtension.swift; sourceTree = "<group>"; };
 		7059680A22994CCF0032D70F /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
+		7059680F2299AB0A0032D70F /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		70617A582270DBD80032076A /* QueryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelper.swift; sourceTree = "<group>"; };
 		70617A5A2270E55D0032076A /* SetupFlushDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFlushDataViewController.swift; sourceTree = "<group>"; };
 		7066C796226A455800C1A949 /* SyncerChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerChallenge.swift; sourceTree = "<group>"; };
@@ -207,7 +207,6 @@
 		70B55861225E761800F83A34 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
 		70BC3ED9225663A1005C98EF /* SyncerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerProtocol.swift; sourceTree = "<group>"; };
 		70BC3EDB22566408005C98EF /* CloudKitSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncer.swift; sourceTree = "<group>"; };
-		70BC3EDD225664D7005C98EF /* SyncerHelperOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelperOld.swift; sourceTree = "<group>"; };
 		70BC3EDF22567223005C98EF /* SyncerAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerAccount.swift; sourceTree = "<group>"; };
 		70BC3EE122567603005C98EF /* BaseSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSyncer.swift; sourceTree = "<group>"; };
 		70BC3EE422569881005C98EF /* OfflineSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineSyncer.swift; sourceTree = "<group>"; };
@@ -221,7 +220,6 @@
 		70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChoosePincodeViewController.swift; sourceTree = "<group>"; };
 		70D534F922398D5300CDD228 /* PincodeDigitsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeDigitsProtocol.swift; sourceTree = "<group>"; };
 		70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternImage.swift; sourceTree = "<group>"; };
-		70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		70E42297229891D50020D725 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationProviderForm.swift; sourceTree = "<group>"; };
 		70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUIViewExtension.swift; sourceTree = "<group>"; };
@@ -439,12 +437,9 @@
 				700908F321FD027400603AA2 /* TokenHelper.swift */,
 				70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */,
 				70B143AB222AB9360015896F /* RealmHelper.swift */,
-				70BC3EDD225664D7005C98EF /* SyncerHelperOld.swift */,
-				70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */,
 				702A140722635ABE00B278BB /* EncryptionHelper.swift */,
 				7016DE412265193D006C45B6 /* ColorHelper.swift */,
 				70617A582270DBD80032076A /* QueryHelper.swift */,
-				70AE33222273B422007A12A2 /* AppHelper.swift */,
 				70AE33262274566B007A12A2 /* MigrationHelper.swift */,
 				70AE332822748229007A12A2 /* BannerHelper.swift */,
 				706708E622888265009A15B9 /* AlamofireHelper.swift */,
@@ -674,6 +669,8 @@
 				70E42297229891D50020D725 /* NotificationHelper.swift */,
 				7059680A22994CCF0032D70F /* StateHelper.swift */,
 				7059680C22997EFB0032D70F /* SyncerHelper.swift */,
+				7059680F2299AB0A0032D70F /* StorageHelper.swift */,
+				70AE33222273B422007A12A2 /* AppHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -919,6 +916,7 @@
 				70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */,
 				7077A340227F0FAE00338CA3 /* IconFormRow.swift in Sources */,
 				7077A34E227F675200338CA3 /* MigrationToBuild6.swift in Sources */,
+				705968102299AB0A0032D70F /* StorageHelper.swift in Sources */,
 				70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */,
 				709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */,
 				70F8BE85220619BF006FDB5A /* PincodeDigitsView.swift in Sources */,
@@ -967,9 +965,7 @@
 				70A7B116223062080084F15B /* MainSearchViewController.swift in Sources */,
 				70A7B114223061F80084F15B /* MainEditPasswordViewController.swift in Sources */,
 				70A7B10E223061D60084F15B /* MainPasswordsViewController.swift in Sources */,
-				70BC3EDE225664D7005C98EF /* SyncerHelperOld.swift in Sources */,
 				700908F621FD0A0100603AA2 /* SetupChooseSyncerServiceViewController.swift in Sources */,
-				70D7D7CF225BBCDC008DA2FD /* StorageHelper.swift in Sources */,
 				70B143AC222AB9360015896F /* RealmHelper.swift in Sources */,
 				70FA4C4F228752A300A3B754 /* IconFormSelectorViewEmptySearch.swift in Sources */,
 				70AE33232273B422007A12A2 /* AppHelper.swift in Sources */,

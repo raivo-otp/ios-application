@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return iconEffect
         }
         
-        self.iconsEffect = StorageHelper.getIconsEffect()
+        self.iconsEffect = StorageHelper.shared.getIconsEffect()
         
         if self.iconsEffect == nil {
             self.iconsEffect = MiscellaneousIconsEffectFormOption.OPTION_DEFAULT.value

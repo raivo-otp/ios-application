@@ -35,7 +35,7 @@ class SyncerHelper: BaseClass {
     public func getSyncer(_ type: String? = nil) -> SyncerProtocol {
         let intented = type ?? StorageHelper.shared.getSynchronizationProvider()
         
-        if intented != nil && !SyncerHelper.availableSyncers.contains(type!) {
+        if intented != nil && !SyncerHelper.availableSyncers.contains(intented!) {
             fatalError(String(format: "Intended syncer `%@` does not exist.", intented!))
         }
         

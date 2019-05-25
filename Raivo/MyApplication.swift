@@ -58,7 +58,7 @@ class MyApplication: UIApplication {
         
         invalidateInactivityTimer()
         
-        let inactivityTimeoutString = StorageHelper.getLockscreenTimeout() ?? MiscellaneousInactivityLockFormOption.OPTION_DEFAULT.value
+        let inactivityTimeoutString = StorageHelper.shared.getLockscreenTimeout() ?? MiscellaneousInactivityLockFormOption.OPTION_DEFAULT.value
         inactivityTimer = Timer.scheduledTimer(withTimeInterval: inactivityTimeoutString, repeats: false, block: { timer in
             guard self.inactivityTimerEnabled else {
                 return

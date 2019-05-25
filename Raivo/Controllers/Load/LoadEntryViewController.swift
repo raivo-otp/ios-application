@@ -31,7 +31,7 @@ class LoadEntryViewController: UIViewController {
         // This means that e.g. encryption keys could still be available in the keychain.
         // https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
         if StateHelper.shared.isFirstRun() {
-            StorageHelper.clear()
+            StorageHelper.shared.clear()
         }
         
         // Run all migrations except Realm migrations

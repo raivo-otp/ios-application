@@ -30,7 +30,7 @@ class MigrationHelper {
             previous += 1
         }
         
-        StorageHelper.setPreviousBuild(AppHelper.build)
+        StorageHelper.shared.setPreviousBuild(AppHelper.build)
     }
     
     static func runGenericMigrations(withAccount: SyncerAccount) {
@@ -47,7 +47,7 @@ class MigrationHelper {
     }
     
     private static func getPreviousBuild() -> Int {
-        if let previousVersion = StorageHelper.getPreviousBuild() {
+        if let previousVersion = StorageHelper.shared.getPreviousBuild() {
             return previousVersion
         }
         

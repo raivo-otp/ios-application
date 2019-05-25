@@ -35,12 +35,12 @@ class RealmHelper {
             return ORIGINAL_URL!.deletingLastPathComponent().appendingPathComponent(filename)
         }
         
-        if let realmfile = StorageHelper.getRealmFilename() {
+        if let realmfile = StorageHelper.shared.getRealmFilename() {
             return ORIGINAL_URL!.deletingLastPathComponent().appendingPathComponent(realmfile)
         }
         
         let realmfile = String(Int(Date().timeIntervalSince1970)) + ".realm"
-        StorageHelper.setRealmFilename(realmfile)
+        StorageHelper.shared.setRealmFilename(realmfile)
         
         return getFileURL()
     }

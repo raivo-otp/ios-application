@@ -122,8 +122,8 @@ class SetupChooseSyncerServiceViewController: FormViewController {
             if let destination = segue.destination as? SetupChooseEncryptionKeyViewController {
                 let selectedSyncer = synchronizationProviderForm!.getSelectedSyncer()!
                 
-                StorageHelper.setSynchronizationProvider(selectedSyncer)
-                StorageHelper.setSynchronizationAccountIdentifier(self.accounts[selectedSyncer]!.identifier)
+                StorageHelper.shared.setSynchronizationProvider(selectedSyncer)
+                StorageHelper.shared.setSynchronizationAccountIdentifier(self.accounts[selectedSyncer]!.identifier)
                 getAppDelagate().syncerAccountIdentifier = self.accounts[selectedSyncer]!.identifier
                 
                 destination.account = self.accounts[selectedSyncer]

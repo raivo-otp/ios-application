@@ -113,15 +113,15 @@ class MiscellaneousForm: BaseClass {
                 cell.textLabel?.textColor = ColorHelper.getTint()
                 cell.imageView?.image = UIImage(named: "form-lock")
             }).onChange({ row in
-                StorageHelper.setLockscreenTimeout(row.value!.value)
+                StorageHelper.shared.setLockscreenTimeout(row.value!.value)
                 (MyApplication.shared as! MyApplication).scheduleInactivityTimer()
                 row.collapseInlineRow()
             })
             
             <<< SwitchRow("touchid_unlock", { row in
                 row.title = "TouchID unlock"
-                row.hidden = Condition(booleanLiteral: !StorageHelper.canAccessSecrets())
-                row.value = StorageHelper.getBiometricUnlockEnabled()
+                row.hidden = Condition(booleanLiteral: !StorageHelper.shared.canAccessSecrets())
+                row.value = StorageHelper.shared.getBiometricUnlockEnabled()
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textColor = ColorHelper.getTint()
                 cell.imageView?.image = UIImage(named: "form-biometric")
@@ -135,13 +135,13 @@ class MiscellaneousForm: BaseClass {
                 // Bugfix for invalid SwitchRow background if TouchID was cancelled
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     if !(row.value ?? false) {
-                        StorageHelper.setEncryptionKey(nil)
-                        StorageHelper.setBiometricUnlockEnabled(false)
+                        StorageHelper.shared.setEncryptionKey(nil)
+                        StorageHelper.shared.setBiometricUnlockEnabled(false)
                     } else {
-                        StorageHelper.setEncryptionKey(key.base64EncodedString())
+                        StorageHelper.shared.setEncryptionKey(key.base64EncodedString())
                         
-                        if StorageHelper.getEncryptionKey(prompt: "Confirm to enable TouchID") != nil {
-                            StorageHelper.setBiometricUnlockEnabled(true)
+                        if StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable TouchID") != nil {
+                            StorageHelper.shared.setBiometricUnlockEnabled(true)
                         } else {
                             row.value = false
                             row.cell.switchControl.setOn(false, animated: true)
@@ -178,7 +178,7 @@ class MiscellaneousForm: BaseClass {
             }).onChange({ row in
                 guard self.isReady else { return }
                 
-                StorageHelper.setIconsEffect(row.value!.value)
+                StorageHelper.shared.setIconsEffect(row.value!.value)
                 row.collapseInlineRow()
                 
                 let refreshAlert = UIAlertController(
