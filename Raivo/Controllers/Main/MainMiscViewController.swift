@@ -29,7 +29,7 @@ class MainMiscViewController: FormViewController {
             miscellaneousForm!.iconsEffectRow.value = MiscellaneousIconsEffectFormOption.build(iconsEffect)
         }
         
-        SyncerHelper.getSyncer().getAccount(success: accountSuccess, error: accountError)
+        SyncerHelper.shared.getSyncer().getAccount(success: accountSuccess, error: accountError)
         
         miscellaneousForm!.ready()
     }
@@ -37,7 +37,7 @@ class MainMiscViewController: FormViewController {
     private func accountSuccess(_ account: SyncerAccount, _ syncerID: String) {
         DispatchQueue.main.async {
             self.miscellaneousForm?.accountRow.value = account.name
-            self.miscellaneousForm?.providerRow.value = SyncerHelper.getSyncer().name
+            self.miscellaneousForm?.providerRow.value = SyncerHelper.shared.getSyncer().name
 
             self.miscellaneousForm?.accountRow.reload()
             self.miscellaneousForm?.providerRow.reload()

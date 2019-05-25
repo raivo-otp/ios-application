@@ -21,7 +21,7 @@ class ErrorSyncerAccountChangedViewController: UIViewController {
         
         let url = Bundle.main.url(forResource: "error-syncer-account-changed", withExtension: "svg", subdirectory: "Vectors")
         
-        viewTitle.text = "Your " + SyncerHelper.getSyncer().name + " account changed"
+        viewTitle.text = "Your " + SyncerHelper.shared.getSyncer().name + " account changed"
         viewIcon.image = SVGKImage(contentsOf: url)
     }
     
@@ -33,8 +33,7 @@ class ErrorSyncerAccountChangedViewController: UIViewController {
         )
         
         refreshAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action: UIAlertAction!) in
-            StateHelper.reset()
-            self.getAppDelagate().updateStoryboard()
+            StateHelper.shared.reset()
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in

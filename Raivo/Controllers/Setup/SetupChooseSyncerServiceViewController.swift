@@ -47,8 +47,8 @@ class SetupChooseSyncerServiceViewController: FormViewController {
         evaluateAllowContinue()
         
         for availableSyncer in SyncerHelper.availableSyncers {
-            SyncerHelper.getSyncer(availableSyncer).getAccount(success: self.accountSuccess, error: self.accountError)
-            SyncerHelper.getSyncer(availableSyncer).getChallenge(success: self.challengeSuccess, error: self.challengeError)
+            SyncerHelper.shared.getSyncer(availableSyncer).getAccount(success: self.accountSuccess, error: self.accountError)
+            SyncerHelper.shared.getSyncer(availableSyncer).getChallenge(success: self.challengeSuccess, error: self.challengeError)
         }
     }
     

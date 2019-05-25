@@ -32,7 +32,9 @@ class StorageHelper {
         return SecureEnclaveValet.valet(with: Identifier(nonEmpty: "secrets")!, accessControl: .userPresence)
     }
     
-    public static func clear() {
+    public static func clear(dueToPINCodeChange: Bool = false) {
+        guard !dueToPINCodeChange else { return }
+        
         settings().removeAllObjects()
         secrets().removeAllObjects()
     }

@@ -74,12 +74,12 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildSynchronizationSection(_ controller: UIViewController) {
-        let authenticated = StateHelper.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
         
         form +++ Section("Synchronization", { section in
             section.tag = "synchronization"
             section.hidden = Condition(booleanLiteral: !authenticated)
-            section.footer = HeaderFooterView(title: SyncerHelper.getSyncer().help)
+            section.footer = HeaderFooterView(title: SyncerHelper.shared.getSyncer().help)
        })
             
             <<< LabelRow("account", { row in
@@ -98,7 +98,7 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildAuthenticationSection(_ controller: UIViewController) {
-        let authenticated = StateHelper.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
         
         form +++ Section("Authentication", { section in
             section.tag = "authentication"
@@ -161,7 +161,7 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildInterfaceSection(_ controller: UIViewController) {
-        let authenticated = StateHelper.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
         
         form +++ Section("Interface", { section in
             section.tag = "interface"
@@ -262,14 +262,14 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildAdvancedSection(_ controller: UIViewController) {
-        let show = [StateHelper.Storyboard.MAIN, StateHelper.Storyboard.AUTH].contains(StateHelper.getCurrentStoryboard())
+        let show = [StateHelper.Storyboard.MAIN, StateHelper.Storyboard.AUTH].contains(StateHelper.shared.getCurrentStoryboard())
         
         form +++ Section("Advanced", { section in
             section.tag = "advanced"
             section.hidden = Condition(booleanLiteral: !show)
             
             let footerTitle = "Signing out will remove all data from your device."
-            if [MockSyncer.UNIQUE_ID, OfflineSyncer.UNIQUE_ID].contains(SyncerHelper.getSyncer().UNIQUE_ID) {
+            if [MockSyncer.UNIQUE_ID, OfflineSyncer.UNIQUE_ID].contains(SyncerHelper.shared.getSyncer().UNIQUE_ID) {
                 section.footer = HeaderFooterView(title: footerTitle)
             } else {
                 section.footer = HeaderFooterView(title: footerTitle + " Data that has already been synced will remain at your synchronization provider.")
@@ -289,8 +289,7 @@ class MiscellaneousForm: BaseClass {
                 )
                 
                 refreshAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action: UIAlertAction!) in
-                    StateHelper.reset()
-                    controller.getAppDelagate().updateStoryboard()
+                    StateHelper.shared.reset()
                 }))
                 
                 refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in

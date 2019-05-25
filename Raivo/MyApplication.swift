@@ -64,7 +64,7 @@ class MyApplication: UIApplication {
                 return
             }
             
-            StateHelper.lock()
+            StateHelper.shared.lock()
         })
     }
     

@@ -71,8 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (MyApplication.shared as! MyApplication).enableInactivityTimer()
             
             // Enable syncer notifications
-            SyncerHelper.getSyncer().enable()
-            SyncerHelper.getSyncer().resyncModel(Password.UNIQUE_ID)
+            SyncerHelper.shared.getSyncer().enable()
+            SyncerHelper.shared.getSyncer().resyncModel(Password.UNIQUE_ID)
             UIApplication.shared.registerForRemoteNotifications()
         case StateHelper.Storyboard.LOAD, StateHelper.Storyboard.AUTH:
             // Disable lockscreen timer
@@ -85,23 +85,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (MyApplication.shared as! MyApplication).disableInactivityTimer()
             
             // Disable syncer notifications and preload the encryption challenge
-            SyncerHelper.getSyncer().preloadChallenge()
+            SyncerHelper.shared.getSyncer().preloadChallenge()
             UIApplication.shared.unregisterForRemoteNotifications()
-            SyncerHelper.getSyncer().disable()
+            SyncerHelper.shared.getSyncer().disable()
         case StateHelper.Storyboard.ERROR:
             // Disable lockscreen timer
             (MyApplication.shared as! MyApplication).disableInactivityTimer()
             
             // Disable syncer notifications
             UIApplication.shared.unregisterForRemoteNotifications()
-            SyncerHelper.getSyncer().disable()
+            SyncerHelper.shared.getSyncer().disable()
         default:
             fatalError("Unknown storyboard!")
         }
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        SyncerHelper.getSyncer().notify(userInfo)
+        SyncerHelper.shared.getSyncer().notify(userInfo)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -128,8 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setCorrectStoryboard() {
-        let storyboardName = StateHelper.getCurrentStoryboard()
-        let controllerName = StateHelper.getCurrentStoryboardController()
+        let storyboardName = StateHelper.shared.getCurrentStoryboard()
+        let controllerName = StateHelper.shared.getCurrentStoryboardController()
         
         self.beforeStoryboardChange(storyboardName)
     

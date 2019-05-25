@@ -26,10 +26,11 @@ class LoadEntryViewController: UIViewController {
         SDImageCache.shared.config.maxDiskAge = TimeInterval(60 * 60 * 24 * 365 * 4)
         SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
         
-        // If this is the first run of the app, flush the keychain
-        // It could be a reinstall of the app (reinstalls don't flush the keychain)
+        // If this is the first run of the app, flush the keychain.
+        // It could be a reinstall of the app (reinstalls don't flush the keychain).
+        // This means that e.g. encryption keys could still be available in the keychain.
         // https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
-        if StateHelper.isFirstRun() {
+        if StateHelper.shared.isFirstRun() {
             StorageHelper.clear()
         }
         
@@ -37,7 +38,7 @@ class LoadEntryViewController: UIViewController {
         MigrationHelper.runGenericMigrations()
 
         // Preload the synchronization information
-        SyncerHelper.getSyncer().getAccount(success: { (account, syncerID) in
+        SyncerHelper.shared.getSyncer().getAccount(success: { (account, syncerID) in
             DispatchQueue.main.async {
                 MigrationHelper.runGenericMigrations(withAccount: account)
                 

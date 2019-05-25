@@ -15,7 +15,6 @@
 		700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908CD21FCCE6100603AA2 /* Splash.storyboard */; };
 		700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908E421FCE37B00603AA2 /* Auth.storyboard */; };
 		700908E721FCE38700603AA2 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908E621FCE38700603AA2 /* Setup.storyboard */; };
-		700908EC21FCE7DE00603AA2 /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908EB21FCE7DE00603AA2 /* StateHelper.swift */; };
 		700908EE21FCEC2800603AA2 /* AuthEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908ED21FCEC2800603AA2 /* AuthEntryViewController.swift */; };
 		700908F021FCEC3100603AA2 /* SetupEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908EF21FCEC3100603AA2 /* SetupEntryViewController.swift */; };
 		700908F221FCFADF00603AA2 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F121FCFADF00603AA2 /* Password.swift */; };
@@ -34,6 +33,8 @@
 		703414C4223D8EA500D220A4 /* KeyboardConstraintControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703414C3223D8EA500D220A4 /* KeyboardConstraintControllerExtension.swift */; };
 		703B6B30227A060900409BB5 /* SetupEnableBiometricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */; };
 		703B6B44227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B43227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift */; };
+		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
+		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
 		70617A592270DBD80032076A /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A582270DBD80032076A /* QueryHelper.swift */; };
 		70617A5B2270E55D0032076A /* SetupFlushDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A5A2270E55D0032076A /* SetupFlushDataViewController.swift */; };
 		7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C796226A455800C1A949 /* SyncerChallenge.swift */; };
@@ -89,7 +90,7 @@
 		70B55862225E761800F83A34 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B55861225E761800F83A34 /* PasswordCell.swift */; };
 		70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3ED9225663A1005C98EF /* SyncerProtocol.swift */; };
 		70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDB22566408005C98EF /* CloudKitSyncer.swift */; };
-		70BC3EDE225664D7005C98EF /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDD225664D7005C98EF /* SyncerHelper.swift */; };
+		70BC3EDE225664D7005C98EF /* SyncerHelperOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDD225664D7005C98EF /* SyncerHelperOld.swift */; };
 		70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDF22567223005C98EF /* SyncerAccount.swift */; };
 		70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EE122567603005C98EF /* BaseSyncer.swift */; };
 		70BC3EE522569881005C98EF /* OfflineSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EE422569881005C98EF /* OfflineSyncer.swift */; };
@@ -129,7 +130,6 @@
 		700908D021FCCE6100603AA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		700908E421FCE37B00603AA2 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		700908E621FCE38700603AA2 /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
-		700908EB21FCE7DE00603AA2 /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		700908ED21FCEC2800603AA2 /* AuthEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEntryViewController.swift; sourceTree = "<group>"; };
 		700908EF21FCEC3100603AA2 /* SetupEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEntryViewController.swift; sourceTree = "<group>"; };
 		700908F121FCFADF00603AA2 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
@@ -148,6 +148,8 @@
 		703414C3223D8EA500D220A4 /* KeyboardConstraintControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintControllerExtension.swift; sourceTree = "<group>"; };
 		703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEnableBiometricsViewController.swift; sourceTree = "<group>"; };
 		703B6B43227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintViewExtension.swift; sourceTree = "<group>"; };
+		7059680A22994CCF0032D70F /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
+		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
 		70617A582270DBD80032076A /* QueryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelper.swift; sourceTree = "<group>"; };
 		70617A5A2270E55D0032076A /* SetupFlushDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFlushDataViewController.swift; sourceTree = "<group>"; };
 		7066C796226A455800C1A949 /* SyncerChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerChallenge.swift; sourceTree = "<group>"; };
@@ -205,7 +207,7 @@
 		70B55861225E761800F83A34 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
 		70BC3ED9225663A1005C98EF /* SyncerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerProtocol.swift; sourceTree = "<group>"; };
 		70BC3EDB22566408005C98EF /* CloudKitSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncer.swift; sourceTree = "<group>"; };
-		70BC3EDD225664D7005C98EF /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
+		70BC3EDD225664D7005C98EF /* SyncerHelperOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelperOld.swift; sourceTree = "<group>"; };
 		70BC3EDF22567223005C98EF /* SyncerAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerAccount.swift; sourceTree = "<group>"; };
 		70BC3EE122567603005C98EF /* BaseSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSyncer.swift; sourceTree = "<group>"; };
 		70BC3EE422569881005C98EF /* OfflineSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineSyncer.swift; sourceTree = "<group>"; };
@@ -273,8 +275,8 @@
 				7088B94922554AF10024BB87 /* Raivo.entitlements */,
 				702CA6CB2263A160000DCC1D /* Errors */,
 				70BC3ED722566379005C98EF /* Syncers */,
-				70E42296229891AB0020D725 /* HelpersImproved */,
-				700908EA21FCE7D200603AA2 /* Helpers */,
+				70E42296229891AB0020D725 /* Helpers */,
+				700908EA21FCE7D200603AA2 /* HelpersToDeprecate */,
 				700908E321FCE34800603AA2 /* Supporting */,
 				700908E221FCE30D00603AA2 /* Models */,
 				700908E121FCE30500603AA2 /* Extensions */,
@@ -431,14 +433,13 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
-		700908EA21FCE7D200603AA2 /* Helpers */ = {
+		700908EA21FCE7D200603AA2 /* HelpersToDeprecate */ = {
 			isa = PBXGroup;
 			children = (
-				700908EB21FCE7DE00603AA2 /* StateHelper.swift */,
 				700908F321FD027400603AA2 /* TokenHelper.swift */,
 				70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */,
 				70B143AB222AB9360015896F /* RealmHelper.swift */,
-				70BC3EDD225664D7005C98EF /* SyncerHelper.swift */,
+				70BC3EDD225664D7005C98EF /* SyncerHelperOld.swift */,
 				70D7D7CE225BBCDC008DA2FD /* StorageHelper.swift */,
 				702A140722635ABE00B278BB /* EncryptionHelper.swift */,
 				7016DE412265193D006C45B6 /* ColorHelper.swift */,
@@ -448,7 +449,7 @@
 				70AE332822748229007A12A2 /* BannerHelper.swift */,
 				706708E622888265009A15B9 /* AlamofireHelper.swift */,
 			);
-			path = Helpers;
+			path = HelpersToDeprecate;
 			sourceTree = "<group>";
 		};
 		70285927226205A50045DA26 /* ModelConverters */ = {
@@ -667,12 +668,14 @@
 			path = PatternImage;
 			sourceTree = "<group>";
 		};
-		70E42296229891AB0020D725 /* HelpersImproved */ = {
+		70E42296229891AB0020D725 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				70E42297229891D50020D725 /* NotificationHelper.swift */,
+				7059680A22994CCF0032D70F /* StateHelper.swift */,
+				7059680C22997EFB0032D70F /* SyncerHelper.swift */,
 			);
-			path = HelpersImproved;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		70FA4C4D2287526400A3B754 /* IconFormSelectorView */ = {
@@ -903,11 +906,13 @@
 				70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */,
 				70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */,
 				70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */,
+				7059680B22994CCF0032D70F /* StateHelper.swift in Sources */,
 				7077A34C227F610700338CA3 /* PasswordIconTypeFormOption.swift in Sources */,
 				70FA4C4C2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift in Sources */,
 				70BEE09D226B248200D5CF4B /* AuthMiscViewController.swift in Sources */,
 				70617A592270DBD80032076A /* QueryHelper.swift in Sources */,
 				7066C79F226A4FDD00C1A949 /* BaseClass.swift in Sources */,
+				7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */,
 				702A140822635ABE00B278BB /* EncryptionHelper.swift in Sources */,
 				70684DEF225A1BF70038BDB4 /* main.swift in Sources */,
 				70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */,
@@ -924,7 +929,6 @@
 				70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */,
 				702CA6CA2263A119000DCC1D /* MockSyncer.swift in Sources */,
 				70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */,
-				700908EC21FCE7DE00603AA2 /* StateHelper.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
 				707B38DD2275E57200D35897 /* TintentUIImageExtension.swift in Sources */,
 				70F8BE812205F51A006FDB5A /* KeyDerivationHelper.swift in Sources */,
@@ -963,7 +967,7 @@
 				70A7B116223062080084F15B /* MainSearchViewController.swift in Sources */,
 				70A7B114223061F80084F15B /* MainEditPasswordViewController.swift in Sources */,
 				70A7B10E223061D60084F15B /* MainPasswordsViewController.swift in Sources */,
-				70BC3EDE225664D7005C98EF /* SyncerHelper.swift in Sources */,
+				70BC3EDE225664D7005C98EF /* SyncerHelperOld.swift in Sources */,
 				700908F621FD0A0100603AA2 /* SetupChooseSyncerServiceViewController.swift in Sources */,
 				70D7D7CF225BBCDC008DA2FD /* StorageHelper.swift in Sources */,
 				70B143AC222AB9360015896F /* RealmHelper.swift in Sources */,

@@ -1,9 +1,11 @@
 //
-//  NotificationHelper.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 24/05/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
+//
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
 //
 
 import Foundation
@@ -21,13 +23,13 @@ import Foundation
 /// -----------------------------
 ///
 /// You can place this in e.g. a viewDidAppear method, and even though the listen method could be called
-/// multiple times, it will only trigger once.
+/// multiple times, it will only trigger on the last created instance.
 ///
 ///     NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: "AccountView") {
 ///         print("iCloud account changed")
 ///     }
 ///
-class NotificationHelper {
+class NotificationHelper: BaseClass {
 
     /// The singleton instance for the NotificationHelper
     public static let shared = NotificationHelper()
@@ -36,7 +38,7 @@ class NotificationHelper {
     private var singleInstances: [String: NSObjectProtocol] = [:]
 
     /// A private initializer to make sure this class can only be used as a singleton class
-    private init() {}
+    private override init() {}
 
     /// Observe a notification and stop the old listeners observing this notification
     ///

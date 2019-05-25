@@ -28,10 +28,9 @@ class SetupFlushDataViewController: UIViewController {
     private func flushData() {
         let _ = displayNavBarActivity()
         
-        SyncerHelper.getSyncer().flushAllData(success: { (syncerType) in
-            StateHelper.reset()
-            self.getAppDelagate().updateStoryboard()
+        SyncerHelper.shared.getSyncer().flushAllData(success: { (syncerType) in
             self.dismissNavBarActivity()
+            StateHelper.shared.reset()           
         }) { (error, syncerType) in
             self.dismissNavBarActivity()
             

@@ -49,4 +49,4 @@ If you choose "Offline (none)" as synchronization method, none of your data will
 
 #### Apple iCloud
 
-If you choose "Apple iCloud" as synchronization method, the statements of the "Offline (none)" synchronization method apply to the local database, with in addition that the data in the local database is sent to CloudKit (a database in Apple iCloud). The data that is sent to CloudKit is AES-256 encrypted using your encryption key. Your encryption key (that was defined during setup) is stored in Secure Enclave.
+If you choose "Apple iCloud" as synchronization method, the statements of the "Offline (none)" synchronization method apply to the local database, with in addition that the data in the local database is sent to CloudKit (a database in Apple iCloud). The data that is sent to CloudKit is AES-256 encrypted using your encryption key. Your encryption key (that was defined during setup) is stored in Secure Enclave. This allows you to have different PIN codes on different instances of the Service.
