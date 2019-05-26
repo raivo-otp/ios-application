@@ -1,15 +1,17 @@
 //
-//  MiscellaneousForm.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 07/04/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import Eureka
 
-class MiscellaneousForm: BaseClass {
+class MiscellaneousForm {
     
     private var form: Form
     
@@ -114,7 +116,7 @@ class MiscellaneousForm: BaseClass {
                 cell.imageView?.image = UIImage(named: "form-lock")
             }).onChange({ row in
                 StorageHelper.shared.setLockscreenTimeout(row.value!.value)
-                (MyApplication.shared as! MyApplication).scheduleInactivityTimer()
+                getAppPrincipal().scheduleInactivityTimer()
                 row.collapseInlineRow()
             })
             
@@ -128,7 +130,7 @@ class MiscellaneousForm: BaseClass {
                 cell.switchControl.tintColor = ColorHelper.getTint()
                 cell.switchControl.onTintColor = ColorHelper.getTint()
             }).onChange({ row in
-                guard let key = self.getAppDelagate().getEncryptionKey() else {
+                guard let key = getAppDelegate().getEncryptionKey() else {
                     return
                 }
                 
@@ -269,7 +271,7 @@ class MiscellaneousForm: BaseClass {
             section.hidden = Condition(booleanLiteral: !show)
             
             let footerTitle = "Signing out will remove all data from your device."
-            if [MockSyncer.UNIQUE_ID, OfflineSyncer.UNIQUE_ID].contains(SyncerHelper.shared.getSyncer().UNIQUE_ID) {
+            if [id(MockSyncer.self), id(OfflineSyncer.self)].contains(id(SyncerHelper.shared.getSyncer().self)) {
                 section.footer = HeaderFooterView(title: footerTitle)
             } else {
                 section.footer = HeaderFooterView(title: footerTitle + " Data that has already been synced will remain at your synchronization provider.")

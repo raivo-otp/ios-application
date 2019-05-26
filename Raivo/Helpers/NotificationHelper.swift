@@ -29,7 +29,7 @@ import Foundation
 ///         print("iCloud account changed")
 ///     }
 ///
-class NotificationHelper: BaseClass {
+class NotificationHelper {
 
     /// The singleton instance for the NotificationHelper
     public static let shared = NotificationHelper()
@@ -38,7 +38,7 @@ class NotificationHelper: BaseClass {
     private var singleInstances: [String: NSObjectProtocol] = [:]
 
     /// A private initializer to make sure this class can only be used as a singleton class
-    private override init() {}
+    private init() {}
 
     /// Observe a notification and stop the old listeners observing this notification
     ///

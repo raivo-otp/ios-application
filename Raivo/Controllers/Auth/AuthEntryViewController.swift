@@ -1,10 +1,12 @@
 //
-//  AuthEntryViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 26/01/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import UIKit
 import RealmSwift
@@ -39,7 +41,7 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if getAppDelagate().previousStoryboardName == StateHelper.Storyboard.LOAD {
+        if getAppDelegate().previousStoryboardName == StateHelper.Storyboard.LOAD {
             self.tryTouchID()
         }
         
@@ -84,10 +86,10 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
             }
             
             if isCorrect {
-                self.getAppDelagate().updateEncryptionKey(encryptionKey)
+                getAppDelegate().updateEncryptionKey(encryptionKey)
                 
                 self.resetPincodeTries()
-                self.getAppDelagate().updateStoryboard()
+                getAppDelegate().updateStoryboard()
             } else {
                 self.pincodeDigitsView.resetAndFocus()
                 let message = self.getTriesLeft() == 0 ? "Invalid PIN code. That was your last try." : "Invalid PIN code. " + String(self.getTriesLeft()) + " tries left."
@@ -146,9 +148,9 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         }
         
         if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
-            self.getAppDelagate().updateEncryptionKey(Data(base64Encoded: key))
+            getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
             self.resetPincodeTries()
-            self.getAppDelagate().updateStoryboard()
+            getAppDelegate().updateStoryboard()
         } else {
             let _ = self.tryNewPincode()
         }

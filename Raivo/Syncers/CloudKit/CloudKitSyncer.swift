@@ -1,10 +1,12 @@
 //
-//  CloudKitSyncer.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 04/04/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import CloudKit
@@ -17,7 +19,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     var help = "Your Apple iCloud account is used to store your passwords (encrypted)."
     
     let modelSyncers = [
-        Password.UNIQUE_ID: CloudKitPasswordSyncer()
+        id(Password.self): CloudKitPasswordSyncer()
     ]
     
     deinit {
@@ -46,7 +48,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     
     func getAccount(success: @escaping ((SyncerAccount, String) -> Void), error: @escaping ((Error, String) -> Void)) -> Void {
         if accountPreloaded {
-            accountError == nil ? success(account!, UNIQUE_ID) : error(accountError!, UNIQUE_ID)
+            accountError == nil ? success(account!, id(self)) : error(accountError!, id(self))
         } else {
             NotificationHelper.shared.listenOnce(to: BaseSyncer.ACCOUNT_NOTIFICATION) {
                 self.getAccount(success: success, error: error)
@@ -90,7 +92,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     
     func getChallenge(success: @escaping ((SyncerChallenge, String) -> Void), error: @escaping ((Error, String) -> Void)) {
         if challengePreloaded {
-            challengeError == nil ? success(challenge!, UNIQUE_ID) : error(challengeError!, UNIQUE_ID)
+            challengeError == nil ? success(challenge!, id(self)) : error(challengeError!, id(self))
         } else {
             NotificationHelper.shared.listenOnce(to: BaseSyncer.CHALLENGE_NOTIFICATION) {
                 self.getChallenge(success: success, error: error)
@@ -159,9 +161,9 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
 
         group.notify(queue: .main) {
             if let modelError = modelError {
-                error(modelError, self.UNIQUE_ID)
+                error(modelError, id(self.self))
             } else {
-                success(self.UNIQUE_ID)
+                success(id(self.self))
             }
         }
     }
@@ -191,7 +193,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     private func enableAccountChangeListener() {
-        NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: UNIQUE_ID) {
+        NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: id(self)) {
             self.accountPreloaded = false
             
             self.getAccount(success: { (account, syncerID) in
@@ -200,20 +202,20 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
                         return
                     }
                     
-                    self.getAppDelagate().syncerAccountIdentifier = account.identifier
-                    self.getAppDelagate().updateStoryboard()
+                    getAppDelegate().syncerAccountIdentifier = account.identifier
+                    getAppDelegate().updateStoryboard()
                 }
             }, error: { (error, syncerID) in
                 DispatchQueue.main.async {
-                    self.getAppDelagate().syncerAccountIdentifier = nil
-                    self.getAppDelagate().updateStoryboard()
+                    getAppDelegate().syncerAccountIdentifier = nil
+                    getAppDelegate().updateStoryboard()
                 }
             })
         }
     }
     
     private func disableAccountChangeListener() {
-        NotificationHelper.shared.discard(.CKAccountChanged, byDistinctName: UNIQUE_ID)
+        NotificationHelper.shared.discard(.CKAccountChanged, byDistinctName: id(self))
     }
     
 }

@@ -1,16 +1,18 @@
 //
-//  CloudKitPasswordSyncer.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 13/04/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import RealmSwift
 import CloudKit
 
-class CloudKitPasswordSyncer: BaseClass, CloudKitModelSyncerProtocol {
+class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
 
     private let cloud = CKContainer.default().privateCloudDatabase
     
@@ -74,7 +76,7 @@ class CloudKitPasswordSyncer: BaseClass, CloudKitModelSyncerProtocol {
     }
     
     func notify(_ notification: CKQueryNotification?) {
-        guard notification?.subscriptionID == CloudKitPasswordSyncer.UNIQUE_ID else {
+        guard notification?.subscriptionID == id(CloudKitPasswordSyncer.self) else {
             return
         }
         
@@ -164,7 +166,7 @@ class CloudKitPasswordSyncer: BaseClass, CloudKitModelSyncerProtocol {
         let subscription = CKQuerySubscription(
             recordType: Password.TABLE,
             predicate: NSPredicate(value: true),
-            subscriptionID: CKSubscription.ID(CloudKitPasswordSyncer.UNIQUE_ID),
+            subscriptionID: CKSubscription.ID(id(CloudKitPasswordSyncer.self)),
             options: [
                 CKQuerySubscription.Options.firesOnRecordCreation,
                 CKQuerySubscription.Options.firesOnRecordUpdate

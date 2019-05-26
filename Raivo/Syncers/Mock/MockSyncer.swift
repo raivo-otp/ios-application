@@ -1,10 +1,12 @@
 //
-//  MockSyncer.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 14/04/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 
@@ -23,7 +25,7 @@ class MockSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func getAccount(success: @escaping ((SyncerAccount, String) -> Void), error: @escaping ((Error, String) -> Void)) -> Void {
-        error(UnexpectedError("This is the mock syncer!"), UNIQUE_ID)
+        error(UnexpectedError("This is the mock syncer!"), id(self))
     }
    
     func preloadAccount() {
@@ -31,7 +33,7 @@ class MockSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func getChallenge(success: @escaping ((SyncerChallenge, String) -> Void), error: @escaping ((Error, String) -> Void)) {
-        error(UnexpectedError("This is the mock syncer!"), UNIQUE_ID)
+        error(UnexpectedError("This is the mock syncer!"), id(self))
     }
     
     func preloadChallenge() {
@@ -39,7 +41,7 @@ class MockSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func flushAllData(success: @escaping ((String) -> Void), error: @escaping ((Error, String) -> Void)) {
-        error(UnexpectedError("This is the mock syncer!"), UNIQUE_ID)
+        error(UnexpectedError("This is the mock syncer!"), id(self))
     }
     
 }

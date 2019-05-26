@@ -200,11 +200,11 @@
             </objects>
             <point key="canvasLocation" x="4894" y="-740"/>
         </scene>
-        <!--Misc-->
+        <!--Settings-->
         <scene sceneID="Ogz-oo-NQf">
             <objects>
                 <navigationController id="JqB-dd-yVm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Misc" image="tabbar-misc" id="Fj5-sw-Yre"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="tabbar-misc" id="Fj5-sw-Yre"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OZY-Ml-0et">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -217,7 +217,7 @@
             </objects>
             <point key="canvasLocation" x="2980" y="806"/>
         </scene>
-        <!--Misc-->
+        <!--Settings-->
         <scene sceneID="1TX-0c-T7X">
             <objects>
                 <viewController id="NSd-7i-At7" customClass="MainMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
@@ -227,7 +227,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6fs-mC-1eZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Misc" id="5Cb-dt-5Cj"/>
+                    <navigationItem key="navigationItem" title="Settings" id="5Cb-dt-5Cj"/>
                     <connections>
                         <segue destination="F9t-JF-c77" kind="show" identifier="ChangePincodeSegue" id="xHJ-LE-rn2"/>
                     </connections>

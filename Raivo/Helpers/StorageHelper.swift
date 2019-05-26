@@ -13,7 +13,7 @@ import LocalAuthentication
 import Valet
 
 /// A helper class for the keychain and Secure Encalve
-class StorageHelper: BaseClass {
+class StorageHelper {
     
     /// The keys that can be used to get/set values
     private struct Key {
@@ -34,7 +34,7 @@ class StorageHelper: BaseClass {
     public static let shared = StorageHelper()
    
     /// A private initializer to make sure this class can only be used as a singleton class
-    private override init() {}
+    private init() {}
     
     /// Get a `Valet` that enables you to store key/value pairs in the keychain (outside of Secure Encalve).
     ///

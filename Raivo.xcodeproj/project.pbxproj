@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27C4D6B8E3B0B1DD3729F02F /* Pods_Raivo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1B2FA3D06BC7C8DCA60308 /* Pods_Raivo.framework */; };
-		700908C521FCCE5F00603AA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C421FCCE5F00603AA2 /* AppDelegate.swift */; };
+		700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */; };
 		700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */; };
 		700908CA21FCCE5F00603AA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908C821FCCE5F00603AA2 /* Main.storyboard */; };
 		700908CC21FCCE6100603AA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 700908CB21FCCE6100603AA2 /* Assets.xcassets */; };
@@ -41,10 +41,10 @@
 		7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C796226A455800C1A949 /* SyncerChallenge.swift */; };
 		7066C79B226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79A226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift */; };
 		7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79C226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift */; };
-		7066C79F226A4FDD00C1A949 /* BaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79E226A4FDD00C1A949 /* BaseClass.swift */; };
+		7066C79F226A4FDD00C1A949 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79E226A4FDD00C1A949 /* global.swift */; };
 		706708E722888265009A15B9 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706708E622888265009A15B9 /* AlamofireHelper.swift */; };
 		706708E92288A5D5009A15B9 /* SetupMiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706708E82288A5D5009A15B9 /* SetupMiscViewController.swift */; };
-		70684DED225A1BD40038BDB4 /* MyApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEC225A1BD40038BDB4 /* MyApplication.swift */; };
+		70684DED225A1BD40038BDB4 /* ApplicationPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEC225A1BD40038BDB4 /* ApplicationPrincipal.swift */; };
 		70684DEF225A1BF70038BDB4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEE225A1BF70038BDB4 /* main.swift */; };
 		70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */; };
 		70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF3225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift */; };
@@ -121,7 +121,7 @@
 /* Begin PBXFileReference section */
 		1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raivo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Raivo/Pods-Raivo.debug.xcconfig"; sourceTree = "<group>"; };
 		700908C121FCCE5F00603AA2 /* Raivo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raivo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		700908C421FCCE5F00603AA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEntryViewController.swift; sourceTree = "<group>"; };
 		700908C921FCCE5F00603AA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		700908CB21FCCE6100603AA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,10 +155,10 @@
 		7066C796226A455800C1A949 /* SyncerChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerChallenge.swift; sourceTree = "<group>"; };
 		7066C79A226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModelSyncerProtocol.swift; sourceTree = "<group>"; };
 		7066C79C226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModelConverterProtocol.swift; sourceTree = "<group>"; };
-		7066C79E226A4FDD00C1A949 /* BaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClass.swift; sourceTree = "<group>"; };
+		7066C79E226A4FDD00C1A949 /* global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
 		706708E622888265009A15B9 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		706708E82288A5D5009A15B9 /* SetupMiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMiscViewController.swift; sourceTree = "<group>"; };
-		70684DEC225A1BD40038BDB4 /* MyApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplication.swift; sourceTree = "<group>"; };
+		70684DEC225A1BD40038BDB4 /* ApplicationPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPrincipal.swift; sourceTree = "<group>"; };
 		70684DEE225A1BF70038BDB4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousForm.swift; sourceTree = "<group>"; };
 		70684DF3225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousInactivityLockFormOption.swift; sourceTree = "<group>"; };
@@ -271,22 +271,22 @@
 			isa = PBXGroup;
 			children = (
 				7088B94922554AF10024BB87 /* Raivo.entitlements */,
+				700908D821FCE26900603AA2 /* Controllers */,
 				702CA6CB2263A160000DCC1D /* Errors */,
-				70BC3ED722566379005C98EF /* Syncers */,
-				70E42296229891AB0020D725 /* Helpers */,
-				700908EA21FCE7D200603AA2 /* HelpersToDeprecate */,
-				700908E321FCE34800603AA2 /* Supporting */,
-				700908E221FCE30D00603AA2 /* Models */,
 				700908E121FCE30500603AA2 /* Extensions */,
 				700908DF21FCE2FA00603AA2 /* Forms */,
-				700908DE21FCE2F400603AA2 /* Validators */,
-				700908DD21FCE2B600603AA2 /* Storyboards */,
-				700908D921FCE27000603AA2 /* Views */,
-				700908D821FCE26900603AA2 /* Controllers */,
+				70E42296229891AB0020D725 /* Helpers */,
+				700908EA21FCE7D200603AA2 /* HelpersToDeprecate */,
 				700908D721FCE25D00603AA2 /* Migrations */,
-				700908C421FCCE5F00603AA2 /* AppDelegate.swift */,
-				7066C79E226A4FDD00C1A949 /* BaseClass.swift */,
-				70684DEC225A1BD40038BDB4 /* MyApplication.swift */,
+				700908E221FCE30D00603AA2 /* Models */,
+				700908DD21FCE2B600603AA2 /* Storyboards */,
+				700908E321FCE34800603AA2 /* Supporting */,
+				70BC3ED722566379005C98EF /* Syncers */,
+				700908DE21FCE2F400603AA2 /* Validators */,
+				700908D921FCE27000603AA2 /* Views */,
+				70684DEC225A1BD40038BDB4 /* ApplicationPrincipal.swift */,
+				700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */,
+				7066C79E226A4FDD00C1A949 /* global.swift */,
 				70684DEE225A1BF70038BDB4 /* main.swift */,
 			);
 			path = Raivo;
@@ -306,10 +306,10 @@
 		700908D821FCE26900603AA2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				700908DB21FCE2A400603AA2 /* Auth */,
 				70D0FD652291B8C20016BD95 /* Error */,
 				70D0FD602291AFE70016BD95 /* Load */,
 				700908DC21FCE2A900603AA2 /* Main */,
-				700908DB21FCE2A400603AA2 /* Auth */,
 				700908DA21FCE29F00603AA2 /* Setup */,
 			);
 			path = Controllers;
@@ -908,7 +908,7 @@
 				70FA4C4C2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift in Sources */,
 				70BEE09D226B248200D5CF4B /* AuthMiscViewController.swift in Sources */,
 				70617A592270DBD80032076A /* QueryHelper.swift in Sources */,
-				7066C79F226A4FDD00C1A949 /* BaseClass.swift in Sources */,
+				7066C79F226A4FDD00C1A949 /* global.swift in Sources */,
 				7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */,
 				702A140822635ABE00B278BB /* EncryptionHelper.swift in Sources */,
 				70684DEF225A1BF70038BDB4 /* main.swift in Sources */,
@@ -942,7 +942,7 @@
 				70AE33272274566B007A12A2 /* MigrationHelper.swift in Sources */,
 				70617A5B2270E55D0032076A /* SetupFlushDataViewController.swift in Sources */,
 				70E42298229891D50020D725 /* NotificationHelper.swift in Sources */,
-				700908C521FCCE5F00603AA2 /* AppDelegate.swift in Sources */,
+				700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */,
 				7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */,
 				70A7B118223062380084F15B /* MainMiscViewController.swift in Sources */,
 				70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */,
@@ -950,7 +950,7 @@
 				70B5585D225E74A000F83A34 /* CounterBasedPasswordCell.swift in Sources */,
 				70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */,
 				700908F021FCEC3100603AA2 /* SetupEntryViewController.swift in Sources */,
-				70684DED225A1BD40038BDB4 /* MyApplication.swift in Sources */,
+				70684DED225A1BD40038BDB4 /* ApplicationPrincipal.swift in Sources */,
 				702A140A2263672200B278BB /* MainChangePincodeViewController.swift in Sources */,
 				7016DE422265193D006C45B6 /* ColorHelper.swift in Sources */,
 				7077A33D227CDF6600338CA3 /* BaseFormOption.swift in Sources */,

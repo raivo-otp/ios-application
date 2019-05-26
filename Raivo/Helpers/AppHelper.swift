@@ -13,7 +13,13 @@ import Foundation
 /// A helper class for general application information
 class AppHelper {
     
-    /// The main bundle identifier (e.g. com.apple.mainapp).
+    public struct Compilation {
+        public static let debug = "Debug"
+        public static let testFlight = "TestFlight"
+        public static let release = "Release"
+    }
+    
+    /// The main bundle identifier (e.g. com.apple.mainapp). This can vary for every compilation type.
     ///
     /// - Note: Our identifier cannot be nil since it's hardcoded in the 'info.plist' file
     public static let identifier = Bundle.main.bundleIdentifier!
@@ -32,10 +38,13 @@ class AppHelper {
     ///
     /// - Note: The App Store receipt URL ends with "sandboxReceipt" if installed via TestFlight
     #if DEBUG
-    public static let compilation = "Debug"
+    public static let compilation = Compilation.debug
     #else
-    public static let compilation =  Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" ? "TestFlight" : "Release"
+    public static let compilation = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" ? Compilation.testFlight : Compilation.release
     #endif
+    
+    /// The minimum level to log to the SwiftyBeaver destination
+    public static let logLevel = (compilation == Compilation.debug) ? log.Level.verbose : log.Level.verbose
     
     /// The domain (including directory) that hosts the custom issuer icons
     ///

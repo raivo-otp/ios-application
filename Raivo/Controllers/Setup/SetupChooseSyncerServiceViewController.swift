@@ -1,10 +1,12 @@
 //
-//  SetupChooseSyncerServiceViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 26/01/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import UIKit
 import Spring
@@ -124,7 +126,7 @@ class SetupChooseSyncerServiceViewController: FormViewController {
                 
                 StorageHelper.shared.setSynchronizationProvider(selectedSyncer)
                 StorageHelper.shared.setSynchronizationAccountIdentifier(self.accounts[selectedSyncer]!.identifier)
-                getAppDelagate().syncerAccountIdentifier = self.accounts[selectedSyncer]!.identifier
+                getAppDelegate().syncerAccountIdentifier = self.accounts[selectedSyncer]!.identifier
                 
                 destination.account = self.accounts[selectedSyncer]
                 destination.challenge = self.challenges[selectedSyncer]

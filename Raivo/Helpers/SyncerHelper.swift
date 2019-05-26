@@ -11,26 +11,26 @@
 import Foundation
 
 /// A helper class for the synchronization providers
-class SyncerHelper: BaseClass {
+class SyncerHelper {
     
     /// The singleton instance for the SyncerHelper
     public static let shared = SyncerHelper()
     
     /// The syncers that are available and therefore allowed to use
     public static let availableSyncers = [
-        OfflineSyncer.UNIQUE_ID,
-        CloudKitSyncer.UNIQUE_ID
+        id(OfflineSyncer.self),
+        id(CloudKitSyncer.self)
     ]
     
     /// Keeps track of all initialized syncers
     private var syncers: [String: SyncerProtocol] = [:]
     
     /// A private initializer to make sure this class can only be used as a singleton class
-    private override init() {}
+    private init() {}
     
     /// Get the selected, prefered or mock syncer (in that order, if available)
     ///
-    /// - Parameter type: If you want a specific syncer, you can pass it's unique ID (e.g. `OfflineSyncer.UNIQUE_ID`)
+    /// - Parameter type: If you want a specific syncer, you can pass it's unique ID (e.g. `id(OfflineSyncer.self)`)
     /// - Returns: A cached instance of the intended syncer
     public func getSyncer(_ type: String? = nil) -> SyncerProtocol {
         let intented = type ?? StorageHelper.shared.getSynchronizationProvider()
@@ -44,14 +44,14 @@ class SyncerHelper: BaseClass {
     
     /// Get a syncer instance by type. If it doesn't exist, create it and cache it.
     ///
-    /// - Parameter type: The type of syncer you want (e.g. `OfflineSyncer.UNIQUE_ID`)
+    /// - Parameter type: The type of syncer you want (e.g. `id(OfflineSyncer.self)`)
     /// - Returns: A cached instance of the intended syncer
     private func getOrCreateSyncer(_ type: String) -> SyncerProtocol{
         if !syncers.keys.contains(type) {
             switch type {
-            case OfflineSyncer.UNIQUE_ID:
+            case id(OfflineSyncer.self):
                 syncers[type] = OfflineSyncer()
-            case CloudKitSyncer.UNIQUE_ID:
+            case id(CloudKitSyncer.self):
                 syncers[type] = CloudKitSyncer()
             default:
                 fatalError(String(format: "Intended syncer `%@` does not exist.", type))

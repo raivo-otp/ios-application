@@ -1,10 +1,12 @@
 //
-//  LoadEntryViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 19/05/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import UIKit
@@ -16,10 +18,11 @@ class LoadEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         // Trigger Realm to use the current encryption key
-        getAppDelagate().updateEncryptionKey(getAppDelagate().getEncryptionKey())
+        getAppDelegate().updateEncryptionKey(getAppDelegate().getEncryptionKey())
 
         // Initialize debug logging (if applicable)
         let console = ConsoleDestination()
+        console.minLevel = AppHelper.logLevel
         log.addDestination(console)
         
         // Initialize SDImage configurations
@@ -42,15 +45,15 @@ class LoadEntryViewController: UIViewController {
             DispatchQueue.main.async {
                 MigrationHelper.runGenericMigrations(withAccount: account)
                 
-                self.getAppDelagate().syncerAccountIdentifier = account.identifier
-                self.getAppDelagate().applicationIsLoaded = true
-                self.getAppDelagate().updateStoryboard(.transitionCrossDissolve)
+                getAppDelegate().syncerAccountIdentifier = account.identifier
+                getAppDelegate().applicationIsLoaded = true
+                getAppDelegate().updateStoryboard(.transitionCrossDissolve)
             }
         }, error: { (error, syncerID) in
             DispatchQueue.main.async {
-                self.getAppDelagate().syncerAccountIdentifier = nil
-                self.getAppDelagate().applicationIsLoaded = true
-                self.getAppDelagate().updateStoryboard(.transitionCrossDissolve)
+                getAppDelegate().syncerAccountIdentifier = nil
+                getAppDelegate().applicationIsLoaded = true
+                getAppDelegate().updateStoryboard(.transitionCrossDissolve)
             }
         })
     }

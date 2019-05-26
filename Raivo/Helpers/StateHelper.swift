@@ -12,13 +12,13 @@ import Foundation
 import RealmSwift
 
 /// A helper class for managing the state of this app
-class StateHelper: BaseClass {
+class StateHelper {
     
     /// The singleton instance for the StateHelper
     public static let shared = StateHelper()
     
     /// A private initializer to make sure this class can only be used as a singleton class
-    private override init() {}
+    private init() {}
 
     /// All of the available storyboards within the application
     public struct Storyboard {
@@ -127,8 +127,8 @@ class StateHelper: BaseClass {
     
     /// Remove the encryption key that is in memory and then update the storyboard.
     public func lock() {
-        getAppDelagate().updateEncryptionKey(nil)
-        getAppDelagate().updateStoryboard()
+        getAppDelegate().updateEncryptionKey(nil)
+        getAppDelegate().updateStoryboard()
     }
     
     /// Check if this is the first time that the app runs after being (re)installed.
@@ -154,7 +154,7 @@ class StateHelper: BaseClass {
     ///
     /// - Returns: Positive if it passed the loading storyboard
     private func applicationIsLoaded() -> Bool {
-        return getAppDelagate().applicationIsLoaded
+        return getAppDelegate().applicationIsLoaded
     }
     
     /// Checks if a local realm database exists.
@@ -169,7 +169,7 @@ class StateHelper: BaseClass {
     ///
     /// - Returns: Positive if synchronization account is available
     private func syncerAccountIsAvailable() -> Bool {
-        let currentSAI = getAppDelagate().syncerAccountIdentifier
+        let currentSAI = getAppDelegate().syncerAccountIdentifier
         let storedSAI = StorageHelper.shared.getSynchronizationAccountIdentifier()
         
         return currentSAI == storedSAI
@@ -179,7 +179,7 @@ class StateHelper: BaseClass {
     ///
     /// - Returns: Positive if encryption key is known
     private func encryptionKeyIsKnown() -> Bool {
-        return getAppDelagate().getEncryptionKey() != nil
+        return getAppDelegate().getEncryptionKey() != nil
     }
     
 }

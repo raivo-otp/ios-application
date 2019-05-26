@@ -1,16 +1,18 @@
 //
-//  MiscellaneousIconsEffectFormOption.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 11/05/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
+//
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
 //
 
 import Foundation
 
 class MiscellaneousIconsEffectFormOption: BaseFormOption {
     
-    static let OPTION_ORIGINAL = MiscellaneousIconsEffectFormOption("original", description: "Original", help: "You can apply effects on icons in the 'misc' screen.")
+    static let OPTION_ORIGINAL = MiscellaneousIconsEffectFormOption("original", description: "Original", help: "You can apply effects on icons in the 'settings' screen.")
     static let OPTION_GRAYSCALE = MiscellaneousIconsEffectFormOption("grayscale", description: "Grayscale", help: "You have enabled the grayscale filter for icons.")
 //    static let OPTION_RED_TINT = MiscellaneousIconsEffectFormOption("redtint", description: "Red tint", help: "You have enabled the red tint filter for icons.")
     

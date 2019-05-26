@@ -1,22 +1,24 @@
 //
-//  ProvidersForm.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 14/04/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import Eureka
 
-class SynchronizationProviderForm: BaseClass {
+class SynchronizationProviderForm {
     
     private var form: Form
     
     public var providersSection: Section { return form.sectionBy(tag: "providers")! }
     
-    public var syncerOfflineRow: ListCheckRow<String> { return form.rowBy(tag: OfflineSyncer.UNIQUE_ID) as! ListCheckRow<String> }
-    public var syncerCloudKitRow: ListCheckRow<String> { return form.rowBy(tag: CloudKitSyncer.UNIQUE_ID) as! ListCheckRow<String> }
+    public var syncerOfflineRow: ListCheckRow<String> { return form.rowBy(tag: id(OfflineSyncer.self)) as! ListCheckRow<String> }
+    public var syncerCloudKitRow: ListCheckRow<String> { return form.rowBy(tag: id(CloudKitSyncer.self)) as! ListCheckRow<String> }
     
     class NoHeader: UIView {
         
@@ -70,14 +72,14 @@ class SynchronizationProviderForm: BaseClass {
             section.selectionType = .singleSelection(enableDeselection: false)
         })
             
-            <<< ListCheckRow<String>(OfflineSyncer.UNIQUE_ID, { row in
-                row.selectableValue = OfflineSyncer.UNIQUE_ID
+            <<< ListCheckRow<String>(id(OfflineSyncer.self), { row in
+                row.selectableValue = id(OfflineSyncer.self)
                 row.title = "None (offline)"
                 row.disabled = Condition(booleanLiteral: true)
             })
             
-            <<< ListCheckRow<String>(CloudKitSyncer.UNIQUE_ID, { row in
-                row.selectableValue = CloudKitSyncer.UNIQUE_ID
+            <<< ListCheckRow<String>(id(CloudKitSyncer.self), { row in
+                row.selectableValue = id(CloudKitSyncer.self)
                 row.title = "Personal iCloud"
                 row.disabled = Condition(booleanLiteral: true)
             })

@@ -1,10 +1,12 @@
 //
-//  TintentUIImageExtension.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 28/04/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import UIKit
@@ -12,7 +14,7 @@ import UIKit
 extension UIImage {
     
     var withIconEffect: UIImage? {
-        let effect = (UIApplication.shared.delegate as! AppDelegate).getIconEffect()
+        let effect = getAppDelegate().getIconEffect()
         
         switch effect {
         case MiscellaneousIconsEffectFormOption.OPTION_GRAYSCALE.value:
