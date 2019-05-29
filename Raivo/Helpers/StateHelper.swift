@@ -135,7 +135,7 @@ class StateHelper {
     ///
     /// - Returns: Positive if app runs for the first time after being (re)installed
     /// - Note:
-    ///     This method uses the `UserDefaults` (which are flushed on reinstall) to check wether nthis is the first run.
+    ///     This method uses the `UserDefaults` (which are flushed on reinstall) to check wether this is the first run.
     ///     The `Keychain` can't be used since it's persistent even after uninstalling the app.
     ///
     ///     https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
@@ -175,7 +175,7 @@ class StateHelper {
         return currentSAI == storedSAI
     }
 
-    /// Checks if the user entered his/her pincode and that therefore the encryption key is known.
+    /// Checks if the user entered his/her PIN code and that therefore the encryption key is known.
     ///
     /// - Returns: Positive if encryption key is known
     private func encryptionKeyIsKnown() -> Bool {

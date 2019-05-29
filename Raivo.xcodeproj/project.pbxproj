@@ -31,6 +31,7 @@
 		702CA6CD2263A16D000DCC1D /* UnexpectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6CC2263A16D000DCC1D /* UnexpectedError.swift */; };
 		702CA6D12263B2CD000DCC1D /* MigrationToBuild4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */; };
 		703414C4223D8EA500D220A4 /* KeyboardConstraintControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703414C3223D8EA500D220A4 /* KeyboardConstraintControllerExtension.swift */; };
+		70349F27229AD37600EEBCD1 /* UIPincodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70349F26229AD37600EEBCD1 /* UIPincodeField.swift */; };
 		703B6B30227A060900409BB5 /* SetupEnableBiometricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */; };
 		703B6B44227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B43227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift */; };
 		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
@@ -145,6 +146,7 @@
 		702CA6CC2263A16D000DCC1D /* UnexpectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnexpectedError.swift; sourceTree = "<group>"; };
 		702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild4.swift; sourceTree = "<group>"; };
 		703414C3223D8EA500D220A4 /* KeyboardConstraintControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintControllerExtension.swift; sourceTree = "<group>"; };
+		70349F26229AD37600EEBCD1 /* UIPincodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPincodeField.swift; sourceTree = "<group>"; };
 		703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEnableBiometricsViewController.swift; sourceTree = "<group>"; };
 		703B6B43227A30AE00409BB5 /* KeyboardConstraintViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardConstraintViewExtension.swift; sourceTree = "<group>"; };
 		7059680A22994CCF0032D70F /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				70B55860225E760A00F83A34 /* PasswordCell */,
 				70D7D7CB225BB0CF008DA2FD /* PatternImage */,
 				70A7B11F22306DDE0084F15B /* PasswordsView */,
+				70349F25229AD33A00EEBCD1 /* UIPincodeField */,
 				70A7B11922306D850084F15B /* PincodeDigits */,
 			);
 			path = Views;
@@ -477,6 +480,14 @@
 				702CA6CC2263A16D000DCC1D /* UnexpectedError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		70349F25229AD33A00EEBCD1 /* UIPincodeField */ = {
+			isa = PBXGroup;
+			children = (
+				70349F26229AD37600EEBCD1 /* UIPincodeField.swift */,
+			);
+			path = UIPincodeField;
 			sourceTree = "<group>";
 		};
 		7048F0AD2287204A00247B73 /* Selectors */ = {
@@ -950,6 +961,7 @@
 				70B5585D225E74A000F83A34 /* CounterBasedPasswordCell.swift in Sources */,
 				70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */,
 				700908F021FCEC3100603AA2 /* SetupEntryViewController.swift in Sources */,
+				70349F27229AD37600EEBCD1 /* UIPincodeField.swift in Sources */,
 				70684DED225A1BD40038BDB4 /* ApplicationPrincipal.swift in Sources */,
 				702A140A2263672200B278BB /* MainChangePincodeViewController.swift in Sources */,
 				7016DE422265193D006C45B6 /* ColorHelper.swift in Sources */,
