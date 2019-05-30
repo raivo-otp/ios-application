@@ -13,6 +13,8 @@ import CloudKit
 import RealmSwift
 
 class CloudKitSyncer: BaseSyncer, SyncerProtocol {
+    
+    public static let containerName = "iCloud.com.finnwea.Raivo"
         
     var name = "Apple iCloud"
     
@@ -63,7 +65,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
             return
         }
         
-        CKContainer.default().fetchUserRecordID { recordID, error in
+        CKContainer.init(identifier: CloudKitSyncer.containerName).fetchUserRecordID { recordID, error in
             guard let recordID = recordID, error == nil else {
                 return self.preloadAccountError(error)
             }
@@ -108,7 +110,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         }
         
         let query = CKQuery(recordType: Password.TABLE, predicate: NSPredicate(format: "deleted == 0"))
-        CKContainer.default().privateCloudDatabase.perform(query, inZoneWith: nil) { records, error in
+        CKContainer.init(identifier: CloudKitSyncer.containerName).privateCloudDatabase.perform(query, inZoneWith: nil) { records, error in
             guard let records = records, error == nil else {
                 return self.preloadChallengeError(error)
             }

@@ -14,7 +14,7 @@ import CloudKit
 
 class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
 
-    private let cloud = CKContainer.default().privateCloudDatabase
+    private let cloud = CKContainer.init(identifier: CloudKitSyncer.containerName).privateCloudDatabase
     
     private var localNotifications: NotificationToken?
     
