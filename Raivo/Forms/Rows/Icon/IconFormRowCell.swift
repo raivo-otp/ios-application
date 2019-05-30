@@ -23,10 +23,16 @@ class IconFormRowCell: AlertSelectorCell<PasswordIconTypeFormOption> {
     override func update() {
         super.update()
         
-        let url = URL(string: AppHelper.iconsURL + ((row as! IconFormRow).iconValue ?? ""))
+        let iconValue = (row as! IconFormRow).iconValue
         
-        iconView?.sd_setImage(with: url, placeholderImage: UIImage(named: "password-placeholder"))
-        iconView.image = iconView.image?.withIconEffect
+        if iconValue == nil {
+            iconView.image = UIImage(named: "password-placeholder")
+        } else {
+            let url = URL(string: AppHelper.iconsURL + (iconValue ?? ""))
+            
+            iconView?.sd_setImage(with: url, placeholderImage: UIImage(named: "password-placeholder"))
+            iconView.image = iconView.image?.withIconEffect
+        }
     }
     
 }
