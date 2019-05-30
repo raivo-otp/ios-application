@@ -76,7 +76,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
     }
     
     func notify(_ notification: CKQueryNotification?) {
-        guard notification?.subscriptionID == id(CloudKitPasswordSyncer.self) else {
+        guard notification?.subscriptionID == idr(CloudKitPasswordSyncer.self) else {
             return
         }
         
@@ -166,7 +166,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         let subscription = CKQuerySubscription(
             recordType: Password.TABLE,
             predicate: NSPredicate(value: true),
-            subscriptionID: CKSubscription.ID(id(CloudKitPasswordSyncer.self)),
+            subscriptionID: CKSubscription.ID(idr(CloudKitPasswordSyncer.self)),
             options: [
                 CKQuerySubscription.Options.firesOnRecordCreation,
                 CKQuerySubscription.Options.firesOnRecordUpdate

@@ -24,6 +24,9 @@ class AppHelper {
     /// - Note: Our identifier cannot be nil since it's hardcoded in the 'info.plist' file
     public static let identifier = Bundle.main.bundleIdentifier!
     
+    /// The release bundle identifier (e.g. com.apple.mainapp).
+    public static let releaseIdentifier = "com.finnwea.Raivo"
+    
     /// The main bundle build number (e.g. 1, 2 or 3).
     ///
     /// - Note: Our build number cannot be nil since it's hardcoded in the 'info.plist' file

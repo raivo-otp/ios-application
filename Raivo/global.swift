@@ -30,7 +30,15 @@ func getAppDelegate() -> ApplicationDelegate {
 /// Return a uniquely identifiable string (ID) for the given class.
 ///
 /// - Parameter reference: The class or object to describe
-/// - Returns: A string describing the class (e.g. `com.finnwea.raivo.StorageHelper`)
+/// - Returns: A string describing the class (e.g. `com.finnwea.Raivo.Debug.StorageHelper`)
 func id(_ reference: Any) -> String {
     return AppHelper.identifier + String(describing: reference).split(separator: ".").last!
+}
+
+/// Return a uniquely identifiable string (ID) for the given class (based on the release bundle identifier).
+///
+/// - Parameter reference: The class or object to describe
+/// - Returns: A string describing the class (e.g. `com.finnwea.Raivo.StorageHelper`)
+func idr(_ reference: Any) -> String {
+    return AppHelper.releaseIdentifier + String(describing: reference).split(separator: ".").last!
 }
