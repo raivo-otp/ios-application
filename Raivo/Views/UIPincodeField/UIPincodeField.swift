@@ -33,6 +33,9 @@ class UIPincodeField: UIView, UITextFieldDelegate {
     /// A shadow/mirror (hidden) text field that the user is actually typing into
     private var shadow: UITextField? = nil
     
+    /// If positive, no edits will be allowed in the shadow/mirror field (but it will stay the first responder)
+    public var completed: Bool = false
+    
     /// The UIDigitFields that are added on initialization
     private var digits: [Int: UIDigitField] = [:]
     
@@ -65,6 +68,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         }
         
         shadow?.text = nil
+        completed = false
     }
     
     /// Adjust all of the subviews to the new parent dimensions
@@ -165,6 +169,11 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         
         let isAddition = !isBackspace(string) && newLength >= oldLength
         
+        // Pincode was already entered
+        guard !completed else {
+            return false
+        }
+        
         // The addition was not a number
         guard !isAddition || Int(string) != nil else {
             return false
@@ -183,7 +192,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         
         if newLength == length {
             delegate?.onPincodeComplete(pincode: newText)
-            resignFirstResponder()
+            completed = true
         }
         
         return true

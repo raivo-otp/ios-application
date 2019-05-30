@@ -39,6 +39,18 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         viewPincode.layoutIfNeeded()
         
         showPincodeView("Enter your PIN code to continue.")
+        
+        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.tryBiometricsUnlock()
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationHelper.shared.discard(UIApplication.willEnterForegroundNotification, byDistinctName: id(self))
     }
 
     override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
@@ -48,16 +60,16 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         if getAppDelegate().previousStoryboardName == StateHelper.Storyboard.LOAD {
             tryBiometricsUnlock()
+        } else {
+            viewPincode.becomeFirstResponder()
         }
-        
-        viewPincode.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         didTryTouchID = false
     }
     
-    func showPincodeView(_ extra: String, focus: Bool = true, flash: Bool = false) {
+    func showPincodeView(_ extra: String, flash: Bool = false) {
         viewPincode.reset()
         viewExtra.text = extra
         
@@ -65,10 +77,6 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
             self.viewExtra.delay = CGFloat(0.25)
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
-        }
-        
-        if focus {
-            viewPincode.becomeFirstResponder()
         }
     }
     
@@ -145,20 +153,27 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     
     internal func tryBiometricsUnlock() {
         guard StorageHelper.shared.getBiometricUnlockEnabled() else {
+            viewPincode.becomeFirstResponder()
             return
         }
         
         guard self.tryNewPincode(increase: false) else {
-            self.viewPincode.reset()
-            self.viewPincode.becomeFirstResponder()
-            self.showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
+            viewPincode.reset()
+            showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
             return
         }
         
-        if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
-            getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
-            self.resetPincodeTries()
-            getAppDelegate().updateStoryboard()
+        viewPincode.resignFirstResponder()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
+                self.resetPincodeTries()
+                
+                getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
+                getAppDelegate().updateStoryboard()
+            } else {
+                self.viewPincode.becomeFirstResponder()
+            }
         }
     }
 }
