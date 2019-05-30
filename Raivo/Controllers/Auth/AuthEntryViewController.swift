@@ -87,7 +87,7 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     func onPincodeComplete(pincode: String) {
         let salt = StorageHelper.shared.getEncryptionPassword()!
         
-        let encryptionKey = KeyDerivationHelper.derivePincode(pincode, salt)
+        let encryptionKey = CryptographyHelper.shared.derive(pincode, withSalt: salt)
         let isCorrect = RealmHelper.isCorrectEncryptionKey(encryptionKey)
         
         DispatchQueue.main.async {

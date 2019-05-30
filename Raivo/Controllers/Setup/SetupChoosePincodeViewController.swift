@@ -70,10 +70,10 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
             if self.initialPincode == nil {
                 self.viewPincode.reset()
                 self.viewPincode.becomeFirstResponder()
-                self.initialPincode = KeyDerivationHelper.derivePincode(pincode, salt)
+                self.initialPincode = CryptographyHelper.shared.derive(pincode, withSalt: salt)
                 self.showPincodeView("Almost there!", "Confirm your PIN code to continue.")
             } else {
-                if self.initialPincode == KeyDerivationHelper.derivePincode(pincode, salt) {
+                if self.initialPincode == CryptographyHelper.shared.derive(pincode, withSalt: salt) {
                     self.createDatabase(pincode, salt)
                 } else {
                     self.initialPincode = nil
@@ -86,7 +86,7 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
     }
     
     private func createDatabase(_ pincode: String, _ salt: String) {
-        getAppDelegate().updateEncryptionKey(KeyDerivationHelper.derivePincode(pincode, salt))
+        getAppDelegate().updateEncryptionKey(CryptographyHelper.shared.derive(pincode, withSalt: salt))
 
         let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
                 

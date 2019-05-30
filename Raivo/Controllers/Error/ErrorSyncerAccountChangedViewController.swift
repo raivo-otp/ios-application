@@ -23,7 +23,7 @@ class ErrorSyncerAccountChangedViewController: UIViewController {
         
         let url = Bundle.main.url(forResource: "error-syncer-account-changed", withExtension: "svg", subdirectory: "Vectors")
         
-        viewTitle.text = "Your " + SyncerHelper.shared.getSyncer().name + " account changed"
+        viewTitle.text = "Your " + SyncerHelper.shared.getSyncer().name + " account is unavailable"
         viewIcon.image = SVGKImage(contentsOf: url)
     }
     

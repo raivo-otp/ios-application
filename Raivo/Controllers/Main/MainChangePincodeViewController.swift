@@ -81,10 +81,10 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
             if self.initialPincode == nil {
                 self.pincodeDigitsView.reset()
                 self.pincodeDigitsView.becomeFirstResponder()
-                self.initialPincode = KeyDerivationHelper.derivePincode(pincode, salt)
+                self.initialPincode = CryptographyHelper.shared.derive(pincode, withSalt: salt)
                 self.showPincodeView("Almost there!", "Confirm your PIN code to continue (you'll be signed out after this step).")
             } else {
-                if self.initialPincode == KeyDerivationHelper.derivePincode(pincode, salt) {
+                if self.initialPincode == CryptographyHelper.shared.derive(pincode, withSalt: salt) {
                     self.changePincode(pincode, salt)
                 } else {
                     self.initialPincode = nil
@@ -97,7 +97,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
     }
     
     private func changePincode(_ pincode: String, _ salt: String) {
-        let newKey = KeyDerivationHelper.derivePincode(pincode, salt)
+        let newKey = CryptographyHelper.shared.derive(pincode, withSalt: salt)
         let newName = RealmHelper.getProposedNewFileName()
         let newFile = RealmHelper.getFileURL(forceFilename: newName)
         
@@ -112,7 +112,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         
         
         if StorageHelper.shared.getBiometricUnlockEnabled() {
-            StorageHelper.shared.setEncryptionKey(newKey!.base64EncodedString())
+            StorageHelper.shared.setEncryptionKey(newKey.base64EncodedString())
         }
         
         StorageHelper.shared.setRealmFilename(newName)

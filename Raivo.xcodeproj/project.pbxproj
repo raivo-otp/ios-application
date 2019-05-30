@@ -23,7 +23,6 @@
 		7016DE422265193D006C45B6 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016DE412265193D006C45B6 /* ColorHelper.swift */; };
 		70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70285928226205C50045DA26 /* CloudKitPasswordConverter.swift */; };
 		7028592C226212EA0045DA26 /* CloudKitPasswordSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028592B226212EA0045DA26 /* CloudKitPasswordSyncer.swift */; };
-		702A140822635ABE00B278BB /* EncryptionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702A140722635ABE00B278BB /* EncryptionHelper.swift */; };
 		702A140A2263672200B278BB /* MainChangePincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702A14092263672200B278BB /* MainChangePincodeViewController.swift */; };
 		702BAEA82258FD1B008E5C5F /* PasswordForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702BAEA72258FD1B008E5C5F /* PasswordForm.swift */; };
 		702BAEAA2259481A008E5C5F /* TimeBasedPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 702BAEA92259481A008E5C5F /* TimeBasedPasswordCell.xib */; };
@@ -98,6 +97,7 @@
 		70C80DA9229F070A00413801 /* UIPincodeFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C80DA5229F070900413801 /* UIPincodeFieldDelegate.swift */; };
 		70C80DAA229F070A00413801 /* UIDigitField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C80DA6229F070900413801 /* UIDigitField.swift */; };
 		70C80DAB229F070A00413801 /* UIPincodeShadowField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C80DA7229F070A00413801 /* UIPincodeShadowField.swift */; };
+		70C80DAE22A0464600413801 /* CryptographyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C80DAD22A0464600413801 /* CryptographyHelper.swift */; };
 		70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */; };
 		70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD612291B00E0016BD95 /* Load.storyboard */; };
 		70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */; };
@@ -109,7 +109,6 @@
 		70E42298229891D50020D725 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E42297229891D50020D725 /* NotificationHelper.swift */; };
 		70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */; };
 		70F8BE7D2205EAFB006FDB5A /* GenericUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */; };
-		70F8BE812205F51A006FDB5A /* KeyDerivationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */; };
 		70FA4C4C2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA4C4B2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift */; };
 		70FA4C4F228752A300A3B754 /* IconFormSelectorViewEmptySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA4C4E228752A300A3B754 /* IconFormSelectorViewEmptySearch.swift */; };
 		70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C502287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib */; };
@@ -136,7 +135,6 @@
 		7016DE412265193D006C45B6 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		70285928226205C50045DA26 /* CloudKitPasswordConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPasswordConverter.swift; sourceTree = "<group>"; };
 		7028592B226212EA0045DA26 /* CloudKitPasswordSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPasswordSyncer.swift; sourceTree = "<group>"; };
-		702A140722635ABE00B278BB /* EncryptionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHelper.swift; sourceTree = "<group>"; };
 		702A14092263672200B278BB /* MainChangePincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChangePincodeViewController.swift; sourceTree = "<group>"; };
 		702BAEA72258FD1B008E5C5F /* PasswordForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForm.swift; sourceTree = "<group>"; };
 		702BAEA92259481A008E5C5F /* TimeBasedPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeBasedPasswordCell.xib; sourceTree = "<group>"; };
@@ -213,6 +211,7 @@
 		70C80DA5229F070900413801 /* UIPincodeFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPincodeFieldDelegate.swift; sourceTree = "<group>"; };
 		70C80DA6229F070900413801 /* UIDigitField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDigitField.swift; sourceTree = "<group>"; };
 		70C80DA7229F070A00413801 /* UIPincodeShadowField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPincodeShadowField.swift; sourceTree = "<group>"; };
+		70C80DAD22A0464600413801 /* CryptographyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptographyHelper.swift; sourceTree = "<group>"; };
 		70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild9.swift; sourceTree = "<group>"; };
 		70D0FD612291B00E0016BD95 /* Load.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Load.storyboard; sourceTree = "<group>"; };
 		70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEntryViewController.swift; sourceTree = "<group>"; };
@@ -224,7 +223,6 @@
 		70E42297229891D50020D725 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationProviderForm.swift; sourceTree = "<group>"; };
 		70F8BE7C2205EAFB006FDB5A /* GenericUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericUIViewExtension.swift; sourceTree = "<group>"; };
-		70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyDerivationHelper.swift; sourceTree = "<group>"; };
 		70FA4C4B2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousIconsEffectFormOption.swift; sourceTree = "<group>"; };
 		70FA4C4E228752A300A3B754 /* IconFormSelectorViewEmptySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptySearch.swift; sourceTree = "<group>"; };
 		70FA4C502287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptySearch.xib; sourceTree = "<group>"; };
@@ -434,9 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				700908F321FD027400603AA2 /* TokenHelper.swift */,
-				70F8BE802205F51A006FDB5A /* KeyDerivationHelper.swift */,
 				70B143AB222AB9360015896F /* RealmHelper.swift */,
-				702A140722635ABE00B278BB /* EncryptionHelper.swift */,
 				7016DE412265193D006C45B6 /* ColorHelper.swift */,
 				70617A582270DBD80032076A /* QueryHelper.swift */,
 				70AE33262274566B007A12A2 /* MigrationHelper.swift */,
@@ -671,11 +667,12 @@
 		70E42296229891AB0020D725 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				70AE33222273B422007A12A2 /* AppHelper.swift */,
+				70C80DAD22A0464600413801 /* CryptographyHelper.swift */,
 				70E42297229891D50020D725 /* NotificationHelper.swift */,
 				7059680A22994CCF0032D70F /* StateHelper.swift */,
-				7059680C22997EFB0032D70F /* SyncerHelper.swift */,
 				7059680F2299AB0A0032D70F /* StorageHelper.swift */,
-				70AE33222273B422007A12A2 /* AppHelper.swift */,
+				7059680C22997EFB0032D70F /* SyncerHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -907,6 +904,7 @@
 				702BAEA82258FD1B008E5C5F /* PasswordForm.swift in Sources */,
 				70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */,
 				70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */,
+				70C80DAE22A0464600413801 /* CryptographyHelper.swift in Sources */,
 				70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */,
 				70C80DAB229F070A00413801 /* UIPincodeShadowField.swift in Sources */,
 				7059680B22994CCF0032D70F /* StateHelper.swift in Sources */,
@@ -916,7 +914,6 @@
 				70617A592270DBD80032076A /* QueryHelper.swift in Sources */,
 				7066C79F226A4FDD00C1A949 /* global.swift in Sources */,
 				7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */,
-				702A140822635ABE00B278BB /* EncryptionHelper.swift in Sources */,
 				70684DEF225A1BF70038BDB4 /* main.swift in Sources */,
 				70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */,
 				70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */,
@@ -934,7 +931,6 @@
 				70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
 				707B38DD2275E57200D35897 /* TintentUIImageExtension.swift in Sources */,
-				70F8BE812205F51A006FDB5A /* KeyDerivationHelper.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
 				708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */,
 				70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */,

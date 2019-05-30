@@ -36,9 +36,9 @@ class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
         password.deleted = record.value(forKey: "deleted") as! Int == 1
         
         do {
-            password.issuer = try EncryptionHelper.decrypt(record.value(forKey: "issuer") as! String)
-            password.account = try EncryptionHelper.decrypt(record.value(forKey: "account") as! String)
-            password.secret = try EncryptionHelper.decrypt(record.value(forKey: "secret") as! String)
+            password.issuer = try CryptographyHelper.shared.decrypt(record.value(forKey: "issuer") as! String)
+            password.account = try CryptographyHelper.shared.decrypt(record.value(forKey: "account") as! String)
+            password.secret = try CryptographyHelper.shared.decrypt(record.value(forKey: "secret") as! String)
         } catch let error {
             log.error(error)
         }
@@ -67,23 +67,19 @@ class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
     static func getRemote(_ password: Password) -> CKRecord {
         let record = CKRecord(recordType: Password.TABLE, recordID: CKRecord.ID(recordName: password.getRemotePrimaryKey()))
         
-        do {
-            record.setValue(password.id, forKey: "id")
-            record.setValue(password.kind, forKey: "kind")
-            record.setValue(try EncryptionHelper.encrypt(password.issuer), forKey: "issuer")
-            record.setValue(try EncryptionHelper.encrypt(password.account), forKey: "account")
-            record.setValue(try EncryptionHelper.encrypt(password.secret), forKey: "secret")
-            record.setValue(password.iconType, forKey: "iconType")
-            record.setValue(password.iconValue, forKey: "iconValue")
-            record.setValue(password.algorithm, forKey: "algorithm")
-            record.setValue(password.digits, forKey: "digits")
-            record.setValue(password.deleted, forKey: "deleted")
-            record.setValue(password.counter, forKey: "counter")
-            record.setValue(password.timer, forKey: "timer")
-        } catch let error {
-            log.error(error)
-        }
-        
+        record.setValue(password.id, forKey: "id")
+        record.setValue(password.kind, forKey: "kind")
+        record.setValue(CryptographyHelper.shared.encrypt(password.issuer), forKey: "issuer")
+        record.setValue(CryptographyHelper.shared.encrypt(password.account), forKey: "account")
+        record.setValue(CryptographyHelper.shared.encrypt(password.secret), forKey: "secret")
+        record.setValue(password.iconType, forKey: "iconType")
+        record.setValue(password.iconValue, forKey: "iconValue")
+        record.setValue(password.algorithm, forKey: "algorithm")
+        record.setValue(password.digits, forKey: "digits")
+        record.setValue(password.deleted, forKey: "deleted")
+        record.setValue(password.counter, forKey: "counter")
+        record.setValue(password.timer, forKey: "timer")
+    
         return record
     }
     

@@ -57,7 +57,7 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     private func verifyChallenge() -> Bool {
         if let challenge = self.challenge?.challenge {
             do {
-                let _ = try EncryptionHelper.decrypt(challenge, withKey: viewEncryptionPassword.text ?? "")
+                let _ = try CryptographyHelper.shared.decrypt(challenge, withKey: viewEncryptionPassword.text ?? "")
                 return true
             } catch {
                 return false

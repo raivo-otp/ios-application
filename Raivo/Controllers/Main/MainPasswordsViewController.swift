@@ -57,12 +57,9 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
 
         initializeTableViewNotifications()
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(appMovedToForeground),
-            name: UIApplication.willEnterForegroundNotification,
-            object: nil
-        )
+        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) {
+            self.appMovedToForeground()
+        }
     }
     
     @objc func appMovedToForeground() {
@@ -73,11 +70,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     deinit {
         notificationToken?.invalidate()
         
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIApplication.willEnterForegroundNotification,
-            object: nil
-        )
+        NotificationHelper.shared.discard(UIApplication.willEnterForegroundNotification, byDistinctName: id(self))
     }
     
     private func initializeTableViewNotifications() {
