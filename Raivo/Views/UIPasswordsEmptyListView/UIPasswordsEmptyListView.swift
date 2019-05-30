@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 import SVGKit
 
-class PasswordsViewEmptyList: UIView {
+class UIPasswordsEmptyListView: UIView {
     
     @IBOutlet weak var bottomPadding: NSLayoutConstraint! {
         didSet {

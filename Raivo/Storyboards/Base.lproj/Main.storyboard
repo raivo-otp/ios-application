@@ -262,11 +262,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umv-KD-VhE" customClass="PincodeDigitsView" customModule="Raivo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="312" width="375" height="80"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umv-KD-VhE" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="312" width="375" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="hFO-xS-1xs"/>
+                                            <constraint firstAttribute="height" constant="50" id="hFO-xS-1xs"/>
                                         </constraints>
                                     </view>
                                 </subviews>

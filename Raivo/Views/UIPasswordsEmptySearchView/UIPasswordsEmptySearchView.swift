@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 
-class PasswordsViewEmptySearch: UIView {
+class UIPasswordsEmptySearchView: UIView {
     
     @IBOutlet weak var bottomPadding: NSLayoutConstraint! {
         didSet {

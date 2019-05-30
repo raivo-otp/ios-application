@@ -10,10 +10,12 @@
 
 import Foundation
 
-protocol PincodeDigitsProtocol : class {
+/// The delegate that can be used to listen for UIPincodeField callbacks
+protocol UIPincodeFieldDelegate {
     
+    /// Triggered when a user has entered all the digits in the UIPincodeField
+    ///
+    /// - Parameter pincode: The final PIN code string
     func onPincodeComplete(pincode: String) -> Void
-    
-    func onBiometricsTrigger() -> Void
-    
+
 }

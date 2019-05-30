@@ -13,9 +13,9 @@ import UIKit
 import RealmSwift
 import Spring
 
-class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
+class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate {
  
-    @IBOutlet weak var pincodeDigitsView: PincodeDigitsView!
+    @IBOutlet weak var pincodeDigitsView: UIPincodeField!
     
     @IBOutlet weak var bottomPadding: NSLayoutConstraint!
     
@@ -53,28 +53,24 @@ class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.pincodeDigitsView.focus()
+        pincodeDigitsView.becomeFirstResponder()
     }
     
     func showPincodeView(_ title: String, _ extra: String, focus: Bool = true, flash: Bool = false) {
         self.viewTitle.text = title
         self.viewExtra.text = extra
         
-        if focus {
-            self.pincodeDigitsView.resetAndFocus()
-        } else {
-            self.pincodeDigitsView.reset()
-        }
-        
+        self.pincodeDigitsView.reset()
+      
         if flash {
             self.viewExtra.delay = CGFloat(0.25)
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
         }
-    }
-    
-    func onBiometricsTrigger() {
-        // Not implemented
+        
+        if focus {
+            pincodeDigitsView.becomeFirstResponder()
+        }
     }
     
     func onPincodeComplete(pincode: String) {
@@ -83,7 +79,8 @@ class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
             let salt = StorageHelper.shared.getEncryptionPassword()!
             
             if self.initialPincode == nil {
-                self.pincodeDigitsView.resetAndFocus()
+                self.pincodeDigitsView.reset()
+                self.pincodeDigitsView.becomeFirstResponder()
                 self.initialPincode = KeyDerivationHelper.derivePincode(pincode, salt)
                 self.showPincodeView("Almost there!", "Confirm your PIN code to continue (you'll be signed out after this step).")
             } else {
@@ -91,7 +88,8 @@ class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
                     self.changePincode(pincode, salt)
                 } else {
                     self.initialPincode = nil
-                    self.pincodeDigitsView.resetAndFocus()
+                    self.pincodeDigitsView.reset()
+                    self.pincodeDigitsView.becomeFirstResponder()
                     self.showPincodeView("Oh oh, not similar :/", "Please start over by choosing a new PIN code.", flash: true)
                 }
             }

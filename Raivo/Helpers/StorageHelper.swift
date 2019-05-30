@@ -236,7 +236,7 @@ class StorageHelper {
             secrets().removeObject(forKey: Key.ENCRYPTION_KEY)
         }
     }
-
+    
     /// Get the complete encryption key (password+PIN) from Secure Enclave
     ///
     /// - Parameter prompt: The TouchID message to show

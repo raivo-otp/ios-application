@@ -12,11 +12,13 @@ import UIKit
 import RealmSwift
 import Spring
 
-class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
+class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     
-    @IBOutlet weak var pincodeDigitsView: PincodeDigitsView!
+    @IBOutlet weak var viewPincode: UIPincodeField!
     
     @IBOutlet weak var viewExtra: SpringLabel!
+    
+    @IBOutlet weak var viewBiometricsUnlock: UIButton!
     
     @IBOutlet weak var bottomPadding: NSLayoutConstraint!
     
@@ -31,9 +33,12 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         
         adjustConstraintToKeyboard()
         
-        self.pincodeDigitsView.showBiometrics(StorageHelper.shared.getBiometricUnlockEnabled())
-        self.pincodeDigitsView.delegate = self
-        self.showPincodeView("Enter your PIN code to continue.")
+        viewBiometricsUnlock.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
+        
+        viewPincode.delegate = self
+        viewPincode.layoutIfNeeded()
+        
+        showPincodeView("Enter your PIN code to continue.")
     }
 
     override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
@@ -42,10 +47,10 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
         if getAppDelegate().previousStoryboardName == StateHelper.Storyboard.LOAD {
-            self.tryTouchID()
+            tryBiometricsUnlock()
         }
         
-        self.pincodeDigitsView.focus()
+        viewPincode.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,23 +58,22 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     func showPincodeView(_ extra: String, focus: Bool = true, flash: Bool = false) {
-        self.viewExtra.text = extra
-        
-        if focus {
-            self.pincodeDigitsView.resetAndFocus()
-        } else {
-            self.pincodeDigitsView.reset()
-        }
+        viewPincode.reset()
+        viewExtra.text = extra
         
         if flash {
             self.viewExtra.delay = CGFloat(0.25)
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
         }
+        
+        if focus {
+            viewPincode.becomeFirstResponder()
+        }
     }
     
-    func onBiometricsTrigger() {
-        self.tryTouchID()
+    @IBAction func onBiometricsUnlock(_ sender: Any) {
+        tryBiometricsUnlock()
     }
     
     func onPincodeComplete(pincode: String) {
@@ -80,7 +84,8 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         
         DispatchQueue.main.async {
             guard self.tryNewPincode() else {
-                self.pincodeDigitsView.resetAndFocus()
+                self.viewPincode.reset()
+                self.viewPincode.becomeFirstResponder()
                 self.showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
                 return
             }
@@ -91,7 +96,9 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
                 self.resetPincodeTries()
                 getAppDelegate().updateStoryboard()
             } else {
-                self.pincodeDigitsView.resetAndFocus()
+                self.viewPincode.reset()
+                self.viewPincode.becomeFirstResponder()
+                
                 let message = self.getTriesLeft() == 0 ? "Invalid PIN code. That was your last try." : "Invalid PIN code. " + String(self.getTriesLeft()) + " tries left."
                 self.showPincodeView(message, flash: true)
             }
@@ -136,13 +143,14 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         return false
     }
     
-    internal func tryTouchID() {
+    internal func tryBiometricsUnlock() {
         guard StorageHelper.shared.getBiometricUnlockEnabled() else {
             return
         }
         
         guard self.tryNewPincode(increase: false) else {
-            self.pincodeDigitsView.resetAndFocus()
+            self.viewPincode.reset()
+            self.viewPincode.becomeFirstResponder()
             self.showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
             return
         }
@@ -151,9 +159,6 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
             getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
             self.resetPincodeTries()
             getAppDelegate().updateStoryboard()
-        } else {
-            let _ = self.tryNewPincode()
         }
-        
     }
 }

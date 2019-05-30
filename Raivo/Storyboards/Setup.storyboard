@@ -409,11 +409,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-th-70S" customClass="PincodeDigitsView" customModule="Raivo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="397.5" width="414" height="80"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-th-70S" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="397.5" width="414" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="PWE-nT-s3Q"/>
+                                            <constraint firstAttribute="height" constant="50" id="PWE-nT-s3Q"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -448,8 +448,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottomPadding" destination="wPX-FV-HQj" id="iS7-xf-XUK"/>
-                        <outlet property="pincodeDigitsView" destination="hIV-th-70S" id="ykA-6w-Fpz"/>
                         <outlet property="viewExtra" destination="0OU-Fc-wZm" id="uF8-R5-nAT"/>
+                        <outlet property="viewPincode" destination="hIV-th-70S" id="ykA-6w-Fpz"/>
                         <outlet property="viewTitle" destination="1qp-gl-0w1" id="hse-0O-3ZR"/>
                         <segue destination="aRj-9S-j16" kind="show" identifier="EnableBiometricsSegue" id="7rR-lb-O9A"/>
                     </connections>

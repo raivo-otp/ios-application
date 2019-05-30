@@ -46,8 +46,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableViewEmptyList = loadXIBAsUIView("PasswordsViewEmptyList")
-        tableViewEmptySearch = loadXIBAsUIView("PasswordsViewEmptySearch")
+        tableViewEmptyList = loadXIBAsUIView("UIPasswordsEmptyListView")
+        tableViewEmptySearch = loadXIBAsUIView("UIPasswordsEmptySearchView")
         
         initializeSearchBar()
         initializeTableView()
