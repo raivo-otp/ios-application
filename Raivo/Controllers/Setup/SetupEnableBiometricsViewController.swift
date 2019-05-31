@@ -15,7 +15,6 @@ import SVGKit
 
 class SetupEnableBiometricsViewController: UIViewController {
     
-    //EnableBiometricsSegue
     @IBOutlet weak var viewIcon: SVGKFastImageView!
     
     @IBOutlet weak var bottomPadding: NSLayoutConstraint!

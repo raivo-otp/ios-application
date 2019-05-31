@@ -21,7 +21,7 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
     
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
 
-    var captureSession = AVCaptureSession()
+    lazy var captureSession = AVCaptureSession()
 
     var currentlyCheckingToken: Bool = false
 

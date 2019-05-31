@@ -28,12 +28,12 @@ class CryptographyHelper {
     /// - Parameter salt: The salt to use for derivation
     /// - Returns: A key based on the secret and salt
     /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
-    public func derive(_ secret: String, withSalt salt: String) -> Data {
+    public func derive(_ secret: String, withSalt salt: String) throws -> Data {
         guard let salt = salt.data(using: .utf8) else {
-            fatalError("Salt contains non UTF-8 characters")
+            throw CryptographyError.derivationFailed("Salt contains non UTF-8 characters")
         }
         
-        return derive(secret, withSalt: salt)
+        return try derive(secret, withSalt: salt)
     }
     
     /// Use the PBKDF2 key derivation algorithm to derive the given data to a 64 byte encryption key
@@ -43,7 +43,7 @@ class CryptographyHelper {
     /// - Parameter salt: The salt to use for derivation
     /// - Returns: A key based on the secret and salt
     /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
-    public func derive(_ secret: String, withSalt salt: Data) -> Data {
+    public func derive(_ secret: String, withSalt salt: Data) throws -> Data {
         let secretArray = secret.utf8.map(Int8.init)
         let saltArray = Array(salt)
         
@@ -53,7 +53,7 @@ class CryptographyHelper {
         let prf = CCPBKDFAlgorithm(kCCPRFHmacAlgSHA512)
         let pbkdf2Rounds = UInt32(50000)
         
-        let result = CCCryptorStatus(
+        let status = CCCryptorStatus(
             CCKeyDerivationPBKDF(
                 CCPBKDFAlgorithm(kCCPBKDF2),
                 secretArray,        secretArray.count,
@@ -63,8 +63,8 @@ class CryptographyHelper {
             )
         )
         
-        guard result == CCCryptorStatus(kCCSuccess) else {
-            fatalError("Key derivation failed. (\(result))")
+        guard status == CCCryptorStatus(kCCSuccess) else {
+            throw CryptographyError.derivationFailed("Key derivation failed: (\(status))")
         }
         
         return Data(derivedKey)
@@ -75,13 +75,13 @@ class CryptographyHelper {
     ///
     /// - Parameter plaintext: The UTF-8 string to encrypt
     /// - Returns: The encrypted string (base64 encoded)
-    public func encrypt(_ plaintext: String) -> String {
+    public func encrypt(_ plaintext: String) throws -> String {
         guard let plaintextData = plaintext.data(using: .utf8) else {
-            fatalError("Plaintext contains non UTF-8 characters")
+            throw CryptographyError.encryptionFailed("Plaintext contains non UTF-8 characters")
         }
         
         guard let password = StorageHelper.shared.getEncryptionPassword() else {
-            fatalError("Encryption password unknown (not available in the keychain)")
+            throw CryptographyError.encryptionFailed("Encryption password unknown (not available in the keychain)")
         }
         
         let cipher = RNCryptor.encrypt(
@@ -101,13 +101,13 @@ class CryptographyHelper {
     /// - Throws: Throws error if the password is incorrect or ciphertext is in the wrong format
     public func decrypt(_ cipher: String, withKey key: String? = nil) throws -> String {
         guard let cipherData = Data.init(base64Encoded: cipher) else {
-            fatalError("Cipher was not a valid base64 string")
+            throw CryptographyError.decryptionFailed("Cipher was not a valid base64 string")
         }
         
         let proposedPassword = key ?? StorageHelper.shared.getEncryptionPassword()
         
         guard let password = proposedPassword else {
-            fatalError("Encryption password unknown (not available in the keychain or as parameter)")
+            throw CryptographyError.decryptionFailed("Encryption password unknown (not available in the keychain or as parameter)")
         }
         
         let plaintext = try RNCryptor.decrypt(

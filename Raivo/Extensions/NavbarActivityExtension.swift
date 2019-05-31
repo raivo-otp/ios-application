@@ -11,9 +11,12 @@
 import Foundation
 import UIKit
 
+// MARK: - Extend UIViewController with the ability to show a spinner at the top right corner
 extension UIViewController {
     
     /// Show a loading animation on the right of the navbar
+    ///
+    /// - Returns: The bar button item that was removed
     @discardableResult
     public func displayNavBarActivity() -> UIBarButtonItem? {
         let indicator = UIActivityIndicatorView(style: .gray)
@@ -31,6 +34,8 @@ extension UIViewController {
     }
     
     /// Dismiss the loading animation on the right of the navbar
+    ///
+    /// - Parameter backup: Revert to the previous bar button item
     public func dismissNavBarActivity(_ backup: UIBarButtonItem?) {
         self.navigationItem.rightBarButtonItem = backup
     }

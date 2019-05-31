@@ -11,6 +11,7 @@
 import Foundation
 import UIKit
 
+// MARK: - Extend UIViewController with the ability to load XIB files into a view
 extension UIViewController {
     
     /// Load a `.xib` file into a UIView class

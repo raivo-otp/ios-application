@@ -21,10 +21,6 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
-    lazy var requestManagerLocal: SessionManager = AlamofireHelper.manager(withoutCache: false)
-    
-    lazy var requestManagerRemote: SessionManager = AlamofireHelper.manager(withoutCache: true)
-    
     var refreshButton: UIBarButtonItem? = nil
     
     let reuseIdentifierIcon = "IconFormCell"
@@ -137,9 +133,9 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     private func getRequestManager(_ withoutCache: Bool) -> SessionManager {
         if withoutCache {
-            return requestManagerRemote
+            return AlamofireHelper.default
         } else {
-            return requestManagerLocal
+            return AlamofireHelper.cacheless
         }
     }
     

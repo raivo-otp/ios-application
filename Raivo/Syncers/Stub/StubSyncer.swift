@@ -10,9 +10,9 @@
 
 import Foundation
 
-class MockSyncer: BaseSyncer, SyncerProtocol {
+class StubSyncer: BaseSyncer, SyncerProtocol {
     
-    var name = "None (mock)"
+    var name = "None (stub)"
     
     var help = "Synchronization is currently disabled."
     
@@ -25,7 +25,7 @@ class MockSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func getAccount(success: @escaping ((SyncerAccount, String) -> Void), error: @escaping ((Error, String) -> Void)) -> Void {
-        error(UnexpectedError("This is the mock syncer!"), id(self))
+        error(UnexpectedError.vitalFunctionalityIsStub, id(self))
     }
    
     func preloadAccount() {
@@ -33,7 +33,7 @@ class MockSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func getChallenge(success: @escaping ((SyncerChallenge, String) -> Void), error: @escaping ((Error, String) -> Void)) {
-        error(UnexpectedError("This is the mock syncer!"), id(self))
+        error(UnexpectedError.vitalFunctionalityIsStub, id(self))
     }
     
     func preloadChallenge() {
@@ -41,7 +41,7 @@ class MockSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func flushAllData(success: @escaping ((String) -> Void), error: @escaping ((Error, String) -> Void)) {
-        error(UnexpectedError("This is the mock syncer!"), id(self))
+        error(UnexpectedError.vitalFunctionalityIsStub, id(self))
     }
     
 }

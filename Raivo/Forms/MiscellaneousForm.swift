@@ -112,7 +112,7 @@ class MiscellaneousForm {
                 row.options = MiscellaneousInactivityLockFormOption.options
                 row.value = MiscellaneousInactivityLockFormOption.OPTION_DEFAULT
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = ColorHelper.getTint()
+                cell.textLabel?.textColor = UIColor.custom.tint
                 cell.imageView?.image = UIImage(named: "form-lock")
             }).onChange({ row in
                 StorageHelper.shared.setLockscreenTimeout(row.value!.value)
@@ -125,10 +125,10 @@ class MiscellaneousForm {
                 row.hidden = Condition(booleanLiteral: !StorageHelper.shared.canAccessSecrets())
                 row.value = StorageHelper.shared.getBiometricUnlockEnabled()
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = ColorHelper.getTint()
+                cell.textLabel?.textColor = UIColor.custom.tint
                 cell.imageView?.image = UIImage(named: "form-biometric")
-                cell.switchControl.tintColor = ColorHelper.getTint()
-                cell.switchControl.onTintColor = ColorHelper.getTint()
+                cell.switchControl.tintColor = UIColor.custom.tint
+                cell.switchControl.onTintColor = UIColor.custom.tint
             }).onChange({ row in
                 guard let key = getAppDelegate().getEncryptionKey() else {
                     return
@@ -175,7 +175,7 @@ class MiscellaneousForm {
                 row.options = MiscellaneousIconsEffectFormOption.options
                 row.value = MiscellaneousIconsEffectFormOption.OPTION_DEFAULT
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = ColorHelper.getTint()
+                cell.textLabel?.textColor = UIColor.custom.tint
                 cell.imageView?.image = UIImage(named: "form-icons-effect")
             }).onChange({ row in
                 guard self.isReady else { return }
@@ -271,7 +271,7 @@ class MiscellaneousForm {
             section.hidden = Condition(booleanLiteral: !show)
             
             let footerTitle = "Signing out will remove all data from your device."
-            if [id(MockSyncer.self), id(OfflineSyncer.self)].contains(id(SyncerHelper.shared.getSyncer().self)) {
+            if [id(StubSyncer.self), id(OfflineSyncer.self)].contains(id(SyncerHelper.shared.getSyncer().self)) {
                 section.footer = HeaderFooterView(title: footerTitle)
             } else {
                 section.footer = HeaderFooterView(title: footerTitle + " Data that has already been synced will remain at your synchronization provider.")

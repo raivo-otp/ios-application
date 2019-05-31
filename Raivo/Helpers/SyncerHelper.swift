@@ -39,7 +39,7 @@ class SyncerHelper {
             fatalError(String(format: "Intended syncer `%@` does not exist.", intented!))
         }
         
-        return (intented != nil) ? getOrCreateSyncer(intented!) : MockSyncer()
+        return (intented != nil) ? getOrCreateSyncer(intented!) : StubSyncer()
     }
     
     /// Get a syncer instance by type. If it doesn't exist, create it and cache it.

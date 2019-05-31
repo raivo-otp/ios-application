@@ -92,7 +92,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         
         cloud.perform(query, inZoneWith: nil) { (getResRecords, getResError) in
             guard let getResRecords = getResRecords, getResError == nil else {
-                error(getResError ?? UnexpectedError("Unknown CloudKit error!"))
+                error(getResError ?? UnexpectedError.noErrorButNotSuccessful("Unknown CloudKit error!"))
                 return
             }
             
@@ -105,7 +105,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
             modification.qualityOfService = .userInitiated
             modification.modifyRecordsCompletionBlock = { modResRecords, modResDeleteIDs, modResError in
                 guard getResRecords.count == modResRecords?.count, modResError == nil else {
-                    error(modResError ?? UnexpectedError("Unknown CloudKit error!"))
+                    error(modResError ?? UnexpectedError.noErrorButNotSuccessful("Unknown CloudKit error!"))
                     return
                 }
                 

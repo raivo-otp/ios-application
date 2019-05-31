@@ -13,6 +13,7 @@ import Foundation
 /// A helper class for general application information
 class AppHelper {
     
+    /// The available compilation types
     public struct Compilation {
         public static let debug = "Debug"
         public static let testFlight = "TestFlight"
@@ -55,6 +56,6 @@ class AppHelper {
     public static let iconsURL = "https://raw.finnwea.com/raivo-issuer-icons/dist/"
     
     /// User agent for HTTP requests (e.g. searching icons)
-    public static let userAgent = identifier + "/" + version
+    public static let userAgent = identifier + "/" + version + " (" + compilation + ")"
     
 }

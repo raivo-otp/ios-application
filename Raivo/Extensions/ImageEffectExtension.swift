@@ -20,7 +20,7 @@ extension UIImage {
         case MiscellaneousIconsEffectFormOption.OPTION_GRAYSCALE.value:
             return applying(saturation: 0)
 //        case MiscellaneousIconsEffectFormOption.OPTION_RED_TINT.value:
-//            return fillWithColor(ColorHelper.getTint())
+//            return fillWithColor(UIColor.raivo.tint)
         default:
             return self
         }

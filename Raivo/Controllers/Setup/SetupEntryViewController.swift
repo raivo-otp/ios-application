@@ -12,8 +12,4 @@ import UIKit
 
 class SetupEntryViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
 }
