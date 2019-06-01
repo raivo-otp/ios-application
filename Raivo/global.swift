@@ -42,3 +42,12 @@ func id(_ reference: Any) -> String {
 func idr(_ reference: Any) -> String {
     return AppHelper.releaseIdentifier + String(describing: reference).split(separator: ".").last!
 }
+
+/// A short hand for running the given closure on the main thread
+///
+/// - Parameter callback: The closure to run on the main thread
+func ui(_ callback: @escaping () -> Void) {
+    DispatchQueue.main.async {
+        callback()
+    }
+}

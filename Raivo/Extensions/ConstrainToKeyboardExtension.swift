@@ -13,16 +13,30 @@ import UIKit
 
 extension UIViewController {
     
-    @objc public func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return nil
-    }
-    
-    public func adjustConstraintToKeyboard() {
+    internal func adjustViewToKeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    @objc private func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
+        for constraint in view.constraints {
+            if constraint.identifier == "KeyboardConstraint" {
+                return constraint
+            }
+        }
         
-    @objc func keyboardWillShow(notification: NSNotification) {
+        for element in view.subviews {
+            for constraint in element.constraints {
+                if constraint.identifier == "KeyboardConstraint" {
+                    return constraint
+                }
+            }
+        }
+        
+        return nil
+    }
+        
+    @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             
             let keyboardRectangle = keyboardFrame.cgRectValue
@@ -41,7 +55,7 @@ extension UIViewController {
         }
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc private func keyboardWillHide(notification: NSNotification) {
         getConstraintToAdjustToKeyboard()!.constant = CGFloat(0)
         
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
@@ -54,6 +68,12 @@ extension UIViewController {
 extension UIView {
     
     @objc public func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
+        for constraint in constraints {
+            if constraint.identifier == "KeyboardConstraint" {
+                return constraint
+            }
+        }
+        
         return nil
     }
     

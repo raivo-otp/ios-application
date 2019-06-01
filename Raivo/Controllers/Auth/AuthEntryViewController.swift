@@ -20,8 +20,6 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     
     @IBOutlet weak var viewBiometricsUnlock: UIButton!
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
-    
     final let maximumTries = 6
     
     final let lockoutTime = 3.0
@@ -31,7 +29,7 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustConstraintToKeyboard()
+        adjustViewToKeyboard()
         
         viewBiometricsUnlock.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
         
@@ -51,10 +49,6 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         super.viewDidDisappear(animated)
         
         NotificationHelper.shared.discard(UIApplication.willEnterForegroundNotification, byDistinctName: id(self))
-    }
-
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,7 +81,11 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     func onPincodeComplete(pincode: String) {
         let salt = StorageHelper.shared.getEncryptionPassword()!
         
-        let encryptionKey = CryptographyHelper.shared.derive(pincode, withSalt: salt)
+        guard let encryptionKey = try? CryptographyHelper.shared.derive(pincode, withSalt: salt) else {
+            showPincodeView("Key derivation failed.")
+            return
+        }
+        
         let isCorrect = RealmHelper.isCorrectEncryptionKey(encryptionKey)
         
         DispatchQueue.main.async {

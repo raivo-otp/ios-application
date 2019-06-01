@@ -23,8 +23,6 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
-    
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
     /// The text cell identifiers of passwords (so they can be reused, just like ViewHolders in Android)
@@ -45,6 +43,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     /// Triggered when the view did load (before visible)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        adjustViewToKeyboard()
         
         tableViewEmptyList = loadXIBAsUIView("UIPasswordsEmptyListView")
         tableViewEmptySearch = loadXIBAsUIView("UIPasswordsEmptySearchView")

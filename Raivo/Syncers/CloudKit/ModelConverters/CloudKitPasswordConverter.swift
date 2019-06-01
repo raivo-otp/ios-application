@@ -69,9 +69,9 @@ class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
         
         record.setValue(password.id, forKey: "id")
         record.setValue(password.kind, forKey: "kind")
-        record.setValue(CryptographyHelper.shared.encrypt(password.issuer), forKey: "issuer")
-        record.setValue(CryptographyHelper.shared.encrypt(password.account), forKey: "account")
-        record.setValue(CryptographyHelper.shared.encrypt(password.secret), forKey: "secret")
+        record.setValue(try! CryptographyHelper.shared.encrypt(password.issuer), forKey: "issuer")
+        record.setValue(try! CryptographyHelper.shared.encrypt(password.account), forKey: "account")
+        record.setValue(try! CryptographyHelper.shared.encrypt(password.secret), forKey: "secret")
         record.setValue(password.iconType, forKey: "iconType")
         record.setValue(password.iconValue, forKey: "iconValue")
         record.setValue(password.algorithm, forKey: "algorithm")

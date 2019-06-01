@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IconFormRaivoRepositorySelectorViewController" customModule="Raivo" customModuleProvider="target">
             <connections>
-                <outlet property="bottomPadding" destination="1Ve-61-WFH" id="5ub-Li-Kxq"/>
                 <outlet property="collectionView" destination="hAS-B6-7bC" id="ycj-7M-AMj"/>
                 <outlet property="view" destination="iN0-l3-epB" id="2C7-Sc-apm"/>
             </connections>
@@ -35,7 +34,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hAS-B6-7bC" secondAttribute="bottom" id="1Ve-61-WFH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hAS-B6-7bC" secondAttribute="bottom" identifier="KeyboardConstraint" id="1Ve-61-WFH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hAS-B6-7bC" secondAttribute="trailing" id="NYs-Hk-NNI"/>
                 <constraint firstItem="hAS-B6-7bC" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Zx4-Oa-Z9g"/>
                 <constraint firstItem="hAS-B6-7bC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="eVR-PG-Edk"/>

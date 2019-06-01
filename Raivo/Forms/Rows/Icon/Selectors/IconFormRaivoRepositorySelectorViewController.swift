@@ -17,8 +17,6 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
-    
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
     var refreshButton: UIBarButtonItem? = nil
@@ -58,7 +56,8 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustConstraintToKeyboard()
+        adjustViewToKeyboard()
+        
         initializeCollectionView()
         initializeRefreshButton()
         initializeSearchBar()
@@ -69,10 +68,6 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchBar.becomeFirstResponder()
-    }
-    
-    override public func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
     }
     
     private func initializeCollectionView() {
@@ -143,9 +138,15 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
         self.isRefreshing(true)
         
         getRequestManager(withoutCache).request(AppHelper.iconsURL + "search.json").responseJSON { response in
-            if let json = response.result.value as? Dictionary<String, Array<String>> {
-                self.allResults = json
-                self.searchResults(self.lastSearchText)
+            switch response.result {
+            case .success(let value):
+                if let json = value as? Dictionary<String, Array<String>> {
+                    self.allResults = json
+                    self.searchResults(self.lastSearchText)
+                    self.isRefreshing(false)
+                }
+            case .failure(let error):
+                log.warning(error)
                 self.isRefreshing(false)
             }
         }

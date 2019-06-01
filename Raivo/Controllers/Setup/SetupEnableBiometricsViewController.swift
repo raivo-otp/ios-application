@@ -17,21 +17,14 @@ class SetupEnableBiometricsViewController: UIViewController {
     
     @IBOutlet weak var viewIcon: SVGKFastImageView!
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        adjustConstraintToKeyboard()
+      
+        adjustViewToKeyboard()
         
         let url = Bundle.main.url(forResource: "fingerprint", withExtension: "svg", subdirectory: "Vectors")
         viewIcon.image = SVGKImage(contentsOf: url)
     }
-    
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
-    }
-    
     
     @IBAction func onDismissTouchID(_ sender: Any) {
         getAppDelegate().updateStoryboard()

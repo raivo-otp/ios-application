@@ -85,7 +85,7 @@
                             <constraint firstItem="piU-Jc-vpv" firstAttribute="leading" secondItem="Moq-iI-3Hf" secondAttribute="leading" id="Eza-BK-XgI"/>
                             <constraint firstItem="Moq-iI-3Hf" firstAttribute="trailing" secondItem="dog-y3-0kE" secondAttribute="trailing" id="OCK-c2-ewO"/>
                             <constraint firstItem="piU-Jc-vpv" firstAttribute="top" secondItem="Moq-iI-3Hf" secondAttribute="top" id="OgN-Hm-gyG"/>
-                            <constraint firstItem="Moq-iI-3Hf" firstAttribute="bottom" secondItem="piU-Jc-vpv" secondAttribute="bottom" id="SmM-dw-Mcv"/>
+                            <constraint firstItem="Moq-iI-3Hf" firstAttribute="bottom" secondItem="piU-Jc-vpv" secondAttribute="bottom" identifier="KeyboardConstraint" id="SmM-dw-Mcv"/>
                             <constraint firstItem="Moq-iI-3Hf" firstAttribute="trailing" secondItem="piU-Jc-vpv" secondAttribute="trailing" id="hOu-va-j9c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Moq-iI-3Hf"/>
@@ -98,7 +98,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomPadding" destination="SmM-dw-Mcv" id="gXg-jo-LtQ"/>
                         <outlet property="viewBiometricsUnlock" destination="VFf-yI-PgO" id="wqS-nN-Cef"/>
                         <outlet property="viewExtra" destination="rOQ-Mv-OHZ" id="PCc-2T-4Yn"/>
                         <outlet property="viewPincode" destination="rsg-66-pHf" id="CMT-Oa-tNq"/>

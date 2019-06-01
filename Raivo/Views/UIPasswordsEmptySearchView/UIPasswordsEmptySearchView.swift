@@ -13,14 +13,9 @@ import UIKit
 
 class UIPasswordsEmptySearchView: UIView {
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint! {
-        didSet {
-            adjustConstraintToKeyboard()
-        }
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        adjustConstraintToKeyboard()
     }
-    
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
-    }
-    
+
 }

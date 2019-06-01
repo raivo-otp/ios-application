@@ -14,82 +14,113 @@ import RealmSwift
 import Spring
 import Valet
 
+/// This controller allows users to setup their PIN code
 class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate {
-
-    @IBOutlet weak var viewPincode: UIPincodeField!
     
+    /// The title centered in the view
     @IBOutlet weak var viewTitle: UILabel!
     
+    /// Extra information that supports the title
     @IBOutlet weak var viewExtra: SpringLabel!
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
+    /// The actual PIN code field
+    @IBOutlet weak var viewPincode: UIPincodeField!
     
-    private var initialPincode: Data? = nil
+    /// Derived PIN+salt from the first try (a user needs to enter the same PIN twice before it will change)
+    private var initialKey: Data? = nil
     
+    /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustConstraintToKeyboard()
+        adjustViewToKeyboard()
+        
+        resetView(
+            "Choose your PIN code",
+            "You need it to unlock Raivo, so make sure you'll be able to remember it."
+        )
         
         viewPincode.delegate = self
-        viewPincode.layoutIfNeeded()
-        
-        showPincodeView("Choose Your PIN code", "You need it to unlock Raivo, so make sure you'll be able to remember it.", focus: false)
+        viewPincode.becomeFirstResponder()
     }
     
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
-    }
-    
+    /// Notifies the view controller that its view was added to a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the view was added to the window using an animation.
     override func viewDidAppear(_ animated: Bool) {
-        self.viewPincode.becomeFirstResponder()
+        super.viewDidAppear(animated)
+        viewPincode.becomeFirstResponder()
     }
     
-    func showPincodeView(_ title: String, _ extra: String, focus: Bool = true, flash: Bool = false) {
-        self.viewTitle.text = title
-        self.viewExtra.text = extra
+    /// Triggered when the user entered a PIN code.k
+    /// This method will either;
+    ///     * Move on to the second PIN code try
+    ///     * Notify if the second PIN code try was wrong
+    ///     * Migrate the database using the new PIN code
+    ///
+    /// - Parameter pincode: The x digit PIN code
+    internal func onPincodeComplete(pincode: String) {
+        var currentKey: Data? = nil
+        let salt = StorageHelper.shared.getEncryptionPassword()
         
-        self.viewPincode.reset()
-        
-        if flash {
-            self.viewExtra.delay = CGFloat(0.25)
-            self.viewExtra.animation = "shake"
-            self.viewExtra.animate()
+        do {
+            currentKey = try CryptographyHelper.shared.derive(pincode, withSalt: salt!)
+        } catch let error {
+            ui { self.resetView("Invalid PIN code", "Please start over by choosing a new PIN code.") }
+            return log.error(error)
         }
         
-        if focus {
-            self.viewPincode.becomeFirstResponder()
-        }
-    }
-    
-    func onPincodeComplete(pincode: String) {
-
-        DispatchQueue.main.async {
-            let salt = StorageHelper.shared.getEncryptionPassword()!
+        switch initialKey {
+        case nil:
+            initialKey = currentKey
             
-            if self.initialPincode == nil {
-                self.viewPincode.reset()
-                self.viewPincode.becomeFirstResponder()
-                self.initialPincode = CryptographyHelper.shared.derive(pincode, withSalt: salt)
-                self.showPincodeView("Almost there!", "Confirm your PIN code to continue.")
-            } else {
-                if self.initialPincode == CryptographyHelper.shared.derive(pincode, withSalt: salt) {
-                    self.createDatabase(pincode, salt)
-                } else {
-                    self.initialPincode = nil
-                    self.viewPincode.reset()
-                    self.viewPincode.becomeFirstResponder()
-                    self.showPincodeView("Oh oh, not similar :/", "Please start over by choosing a new PIN code.", flash: true)
-                }
+            ui {
+                self.resetView(
+                    "Almost there!",
+                    "Confirm your PIN code to continue."
+                )
+            }
+        case currentKey:
+            createDatabase(using: currentKey!)
+        default:
+            initialKey = nil
+            
+            ui {
+                self.resetView(
+                    "Oh oh, not similar :/",
+                    "Please start over by choosing a new PIN code.",
+                    flash: true
+                )
             }
         }
     }
     
-    private func createDatabase(_ pincode: String, _ salt: String) {
-        getAppDelegate().updateEncryptionKey(CryptographyHelper.shared.derive(pincode, withSalt: salt))
-
+    /// Reset the controller's view using the given text and other parameters
+    ///
+    /// - Parameter title: The title centered in the view
+    /// - Parameter extra: Extra information that supports the title
+    /// - Parameter flash: If the extra message should flash/wobble
+    private func resetView(_ title: String, _ extra: String, flash: Bool = false) {
+        viewTitle.text = title
+        viewExtra.text = extra
+        
+        viewPincode.reset()
+        
+        if flash {
+            viewExtra.delay = CGFloat(0.25)
+            viewExtra.animation = "shake"
+            viewExtra.animate()
+        }
+    }
+    
+    /// Create a Realm database using the given encryption key
+    ///
+    /// - Parameter encryptionKey: The new encryption key
+    private func createDatabase(using encryptionKey: Data) {
+        getAppDelegate().updateEncryptionKey(encryptionKey)
+        
         let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
-                
+        
         if StorageHelper.shared.canAccessSecrets() {
             performSegue(withIdentifier: "EnableBiometricsSegue", sender: nil)
         } else {

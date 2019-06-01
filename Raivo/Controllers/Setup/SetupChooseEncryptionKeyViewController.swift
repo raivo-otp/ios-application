@@ -18,8 +18,6 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     
     public var challenge: SyncerChallenge?
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
-    
     @IBOutlet weak var viewTitle: UILabel!
     
     @IBOutlet weak var viewExtra: SpringLabel!
@@ -30,10 +28,11 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        adjustViewToKeyboard()
         
         viewEncryptionPassword.delegate = self
-        adjustConstraintToKeyboard()
-        
+
         if let _ = self.challenge?.challenge {
             self.viewTitle.text = "Remember that encryption key?"
             self.viewExtra.text = "You've used Raivo before. Enter the encryption key you took note of back then."
@@ -43,10 +42,6 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     
     override func viewDidAppear(_ animated: Bool) {
         viewEncryptionPassword.becomeFirstResponder()
-    }
-    
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
