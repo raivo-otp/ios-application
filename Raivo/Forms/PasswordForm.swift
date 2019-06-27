@@ -10,6 +10,8 @@
 
 import Foundation
 import Eureka
+import ViewRow
+import EFQRCode
 
 class PasswordForm {
     
@@ -34,6 +36,48 @@ class PasswordForm {
     
     init(_ form: Form) {
         self.form = form
+    }
+    
+    @discardableResult
+    public func addScanCode(_ password: Password) -> Self {
+        if let tryImage = EFQRCode.generate(
+            content: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret,
+            size: EFIntSize(width: 400, height: 400),
+            backgroundColor: UIColor.white.cgColor,
+            foregroundColor: UIColor.black.cgColor,
+            watermark: UIImage(named: "app-icon")!.toCGImage(),
+            watermarkMode: .scaleAspectFit,
+            pointShape: .circle,
+            foregroundPointOffset: 0.1
+            ) {
+            
+            form +++ Section("QRCode", { section in
+                section.tag = "export"
+            })
+                
+                <<< ViewRow<UIImageView>()
+                    .cellSetup { (cell, row) in
+                        cell.view = UIImageView()
+                        cell.view?.contentMode = .scaleAspectFit
+                        cell.contentView.addSubview(cell.view!)
+                        
+                        let image = UIImage(cgImage: tryImage)
+                        cell.view!.image = image
+                        
+                        cell.viewRightMargin = 0.0
+                        cell.viewLeftMargin = 0.0
+                        cell.viewTopMargin = 0.0
+                        cell.viewBottomMargin = 0.0
+                        
+                        
+                        cell.height = { return 350 }
+                }
+            
+        } else {
+            log.error("Create QRCode image failed!")
+        }
+        
+        return self
     }
     
     @discardableResult

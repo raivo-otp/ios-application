@@ -9,6 +9,7 @@
 // 
 
 import Foundation
+import EFQRCode
 import UIKit
 
 class TimeBasedPasswordCell: PasswordCell {
@@ -49,7 +50,7 @@ class TimeBasedPasswordCell: PasswordCell {
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
         previousPassword.text = TokenHelper.formatPassword(password.getToken(), previous: true)
         notSyncedView.isHidden = password.synced || password.syncing
-        
+      
         icon.sd_setImage(with: password.getIconURL(), placeholderImage: UIImage(named: "password-placeholder"))
         icon.image = icon.image?.withIconEffect
     }

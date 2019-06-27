@@ -12,8 +12,9 @@ import UIKit
 import Eureka
 import CloudKit
 import RealmSwift
+import MessageUI
 
-class SetupMiscViewController: FormViewController {
+class SetupMiscViewController: FormViewController, MFMailComposeViewControllerDelegate {
     
     private var miscellaneousForm: MiscellaneousForm?
     
@@ -21,6 +22,10 @@ class SetupMiscViewController: FormViewController {
         super.viewDidLoad()
         
         miscellaneousForm = MiscellaneousForm(form).build(controller: self).ready()
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
 }

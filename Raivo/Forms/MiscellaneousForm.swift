@@ -10,6 +10,7 @@
 
 import Foundation
 import Eureka
+import MessageUI
 
 class MiscellaneousForm {
     
@@ -20,6 +21,7 @@ class MiscellaneousForm {
     public var synchronizationSection: Section { return form.sectionBy(tag: "synchronization")! }
     public var authenticationSection: Section { return form.sectionBy(tag: "authentication")! }
     public var interfaceSection: Section { return form.sectionBy(tag: "interface")! }
+    public var dataSection: Section { return form.sectionBy(tag: "data")! }
     public var aboutSection: Section { return form.sectionBy(tag: "about")! }
     public var legalSection: Section { return form.sectionBy(tag: "legal")! }
     public var advancedSection: Section { return form.sectionBy(tag: "advanced")! }
@@ -30,6 +32,7 @@ class MiscellaneousForm {
     public var touchIDUnlockRow: SwitchRow { return form.rowBy(tag: "touchid_unlock") as! SwitchRow }
     public var changePINCodeRow: ButtonRow { return form.rowBy(tag: "change_pin_code") as! ButtonRow }
     public var iconsEffectRow: PickerInlineRow<MiscellaneousIconsEffectFormOption> { return form.rowBy(tag: "icons_effect") as! PickerInlineRow<MiscellaneousIconsEffectFormOption> }
+    public var exportRow: ButtonRow { return form.rowBy(tag: "export") as! ButtonRow }
     public var versionRow: LabelRow { return form.rowBy(tag: "version") as! LabelRow }
     public var compilationRow: LabelRow { return form.rowBy(tag: "compilation") as! LabelRow }
     public var authorRow: LabelRow { return form.rowBy(tag: "author") as! LabelRow }
@@ -44,10 +47,12 @@ class MiscellaneousForm {
     }
     
     @discardableResult
-    public func build(controller: UIViewController) -> Self {
+    
+    public func build<T: UIViewController & MFMailComposeViewControllerDelegate>(controller: T) -> Self {
         buildSynchronizationSection(controller)
         buildAuthenticationSection(controller)
         buildInterfaceSection(controller)
+        buildDataSection(controller)
         buildAboutSection(controller)
         buildLegalSection(controller)
         buildAdvancedSection(controller)
@@ -82,7 +87,7 @@ class MiscellaneousForm {
             section.tag = "synchronization"
             section.hidden = Condition(booleanLiteral: !authenticated)
             section.footer = HeaderFooterView(title: SyncerHelper.shared.getSyncer().help)
-       })
+        })
             
             <<< LabelRow("account", { row in
                 row.title = "Account"
@@ -191,6 +196,41 @@ class MiscellaneousForm {
                 
                 refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 controller.present(refreshAlert, animated: true, completion: nil)
+            })
+    }
+    
+    private func buildDataSection<T: UIViewController & MFMailComposeViewControllerDelegate>(_ controller: T) {
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        
+        form +++ Section("Data", { section in
+            section.tag = "data"
+            section.hidden = Condition(booleanLiteral: !authenticated)
+            section.footer = HeaderFooterView(title: "Your data will be exported in a AES encrypted ZIP file (using your encryption password).")
+        })
+            
+            <<< ButtonRow("export", { row in
+                row.title = "Export data to ZIP"
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-zip")
+            }).onCellSelection({ cell, row in
+                let dataExport = DataExportFeature()
+
+                let password = StorageHelper.shared.getEncryptionPassword()
+                let status = dataExport.generateArchive(protectedWith: password!)
+                
+                guard case let DataExportFeature.Result.success(archive) = status else {
+                    log.error("Archive generation failed!")
+                    return
+                }
+                
+                let dataExportMail = ComposeMailFeature(.dataExport)
+                dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
+                dataExportMail.send(popupFrom: controller) {
+                    dataExport.deleteArchive()
+                    
+                    log.verbose("Now wait a moment, sending mails with attatchments can take a few seconds!")
+                }
             })
     }
     

@@ -62,6 +62,9 @@
 		7088B94B22554AF50024BB87 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088B94A22554AF50024BB87 /* CloudKit.framework */; };
 		708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A2B14228859CC00981BBC /* IconFormSelectorViewFooter.swift */; };
 		708A2B1B22885DCE00981BBC /* IconFormSelectorViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 708A2B1A22885DCE00981BBC /* IconFormSelectorViewFooter.xib */; };
+		709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709B636022C548E800697884 /* QuickResponseCodeRow.swift */; };
+		709B636322C5495100697884 /* QuickResponseCodeRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709B636222C5495100697884 /* QuickResponseCodeRowCell.swift */; };
+		709B636522C54C0300697884 /* QuickResponseCodeRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */; };
 		709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D90C4224AC05F0041713A /* SeedValueValidator.swift */; };
 		709D90C7224AC5FB0041713A /* NavbarActivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D90C6224AC5FB0041713A /* NavbarActivityExtension.swift */; };
 		70A7B10E223061D60084F15B /* MainPasswordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B10D223061D60084F15B /* MainPasswordsViewController.swift */; };
@@ -105,6 +108,12 @@
 		70D534F622398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */; };
 		70D534F822398B8100CDD228 /* SetupChoosePincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */; };
 		70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */; };
+		70DC72E422A3E548006FE7B7 /* export-original.html in Resources */ = {isa = PBXBuildFile; fileRef = 70DC72E322A3E548006FE7B7 /* export-original.html */; };
+		70DC72E622A3EA13006FE7B7 /* export-inline.html in Resources */ = {isa = PBXBuildFile; fileRef = 70DC72E522A3EA13006FE7B7 /* export-inline.html */; };
+		70DC72E922A3F2FC006FE7B7 /* ComposeMailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC72E822A3F2FC006FE7B7 /* ComposeMailFeature.swift */; };
+		70DC72EB22A3F306006FE7B7 /* DataExportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC72EA22A3F306006FE7B7 /* DataExportFeature.swift */; };
+		70DC72EE22A41054006FE7B7 /* all-passwords.html in Resources */ = {isa = PBXBuildFile; fileRef = 70DC72ED22A41054006FE7B7 /* all-passwords.html */; };
+		70DC72F022A41060006FE7B7 /* single-password.html in Resources */ = {isa = PBXBuildFile; fileRef = 70DC72EF22A41060006FE7B7 /* single-password.html */; };
 		70DE925122A1A37200D00BB0 /* CryptographyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE925022A1A37200D00BB0 /* CryptographyError.swift */; };
 		70E42298229891D50020D725 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E42297229891D50020D725 /* NotificationHelper.swift */; };
 		70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */; };
@@ -175,6 +184,9 @@
 		7088B94A22554AF50024BB87 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		708A2B14228859CC00981BBC /* IconFormSelectorViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewFooter.swift; sourceTree = "<group>"; };
 		708A2B1A22885DCE00981BBC /* IconFormSelectorViewFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewFooter.xib; sourceTree = "<group>"; };
+		709B636022C548E800697884 /* QuickResponseCodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickResponseCodeRow.swift; sourceTree = "<group>"; };
+		709B636222C5495100697884 /* QuickResponseCodeRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickResponseCodeRowCell.swift; sourceTree = "<group>"; };
+		709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickResponseCodeRowCell.xib; sourceTree = "<group>"; };
 		709D90C4224AC05F0041713A /* SeedValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedValueValidator.swift; sourceTree = "<group>"; };
 		709D90C6224AC5FB0041713A /* NavbarActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarActivityExtension.swift; sourceTree = "<group>"; };
 		70A7B10D223061D60084F15B /* MainPasswordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPasswordsViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +231,12 @@
 		70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChooseEncryptionKeyViewController.swift; sourceTree = "<group>"; };
 		70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChoosePincodeViewController.swift; sourceTree = "<group>"; };
 		70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternImage.swift; sourceTree = "<group>"; };
+		70DC72E322A3E548006FE7B7 /* export-original.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "export-original.html"; sourceTree = "<group>"; };
+		70DC72E522A3EA13006FE7B7 /* export-inline.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "export-inline.html"; sourceTree = "<group>"; };
+		70DC72E822A3F2FC006FE7B7 /* ComposeMailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMailFeature.swift; sourceTree = "<group>"; };
+		70DC72EA22A3F306006FE7B7 /* DataExportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportFeature.swift; sourceTree = "<group>"; };
+		70DC72ED22A41054006FE7B7 /* all-passwords.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "all-passwords.html"; sourceTree = "<group>"; };
+		70DC72EF22A41060006FE7B7 /* single-password.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "single-password.html"; sourceTree = "<group>"; };
 		70DE925022A1A37200D00BB0 /* CryptographyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptographyError.swift; sourceTree = "<group>"; };
 		70E42297229891D50020D725 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationProviderForm.swift; sourceTree = "<group>"; };
@@ -270,6 +288,7 @@
 				700908D821FCE26900603AA2 /* Controllers */,
 				702CA6CB2263A160000DCC1D /* Errors */,
 				700908E121FCE30500603AA2 /* Extensions */,
+				70DC72E722A3F2B2006FE7B7 /* Features */,
 				700908DF21FCE2FA00603AA2 /* Forms */,
 				70E42296229891AB0020D725 /* Helpers */,
 				700908D721FCE25D00603AA2 /* Migrations */,
@@ -419,6 +438,8 @@
 		700908E321FCE34800603AA2 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				70DC72EC22A40FD9006FE7B7 /* ExportTemplates */,
+				70DC72E222A3E51E006FE7B7 /* EmailTemplates */,
 				700908CB21FCCE6100603AA2 /* Assets.xcassets */,
 				70B20AE2227B879A00BDCB94 /* Vectors */,
 				70B20AE0227B86FB00BDCB94 /* Issuers */,
@@ -494,6 +515,7 @@
 		7077A333227CC75E00338CA3 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				709B635F22C548D900697884 /* QuickResponseCode */,
 				7077A33E227F0F9400338CA3 /* Icon */,
 			);
 			path = Rows;
@@ -536,6 +558,16 @@
 				707B38E12275F87100D35897 /* CenteredBanner.xib */,
 			);
 			path = Banners;
+			sourceTree = "<group>";
+		};
+		709B635F22C548D900697884 /* QuickResponseCode */ = {
+			isa = PBXGroup;
+			children = (
+				709B636022C548E800697884 /* QuickResponseCodeRow.swift */,
+				709B636222C5495100697884 /* QuickResponseCodeRowCell.swift */,
+				709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */,
+			);
+			path = QuickResponseCode;
 			sourceTree = "<group>";
 		};
 		70A7B11A22306D950084F15B /* TimeBasedPasswordCell */ = {
@@ -662,6 +694,33 @@
 			path = PatternImage;
 			sourceTree = "<group>";
 		};
+		70DC72E222A3E51E006FE7B7 /* EmailTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				70DC72E322A3E548006FE7B7 /* export-original.html */,
+				70DC72E522A3EA13006FE7B7 /* export-inline.html */,
+			);
+			path = EmailTemplates;
+			sourceTree = "<group>";
+		};
+		70DC72E722A3F2B2006FE7B7 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				70DC72E822A3F2FC006FE7B7 /* ComposeMailFeature.swift */,
+				70DC72EA22A3F306006FE7B7 /* DataExportFeature.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		70DC72EC22A40FD9006FE7B7 /* ExportTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				70DC72ED22A41054006FE7B7 /* all-passwords.html */,
+				70DC72EF22A41060006FE7B7 /* single-password.html */,
+			);
+			path = ExportTemplates;
+			sourceTree = "<group>";
+		};
 		70E42296229891AB0020D725 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,17 +843,22 @@
 				70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */,
 				70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */,
 				702BAEAA2259481A008E5C5F /* TimeBasedPasswordCell.xib in Resources */,
+				70DC72EE22A41054006FE7B7 /* all-passwords.html in Resources */,
+				70DC72E622A3EA13006FE7B7 /* export-inline.html in Resources */,
 				700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */,
 				700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */,
 				708A2B1B22885DCE00981BBC /* IconFormSelectorViewFooter.xib in Resources */,
+				70DC72E422A3E548006FE7B7 /* export-original.html in Resources */,
 				70B20AE3227B879A00BDCB94 /* Vectors in Resources */,
 				700908CC21FCCE6100603AA2 /* Assets.xcassets in Resources */,
+				70DC72F022A41060006FE7B7 /* single-password.html in Resources */,
 				700908CA21FCCE5F00603AA2 /* Main.storyboard in Resources */,
 				7077A344227F102900338CA3 /* IconFormRowCell.xib in Resources */,
 				70A7B12722306E210084F15B /* UIPasswordsEmptySearchView.xib in Resources */,
 				70A7B12522306E0C0084F15B /* UIPasswordsEmptyListView.xib in Resources */,
 				70A9E3912280C19B00980D4E /* IconFormCell.xib in Resources */,
 				70FA4C552287546D00A3B754 /* IconFormSelectorViewEmptyList.xib in Resources */,
+				709B636522C54C0300697884 /* QuickResponseCodeRowCell.xib in Resources */,
 				70B5585F225E74AE00F83A34 /* CounterBasedPasswordCell.xib in Resources */,
 				707B38E22275F87100D35897 /* CenteredBanner.xib in Resources */,
 				7077A34A227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib in Resources */,
@@ -816,6 +880,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Base32/Base32.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/EFQRCode/EFQRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Haptica/Haptica.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
@@ -825,12 +890,14 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImageSVGCoder/SDWebImageSVGCoder.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SimpleCheckbox/SimpleCheckbox.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/Valet/Valet.framework",
+				"${BUILT_PRODUCTS_DIR}/ViewRow/ViewRow.framework",
+				"${BUILT_PRODUCTS_DIR}/swift_qrcodejs/swift_qrcodejs.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -839,6 +906,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base32.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFQRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haptica.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
@@ -848,12 +916,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageSVGCoder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleCheckbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Valet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewRow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/swift_qrcodejs.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -889,6 +959,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70DC72E922A3F2FC006FE7B7 /* ComposeMailFeature.swift in Sources */,
 				7066C79B226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift in Sources */,
 				70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */,
 				700908F221FCFADF00603AA2 /* Password.swift in Sources */,
@@ -930,6 +1001,7 @@
 				702CA6CA2263A119000DCC1D /* StubSyncer.swift in Sources */,
 				70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
+				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
 				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
 				708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */,
@@ -944,6 +1016,7 @@
 				70E42298229891D50020D725 /* NotificationHelper.swift in Sources */,
 				700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */,
 				7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */,
+				70DC72EB22A3F306006FE7B7 /* DataExportFeature.swift in Sources */,
 				70A7B118223062380084F15B /* MainMiscViewController.swift in Sources */,
 				70C80DA8229F070A00413801 /* UIPincodeField.swift in Sources */,
 				70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */,
@@ -960,6 +1033,7 @@
 				70D534F622398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift in Sources */,
 				70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */,
 				703B6B30227A060900409BB5 /* SetupEnableBiometricsViewController.swift in Sources */,
+				709B636322C5495100697884 /* QuickResponseCodeRowCell.swift in Sources */,
 				70DE925122A1A37200D00BB0 /* CryptographyError.swift in Sources */,
 				7077A342227F0FCC00338CA3 /* IconFormRowCell.swift in Sources */,
 				702CA6CD2263A16D000DCC1D /* UnexpectedError.swift in Sources */,

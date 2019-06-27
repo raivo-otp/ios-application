@@ -12,8 +12,9 @@ import UIKit
 import Eureka
 import CloudKit
 import RealmSwift
+import MessageUI
 
-class MainMiscViewController: FormViewController {
+class MainMiscViewController: FormViewController, MFMailComposeViewControllerDelegate {
     
     private var miscellaneousForm: MiscellaneousForm?
     
@@ -57,6 +58,10 @@ class MainMiscViewController: FormViewController {
             self.miscellaneousForm?.providerRow.reload()
             self.miscellaneousForm?.synchronizationSection.reload()
         }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
         
 }

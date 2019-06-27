@@ -46,7 +46,6 @@ class MigrationToBuild9: MigrationProtocol {
         switch syncerType {
         case "CLOUD_KIT_SYNCER":
             newSyncerType = id(CloudKitSyncer.self)
-            newSyncerType = id(CloudKitSyncer.self)
         case "OFFLINE_SYNCER":
             newSyncerType = id(OfflineSyncer.self)
         default:

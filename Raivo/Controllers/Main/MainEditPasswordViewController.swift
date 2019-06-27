@@ -21,7 +21,7 @@ class MainEditPasswordViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        passwordForm = PasswordForm(form).build(self)
+        passwordForm = PasswordForm(form).addScanCode(password!).build(self)
         
         // Set default/prefilled values
         if let password = password {
@@ -35,7 +35,7 @@ class MainEditPasswordViewController: FormViewController {
             passwordForm?.kindRow.value = PasswordKindFormOption.build(password.kind)
             passwordForm?.counterRow.value = password.counter
             passwordForm?.timerRow.value = password.timer
-            
+
             if let error = password.syncErrorDescription {
                 passwordForm?.errorRow.title = error
                 passwordForm?.synchronizationSection.hidden = false
