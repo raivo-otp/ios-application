@@ -1,0 +1,96 @@
+//
+// Raivo OTP
+//
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
+//
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+//
+
+import Foundation
+import Eureka
+import ViewRow
+import EFQRCode
+
+/// This controller allows users to export a password using a QRCode
+class MainQRCodeViewController: FormViewController {
+    
+    public var password: Password?
+    
+    /// Called after the controller's view is loaded into memory.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        form +++ Section("Details", { section in
+            section.tag = "details"
+        })
+            
+            <<< LabelRow("issuer", { row in
+                row.title = "Title (issuer)"
+                row.value = password?.issuer
+            })
+            
+            <<< LabelRow("account", { row in
+                row.title = "Username"
+                row.value = password?.account
+            })
+        
+        if !addQRCode() {
+            
+            form +++ Section("QR code error", { section in
+                section.tag = "export-error"
+            })
+                
+                <<< LabelRow("error", { row in
+                    row.title = "The QR code could not be generated."
+                    row.cell.textLabel?.numberOfLines = 0
+                }).cellUpdate({ cell, row in
+                    cell.imageView?.image = UIImage(named: "icon-lightning-tint")
+                })
+        }
+    }
+    
+    private func addQRCode() -> Bool {
+        let tryImage = EFQRCode.generate(
+            content: try! password!.getToken().toURL().absoluteString + "&secret=" + password!.secret,
+            size: EFIntSize(width: 400, height: 400),
+            backgroundColor: UIColor.white.cgColor,
+            foregroundColor: UIColor.black.cgColor,
+            watermark: UIImage(named: "app-icon")!.toCGImage(),
+            watermarkMode: .scaleAspectFit,
+            pointShape: .circle,
+            foregroundPointOffset: 0.1
+        )
+        
+        if let image = tryImage {
+            form +++ Section("QR code", { section in
+                section.tag = "export"
+            })
+                
+                <<< ViewRow<UIImageView>()
+                    .cellSetup { (cell, row) in
+                        cell.view = UIImageView()
+                        cell.view?.contentMode = .scaleAspectFit
+                        cell.contentView.addSubview(cell.view!)
+                        
+                        let image = UIImage(cgImage: image)
+                        cell.view!.image = image
+                        
+                        cell.viewRightMargin = 0.0
+                        cell.viewLeftMargin = 0.0
+                        cell.viewTopMargin = 0.0
+                        cell.viewBottomMargin = 0.0
+                        
+                        
+                        cell.height = { return 350 }
+            }
+            
+            return false
+        }
+        
+        log.error("Create QRCode image failed!")
+        return false
+    }
+    
+}

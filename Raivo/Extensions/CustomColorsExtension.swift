@@ -17,6 +17,7 @@ extension UIColor {
     /// Custom colors available for Raivo
     struct custom {
         static let tint = UIColor(hex: "#e80d33")
+        static let blueTint = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
         static let lightBackground = UIColor(hex: "#ececec").withAlphaComponent(0.95)
     }
     

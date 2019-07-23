@@ -170,6 +170,7 @@
                     <connections>
                         <outlet property="tableView" destination="ZYE-xS-Xob" id="6DY-i7-Rot"/>
                         <segue destination="6aa-25-buz" kind="show" identifier="PasswordSelectedSegue" id="3L5-BL-qpg"/>
+                        <segue destination="jnb-LR-dDu" kind="show" identifier="QRCodeSelectedSegue" id="4r2-Ji-KpJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brY-NW-mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,6 +199,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1n-HP-L86" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4894" y="-740"/>
+        </scene>
+        <!--QR code-->
+        <scene sceneID="gFG-zR-oMG">
+            <objects>
+                <viewController id="jnb-LR-dDu" customClass="MainQRCodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bkg-Mc-WAk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oXZ-Dr-lMs"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR code" id="v6q-mk-7lO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzA-ZB-Aga" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4894" y="35"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Ogz-oo-NQf">

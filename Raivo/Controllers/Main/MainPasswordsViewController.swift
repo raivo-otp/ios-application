@@ -255,20 +255,25 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
 
             self.present(deleteAlert, animated: true, completion: nil)
         }
+        
+        delete.backgroundColor = UIColor.custom.tint
 
-        delete.image = UIImage(named: "action-delete")
-
-
-        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
             if let result = self.results?[indexPath.row] {
                 self.performSegue(withIdentifier: "PasswordSelectedSegue", sender: result)
             }
         }
-
-        edit.backgroundColor = UIColor.lightGray
-        edit.image = UIImage(named: "action-edit")
-
-        return [delete, edit]
+        
+        edit.backgroundColor = UIColor.darkGray
+        
+        let qrcode = UITableViewRowAction(style: .normal, title: "QR-code") { (action, indexPath) in
+            if let result = self.results?[indexPath.row] {
+                self.performSegue(withIdentifier: "QRCodeSelectedSegue", sender: result)
+            }
+        }
+        
+        
+        return [delete, edit, qrcode]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -276,6 +281,18 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         
         if segue.identifier == "PasswordSelectedSegue" {
             guard let destination = segue.destination as? MainEditPasswordViewController else {
+                return
+            }
+            
+            guard let password = sender as? Password else {
+                return
+            }
+            
+            destination.password = password
+        }
+        
+        if segue.identifier == "QRCodeSelectedSegue" {
+            guard let destination = segue.destination as? MainQRCodeViewController else {
                 return
             }
             
