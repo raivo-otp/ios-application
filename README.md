@@ -27,6 +27,7 @@
 * Show the current and previous token
 * Search using powerful search capabilities
 * Optional FaceID or TouchID unlock
+* Export passwords as encrypted ZIP archives
 * It's fast (native, built in Swift v4.2)
 * It's secure (see the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for more information)
 * It's open-source (check the [contribution policy](https://github.com/tijme/raivo/blob/master/CONTRIBUTING.md))
