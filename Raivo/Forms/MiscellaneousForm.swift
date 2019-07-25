@@ -255,7 +255,7 @@ class MiscellaneousForm {
             
             <<< LabelRow("author", { row in
                 row.title = "Author"
-                row.value = "@finnwea"
+                row.value = "Tijme Gommers"
             }).cellUpdate({ cell, row in
                 cell.imageView?.image = UIImage(named: "form-author")
             })
