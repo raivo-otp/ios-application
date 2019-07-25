@@ -16,12 +16,14 @@ import EFQRCode
 /// This controller allows users to export a password using a QRCode
 class MainQRCodeViewController: FormViewController {
     
+    /// The current password to show the QR code for
     public var password: Password?
     
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Always show the password details before the QR code
         form +++ Section("Details", { section in
             section.tag = "details"
         })
@@ -36,6 +38,7 @@ class MainQRCodeViewController: FormViewController {
                 row.value = password?.account
             })
         
+        // If the QR code cannot be generated, show an error message.
         if !addQRCode() {
             
             form +++ Section("QR code error", { section in
@@ -50,20 +53,12 @@ class MainQRCodeViewController: FormViewController {
                 })
         }
     }
-    
+
+    /// Add a form section and a row that contains the QR code
+    ///
+    /// - Returns: Positive if the QR code was added. It can be negative when the QR code fails to generate.
     private func addQRCode() -> Bool {
-        let tryImage = EFQRCode.generate(
-            content: try! password!.getToken().toURL().absoluteString + "&secret=" + password!.secret,
-            size: EFIntSize(width: 400, height: 400),
-            backgroundColor: UIColor.white.cgColor,
-            foregroundColor: UIColor.black.cgColor,
-            watermark: UIImage(named: "app-icon")!.toCGImage(),
-            watermarkMode: .scaleAspectFit,
-            pointShape: .circle,
-            foregroundPointOffset: 0.1
-        )
-        
-        if let image = tryImage {
+        if let image = generateQRCode() {
             form +++ Section("QR code", { section in
                 section.tag = "export"
             })
@@ -81,16 +76,30 @@ class MainQRCodeViewController: FormViewController {
                         cell.viewLeftMargin = 0.0
                         cell.viewTopMargin = 0.0
                         cell.viewBottomMargin = 0.0
-                        
-                        
                         cell.height = { return 350 }
-            }
+                    }
             
-            return false
+            return true
         }
         
         log.error("Create QRCode image failed!")
         return false
+    }
+    
+    /// Generate the QR code as an image
+    ///
+    /// - Returns: The image if the generation was successful   
+    private func generateQRCode() -> CGImage? {
+        return EFQRCode.generate(
+            content: try! password!.getToken().toURL().absoluteString + "&secret=" + password!.secret,
+            size: EFIntSize(width: 400, height: 400),
+            backgroundColor: UIColor.white.cgColor,
+            foregroundColor: UIColor.black.cgColor,
+            watermark: UIImage(named: "app-icon")!.toCGImage(),
+            watermarkMode: .scaleAspectFit,
+            pointShape: .circle,
+            foregroundPointOffset: 0.1
+        )
     }
     
 }
