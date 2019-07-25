@@ -6,7 +6,7 @@ inhibit_all_warnings!
 target 'Raivo' do
   use_frameworks!
 
-  # Realm SQLite database that supports encryption
+  # Realm SQLite database handler that supports encryption
   pod 'RealmSwift', '3.13.1'
   
   # To encrypt sensitive data before being synced
@@ -22,21 +22,16 @@ target 'Raivo' do
   pod 'OneTimePassword', '3.1.4'
 
   # Enables easy form creation for adding and editing passwords
-  pod 'Eureka', '4.3.1'
+  pod 'Eureka', '5.0.0'
+  pod 'ViewRow', '0.6'
   
   # Retrieves, caches and displays images from the web (for issuer logos)
   pod 'SDWebImage', '5.0.2'
   pod 'SDWebImageSVGCoder', '0.2.0'
 
-  # Easy view animations (like flikkering error messages)
-  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
-
   # Debug logging (only used in debug builds)
   pod 'SwiftyBeaver', '1.7.0'
 
-  # UI checkbox buttons
-  pod 'SimpleCheckbox', '1.5.0'
-  
   # UI notification banners (e.g. for a notification if you copied an OTP)
   pod 'SwiftMessages', '6.0.2'
   
@@ -45,5 +40,14 @@ target 'Raivo' do
   
   # HTTP requests for custom issuer icons
   pod 'Alamofire', '4.8.1'
+  
+  # Allows encrypted ZIP file creation for OTP exporting
+  pod 'SSZipArchive', '2.2.2'
+  
+  # QRCode generation for data export
+  pod 'EFQRCode', '5.0.0'
+  
+  # Easy view animations (like flikkering error messages)
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 
 end

@@ -1,10 +1,12 @@
 //
-//  SetupChooseEncryptionKeyViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 13/03/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import UIKit
@@ -16,8 +18,6 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     
     public var challenge: SyncerChallenge?
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
-    
     @IBOutlet weak var viewTitle: UILabel!
     
     @IBOutlet weak var viewExtra: SpringLabel!
@@ -28,10 +28,11 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        adjustViewToKeyboard()
         
         viewEncryptionPassword.delegate = self
-        adjustConstraintToKeyboard()
-        
+
         if let _ = self.challenge?.challenge {
             self.viewTitle.text = "Remember that encryption key?"
             self.viewExtra.text = "You've used Raivo before. Enter the encryption key you took note of back then."
@@ -43,10 +44,6 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
         viewEncryptionPassword.becomeFirstResponder()
     }
     
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         onContinue(textField)
         return true
@@ -55,7 +52,7 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     private func verifyChallenge() -> Bool {
         if let challenge = self.challenge?.challenge {
             do {
-                let _ = try EncryptionHelper.decrypt(challenge, withKey: viewEncryptionPassword.text ?? "")
+                let _ = try CryptographyHelper.shared.decrypt(challenge, withKey: viewEncryptionPassword.text ?? "")
                 return true
             } catch {
                 return false
@@ -80,7 +77,7 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
             return
         }
         
-        StorageHelper.setEncryptionPassword(viewEncryptionPassword.text!)
+        StorageHelper.shared.setEncryptionPassword(viewEncryptionPassword.text!)
         
         performSegue(withIdentifier: "ChoosePincodeSegue", sender: sender)
     }

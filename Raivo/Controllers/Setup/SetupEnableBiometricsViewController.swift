@@ -1,10 +1,12 @@
 //
-//  SetupEnableBiometricsViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 01/05/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import UIKit
@@ -13,35 +15,27 @@ import SVGKit
 
 class SetupEnableBiometricsViewController: UIViewController {
     
-    //EnableBiometricsSegue
     @IBOutlet weak var viewIcon: SVGKFastImageView!
-    
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        adjustConstraintToKeyboard()
+      
+        adjustViewToKeyboard()
         
         let url = Bundle.main.url(forResource: "fingerprint", withExtension: "svg", subdirectory: "Vectors")
         viewIcon.image = SVGKImage(contentsOf: url)
     }
     
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
-    }
-    
-    
     @IBAction func onDismissTouchID(_ sender: Any) {
-        updateStoryboard()
+        getAppDelegate().updateStoryboard()
     }
     
     @IBAction func onEnableTouchID(_ sender: Any) {
-        StorageHelper.setEncryptionKey(getAppDelagate().getEncryptionKey()!.base64EncodedString())
+        StorageHelper.shared.setEncryptionKey(getAppDelegate().getEncryptionKey()!.base64EncodedString())
         
-        if let _ = StorageHelper.getEncryptionKey(prompt: "Confirm to enable TouchID") {
-            StorageHelper.setBiometricUnlockEnabled(true)
-            updateStoryboard()
+        if let _ = StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable TouchID") {
+            StorageHelper.shared.setBiometricUnlockEnabled(true)
+            getAppDelegate().updateStoryboard()
         }
     }
 }

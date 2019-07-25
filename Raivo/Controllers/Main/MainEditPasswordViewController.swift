@@ -1,10 +1,12 @@
 //
-//  MainEditPasswordViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 06/03/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import UIKit
 import Eureka
@@ -33,7 +35,7 @@ class MainEditPasswordViewController: FormViewController {
             passwordForm?.kindRow.value = PasswordKindFormOption.build(password.kind)
             passwordForm?.counterRow.value = password.counter
             passwordForm?.timerRow.value = password.timer
-            
+
             if let error = password.syncErrorDescription {
                 passwordForm?.errorRow.title = error
                 passwordForm?.synchronizationSection.hidden = false

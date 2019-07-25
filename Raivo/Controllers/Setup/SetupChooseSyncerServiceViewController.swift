@@ -1,10 +1,12 @@
 //
-//  SetupChooseSyncerServiceViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 26/01/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import UIKit
 import Spring
@@ -47,8 +49,8 @@ class SetupChooseSyncerServiceViewController: FormViewController {
         evaluateAllowContinue()
         
         for availableSyncer in SyncerHelper.availableSyncers {
-            SyncerHelper.getSyncer(availableSyncer).getAccount(success: self.accountSuccess, error: self.accountError)
-            SyncerHelper.getSyncer(availableSyncer).getChallenge(success: self.challengeSuccess, error: self.challengeError)
+            SyncerHelper.shared.getSyncer(availableSyncer).getAccount(success: self.accountSuccess, error: self.accountError)
+            SyncerHelper.shared.getSyncer(availableSyncer).getChallenge(success: self.challengeSuccess, error: self.challengeError)
         }
     }
     
@@ -60,7 +62,6 @@ class SetupChooseSyncerServiceViewController: FormViewController {
             self.evaluateAllowContinue()
             
             (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).disabled = Condition(booleanLiteral: false)
-            (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).evaluateDisabled()
         }
     }
     
@@ -71,7 +72,6 @@ class SetupChooseSyncerServiceViewController: FormViewController {
             self.evaluateAllowContinue()
             
             (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).disabled = Condition(booleanLiteral: true)
-            (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).evaluateDisabled()
         }
     }
     
@@ -100,6 +100,10 @@ class SetupChooseSyncerServiceViewController: FormViewController {
         viewTitle.text = allow ? "Synchronization providers" : "Loading providers..."
         
         if (allow) {
+            for availableSyncer in SyncerHelper.availableSyncers {
+                (self.form.rowBy(tag: availableSyncer) as! ListCheckRow<String>).evaluateDisabled()
+            }
+            
             synchronizationProviderForm?.selectFirstSyncer()
             dismissNavBarActivity()
         }
@@ -118,9 +122,14 @@ class SetupChooseSyncerServiceViewController: FormViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DatabaseEncryptionSegue" {
             if let destination = segue.destination as? SetupChooseEncryptionKeyViewController {
-                StorageHelper.setSynchronizationProvider(synchronizationProviderForm!.getSelectedSyncer()!)
-                destination.account = self.accounts[synchronizationProviderForm!.getSelectedSyncer()!]
-                destination.challenge = self.challenges[synchronizationProviderForm!.getSelectedSyncer()!]
+                let selectedSyncer = synchronizationProviderForm!.getSelectedSyncer()!
+                
+                StorageHelper.shared.setSynchronizationProvider(selectedSyncer)
+                StorageHelper.shared.setSynchronizationAccountIdentifier(self.accounts[selectedSyncer]!.identifier)
+                getAppDelegate().syncerAccountIdentifier = self.accounts[selectedSyncer]!.identifier
+                
+                destination.account = self.accounts[selectedSyncer]
+                destination.challenge = self.challenges[selectedSyncer]
             }
         }
     }

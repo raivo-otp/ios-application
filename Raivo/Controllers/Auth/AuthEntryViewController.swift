@@ -1,22 +1,24 @@
 //
-//  AuthEntryViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 26/01/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import UIKit
 import RealmSwift
 import Spring
 
-class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
+class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     
-    @IBOutlet weak var pincodeDigitsView: PincodeDigitsView!
+    @IBOutlet weak var viewPincode: UIPincodeField!
     
     @IBOutlet weak var viewExtra: SpringLabel!
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
+    @IBOutlet weak var viewBiometricsUnlock: UIButton!
     
     final let maximumTries = 6
     
@@ -27,37 +29,43 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustConstraintToKeyboard()
+        adjustViewToKeyboard()
         
-        self.pincodeDigitsView.showBiometrics(StorageHelper.getBiometricUnlockEnabled())
-        self.pincodeDigitsView.delegate = self
-        self.showPincodeView("Enter your PIN code to continue.")
+        viewBiometricsUnlock.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
+        
+        viewPincode.delegate = self
+        viewPincode.layoutIfNeeded()
+        
+        showPincodeView("Enter your PIN code to continue.")
+        
+        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.tryBiometricsUnlock()
+            }
+        }
     }
-
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationHelper.shared.discard(UIApplication.willEnterForegroundNotification, byDistinctName: id(self))
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if getAppDelagate().previousStoryboardName == nil {
-            self.tryTouchID()
+        if getAppDelegate().previousStoryboardName == StateHelper.Storyboard.LOAD {
+            tryBiometricsUnlock()
+        } else {
+            viewPincode.becomeFirstResponder()
         }
-        
-        self.pincodeDigitsView.focus()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         didTryTouchID = false
     }
     
-    func showPincodeView(_ extra: String, focus: Bool = true, flash: Bool = false) {
-        self.viewExtra.text = extra
-        
-        if focus {
-            self.pincodeDigitsView.resetAndFocus()
-        } else {
-            self.pincodeDigitsView.reset()
-        }
+    func showPincodeView(_ extra: String, flash: Bool = false) {
+        viewPincode.reset()
+        viewExtra.text = extra
         
         if flash {
             self.viewExtra.delay = CGFloat(0.25)
@@ -66,30 +74,37 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         }
     }
     
-    func onBiometricsTrigger() {
-        self.tryTouchID()
+    @IBAction func onBiometricsUnlock(_ sender: Any) {
+        tryBiometricsUnlock()
     }
     
     func onPincodeComplete(pincode: String) {
-        let salt = StorageHelper.getEncryptionPassword()!
+        let salt = StorageHelper.shared.getEncryptionPassword()!
         
-        let encryptionKey = KeyDerivationHelper.derivePincode(pincode, salt)
+        guard let encryptionKey = try? CryptographyHelper.shared.derive(pincode, withSalt: salt) else {
+            showPincodeView("Key derivation failed.")
+            return
+        }
+        
         let isCorrect = RealmHelper.isCorrectEncryptionKey(encryptionKey)
         
         DispatchQueue.main.async {
             guard self.tryNewPincode() else {
-                self.pincodeDigitsView.resetAndFocus()
+                self.viewPincode.reset()
+                self.viewPincode.becomeFirstResponder()
                 self.showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
                 return
             }
             
             if isCorrect {
-                self.getAppDelagate().updateEncryptionKey(encryptionKey)
+                getAppDelegate().updateEncryptionKey(encryptionKey)
                 
                 self.resetPincodeTries()
-                self.updateStoryboard()
+                getAppDelegate().updateStoryboard()
             } else {
-                self.pincodeDigitsView.resetAndFocus()
+                self.viewPincode.reset()
+                self.viewPincode.becomeFirstResponder()
+                
                 let message = self.getTriesLeft() == 0 ? "Invalid PIN code. That was your last try." : "Invalid PIN code. " + String(self.getTriesLeft()) + " tries left."
                 self.showPincodeView(message, flash: true)
             }
@@ -97,28 +112,28 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
     }
     
     internal func resetPincodeTries() {
-        StorageHelper.setPincodeTriedAmount(0)
-        StorageHelper.setPincodeTriedTimestamp(0)
+        StorageHelper.shared.setPincodeTriedAmount(0)
+        StorageHelper.shared.setPincodeTriedTimestamp(0)
     }
     
     internal func getTriesLeft() -> Int {
-        return maximumTries - (StorageHelper.getPincodeTriedAmount() ?? 0)
+        return maximumTries - (StorageHelper.shared.getPincodeTriedAmount() ?? 0)
     }
     
     internal func getSecondsLeft() -> Int {
-        let lastTryTimestamp = StorageHelper.getPincodeTriedTimestamp() ?? TimeInterval(0)
+        let lastTryTimestamp = StorageHelper.shared.getPincodeTriedTimestamp() ?? TimeInterval(0)
         return Int((lastTryTimestamp + (lockoutTime * 60)) - Date().timeIntervalSince1970)
     }
     
     internal func tryNewPincode(increase: Bool = true) -> Bool {
-        let currentTries = StorageHelper.getPincodeTriedAmount() ?? 0
-        let lastTryTimestamp = StorageHelper.getPincodeTriedTimestamp() ?? TimeInterval(0)
+        let currentTries = StorageHelper.shared.getPincodeTriedAmount() ?? 0
+        let lastTryTimestamp = StorageHelper.shared.getPincodeTriedTimestamp() ?? TimeInterval(0)
         
         // If can try
         guard currentTries >= maximumTries else {
             if increase {
-                StorageHelper.setPincodeTriedTimestamp(Date().timeIntervalSince1970)
-                StorageHelper.setPincodeTriedAmount(currentTries + 1)
+                StorageHelper.shared.setPincodeTriedTimestamp(Date().timeIntervalSince1970)
+                StorageHelper.shared.setPincodeTriedAmount(currentTries + 1)
             }
             
             return true
@@ -134,24 +149,29 @@ class AuthEntryViewController: UIViewController, PincodeDigitsProtocol {
         return false
     }
     
-    internal func tryTouchID() {
-        guard StorageHelper.getBiometricUnlockEnabled() else {
+    internal func tryBiometricsUnlock() {
+        guard StorageHelper.shared.getBiometricUnlockEnabled() else {
+            viewPincode.becomeFirstResponder()
             return
         }
         
         guard self.tryNewPincode(increase: false) else {
-            self.pincodeDigitsView.resetAndFocus()
-            self.showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
+            viewPincode.reset()
+            showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
             return
         }
         
-        if let key = StorageHelper.getEncryptionKey(prompt: "Unlock Raivo in no time") {
-            self.getAppDelagate().updateEncryptionKey(Data(base64Encoded: key))
-            self.resetPincodeTries()
-            self.updateStoryboard()
-        } else {
-            let _ = self.tryNewPincode()
-        }
+        viewPincode.resignFirstResponder()
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
+                self.resetPincodeTries()
+                
+                getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
+                getAppDelegate().updateStoryboard()
+            } else {
+                self.viewPincode.becomeFirstResponder()
+            }
+        }
     }
 }

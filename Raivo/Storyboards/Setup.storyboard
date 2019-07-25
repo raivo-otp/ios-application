@@ -355,7 +355,7 @@
                         <constraints>
                             <constraint firstItem="aCh-6S-cbq" firstAttribute="trailing" secondItem="g8o-Pm-Zja" secondAttribute="trailing" id="8bC-P9-GRO"/>
                             <constraint firstItem="g8o-Pm-Zja" firstAttribute="leading" secondItem="aCh-6S-cbq" secondAttribute="leading" id="JL3-ph-qws"/>
-                            <constraint firstItem="aCh-6S-cbq" firstAttribute="bottom" secondItem="g8o-Pm-Zja" secondAttribute="bottom" id="Jva-fG-erZ"/>
+                            <constraint firstItem="aCh-6S-cbq" firstAttribute="bottom" secondItem="g8o-Pm-Zja" secondAttribute="bottom" identifier="KeyboardConstraint" id="Jva-fG-erZ"/>
                             <constraint firstItem="aCh-6S-cbq" firstAttribute="trailing" secondItem="Mwm-mA-dQM" secondAttribute="trailing" id="St0-J3-tKJ"/>
                             <constraint firstItem="aCh-6S-cbq" firstAttribute="top" secondItem="g8o-Pm-Zja" secondAttribute="top" id="ohj-e2-zx5"/>
                             <constraint firstItem="aCh-6S-cbq" firstAttribute="top" secondItem="Mwm-mA-dQM" secondAttribute="top" id="qsA-sZ-HAu"/>
@@ -371,7 +371,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bottomPadding" destination="Jva-fG-erZ" id="u92-Yj-g2T"/>
                         <outlet property="forgotView" destination="TQD-cj-rSf" id="r66-aJ-5tI"/>
                         <outlet property="viewEncryptionPassword" destination="SW2-CK-hhJ" id="B6G-2v-XCl"/>
                         <outlet property="viewExtra" destination="rTk-g4-Dfh" id="teE-uv-sqx"/>
@@ -409,11 +408,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-th-70S" customClass="PincodeDigitsView" customModule="Raivo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="397.5" width="414" height="80"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-th-70S" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="397.5" width="414" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="PWE-nT-s3Q"/>
+                                            <constraint firstAttribute="height" constant="50" id="PWE-nT-s3Q"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -439,7 +438,7 @@
                             <constraint firstItem="anK-AN-WSd" firstAttribute="leading" secondItem="KM1-ns-wUE" secondAttribute="leading" id="T9B-Bu-YdH"/>
                             <constraint firstItem="KM1-ns-wUE" firstAttribute="trailing" secondItem="Ca9-05-mLj" secondAttribute="trailing" id="VJV-a2-eQB"/>
                             <constraint firstItem="KM1-ns-wUE" firstAttribute="trailing" secondItem="anK-AN-WSd" secondAttribute="trailing" id="qGm-4Z-3J4"/>
-                            <constraint firstItem="KM1-ns-wUE" firstAttribute="bottom" secondItem="anK-AN-WSd" secondAttribute="bottom" id="wPX-FV-HQj"/>
+                            <constraint firstItem="KM1-ns-wUE" firstAttribute="bottom" secondItem="anK-AN-WSd" secondAttribute="bottom" identifier="KeyboardConstraint" id="wPX-FV-HQj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KM1-ns-wUE"/>
                     </view>
@@ -447,9 +446,8 @@
                         <barButtonItem key="backBarButtonItem" title="Lock" id="ntx-gZ-cDL"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomPadding" destination="wPX-FV-HQj" id="iS7-xf-XUK"/>
-                        <outlet property="pincodeDigitsView" destination="hIV-th-70S" id="ykA-6w-Fpz"/>
                         <outlet property="viewExtra" destination="0OU-Fc-wZm" id="uF8-R5-nAT"/>
+                        <outlet property="viewPincode" destination="hIV-th-70S" id="ykA-6w-Fpz"/>
                         <outlet property="viewTitle" destination="1qp-gl-0w1" id="hse-0O-3ZR"/>
                         <segue destination="aRj-9S-j16" kind="show" identifier="EnableBiometricsSegue" id="7rR-lb-O9A"/>
                     </connections>
@@ -546,7 +544,7 @@
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="sxM-c7-MzO" secondAttribute="trailing" id="EbP-W4-cb2"/>
                             <constraint firstItem="dmR-8Y-LFH" firstAttribute="top" secondItem="aAO-MI-4Sj" secondAttribute="top" id="EeH-Mc-m9u"/>
                             <constraint firstItem="dmR-8Y-LFH" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="Prk-KL-aLB"/>
-                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="sxM-c7-MzO" secondAttribute="bottom" id="ehp-Gq-tch"/>
+                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="sxM-c7-MzO" secondAttribute="bottom" identifier="KeyboardConstraint" id="ehp-Gq-tch"/>
                             <constraint firstItem="sxM-c7-MzO" firstAttribute="top" secondItem="aAO-MI-4Sj" secondAttribute="top" id="h85-Se-B0v"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="dmR-8Y-LFH" secondAttribute="bottom" id="kbM-nO-ShI"/>
                         </constraints>
@@ -554,7 +552,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="TouchID" id="Ylo-oa-mo1"/>
                     <connections>
-                        <outlet property="bottomPadding" destination="ehp-Gq-tch" id="PYE-ED-Pxg"/>
                         <outlet property="viewIcon" destination="EU7-Ek-El2" id="pZH-qp-gpw"/>
                     </connections>
                 </viewController>

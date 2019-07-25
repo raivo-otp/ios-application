@@ -5,7 +5,7 @@
 <p align="center">
     <a href="https://github.com/tijme/raivo/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=License&secondText=CC%20BY-NC%204.0" /></a>
     <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=iOS%20(10%20or%20higher)" /></a>
-    <a href="https://github.com/tijme/raivo/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue1=raivo&typeValue2=master&typeValue4=Beta&cache=1"></a>
+    <a href="https://github.com/tijme/raivo/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue1=raivo&typeValue2=master&typeValue4=Release&cache=1"></a>
     <br/>
     <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
     <br/>
@@ -27,6 +27,7 @@
 * Show the current and previous token
 * Search using powerful search capabilities
 * Optional FaceID or TouchID unlock
+* Export passwords as encrypted ZIP archives
 * It's fast (native, built in Swift v4.2)
 * It's secure (see the [security policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for more information)
 * It's open-source (check the [contribution policy](https://github.com/tijme/raivo/blob/master/CONTRIBUTING.md))

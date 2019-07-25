@@ -1,103 +1,141 @@
 //
-//  MainChangePincodeViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 14/04/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import UIKit
 import RealmSwift
 import Spring
 
-class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
- 
-    @IBOutlet weak var pincodeDigitsView: PincodeDigitsView!
-    
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
-    
+/// This controller allows users to change their PIN code
+class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate {
+
+    /// The title centered in the view
     @IBOutlet weak var viewTitle: UILabel!
     
+    /// Extra information that supports the title
     @IBOutlet weak var viewExtra: SpringLabel!
     
-    private var initialPincode: Data? = nil
+    /// The actual PIN code field
+    @IBOutlet weak var viewPincode: UIPincodeField!
     
+    /// Derived PIN+salt from the first try (a user needs to enter the same PIN twice before it will change)
+    private var initialKey: Data? = nil
+    
+    /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustConstraintToKeyboard()
+        adjustViewToKeyboard()
+         
+        resetView(
+            "Choose a new PIN code",
+            "You need it to unlock Raivo, so make sure you'll be able to remember it."
+        )
         
-        self.pincodeDigitsView.delegate = self
-        self.showPincodeView("Choose a new PIN code", "You need it to unlock Raivo, so make sure you'll be able to remember it.", focus: false)
+        viewPincode.delegate = self
+        viewPincode.becomeFirstResponder()
     }
     
-    // Bugfix for grey shadow under navigation bar
-    // https://stackoverflow.com/a/25421617/2491049
+    /// Notifies the view controller that its view is about to be added to a view hierarchy.
+    /// The background color is a fix for the grey shadow under the navigation bar.
+    /// https://stackoverflow.com/a/25421617/2491049
+    ///
+    /// - Parameter animated: If positive, the view is being added to the window using an animation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.view.backgroundColor = UIColor.white
     }
+    
+    /// Notifies the view controller that its view was added to a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the view was added to the window using an animation.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewPincode.becomeFirstResponder()
+    }
 
-    // Bugfix for grey shadow under navigation bar
-    // https://stackoverflow.com/a/25421617/2491049
+    /// Notifies the view controller that its view was removed from a view hierarchy.
+    /// The background color is a fix for the grey shadow under the navigation bar.
+    /// https://stackoverflow.com/a/25421617/2491049
+    ///
+    /// - Parameter animated: If positive, the disappearance of the view was animated.
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         navigationController?.view.backgroundColor = UIColor.clear
     }
     
-    override func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.pincodeDigitsView.focus()
-    }
-    
-    func showPincodeView(_ title: String, _ extra: String, focus: Bool = true, flash: Bool = false) {
-        self.viewTitle.text = title
-        self.viewExtra.text = extra
+    /// Triggered when the user entered a PIN code.k
+    /// This method will either;
+    ///     * Move on to the second PIN code try
+    ///     * Notify if the second PIN code try was wrong
+    ///     * Migrate the database using the new PIN code
+    ///
+    /// - Parameter pincode: The x digit PIN code
+    internal func onPincodeComplete(pincode: String) {
+        var currentKey: Data? = nil
+        let salt = StorageHelper.shared.getEncryptionPassword()
         
-        if focus {
-            self.pincodeDigitsView.resetAndFocus()
-        } else {
-            self.pincodeDigitsView.reset()
+        do {
+            currentKey = try CryptographyHelper.shared.derive(pincode, withSalt: salt!)
+        } catch let error {
+            ui { self.resetView("Invalid PIN code", "Please start over by choosing a new PIN code.") }
+            return log.error(error)
         }
         
-        if flash {
-            self.viewExtra.delay = CGFloat(0.25)
-            self.viewExtra.animation = "shake"
-            self.viewExtra.animate()
-        }
-    }
-    
-    func onBiometricsTrigger() {
-        // Not implemented
-    }
-    
-    func onPincodeComplete(pincode: String) {
-        
-        DispatchQueue.main.async {
-            let salt = StorageHelper.getEncryptionPassword()!
+        switch initialKey {
+        case nil:
+            initialKey = currentKey
             
-            if self.initialPincode == nil {
-                self.pincodeDigitsView.resetAndFocus()
-                self.initialPincode = KeyDerivationHelper.derivePincode(pincode, salt)
-                self.showPincodeView("Almost there!", "Confirm your PIN code to continue (you'll be signed out after this step).")
-            } else {
-                if self.initialPincode == KeyDerivationHelper.derivePincode(pincode, salt) {
-                    self.changePincode(pincode, salt)
-                } else {
-                    self.initialPincode = nil
-                    self.pincodeDigitsView.resetAndFocus()
-                    self.showPincodeView("Oh oh, not similar :/", "Please start over by choosing a new PIN code.", flash: true)
-                }
+            ui {
+                self.resetView(
+                    "Almost there!",
+                    "Confirm your PIN code to continue (you'll be signed out after this step)."
+                )
+            }
+        case currentKey:
+            changePincode(to: currentKey!)
+        default:
+            initialKey = nil
+            
+            ui {
+                self.resetView(
+                    "Oh oh, not similar :/",
+                    "Please start over by choosing a new PIN code.",
+                    flash: true
+                )
             }
         }
     }
     
-    private func changePincode(_ pincode: String, _ salt: String) {
-        let newKey = KeyDerivationHelper.derivePincode(pincode, salt)
+    /// Reset the controller's view using the given text and other parameters
+    ///
+    /// - Parameter title: The title centered in the view
+    /// - Parameter extra: Extra information that supports the title
+    /// - Parameter flash: If the extra message should flash/wobble
+    private func resetView(_ title: String, _ extra: String, flash: Bool = false) {
+        viewTitle.text = title
+        viewExtra.text = extra
+        
+        viewPincode.reset()
+      
+        if flash {
+            viewExtra.delay = CGFloat(0.25)
+            viewExtra.animation = "shake"
+            viewExtra.animate()
+        }
+    }
+    
+    /// Migrate the old Realm database to the a new Realm database using the new encryption key
+    ///
+    /// - Parameter newKey: The new encryption key
+    private func changePincode(to newKey: Data) {
         let newName = RealmHelper.getProposedNewFileName()
         let newFile = RealmHelper.getFileURL(forceFilename: newName)
         
@@ -106,19 +144,17 @@ class MainChangePincodeViewController: UIViewController, PincodeDigitsProtocol {
         do {
             try oldRealm.writeCopy(toFile: newFile!, encryptionKey: newKey)
         } catch let error {
-            log.error(error)
-            return
+            return log.error(error)
         }
         
-        
-        if StorageHelper.getBiometricUnlockEnabled() {
-            StorageHelper.setEncryptionKey(newKey!.base64EncodedString())
+        if StorageHelper.shared.getBiometricUnlockEnabled() {
+            StorageHelper.shared.setEncryptionKey(newKey.base64EncodedString())
         }
         
-        StorageHelper.setRealmFilename(newName)
+        StorageHelper.shared.setRealmFilename(newName)
+        StateHelper.shared.reset(dueToPINCodeChange: true)
         
-        StateHelper.reset(clearKeychain: false)
-        updateStoryboard()
+        getAppDelegate().updateStoryboard()
     }
     
 }

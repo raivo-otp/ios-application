@@ -1,10 +1,12 @@
 //
-//  IconFormRaivoRepositorySelectorViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 05/05/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import UIKit
@@ -15,13 +17,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var bottomPadding: NSLayoutConstraint!
-    
     lazy var searchBar = UISearchBar(frame: CGRect.zero)
-    
-    lazy var requestManagerLocal: SessionManager = AlamofireHelper.manager(withoutCache: false)
-    
-    lazy var requestManagerRemote: SessionManager = AlamofireHelper.manager(withoutCache: true)
     
     var refreshButton: UIBarButtonItem? = nil
     
@@ -60,7 +56,8 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustConstraintToKeyboard()
+        adjustViewToKeyboard()
+        
         initializeCollectionView()
         initializeRefreshButton()
         initializeSearchBar()
@@ -71,10 +68,6 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchBar.becomeFirstResponder()
-    }
-    
-    override public func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        return bottomPadding
     }
     
     private func initializeCollectionView() {
@@ -135,9 +128,9 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     private func getRequestManager(_ withoutCache: Bool) -> SessionManager {
         if withoutCache {
-            return requestManagerRemote
+            return AlamofireHelper.default
         } else {
-            return requestManagerLocal
+            return AlamofireHelper.cacheless
         }
     }
     
@@ -145,9 +138,15 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
         self.isRefreshing(true)
         
         getRequestManager(withoutCache).request(AppHelper.iconsURL + "search.json").responseJSON { response in
-            if let json = response.result.value as? Dictionary<String, Array<String>> {
-                self.allResults = json
-                self.searchResults(self.lastSearchText)
+            switch response.result {
+            case .success(let value):
+                if let json = value as? Dictionary<String, Array<String>> {
+                    self.allResults = json
+                    self.searchResults(self.lastSearchText)
+                    self.isRefreshing(false)
+                }
+            case .failure(let error):
+                log.warning(error)
                 self.isRefreshing(false)
             }
         }

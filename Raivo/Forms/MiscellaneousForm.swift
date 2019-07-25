@@ -1,15 +1,18 @@
 //
-//  MiscellaneousForm.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 07/04/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import Foundation
 import Eureka
+import MessageUI
 
-class MiscellaneousForm: BaseClass {
+class MiscellaneousForm {
     
     private var form: Form
     
@@ -18,6 +21,7 @@ class MiscellaneousForm: BaseClass {
     public var synchronizationSection: Section { return form.sectionBy(tag: "synchronization")! }
     public var authenticationSection: Section { return form.sectionBy(tag: "authentication")! }
     public var interfaceSection: Section { return form.sectionBy(tag: "interface")! }
+    public var dataSection: Section { return form.sectionBy(tag: "data")! }
     public var aboutSection: Section { return form.sectionBy(tag: "about")! }
     public var legalSection: Section { return form.sectionBy(tag: "legal")! }
     public var advancedSection: Section { return form.sectionBy(tag: "advanced")! }
@@ -28,6 +32,7 @@ class MiscellaneousForm: BaseClass {
     public var touchIDUnlockRow: SwitchRow { return form.rowBy(tag: "touchid_unlock") as! SwitchRow }
     public var changePINCodeRow: ButtonRow { return form.rowBy(tag: "change_pin_code") as! ButtonRow }
     public var iconsEffectRow: PickerInlineRow<MiscellaneousIconsEffectFormOption> { return form.rowBy(tag: "icons_effect") as! PickerInlineRow<MiscellaneousIconsEffectFormOption> }
+    public var exportRow: ButtonRow { return form.rowBy(tag: "export") as! ButtonRow }
     public var versionRow: LabelRow { return form.rowBy(tag: "version") as! LabelRow }
     public var compilationRow: LabelRow { return form.rowBy(tag: "compilation") as! LabelRow }
     public var authorRow: LabelRow { return form.rowBy(tag: "author") as! LabelRow }
@@ -42,10 +47,12 @@ class MiscellaneousForm: BaseClass {
     }
     
     @discardableResult
-    public func build(controller: UIViewController) -> Self {
+    
+    public func build<T: UIViewController & MFMailComposeViewControllerDelegate>(controller: T) -> Self {
         buildSynchronizationSection(controller)
         buildAuthenticationSection(controller)
         buildInterfaceSection(controller)
+        buildDataSection(controller)
         buildAboutSection(controller)
         buildLegalSection(controller)
         buildAdvancedSection(controller)
@@ -74,13 +81,13 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildSynchronizationSection(_ controller: UIViewController) {
-        let authenticated = StateHelper.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
         
         form +++ Section("Synchronization", { section in
             section.tag = "synchronization"
             section.hidden = Condition(booleanLiteral: !authenticated)
-            section.footer = HeaderFooterView(title: SyncerHelper.getSyncer().help)
-       })
+            section.footer = HeaderFooterView(title: SyncerHelper.shared.getSyncer().help)
+        })
             
             <<< LabelRow("account", { row in
                 row.title = "Account"
@@ -98,7 +105,7 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildAuthenticationSection(_ controller: UIViewController) {
-        let authenticated = StateHelper.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
         
         form +++ Section("Authentication", { section in
             section.tag = "authentication"
@@ -110,38 +117,38 @@ class MiscellaneousForm: BaseClass {
                 row.options = MiscellaneousInactivityLockFormOption.options
                 row.value = MiscellaneousInactivityLockFormOption.OPTION_DEFAULT
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = ColorHelper.getTint()
+                cell.textLabel?.textColor = UIColor.custom.tint
                 cell.imageView?.image = UIImage(named: "form-lock")
             }).onChange({ row in
-                StorageHelper.setLockscreenTimeout(row.value!.value)
-                (MyApplication.shared as! MyApplication).scheduleInactivityTimer()
+                StorageHelper.shared.setLockscreenTimeout(row.value!.value)
+                getAppPrincipal().scheduleInactivityTimer()
                 row.collapseInlineRow()
             })
             
             <<< SwitchRow("touchid_unlock", { row in
                 row.title = "TouchID unlock"
-                row.hidden = Condition(booleanLiteral: !StorageHelper.canAccessSecrets())
-                row.value = StorageHelper.getBiometricUnlockEnabled()
+                row.hidden = Condition(booleanLiteral: !StorageHelper.shared.canAccessSecrets())
+                row.value = StorageHelper.shared.getBiometricUnlockEnabled()
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = ColorHelper.getTint()
+                cell.textLabel?.textColor = UIColor.custom.tint
                 cell.imageView?.image = UIImage(named: "form-biometric")
-                cell.switchControl.tintColor = ColorHelper.getTint()
-                cell.switchControl.onTintColor = ColorHelper.getTint()
+                cell.switchControl.tintColor = UIColor.custom.tint
+                cell.switchControl.onTintColor = UIColor.custom.tint
             }).onChange({ row in
-                guard let key = self.getAppDelagate().getEncryptionKey() else {
+                guard let key = getAppDelegate().getEncryptionKey() else {
                     return
                 }
                 
                 // Bugfix for invalid SwitchRow background if TouchID was cancelled
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     if !(row.value ?? false) {
-                        StorageHelper.setEncryptionKey(nil)
-                        StorageHelper.setBiometricUnlockEnabled(false)
+                        StorageHelper.shared.setEncryptionKey(nil)
+                        StorageHelper.shared.setBiometricUnlockEnabled(false)
                     } else {
-                        StorageHelper.setEncryptionKey(key.base64EncodedString())
+                        StorageHelper.shared.setEncryptionKey(key.base64EncodedString())
                         
-                        if StorageHelper.getEncryptionKey(prompt: "Confirm to enable TouchID") != nil {
-                            StorageHelper.setBiometricUnlockEnabled(true)
+                        if StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable TouchID") != nil {
+                            StorageHelper.shared.setBiometricUnlockEnabled(true)
                         } else {
                             row.value = false
                             row.cell.switchControl.setOn(false, animated: true)
@@ -161,7 +168,7 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildInterfaceSection(_ controller: UIViewController) {
-        let authenticated = StateHelper.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
         
         form +++ Section("Interface", { section in
             section.tag = "interface"
@@ -173,12 +180,12 @@ class MiscellaneousForm: BaseClass {
                 row.options = MiscellaneousIconsEffectFormOption.options
                 row.value = MiscellaneousIconsEffectFormOption.OPTION_DEFAULT
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = ColorHelper.getTint()
+                cell.textLabel?.textColor = UIColor.custom.tint
                 cell.imageView?.image = UIImage(named: "form-icons-effect")
             }).onChange({ row in
                 guard self.isReady else { return }
                 
-                StorageHelper.setIconsEffect(row.value!.value)
+                StorageHelper.shared.setIconsEffect(row.value!.value)
                 row.collapseInlineRow()
                 
                 let refreshAlert = UIAlertController(
@@ -189,6 +196,41 @@ class MiscellaneousForm: BaseClass {
                 
                 refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 controller.present(refreshAlert, animated: true, completion: nil)
+            })
+    }
+    
+    private func buildDataSection<T: UIViewController & MFMailComposeViewControllerDelegate>(_ controller: T) {
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        
+        form +++ Section("Data", { section in
+            section.tag = "data"
+            section.hidden = Condition(booleanLiteral: !authenticated)
+            section.footer = HeaderFooterView(title: "Your data will be exported in a AES encrypted ZIP file (using your encryption password).")
+        })
+            
+            <<< ButtonRow("export", { row in
+                row.title = "Export data to ZIP"
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-zip")
+            }).onCellSelection({ cell, row in
+                let dataExport = DataExportFeature()
+
+                let password = StorageHelper.shared.getEncryptionPassword()
+                let status = dataExport.generateArchive(protectedWith: password!)
+                
+                guard case let DataExportFeature.Result.success(archive) = status else {
+                    log.error("Archive generation failed!")
+                    return
+                }
+                
+                let dataExportMail = ComposeMailFeature(.dataExport)
+                dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
+                dataExportMail.send(popupFrom: controller) {
+                    dataExport.deleteArchive()
+                    
+                    log.verbose("Now wait a moment, sending mails with attatchments can take a few seconds!")
+                }
             })
     }
     
@@ -262,14 +304,14 @@ class MiscellaneousForm: BaseClass {
     }
     
     private func buildAdvancedSection(_ controller: UIViewController) {
-        let show = [StateHelper.Storyboard.MAIN, StateHelper.Storyboard.AUTH].contains(StateHelper.getCurrentStoryboard())
+        let show = [StateHelper.Storyboard.MAIN, StateHelper.Storyboard.AUTH].contains(StateHelper.shared.getCurrentStoryboard())
         
         form +++ Section("Advanced", { section in
             section.tag = "advanced"
             section.hidden = Condition(booleanLiteral: !show)
             
             let footerTitle = "Signing out will remove all data from your device."
-            if [MockSyncer.UNIQUE_ID, OfflineSyncer.UNIQUE_ID].contains(SyncerHelper.getSyncer().UNIQUE_ID) {
+            if [id(StubSyncer.self), id(OfflineSyncer.self)].contains(id(SyncerHelper.shared.getSyncer().self)) {
                 section.footer = HeaderFooterView(title: footerTitle)
             } else {
                 section.footer = HeaderFooterView(title: footerTitle + " Data that has already been synced will remain at your synchronization provider.")
@@ -289,8 +331,7 @@ class MiscellaneousForm: BaseClass {
                 )
                 
                 refreshAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action: UIAlertAction!) in
-                    StateHelper.reset()
-                    (MyApplication.shared.delegate as! AppDelegate).updateStoryboard()
+                    StateHelper.shared.reset()
                 }))
                 
                 refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in

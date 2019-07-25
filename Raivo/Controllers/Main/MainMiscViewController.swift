@@ -1,17 +1,20 @@
 //
-//  MainMiscViewController.swift
-//  Raivo
+// Raivo OTP
 //
-//  Created by Tijme Gommers on 06/03/2019.
-//  Copyright © 2019 Tijme Gommers. All rights reserved.
+// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// is provided 'as-is', without any express or implied warranty.
 //
+// This source code is licensed under the CC BY-NC 4.0 license found
+// in the LICENSE.md file in the root directory of this source tree.
+// 
 
 import UIKit
 import Eureka
 import CloudKit
 import RealmSwift
+import MessageUI
 
-class MainMiscViewController: FormViewController {
+class MainMiscViewController: FormViewController, MFMailComposeViewControllerDelegate {
     
     private var miscellaneousForm: MiscellaneousForm?
     
@@ -21,15 +24,15 @@ class MainMiscViewController: FormViewController {
         miscellaneousForm = MiscellaneousForm(form).build(controller: self)
         
         // Set default/prefilled values
-        if let inactivityLockString = StorageHelper.getLockscreenTimeout() {
+        if let inactivityLockString = StorageHelper.shared.getLockscreenTimeout() {
             miscellaneousForm!.inactivityLockRow.value = MiscellaneousInactivityLockFormOption.build(inactivityLockString)
         }
         
-        if let iconsEffect = StorageHelper.getIconsEffect() {
+        if let iconsEffect = StorageHelper.shared.getIconsEffect() {
             miscellaneousForm!.iconsEffectRow.value = MiscellaneousIconsEffectFormOption.build(iconsEffect)
         }
         
-        SyncerHelper.getSyncer().getAccount(success: accountSuccess, error: accountError)
+        SyncerHelper.shared.getSyncer().getAccount(success: accountSuccess, error: accountError)
         
         miscellaneousForm!.ready()
     }
@@ -37,7 +40,7 @@ class MainMiscViewController: FormViewController {
     private func accountSuccess(_ account: SyncerAccount, _ syncerID: String) {
         DispatchQueue.main.async {
             self.miscellaneousForm?.accountRow.value = account.name
-            self.miscellaneousForm?.providerRow.value = SyncerHelper.getSyncer().name
+            self.miscellaneousForm?.providerRow.value = SyncerHelper.shared.getSyncer().name
 
             self.miscellaneousForm?.accountRow.reload()
             self.miscellaneousForm?.providerRow.reload()
@@ -55,6 +58,10 @@ class MainMiscViewController: FormViewController {
             self.miscellaneousForm?.providerRow.reload()
             self.miscellaneousForm?.synchronizationSection.reload()
         }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
         
 }
