@@ -116,9 +116,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
     private func getRectAtPosition(_ position: Int) -> CGRect {
         let parentWidth = layer.bounds.size.width
         let parentHeight = layer.bounds.size.height
-        
-        log.error(parentWidth)
-        
+                
         let totalWidth = digitWrapperWidth * CGFloat(length)
         let horizontalPadding = (parentWidth - totalWidth) / 2
         
