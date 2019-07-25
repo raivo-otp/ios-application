@@ -41,7 +41,7 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
         )
         
         viewPincode.delegate = self
-        viewPincode.becomeFirstResponder()
+        viewPincode.layoutIfNeeded()
     }
     
     /// Notifies the view controller that its view was added to a view hierarchy.
