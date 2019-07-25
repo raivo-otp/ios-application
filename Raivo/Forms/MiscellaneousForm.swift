@@ -266,7 +266,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-bug")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/issues")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/issues/new/choose")!, options: [:])
             })
     }
     
@@ -281,7 +281,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-privacy")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/PRIVACY.md")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/PRIVACY.md#privacy-policy")!, options: [:])
             })
             
             <<< ButtonRow("security_policy", { row in
@@ -290,7 +290,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-security")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/SECURITY.md")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/SECURITY.md#security-policy")!, options: [:])
             })
             
             <<< ButtonRow("license", { row in
@@ -299,7 +299,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-license")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/LICENSE.md")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/LICENSE.md#attribution-noncommercial-40-international")!, options: [:])
             })
     }
     
