@@ -41,7 +41,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func notify(_ userInfo: [AnyHashable : Any]) {
-        let notification = CKQueryNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
+        let notification = CKQueryNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])!
         
         if notification.notificationType == .query {
             notifyModels(notification)
