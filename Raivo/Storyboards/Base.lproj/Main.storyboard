@@ -46,7 +46,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QRCodes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QR codes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
                                         <rect key="frame" x="15" y="141" width="313" height="61"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,7 +170,7 @@
                     <connections>
                         <outlet property="tableView" destination="ZYE-xS-Xob" id="6DY-i7-Rot"/>
                         <segue destination="6aa-25-buz" kind="show" identifier="PasswordSelectedSegue" id="3L5-BL-qpg"/>
-                        <segue destination="jnb-LR-dDu" kind="show" identifier="QRCodeSelectedSegue" id="4r2-Ji-KpJ"/>
+                        <segue destination="jnb-LR-dDu" kind="show" identifier="QuickResponseCodeSelectedSegue" id="4r2-Ji-KpJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brY-NW-mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,7 +203,7 @@
         <!--QR code-->
         <scene sceneID="gFG-zR-oMG">
             <objects>
-                <viewController id="jnb-LR-dDu" customClass="MainQRCodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jnb-LR-dDu" customClass="MainQuickResponseCodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bkg-Mc-WAk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

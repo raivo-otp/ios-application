@@ -46,7 +46,8 @@
 		70684DEF225A1BF70038BDB4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEE225A1BF70038BDB4 /* main.swift */; };
 		70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */; };
 		70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF3225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift */; };
-		7076C22622E7909000AFBDD9 /* MainQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076C22522E7909000AFBDD9 /* MainQRCodeViewController.swift */; };
+		706FD81522EB71A500F433F7 /* QuickResponseCodeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706FD81422EB71A500F433F7 /* QuickResponseCodeForm.swift */; };
+		7076C22622E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */; };
 		7077A337227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A336227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift */; };
 		7077A339227CCA9300338CA3 /* PasswordKindFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A338227CCA9300338CA3 /* PasswordKindFormOption.swift */; };
 		7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A33A227CCB1200338CA3 /* PasswordDigitsFormOption.swift */; };
@@ -168,7 +169,8 @@
 		70684DEE225A1BF70038BDB4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousForm.swift; sourceTree = "<group>"; };
 		70684DF3225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousInactivityLockFormOption.swift; sourceTree = "<group>"; };
-		7076C22522E7909000AFBDD9 /* MainQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQRCodeViewController.swift; sourceTree = "<group>"; };
+		706FD81422EB71A500F433F7 /* QuickResponseCodeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickResponseCodeForm.swift; sourceTree = "<group>"; };
+		7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQuickResponseCodeViewController.swift; sourceTree = "<group>"; };
 		7077A336227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordAlgorithmFormOption.swift; sourceTree = "<group>"; };
 		7077A338227CCA9300338CA3 /* PasswordKindFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordKindFormOption.swift; sourceTree = "<group>"; };
 		7077A33A227CCB1200338CA3 /* PasswordDigitsFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordDigitsFormOption.swift; sourceTree = "<group>"; };
@@ -379,7 +381,7 @@
 				70A7B115223062080084F15B /* MainSearchViewController.swift */,
 				70A7B117223062380084F15B /* MainMiscViewController.swift */,
 				702A14092263672200B278BB /* MainChangePincodeViewController.swift */,
-				7076C22522E7909000AFBDD9 /* MainQRCodeViewController.swift */,
+				7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -414,6 +416,7 @@
 				702BAEA72258FD1B008E5C5F /* PasswordForm.swift */,
 				70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */,
 				70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */,
+				706FD81422EB71A500F433F7 /* QuickResponseCodeForm.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -886,7 +889,6 @@
 				"${BUILT_PRODUCTS_DIR}/EFQRCode/EFQRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Haptica/Haptica.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/OneTimePassword/OneTimePassword.framework",
 				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -912,7 +914,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFQRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haptica.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneTimePassword.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -1028,7 +1029,7 @@
 				700908F021FCEC3100603AA2 /* SetupEntryViewController.swift in Sources */,
 				70684DED225A1BD40038BDB4 /* ApplicationPrincipal.swift in Sources */,
 				702A140A2263672200B278BB /* MainChangePincodeViewController.swift in Sources */,
-				7076C22622E7909000AFBDD9 /* MainQRCodeViewController.swift in Sources */,
+				7076C22622E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift in Sources */,
 				7016DE422265193D006C45B6 /* CustomColorsExtension.swift in Sources */,
 				7077A33D227CDF6600338CA3 /* BaseFormOption.swift in Sources */,
 				70F8BE7D2205EAFB006FDB5A /* LoadViewFilesExtension.swift in Sources */,
@@ -1051,6 +1052,7 @@
 				706708E92288A5D5009A15B9 /* SetupMiscViewController.swift in Sources */,
 				70A7B112223061EE0084F15B /* MainCreatePasswordViewController.swift in Sources */,
 				70A7B12122306DF40084F15B /* UIPasswordsEmptyListView.swift in Sources */,
+				706FD81522EB71A500F433F7 /* QuickResponseCodeForm.swift in Sources */,
 				706708E722888265009A15B9 /* AlamofireHelper.swift in Sources */,
 				709D90C7224AC5FB0041713A /* NavbarActivityExtension.swift in Sources */,
 			);

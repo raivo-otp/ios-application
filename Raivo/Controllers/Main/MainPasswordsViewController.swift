@@ -266,9 +266,9 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         
         edit.backgroundColor = UIColor.darkGray
         
-        let qrcode = UITableViewRowAction(style: .normal, title: "QR-code") { (action, indexPath) in
+        let qrcode = UITableViewRowAction(style: .normal, title: "QR code") { (action, indexPath) in
             if let result = self.results?[indexPath.row] {
-                self.performSegue(withIdentifier: "QRCodeSelectedSegue", sender: result)
+                self.performSegue(withIdentifier: "QuickResponseCodeSelectedSegue", sender: result)
             }
         }
         
@@ -291,8 +291,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             destination.password = password
         }
         
-        if segue.identifier == "QRCodeSelectedSegue" {
-            guard let destination = segue.destination as? MainQRCodeViewController else {
+        if segue.identifier == "QuickResponseCodeSelectedSegue" {
+            guard let destination = segue.destination as? MainQuickResponseCodeViewController else {
                 return
             }
             
