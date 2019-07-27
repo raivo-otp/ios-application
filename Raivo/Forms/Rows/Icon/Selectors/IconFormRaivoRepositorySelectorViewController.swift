@@ -44,6 +44,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     /// Empty TableView cached views
     var collectionViewEmptyList: UIView? = nil
     var collectionViewEmptySearch: UIView? = nil
+    var collectionViewEmptyError: UIView? = nil
   
     func set(iconFormRow: IconFormRow) {
         self.senderRow = iconFormRow
@@ -67,12 +68,16 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        searchBar.becomeFirstResponder()
+        
+        if searchResults.count > 0 {
+            searchBar.becomeFirstResponder()
+        }
     }
     
     private func initializeCollectionView() {
         collectionViewEmptyList = loadXIBAsUIView("IconFormSelectorViewEmptyList")
         collectionViewEmptySearch = loadXIBAsUIView("IconFormSelectorViewEmptySearch")
+        collectionViewEmptyError = loadXIBAsUIView("IconFormSelectorViewEmptyError")
         collectionView.backgroundView = collectionViewEmptyList
         
         collectionView.register(
@@ -128,9 +133,9 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     private func getRequestManager(_ withoutCache: Bool) -> SessionManager {
         if withoutCache {
-            return AlamofireHelper.default
-        } else {
             return AlamofireHelper.cacheless
+        } else {
+            return AlamofireHelper.default
         }
     }
     
@@ -146,8 +151,14 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
                     self.isRefreshing(false)
                 }
             case .failure(let error):
-                log.warning(error)
+                BannerHelper.error(error.localizedDescription)
+                
+                self.collectionView.backgroundView = self.collectionViewEmptyError
+                self.collectionView.backgroundView?.isHidden = self.searchResults.count != 0
+                
                 self.isRefreshing(false)
+                
+                log.warning(error)
             }
         }
     }

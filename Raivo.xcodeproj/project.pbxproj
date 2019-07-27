@@ -31,6 +31,8 @@
 		702CA6D12263B2CD000DCC1D /* MigrationToBuild4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */; };
 		703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */; };
 		703B6B30227A060900409BB5 /* SetupEnableBiometricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */; };
+		704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */; };
+		704E16DB22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */; };
 		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
 		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
 		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
@@ -154,6 +156,8 @@
 		702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild4.swift; sourceTree = "<group>"; };
 		703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstrainToKeyboardExtension.swift; sourceTree = "<group>"; };
 		703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEnableBiometricsViewController.swift; sourceTree = "<group>"; };
+		704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyError.swift; sourceTree = "<group>"; };
+		704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyError.xib; sourceTree = "<group>"; };
 		7059680A22994CCF0032D70F /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
 		7059680F2299AB0A0032D70F /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
@@ -751,6 +755,8 @@
 				70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */,
 				708A2B14228859CC00981BBC /* IconFormSelectorViewFooter.swift */,
 				708A2B1A22885DCE00981BBC /* IconFormSelectorViewFooter.xib */,
+				704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */,
+				704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */,
 			);
 			path = IconFormSelectorView;
 			sourceTree = "<group>";
@@ -850,6 +856,7 @@
 				70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */,
 				70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */,
 				702BAEAA2259481A008E5C5F /* TimeBasedPasswordCell.xib in Resources */,
+				704E16DB22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib in Resources */,
 				70DC72EE22A41054006FE7B7 /* all-passwords.html in Resources */,
 				70DC72E622A3EA13006FE7B7 /* export-inline.html in Resources */,
 				700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */,
@@ -1011,6 +1018,7 @@
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
 				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
+				704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */,
 				708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */,
 				70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */,
 				7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */,

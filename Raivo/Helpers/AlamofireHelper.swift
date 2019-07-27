@@ -29,6 +29,8 @@ class AlamofireHelper {
         
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = defaultHeaders
+        configuration.timeoutIntervalForRequest = 8 // seconds
+        configuration.timeoutIntervalForResource = 8 // seconds
         
         return configuration
     }
