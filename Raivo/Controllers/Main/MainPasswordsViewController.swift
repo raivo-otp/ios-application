@@ -253,7 +253,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             
             hotpAction.backgroundColor = UIColor.gray
             hotpAction.image = UIImage(named: "icon-hotp")?.sd_tintedImage(with: UIColor.white)
-            
+
             return [hotpAction]
         }
         
@@ -300,6 +300,13 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         qrcodeAction.image = UIImage(named: "icon-qrcode")?.sd_tintedImage(with: UIColor.white)
         
         return [deleteAction, editAction, qrcodeAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .selection
+        options.transitionStyle = .border
+        return options
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
