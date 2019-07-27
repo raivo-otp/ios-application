@@ -12,9 +12,10 @@ import UIKit
 import RealmSwift
 import SDWebImage
 import OneTimePassword
+import SwipeCellKit
 import AVFoundation
 
-class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate, UISearchBarDelegate {
     
     /// Is programatically set to true if user tapped the search button
     var startSearching: Bool = false
@@ -214,6 +215,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifierTOTP, for: indexPath as IndexPath) as! TimeBasedPasswordCell
         }
         
+        cell?.delegate = self
         cell!.setPassword(password)
         cell!.updateState(force: true)
         
@@ -234,10 +236,30 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        if orientation == .left {
+            guard self.results?[indexPath.row].kind == PasswordKindFormOption.OPTION_HOTP.value else { return nil }
+            
+            let hotpAction = SwipeAction(style: .default, title: "Increase") { action, indexPath in
+                let realm = try! Realm()
+                
+                try! realm.write {
+                    self.results?[indexPath.row].counter += 1
+                    self.results?[indexPath.row].syncing = true
+                    self.results?[indexPath.row].synced = false
+                }
+            }
+            
+            hotpAction.backgroundColor = UIColor.gray
+            hotpAction.image = UIImage(named: "icon-hotp")?.sd_tintedImage(with: UIColor.white)
+            
+            return [hotpAction]
+        }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             let deleteAlert = UIAlertController(title: "Warning!", message: "Do you want to delete this password?", preferredStyle: UIAlertController.Style.alert)
-
+            
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
                 if let result = self.results?[indexPath.row] {
                     let realm = try! Realm()
@@ -248,34 +270,38 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
                     }
                 }
             }))
-
+            
             deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
                 deleteAlert.dismiss(animated: true, completion: nil)
             }))
-
+            
             self.present(deleteAlert, animated: true, completion: nil)
         }
-        
-        delete.backgroundColor = UIColor.custom.tint
 
-        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+        deleteAction.backgroundColor = UIColor.custom.tint
+        deleteAction.image = UIImage(named: "icon-trash")?.sd_tintedImage(with: UIColor.white)
+        
+        let editAction = SwipeAction(style: .default, title: "Edit") { action, indexPath in
             if let result = self.results?[indexPath.row] {
                 self.performSegue(withIdentifier: "PasswordSelectedSegue", sender: result)
             }
         }
         
-        edit.backgroundColor = UIColor.darkGray
+        editAction.backgroundColor = UIColor.darkGray
+        editAction.image = UIImage(named: "icon-edit")?.sd_tintedImage(with: UIColor.white)
         
-        let qrcode = UITableViewRowAction(style: .normal, title: "QR code") { (action, indexPath) in
+        let qrcodeAction = SwipeAction(style: .default, title: "QR code") { action, indexPath in
             if let result = self.results?[indexPath.row] {
                 self.performSegue(withIdentifier: "QuickResponseCodeSelectedSegue", sender: result)
             }
         }
         
+        qrcodeAction.backgroundColor = UIColor.gray
+        qrcodeAction.image = UIImage(named: "icon-qrcode")?.sd_tintedImage(with: UIColor.white)
         
-        return [delete, edit, qrcode]
+        return [deleteAction, editAction, qrcodeAction]
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         searchBar.resignFirstResponder()
         

@@ -10,8 +10,9 @@
 
 import Foundation
 import UIKit
+import SwipeCellKit
 
-class PasswordCell: UITableViewCell {
+class PasswordCell: SwipeTableViewCell {
     
     internal func setPassword(_ password: Password) {
         log.error("The 'setPassword' function was called on 'PasswordCell' instead of it's subclass!")

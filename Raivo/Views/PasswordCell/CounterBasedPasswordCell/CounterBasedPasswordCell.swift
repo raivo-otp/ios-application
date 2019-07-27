@@ -26,8 +26,6 @@ class CounterBasedPasswordCell: PasswordCell {
     
     @IBOutlet weak var notSyncedView: UIImageView!
     
-    @IBOutlet weak var nextButton: UIButton!
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -55,36 +53,6 @@ class CounterBasedPasswordCell: PasswordCell {
         
         currentPassword.text = TokenHelper.formatPassword(password!.getToken())
         notSyncedView.isHidden = password!.synced || password!.syncing
-    }
-    
-    @IBAction func onNext(_ sender: Any) {
-        let realm = try! Realm()
-        
-        try! realm.write {
-            password!.counter += 1
-            password!.syncing = true
-            password!.synced = false
-        }
-        
-        currentPassword.text = TokenHelper.formatPassword(password!.getToken(true))
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        let color = nextButton.backgroundColor
-        super.setSelected(selected, animated: animated)
-
-        if selected {
-            nextButton.backgroundColor = color
-        }
-    }
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        let color = nextButton.backgroundColor
-        super.setHighlighted(highlighted, animated: animated)
-
-        if highlighted {
-            nextButton.backgroundColor = color
-        }
     }
     
 }

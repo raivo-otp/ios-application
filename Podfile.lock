@@ -31,6 +31,7 @@ PODS:
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
   - SwiftyBeaver (1.7.0)
+  - SwipeCellKit (2.6.0)
   - Valet (3.2.5)
   - ViewRow (0.6):
     - Eureka (>= 5.0.0)
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - SSZipArchive (= 2.2.2)
   - SwiftMessages (= 7.0.0)
   - SwiftyBeaver (= 1.7.0)
+  - SwipeCellKit (= 2.6.0)
   - Valet (= 3.2.5)
   - ViewRow (= 0.6)
 
@@ -71,6 +73,7 @@ SPEC REPOS:
     - swift_qrcodejs
     - SwiftMessages
     - SwiftyBeaver
+    - SwipeCellKit
     - Valet
     - ViewRow
 
@@ -102,9 +105,10 @@ SPEC CHECKSUMS:
   swift_qrcodejs: 0bacbfe321a99954c7b8e04c75562007ea4e4f7c
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
   Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: 30ce64a2cb42df250a45f7586e1bf9e612e168c8
+PODFILE CHECKSUM: adfd2130edad66379bc5242a6b0d5b390bfa71bb
 
 COCOAPODS: 1.5.3
