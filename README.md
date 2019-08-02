@@ -1,7 +1,11 @@
 <p align="center">
     <img src="https://raw.githubusercontent.com/tijme/raivo/master/Assets/app-icon.png" width="200"/>
 </p>
-<h1 align="center">Raivo OTP</h1>
+<p align="center">
+    <a href="https://apps.apple.com/us/app/raivo-otp/id1459042137?mt=8">
+        <img src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2019-08-01&kind=iossoftware&bubble=ios_apps" width="180"/>
+    </a>
+</p>
 <p align="center">
     <a href="https://github.com/tijme/raivo/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=License&secondText=CC%20BY-NC%204.0" /></a>
     <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=iOS%20(10%20or%20higher)" /></a>
