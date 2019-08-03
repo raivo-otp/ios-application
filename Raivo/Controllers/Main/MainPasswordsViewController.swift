@@ -138,7 +138,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     func showSearchBar() {
         if results?.count == 0 && !isSearching {
-            let refreshAlert = UIAlertController(title: "Youre vault is empty!", message: "Do you want to add your first OTP?", preferredStyle: .alert)
+            let refreshAlert = UIAlertController(title: "Your vault is empty!", message: "Do you want to add your first OTP?", preferredStyle: .alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
                 self.performSegue(withIdentifier: "ScanPassword", sender: nil)
