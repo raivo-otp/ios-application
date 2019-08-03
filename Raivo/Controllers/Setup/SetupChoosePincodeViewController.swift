@@ -77,7 +77,8 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
             ui {
                 self.resetView(
                     "Almost there!",
-                    "Confirm your PIN code to continue."
+                    "Confirm your PIN code to continue.",
+                    flash: true
                 )
             }
         case currentKey:

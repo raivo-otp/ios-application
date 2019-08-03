@@ -14,7 +14,15 @@ import Eureka
 final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType {
     
     public var iconType: String? = nil
-    public var iconValue: String? = nil
+    public var iconValue: String? = nil {
+        willSet {
+            if newValue?.count ?? 0 > 0 {
+                options = PasswordIconTypeFormOption.options_including_clear
+            } else {
+                options = PasswordIconTypeFormOption.options
+            }
+        }
+    }
 
     convenience init(tag: String?, controller: UIViewController, _ initializer: (IconFormRow) -> Void = { _ in }) {
         self.init(tag: tag)
@@ -27,6 +35,8 @@ final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType {
             row.value = nil // Ensure that onchange triggers the next time
             
             switch value {
+            case PasswordIconTypeFormOption.OPTION_CLEAR:
+                self.clearSelector(controller, row)
             case PasswordIconTypeFormOption.OPTION_RAIVO_REPOSITORY:
                 self.raivoRepositorySelector(controller, row)
             default:
@@ -35,13 +45,20 @@ final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType {
         }
         
     }
+    
+    private func clearSelector(_ sender: UIViewController, _ row: IconFormRow) {
+        row.iconType = nil
+        row.iconValue = nil
+        
+        row.reload()
+    }
 
     private func raivoRepositorySelector(_ sender: UIViewController, _ row: IconFormRow) {
         let controller = IconFormRaivoRepositorySelectorViewController()
         controller.set(iconFormRow: row)
         
         controller.set(dismissCallback: {
-            self.cell.update()
+            row.reload()
         })
         
         sender.navigationController?.pushViewController(controller, animated: true)

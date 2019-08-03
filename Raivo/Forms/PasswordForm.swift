@@ -126,6 +126,8 @@ class PasswordForm {
             <<< IconFormRow(tag: "icon_url", controller: controller, { row in
                 row.title = "Icon"
                 row.options = PasswordIconTypeFormOption.options
+            }).cellUpdate({ cell, row in
+                
             })
     }
     

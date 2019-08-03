@@ -12,11 +12,15 @@ import Foundation
 
 public class PasswordIconTypeFormOption: BaseFormOption {
     
+    static let OPTION_CLEAR = PasswordIconTypeFormOption("clear", description: "Remove current icon")
     static let OPTION_RAIVO_REPOSITORY = PasswordIconTypeFormOption("raivo_repository", description: "Raivo's icon repository")
     
-    static let options = [
+    static let options_including_clear = [
+        OPTION_CLEAR,
         OPTION_RAIVO_REPOSITORY
     ]
+    
+    static let options = Array(PasswordIconTypeFormOption.options_including_clear.suffix(from: 1))
     
     public var value: String
     
