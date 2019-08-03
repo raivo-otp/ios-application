@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_left.png" width="280">
-    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_middle.png" width="280">
-    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_right.png" width="280">
+    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_left.png?cache=1" width="280">
+    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_middle.png?cache=1" width="280">
+    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_right.png?cache=1" width="280">
 </p>
 
 ## Features
