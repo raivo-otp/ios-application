@@ -31,6 +31,8 @@
 		702CA6D12263B2CD000DCC1D /* MigrationToBuild4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */; };
 		703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */; };
 		703B6B30227A060900409BB5 /* SetupEnableBiometricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */; };
+		704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */; };
+		704E16DB22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */; };
 		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
 		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
 		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
@@ -46,7 +48,8 @@
 		70684DEF225A1BF70038BDB4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEE225A1BF70038BDB4 /* main.swift */; };
 		70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */; };
 		70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF3225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift */; };
-		7076C22622E7909000AFBDD9 /* MainQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076C22522E7909000AFBDD9 /* MainQRCodeViewController.swift */; };
+		706FD81522EB71A500F433F7 /* QuickResponseCodeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706FD81422EB71A500F433F7 /* QuickResponseCodeForm.swift */; };
+		7076C22622E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */; };
 		7077A337227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A336227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift */; };
 		7077A339227CCA9300338CA3 /* PasswordKindFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A338227CCA9300338CA3 /* PasswordKindFormOption.swift */; };
 		7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A33A227CCB1200338CA3 /* PasswordDigitsFormOption.swift */; };
@@ -153,6 +156,8 @@
 		702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild4.swift; sourceTree = "<group>"; };
 		703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstrainToKeyboardExtension.swift; sourceTree = "<group>"; };
 		703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEnableBiometricsViewController.swift; sourceTree = "<group>"; };
+		704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyError.swift; sourceTree = "<group>"; };
+		704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyError.xib; sourceTree = "<group>"; };
 		7059680A22994CCF0032D70F /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
 		7059680F2299AB0A0032D70F /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
@@ -168,7 +173,8 @@
 		70684DEE225A1BF70038BDB4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousForm.swift; sourceTree = "<group>"; };
 		70684DF3225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousInactivityLockFormOption.swift; sourceTree = "<group>"; };
-		7076C22522E7909000AFBDD9 /* MainQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQRCodeViewController.swift; sourceTree = "<group>"; };
+		706FD81422EB71A500F433F7 /* QuickResponseCodeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickResponseCodeForm.swift; sourceTree = "<group>"; };
+		7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQuickResponseCodeViewController.swift; sourceTree = "<group>"; };
 		7077A336227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordAlgorithmFormOption.swift; sourceTree = "<group>"; };
 		7077A338227CCA9300338CA3 /* PasswordKindFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordKindFormOption.swift; sourceTree = "<group>"; };
 		7077A33A227CCB1200338CA3 /* PasswordDigitsFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordDigitsFormOption.swift; sourceTree = "<group>"; };
@@ -379,7 +385,7 @@
 				70A7B115223062080084F15B /* MainSearchViewController.swift */,
 				70A7B117223062380084F15B /* MainMiscViewController.swift */,
 				702A14092263672200B278BB /* MainChangePincodeViewController.swift */,
-				7076C22522E7909000AFBDD9 /* MainQRCodeViewController.swift */,
+				7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				702BAEA72258FD1B008E5C5F /* PasswordForm.swift */,
 				70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */,
 				70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */,
+				706FD81422EB71A500F433F7 /* QuickResponseCodeForm.swift */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -748,6 +755,8 @@
 				70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */,
 				708A2B14228859CC00981BBC /* IconFormSelectorViewFooter.swift */,
 				708A2B1A22885DCE00981BBC /* IconFormSelectorViewFooter.xib */,
+				704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */,
+				704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */,
 			);
 			path = IconFormSelectorView;
 			sourceTree = "<group>";
@@ -804,6 +813,7 @@
 				TargetAttributes = {
 					700908C021FCCE5F00603AA2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -846,6 +856,7 @@
 				70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */,
 				70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */,
 				702BAEAA2259481A008E5C5F /* TimeBasedPasswordCell.xib in Resources */,
+				704E16DB22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib in Resources */,
 				70DC72EE22A41054006FE7B7 /* all-passwords.html in Resources */,
 				70DC72E622A3EA13006FE7B7 /* export-inline.html in Resources */,
 				700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */,
@@ -886,7 +897,6 @@
 				"${BUILT_PRODUCTS_DIR}/EFQRCode/EFQRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Haptica/Haptica.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/OneTimePassword/OneTimePassword.framework",
 				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -898,6 +908,7 @@
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Valet/Valet.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewRow/ViewRow.framework",
 				"${BUILT_PRODUCTS_DIR}/swift_qrcodejs/swift_qrcodejs.framework",
@@ -912,7 +923,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFQRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haptica.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneTimePassword.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -924,6 +934,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Valet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/swift_qrcodejs.framework",
@@ -1007,6 +1018,7 @@
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
 				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
+				704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */,
 				708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */,
 				70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */,
 				7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */,
@@ -1028,7 +1040,7 @@
 				700908F021FCEC3100603AA2 /* SetupEntryViewController.swift in Sources */,
 				70684DED225A1BD40038BDB4 /* ApplicationPrincipal.swift in Sources */,
 				702A140A2263672200B278BB /* MainChangePincodeViewController.swift in Sources */,
-				7076C22622E7909000AFBDD9 /* MainQRCodeViewController.swift in Sources */,
+				7076C22622E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift in Sources */,
 				7016DE422265193D006C45B6 /* CustomColorsExtension.swift in Sources */,
 				7077A33D227CDF6600338CA3 /* BaseFormOption.swift in Sources */,
 				70F8BE7D2205EAFB006FDB5A /* LoadViewFilesExtension.swift in Sources */,
@@ -1051,6 +1063,7 @@
 				706708E92288A5D5009A15B9 /* SetupMiscViewController.swift in Sources */,
 				70A7B112223061EE0084F15B /* MainCreatePasswordViewController.swift in Sources */,
 				70A7B12122306DF40084F15B /* UIPasswordsEmptyListView.swift in Sources */,
+				706FD81522EB71A500F433F7 /* QuickResponseCodeForm.swift in Sources */,
 				706708E722888265009A15B9 /* AlamofireHelper.swift in Sources */,
 				709D90C7224AC5FB0041713A /* NavbarActivityExtension.swift in Sources */,
 			);
@@ -1133,6 +1146,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.raivo.Debug;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1187,6 +1201,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1198,6 +1213,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */;
 			buildSettings = {
+				APP_DISPLAY_NAME = "Raivo Debug";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1210,7 +1226,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1219,6 +1235,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C15382D1377197EFF103762 /* Pods-Raivo.release.xcconfig */;
 			buildSettings = {
+				APP_DISPLAY_NAME = "Raivo OTP";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1229,9 +1246,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

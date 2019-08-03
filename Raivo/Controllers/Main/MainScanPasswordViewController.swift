@@ -153,7 +153,7 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         DispatchQueue.main.async {
             let alert = UIAlertController(
                 title: "Missing permissions!",
-                message: "Raivo requires camera access to scan OTP QRCodes.",
+                message: "Raivo requires camera access to scan OTP QR codes.",
                 preferredStyle: UIAlertController.Style.alert
             )
             

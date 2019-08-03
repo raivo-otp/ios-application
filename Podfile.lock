@@ -8,31 +8,31 @@ PODS:
     - swift_qrcodejs (~> 1.1.1)
   - Eureka (5.0.0)
   - Haptica (3.0.0)
-  - KeychainSwift (15.0.0)
-  - OneTimePassword (3.1.4):
+  - OneTimePassword (3.1.5):
     - Base32 (~> 1.1.2)
-  - Realm (3.13.1):
-    - Realm/Headers (= 3.13.1)
-  - Realm/Headers (3.13.1)
-  - RealmSwift (3.13.1):
-    - Realm (= 3.13.1)
-  - RNCryptor (5.0.3)
-  - SDWebImage (5.0.2):
-    - SDWebImage/Core (= 5.0.2)
-  - SDWebImage/Core (5.0.2)
-  - SDWebImageSVGCoder (0.2.0):
+  - Realm (3.14.2):
+    - Realm/Headers (= 3.14.2)
+  - Realm/Headers (3.14.2)
+  - RealmSwift (3.14.2):
+    - Realm (= 3.14.2)
+  - RNCryptor (5.1.0)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+  - SDWebImageSVGCoder (0.3.0):
     - SDWebImage/Core (~> 5.0)
     - SVGKit (>= 2.1)
   - Spring (1.0.6)
   - SSZipArchive (2.2.2)
-  - SVGKit (2.1.0):
+  - SVGKit (2.1.1):
     - CocoaLumberjack (~> 3.0)
   - swift_qrcodejs (1.1.1)
-  - SwiftMessages (6.0.2):
-    - SwiftMessages/App (= 6.0.2)
-  - SwiftMessages/App (6.0.2)
+  - SwiftMessages (7.0.0):
+    - SwiftMessages/App (= 7.0.0)
+  - SwiftMessages/App (7.0.0)
   - SwiftyBeaver (1.7.0)
-  - Valet (3.2.3)
+  - SwipeCellKit (2.6.0)
+  - Valet (3.2.5)
   - ViewRow (0.6):
     - Eureka (>= 5.0.0)
 
@@ -41,17 +41,17 @@ DEPENDENCIES:
   - EFQRCode (= 5.0.0)
   - Eureka (= 5.0.0)
   - Haptica (= 3.0.0)
-  - KeychainSwift
-  - OneTimePassword (= 3.1.4)
-  - RealmSwift (= 3.13.1)
-  - RNCryptor (= 5.0.3)
-  - SDWebImage (= 5.0.2)
-  - SDWebImageSVGCoder (= 0.2.0)
+  - OneTimePassword (= 3.1.5)
+  - RealmSwift (= 3.14.2)
+  - RNCryptor (= 5.1.0)
+  - SDWebImage (= 5.0.6)
+  - SDWebImageSVGCoder (= 0.3.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SSZipArchive (= 2.2.2)
-  - SwiftMessages (= 6.0.2)
+  - SwiftMessages (= 7.0.0)
   - SwiftyBeaver (= 1.7.0)
-  - Valet (= 3.2.3)
+  - SwipeCellKit (= 2.6.0)
+  - Valet (= 3.2.5)
   - ViewRow (= 0.6)
 
 SPEC REPOS:
@@ -62,7 +62,6 @@ SPEC REPOS:
     - EFQRCode
     - Eureka
     - Haptica
-    - KeychainSwift
     - OneTimePassword
     - Realm
     - RealmSwift
@@ -74,6 +73,7 @@ SPEC REPOS:
     - swift_qrcodejs
     - SwiftMessages
     - SwiftyBeaver
+    - SwipeCellKit
     - Valet
     - ViewRow
 
@@ -93,22 +93,22 @@ SPEC CHECKSUMS:
   EFQRCode: 07437cfbce3a1e497397a4f3d766c980d8972608
   Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   Haptica: ee4abaf262f456fe3854b493f506debe421ddf2c
-  KeychainSwift: c6fc018d287804faf1ce3f258a1e51a7178c8382
-  OneTimePassword: 2fcf5d0e393a8e630a6bfeed1b250fb008aad487
-  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
-  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
-  RNCryptor: c93d19029dcf7ff160aca0f24d6c9e7b0d82f664
-  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
-  SDWebImageSVGCoder: 61f60a3064db079de646a34a5f5aa8d3ac258345
+  OneTimePassword: 247500f67ab074f10501bb1c46bd1596c57bdb2a
+  Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
+  RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
+  RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  SDWebImageSVGCoder: 4b354bcdc7d74ce14d9fdb3c9ed9ab2c667f3b57
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
-  SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
+  SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   swift_qrcodejs: 0bacbfe321a99954c7b8e04c75562007ea4e4f7c
-  SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
+  SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
-  Valet: 4af0382d4a94db5c7861504f751884f653437d24
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
+  Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: 67b53747eac6c4a0a769888c5d743312f676ab01
+PODFILE CHECKSUM: adfd2130edad66379bc5242a6b0d5b390bfa71bb
 
 COCOAPODS: 1.5.3

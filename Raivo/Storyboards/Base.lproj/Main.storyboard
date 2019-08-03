@@ -46,7 +46,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QRCodes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QR codes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
                                         <rect key="frame" x="15" y="141" width="313" height="61"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,17 +135,17 @@
         <!--Passwords-->
         <scene sceneID="zgE-9c-30Q">
             <objects>
-                <viewController id="aG0-Sx-MMn" customClass="MainPasswordsViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="aG0-Sx-MMn" customClass="MainPasswordsViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qHX-Uj-Cbk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZYE-xS-Xob">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZYE-xS-Xob">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="8H7-jl-tI7" userLabel="Footer">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -170,7 +170,7 @@
                     <connections>
                         <outlet property="tableView" destination="ZYE-xS-Xob" id="6DY-i7-Rot"/>
                         <segue destination="6aa-25-buz" kind="show" identifier="PasswordSelectedSegue" id="3L5-BL-qpg"/>
-                        <segue destination="jnb-LR-dDu" kind="show" identifier="QRCodeSelectedSegue" id="4r2-Ji-KpJ"/>
+                        <segue destination="jnb-LR-dDu" kind="show" identifier="QuickResponseCodeSelectedSegue" id="4r2-Ji-KpJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brY-NW-mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,7 +203,7 @@
         <!--QR code-->
         <scene sceneID="gFG-zR-oMG">
             <objects>
-                <viewController id="jnb-LR-dDu" customClass="MainQRCodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jnb-LR-dDu" customClass="MainQuickResponseCodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bkg-Mc-WAk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -30,13 +30,10 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" image="errorIcon" translatesAutoresizingMaskIntoConstraints="NO" id="RxA-tv-YM7" userLabel="Icon image view">
-                                    <rect key="frame" x="0.0" y="52" width="0.0" height="16"/>
-                                </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="i9r-ex-CgT">
                                     <rect key="frame" x="0.0" y="50" width="520" height="20.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="[Title]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-oh-U9F">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="[Title]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HR-oh-U9F">
                                             <rect key="frame" x="0.0" y="0.0" width="520" height="20.5"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <bool key="isElement" value="NO"/>
@@ -118,14 +115,10 @@
                 <outlet property="backgroundView" destination="A7b-0a-fJG" id="R1k-6D-zIA"/>
                 <outlet property="bodyLabel" destination="9oc-qg-igL" id="ebS-73-kbp"/>
                 <outlet property="button" destination="CxK-Y3-nSI" id="csj-uy-rHl"/>
-                <outlet property="iconImageView" destination="RxA-tv-YM7" id="w6j-4o-RnC"/>
                 <outlet property="iconLabel" destination="T1i-ce-9y8" id="XiD-0J-kdm"/>
                 <outlet property="titleLabel" destination="8HR-oh-U9F" id="Zbb-wl-ubV"/>
             </connections>
             <point key="canvasLocation" x="484" y="387"/>
         </view>
     </objects>
-    <resources>
-        <image name="errorIcon" width="33" height="34"/>
-    </resources>
 </document>

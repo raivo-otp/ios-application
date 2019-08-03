@@ -10,7 +10,6 @@
 
 import Foundation
 import RealmSwift
-import KeychainSwift
 
 class MigrationToBuild4: MigrationProtocol {
 
