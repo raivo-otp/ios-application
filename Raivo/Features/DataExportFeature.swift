@@ -14,36 +14,41 @@ import SSZipArchive
 
 class DataExportFeature {
     
+    public enum Representation {
+        case html
+        case json
+    }
+    
     public enum Result {
         case success(archive: URL)
         case failure
     }
     
-    var textFile: URL? = nil
-    
-    var archiveFile: URL? = nil
+    private var archiveFile: URL? = nil
     
     public func generateArchive(protectedWith password: String) -> Result {
-        let html = getWebRepresentation()
+        let html = getHTMLRepresentation()
+        let json = getJSONRepresentation()
         
-        guard let text = saveWebRepresentationToFile(html) else {
+        guard let htmlPath = saveRepresentationToFile(html, .html) else {
             return .failure
         }
         
-        guard let archive = saveWebRepresentationFileTo(webRepresentationFile: text, protectedWith: password) else {
+        guard let jsonPath = saveRepresentationToFile(json, .json) else {
             return .failure
         }
         
-        deleteFile(text)
+        guard let archive = saveToArchive(representationFiles: [htmlPath, jsonPath], protectedWith: password) else {
+            return .failure
+        }
+        
+        deleteFile(htmlPath)
+        deleteFile(jsonPath)
         
         return .success(archive: archive)
     }
     
     public func deleteArchive() {
-        if let textFile = textFile {
-            deleteFile(textFile)
-        }
-        
         if let archiveFile = archiveFile {
             deleteFile(archiveFile)
         }
@@ -53,7 +58,7 @@ class DataExportFeature {
         try? FileManager.default.removeItem(at: file)
     }
     
-    private func getWebRepresentation() -> String {
+    private func getHTMLRepresentation() -> String {
         let realm = try! Realm()
         let passwords = realm.objects(Password.self)
         
@@ -86,31 +91,55 @@ class DataExportFeature {
         return wrapperText
     }
     
-    private func saveWebRepresentationToFile(_ text: String) -> URL? {
+    private func getJSONRepresentation() -> String {
+        let realm = try! Realm()
+        let passwords = Array(realm.objects(Password.self))
+        
+        guard let json = try? JSONSerialization.data(withJSONObject: passwords.map { $0.getExportFields() }, options: []) else {
+            return "{\"message\": \"Could not convert OTPs to JSON\"}"
+        }
+        
+        if let result = String(data: json, encoding: String.Encoding.utf8) {
+            return result
+        }
+        
+        return "{\"message\": \"Could not convert JSON to a string\"}"
+    }
+    
+    private func saveRepresentationToFile(_ text: String, _ type: Representation) -> URL? {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        textFile = directory.appendingPathComponent("raivo-otp-export.html")
+        
+        let filePath = directory.appendingPathComponent("raivo-otp-export." + getFileExtension(type))
         
         do {
-            try text.write(to: textFile!, atomically: false, encoding: .utf8)
+            try text.write(to: filePath, atomically: false, encoding: .utf8)
         } catch {
-            deleteFile(textFile!)
+            deleteFile(filePath)
             return nil
         }
         
-        return textFile
+        return filePath
     }
     
-    private func saveWebRepresentationFileTo(webRepresentationFile file: URL, protectedWith password: String) -> URL? {
+    private func saveToArchive(representationFiles files: [URL], protectedWith password: String) -> URL? {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         archiveFile = directory.appendingPathComponent("raivo-otp-export.zip")
         
         SSZipArchive.createZipFile(
             atPath: archiveFile!.path,
-            withFilesAtPaths: [file.path],
+            withFilesAtPaths: files.map { $0.path },
             withPassword: password
         )
         
         return archiveFile
     }
     
+    private func getFileExtension(_ type: Representation) -> String {
+        switch type {
+        case .html:
+            return "html"
+        case .json:
+            return "json"
+        }
+    }
 }

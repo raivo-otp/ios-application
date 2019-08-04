@@ -89,5 +89,18 @@ class Password: Object {
             return nil
         }
     }
+    
+    public func getExportFields() -> [String: String] {
+        return [
+            "issuer": issuer,
+            "account": account,
+            "secret": secret,
+            "algorithm": algorithm,
+            "digits": String(digits),
+            "kind": kind,
+            "timer": String(timer),
+            "counter": String(counter)
+        ]
+    }
 
 }
