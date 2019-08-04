@@ -53,12 +53,12 @@ class ApplicationPrincipal: UIApplication {
         if let touches = event.allTouches {
             for touch in touches.enumerated() {
                 if ![UITouch.Phase.cancelled, UITouch.Phase.ended].contains(touch.element.phase) {
-                    return false
+                    return true
                 }
             }
         }
         
-        return true
+        return false
     }
     
     /// Schedule a timer that locks the app (goes to the lockscreen) if a certain threshold is met.
