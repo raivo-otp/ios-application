@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,7 +70,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cTu-GK-Yvr" firstAttribute="top" secondItem="yru-Ed-7A0" secondAttribute="top" id="45g-fj-tC1"/>
                             <constraint firstItem="LvJ-mg-6ac" firstAttribute="top" secondItem="95F-Kg-5El" secondAttribute="bottom" constant="16" id="Bj0-hk-ps2"/>
@@ -174,7 +171,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ED9-mw-mxW" firstAttribute="leading" secondItem="2WG-rk-eTQ" secondAttribute="leading" id="50x-es-UFU"/>
                             <constraint firstItem="2WG-rk-eTQ" firstAttribute="bottom" secondItem="ED9-mw-mxW" secondAttribute="bottom" id="BL8-JZ-dEJ"/>
@@ -351,7 +347,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aCh-6S-cbq" firstAttribute="trailing" secondItem="g8o-Pm-Zja" secondAttribute="trailing" id="8bC-P9-GRO"/>
                             <constraint firstItem="g8o-Pm-Zja" firstAttribute="leading" secondItem="aCh-6S-cbq" secondAttribute="leading" id="JL3-ph-qws"/>
@@ -429,7 +424,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="anK-AN-WSd" firstAttribute="top" secondItem="KM1-ns-wUE" secondAttribute="top" id="8FF-CE-iZh"/>
                             <constraint firstItem="KM1-ns-wUE" firstAttribute="top" secondItem="Ca9-05-mLj" secondAttribute="top" id="Bxz-Yv-9vk"/>
@@ -534,7 +528,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sxM-c7-MzO" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="17z-YZ-Qa0"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="dmR-8Y-LFH" secondAttribute="trailing" id="3rU-Vc-WiA"/>
@@ -556,10 +549,10 @@
             </objects>
             <point key="canvasLocation" x="3120.8000000000002" y="320.68965517241384"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Setup Root View Controller-->
         <scene sceneID="ZRI-4y-BlE">
             <objects>
-                <navigationController restorationIdentifier="SetupRootController" storyboardIdentifier="SetupRootController" id="1DF-da-ZYB" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="SetupRootController" storyboardIdentifier="SetupRootController" id="1DF-da-ZYB" customClass="SetupRootViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aYJ-C9-HMs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -578,5 +571,5 @@
         <image name="icon-misc" width="30" height="30"/>
         <image name="pattern" width="67" height="100"/>
     </resources>
-    <color key="tintColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" name="color-tint-red"/>
 </document>

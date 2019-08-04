@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 import SVGKit
 
-class ErrorSyncerAccountChangedViewController: UIViewController {
+class ErrorSyncerAccountChangedViewController: ErrorRootViewController {
     
     @IBOutlet weak var viewIcon: SVGKFastImageView!
     

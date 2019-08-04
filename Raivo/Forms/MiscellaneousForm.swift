@@ -117,7 +117,7 @@ class MiscellaneousForm {
                 row.options = MiscellaneousInactivityLockFormOption.options
                 row.value = MiscellaneousInactivityLockFormOption.OPTION_DEFAULT
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = UIColor.custom.tint
+                cell.textLabel?.textColor = UIColor.getTintRed()
                 cell.imageView?.image = UIImage(named: "form-lock")
             }).onChange({ row in
                 StorageHelper.shared.setLockscreenTimeout(row.value!.value)
@@ -130,10 +130,10 @@ class MiscellaneousForm {
                 row.hidden = Condition(booleanLiteral: !StorageHelper.shared.canAccessSecrets())
                 row.value = StorageHelper.shared.getBiometricUnlockEnabled()
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = UIColor.custom.tint
+                cell.textLabel?.textColor = UIColor.getTintRed()
                 cell.imageView?.image = UIImage(named: "form-biometric-" + (BiometricHelper.shared.type() == .face ? "faceid" : "touchid"))
-                cell.switchControl.tintColor = UIColor.custom.tint
-                cell.switchControl.onTintColor = UIColor.custom.tint
+                cell.switchControl.tintColor = UIColor.getTintRed()
+                cell.switchControl.onTintColor = UIColor.getTintRed()
             }).onChange({ row in
                 guard let key = getAppDelegate().getEncryptionKey() else {
                     return
@@ -181,7 +181,7 @@ class MiscellaneousForm {
                 row.options = MiscellaneousIconsEffectFormOption.options
                 row.value = MiscellaneousIconsEffectFormOption.OPTION_DEFAULT
             }).cellUpdate({ cell, row in
-                cell.textLabel?.textColor = UIColor.custom.tint
+                cell.textLabel?.textColor = UIColor.getTintRed()
                 cell.imageView?.image = UIImage(named: "form-icons-effect")
             }).onChange({ row in
                 guard self.isReady else { return }

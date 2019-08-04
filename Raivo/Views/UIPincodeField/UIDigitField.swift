@@ -15,7 +15,7 @@ import UIKit
 class UIDigitField: UIView, UITextFieldDelegate {
     
     /// The color of the digit
-    private let color: UIColor = .black
+    private let color: UIColor = UIColor.getSecondaryLabel()
     
     /// The frame for an empty value
     private var dashFrame: CGRect? = nil

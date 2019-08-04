@@ -39,7 +39,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.8.1)
   - EFQRCode (= 5.0.0)
-  - Eureka (= 5.0.0)
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `xcode11`)
   - Haptica (= 3.0.0)
   - OneTimePassword (= 3.1.5)
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `tg/xcode-11-b1`)
@@ -61,7 +61,6 @@ SPEC REPOS:
     - Base32
     - CocoaLumberjack
     - EFQRCode
-    - Eureka
     - Haptica
     - OneTimePassword
     - RNCryptor
@@ -77,6 +76,9 @@ SPEC REPOS:
     - ViewRow
 
 EXTERNAL SOURCES:
+  Eureka:
+    :branch: xcode11
+    :git: https://github.com/xmartlabs/Eureka.git
   Realm:
     :branch: tg/xcode-11-b1
     :git: https://github.com/realm/realm-cocoa.git
@@ -89,6 +91,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
+  Eureka:
+    :commit: 53cca3d3b4f7004ca2a181539b8aafe150374021
+    :git: https://github.com/xmartlabs/Eureka.git
   Realm:
     :commit: 2e58dfe78e5f641262c4c5c7e5a13f05b434c610
     :git: https://github.com/realm/realm-cocoa.git
@@ -106,7 +111,7 @@ SPEC CHECKSUMS:
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   EFQRCode: 07437cfbce3a1e497397a4f3d766c980d8972608
-  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
+  Eureka: 9c662d9418abd6b354692a5abfd319bfe4033a51
   Haptica: ee4abaf262f456fe3854b493f506debe421ddf2c
   OneTimePassword: 247500f67ab074f10501bb1c46bd1596c57bdb2a
   Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
@@ -124,6 +129,6 @@ SPEC CHECKSUMS:
   Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: 1390472dda29879649e252da195b18a03b59ee24
+PODFILE CHECKSUM: e3c4f5d6d1bd45690b49bbb625439cc95bf48a87
 
 COCOAPODS: 1.5.3

@@ -39,7 +39,7 @@ class BannerHelper {
         let nib = UINib(nibName: "CenteredBanner", bundle: Bundle.main)
         let view = (nib.instantiate(withOwner: nil, options: nil)[0] as? MessageView)!
         
-        view.configureTheme(backgroundColor: UIColor.custom.lightBackground, foregroundColor: UIColor.custom.tint, iconImage: .none, iconText: .none)
+        view.configureTheme(backgroundColor: UIColor.getBackgroundTransparent(), foregroundColor: UIColor.getTintRed(), iconImage: .none, iconText: .none)
         view.titleLabel?.attributedText = message
         
         SwiftMessages.hideAll()
@@ -60,7 +60,7 @@ class BannerHelper {
         let nib = UINib(nibName: "CenteredBanner", bundle: Bundle.main)
         let view = (nib.instantiate(withOwner: nil, options: nil)[0] as? MessageView)!
         
-        view.configureTheme(backgroundColor: UIColor.custom.lightBackground, foregroundColor: UIColor.custom.tint, iconImage: .none, iconText: .none)
+        view.configureTheme(backgroundColor: UIColor.getBackgroundTransparent(), foregroundColor: UIColor.getTintRed(), iconImage: .none, iconText: .none)
         view.titleLabel?.attributedText = message
         
         SwiftMessages.hideAll()

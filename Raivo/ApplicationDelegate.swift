@@ -11,6 +11,7 @@
 import UIKit
 import RealmSwift
 import CloudKit
+import Eureka
 
 /// UI events that were launched from the ApplicationPrincipal
 class ApplicationDelegate: UIResponder, UIApplicationDelegate {
@@ -42,6 +43,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter launchOptions: The launchOptions as passed to `UIApplicationDelegate`
     /// - Returns: Positive if the url contained in the `launchOptions` was intended for Raivo
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setEurekaDefaults()
         setCorrectStoryboard()
         
         // We accept all launch options
@@ -198,5 +200,12 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Not implemented
     }
-
+    
+    /// Specify the default Eureka form settings
+    private func setEurekaDefaults() {
+        LabelRow.defaultCellUpdate = { cell, row in
+            cell.textLabel?.textColor = UIColor.getLabel()
+            cell.detailTextLabel?.textColor = UIColor.getSecondaryLabel()
+        }
+    }
 }

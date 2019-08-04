@@ -19,6 +19,19 @@ class MainEntryViewController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 12.0, *) {
+            switch traitCollection.userInterfaceStyle {
+            case .dark:
+                view.backgroundColor = UIColor.getBackgroundOpaque(true)
+            default:
+                view.backgroundColor = UIColor.getBackgroundOpaque()
+            }
+        }
+    }
+    
     /// On tab bar item change, run custom functionality
     /// In this case, custom search functionality was added
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

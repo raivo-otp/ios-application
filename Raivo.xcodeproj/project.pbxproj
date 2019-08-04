@@ -73,6 +73,9 @@
 		709B636522C54C0300697884 /* QuickResponseCodeRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */; };
 		709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D90C4224AC05F0041713A /* SeedValueValidator.swift */; };
 		709D90C7224AC5FB0041713A /* NavbarActivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D90C6224AC5FB0041713A /* NavbarActivityExtension.swift */; };
+		70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5022F7272400152864 /* AuthRootViewController.swift */; };
+		70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */; };
+		70A1BC5922F7534500152864 /* SetupRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5822F7534500152864 /* SetupRootViewController.swift */; };
 		70A7B10E223061D60084F15B /* MainPasswordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B10D223061D60084F15B /* MainPasswordsViewController.swift */; };
 		70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B10F223061E50084F15B /* MainScanPasswordViewController.swift */; };
 		70A7B112223061EE0084F15B /* MainCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B111223061EE0084F15B /* MainCreatePasswordViewController.swift */; };
@@ -201,6 +204,9 @@
 		709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickResponseCodeRowCell.xib; sourceTree = "<group>"; };
 		709D90C4224AC05F0041713A /* SeedValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedValueValidator.swift; sourceTree = "<group>"; };
 		709D90C6224AC5FB0041713A /* NavbarActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarActivityExtension.swift; sourceTree = "<group>"; };
+		70A1BC5022F7272400152864 /* AuthRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRootViewController.swift; sourceTree = "<group>"; };
+		70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRootViewController.swift; sourceTree = "<group>"; };
+		70A1BC5822F7534500152864 /* SetupRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupRootViewController.swift; sourceTree = "<group>"; };
 		70A7B10D223061D60084F15B /* MainPasswordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPasswordsViewController.swift; sourceTree = "<group>"; };
 		70A7B10F223061E50084F15B /* MainScanPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScanPasswordViewController.swift; sourceTree = "<group>"; };
 		70A7B111223061EE0084F15B /* MainCreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCreatePasswordViewController.swift; sourceTree = "<group>"; };
@@ -366,6 +372,7 @@
 				70617A5A2270E55D0032076A /* SetupFlushDataViewController.swift */,
 				703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */,
 				706708E82288A5D5009A15B9 /* SetupMiscViewController.swift */,
+				70A1BC5822F7534500152864 /* SetupRootViewController.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -375,6 +382,7 @@
 			children = (
 				700908ED21FCEC2800603AA2 /* AuthEntryViewController.swift */,
 				70BEE09C226B248200D5CF4B /* AuthMiscViewController.swift */,
+				70A1BC5022F7272400152864 /* AuthRootViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -697,6 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				70D0FD6A2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift */,
+				70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -1023,6 +1032,7 @@
 				70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */,
 				7079EBD522F6423400F9D340 /* MigrationToBuild11.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
+				70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */,
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
 				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
@@ -1052,9 +1062,11 @@
 				7016DE422265193D006C45B6 /* CustomColorsExtension.swift in Sources */,
 				7077A33D227CDF6600338CA3 /* BaseFormOption.swift in Sources */,
 				70F8BE7D2205EAFB006FDB5A /* LoadViewFilesExtension.swift in Sources */,
+				70A1BC5922F7534500152864 /* SetupRootViewController.swift in Sources */,
 				703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */,
 				7077A346227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift in Sources */,
 				70D534F622398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift in Sources */,
+				70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */,
 				70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */,
 				703B6B30227A060900409BB5 /* SetupEnableBiometricsViewController.swift in Sources */,
 				709B636322C5495100697884 /* QuickResponseCodeRowCell.swift in Sources */,
@@ -1150,7 +1162,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1206,7 +1218,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo;
@@ -1227,7 +1239,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1249,7 +1261,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

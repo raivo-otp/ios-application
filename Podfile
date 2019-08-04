@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 # Ignore warnings from external libraries
 inhibit_all_warnings!
@@ -7,8 +7,8 @@ target 'Raivo' do
   use_frameworks!
 
   # Realm SQLite database handler that supports encryption
-  # pod 'RealmSwift', '3.14.2'
   pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true
+  # pod 'RealmSwift', '3.14.2'
   pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true
   
   # To encrypt sensitive data before being synced
@@ -21,7 +21,8 @@ target 'Raivo' do
   pod 'OneTimePassword', '3.1.5'
 
   # Enables easy form creation for adding and editing passwords
-  pod 'Eureka', '5.0.0'
+  pod 'Eureka', git: 'https://github.com/xmartlabs/Eureka.git', branch: 'xcode11'
+  # pod 'Eureka', '5.0.0'
   pod 'ViewRow', '0.6'
   
   # Retrieves, caches and displays images from the web (for issuer logos)

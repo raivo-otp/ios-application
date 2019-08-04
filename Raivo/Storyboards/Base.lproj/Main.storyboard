@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="m9f-7z-bfb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="VJX-QR-P9d"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="tabbar-search" id="sDp-5N-GOt"/>
@@ -35,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-pd-f2P">
-                                <rect key="frame" x="16" y="80" width="343" height="343"/>
+                                <rect key="frame" x="16" y="60" width="343" height="343"/>
                                 <subviews>
                                     <view alpha="0.0" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-rB-tZr">
                                         <rect key="frame" x="3" y="3" width="337" height="337"/>
@@ -88,7 +87,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <constraints>
                             <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="tRN-pd-f2P" secondAttribute="trailing" constant="16" id="1eu-JZ-uEw"/>
                             <constraint firstItem="aJL-SM-eC0" firstAttribute="bottom" secondItem="MPC-LA-oL8" secondAttribute="bottom" constant="16" id="BOu-Xm-SvN"/>
@@ -116,7 +115,7 @@
                     <view key="view" contentMode="scaleToFill" id="BE6-kL-9Iw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="agh-vy-GIo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Password" id="B8I-jh-gwg">
@@ -141,17 +140,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZYE-xS-Xob">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" name="color-background-opaque"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="8H7-jl-tI7" userLabel="Footer">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="color-background-opaque"/>
                                 </view>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <constraints>
                             <constraint firstItem="ZYE-xS-Xob" firstAttribute="top" secondItem="WSM-vr-gJL" secondAttribute="top" id="I0H-VF-U3U"/>
                             <constraint firstItem="WSM-vr-gJL" firstAttribute="trailing" secondItem="ZYE-xS-Xob" secondAttribute="trailing" id="sxN-To-Rfm"/>
@@ -184,7 +183,7 @@
                     <view key="view" contentMode="scaleToFill" id="nqk-RL-Ogy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="j0L-dn-8mA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Password" id="fWU-Md-GCH">
@@ -207,7 +206,7 @@
                     <view key="view" contentMode="scaleToFill" id="bkg-Mc-WAk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="oXZ-Dr-lMs"/>
                     </view>
                     <navigationItem key="navigationItem" title="QR code" id="v6q-mk-7lO"/>
@@ -222,7 +221,7 @@
                 <navigationController id="JqB-dd-yVm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="tabbar-misc" id="Fj5-sw-Yre"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OZY-Ml-0et">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -240,7 +239,7 @@
                     <view key="view" contentMode="scaleToFill" id="tiu-g6-CWn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="6fs-mC-1eZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="5Cb-dt-5Cj"/>
@@ -261,25 +260,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="9wa-hk-cHr" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-ii-oP4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1k-E7-fs8">
-                                        <rect key="frame" x="0.0" y="260.5" width="375" height="23"/>
+                                        <rect key="frame" x="0.0" y="270.5" width="375" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-NT-HA5" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="291.5" width="359" height="20.5"/>
+                                        <rect key="frame" x="8" y="301.5" width="359" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umv-KD-VhE" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="312" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="322" width="375" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="hFO-xS-1xs"/>
@@ -299,7 +298,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <constraints>
                             <constraint firstItem="Ons-YR-CD1" firstAttribute="bottom" secondItem="bvi-ii-oP4" secondAttribute="bottom" identifier="KeyboardConstraint" id="0YB-jZ-fzy"/>
                             <constraint firstItem="bvi-ii-oP4" firstAttribute="top" secondItem="Ons-YR-CD1" secondAttribute="top" id="1Jm-BZ-NhU"/>
@@ -329,7 +328,7 @@
                 <navigationController id="j5u-qg-LTV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Passwords" image="tabbar-passwords" id="Jpk-b9-jm1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GN6-3m-WBS">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -349,7 +348,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" name="color-tint-red"/>
                     </tabBar>
                     <connections>
                         <segue destination="j5u-qg-LTV" kind="relationship" relationship="viewControllers" id="F57-jh-f8D"/>
@@ -367,9 +366,15 @@
         <image name="tabbar-misc" width="30" height="30"/>
         <image name="tabbar-passwords" width="30" height="30"/>
         <image name="tabbar-search" width="30" height="30"/>
+        <namedColor name="color-background-opaque">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color-tint-red">
+            <color red="1" green="0.24313725490196078" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ap9-86-9w1"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.90980392156862744" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" name="color-tint-red"/>
 </document>

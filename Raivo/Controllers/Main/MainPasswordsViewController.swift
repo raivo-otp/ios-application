@@ -278,7 +278,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             self.present(deleteAlert, animated: true, completion: nil)
         }
 
-        deleteAction.backgroundColor = UIColor.custom.tint
+        deleteAction.backgroundColor = UIColor.getTintRed()
         deleteAction.image = UIImage(named: "icon-trash")?.sd_tintedImage(with: UIColor.white)
         
         let editAction = SwipeAction(style: .default, title: "Edit") { action, indexPath in
