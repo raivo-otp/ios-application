@@ -61,6 +61,8 @@
 		7077A34A227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */; };
 		7077A34C227F610700338CA3 /* PasswordIconTypeFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A34B227F610700338CA3 /* PasswordIconTypeFormOption.swift */; };
 		7077A34E227F675200338CA3 /* MigrationToBuild6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A34D227F675200338CA3 /* MigrationToBuild6.swift */; };
+		7079EBD322F638DA00F9D340 /* BiometricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079EBD222F638DA00F9D340 /* BiometricHelper.swift */; };
+		7079EBD522F6423400F9D340 /* MigrationToBuild11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079EBD422F6423400F9D340 /* MigrationToBuild11.swift */; };
 		707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707B38DC2275E57200D35897 /* ImageEffectExtension.swift */; };
 		707B38E22275F87100D35897 /* CenteredBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707B38E12275F87100D35897 /* CenteredBanner.xib */; };
 		7088B94B22554AF50024BB87 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088B94A22554AF50024BB87 /* CloudKit.framework */; };
@@ -186,6 +188,8 @@
 		7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormRaivoRepositorySelectorViewController.xib; sourceTree = "<group>"; };
 		7077A34B227F610700338CA3 /* PasswordIconTypeFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordIconTypeFormOption.swift; sourceTree = "<group>"; };
 		7077A34D227F675200338CA3 /* MigrationToBuild6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild6.swift; sourceTree = "<group>"; };
+		7079EBD222F638DA00F9D340 /* BiometricHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricHelper.swift; sourceTree = "<group>"; };
+		7079EBD422F6423400F9D340 /* MigrationToBuild11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild11.swift; sourceTree = "<group>"; };
 		707B38DC2275E57200D35897 /* ImageEffectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEffectExtension.swift; sourceTree = "<group>"; };
 		707B38E12275F87100D35897 /* CenteredBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredBanner.xib; sourceTree = "<group>"; };
 		7088B94922554AF10024BB87 /* Raivo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Raivo.entitlements; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 				702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */,
 				7077A34D227F675200338CA3 /* MigrationToBuild6.swift */,
 				70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */,
+				7079EBD422F6423400F9D340 /* MigrationToBuild11.swift */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -742,6 +747,7 @@
 				7059680A22994CCF0032D70F /* StateHelper.swift */,
 				7059680F2299AB0A0032D70F /* StorageHelper.swift */,
 				7059680C22997EFB0032D70F /* SyncerHelper.swift */,
+				7079EBD222F638DA00F9D340 /* BiometricHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -999,6 +1005,7 @@
 				70617A592270DBD80032076A /* QueryHelper.swift in Sources */,
 				7066C79F226A4FDD00C1A949 /* global.swift in Sources */,
 				7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */,
+				7079EBD322F638DA00F9D340 /* BiometricHelper.swift in Sources */,
 				70684DEF225A1BF70038BDB4 /* main.swift in Sources */,
 				70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */,
 				70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */,
@@ -1014,6 +1021,7 @@
 				70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */,
 				702CA6CA2263A119000DCC1D /* StubSyncer.swift in Sources */,
 				70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */,
+				7079EBD522F6423400F9D340 /* MigrationToBuild11.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
 				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,

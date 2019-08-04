@@ -22,18 +22,18 @@ class SetupEnableBiometricsViewController: UIViewController {
       
         adjustViewToKeyboard()
         
-        let url = Bundle.main.url(forResource: "fingerprint", withExtension: "svg", subdirectory: "Vectors")
+        let url = Bundle.main.url(forResource: "biometric", withExtension: "svg", subdirectory: "Vectors")
         viewIcon.image = SVGKImage(contentsOf: url)
     }
     
-    @IBAction func onDismissTouchID(_ sender: Any) {
+    @IBAction func onDismissBiometric(_ sender: Any) {
         getAppDelegate().updateStoryboard()
     }
     
-    @IBAction func onEnableTouchID(_ sender: Any) {
+    @IBAction func onEnableBiometric(_ sender: Any) {
         StorageHelper.shared.setEncryptionKey(getAppDelegate().getEncryptionKey()!.base64EncodedString())
         
-        if let _ = StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable TouchID") {
+        if let _ = StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable biometric authentication") {
             StorageHelper.shared.setBiometricUnlockEnabled(true)
             getAppDelegate().updateStoryboard()
         }

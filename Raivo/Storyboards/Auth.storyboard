@@ -53,7 +53,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-yI-PgO">
                                         <rect key="frame" x="8" y="506" width="398" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Unlock using TouchID"/>
+                                        <state key="normal" title="Unlock using biometry"/>
                                         <connections>
                                             <action selector="onBiometricsUnlock:" destination="Tz4-fS-Gxb" eventType="touchUpInside" id="aJK-sN-61c"/>
                                         </connections>

@@ -29,7 +29,7 @@ class MiscellaneousForm {
     public var accountRow: LabelRow { return form.rowBy(tag: "account") as! LabelRow }
     public var providerRow: LabelRow { return form.rowBy(tag: "provider") as! LabelRow }
     public var inactivityLockRow: PickerInlineRow<MiscellaneousInactivityLockFormOption> { return form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscellaneousInactivityLockFormOption> }
-    public var touchIDUnlockRow: SwitchRow { return form.rowBy(tag: "touchid_unlock") as! SwitchRow }
+    public var biometricUnlockRow: SwitchRow { return form.rowBy(tag: "biometric_unlock") as! SwitchRow }
     public var changePINCodeRow: ButtonRow { return form.rowBy(tag: "change_pin_code") as! ButtonRow }
     public var iconsEffectRow: PickerInlineRow<MiscellaneousIconsEffectFormOption> { return form.rowBy(tag: "icons_effect") as! PickerInlineRow<MiscellaneousIconsEffectFormOption> }
     public var exportRow: ButtonRow { return form.rowBy(tag: "export") as! ButtonRow }
@@ -125,13 +125,13 @@ class MiscellaneousForm {
                 row.collapseInlineRow()
             })
             
-            <<< SwitchRow("touchid_unlock", { row in
-                row.title = "TouchID unlock"
+            <<< SwitchRow("biometric_unlock", { row in
+                row.title = (BiometricHelper.shared.type() == .face ? "FaceID" : "TouchID") + " unlock"
                 row.hidden = Condition(booleanLiteral: !StorageHelper.shared.canAccessSecrets())
                 row.value = StorageHelper.shared.getBiometricUnlockEnabled()
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textColor = UIColor.custom.tint
-                cell.imageView?.image = UIImage(named: "form-biometric")
+                cell.imageView?.image = UIImage(named: "form-biometric-" + (BiometricHelper.shared.type() == .face ? "faceid" : "touchid"))
                 cell.switchControl.tintColor = UIColor.custom.tint
                 cell.switchControl.onTintColor = UIColor.custom.tint
             }).onChange({ row in
@@ -139,7 +139,8 @@ class MiscellaneousForm {
                     return
                 }
                 
-                // Bugfix for invalid SwitchRow background if TouchID was cancelled
+                // The async call is a bugfix for the invalid SwitchRow background if biometric authentication was cancelled.
+                // Even apps from Apple use this hack, so I'm not sure why they're not fixing it.
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     if !(row.value ?? false) {
                         StorageHelper.shared.setEncryptionKey(nil)
@@ -147,7 +148,7 @@ class MiscellaneousForm {
                     } else {
                         StorageHelper.shared.setEncryptionKey(key.base64EncodedString())
                         
-                        if StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable TouchID") != nil {
+                        if StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable biometric authentication") != nil {
                             StorageHelper.shared.setBiometricUnlockEnabled(true)
                         } else {
                             row.value = false

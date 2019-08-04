@@ -28,6 +28,7 @@ class StorageHelper {
         static let PREVIOUS_BUILD = "PreviousBuild"
         static let ENCRYPTION_KEY = "EncryptionKey"
         static let TOUCHID_ENABLED = "TouchIDEnabled"
+        static let BIOMETRIC_AUTHENTICATION_ENABLED = "BiometricAuthenticationEnabled"
     }
     
     /// The singleton instance for the StorageHelper
@@ -61,22 +62,30 @@ class StorageHelper {
         secrets().removeAllObjects()
     }
     
-    /// Check if the user can access secrets (some sort of biometrical unlock should be available)
+    /// Check if the user can access secrets (some sort of biometric unlock should be available)
     ///
     /// - Returns: Positive if the secrets can be accessed in theory
     public func canAccessSecrets() -> Bool {
         var error: NSError?
         
-        let hasTouchID = LAContext().canEvaluatePolicy(
+        let hasBiometricAuthentication = LAContext().canEvaluatePolicy(
             LAPolicy.deviceOwnerAuthenticationWithBiometrics,
             error: &error
         )
         
-        guard error?.code != LAError.touchIDNotAvailable.rawValue else {
-            return false
+        // FaceID became available in iOS 11, therefore this condition checks all biometry types for iOS 11 and above.
+        // For iOS versions lower then 11, only TouchID is verified.
+        if #available(iOS 11, *) {
+            guard error?.code != LAError.biometryNotAvailable.rawValue else {
+                return false
+            }
+        } else {
+            guard error?.code != LAError.touchIDNotAvailable.rawValue else {
+                return false
+            }
         }
         
-        return hasTouchID
+        return hasBiometricAuthentication
     }
     
     /// Set the password part of the encryption key.
@@ -239,7 +248,7 @@ class StorageHelper {
     
     /// Get the complete encryption key (password+PIN) from Secure Enclave
     ///
-    /// - Parameter prompt: The TouchID message to show
+    /// - Parameter prompt: The biometric unlock message to show
     /// - Returns: The encryption key
     public func getEncryptionKey(prompt: String) -> String? {
         let result = secrets().string(forKey: Key.ENCRYPTION_KEY, withPrompt: prompt)
@@ -251,19 +260,31 @@ class StorageHelper {
             return nil
         }
     }
-
+    
+    /// Check if TouchID unlock is currently enabled.
+    ///
+    /// - Returns: Positive if biometric unlock is enabled
+    @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
+    public func getTouchIDUnlockEnabled() -> Bool {
+        guard let build = settings().string(forKey: Key.TOUCHID_ENABLED) else {
+            return false
+        }
+        
+        return Bool(build) ?? false
+    }
+    
     /// Set a boolean representing if biometric unlock is enabled.
     ///
     /// - Parameter enabled: Positive if biometric unlock is enabled
     public func setBiometricUnlockEnabled(_ enabled: Bool) {
-        settings().set(string: String(enabled), forKey: Key.TOUCHID_ENABLED)
+        settings().set(string: String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
     }
     
     /// Check if biometric unlock is currently enabled.
     ///
     /// - Returns: Positive if biometric unlock is enabled
     public func getBiometricUnlockEnabled() -> Bool {
-        guard let build = settings().string(forKey: Key.TOUCHID_ENABLED) else {
+        guard let build = settings().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
             return false
         }
         

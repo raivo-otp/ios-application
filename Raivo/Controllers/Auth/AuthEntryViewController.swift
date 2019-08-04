@@ -24,8 +24,6 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     
     final let lockoutTime = 3.0
     
-    var didTryTouchID = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,10 +55,6 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         } else {
             viewPincode.becomeFirstResponder()
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        didTryTouchID = false
     }
     
     func showPincodeView(_ extra: String, flash: Bool = false) {
