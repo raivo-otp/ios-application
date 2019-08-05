@@ -12,7 +12,6 @@ import Foundation
 
 class PasswordAlgorithmFormOption: BaseFormOption {
     
-   
     static let OPTION_SHA1 = PasswordAlgorithmFormOption("SHA1", description: "SHA1")
     static let OPTION_SHA256 = PasswordAlgorithmFormOption("SHA256", description: "SHA256")
     static let OPTION_SHA512 = PasswordAlgorithmFormOption("SHA512", description: "SHA512")

@@ -53,6 +53,8 @@ class TimeBasedPasswordCell: PasswordCell {
       
         icon.sd_setImage(with: password.getIconURL(), placeholderImage: UIImage(named: "password-placeholder"))
         icon.image = icon.image?.withIconEffect
+        
+        progressView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
     }
     
     deinit {
@@ -73,12 +75,13 @@ class TimeBasedPasswordCell: PasswordCell {
         
         let timer = TimeInterval(password!.timer)
         let epoch = Date().timeIntervalSince1970
-        
+
         let from = TimeInterval(UInt64(epoch / timer)) * timer
         let to = Date(timeIntervalSince1970: from + timer)
+        
         let remain = from + timer - epoch
         
-        let progress = 100 / Float(timer) * Float(remain) / 100
+        let progress = 1 - (100 / Float(timer) * Float(remain) / 100)
         
         self.progressView.setProgress(progress, animated: false)
         self.progressView.layoutIfNeeded()
@@ -89,11 +92,12 @@ class TimeBasedPasswordCell: PasswordCell {
         }
         
         RunLoop.current.add(stateTimer!, forMode: .default)
-        
+                
         // Remove old animations (otherwise the progress bar goes further than 100%, which is a bug)
         // https://stackoverflow.com/questions/44397720/swift-progress-view-animation-makes-the-bar-go-further-than-100
         self.progressView.layer.sublayers?.forEach { $0.removeAllAnimations() }
-        self.progressView.setProgress(0, animated: false)
+        
+        self.progressView.setProgress(1, animated: false)
         UIView.animate(withDuration: remain, delay: 0, options: .curveLinear, animations: {
             self.progressView.layoutIfNeeded()
         })

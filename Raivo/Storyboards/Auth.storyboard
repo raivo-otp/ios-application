@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="dog-y3-0kE" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piU-Jc-vpv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
@@ -78,7 +78,7 @@
                         <constraints>
                             <constraint firstAttribute="top" secondItem="dog-y3-0kE" secondAttribute="top" id="363-FX-gQ8"/>
                             <constraint firstItem="dog-y3-0kE" firstAttribute="leading" secondItem="Moq-iI-3Hf" secondAttribute="leading" id="3rP-mh-lm6"/>
-                            <constraint firstItem="Moq-iI-3Hf" firstAttribute="bottom" secondItem="dog-y3-0kE" secondAttribute="bottom" id="Bso-4Q-jcb"/>
+                            <constraint firstAttribute="bottom" secondItem="dog-y3-0kE" secondAttribute="bottom" id="Bso-4Q-jcb"/>
                             <constraint firstItem="piU-Jc-vpv" firstAttribute="leading" secondItem="Moq-iI-3Hf" secondAttribute="leading" id="Eza-BK-XgI"/>
                             <constraint firstItem="Moq-iI-3Hf" firstAttribute="trailing" secondItem="dog-y3-0kE" secondAttribute="trailing" id="OCK-c2-ewO"/>
                             <constraint firstItem="piU-Jc-vpv" firstAttribute="top" secondItem="Moq-iI-3Hf" secondAttribute="top" id="OgN-Hm-gyG"/>
@@ -111,7 +111,6 @@
                     <view key="view" contentMode="scaleToFill" id="B6u-tF-wOl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jM8-rR-XOj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Misc" id="DE9-4w-90n"/>

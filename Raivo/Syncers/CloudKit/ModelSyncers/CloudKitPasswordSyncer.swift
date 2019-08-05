@@ -69,7 +69,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
                 let copy = CloudKitPasswordConverter.getLocalCopy(record, syncedCorrectly: true)
                 
                 try! realm.write {
-                    realm.add(copy, update: true)
+                    realm.add(copy, update: .modified)
                 }
             }
         }

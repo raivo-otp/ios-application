@@ -15,7 +15,6 @@
                     <view key="view" contentMode="scaleToFill" id="eVg-DK-nVz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xAw-v6-o91"/>
                     </view>
                     <navigationItem key="navigationItem" title="Misc" id="8pU-4L-vxZ"/>
@@ -111,7 +110,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="R7O-Mu-Zy8" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ED9-mw-mxW">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
@@ -175,8 +174,8 @@
                             <constraint firstItem="ED9-mw-mxW" firstAttribute="leading" secondItem="2WG-rk-eTQ" secondAttribute="leading" id="50x-es-UFU"/>
                             <constraint firstItem="2WG-rk-eTQ" firstAttribute="bottom" secondItem="ED9-mw-mxW" secondAttribute="bottom" id="BL8-JZ-dEJ"/>
                             <constraint firstItem="2WG-rk-eTQ" firstAttribute="trailing" secondItem="R7O-Mu-Zy8" secondAttribute="trailing" id="LXj-8a-WYJ"/>
-                            <constraint firstItem="2WG-rk-eTQ" firstAttribute="bottom" secondItem="R7O-Mu-Zy8" secondAttribute="bottom" id="RAD-7I-8l2"/>
-                            <constraint firstItem="2WG-rk-eTQ" firstAttribute="top" secondItem="R7O-Mu-Zy8" secondAttribute="top" id="Ys8-gf-mlw"/>
+                            <constraint firstAttribute="bottom" secondItem="R7O-Mu-Zy8" secondAttribute="bottom" id="RAD-7I-8l2"/>
+                            <constraint firstAttribute="top" secondItem="R7O-Mu-Zy8" secondAttribute="top" id="Ys8-gf-mlw"/>
                             <constraint firstItem="ED9-mw-mxW" firstAttribute="trailing" secondItem="2WG-rk-eTQ" secondAttribute="trailing" id="cJQ-Kw-MZt"/>
                             <constraint firstItem="2WG-rk-eTQ" firstAttribute="top" secondItem="ED9-mw-mxW" secondAttribute="top" id="ept-PM-1Cp"/>
                             <constraint firstItem="R7O-Mu-Zy8" firstAttribute="leading" secondItem="2WG-rk-eTQ" secondAttribute="leading" id="s0v-VH-OY1"/>
@@ -203,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="iu0-fZ-fKr" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUc-nz-CEB">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
@@ -250,15 +249,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5it-Gi-fyb" firstAttribute="bottom" secondItem="VUc-nz-CEB" secondAttribute="bottom" id="1Px-lf-ZHM"/>
-                            <constraint firstItem="iu0-fZ-fKr" firstAttribute="top" secondItem="5it-Gi-fyb" secondAttribute="top" id="5Ji-aJ-ERu"/>
+                            <constraint firstItem="iu0-fZ-fKr" firstAttribute="top" secondItem="DZr-Hy-G2O" secondAttribute="top" id="5Ji-aJ-ERu"/>
                             <constraint firstItem="VUc-nz-CEB" firstAttribute="leading" secondItem="5it-Gi-fyb" secondAttribute="leading" id="5RI-7n-lj1"/>
                             <constraint firstItem="5it-Gi-fyb" firstAttribute="trailing" secondItem="VUc-nz-CEB" secondAttribute="trailing" id="KQT-wQ-upz"/>
                             <constraint firstItem="iu0-fZ-fKr" firstAttribute="leading" secondItem="5it-Gi-fyb" secondAttribute="leading" id="b8f-wN-1b5"/>
                             <constraint firstItem="VUc-nz-CEB" firstAttribute="top" secondItem="5it-Gi-fyb" secondAttribute="top" id="oNp-u5-dJ6"/>
-                            <constraint firstItem="5it-Gi-fyb" firstAttribute="bottom" secondItem="iu0-fZ-fKr" secondAttribute="bottom" id="pOL-kd-2iP"/>
+                            <constraint firstAttribute="bottom" secondItem="iu0-fZ-fKr" secondAttribute="bottom" id="pOL-kd-2iP"/>
                             <constraint firstItem="5it-Gi-fyb" firstAttribute="trailing" secondItem="iu0-fZ-fKr" secondAttribute="trailing" id="s0w-BB-xS5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5it-Gi-fyb"/>
@@ -278,7 +276,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="Mwm-mA-dQM" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8o-Pm-Zja">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
@@ -353,8 +351,8 @@
                             <constraint firstItem="aCh-6S-cbq" firstAttribute="bottom" secondItem="g8o-Pm-Zja" secondAttribute="bottom" identifier="KeyboardConstraint" id="Jva-fG-erZ"/>
                             <constraint firstItem="aCh-6S-cbq" firstAttribute="trailing" secondItem="Mwm-mA-dQM" secondAttribute="trailing" id="St0-J3-tKJ"/>
                             <constraint firstItem="aCh-6S-cbq" firstAttribute="top" secondItem="g8o-Pm-Zja" secondAttribute="top" id="ohj-e2-zx5"/>
-                            <constraint firstItem="aCh-6S-cbq" firstAttribute="top" secondItem="Mwm-mA-dQM" secondAttribute="top" id="qsA-sZ-HAu"/>
-                            <constraint firstItem="aCh-6S-cbq" firstAttribute="bottom" secondItem="Mwm-mA-dQM" secondAttribute="bottom" id="scw-En-pa5"/>
+                            <constraint firstAttribute="top" secondItem="Mwm-mA-dQM" secondAttribute="top" id="qsA-sZ-HAu"/>
+                            <constraint firstAttribute="bottom" secondItem="Mwm-mA-dQM" secondAttribute="bottom" id="scw-En-pa5"/>
                             <constraint firstItem="Mwm-mA-dQM" firstAttribute="leading" secondItem="aCh-6S-cbq" secondAttribute="leading" id="vQK-eV-tPv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aCh-6S-cbq"/>
@@ -386,7 +384,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="Ca9-05-mLj" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anK-AN-WSd">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
@@ -426,9 +424,9 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="anK-AN-WSd" firstAttribute="top" secondItem="KM1-ns-wUE" secondAttribute="top" id="8FF-CE-iZh"/>
-                            <constraint firstItem="KM1-ns-wUE" firstAttribute="top" secondItem="Ca9-05-mLj" secondAttribute="top" id="Bxz-Yv-9vk"/>
+                            <constraint firstAttribute="top" secondItem="Ca9-05-mLj" secondAttribute="top" id="Bxz-Yv-9vk"/>
                             <constraint firstItem="Ca9-05-mLj" firstAttribute="leading" secondItem="KM1-ns-wUE" secondAttribute="leading" id="D4P-4i-3o2"/>
-                            <constraint firstItem="KM1-ns-wUE" firstAttribute="bottom" secondItem="Ca9-05-mLj" secondAttribute="bottom" id="Ogl-we-oUP"/>
+                            <constraint firstAttribute="bottom" secondItem="Ca9-05-mLj" secondAttribute="bottom" id="Ogl-we-oUP"/>
                             <constraint firstItem="anK-AN-WSd" firstAttribute="leading" secondItem="KM1-ns-wUE" secondAttribute="leading" id="T9B-Bu-YdH"/>
                             <constraint firstItem="KM1-ns-wUE" firstAttribute="trailing" secondItem="Ca9-05-mLj" secondAttribute="trailing" id="VJV-a2-eQB"/>
                             <constraint firstItem="KM1-ns-wUE" firstAttribute="trailing" secondItem="anK-AN-WSd" secondAttribute="trailing" id="qGm-4Z-3J4"/>
@@ -459,7 +457,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="dmR-8Y-LFH" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxM-c7-MzO">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
@@ -532,11 +530,11 @@
                             <constraint firstItem="sxM-c7-MzO" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="17z-YZ-Qa0"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="dmR-8Y-LFH" secondAttribute="trailing" id="3rU-Vc-WiA"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="sxM-c7-MzO" secondAttribute="trailing" id="EbP-W4-cb2"/>
-                            <constraint firstItem="dmR-8Y-LFH" firstAttribute="top" secondItem="aAO-MI-4Sj" secondAttribute="top" id="EeH-Mc-m9u"/>
+                            <constraint firstItem="dmR-8Y-LFH" firstAttribute="top" secondItem="xbv-FZ-BS3" secondAttribute="top" id="EeH-Mc-m9u"/>
                             <constraint firstItem="dmR-8Y-LFH" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="Prk-KL-aLB"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="sxM-c7-MzO" secondAttribute="bottom" identifier="KeyboardConstraint" id="ehp-Gq-tch"/>
                             <constraint firstItem="sxM-c7-MzO" firstAttribute="top" secondItem="aAO-MI-4Sj" secondAttribute="top" id="h85-Se-B0v"/>
-                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="dmR-8Y-LFH" secondAttribute="bottom" id="kbM-nO-ShI"/>
+                            <constraint firstAttribute="bottom" secondItem="dmR-8Y-LFH" secondAttribute="bottom" id="kbM-nO-ShI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aAO-MI-4Sj"/>
                     </view>

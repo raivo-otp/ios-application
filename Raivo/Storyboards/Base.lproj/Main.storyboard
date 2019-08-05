@@ -139,23 +139,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZYE-xS-Xob">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZYE-xS-Xob">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" name="color-background-opaque"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="8H7-jl-tI7" userLabel="Footer">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" name="color-background-opaque"/>
-                                </view>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="color-background-opaque"/>
                         <constraints>
-                            <constraint firstItem="ZYE-xS-Xob" firstAttribute="top" secondItem="WSM-vr-gJL" secondAttribute="top" id="I0H-VF-U3U"/>
+                            <constraint firstItem="ZYE-xS-Xob" firstAttribute="top" secondItem="qHX-Uj-Cbk" secondAttribute="top" id="I0H-VF-U3U"/>
                             <constraint firstItem="WSM-vr-gJL" firstAttribute="trailing" secondItem="ZYE-xS-Xob" secondAttribute="trailing" id="sxN-To-Rfm"/>
                             <constraint firstItem="ZYE-xS-Xob" firstAttribute="leading" secondItem="WSM-vr-gJL" secondAttribute="leading" id="uak-2h-iJg"/>
-                            <constraint firstItem="WSM-vr-gJL" firstAttribute="bottom" secondItem="ZYE-xS-Xob" secondAttribute="bottom" identifier="KeyboardConstraint" id="zDH-kG-cff"/>
+                            <constraint firstAttribute="bottom" secondItem="ZYE-xS-Xob" secondAttribute="bottom" identifier="KeyboardConstraint" id="zDH-kG-cff"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WSM-vr-gJL"/>
                     </view>
@@ -174,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brY-NW-mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3934" y="-739"/>
+            <point key="canvasLocation" x="3933.5999999999999" y="-739.88005997001505"/>
         </scene>
         <!--Edit Password-->
         <scene sceneID="ZaQ-AD-jZ3">
@@ -260,7 +255,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="9wa-hk-cHr" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-ii-oP4">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
@@ -304,9 +299,9 @@
                             <constraint firstItem="bvi-ii-oP4" firstAttribute="top" secondItem="Ons-YR-CD1" secondAttribute="top" id="1Jm-BZ-NhU"/>
                             <constraint firstItem="bvi-ii-oP4" firstAttribute="leading" secondItem="Ons-YR-CD1" secondAttribute="leading" id="HuN-Zh-KJV"/>
                             <constraint firstItem="Ons-YR-CD1" firstAttribute="trailing" secondItem="9wa-hk-cHr" secondAttribute="trailing" id="YKm-0V-87o"/>
-                            <constraint firstItem="9wa-hk-cHr" firstAttribute="top" secondItem="Ons-YR-CD1" secondAttribute="top" id="eod-Va-AUf"/>
+                            <constraint firstItem="9wa-hk-cHr" firstAttribute="top" secondItem="RLv-3W-khe" secondAttribute="top" id="eod-Va-AUf"/>
                             <constraint firstItem="Ons-YR-CD1" firstAttribute="trailing" secondItem="bvi-ii-oP4" secondAttribute="trailing" id="gmH-VI-ClQ"/>
-                            <constraint firstItem="Ons-YR-CD1" firstAttribute="bottom" secondItem="9wa-hk-cHr" secondAttribute="bottom" id="pnl-AX-7aR"/>
+                            <constraint firstAttribute="bottom" secondItem="9wa-hk-cHr" secondAttribute="bottom" id="pnl-AX-7aR"/>
                             <constraint firstItem="9wa-hk-cHr" firstAttribute="leading" secondItem="Ons-YR-CD1" secondAttribute="leading" id="v84-o6-Omc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ons-YR-CD1"/>
@@ -347,7 +342,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sY2-RF-ZGl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" name="color-tint-red"/>
                     </tabBar>
                     <connections>

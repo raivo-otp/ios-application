@@ -59,7 +59,6 @@
                                     </button>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EU7-Ek-El2" customClass="SVGKFastImageView">
                                         <rect key="frame" x="137.5" y="194.5" width="100" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Fdm-iw-YfF"/>
                                             <constraint firstAttribute="width" secondItem="EU7-Ek-El2" secondAttribute="height" multiplier="1:1" id="wah-Cg-xFX"/>
@@ -82,16 +81,15 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sxM-c7-MzO" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="17z-YZ-Qa0"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="dmR-8Y-LFH" secondAttribute="trailing" id="3rU-Vc-WiA"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="sxM-c7-MzO" secondAttribute="trailing" id="EbP-W4-cb2"/>
-                            <constraint firstItem="dmR-8Y-LFH" firstAttribute="top" secondItem="aAO-MI-4Sj" secondAttribute="top" id="EeH-Mc-m9u"/>
+                            <constraint firstItem="dmR-8Y-LFH" firstAttribute="top" secondItem="xbv-FZ-BS3" secondAttribute="top" id="EeH-Mc-m9u"/>
                             <constraint firstItem="dmR-8Y-LFH" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="Prk-KL-aLB"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="sxM-c7-MzO" secondAttribute="bottom" id="ehp-Gq-tch"/>
                             <constraint firstItem="sxM-c7-MzO" firstAttribute="top" secondItem="xbv-FZ-BS3" secondAttribute="top" id="h85-Se-B0v"/>
-                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="dmR-8Y-LFH" secondAttribute="bottom" id="kbM-nO-ShI"/>
+                            <constraint firstAttribute="bottom" secondItem="dmR-8Y-LFH" secondAttribute="bottom" id="kbM-nO-ShI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aAO-MI-4Sj"/>
                     </view>

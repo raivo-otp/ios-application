@@ -15,17 +15,6 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="dCx-WO-nHD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dCx-WO-nHD" secondAttribute="bottom" id="HXY-yb-B4U"/>
-                            <constraint firstItem="dCx-WO-nHD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ODj-jU-PfN"/>
-                            <constraint firstItem="dCx-WO-nHD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ao4-ZF-TKq"/>
-                            <constraint firstAttribute="trailing" secondItem="dCx-WO-nHD" secondAttribute="trailing" id="phl-Wh-EhI"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -34,8 +23,5 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pattern" width="67" height="100"/>
-    </resources>
     <color key="tintColor" name="color-tint-red"/>
 </document>
