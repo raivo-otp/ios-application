@@ -80,7 +80,7 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
 
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame = cameraPreview.layer.bounds
+        videoPreviewLayer?.frame.size = cameraPreview.frame.size
         cameraPreview.layer.addSublayer(videoPreviewLayer!)
         
         NotificationCenter.default.addObserver(
