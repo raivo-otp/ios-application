@@ -39,7 +39,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.8.1)
   - EFQRCode (= 5.0.0)
-  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `xcode11`)
+  - Eureka (from `https://github.com/ykphuah/Eureka.git`, branch `darkmode`)
   - Haptica (= 3.0.0)
   - OneTimePassword (= 3.1.5)
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `tg/xcode-11-b1`)
@@ -77,8 +77,8 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Eureka:
-    :branch: xcode11
-    :git: https://github.com/xmartlabs/Eureka.git
+    :branch: darkmode
+    :git: https://github.com/ykphuah/Eureka.git
   Realm:
     :branch: tg/xcode-11-b1
     :git: https://github.com/realm/realm-cocoa.git
@@ -92,8 +92,8 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Eureka:
-    :commit: 53cca3d3b4f7004ca2a181539b8aafe150374021
-    :git: https://github.com/xmartlabs/Eureka.git
+    :commit: 60e0668cc3755ef791c3d685d2951610ddc47597
+    :git: https://github.com/ykphuah/Eureka.git
   Realm:
     :commit: 2e58dfe78e5f641262c4c5c7e5a13f05b434c610
     :git: https://github.com/realm/realm-cocoa.git
@@ -129,6 +129,6 @@ SPEC CHECKSUMS:
   Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: e3c4f5d6d1bd45690b49bbb625439cc95bf48a87
+PODFILE CHECKSUM: 1bbf11e591aeb3f02e57ecb9feb41d0bde1acd7a
 
 COCOAPODS: 1.5.3

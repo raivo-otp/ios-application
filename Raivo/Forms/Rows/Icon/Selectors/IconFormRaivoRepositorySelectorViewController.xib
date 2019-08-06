@@ -31,6 +31,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
+            <color key="backgroundColor" name="color-background-opaque"/>
             <color key="tintColor" name="color-tint-red"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hAS-B6-7bC" secondAttribute="bottom" identifier="KeyboardConstraint" id="1Ve-61-WFH"/>
@@ -43,6 +44,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="color-background-opaque">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="color-tint-red">
             <color red="1" green="0.24313725490196078" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

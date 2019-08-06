@@ -105,7 +105,7 @@ class PasswordForm {
                 row.add(rule: RuleRequired())
             }).cellUpdate({ cell, row in
                 if !row.isValid {
-                    cell.textLabel?.textColor = .red
+                    cell.textLabel?.textColor = UIColor.getTintRed()
                 }
             })
             
@@ -119,7 +119,7 @@ class PasswordForm {
                 row.add(rule: RuleRequired())
             }).cellUpdate({ cell, row in
                 if !row.isValid {
-                    cell.titleLabel?.textColor = .red
+                    cell.titleLabel?.textColor = UIColor.getTintRed()
                 }
             })
         
@@ -144,7 +144,7 @@ class PasswordForm {
                 row.add(rule: RuleRequired())
             }).cellUpdate({ cell, row in
                 if !row.isValid {
-                    cell.titleLabel?.textColor = .red
+                    cell.titleLabel?.textColor = UIColor.getTintRed()
                 }
             })
             
@@ -159,7 +159,7 @@ class PasswordForm {
                 row.collapseInlineRow()
             }).cellUpdate({ cell, row in
                 if !row.isValid {
-                    cell.textLabel?.textColor = .red
+                    cell.textLabel?.textColor = UIColor.getTintRed()
                 }
             })
             
@@ -174,7 +174,7 @@ class PasswordForm {
                 row.collapseInlineRow()
             }).cellUpdate({ cell, row in
                 if !row.isValid {
-                    cell.textLabel?.textColor = .red
+                    cell.textLabel?.textColor = UIColor.getTintRed()
                 }
             })
             
@@ -190,7 +190,7 @@ class PasswordForm {
                 self.evaluateSectionVisibility()
             }).cellUpdate({ cell, row in
                 if !row.isValid {
-                    cell.textLabel?.textColor = .red
+                    cell.textLabel?.textColor = UIColor.getTintRed()
                 }
             })
     }
@@ -211,7 +211,7 @@ class PasswordForm {
                 row.add(rule: RuleGreaterOrEqualThan(min: 1))
             }).cellUpdate({ cell, row in
                 if !row.isValid {
-                    cell.titleLabel?.textColor = .red
+                    cell.titleLabel?.textColor = UIColor.getTintRed()
                 }
             })
     }
@@ -231,7 +231,7 @@ class PasswordForm {
                 row.add(rule: RuleRequired())
             }).cellUpdate({ cell, row in
                 if !row.isValid {
-                    cell.titleLabel?.textColor = .red
+                    cell.titleLabel?.textColor = UIColor.getTintRed()
                 }
             })
     }

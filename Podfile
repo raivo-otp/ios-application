@@ -21,7 +21,7 @@ target 'Raivo' do
   pod 'OneTimePassword', '3.1.5'
 
   # Enables easy form creation for adding and editing passwords
-  pod 'Eureka', git: 'https://github.com/xmartlabs/Eureka.git', branch: 'xcode11'
+  pod 'Eureka', git: 'https://github.com/ykphuah/Eureka.git', branch: 'darkmode'
   # pod 'Eureka', '5.0.0'
   pod 'ViewRow', '0.6'
   

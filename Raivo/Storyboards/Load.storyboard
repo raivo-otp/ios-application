@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" name="color-background-opaque"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dCx-WO-nHD" secondAttribute="bottom" id="HXY-yb-B4U"/>
                             <constraint firstItem="dCx-WO-nHD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ODj-jU-PfN"/>
@@ -36,6 +38,9 @@
     </scenes>
     <resources>
         <image name="pattern" width="67" height="100"/>
+        <namedColor name="color-background-opaque">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <color key="tintColor" name="color-tint-red"/>
 </document>
