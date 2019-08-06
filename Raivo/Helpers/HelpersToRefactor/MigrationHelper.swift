@@ -18,7 +18,8 @@ class MigrationHelper {
     public static let migrations: [Int: MigrationProtocol] = [
         MigrationToBuild4.build: MigrationToBuild4(),
         MigrationToBuild6.build: MigrationToBuild6(),
-        MigrationToBuild9.build: MigrationToBuild9()
+        MigrationToBuild9.build: MigrationToBuild9(),
+        MigrationToBuild11.build: MigrationToBuild11()
     ]
     
     static func runGenericMigrations() {

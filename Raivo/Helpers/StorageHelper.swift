@@ -266,11 +266,11 @@ class StorageHelper {
     /// - Returns: Positive if biometric unlock is enabled
     @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
     public func getTouchIDUnlockEnabled() -> Bool {
-        guard let build = settings().string(forKey: Key.TOUCHID_ENABLED) else {
+        guard let enabled = settings().string(forKey: Key.TOUCHID_ENABLED) else {
             return false
         }
         
-        return Bool(build) ?? false
+        return Bool(enabled) ?? false
     }
     
     /// Set a boolean representing if biometric unlock is enabled.
@@ -284,11 +284,11 @@ class StorageHelper {
     ///
     /// - Returns: Positive if biometric unlock is enabled
     public func getBiometricUnlockEnabled() -> Bool {
-        guard let build = settings().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
+        guard let enabled = settings().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
             return false
         }
         
-        return Bool(build) ?? false
+        return Bool(enabled) ?? false
     }
     
 }

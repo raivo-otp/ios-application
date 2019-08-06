@@ -106,6 +106,7 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
         viewExtra.text = extra
         
         viewPincode.reset()
+        viewPincode.layoutIfNeeded()
         
         if flash {
             viewExtra.delay = CGFloat(0.25)
