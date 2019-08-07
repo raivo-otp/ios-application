@@ -44,6 +44,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Returns: Positive if the url contained in the `launchOptions` was intended for Raivo
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setCorrectStoryboard()
+        setCorrectTintColor()
         
         // We accept all launch options
         return true
@@ -155,6 +156,12 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
                 completion: nil
             )
         }
+    }
+    
+    /// Set the global tint color of this application's window and accessory view (e.g. the keyboard)
+    private func setCorrectTintColor() {
+        NavigationAccessoryView.appearance().tintColor = UIColor.getTintRed()
+        self.window?.tintColor = UIColor.getTintRed()
     }
     
     /// Called when your app has received a remote notification.

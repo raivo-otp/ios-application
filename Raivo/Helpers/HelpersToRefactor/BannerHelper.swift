@@ -20,7 +20,7 @@ class BannerHelper {
         config.presentationStyle = .center
         config.presentationContext = .window(windowLevel: .statusBar)
         config.duration = .seconds(seconds: TimeInterval(seconds))
-        config.dimMode = .gray(interactive: true)
+        config.dimMode = .color(color: UIColor.clear, interactive: true)
         
         return config
     }
@@ -39,7 +39,7 @@ class BannerHelper {
         let nib = UINib(nibName: "CenteredBanner", bundle: Bundle.main)
         let view = (nib.instantiate(withOwner: nil, options: nil)[0] as? MessageView)!
         
-        view.configureTheme(backgroundColor: UIColor.getBackgroundTransparent(), foregroundColor: UIColor.getTintRed(), iconImage: .none, iconText: .none)
+        view.iconLabel?.text = "😟"
         view.titleLabel?.attributedText = message
         
         SwiftMessages.hideAll()
@@ -60,7 +60,7 @@ class BannerHelper {
         let nib = UINib(nibName: "CenteredBanner", bundle: Bundle.main)
         let view = (nib.instantiate(withOwner: nil, options: nil)[0] as? MessageView)!
         
-        view.configureTheme(backgroundColor: UIColor.getBackgroundTransparent(), foregroundColor: UIColor.getTintRed(), iconImage: .none, iconText: .none)
+        view.iconLabel?.text = "👍"
         view.titleLabel?.attributedText = message
         
         SwiftMessages.hideAll()
@@ -68,7 +68,7 @@ class BannerHelper {
     }
     
     static func boldText(_ boldText: String) -> NSAttributedString {
-        let font = UIFont.systemFont(ofSize: 16)
+        let font = UIFont.systemFont(ofSize: 18)
         
         let attributedString = NSMutableAttributedString(string: boldText, attributes: [NSAttributedString.Key.font: font])
         let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: font.pointSize)]
@@ -78,7 +78,7 @@ class BannerHelper {
     }
     
     static func boldText(_ allText: String, boldText: String) -> NSAttributedString {
-        let font = UIFont.systemFont(ofSize: 16)
+        let font = UIFont.systemFont(ofSize: 18)
         
         let attributedString = NSMutableAttributedString(string: allText, attributes: [NSAttributedString.Key.font: font])
         let boldFontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: font.pointSize)]
