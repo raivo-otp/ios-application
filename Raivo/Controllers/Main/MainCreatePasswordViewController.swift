@@ -61,7 +61,8 @@ class MainCreatePasswordViewController: FormViewController {
         
         let realm = try! Realm()
         try! realm.write {
-            realm.add(password, update: .modified)
+            realm.add(password, update: true)
+//            realm.add(password, update: .modified)
         }
         
         dismissNavBarActivity(saveButtonBackup)

@@ -10,11 +10,11 @@ PODS:
   - Haptica (3.0.0)
   - OneTimePassword (3.1.5):
     - Base32 (~> 1.1.2)
-  - Realm (3.16.1):
-    - Realm/Headers (= 3.16.1)
-  - Realm/Headers (3.16.1)
-  - RealmSwift (3.16.1):
-    - Realm (= 3.16.1)
+  - Realm (3.14.2):
+    - Realm/Headers (= 3.14.2)
+  - Realm/Headers (3.14.2)
+  - RealmSwift (3.14.2):
+    - Realm (= 3.14.2)
   - RNCryptor (5.1.0)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
@@ -39,11 +39,10 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.8.1)
   - EFQRCode (= 5.0.0)
-  - Eureka (from `https://github.com/ykphuah/Eureka.git`, branch `darkmode`)
+  - Eureka (= 5.0.0)
   - Haptica (= 3.0.0)
   - OneTimePassword (= 3.1.5)
-  - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `tg/xcode-11-b1`)
-  - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `tg/xcode-11-b1`)
+  - RealmSwift (= 3.14.2)
   - RNCryptor (= 5.1.0)
   - SDWebImage (= 5.0.6)
   - SDWebImageSVGCoder (= 0.3.0)
@@ -61,8 +60,11 @@ SPEC REPOS:
     - Base32
     - CocoaLumberjack
     - EFQRCode
+    - Eureka
     - Haptica
     - OneTimePassword
+    - Realm
+    - RealmSwift
     - RNCryptor
     - SDWebImage
     - SDWebImageSVGCoder
@@ -76,32 +78,10 @@ SPEC REPOS:
     - ViewRow
 
 EXTERNAL SOURCES:
-  Eureka:
-    :branch: darkmode
-    :git: https://github.com/ykphuah/Eureka.git
-  Realm:
-    :branch: tg/xcode-11-b1
-    :git: https://github.com/realm/realm-cocoa.git
-    :submodules: true
-  RealmSwift:
-    :branch: tg/xcode-11-b1
-    :git: https://github.com/realm/realm-cocoa.git
-    :submodules: true
   Spring:
     :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
-  Eureka:
-    :commit: 60e0668cc3755ef791c3d685d2951610ddc47597
-    :git: https://github.com/ykphuah/Eureka.git
-  Realm:
-    :commit: 2e58dfe78e5f641262c4c5c7e5a13f05b434c610
-    :git: https://github.com/realm/realm-cocoa.git
-    :submodules: true
-  RealmSwift:
-    :commit: 2e58dfe78e5f641262c4c5c7e5a13f05b434c610
-    :git: https://github.com/realm/realm-cocoa.git
-    :submodules: true
   Spring:
     :commit: fafd0b2e8d4d46405bd86fa7ba84bb7f73a20b13
     :git: https://github.com/MengTo/Spring.git
@@ -111,11 +91,11 @@ SPEC CHECKSUMS:
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   EFQRCode: 07437cfbce3a1e497397a4f3d766c980d8972608
-  Eureka: 9c662d9418abd6b354692a5abfd319bfe4033a51
+  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   Haptica: ee4abaf262f456fe3854b493f506debe421ddf2c
   OneTimePassword: 247500f67ab074f10501bb1c46bd1596c57bdb2a
-  Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
-  RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
+  Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
+  RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SDWebImageSVGCoder: 4b354bcdc7d74ce14d9fdb3c9ed9ab2c667f3b57
@@ -129,6 +109,6 @@ SPEC CHECKSUMS:
   Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: 1bbf11e591aeb3f02e57ecb9feb41d0bde1acd7a
+PODFILE CHECKSUM: b9d93b1360308e7a64893c175d65c31144ea6882
 
 COCOAPODS: 1.5.3
