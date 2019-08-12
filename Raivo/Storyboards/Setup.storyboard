@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -104,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="-252" y="320.68965517241384"/>
         </scene>
-        <!--Synchronization-->
+        <!--Synchronization and Backup-->
         <scene sceneID="jZ8-kz-NRI">
             <objects>
-                <viewController title="Synchronization" id="dMN-0h-D6D" customClass="SetupChooseSyncerServiceViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Synchronization and Backup" id="dMN-0h-D6D" customClass="SetupChooseSyncerServiceViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FUG-QV-vUQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,14 +120,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ED9-mw-mxW">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading providers!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmA-je-0FA">
-                                        <rect key="frame" x="0.0" y="255" width="414" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading providers, hold tight." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmA-je-0FA">
+                                        <rect key="frame" x="0.0" y="275.5" width="414" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which provider do you want to synchronize and backup your data to?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8us-Bu-l1k" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="286" width="398" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your preferred synchronization provider?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8us-Bu-l1k" customClass="SpringLabel" customModule="Spring">
+                                        <rect key="frame" x="8" y="306.5" width="398" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -197,7 +199,7 @@
             </objects>
             <point key="canvasLocation" x="588" y="320.68965517241384"/>
         </scene>
-        <!--Flush All Data-->
+        <!--Reset-->
         <scene sceneID="HeD-GK-cdi">
             <objects>
                 <viewController id="v65-Kk-QA3" customClass="SetupFlushDataViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
@@ -266,13 +268,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5it-Gi-fyb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Flush All Data" id="CrM-MI-U9G"/>
+                    <navigationItem key="navigationItem" title="Reset" id="CrM-MI-U9G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCj-8J-br9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1416.8" y="-421.43928035982015"/>
         </scene>
-        <!--Database Encryption-->
+        <!--Encryption and Recovery-->
         <scene sceneID="thL-HV-itS">
             <objects>
                 <viewController id="YVk-0a-onT" customClass="SetupChooseEncryptionKeyViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
@@ -286,27 +288,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8o-Pm-Zja">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your encryption key" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qq1-xL-0gn">
-                                        <rect key="frame" x="0.0" y="287" width="414" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a password." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qq1-xL-0gn">
+                                        <rect key="frame" x="0.0" y="308" width="414" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a strong encryption key and save it in your password manager." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTk-g4-Dfh" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="318" width="398" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need it to setup Raivo on other phones." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTk-g4-Dfh" customClass="SpringLabel" customModule="Spring">
+                                        <rect key="frame" x="8" y="339" width="398" height="20"/>
+                                        <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="2usZ&quot;7+Q/&gt;x:&quot;[`5Q&gt;=g.n'GnuPKgExV" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="SW2-CK-hhJ">
-                                        <rect key="frame" x="24" y="367" width="366" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="kok-LR-9sM"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
-                                    </textField>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQD-cj-rSf">
+                                        <rect key="frame" x="8" y="415" width="398" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Help, I forgot my password!"/>
+                                        <connections>
+                                            <segue destination="v65-Kk-QA3" kind="show" id="Qwx-f3-pcb"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kg7-nr-duk">
                                         <rect key="frame" x="16" y="706" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506013870239" green="0.050439722836017609" blue="0.20007196068763733" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -322,31 +323,46 @@
                                             <action selector="onContinue:" destination="YVk-0a-onT" eventType="touchUpInside" id="grC-Pj-4yW"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQD-cj-rSf">
-                                        <rect key="frame" x="8" y="414.5" width="398" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="I forgot my encryption key"/>
-                                        <connections>
-                                            <segue destination="v65-Kk-QA3" kind="show" id="Qwx-f3-pcb"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sTb-dU-KK0">
+                                        <rect key="frame" x="8" y="367" width="398" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your strong password" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="SW2-CK-hhJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="kok-LR-9sM"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
+                                            </textField>
+                                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your strong password" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="EjY-xq-AtD">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="jj3-4M-2oe"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="qq1-xL-0gn" firstAttribute="leading" secondItem="g8o-Pm-Zja" secondAttribute="leading" id="02N-XM-MO8"/>
                                     <constraint firstItem="TQD-cj-rSf" firstAttribute="leading" secondItem="g8o-Pm-Zja" secondAttribute="leading" constant="8" id="1cE-mt-Nyh"/>
-                                    <constraint firstAttribute="trailing" secondItem="SW2-CK-hhJ" secondAttribute="trailing" constant="24" id="Fh6-yb-roD"/>
+                                    <constraint firstItem="sTb-dU-KK0" firstAttribute="centerY" secondItem="g8o-Pm-Zja" secondAttribute="centerY" id="34F-pQ-e6o"/>
+                                    <constraint firstItem="sTb-dU-KK0" firstAttribute="leading" secondItem="g8o-Pm-Zja" secondAttribute="leading" constant="8" id="Fe4-0y-A80"/>
                                     <constraint firstItem="rTk-g4-Dfh" firstAttribute="top" secondItem="qq1-xL-0gn" secondAttribute="bottom" constant="8" id="HRg-0G-sbz"/>
-                                    <constraint firstItem="SW2-CK-hhJ" firstAttribute="top" secondItem="rTk-g4-Dfh" secondAttribute="bottom" constant="8" id="MIK-CD-sIa"/>
                                     <constraint firstAttribute="trailing" secondItem="qq1-xL-0gn" secondAttribute="trailing" id="OzL-ax-jUp"/>
-                                    <constraint firstItem="SW2-CK-hhJ" firstAttribute="centerY" secondItem="g8o-Pm-Zja" secondAttribute="centerY" id="S00-eo-YsR"/>
+                                    <constraint firstItem="TQD-cj-rSf" firstAttribute="top" secondItem="sTb-dU-KK0" secondAttribute="bottom" constant="8" id="Pgb-OH-Vyv"/>
                                     <constraint firstItem="rTk-g4-Dfh" firstAttribute="leading" secondItem="g8o-Pm-Zja" secondAttribute="leading" constant="8" id="U80-Ps-bj7"/>
                                     <constraint firstAttribute="trailing" secondItem="Kg7-nr-duk" secondAttribute="trailing" constant="16" id="aOq-uB-pxB"/>
                                     <constraint firstAttribute="trailing" secondItem="TQD-cj-rSf" secondAttribute="trailing" constant="8" id="cJ9-oL-kn5"/>
                                     <constraint firstItem="Kg7-nr-duk" firstAttribute="leading" secondItem="g8o-Pm-Zja" secondAttribute="leading" constant="16" id="eEd-Re-kx0"/>
                                     <constraint firstAttribute="bottom" secondItem="Kg7-nr-duk" secondAttribute="bottom" constant="16" id="equ-FW-IxZ"/>
                                     <constraint firstAttribute="trailing" secondItem="rTk-g4-Dfh" secondAttribute="trailing" constant="8" id="nqa-q7-Ank"/>
-                                    <constraint firstItem="TQD-cj-rSf" firstAttribute="top" secondItem="SW2-CK-hhJ" secondAttribute="bottom" constant="7.5" id="qQQ-Kg-gBE"/>
-                                    <constraint firstItem="SW2-CK-hhJ" firstAttribute="leading" secondItem="g8o-Pm-Zja" secondAttribute="leading" constant="24" id="zy6-Xo-5hl"/>
+                                    <constraint firstAttribute="trailing" secondItem="sTb-dU-KK0" secondAttribute="trailing" constant="8" id="pGD-pD-BIX"/>
+                                    <constraint firstItem="sTb-dU-KK0" firstAttribute="top" secondItem="rTk-g4-Dfh" secondAttribute="bottom" constant="8" id="zXN-IQ-Tg2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -364,14 +380,16 @@
                         <viewLayoutGuide key="safeArea" id="aCh-6S-cbq"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Database Encryption" id="WMx-zK-ebZ">
-                        <barButtonItem key="backBarButtonItem" title="Encryption" id="DmN-TQ-yU2"/>
+                    <navigationItem key="navigationItem" title="Encryption and Recovery" id="WMx-zK-ebZ">
+                        <barButtonItem key="backBarButtonItem" title="Password" id="DmN-TQ-yU2"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="continueView" destination="Kg7-nr-duk" id="63Y-0s-xN7"/>
                         <outlet property="forgotView" destination="TQD-cj-rSf" id="r66-aJ-5tI"/>
-                        <outlet property="viewEncryptionPassword" destination="SW2-CK-hhJ" id="B6G-2v-XCl"/>
+                        <outlet property="viewEncryptionPasswordConfirm" destination="EjY-xq-AtD" id="BEi-q9-u0A"/>
+                        <outlet property="viewEncryptionPasswordInitial" destination="SW2-CK-hhJ" id="B6G-2v-XCl"/>
                         <outlet property="viewExtra" destination="rTk-g4-Dfh" id="teE-uv-sqx"/>
                         <outlet property="viewTitle" destination="qq1-xL-0gn" id="5kG-ME-ijO"/>
                         <segue destination="8FY-rE-o5r" kind="show" identifier="ChoosePincodeSegue" id="oLg-aa-cbI"/>
@@ -577,7 +595,7 @@
         <image name="icon-misc" width="30" height="30"/>
         <image name="pattern" width="67" height="100"/>
         <namedColor name="color-background-opaque">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="color-tint-red"/>

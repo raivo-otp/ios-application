@@ -97,7 +97,7 @@ class SetupChooseSyncerServiceViewController: FormViewController {
         
         continueButton.isEnabled = allow
         continueButton.alpha = CGFloat(allow ? 1 : 0.5)
-        viewTitle.text = allow ? "Synchronization providers" : "Loading providers..."
+        viewTitle.text = allow ? "Available providers." : "Loading providers, hold tight."
         
         if (allow) {
             for availableSyncer in SyncerHelper.availableSyncers {

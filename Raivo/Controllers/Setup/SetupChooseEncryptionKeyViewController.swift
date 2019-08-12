@@ -18,67 +18,91 @@ class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDeleg
     
     public var challenge: SyncerChallenge?
     
+    private var recoveryMode: Bool = false
+    
     @IBOutlet weak var viewTitle: UILabel!
     
     @IBOutlet weak var viewExtra: SpringLabel!
     
-    @IBOutlet weak var viewEncryptionPassword: UITextField!
+    @IBOutlet weak var viewEncryptionPasswordInitial: UITextField!
+    
+    @IBOutlet weak var viewEncryptionPasswordConfirm: UITextField!
     
     @IBOutlet weak var forgotView: UIButton!
+    
+    @IBOutlet weak var continueView: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         adjustViewToKeyboard()
         
-        viewEncryptionPassword.delegate = self
+        viewEncryptionPasswordInitial.delegate = self
+        viewEncryptionPasswordConfirm.delegate = self
 
         if let _ = self.challenge?.challenge {
-            self.viewTitle.text = "Remember that encryption key?"
-            self.viewExtra.text = "You've used Raivo before. Enter the encryption key you took note of back then."
-            self.forgotView.isHidden = false
+            viewTitle.text = "Synchronize your data"
+            viewExtra.text = "You've used Raivo before. Enter the recovery password you took note of back then."
+            forgotView.isHidden = false
+            recoveryMode = true
+        } else {
+            viewEncryptionPasswordConfirm.isHidden = false
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        viewEncryptionPassword.becomeFirstResponder()
+        viewEncryptionPasswordInitial.becomeFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        onContinue(textField)
-        return true
+        switch textField {
+        case viewEncryptionPasswordInitial:
+            viewEncryptionPasswordConfirm.becomeFirstResponder()
+            return false
+        case viewEncryptionPasswordConfirm:
+            onContinue(textField)
+            return true
+        default:
+            return true
+        }
     }
     
-    private func verifyChallenge() -> Bool {
+    private func verifyRecoveryChallenge() -> Bool {
         if let challenge = self.challenge?.challenge {
             do {
-                let _ = try CryptographyHelper.shared.decrypt(challenge, withKey: viewEncryptionPassword.text ?? "")
+                let _ = try CryptographyHelper.shared.decrypt(challenge, withKey: viewEncryptionPasswordInitial.text ?? "")
                 return true
             } catch {
                 return false
             }
         }
         
-        return true
+        return false
     }
     
     @IBAction func onContinue(_ sender: Any) {
-        guard viewEncryptionPassword.text?.length ?? 0 >= 8 else {
-            self.viewExtra.text = "Your encryption key must consist of 8 characters or more."
+        guard viewEncryptionPasswordInitial.text?.length ?? 0 >= 8 else {
+            self.viewExtra.text = "A stronger/longer password is required."
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
             return
         }
         
-        guard verifyChallenge() else {
-            self.viewExtra.text = "Could not decrypt the challenge based on the given encryption key."
+        guard recoveryMode || viewEncryptionPasswordInitial.text == viewEncryptionPasswordConfirm.text else {
+            self.viewExtra.text = "The password and confirmation do not match."
             self.viewExtra.animation = "shake"
             self.viewExtra.animate()
             return
         }
         
-        StorageHelper.shared.setEncryptionPassword(viewEncryptionPassword.text!)
+        guard !recoveryMode || verifyRecoveryChallenge() else {
+            self.viewExtra.text = "The password you entered is incorrect."
+            self.viewExtra.animation = "shake"
+            self.viewExtra.animate()
+            return
+        }
         
+        StorageHelper.shared.setEncryptionPassword(viewEncryptionPasswordInitial.text!)
         performSegue(withIdentifier: "ChoosePincodeSegue", sender: sender)
     }
 }
