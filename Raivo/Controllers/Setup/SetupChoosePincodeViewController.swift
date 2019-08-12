@@ -24,7 +24,10 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
     @IBOutlet weak var viewExtra: SpringLabel!
     
     /// The actual PIN code field
-    @IBOutlet weak var viewPincode: UIPincodeField!
+    @IBOutlet weak var viewPincodeInitial: UIPincodeField!
+    
+    /// The PIN code confirmation field
+    @IBOutlet weak var viewPincodeConfirm: UIPincodeField!
     
     /// Derived PIN+salt from the first try (a user needs to enter the same PIN twice before it will change)
     private var initialKey: Data? = nil
@@ -40,8 +43,10 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
             "You need it to unlock Raivo, so make sure you'll be able to remember it."
         )
         
-        viewPincode.delegate = self
-        viewPincode.layoutIfNeeded()
+        viewPincodeInitial.delegate = self
+        viewPincodeConfirm.delegate = self
+        viewPincodeInitial.layoutIfNeeded()
+        viewPincodeConfirm.layoutIfNeeded()
     }
     
     /// Notifies the view controller that its view was added to a view hierarchy.
@@ -49,7 +54,7 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
     /// - Parameter animated: If positive, the view was added to the window using an animation.
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewPincode.becomeFirstResponder()
+        viewPincodeInitial.becomeFirstResponder()
     }
     
     /// Triggered when the user entered a PIN code.k
@@ -105,8 +110,8 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
         viewTitle.text = title
         viewExtra.text = extra
         
-        viewPincode.reset()
-        viewPincode.layoutIfNeeded()
+        viewPincodeInitial.reset()
+        viewPincodeInitial.layoutIfNeeded()
         
         if flash {
             viewExtra.delay = CGFloat(0.25)

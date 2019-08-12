@@ -413,36 +413,52 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anK-AN-WSd">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qp-gl-0w1">
-                                        <rect key="frame" x="0.0" y="346" width="414" height="23"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OU-Fc-wZm" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="377" width="398" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-th-70S" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="397.5" width="414" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mm4-El-8SV">
+                                        <rect key="frame" x="8" y="303.5" width="398" height="167.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qp-gl-0w1">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OU-Fc-wZm" customClass="SpringLabel" customModule="Spring">
+                                                <rect key="frame" x="0.0" y="31" width="398" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-th-70S" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="59.5" width="398" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="PWE-nT-s3Q"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vg-Oa-f0w" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="117.5" width="398" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="D8c-Ru-IaW"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="PWE-nT-s3Q"/>
+                                            <constraint firstAttribute="trailing" secondItem="1qp-gl-0w1" secondAttribute="trailing" constant="8" id="1Tq-FR-lZm"/>
+                                            <constraint firstAttribute="trailing" secondItem="hIV-th-70S" secondAttribute="trailing" constant="8" id="Ac3-w9-jKy"/>
+                                            <constraint firstAttribute="trailing" secondItem="0OU-Fc-wZm" secondAttribute="trailing" constant="8" id="c0S-Ni-UFa"/>
+                                            <constraint firstItem="hIV-th-70S" firstAttribute="leading" secondItem="Mm4-El-8SV" secondAttribute="leading" constant="8" id="eJB-WC-SQI"/>
+                                            <constraint firstAttribute="trailing" secondItem="3vg-Oa-f0w" secondAttribute="trailing" constant="8" id="t0k-HP-jWI"/>
+                                            <constraint firstItem="1qp-gl-0w1" firstAttribute="leading" secondItem="Mm4-El-8SV" secondAttribute="leading" constant="8" id="tYu-S8-9X4"/>
+                                            <constraint firstItem="0OU-Fc-wZm" firstAttribute="leading" secondItem="Mm4-El-8SV" secondAttribute="leading" constant="8" id="uct-ff-p06"/>
+                                            <constraint firstItem="3vg-Oa-f0w" firstAttribute="leading" secondItem="Mm4-El-8SV" secondAttribute="leading" constant="8" id="yl1-z6-HfA"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="0OU-Fc-wZm" secondAttribute="trailing" constant="8" id="CNO-AT-TSR"/>
-                                    <constraint firstItem="hIV-th-70S" firstAttribute="top" secondItem="0OU-Fc-wZm" secondAttribute="bottom" id="NAd-dw-hki"/>
-                                    <constraint firstItem="0OU-Fc-wZm" firstAttribute="top" secondItem="1qp-gl-0w1" secondAttribute="bottom" constant="8" id="RRD-xy-bB9"/>
-                                    <constraint firstAttribute="trailing" secondItem="hIV-th-70S" secondAttribute="trailing" id="SnR-E7-SbY"/>
-                                    <constraint firstItem="1qp-gl-0w1" firstAttribute="leading" secondItem="anK-AN-WSd" secondAttribute="leading" id="azm-lL-OzJ"/>
-                                    <constraint firstItem="0OU-Fc-wZm" firstAttribute="centerY" secondItem="anK-AN-WSd" secondAttribute="centerY" id="gAb-z0-7Pw"/>
-                                    <constraint firstItem="0OU-Fc-wZm" firstAttribute="leading" secondItem="anK-AN-WSd" secondAttribute="leading" constant="8" id="iLg-Uk-y1V"/>
-                                    <constraint firstItem="hIV-th-70S" firstAttribute="leading" secondItem="anK-AN-WSd" secondAttribute="leading" id="qlG-S8-rO5"/>
-                                    <constraint firstAttribute="trailing" secondItem="1qp-gl-0w1" secondAttribute="trailing" id="xVS-SR-Qpt"/>
+                                    <constraint firstItem="Mm4-El-8SV" firstAttribute="centerY" secondItem="anK-AN-WSd" secondAttribute="centerY" id="Jq4-vD-foJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mm4-El-8SV" secondAttribute="trailing" constant="8" id="Zbq-fZ-i6V"/>
+                                    <constraint firstItem="Mm4-El-8SV" firstAttribute="leading" secondItem="anK-AN-WSd" secondAttribute="leading" constant="8" id="aL7-lK-xZx"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -464,7 +480,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="viewExtra" destination="0OU-Fc-wZm" id="uF8-R5-nAT"/>
-                        <outlet property="viewPincode" destination="hIV-th-70S" id="ykA-6w-Fpz"/>
+                        <outlet property="viewPincodeConfirm" destination="3vg-Oa-f0w" id="adJ-dy-Nqe"/>
+                        <outlet property="viewPincodeInitial" destination="hIV-th-70S" id="ykA-6w-Fpz"/>
                         <outlet property="viewTitle" destination="1qp-gl-0w1" id="hse-0O-3ZR"/>
                         <segue destination="aRj-9S-j16" kind="show" identifier="EnableBiometricsSegue" id="7rR-lb-O9A"/>
                     </connections>
