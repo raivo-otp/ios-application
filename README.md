@@ -40,6 +40,12 @@
 
 Raivo enables you to add your own icons to OTPs. You can add your own icon via the [Raivo icon repository](https://github.com/tijme/raivo-issuer-icons). Make sure to read the contribution guidelines before making a pull request.
 
+## Migrating
+
+The following migration guides walk you through the process of migrating from your existing OTP app to Raivo OTP.
+
+* [Migrating from **Authy** to Raivo OTP](https://tij.me/blog/migrating-your-one-time-passwords-from-authy-to-raivo-otp/)
+
 ## Issues
 
 Issues or new features can be reported via the [issue tracker](https://github.com/tijme/raivo/issues). Please make sure your issue or feature has not yet been reported by anyone else before submitting a new one.
