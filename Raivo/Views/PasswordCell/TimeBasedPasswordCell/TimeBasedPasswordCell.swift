@@ -46,7 +46,7 @@ class TimeBasedPasswordCell: PasswordCell {
         self.password = password
         
         issuer.text = password.issuer
-        account.text = "(" + password.account + ")"
+        account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
         previousPassword.text = TokenHelper.formatPassword(password.getToken(), previous: true)
         notSyncedView.isHidden = password.synced || password.syncing

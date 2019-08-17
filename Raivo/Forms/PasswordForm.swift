@@ -114,13 +114,6 @@ class PasswordForm {
                 row.placeholder = "user@example.ltd"
                 row.cell.textField.autocapitalizationType = UITextAutocapitalizationType.none
                 row.cell.textField.autocorrectionType = UITextAutocorrectionType.no
-                
-                row.validationOptions = .validatesOnDemand
-                row.add(rule: RuleRequired())
-            }).cellUpdate({ cell, row in
-                if !row.isValid {
-                    cell.titleLabel?.textColor = UIColor.getTintRed()
-                }
             })
         
             <<< IconFormRow(tag: "icon_url", controller: controller, { row in

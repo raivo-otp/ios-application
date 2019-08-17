@@ -38,7 +38,7 @@ class CounterBasedPasswordCell: PasswordCell {
         self.password = password
         
         issuer.text = password.issuer
-        account.text = "(" + password.account + ")"
+        account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
         notSyncedView.isHidden = password.synced || password.syncing
         

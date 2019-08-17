@@ -77,7 +77,7 @@ class MainCreatePasswordViewController: FormViewController {
                 
         password.id = password.getNewPrimaryKey()
         password.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
-        password.account = passwordForm!.accountRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
+        password.account = (passwordForm!.accountRow.value ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         password.iconType = passwordForm!.iconRow.iconType ?? ""
         password.iconValue = passwordForm!.iconRow.iconValue ?? ""
         password.secret = passwordForm!.secretRow.value!
