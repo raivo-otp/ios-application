@@ -14,8 +14,11 @@ import UIKit
 /// A UIDigitField represents a single digit that can be entered in a UIPincodeField
 class UIDigitField: UIView, UITextFieldDelegate {
     
-    /// The color of the digit
-    private let color: UIColor = UIColor.getSecondaryLabel()
+    /// The color of the dash
+    private let colorTodo: UIColor = UIColor.getSecondaryLabel()
+    
+    /// The color of the circle
+    private let colorCompleted: UIColor = UIColor.getLabel()
     
     /// The frame for an empty value
     private var dashFrame: CGRect? = nil
@@ -102,7 +105,7 @@ class UIDigitField: UIView, UITextFieldDelegate {
     private func showDash() {
         if dashView == nil {
             dashView = UIView()
-            dashView?.backgroundColor = color
+            dashView?.backgroundColor = colorTodo
             
             addSubview(dashView!)
         }
@@ -125,7 +128,7 @@ class UIDigitField: UIView, UITextFieldDelegate {
     private func showCircle() {
         if circleView == nil {
             circleView = UIView()
-            circleView?.backgroundColor = color
+            circleView?.backgroundColor = colorCompleted
             circleView?.layer.cornerRadius = circleWidth / 2 
             circleView?.layer.masksToBounds = true
             

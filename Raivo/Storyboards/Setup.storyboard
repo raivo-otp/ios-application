@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,7 +16,7 @@
             <objects>
                 <viewController id="zD7-1l-wY8" customClass="SetupMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eVg-DK-nVz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="xAw-v6-o91"/>
@@ -32,21 +32,21 @@
             <objects>
                 <viewController id="Hlo-M6-EVt" customClass="SetupEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g4v-83-nfL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="yru-Ed-7A0" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="95F-Kg-5El">
-                                <rect key="frame" x="127" y="289" width="160" height="160"/>
+                                <rect key="frame" x="107.66666666666669" y="247" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="Rdk-L2-d8C"/>
                                     <constraint firstAttribute="width" secondItem="95F-Kg-5El" secondAttribute="height" multiplier="1:1" id="fih-QX-zpS"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubw-6G-1KA">
-                                <rect key="frame" x="16" y="794" width="382" height="52"/>
+                                <rect key="frame" x="16" y="710" width="343" height="52"/>
                                 <color key="backgroundColor" red="0.91081506013870239" green="0.050439722836017609" blue="0.20007196068763733" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -61,13 +61,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo, OTP management done right." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvJ-mg-6ac">
-                                <rect key="frame" x="8" y="465" width="398" height="20.5"/>
+                                <rect key="frame" x="8" y="423" width="359" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A native, lightweight and secure one-time &amp; time-based password client built for iOS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdr-QZ-TMG">
-                                <rect key="frame" x="8" y="493.5" width="398" height="41"/>
+                                <rect key="frame" x="8" y="451.33333333333331" width="359" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -111,29 +111,29 @@
             <objects>
                 <viewController title="Synchronization and Backup" id="dMN-0h-D6D" customClass="SetupChooseSyncerServiceViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FUG-QV-vUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="R7O-Mu-Zy8" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ED9-mw-mxW">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading providers, hold tight." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmA-je-0FA">
-                                        <rect key="frame" x="0.0" y="275.5" width="414" height="23"/>
+                                        <rect key="frame" x="0.0" y="213.33333333333331" width="375" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your preferred synchronization provider?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8us-Bu-l1k" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="306.5" width="398" height="20.5"/>
+                                        <rect key="frame" x="8" y="244.33333333333329" width="359" height="40.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" alpha="0.25" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQF-TG-PNF">
-                                        <rect key="frame" x="16" y="706" width="382" height="52"/>
+                                        <rect key="frame" x="16" y="622" width="343" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="NO"/>
@@ -151,7 +151,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="3mQ-3E-EU4">
-                                        <rect key="frame" x="0.0" y="342" width="414" height="90"/>
+                                        <rect key="frame" x="0.0" y="300" width="375" height="90"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="250" constant="90" id="X1B-d0-lZy"/>
@@ -204,30 +204,30 @@
             <objects>
                 <viewController id="v65-Kk-QA3" customClass="SetupFlushDataViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DZr-Hy-G2O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="iu0-fZ-fKr" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUc-nz-CEB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are sorry about that!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCz-3c-SRi">
-                                        <rect key="frame" x="8" y="325.5" width="398" height="23"/>
+                                        <rect key="frame" x="8" y="273.33333333333331" width="359" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsm-o8-Jjc" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="356.5" width="398" height="61"/>
+                                        <rect key="frame" x="8" y="304.33333333333331" width="359" height="81.333333333333314"/>
                                         <string key="text">Unfortunately there's no way to recover your data. The only option you have is to delete all data from your synchronization provider and start all over.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFS-al-WFA">
-                                        <rect key="frame" x="16" y="706" width="382" height="52"/>
+                                        <rect key="frame" x="16" y="622" width="343" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -279,29 +279,29 @@
             <objects>
                 <viewController id="YVk-0a-onT" customClass="SetupChooseEncryptionKeyViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9L-w6-GKW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="Mwm-mA-dQM" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8o-Pm-Zja">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a password." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qq1-xL-0gn">
-                                        <rect key="frame" x="0.0" y="308" width="414" height="23"/>
+                                        <rect key="frame" x="0.0" y="266" width="375" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need it to setup Raivo on other phones." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTk-g4-Dfh" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="339" width="398" height="20"/>
+                                        <rect key="frame" x="8" y="297" width="359" height="20"/>
                                         <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQD-cj-rSf">
-                                        <rect key="frame" x="8" y="415" width="398" height="29"/>
+                                        <rect key="frame" x="8" y="373" width="359" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Help, I forgot my password!"/>
                                         <connections>
@@ -309,7 +309,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kg7-nr-duk">
-                                        <rect key="frame" x="16" y="706" width="382" height="52"/>
+                                        <rect key="frame" x="16" y="622" width="343" height="52"/>
                                         <color key="backgroundColor" red="0.91081506013870239" green="0.050439722836017609" blue="0.20007196068763733" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -324,10 +324,10 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sTb-dU-KK0">
-                                        <rect key="frame" x="8" y="367" width="398" height="40"/>
+                                        <rect key="frame" x="8" y="325" width="359" height="40"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your strong password" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="SW2-CK-hhJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="kok-LR-9sM"/>
                                                 </constraints>
@@ -336,7 +336,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
                                             </textField>
                                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your strong password" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="EjY-xq-AtD">
-                                                <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="jj3-4M-2oe"/>
                                                 </constraints>
@@ -404,61 +404,79 @@
             <objects>
                 <viewController id="8FY-rE-o5r" customClass="SetupChoosePincodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1VH-9m-Thx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="Ca9-05-mLj" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anK-AN-WSd">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mm4-El-8SV">
-                                        <rect key="frame" x="8" y="303.5" width="398" height="167.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Hh-4Z-tMs">
+                                        <rect key="frame" x="8" y="277.33333333333331" width="359" height="135.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qp-gl-0w1">
-                                                <rect key="frame" x="0.0" y="0.0" width="398" height="23"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="23"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OU-Fc-wZm" customClass="SpringLabel" customModule="Spring">
-                                                <rect key="frame" x="0.0" y="31" width="398" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="31" width="359" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-th-70S" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="59.5" width="398" height="50"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbp-Fh-UB4">
+                                                <rect key="frame" x="0.0" y="67.333333333333371" width="359" height="68"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIV-th-70S" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="PWE-nT-s3Q"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vg-Oa-f0w" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="38" width="359" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="D8c-Ru-IaW"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="PWE-nT-s3Q"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vg-Oa-f0w" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="117.5" width="398" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="D8c-Ru-IaW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3vg-Oa-f0w" secondAttribute="trailing" id="1TL-pn-lVt"/>
+                                                    <constraint firstItem="hIV-th-70S" firstAttribute="leading" secondItem="hbp-Fh-UB4" secondAttribute="leading" id="7Yz-RO-Z9F"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3vg-Oa-f0w" secondAttribute="bottom" id="9F3-sJ-cI7"/>
+                                                    <constraint firstItem="hIV-th-70S" firstAttribute="top" secondItem="hbp-Fh-UB4" secondAttribute="top" id="CU8-jL-EAw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hIV-th-70S" secondAttribute="trailing" id="FQA-et-M08"/>
+                                                    <constraint firstItem="3vg-Oa-f0w" firstAttribute="top" secondItem="hIV-th-70S" secondAttribute="bottom" constant="8" id="J1C-58-XdD"/>
+                                                    <constraint firstItem="3vg-Oa-f0w" firstAttribute="leading" secondItem="hbp-Fh-UB4" secondAttribute="leading" id="rPB-fu-5gA"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="1qp-gl-0w1" secondAttribute="trailing" constant="8" id="1Tq-FR-lZm"/>
-                                            <constraint firstAttribute="trailing" secondItem="hIV-th-70S" secondAttribute="trailing" constant="8" id="Ac3-w9-jKy"/>
-                                            <constraint firstAttribute="trailing" secondItem="0OU-Fc-wZm" secondAttribute="trailing" constant="8" id="c0S-Ni-UFa"/>
-                                            <constraint firstItem="hIV-th-70S" firstAttribute="leading" secondItem="Mm4-El-8SV" secondAttribute="leading" constant="8" id="eJB-WC-SQI"/>
-                                            <constraint firstAttribute="trailing" secondItem="3vg-Oa-f0w" secondAttribute="trailing" constant="8" id="t0k-HP-jWI"/>
-                                            <constraint firstItem="1qp-gl-0w1" firstAttribute="leading" secondItem="Mm4-El-8SV" secondAttribute="leading" constant="8" id="tYu-S8-9X4"/>
-                                            <constraint firstItem="0OU-Fc-wZm" firstAttribute="leading" secondItem="Mm4-El-8SV" secondAttribute="leading" constant="8" id="uct-ff-p06"/>
-                                            <constraint firstItem="3vg-Oa-f0w" firstAttribute="leading" secondItem="Mm4-El-8SV" secondAttribute="leading" constant="8" id="yl1-z6-HfA"/>
+                                            <constraint firstAttribute="bottom" secondItem="hbp-Fh-UB4" secondAttribute="bottom" id="2T9-Ih-oiw"/>
+                                            <constraint firstAttribute="trailing" secondItem="hbp-Fh-UB4" secondAttribute="trailing" id="CfO-O5-a4z"/>
+                                            <constraint firstAttribute="trailing" secondItem="0OU-Fc-wZm" secondAttribute="trailing" id="KmO-R9-h2V"/>
+                                            <constraint firstItem="0OU-Fc-wZm" firstAttribute="leading" secondItem="7Hh-4Z-tMs" secondAttribute="leading" id="LCM-wh-I5f"/>
+                                            <constraint firstItem="0OU-Fc-wZm" firstAttribute="top" secondItem="1qp-gl-0w1" secondAttribute="bottom" constant="8" id="Nlg-tl-rT9"/>
+                                            <constraint firstItem="1qp-gl-0w1" firstAttribute="top" secondItem="7Hh-4Z-tMs" secondAttribute="top" id="Tbs-oM-Kwm"/>
+                                            <constraint firstAttribute="trailing" secondItem="1qp-gl-0w1" secondAttribute="trailing" id="Y9l-ei-mdE"/>
+                                            <constraint firstItem="hbp-Fh-UB4" firstAttribute="top" secondItem="0OU-Fc-wZm" secondAttribute="bottom" constant="16" id="jQ9-w4-HpA"/>
+                                            <constraint firstItem="1qp-gl-0w1" firstAttribute="leading" secondItem="7Hh-4Z-tMs" secondAttribute="leading" id="piW-uX-pt0"/>
+                                            <constraint firstItem="hbp-Fh-UB4" firstAttribute="leading" secondItem="7Hh-4Z-tMs" secondAttribute="leading" id="qVs-uL-Y2C"/>
                                         </constraints>
-                                    </stackView>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Mm4-El-8SV" firstAttribute="centerY" secondItem="anK-AN-WSd" secondAttribute="centerY" id="Jq4-vD-foJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mm4-El-8SV" secondAttribute="trailing" constant="8" id="Zbq-fZ-i6V"/>
-                                    <constraint firstItem="Mm4-El-8SV" firstAttribute="leading" secondItem="anK-AN-WSd" secondAttribute="leading" constant="8" id="aL7-lK-xZx"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Hh-4Z-tMs" secondAttribute="trailing" constant="8" id="dD1-O3-wYj"/>
+                                    <constraint firstItem="7Hh-4Z-tMs" firstAttribute="leading" secondItem="anK-AN-WSd" secondAttribute="leading" constant="8" id="kH2-hM-age"/>
+                                    <constraint firstItem="7Hh-4Z-tMs" firstAttribute="centerY" secondItem="anK-AN-WSd" secondAttribute="centerY" id="mUW-vH-03s"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -495,29 +513,29 @@
             <objects>
                 <viewController id="aRj-9S-j16" customClass="SetupEnableBiometricsViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbv-FZ-BS3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="dmR-8Y-LFH" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxM-c7-MzO">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FaceID/TouchID unlock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX1-ui-8Mc">
-                                        <rect key="frame" x="0.0" y="335.5" width="414" height="23"/>
+                                        <rect key="frame" x="0.0" y="293.66666666666669" width="375" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometry allows you to unlock Raivo with your biological data, instead of the PIN code." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-qx-5TC">
-                                        <rect key="frame" x="8" y="366.5" width="398" height="41"/>
+                                        <rect key="frame" x="8" y="324.66666666666669" width="359" height="40.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU9-YJ-WIB">
-                                        <rect key="frame" x="16" y="706" width="382" height="52"/>
+                                        <rect key="frame" x="16" y="622" width="343" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -533,7 +551,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqQ-9w-z3g">
-                                        <rect key="frame" x="8" y="415.5" width="398" height="29"/>
+                                        <rect key="frame" x="8" y="373.33333333333331" width="359" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="I don't want to use biometry"/>
                                         <connections>
@@ -541,7 +559,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EU7-Ek-El2" customClass="SVGKFastImageView">
-                                        <rect key="frame" x="157" y="219.5" width="100" height="100"/>
+                                        <rect key="frame" x="137.66666666666666" y="177.66666666666669" width="100" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Fdm-iw-YfF"/>
@@ -595,7 +613,7 @@
             <objects>
                 <navigationController restorationIdentifier="SetupRootController" storyboardIdentifier="SetupRootController" id="1DF-da-ZYB" customClass="SetupRootViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aYJ-C9-HMs">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

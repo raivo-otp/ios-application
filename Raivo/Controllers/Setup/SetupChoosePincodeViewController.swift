@@ -40,13 +40,16 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
         
         resetView(
             "Choose your PIN code",
-            "You need it to unlock Raivo, so make sure you'll be able to remember it."
+            "You need it to unlock Raivo, so make sure you'll be able to remember it.",
+            fields: [viewPincodeInitial, viewPincodeConfirm]
         )
         
         viewPincodeInitial.delegate = self
         viewPincodeConfirm.delegate = self
         viewPincodeInitial.layoutIfNeeded()
         viewPincodeConfirm.layoutIfNeeded()
+        
+        viewPincodeConfirm.isHidden = true
     }
     
     /// Notifies the view controller that its view was added to a view hierarchy.
@@ -71,7 +74,17 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
         do {
             currentKey = try CryptographyHelper.shared.derive(pincode, withSalt: salt!)
         } catch let error {
-            ui { self.resetView("Invalid PIN code", "Please start over by choosing a new PIN code.") }
+            ui {
+                self.resetView(
+                    "Invalid PIN code",
+                    "Please start over by choosing a new PIN code.",
+                    animation: "shake",
+                    fields: [self.viewPincodeInitial, self.viewPincodeConfirm]
+                )
+                
+                self.viewPincodeInitial.becomeFirstResponder()
+            }
+            
             return log.error(error)
         }
         
@@ -83,8 +96,11 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
                 self.resetView(
                     "Almost there!",
                     "Confirm your PIN code to continue.",
-                    flash: true
+                    animation: "morph" // squeeze, swing, morph
                 )
+                
+                self.viewPincodeConfirm.isHidden = false
+                self.viewPincodeConfirm.becomeFirstResponder()
             }
         case currentKey:
             createDatabase(using: currentKey!)
@@ -94,9 +110,13 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
             ui {
                 self.resetView(
                     "Oh oh, not similar :/",
-                    "Please start over by choosing a new PIN code.",
-                    flash: true
+                    "Start over and choose a new PIN code.",
+                    animation: "shake",
+                    fields: [self.viewPincodeInitial, self.viewPincodeConfirm]
                 )
+                
+                self.viewPincodeConfirm.isHidden = true
+                self.viewPincodeInitial.becomeFirstResponder()
             }
         }
     }
@@ -105,17 +125,21 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
     ///
     /// - Parameter title: The title centered in the view
     /// - Parameter extra: Extra information that supports the title
-    /// - Parameter flash: If the extra message should flash/wobble
-    private func resetView(_ title: String, _ extra: String, flash: Bool = false) {
+    /// - Parameter animation: The spring animation that should trigger
+    /// - Parameter fields: Which UIPincodeField's should be reset to their initial state?
+    private func resetView(_ title: String, _ extra: String, animation: String? = nil, fields: [UIPincodeField] = []) {
         viewTitle.text = title
         viewExtra.text = extra
         
-        viewPincodeInitial.reset()
-        viewPincodeInitial.layoutIfNeeded()
+        for field in fields {
+            field.reset()
+            field.layoutIfNeeded()
+        }
         
-        if flash {
+        if let animation = animation {
             viewExtra.delay = CGFloat(0.25)
-            viewExtra.animation = "shake"
+            viewExtra.duration = CGFloat(1.0)
+            viewExtra.animation = animation
             viewExtra.animate()
         }
     }
