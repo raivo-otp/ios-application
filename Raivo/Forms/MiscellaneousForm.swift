@@ -229,8 +229,6 @@ class MiscellaneousForm {
                 dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
                 dataExportMail.send(popupFrom: controller) {
                     dataExport.deleteArchive()
-                    
-                    log.verbose("Now wait a moment, sending mails with attatchments can take a few seconds!")
                 }
             })
     }

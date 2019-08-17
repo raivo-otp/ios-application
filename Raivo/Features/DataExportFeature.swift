@@ -9,8 +9,10 @@
 // 
 
 import Foundation
+import UIKit
 import RealmSwift
 import SSZipArchive
+import EFQRCode
 
 class DataExportFeature {
     
@@ -81,6 +83,7 @@ class DataExportFeature {
             text = text.replacingOccurrences(of: "{{kind}}", with: password.kind)
             text = text.replacingOccurrences(of: "{{timer}}", with: String(password.timer))
             text = text.replacingOccurrences(of: "{{counter}}", with: String(password.counter))
+            text = text.replacingOccurrences(of: "{{qrcode}}", with: getQuickResponseCodeHTML(password))
             
             passwordTextArray.append(text)
         }
@@ -89,6 +92,21 @@ class DataExportFeature {
         wrapperText = wrapperText.replacingOccurrences(of: "{{passwords}}", with: passwordTextArray.joined(separator: "<hr>"))
         
         return wrapperText
+    }
+    
+    private func getQuickResponseCodeHTML(_ password: Password) -> String {
+        guard let qrcodeImage = EFQRCode.generate(
+            content: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret,
+            size: EFIntSize(width: 300, height: 300)
+        ) else {
+            return "QR code could not be generated."
+        }
+        
+        guard let qrcodeData = UIImage(cgImage: qrcodeImage).pngData() else {
+            return "PNG data could not be extracted from QR code."
+        }
+        
+        return "<img src='data:image/png;base64," + qrcodeData.base64EncodedString() + "' height=300 width=300 />"
     }
     
     private func getJSONRepresentation() -> String {

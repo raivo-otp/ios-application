@@ -17,8 +17,9 @@ class ComposeMailFeature {
         case dataExport
     }
     
-    let template: Template
     var attachments: [(URL, String, String)] = []
+    
+    let template: Template
     
     init(_ template: Template) {
         self.template = template
@@ -28,7 +29,7 @@ class ComposeMailFeature {
         attachments.append((data, mime, name))
     }
     
-    public func send<T: UIViewController & MFMailComposeViewControllerDelegate>(popupFrom controller: T, _ callback: (() -> Void)) {
+    public func send<T: UIViewController & MFMailComposeViewControllerDelegate>(popupFrom controller: T, _ callback: @escaping (() -> Void)) {
         let mailComposer = MFMailComposeViewController()
         
         guard MFMailComposeViewController.canSendMail() else {
@@ -49,7 +50,7 @@ class ComposeMailFeature {
             }
         }
         
-        controller.present(mailComposer, animated: true, completion: nil)
+        controller.present(mailComposer, animated: true, completion: callback)
     }
     
 }

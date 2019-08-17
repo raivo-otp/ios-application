@@ -256,7 +256,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            let deleteAlert = UIAlertController(title: "Warning!", message: "Do you want to delete this password?", preferredStyle: UIAlertController.Style.alert)
+            let deleteAlert = UIAlertController(title: "Warning!", message: "Do you want to permanently delete this password?", preferredStyle: UIAlertController.Style.alert)
             
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
                 if let result = self.results?[indexPath.row] {
