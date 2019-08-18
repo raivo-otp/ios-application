@@ -1,9 +1,6 @@
 PODS:
   - Alamofire (4.8.1)
   - Base32 (1.1.2)
-  - CocoaLumberjack (3.5.3):
-    - CocoaLumberjack/Core (= 3.5.3)
-  - CocoaLumberjack/Core (3.5.3)
   - EFQRCode (5.0.0):
     - swift_qrcodejs (~> 1.1.1)
   - Eureka (5.0.0)
@@ -19,13 +16,8 @@ PODS:
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
-  - SDWebImageSVGCoder (0.3.0):
-    - SDWebImage/Core (~> 5.0)
-    - SVGKit (>= 2.1)
   - Spring (1.0.6)
   - SSZipArchive (2.2.2)
-  - SVGKit (2.1.1):
-    - CocoaLumberjack (~> 3.0)
   - swift_qrcodejs (1.1.1)
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
@@ -46,7 +38,6 @@ DEPENDENCIES:
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `tg/xcode-11-b1`)
   - RNCryptor (= 5.1.0)
   - SDWebImage (= 5.0.6)
-  - SDWebImageSVGCoder (= 0.3.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SSZipArchive (= 2.2.2)
   - SwiftMessages (= 7.0.0)
@@ -59,16 +50,13 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Base32
-    - CocoaLumberjack
     - EFQRCode
     - Eureka
     - Haptica
     - OneTimePassword
     - RNCryptor
     - SDWebImage
-    - SDWebImageSVGCoder
     - SSZipArchive
-    - SVGKit
     - swift_qrcodejs
     - SwiftMessages
     - SwiftyBeaver
@@ -104,7 +92,6 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
-  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   EFQRCode: 07437cfbce3a1e497397a4f3d766c980d8972608
   Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   Haptica: ee4abaf262f456fe3854b493f506debe421ddf2c
@@ -113,10 +100,8 @@ SPEC CHECKSUMS:
   RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
-  SDWebImageSVGCoder: 4b354bcdc7d74ce14d9fdb3c9ed9ab2c667f3b57
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
-  SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   swift_qrcodejs: 0bacbfe321a99954c7b8e04c75562007ea4e4f7c
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
@@ -124,6 +109,6 @@ SPEC CHECKSUMS:
   Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: 351af168083e515e1451be6a5b87adec9af871ea
+PODFILE CHECKSUM: f74a482e647746eca38016dfff8e2d89b32819f8
 
 COCOAPODS: 1.5.3

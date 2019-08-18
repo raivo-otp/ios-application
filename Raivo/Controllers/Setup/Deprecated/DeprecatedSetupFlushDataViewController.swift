@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 
-class SetupFlushDataViewController: UIViewController {
+class DeprecatedSetupFlushDataViewController: UIViewController {
     
     @IBAction func confirm(_ sender: Any) {
         let popup = UIAlertController(title: "Are you sure?", message: "ALL your data will be deleted and you will NOT be able to recover it!", preferredStyle: .alert)

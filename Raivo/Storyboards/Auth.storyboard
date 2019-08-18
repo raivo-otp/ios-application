@@ -12,7 +12,7 @@
         <!--Welcome-->
         <scene sceneID="7Rl-A0-TS6">
             <objects>
-                <viewController restorationIdentifier="AuthViewController" storyboardIdentifier="AuthViewController" id="Tz4-fS-Gxb" customClass="AuthEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AuthViewController" storyboardIdentifier="AuthViewController" id="Tz4-fS-Gxb" customClass="DeprecatedAuthEntryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sY6-tf-x4h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,36 +21,36 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piU-Jc-vpv">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="GWG-jo-ayS">
-                                        <rect key="frame" x="127" y="237" width="160" height="160"/>
+                                        <rect key="frame" x="127" y="211" width="160" height="160"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GWG-jo-ayS" secondAttribute="height" multiplier="1:1" id="XCs-YV-xbC"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="160" id="rPH-Hw-d49"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo, OTP management done right." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8l-CF-6Gs">
-                                        <rect key="frame" x="63.5" y="407" width="287" height="20.5"/>
+                                        <rect key="frame" x="63.5" y="381" width="287" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-Mv-OHZ" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="431.5" width="398" height="20.5"/>
+                                        <rect key="frame" x="8" y="405.5" width="398" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsg-66-pHf" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="456" width="398" height="50"/>
+                                        <rect key="frame" x="8" y="430" width="398" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="kvT-5w-eBm"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-yI-PgO">
-                                        <rect key="frame" x="8" y="506" width="398" height="29"/>
+                                        <rect key="frame" x="8" y="480" width="398" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Unlock using biometry"/>
                                         <connections>
@@ -126,8 +126,8 @@
         <scene sceneID="PJd-Wa-Ls1">
             <objects>
                 <navigationController restorationIdentifier="AuthRootController" storyboardIdentifier="AuthRootController" id="gmH-zH-eht" customClass="AuthRootViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NvE-Ep-Hsc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="NvE-Ep-Hsc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

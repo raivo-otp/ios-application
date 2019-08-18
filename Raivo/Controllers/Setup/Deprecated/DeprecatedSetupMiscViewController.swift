@@ -6,19 +6,18 @@
 //
 // This source code is licensed under the CC BY-NC 4.0 license found
 // in the LICENSE.md file in the root directory of this source tree.
-//
+// 
 
 import UIKit
 import Eureka
+import CloudKit
+import RealmSwift
 import MessageUI
 
-/// On setup, a user can click on the "settings" icon. This controller will be launched if "settings" is clicked.
-class SetupMiscViewController: FormViewController, MFMailComposeViewControllerDelegate {
+class DeprecatedSetupMiscViewController: FormViewController, MFMailComposeViewControllerDelegate {
     
-    /// A reference to the form to load into this form view
     private var miscellaneousForm: MiscellaneousForm?
     
-    /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,11 +25,6 @@ class SetupMiscViewController: FormViewController, MFMailComposeViewControllerDe
         tableView.backgroundColor = UIColor.getBackgroundEureka()
     }
     
-    /// Delegate callback which is called upon user's completion of email composition.
-    ///
-    /// - Parameter controller: The MFMailComposeViewController instance which is returning the result.
-    /// - Parameter result: MFMailComposeResult indicating how the user chose to complete the composition process.
-    /// - Parameter error: NSError indicating the failure reason if failure did occur.
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }

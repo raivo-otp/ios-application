@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 import Spring
 
-class SetupEnableBiometricsViewController: UIViewController {
+class DeprecatedSetupEnableBiometricsViewController: UIViewController {
     
     @IBOutlet weak var iconView: UIImageView!
     

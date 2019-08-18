@@ -16,14 +16,14 @@ class AuthRootViewController: UINavigationController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        if #available(iOS 12.0, *) {
-            switch traitCollection.userInterfaceStyle {
-            case .dark:
-                view.backgroundColor = UIColor.getBackgroundOpaque(true)
-            default:
-                view.backgroundColor = UIColor.getBackgroundOpaque()
-            }
-        }
+//        if #available(iOS 12.0, *) {
+//            switch traitCollection.userInterfaceStyle {
+//            case .dark:
+//                view.backgroundColor = UIColor.getBackgroundOpaque(true)
+//            default:
+//                view.backgroundColor = UIColor.getBackgroundOpaque()
+//            }
+//        }
     }
     
 }

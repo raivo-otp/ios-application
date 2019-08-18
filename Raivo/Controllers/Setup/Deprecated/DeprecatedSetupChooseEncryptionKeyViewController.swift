@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 import Spring
 
-class SetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDelegate {
+class DeprecatedSetupChooseEncryptionKeyViewController: UIViewController, UITextFieldDelegate {
     
     public var account: SyncerAccount?
     

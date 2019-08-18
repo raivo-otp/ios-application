@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-pd-f2P">
-                                <rect key="frame" x="16" y="60" width="343" height="343"/>
+                                <rect key="frame" x="16" y="112" width="343" height="343"/>
                                 <subviews>
                                     <view alpha="0.0" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-rB-tZr">
                                         <rect key="frame" x="3" y="3" width="337" height="337"/>
@@ -215,8 +215,8 @@
             <objects>
                 <navigationController id="JqB-dd-yVm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="tabbar-misc" id="Fj5-sw-Yre"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OZY-Ml-0et">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OZY-Ml-0et">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -249,7 +249,7 @@
         <!--New Pincode-->
         <scene sceneID="0zb-Hm-etg">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="MainChangePincodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="DeprecatedMainChangePincodeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RLv-3W-khe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,22 +258,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-ii-oP4">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1k-E7-fs8">
-                                        <rect key="frame" x="0.0" y="270.5" width="375" height="23"/>
+                                        <rect key="frame" x="0.0" y="244.5" width="375" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-NT-HA5" customClass="SpringLabel" customModule="Spring">
-                                        <rect key="frame" x="8" y="301.5" width="359" height="20.5"/>
+                                        <rect key="frame" x="8" y="275.5" width="359" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umv-KD-VhE" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="322" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="296" width="375" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="hFO-xS-1xs"/>
@@ -322,8 +322,8 @@
             <objects>
                 <navigationController id="j5u-qg-LTV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Passwords" image="tabbar-passwords" id="Jpk-b9-jm1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GN6-3m-WBS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="GN6-3m-WBS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

@@ -14,12 +14,11 @@
 		700908CC21FCCE6100603AA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 700908CB21FCCE6100603AA2 /* Assets.xcassets */; };
 		700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908CD21FCCE6100603AA2 /* Splash.storyboard */; };
 		700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908E421FCE37B00603AA2 /* Auth.storyboard */; };
-		700908E721FCE38700603AA2 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908E621FCE38700603AA2 /* Setup.storyboard */; };
 		700908EE21FCEC2800603AA2 /* AuthEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908ED21FCEC2800603AA2 /* AuthEntryViewController.swift */; };
 		700908F021FCEC3100603AA2 /* SetupEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908EF21FCEC3100603AA2 /* SetupEntryViewController.swift */; };
 		700908F221FCFADF00603AA2 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F121FCFADF00603AA2 /* Password.swift */; };
 		700908F421FD027400603AA2 /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F321FD027400603AA2 /* TokenHelper.swift */; };
-		700908F621FD0A0100603AA2 /* SetupChooseSyncerServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F521FD0A0100603AA2 /* SetupChooseSyncerServiceViewController.swift */; };
+		700908F621FD0A0100603AA2 /* DeprecatedSetupChooseSyncerServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F521FD0A0100603AA2 /* DeprecatedSetupChooseSyncerServiceViewController.swift */; };
 		7016DE422265193D006C45B6 /* CustomColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016DE412265193D006C45B6 /* CustomColorsExtension.swift */; };
 		70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70285928226205C50045DA26 /* CloudKitPasswordConverter.swift */; };
 		7028592C226212EA0045DA26 /* CloudKitPasswordSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028592B226212EA0045DA26 /* CloudKitPasswordSyncer.swift */; };
@@ -30,20 +29,20 @@
 		702CA6CD2263A16D000DCC1D /* UnexpectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6CC2263A16D000DCC1D /* UnexpectedError.swift */; };
 		702CA6D12263B2CD000DCC1D /* MigrationToBuild4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */; };
 		703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */; };
-		703B6B30227A060900409BB5 /* SetupEnableBiometricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */; };
+		703B6B30227A060900409BB5 /* DeprecatedSetupEnableBiometricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703B6B2F227A060900409BB5 /* DeprecatedSetupEnableBiometricsViewController.swift */; };
 		704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */; };
 		704E16DB22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */; };
 		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
 		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
 		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
 		70617A592270DBD80032076A /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A582270DBD80032076A /* QueryHelper.swift */; };
-		70617A5B2270E55D0032076A /* SetupFlushDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A5A2270E55D0032076A /* SetupFlushDataViewController.swift */; };
+		70617A5B2270E55D0032076A /* DeprecatedSetupFlushDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A5A2270E55D0032076A /* DeprecatedSetupFlushDataViewController.swift */; };
 		7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C796226A455800C1A949 /* SyncerChallenge.swift */; };
 		7066C79B226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79A226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift */; };
 		7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79C226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift */; };
 		7066C79F226A4FDD00C1A949 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79E226A4FDD00C1A949 /* global.swift */; };
 		706708E722888265009A15B9 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706708E622888265009A15B9 /* AlamofireHelper.swift */; };
-		706708E92288A5D5009A15B9 /* SetupMiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706708E82288A5D5009A15B9 /* SetupMiscViewController.swift */; };
+		706708E92288A5D5009A15B9 /* DeprecatedSetupMiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706708E82288A5D5009A15B9 /* DeprecatedSetupMiscViewController.swift */; };
 		70684DED225A1BD40038BDB4 /* ApplicationPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEC225A1BD40038BDB4 /* ApplicationPrincipal.swift */; };
 		70684DEF225A1BF70038BDB4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEE225A1BF70038BDB4 /* main.swift */; };
 		70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */; };
@@ -97,6 +96,9 @@
 		70B5585D225E74A000F83A34 /* CounterBasedPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5585C225E74A000F83A34 /* CounterBasedPasswordCell.swift */; };
 		70B5585F225E74AE00F83A34 /* CounterBasedPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B5585E225E74AE00F83A34 /* CounterBasedPasswordCell.xib */; };
 		70B55862225E761800F83A34 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B55861225E761800F83A34 /* PasswordCell.swift */; };
+		70B585E323098D6400AD1754 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B585E223098D6400AD1754 /* Setup.storyboard */; };
+		70B585E62309A67E00AD1754 /* SetupMiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585E52309A67E00AD1754 /* SetupMiscViewController.swift */; };
+		70B585E82309B80E00AD1754 /* SetupStorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585E72309B80E00AD1754 /* SetupStorageViewController.swift */; };
 		70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3ED9225663A1005C98EF /* SyncerProtocol.swift */; };
 		70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDB22566408005C98EF /* CloudKitSyncer.swift */; };
 		70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDF22567223005C98EF /* SyncerAccount.swift */; };
@@ -113,8 +115,8 @@
 		70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */; };
 		70D0FD692291B8F10016BD95 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD682291B8F10016BD95 /* Error.storyboard */; };
 		70D0FD6B2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD6A2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift */; };
-		70D534F622398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */; };
-		70D534F822398B8100CDD228 /* SetupChoosePincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */; };
+		70D534F622398B3A00CDD228 /* DeprecatedSetupChooseEncryptionKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F522398B3A00CDD228 /* DeprecatedSetupChooseEncryptionKeyViewController.swift */; };
+		70D534F822398B8100CDD228 /* DeprecatedSetupChoosePincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D534F722398B8100CDD228 /* DeprecatedSetupChoosePincodeViewController.swift */; };
 		70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */; };
 		70DC72E422A3E548006FE7B7 /* export-original.html in Resources */ = {isa = PBXBuildFile; fileRef = 70DC72E322A3E548006FE7B7 /* export-original.html */; };
 		70DC72E622A3EA13006FE7B7 /* export-inline.html in Resources */ = {isa = PBXBuildFile; fileRef = 70DC72E522A3EA13006FE7B7 /* export-inline.html */; };
@@ -143,12 +145,11 @@
 		700908CE21FCCE6100603AA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Splash.storyboard; sourceTree = "<group>"; };
 		700908D021FCCE6100603AA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		700908E421FCE37B00603AA2 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
-		700908E621FCE38700603AA2 /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
 		700908ED21FCEC2800603AA2 /* AuthEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEntryViewController.swift; sourceTree = "<group>"; };
 		700908EF21FCEC3100603AA2 /* SetupEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEntryViewController.swift; sourceTree = "<group>"; };
 		700908F121FCFADF00603AA2 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		700908F321FD027400603AA2 /* TokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
-		700908F521FD0A0100603AA2 /* SetupChooseSyncerServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChooseSyncerServiceViewController.swift; sourceTree = "<group>"; };
+		700908F521FD0A0100603AA2 /* DeprecatedSetupChooseSyncerServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedSetupChooseSyncerServiceViewController.swift; sourceTree = "<group>"; };
 		7016DE412265193D006C45B6 /* CustomColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorsExtension.swift; sourceTree = "<group>"; };
 		70285928226205C50045DA26 /* CloudKitPasswordConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPasswordConverter.swift; sourceTree = "<group>"; };
 		7028592B226212EA0045DA26 /* CloudKitPasswordSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPasswordSyncer.swift; sourceTree = "<group>"; };
@@ -159,20 +160,20 @@
 		702CA6CC2263A16D000DCC1D /* UnexpectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnexpectedError.swift; sourceTree = "<group>"; };
 		702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild4.swift; sourceTree = "<group>"; };
 		703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstrainToKeyboardExtension.swift; sourceTree = "<group>"; };
-		703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEnableBiometricsViewController.swift; sourceTree = "<group>"; };
+		703B6B2F227A060900409BB5 /* DeprecatedSetupEnableBiometricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedSetupEnableBiometricsViewController.swift; sourceTree = "<group>"; };
 		704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyError.swift; sourceTree = "<group>"; };
 		704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyError.xib; sourceTree = "<group>"; };
 		7059680A22994CCF0032D70F /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
 		7059680F2299AB0A0032D70F /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		70617A582270DBD80032076A /* QueryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelper.swift; sourceTree = "<group>"; };
-		70617A5A2270E55D0032076A /* SetupFlushDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFlushDataViewController.swift; sourceTree = "<group>"; };
+		70617A5A2270E55D0032076A /* DeprecatedSetupFlushDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedSetupFlushDataViewController.swift; sourceTree = "<group>"; };
 		7066C796226A455800C1A949 /* SyncerChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerChallenge.swift; sourceTree = "<group>"; };
 		7066C79A226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModelSyncerProtocol.swift; sourceTree = "<group>"; };
 		7066C79C226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModelConverterProtocol.swift; sourceTree = "<group>"; };
 		7066C79E226A4FDD00C1A949 /* global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
 		706708E622888265009A15B9 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
-		706708E82288A5D5009A15B9 /* SetupMiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMiscViewController.swift; sourceTree = "<group>"; };
+		706708E82288A5D5009A15B9 /* DeprecatedSetupMiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedSetupMiscViewController.swift; sourceTree = "<group>"; };
 		70684DEC225A1BD40038BDB4 /* ApplicationPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPrincipal.swift; sourceTree = "<group>"; };
 		70684DEE225A1BF70038BDB4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousForm.swift; sourceTree = "<group>"; };
@@ -227,6 +228,9 @@
 		70B5585C225E74A000F83A34 /* CounterBasedPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterBasedPasswordCell.swift; sourceTree = "<group>"; };
 		70B5585E225E74AE00F83A34 /* CounterBasedPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterBasedPasswordCell.xib; sourceTree = "<group>"; };
 		70B55861225E761800F83A34 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
+		70B585E223098D6400AD1754 /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
+		70B585E52309A67E00AD1754 /* SetupMiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMiscViewController.swift; sourceTree = "<group>"; };
+		70B585E72309B80E00AD1754 /* SetupStorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupStorageViewController.swift; sourceTree = "<group>"; };
 		70BC3ED9225663A1005C98EF /* SyncerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerProtocol.swift; sourceTree = "<group>"; };
 		70BC3EDB22566408005C98EF /* CloudKitSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncer.swift; sourceTree = "<group>"; };
 		70BC3EDF22567223005C98EF /* SyncerAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerAccount.swift; sourceTree = "<group>"; };
@@ -243,8 +247,8 @@
 		70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEntryViewController.swift; sourceTree = "<group>"; };
 		70D0FD682291B8F10016BD95 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
 		70D0FD6A2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSyncerAccountChangedViewController.swift; sourceTree = "<group>"; };
-		70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChooseEncryptionKeyViewController.swift; sourceTree = "<group>"; };
-		70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupChoosePincodeViewController.swift; sourceTree = "<group>"; };
+		70D534F522398B3A00CDD228 /* DeprecatedSetupChooseEncryptionKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedSetupChooseEncryptionKeyViewController.swift; sourceTree = "<group>"; };
+		70D534F722398B8100CDD228 /* DeprecatedSetupChoosePincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedSetupChoosePincodeViewController.swift; sourceTree = "<group>"; };
 		70D7D7CC225BB0DD008DA2FD /* PatternImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternImage.swift; sourceTree = "<group>"; };
 		70DC72E322A3E548006FE7B7 /* export-original.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "export-original.html"; sourceTree = "<group>"; };
 		70DC72E522A3EA13006FE7B7 /* export-inline.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "export-inline.html"; sourceTree = "<group>"; };
@@ -362,14 +366,11 @@
 		700908DA21FCE29F00603AA2 /* Setup */ = {
 			isa = PBXGroup;
 			children = (
+				70B585E42309A0EC00AD1754 /* Deprecated */,
 				700908EF21FCEC3100603AA2 /* SetupEntryViewController.swift */,
-				700908F521FD0A0100603AA2 /* SetupChooseSyncerServiceViewController.swift */,
-				70D534F522398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift */,
-				70D534F722398B8100CDD228 /* SetupChoosePincodeViewController.swift */,
-				70617A5A2270E55D0032076A /* SetupFlushDataViewController.swift */,
-				703B6B2F227A060900409BB5 /* SetupEnableBiometricsViewController.swift */,
-				706708E82288A5D5009A15B9 /* SetupMiscViewController.swift */,
 				70A1BC5822F7534500152864 /* SetupRootViewController.swift */,
+				70B585E52309A67E00AD1754 /* SetupMiscViewController.swift */,
+				70B585E72309B80E00AD1754 /* SetupStorageViewController.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -406,7 +407,7 @@
 				700908C821FCCE5F00603AA2 /* Main.storyboard */,
 				700908CD21FCCE6100603AA2 /* Splash.storyboard */,
 				700908E421FCE37B00603AA2 /* Auth.storyboard */,
-				700908E621FCE38700603AA2 /* Setup.storyboard */,
+				70B585E223098D6400AD1754 /* Setup.storyboard */,
 				70D0FD612291B00E0016BD95 /* Load.storyboard */,
 				70D0FD682291B8F10016BD95 /* Error.storyboard */,
 			);
@@ -632,6 +633,19 @@
 				70B55861225E761800F83A34 /* PasswordCell.swift */,
 			);
 			path = PasswordCell;
+			sourceTree = "<group>";
+		};
+		70B585E42309A0EC00AD1754 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				700908F521FD0A0100603AA2 /* DeprecatedSetupChooseSyncerServiceViewController.swift */,
+				70D534F522398B3A00CDD228 /* DeprecatedSetupChooseEncryptionKeyViewController.swift */,
+				70D534F722398B8100CDD228 /* DeprecatedSetupChoosePincodeViewController.swift */,
+				70617A5A2270E55D0032076A /* DeprecatedSetupFlushDataViewController.swift */,
+				703B6B2F227A060900409BB5 /* DeprecatedSetupEnableBiometricsViewController.swift */,
+				706708E82288A5D5009A15B9 /* DeprecatedSetupMiscViewController.swift */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		70BC3ED722566379005C98EF /* Syncers */ = {
@@ -861,7 +875,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				700908E721FCE38700603AA2 /* Setup.storyboard in Resources */,
 				70D0FD692291B8F10016BD95 /* Error.storyboard in Resources */,
 				70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */,
 				70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */,
@@ -871,6 +884,7 @@
 				70DC72E622A3EA13006FE7B7 /* export-inline.html in Resources */,
 				700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */,
 				700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */,
+				70B585E323098D6400AD1754 /* Setup.storyboard in Resources */,
 				708A2B1B22885DCE00981BBC /* IconFormSelectorViewFooter.xib in Resources */,
 				70DC72E422A3E548006FE7B7 /* export-original.html in Resources */,
 				700908CC21FCCE6100603AA2 /* Assets.xcassets in Resources */,
@@ -902,7 +916,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Raivo/Pods-Raivo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Base32/Base32.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/EFQRCode/EFQRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Haptica/Haptica.framework",
@@ -911,9 +924,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImageSVGCoder/SDWebImageSVGCoder.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
-				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -928,7 +939,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Base32.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFQRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haptica.framework",
@@ -937,9 +947,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageSVGCoder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -992,10 +1000,11 @@
 				70C80DA9229F070A00413801 /* UIPincodeFieldDelegate.swift in Sources */,
 				700908EE21FCEC2800603AA2 /* AuthEntryViewController.swift in Sources */,
 				70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */,
-				70D534F822398B8100CDD228 /* SetupChoosePincodeViewController.swift in Sources */,
+				70D534F822398B8100CDD228 /* DeprecatedSetupChoosePincodeViewController.swift in Sources */,
 				70C80DAA229F070A00413801 /* UIDigitField.swift in Sources */,
 				700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */,
 				702BAEA82258FD1B008E5C5F /* PasswordForm.swift in Sources */,
+				70B585E62309A67E00AD1754 /* SetupMiscViewController.swift in Sources */,
 				70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */,
 				70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */,
 				70C80DAE22A0464600413801 /* CryptographyHelper.swift in Sources */,
@@ -1017,6 +1026,7 @@
 				705968102299AB0A0032D70F /* StorageHelper.swift in Sources */,
 				70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */,
 				709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */,
+				70B585E82309B80E00AD1754 /* SetupStorageViewController.swift in Sources */,
 				7077A339227CCA9300338CA3 /* PasswordKindFormOption.swift in Sources */,
 				70AE332922748229007A12A2 /* BannerHelper.swift in Sources */,
 				70A7B11C22306DB60084F15B /* TimeBasedPasswordCell.swift in Sources */,
@@ -1039,7 +1049,7 @@
 				700908F421FD027400603AA2 /* TokenHelper.swift in Sources */,
 				7077A337227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift in Sources */,
 				70AE33272274566B007A12A2 /* MigrationHelper.swift in Sources */,
-				70617A5B2270E55D0032076A /* SetupFlushDataViewController.swift in Sources */,
+				70617A5B2270E55D0032076A /* DeprecatedSetupFlushDataViewController.swift in Sources */,
 				70E42298229891D50020D725 /* NotificationHelper.swift in Sources */,
 				700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */,
 				7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */,
@@ -1059,10 +1069,10 @@
 				70A1BC5922F7534500152864 /* SetupRootViewController.swift in Sources */,
 				703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */,
 				7077A346227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift in Sources */,
-				70D534F622398B3A00CDD228 /* SetupChooseEncryptionKeyViewController.swift in Sources */,
+				70D534F622398B3A00CDD228 /* DeprecatedSetupChooseEncryptionKeyViewController.swift in Sources */,
 				70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */,
 				70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */,
-				703B6B30227A060900409BB5 /* SetupEnableBiometricsViewController.swift in Sources */,
+				703B6B30227A060900409BB5 /* DeprecatedSetupEnableBiometricsViewController.swift in Sources */,
 				709B636322C5495100697884 /* QuickResponseCodeRowCell.swift in Sources */,
 				70DE925122A1A37200D00BB0 /* CryptographyError.swift in Sources */,
 				7077A342227F0FCC00338CA3 /* IconFormRowCell.swift in Sources */,
@@ -1070,11 +1080,11 @@
 				70A7B116223062080084F15B /* MainSearchViewController.swift in Sources */,
 				70A7B114223061F80084F15B /* MainEditPasswordViewController.swift in Sources */,
 				70A7B10E223061D60084F15B /* MainPasswordsViewController.swift in Sources */,
-				700908F621FD0A0100603AA2 /* SetupChooseSyncerServiceViewController.swift in Sources */,
+				700908F621FD0A0100603AA2 /* DeprecatedSetupChooseSyncerServiceViewController.swift in Sources */,
 				70B143AC222AB9360015896F /* RealmHelper.swift in Sources */,
 				70FA4C4F228752A300A3B754 /* IconFormSelectorViewEmptySearch.swift in Sources */,
 				70AE33232273B422007A12A2 /* AppHelper.swift in Sources */,
-				706708E92288A5D5009A15B9 /* SetupMiscViewController.swift in Sources */,
+				706708E92288A5D5009A15B9 /* DeprecatedSetupMiscViewController.swift in Sources */,
 				70A7B112223061EE0084F15B /* MainCreatePasswordViewController.swift in Sources */,
 				70A7B12122306DF40084F15B /* UIPasswordsEmptyListView.swift in Sources */,
 				706FD81522EB71A500F433F7 /* QuickResponseCodeForm.swift in Sources */,

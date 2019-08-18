@@ -15,7 +15,7 @@ import Spring
 import Valet
 
 /// This controller allows users to setup their PIN code
-class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate {
+class DeprecatedSetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate {
     
     /// The title centered in the view
     @IBOutlet weak var viewTitle: UILabel!

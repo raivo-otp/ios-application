@@ -14,27 +14,31 @@ import UIKit
 // MARK: - Extend UIColor with custom colors
 extension UIColor {
     
-    public static func getLabel(_ darkMode: Bool = false) -> UIColor {
+    public static func getLabel() -> UIColor {
         return UIColor(named: "color-label")!
     }
     
-    public static func getSecondaryLabel(_ darkMode: Bool = false) -> UIColor {
+    public static func getSecondaryLabel() -> UIColor {
         return UIColor(named: "color-secondary-label")!
     }
     
-    public static func getTintRed(_ darkMode: Bool = false) -> UIColor {
+    public static func getTintRed() -> UIColor {
         return UIColor(named: "color-tint-red")!
     }
 
-    public static func getTintBlue(_ darkMode: Bool = false) -> UIColor {
+    public static func getTintBlue() -> UIColor {
         return UIColor(named: "color-tint-blue")!
     }
 
-    public static func getBackgroundOpaque(_ darkMode: Bool = false) -> UIColor {
+    public static func getBackgroundOpaque() -> UIColor {
         return UIColor(named: "color-background-opaque")!
     }
 
-    public static func getBackgroundTransparent(_ darkMode: Bool = false) -> UIColor {
+    public static func getBackgroundTransparent() -> UIColor {
         return UIColor(named: "color-background-transparent")!
+    }
+    
+    public static func getBackgroundEureka() -> UIColor {
+        return UIColor(named: "color-background-eureka")!
     }
 }

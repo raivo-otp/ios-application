@@ -12,7 +12,7 @@ import UIKit
 import Spring
 import Eureka
 
-class SetupChooseSyncerServiceViewController: FormViewController {
+class DeprecatedSetupChooseSyncerServiceViewController: FormViewController {
     
     private var synchronizationProviderForm: SynchronizationProviderForm?
     
@@ -121,7 +121,7 @@ class SetupChooseSyncerServiceViewController: FormViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DatabaseEncryptionSegue" {
-            if let destination = segue.destination as? SetupChooseEncryptionKeyViewController {
+            if let destination = segue.destination as? DeprecatedSetupChooseEncryptionKeyViewController {
                 let selectedSyncer = synchronizationProviderForm!.getSelectedSyncer()!
                 
                 StorageHelper.shared.setSynchronizationProvider(selectedSyncer)

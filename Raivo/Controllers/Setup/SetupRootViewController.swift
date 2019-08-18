@@ -8,22 +8,9 @@
 // in the LICENSE.md file in the root directory of this source tree.
 //
 
-import Foundation
 import UIKit
 
+/// The root controller of the setup storyboard.
 class SetupRootViewController: UINavigationController {
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        if #available(iOS 12.0, *) {
-            switch traitCollection.userInterfaceStyle {
-            case .dark:
-                view.backgroundColor = UIColor.getBackgroundOpaque(true)
-            default:
-                view.backgroundColor = UIColor.getBackgroundOpaque()
-            }
-        }
-    }
-    
+
 }
