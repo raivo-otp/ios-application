@@ -27,7 +27,6 @@ target 'Raivo' do
   
   # Retrieves, caches and displays images from the web (for issuer logos)
   pod 'SDWebImage', '5.0.6'
-  pod 'SDWebImageSVGCoder', '0.3.0'
 
   # Debug logging (only used in debug builds)
   pod 'SwiftyBeaver', '1.7.0'

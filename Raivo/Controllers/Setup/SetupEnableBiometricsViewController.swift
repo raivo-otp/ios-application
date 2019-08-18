@@ -11,19 +11,22 @@
 import Foundation
 import UIKit
 import Spring
-import SVGKit
 
 class SetupEnableBiometricsViewController: UIViewController {
     
-    @IBOutlet weak var viewIcon: SVGKFastImageView!
+    @IBOutlet weak var iconView: UIImageView!
+    
+    @IBOutlet weak var titleView: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        adjustViewToKeyboard()
         
-        let url = Bundle.main.url(forResource: "biometric", withExtension: "svg", subdirectory: "Vectors")
-        viewIcon.image = SVGKImage(contentsOf: url)
+        if BiometricHelper.shared.type() == .face {
+            iconView.image = UIImage(named: "vector-biometry-faceid")
+            titleView.text = "FaceID unlock"
+        }
+        
+        adjustViewToKeyboard()
     }
     
     @IBAction func onDismissBiometric(_ sender: Any) {

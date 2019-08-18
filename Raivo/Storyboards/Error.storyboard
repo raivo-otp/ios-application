@@ -16,85 +16,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="dmR-8Y-LFH" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="dmR-8Y-LFH" userLabel="Background" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxM-c7-MzO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX1-ui-8Mc">
-                                        <rect key="frame" x="0.0" y="310.5" width="375" height="23"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-qx-5TC">
-                                        <rect key="frame" x="8" y="341.5" width="359" height="162.5"/>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">You've got two options.  1 - Sign out of Raivo to setup Raivo with your new syncrhonization provider account.   2 - Revert you synchronization provider account and restart the app to go back to a working state.</string>
-                                                <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU9-YJ-WIB">
-                                        <rect key="frame" x="16" y="599" width="343" height="52"/>
-                                        <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
-                                        <state key="normal" title="Sign out"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onContinue:" destination="01J-lp-oVM" eventType="touchUpInside" id="6YJ-1E-bXn"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EU7-Ek-El2" customClass="SVGKFastImageView">
-                                        <rect key="frame" x="137.5" y="194.5" width="100" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="Fdm-iw-YfF"/>
-                                            <constraint firstAttribute="width" secondItem="EU7-Ek-El2" secondAttribute="height" multiplier="1:1" id="wah-Cg-xFX"/>
-                                        </constraints>
-                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VUF-kC-QHk">
+                                        <rect key="frame" x="8" y="149" width="359" height="301.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vector-cloud-error" translatesAutoresizingMaskIntoConstraints="NO" id="Ed6-Su-lqH">
+                                                <rect key="frame" x="129.5" y="0.0" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="p38-hk-4z4"/>
+                                                    <constraint firstAttribute="width" secondItem="Ed6-Su-lqH" secondAttribute="height" multiplier="1:1" id="sub-rf-Jex"/>
+                                                    <constraint firstAttribute="height" constant="100" id="tni-jX-Yuo"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX1-ui-8Mc">
+                                                <rect key="frame" x="156.5" y="108" width="46" height="23"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-qx-5TC">
+                                                <rect key="frame" x="7" y="139" width="345.5" height="162.5"/>
+                                                <string key="text">You've got two options.  1 - Sign out of Raivo to setup Raivo with your new syncrhonization provider account.   2 - Revert you synchronization provider account and restart the app to go back to a working state.</string>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="KQm-qx-5TC" firstAttribute="leading" secondItem="sxM-c7-MzO" secondAttribute="leading" constant="8" id="761-NG-m6q"/>
-                                    <constraint firstItem="gU9-YJ-WIB" firstAttribute="leading" secondItem="sxM-c7-MzO" secondAttribute="leading" constant="16" id="ENg-iy-lSP"/>
-                                    <constraint firstItem="mX1-ui-8Mc" firstAttribute="leading" secondItem="sxM-c7-MzO" secondAttribute="leading" id="LZy-DC-E5c"/>
-                                    <constraint firstItem="EU7-Ek-El2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sxM-c7-MzO" secondAttribute="top" constant="8" id="OAl-HJ-34l"/>
-                                    <constraint firstItem="KQm-qx-5TC" firstAttribute="top" secondItem="mX1-ui-8Mc" secondAttribute="bottom" constant="8" id="V5S-X0-iky"/>
-                                    <constraint firstAttribute="trailing" secondItem="KQm-qx-5TC" secondAttribute="trailing" constant="8" id="aaF-wl-DnY"/>
-                                    <constraint firstItem="mX1-ui-8Mc" firstAttribute="top" secondItem="EU7-Ek-El2" secondAttribute="bottom" constant="16" id="bYE-kR-uEb"/>
-                                    <constraint firstAttribute="trailing" secondItem="gU9-YJ-WIB" secondAttribute="trailing" constant="16" id="bjM-Yk-ls5"/>
-                                    <constraint firstAttribute="bottom" secondItem="gU9-YJ-WIB" secondAttribute="bottom" constant="16" id="cPj-TY-wiH"/>
-                                    <constraint firstItem="EU7-Ek-El2" firstAttribute="centerX" secondItem="sxM-c7-MzO" secondAttribute="centerX" id="o7M-wG-YtF"/>
-                                    <constraint firstAttribute="trailing" secondItem="mX1-ui-8Mc" secondAttribute="trailing" id="pIu-Pu-cT4"/>
-                                    <constraint firstItem="mX1-ui-8Mc" firstAttribute="bottom" secondItem="sxM-c7-MzO" secondAttribute="centerY" id="yIE-NL-umo"/>
+                                    <constraint firstItem="VUF-kC-QHk" firstAttribute="centerY" secondItem="sxM-c7-MzO" secondAttribute="centerY" id="6H0-mU-SaC"/>
+                                    <constraint firstItem="VUF-kC-QHk" firstAttribute="leading" secondItem="sxM-c7-MzO" secondAttribute="leading" constant="8" id="Nvm-nQ-Ipj"/>
+                                    <constraint firstAttribute="trailing" secondItem="VUF-kC-QHk" secondAttribute="trailing" constant="8" id="qYj-jd-jyB"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU9-YJ-WIB">
+                                <rect key="frame" x="16" y="599" width="343" height="52"/>
+                                <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
+                                <state key="normal" title="Sign out"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onContinue:" destination="01J-lp-oVM" eventType="touchUpInside" id="6YJ-1E-bXn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="sxM-c7-MzO" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="17z-YZ-Qa0"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="dmR-8Y-LFH" secondAttribute="trailing" id="3rU-Vc-WiA"/>
+                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="gU9-YJ-WIB" secondAttribute="trailing" constant="16" id="8Qs-JK-4md"/>
                             <constraint firstItem="aAO-MI-4Sj" firstAttribute="trailing" secondItem="sxM-c7-MzO" secondAttribute="trailing" id="EbP-W4-cb2"/>
                             <constraint firstItem="dmR-8Y-LFH" firstAttribute="top" secondItem="xbv-FZ-BS3" secondAttribute="top" id="EeH-Mc-m9u"/>
                             <constraint firstItem="dmR-8Y-LFH" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" id="Prk-KL-aLB"/>
-                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="sxM-c7-MzO" secondAttribute="bottom" id="ehp-Gq-tch"/>
+                            <constraint firstItem="aAO-MI-4Sj" firstAttribute="bottom" secondItem="gU9-YJ-WIB" secondAttribute="bottom" constant="16" id="Xfd-wY-afw"/>
+                            <constraint firstItem="gU9-YJ-WIB" firstAttribute="top" secondItem="sxM-c7-MzO" secondAttribute="bottom" id="ehp-Gq-tch"/>
                             <constraint firstItem="sxM-c7-MzO" firstAttribute="top" secondItem="xbv-FZ-BS3" secondAttribute="top" id="h85-Se-B0v"/>
                             <constraint firstAttribute="bottom" secondItem="dmR-8Y-LFH" secondAttribute="bottom" id="kbM-nO-ShI"/>
+                            <constraint firstItem="gU9-YJ-WIB" firstAttribute="leading" secondItem="aAO-MI-4Sj" secondAttribute="leading" constant="16" id="tpj-m9-gaX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aAO-MI-4Sj"/>
                     </view>
                     <connections>
-                        <outlet property="viewIcon" destination="EU7-Ek-El2" id="lu3-hQ-2cN"/>
                         <outlet property="viewTitle" destination="mX1-ui-8Mc" id="UFb-qD-5d8"/>
                     </connections>
                 </viewController>
@@ -105,6 +96,7 @@
     </scenes>
     <resources>
         <image name="pattern" width="67" height="100"/>
+        <image name="vector-cloud-error" width="129" height="129"/>
     </resources>
     <color key="tintColor" name="color-tint-red"/>
 </document>

@@ -38,18 +38,32 @@ class SetupChoosePincodeViewController: UIViewController, UIPincodeFieldDelegate
         
         adjustViewToKeyboard()
         
-        resetView(
-            "Choose your PIN code",
-            "You need it to unlock Raivo, so make sure you'll be able to remember it.",
-            fields: [viewPincodeInitial, viewPincodeConfirm]
-        )
-        
         viewPincodeInitial.delegate = self
         viewPincodeConfirm.delegate = self
         viewPincodeInitial.layoutIfNeeded()
         viewPincodeConfirm.layoutIfNeeded()
         
+        resetToInitialState()
+    }
+    
+    /// Reset the two PIN code fields to their initial state
+    internal func resetToInitialState() {
+        initialKey = nil
         viewPincodeConfirm.isHidden = true
+        
+        resetView(
+            "Choose your PIN code",
+            "You need it to unlock Raivo, so make sure you'll be able to remember it.",
+            fields: [viewPincodeInitial, viewPincodeConfirm]
+        )
+    }
+    
+    /// Notifies the view controller that its view will be removed from a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the disappearance of the view was animated.
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        resetToInitialState()
     }
     
     /// Notifies the view controller that its view was added to a view hierarchy.

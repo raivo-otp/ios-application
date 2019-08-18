@@ -10,7 +10,6 @@
 
 import Foundation
 import UIKit
-import SVGKit
 
 class UIPasswordsEmptyListView: UIView {
 

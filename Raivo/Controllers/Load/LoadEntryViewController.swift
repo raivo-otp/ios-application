@@ -12,7 +12,6 @@ import Foundation
 import UIKit
 import SwiftyBeaver
 import SDWebImage
-import SDWebImageSVGCoder
 
 class LoadEntryViewController: UIViewController {
     
@@ -27,7 +26,6 @@ class LoadEntryViewController: UIViewController {
         
         // Initialize SDImage configurations
         SDImageCache.shared.config.maxDiskAge = TimeInterval(60 * 60 * 24 * 365 * 4)
-        SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
         
         // If this is the first run of the app, flush the keychain.
         // It could be a reinstall of the app (reinstalls don't flush the keychain).

@@ -94,7 +94,6 @@
 		70AE33272274566B007A12A2 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE33262274566B007A12A2 /* MigrationHelper.swift */; };
 		70AE332922748229007A12A2 /* BannerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE332822748229007A12A2 /* BannerHelper.swift */; };
 		70B143AC222AB9360015896F /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B143AB222AB9360015896F /* RealmHelper.swift */; };
-		70B20AE3227B879A00BDCB94 /* Vectors in Resources */ = {isa = PBXBuildFile; fileRef = 70B20AE2227B879A00BDCB94 /* Vectors */; };
 		70B5585D225E74A000F83A34 /* CounterBasedPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5585C225E74A000F83A34 /* CounterBasedPasswordCell.swift */; };
 		70B5585F225E74AE00F83A34 /* CounterBasedPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B5585E225E74AE00F83A34 /* CounterBasedPasswordCell.xib */; };
 		70B55862225E761800F83A34 /* PasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B55861225E761800F83A34 /* PasswordCell.swift */; };
@@ -225,8 +224,6 @@
 		70AE33262274566B007A12A2 /* MigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationHelper.swift; sourceTree = "<group>"; };
 		70AE332822748229007A12A2 /* BannerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerHelper.swift; sourceTree = "<group>"; };
 		70B143AB222AB9360015896F /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
-		70B20AE0227B86FB00BDCB94 /* Issuers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Issuers; sourceTree = "<group>"; };
-		70B20AE2227B879A00BDCB94 /* Vectors */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Vectors; sourceTree = "<group>"; };
 		70B5585C225E74A000F83A34 /* CounterBasedPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterBasedPasswordCell.swift; sourceTree = "<group>"; };
 		70B5585E225E74AE00F83A34 /* CounterBasedPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterBasedPasswordCell.xib; sourceTree = "<group>"; };
 		70B55861225E761800F83A34 /* PasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCell.swift; sourceTree = "<group>"; };
@@ -464,8 +461,6 @@
 				70DC72EC22A40FD9006FE7B7 /* ExportTemplates */,
 				70DC72E222A3E51E006FE7B7 /* EmailTemplates */,
 				700908CB21FCCE6100603AA2 /* Assets.xcassets */,
-				70B20AE2227B879A00BDCB94 /* Vectors */,
-				70B20AE0227B86FB00BDCB94 /* Issuers */,
 				700908D021FCCE6100603AA2 /* Info.plist */,
 			);
 			path = Supporting;
@@ -878,7 +873,6 @@
 				700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */,
 				708A2B1B22885DCE00981BBC /* IconFormSelectorViewFooter.xib in Resources */,
 				70DC72E422A3E548006FE7B7 /* export-original.html in Resources */,
-				70B20AE3227B879A00BDCB94 /* Vectors in Resources */,
 				700908CC21FCCE6100603AA2 /* Assets.xcassets in Resources */,
 				70DC72F022A41060006FE7B7 /* single-password.html in Resources */,
 				700908CA21FCCE5F00603AA2 /* Main.storyboard in Resources */,

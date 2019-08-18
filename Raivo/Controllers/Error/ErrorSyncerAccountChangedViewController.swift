@@ -10,21 +10,15 @@
 
 import Foundation
 import UIKit
-import SVGKit
 
 class ErrorSyncerAccountChangedViewController: ErrorRootViewController {
-    
-    @IBOutlet weak var viewIcon: SVGKFastImageView!
     
     @IBOutlet weak var viewTitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = Bundle.main.url(forResource: "error-syncer-account-changed", withExtension: "svg", subdirectory: "Vectors")
-        
         viewTitle.text = "Your " + SyncerHelper.shared.getSyncer().name + " account is unavailable"
-        viewIcon.image = SVGKImage(contentsOf: url)
     }
     
     @IBAction func onContinue(_ sender: Any) {
