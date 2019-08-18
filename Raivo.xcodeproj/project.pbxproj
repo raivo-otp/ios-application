@@ -99,6 +99,11 @@
 		70B585E323098D6400AD1754 /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B585E223098D6400AD1754 /* Setup.storyboard */; };
 		70B585E62309A67E00AD1754 /* SetupMiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585E52309A67E00AD1754 /* SetupMiscViewController.swift */; };
 		70B585E82309B80E00AD1754 /* SetupStorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585E72309B80E00AD1754 /* SetupStorageViewController.swift */; };
+		70B585EA2309BED700AD1754 /* SetupEncryptionInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585E92309BED700AD1754 /* SetupEncryptionInitialViewController.swift */; };
+		70B585ED2309C1E000AD1754 /* SetupStateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585EC2309C1E000AD1754 /* SetupStateObject.swift */; };
+		70B585EF2309D3BE00AD1754 /* SetupPINCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585EE2309D3BE00AD1754 /* SetupPINCodeViewController.swift */; };
+		70B585F12309DD1400AD1754 /* SetupEncryptionConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585F02309DD1400AD1754 /* SetupEncryptionConfirmationViewController.swift */; };
+		70B585F32309E32700AD1754 /* SetupFlushDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B585F22309E32700AD1754 /* SetupFlushDataViewController.swift */; };
 		70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3ED9225663A1005C98EF /* SyncerProtocol.swift */; };
 		70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDB22566408005C98EF /* CloudKitSyncer.swift */; };
 		70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDF22567223005C98EF /* SyncerAccount.swift */; };
@@ -231,6 +236,11 @@
 		70B585E223098D6400AD1754 /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
 		70B585E52309A67E00AD1754 /* SetupMiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMiscViewController.swift; sourceTree = "<group>"; };
 		70B585E72309B80E00AD1754 /* SetupStorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupStorageViewController.swift; sourceTree = "<group>"; };
+		70B585E92309BED700AD1754 /* SetupEncryptionInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEncryptionInitialViewController.swift; sourceTree = "<group>"; };
+		70B585EC2309C1E000AD1754 /* SetupStateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupStateObject.swift; sourceTree = "<group>"; };
+		70B585EE2309D3BE00AD1754 /* SetupPINCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPINCodeViewController.swift; sourceTree = "<group>"; };
+		70B585F02309DD1400AD1754 /* SetupEncryptionConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEncryptionConfirmationViewController.swift; sourceTree = "<group>"; };
+		70B585F22309E32700AD1754 /* SetupFlushDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFlushDataViewController.swift; sourceTree = "<group>"; };
 		70BC3ED9225663A1005C98EF /* SyncerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerProtocol.swift; sourceTree = "<group>"; };
 		70BC3EDB22566408005C98EF /* CloudKitSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSyncer.swift; sourceTree = "<group>"; };
 		70BC3EDF22567223005C98EF /* SyncerAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerAccount.swift; sourceTree = "<group>"; };
@@ -312,6 +322,7 @@
 				70E42296229891AB0020D725 /* Helpers */,
 				700908D721FCE25D00603AA2 /* Migrations */,
 				700908E221FCE30D00603AA2 /* Models */,
+				70B585EB2309C1BE00AD1754 /* Objects */,
 				700908DD21FCE2B600603AA2 /* Storyboards */,
 				700908E321FCE34800603AA2 /* Supporting */,
 				70BC3ED722566379005C98EF /* Syncers */,
@@ -371,6 +382,10 @@
 				70A1BC5822F7534500152864 /* SetupRootViewController.swift */,
 				70B585E52309A67E00AD1754 /* SetupMiscViewController.swift */,
 				70B585E72309B80E00AD1754 /* SetupStorageViewController.swift */,
+				70B585E92309BED700AD1754 /* SetupEncryptionInitialViewController.swift */,
+				70B585F02309DD1400AD1754 /* SetupEncryptionConfirmationViewController.swift */,
+				70B585F22309E32700AD1754 /* SetupFlushDataViewController.swift */,
+				70B585EE2309D3BE00AD1754 /* SetupPINCodeViewController.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -646,6 +661,14 @@
 				706708E82288A5D5009A15B9 /* DeprecatedSetupMiscViewController.swift */,
 			);
 			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		70B585EB2309C1BE00AD1754 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				70B585EC2309C1E000AD1754 /* SetupStateObject.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		70BC3ED722566379005C98EF /* Syncers */ = {
@@ -1002,7 +1025,9 @@
 				70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */,
 				70D534F822398B8100CDD228 /* DeprecatedSetupChoosePincodeViewController.swift in Sources */,
 				70C80DAA229F070A00413801 /* UIDigitField.swift in Sources */,
+				70B585EF2309D3BE00AD1754 /* SetupPINCodeViewController.swift in Sources */,
 				700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */,
+				70B585EA2309BED700AD1754 /* SetupEncryptionInitialViewController.swift in Sources */,
 				702BAEA82258FD1B008E5C5F /* PasswordForm.swift in Sources */,
 				70B585E62309A67E00AD1754 /* SetupMiscViewController.swift in Sources */,
 				70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */,
@@ -1067,12 +1092,15 @@
 				7077A33D227CDF6600338CA3 /* BaseFormOption.swift in Sources */,
 				70F8BE7D2205EAFB006FDB5A /* LoadViewFilesExtension.swift in Sources */,
 				70A1BC5922F7534500152864 /* SetupRootViewController.swift in Sources */,
+				70B585ED2309C1E000AD1754 /* SetupStateObject.swift in Sources */,
+				70B585F32309E32700AD1754 /* SetupFlushDataViewController.swift in Sources */,
 				703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */,
 				7077A346227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift in Sources */,
 				70D534F622398B3A00CDD228 /* DeprecatedSetupChooseEncryptionKeyViewController.swift in Sources */,
 				70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */,
 				70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */,
 				703B6B30227A060900409BB5 /* DeprecatedSetupEnableBiometricsViewController.swift in Sources */,
+				70B585F12309DD1400AD1754 /* SetupEncryptionConfirmationViewController.swift in Sources */,
 				709B636322C5495100697884 /* QuickResponseCodeRowCell.swift in Sources */,
 				70DE925122A1A37200D00BB0 /* CryptographyError.swift in Sources */,
 				7077A342227F0FCC00338CA3 /* IconFormRowCell.swift in Sources */,

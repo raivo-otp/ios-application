@@ -126,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zfz-fM-Rew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771" y="90"/>
+            <point key="canvasLocation" x="25" y="90"/>
         </scene>
         <!--Setup Root View Controller-->
         <scene sceneID="lwC-IC-HSI">
@@ -142,7 +142,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2za-3i-UZS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-258" y="90"/>
+            <point key="canvasLocation" x="-1294" y="90"/>
         </scene>
         <!--Storage-->
         <scene sceneID="UAc-ic-uAQ">
@@ -162,7 +162,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="654"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VLj-Dz-bjT">
-                                                <rect key="frame" x="0.0" y="292.5" width="414" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="243.5" width="414" height="167.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-MU-kGz" userLabel="Padded Stack View">
                                                         <rect key="frame" x="8" y="0.0" width="398" height="69.5"/>
@@ -181,9 +181,20 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-E6-qmd">
+                                                        <rect key="frame" x="0.0" y="77.5" width="414" height="90"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" priority="250" constant="90" id="2Rw-jq-Aup"/>
+                                                        </constraints>
+                                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="sGv-MU-kGz" firstAttribute="leading" secondItem="VLj-Dz-bjT" secondAttribute="leading" constant="8" id="4Xx-po-A0b"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aA1-E6-qmd" secondAttribute="trailing" id="Nvl-kA-zc7"/>
+                                                    <constraint firstItem="aA1-E6-qmd" firstAttribute="leading" secondItem="VLj-Dz-bjT" secondAttribute="leading" id="VNv-IU-JSc"/>
                                                     <constraint firstAttribute="trailing" secondItem="sGv-MU-kGz" secondAttribute="trailing" constant="8" id="cZI-bU-fLw"/>
                                                 </constraints>
                                             </stackView>
@@ -207,7 +218,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="Nny-vM-lum" kind="show" id="1Lb-5a-uP5"/>
+                                            <segue destination="Nny-vM-lum" kind="show" identifier="SetupEncryptionSegue" id="1Lb-5a-uP5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -247,17 +258,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="continueButton" destination="gcC-eG-sVl" id="uEy-wo-Yek"/>
+                        <outlet property="tableView" destination="aA1-E6-qmd" id="x6h-UN-3KT"/>
                         <outlet property="viewTitle" destination="j6D-OM-R4n" id="Z4H-5D-70J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbg-gG-0Gu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="90"/>
+            <point key="canvasLocation" x="1436" y="90"/>
         </scene>
         <!--Encryption-->
         <scene sceneID="sBg-hW-Dwr">
             <objects>
-                <viewController id="Nny-vM-lum" sceneMemberID="viewController">
+                <viewController id="Nny-vM-lum" customClass="SetupEncryptionInitialViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c7i-5M-Ynv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,10 +284,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="654"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0pT-X8-fAp">
-                                                <rect key="frame" x="0.0" y="292.5" width="414" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="268.5" width="414" height="117.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0MK-1Z-Kvs" userLabel="Padded Stack View">
-                                                        <rect key="frame" x="8" y="0.0" width="398" height="69.5"/>
+                                                        <rect key="frame" x="8" y="0.0" width="398" height="117.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your master password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoX-Bb-B2i" userLabel="Title">
                                                                 <rect key="frame" x="92.5" y="0.0" width="213.5" height="20.5"/>
@@ -283,13 +295,34 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You won't need it to unlock Raivo, but you will need it when configuring Raivo on other devices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="En1-Wf-CAd" userLabel="Description">
-                                                                <rect key="frame" x="2" y="28.5" width="394" height="41"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will need it when configuring Raivo on other devices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="En1-Wf-CAd" userLabel="Description">
+                                                                <rect key="frame" x="36.5" y="28.5" width="325" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="••••••••••••••••" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-xd-KJW">
+                                                                <rect key="frame" x="0.0" y="77.5" width="398" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="ReS-sI-JFs"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
+                                                            </textField>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-bJ-VKm">
+                                                                <rect key="frame" x="99" y="117.5" width="200" height="0.0"/>
+                                                                <state key="normal" title="I forgot my master password."/>
+                                                                <connections>
+                                                                    <segue destination="JV5-fL-M0g" kind="popoverPresentation" popoverAnchorView="lzc-bJ-VKm" id="KCy-Xp-PLa">
+                                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                                    </segue>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="OlT-xd-KJW" firstAttribute="leading" secondItem="0MK-1Z-Kvs" secondAttribute="leading" id="BmJ-aK-521"/>
+                                                            <constraint firstAttribute="trailing" secondItem="OlT-xd-KJW" secondAttribute="trailing" id="S5y-pn-Jmz"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -317,7 +350,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="aZF-PO-c5E" kind="presentation" id="XFg-5H-ZHN"/>
+                                            <action selector="onContinue:" destination="Nny-vM-lum" eventType="touchUpInside" id="x9l-Wc-JcD"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -356,7 +389,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="dnl-gw-FPY" kind="show" id="aK7-If-vjI"/>
+                        <outlet property="forgotView" destination="lzc-bJ-VKm" id="Mrl-7Y-2Hh"/>
+                        <outlet property="viewDescription" destination="En1-Wf-CAd" id="Y6l-Lb-xUo"/>
+                        <outlet property="viewEncryptionPassword" destination="OlT-xd-KJW" id="tZl-eq-pEN"/>
+                        <outlet property="viewTitle" destination="BoX-Bb-B2i" id="xd5-Kl-Dkh"/>
+                        <segue destination="dnl-gw-FPY" kind="show" identifier="SetupPINCodeSegue" id="aK7-If-vjI"/>
+                        <segue destination="aZF-PO-c5E" kind="popoverPresentation" identifier="SetupEncryptionConfirmationSegue" popoverAnchorView="Smf-TT-yJM" id="deV-sC-kkO">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVM-cg-cgB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -366,7 +406,7 @@
         <!--Security-->
         <scene sceneID="j3c-Sz-WNC">
             <objects>
-                <viewController id="aZF-PO-c5E" sceneMemberID="viewController">
+                <viewController id="aZF-PO-c5E" customClass="SetupEncryptionConfirmationViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q7Z-oT-E3e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,10 +421,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m8h-2R-p78">
-                                                <rect key="frame" x="0.0" y="335.5" width="414" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="311.5" width="414" height="117.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HGW-wv-5zd" userLabel="Padded Stack View">
-                                                        <rect key="frame" x="8" y="0.0" width="398" height="69.5"/>
+                                                        <rect key="frame" x="8" y="0.0" width="398" height="117.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-Yp-PNV" userLabel="Title">
                                                                 <rect key="frame" x="108.5" y="0.0" width="181.5" height="20.5"/>
@@ -398,7 +438,19 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="••••••••••••••••" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="wLK-pr-MEs">
+                                                                <rect key="frame" x="0.0" y="77.5" width="398" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="S9i-Fh-Jw7"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
+                                                            </textField>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="wLK-pr-MEs" firstAttribute="leading" secondItem="HGW-wv-5zd" secondAttribute="leading" id="QW9-QF-MLi"/>
+                                                            <constraint firstAttribute="trailing" secondItem="wLK-pr-MEs" secondAttribute="trailing" id="umF-0p-eKP"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -425,6 +477,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onContinue:" destination="aZF-PO-c5E" eventType="touchUpInside" id="Qui-px-vgo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -453,10 +508,13 @@
                         <viewLayoutGuide key="safeArea" id="EVC-jq-tYX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Security" id="Gvy-nB-Q4S"/>
+                    <connections>
+                        <outlet property="viewEncryptionPassword" destination="wLK-pr-MEs" id="enf-pd-enR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Joj-cb-M0U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857" y="-680"/>
+            <point key="canvasLocation" x="3265" y="-680"/>
         </scene>
         <!--PIN code unlock-->
         <scene sceneID="BRp-fX-uQW">
@@ -565,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUW-6Q-P9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3916" y="90"/>
+            <point key="canvasLocation" x="4361" y="90"/>
         </scene>
         <!--PIN code-->
         <scene sceneID="smr-We-Xx1">
@@ -660,7 +718,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CN9-1F-2Cy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3916" y="-680"/>
+            <point key="canvasLocation" x="4361" y="-680"/>
         </scene>
         <!--Biometric unlock-->
         <scene sceneID="I8t-63-McX">
@@ -767,7 +825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnp-K1-qqd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4942" y="90"/>
+            <point key="canvasLocation" x="5907" y="90"/>
         </scene>
         <!--Settings-->
         <scene sceneID="6Qf-Re-bZV">
@@ -796,6 +854,112 @@
             </objects>
             <point key="canvasLocation" x="2857" y="871"/>
         </scene>
+        <!--Security-->
+        <scene sceneID="ruU-8I-ghc">
+            <objects>
+                <viewController id="JV5-fL-M0g" customClass="SetupFlushDataViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gpV-cK-pFW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="gif-wJ-clY" userLabel="Background" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kX2-Al-V5x" userLabel="Wrapper">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bu3-9q-AaD" userLabel="Content">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="34P-0c-U4i">
+                                                <rect key="frame" x="0.0" y="286" width="414" height="168"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G7y-uM-Z5j" userLabel="Padded Stack View">
+                                                        <rect key="frame" x="8" y="0.0" width="398" height="168"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're sorry about that." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQ2-tr-o1B" userLabel="Title">
+                                                                <rect key="frame" x="107.5" y="0.0" width="183.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRw-Uw-bdd" userLabel="Description">
+                                                                <rect key="frame" x="6" y="28.5" width="386.5" height="101.5"/>
+                                                                <string key="text">Unfortunately there is no way to recover your data without your master password.  The only option you have is to delete all data from your synchronization provider and start all over.</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0n-4v-DQm">
+                                                                <rect key="frame" x="137.5" y="138" width="123" height="30"/>
+                                                                <state key="normal" title="Delete all my data"/>
+                                                                <connections>
+                                                                    <action selector="onConfirm:" destination="JV5-fL-M0g" eventType="touchUpInside" id="cNR-wa-vbu"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="G7y-uM-Z5j" secondAttribute="trailing" constant="8" id="DaG-1L-Pab"/>
+                                                    <constraint firstItem="G7y-uM-Z5j" firstAttribute="leading" secondItem="34P-0c-U4i" secondAttribute="leading" constant="8" id="iv2-U3-fQq"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="34P-0c-U4i" firstAttribute="leading" secondItem="bu3-9q-AaD" secondAttribute="leading" id="Qdt-Lr-V0f"/>
+                                            <constraint firstAttribute="trailing" secondItem="34P-0c-U4i" secondAttribute="trailing" id="c4X-sY-i44"/>
+                                            <constraint firstItem="34P-0c-U4i" firstAttribute="centerY" secondItem="bu3-9q-AaD" secondAttribute="centerY" id="xN5-2m-lVh"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-qW-Gkh">
+                                        <rect key="frame" x="16" y="740" width="382" height="52"/>
+                                        <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onCancel:" destination="JV5-fL-M0g" eventType="touchUpInside" id="eox-eh-GtP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mF2-qW-Gkh" secondAttribute="bottom" constant="16" id="4R2-3o-Zej"/>
+                                    <constraint firstItem="mF2-qW-Gkh" firstAttribute="leading" secondItem="kX2-Al-V5x" secondAttribute="leading" constant="16" id="7x2-9y-XAQ"/>
+                                    <constraint firstItem="bu3-9q-AaD" firstAttribute="top" secondItem="kX2-Al-V5x" secondAttribute="top" id="bIY-Cw-izr"/>
+                                    <constraint firstItem="mF2-qW-Gkh" firstAttribute="top" secondItem="bu3-9q-AaD" secondAttribute="bottom" id="dus-P3-Mjh"/>
+                                    <constraint firstAttribute="trailing" secondItem="bu3-9q-AaD" secondAttribute="trailing" id="gIG-4e-YMe"/>
+                                    <constraint firstItem="bu3-9q-AaD" firstAttribute="leading" secondItem="kX2-Al-V5x" secondAttribute="leading" id="srK-k1-a8t"/>
+                                    <constraint firstAttribute="trailing" secondItem="mF2-qW-Gkh" secondAttribute="trailing" constant="16" id="xKW-2j-Nk6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kX2-Al-V5x" firstAttribute="leading" secondItem="szk-G1-5tg" secondAttribute="leading" id="2jV-uS-bEZ"/>
+                            <constraint firstAttribute="bottom" secondItem="gif-wJ-clY" secondAttribute="bottom" id="61T-ZY-IEZ"/>
+                            <constraint firstAttribute="trailing" secondItem="gif-wJ-clY" secondAttribute="trailing" id="6vH-7k-74D"/>
+                            <constraint firstItem="szk-G1-5tg" firstAttribute="bottom" secondItem="kX2-Al-V5x" secondAttribute="bottom" identifier="KeyboardConstraint" id="7pH-Wf-Dv3"/>
+                            <constraint firstItem="gif-wJ-clY" firstAttribute="top" secondItem="gpV-cK-pFW" secondAttribute="top" id="gnT-Ua-0ca"/>
+                            <constraint firstItem="szk-G1-5tg" firstAttribute="trailing" secondItem="kX2-Al-V5x" secondAttribute="trailing" id="jpO-9W-zDN"/>
+                            <constraint firstItem="kX2-Al-V5x" firstAttribute="top" secondItem="szk-G1-5tg" secondAttribute="top" id="llU-6o-VWN"/>
+                            <constraint firstItem="gif-wJ-clY" firstAttribute="leading" secondItem="gpV-cK-pFW" secondAttribute="leading" id="ppz-Rd-MSY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="szk-G1-5tg"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Security" id="bFY-bw-HBq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hS-xQ-gO7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2455" y="-680"/>
+        </scene>
     </scenes>
     <resources>
         <image name="app-icon" width="341.33334350585938" height="341.33334350585938"/>
@@ -803,7 +967,7 @@
         <image name="pattern" width="67" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4D3-TK-2g2"/>
+        <segue reference="qQG-nR-Dhp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

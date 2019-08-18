@@ -9,23 +9,33 @@
 //
 
 import UIKit
-import Spring
 import Eureka
 
+/// This controllers enables the user to select a certain synchronization providr
 class SetupStorageViewController: FormViewController {
     
+    /// A reference to the form to load into this form view
     private var synchronizationProviderForm: SynchronizationProviderForm?
     
+    /// The available syncrhonization accounts
     public var accounts: [String: SyncerAccount] = [:]
     
+    /// The available challenges belonging to the syncrhonization accounts
     public var challenges: [String: SyncerChallenge] = [:]
     
+    /// Keep track of the progress of all the synchronization providers. All providers will be true when loaded
     private var progress: [String: Bool] = [:]
     
+    /// Keep track of the original bar button so it can be restored after the navigation bar activity has been shown
+    private var originalBarButton: UIBarButtonItem?
+    
+    /// A reference to the "Continue" button
     @IBOutlet weak var continueButton: UIButton!
     
+    /// A reference to the title label of the view
     @IBOutlet weak var viewTitle: UILabel!
     
+    /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,8 +45,9 @@ class SetupStorageViewController: FormViewController {
         resolveSyncers()
     }
     
+    /// Start loading all the available synchronization providers and challenges
     private func resolveSyncers() {
-        let _ = displayNavBarActivity()
+        originalBarButton = displayNavBarActivity()
         
         for availableSyncer in SyncerHelper.availableSyncers {
             progress[availableSyncer + "Account"] = false
@@ -51,6 +62,10 @@ class SetupStorageViewController: FormViewController {
         }
     }
     
+    /// Callback for synchronization providers that loaded successfully.
+    ///
+    /// - Parameter account: The account that was loaded.
+    /// - Parameter syncerID: The ID of the synchronization provider.
     func accountSuccess(_ account: SyncerAccount, _ syncerID: String) {
         self.accounts[syncerID] = account
         self.progress[syncerID + "Account"] = true
@@ -62,6 +77,10 @@ class SetupStorageViewController: FormViewController {
         }
     }
     
+    /// Callback for synchronization providers that didn't load because an error occurred.
+    ///
+    /// - Parameter error: The error that occurred.
+    /// - Parameter syncerID: The ID of the synchronization provider.
     func accountError(_ error: Error, _ syncerID: String) {
         self.progress[syncerID + "Account"] = true
         
@@ -72,6 +91,10 @@ class SetupStorageViewController: FormViewController {
         }
     }
     
+    /// Callback for synchronization provider challenges that loaded successfully.
+    ///
+    /// - Parameter account: The challenge that was loaded.
+    /// - Parameter syncerID: The ID of the synchronization provider.
     func challengeSuccess(_ challenge: SyncerChallenge, _ syncerID: String) {
         self.challenges[syncerID] = challenge
         self.progress[syncerID + "Challenge"] = true
@@ -81,6 +104,10 @@ class SetupStorageViewController: FormViewController {
         }
     }
     
+    /// Callback for synchronization provider challenges that didn't load because an error occurred.
+    ///
+    /// - Parameter error: The error that occurred.
+    /// - Parameter syncerID: The ID of the synchronization provider.
     func challengeError(_ error: Error, _ syncerID: String) {
         self.progress[syncerID + "Challenge"] = true
         
@@ -89,6 +116,7 @@ class SetupStorageViewController: FormViewController {
         }
     }
     
+    /// Evaluate if the synchronization providers were loaded and adjust the view accordingly.
     private func evaluateAllowContinue() {
         let allow = !progress.values.contains(false)
         
@@ -102,31 +130,40 @@ class SetupStorageViewController: FormViewController {
             }
             
             synchronizationProviderForm?.selectFirstSyncer()
-            dismissNavBarActivity()
+            dismissNavBarActivity(originalBarButton)
         }
     }
     
+    /// Only allow "continue" segues if a synchronization provider is selected
+    ///
+    /// - Parameter identifier: The string that identifies the triggered segue.
+    /// - Parameter sender; The object that initiated the segue.
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-         if identifier == "DatabaseEncryptionSegue" {
+         if identifier == "SetupEncryptionSegue" {
             guard let _ = synchronizationProviderForm!.getSelectedSyncer() else {
                 return false
             }
         }
         
-        return true
+        return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
     }
     
+    /// Prepare for the setup encryption segue
+    ///
+    /// - Parameter segue: The segue object containing information about the view controllers involved in the segue.
+    /// - Parameter sender: The object that initiated the segue.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DatabaseEncryptionSegue" {
-            if let destination = segue.destination as? DeprecatedSetupChooseEncryptionKeyViewController {
-                let selectedSyncer = synchronizationProviderForm!.getSelectedSyncer()!
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "SetupEncryptionSegue" {
+            if let destination = segue.destination as? SetupEncryptionInitialViewController {
+                let state = SetupStateObject()
                 
-                StorageHelper.shared.setSynchronizationProvider(selectedSyncer)
-                StorageHelper.shared.setSynchronizationAccountIdentifier(self.accounts[selectedSyncer]!.identifier)
-                getAppDelegate().syncerAccountIdentifier = self.accounts[selectedSyncer]!.identifier
+                state.syncerID = synchronizationProviderForm!.getSelectedSyncer()!
+                state.account = self.accounts[state.syncerID!]
+                state.challenge = self.challenges[state.syncerID!]
                 
-                destination.account = self.accounts[selectedSyncer]
-                destination.challenge = self.challenges[selectedSyncer]
+                destination.state = state
             }
         }
     }

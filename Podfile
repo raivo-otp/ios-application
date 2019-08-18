@@ -49,15 +49,12 @@ target 'Raivo' do
   # Swipable table view actions (for iOS < 11)
   pod 'SwipeCellKit', '2.6.0'
   
-  # Easy view animations (like flikkering error messages)
-  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
-
 end
 
 # Specific dependencies compile using Swift 4.2
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    if ['Spring', 'SwiftyBeaver', 'Alamofire'].include? target.name
+    if ['SwiftyBeaver', 'Alamofire'].include? target.name
       target.build_configurations.each do |config|
         config.build_settings['SWIFT_VERSION'] = '4.2'
       end

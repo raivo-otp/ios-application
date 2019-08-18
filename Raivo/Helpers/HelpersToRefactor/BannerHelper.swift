@@ -25,11 +25,11 @@ class BannerHelper {
         return config
     }
     
-    static func error(_ message: String, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error) {
-        error(NSAttributedString(string: message), seconds: seconds, vibrate: vibrate)
+    static func error(_ message: String, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟") {
+        error(NSAttributedString(string: message), seconds: seconds, vibrate: vibrate, icon: icon)
     }
     
-    static func error(_ message: NSAttributedString, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error) {
+    static func error(_ message: NSAttributedString, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟") {
         if let vibrate = vibrate {
             Haptic.notification(vibrate).generate()
         }
@@ -39,18 +39,18 @@ class BannerHelper {
         let nib = UINib(nibName: "CenteredBanner", bundle: Bundle.main)
         let view = (nib.instantiate(withOwner: nil, options: nil)[0] as? MessageView)!
         
-        view.iconLabel?.text = "😟"
+        view.iconLabel?.text = icon
         view.titleLabel?.attributedText = message
         
         SwiftMessages.hideAll()
         SwiftMessages.show(config: config, view: view)
     }
     
-    static func success(_ message: String, seconds: Double = 1.0, vibrate: HapticFeedbackType? = HapticFeedbackType.success) {
-        success(NSAttributedString(string: message), seconds: seconds, vibrate: vibrate)
+    static func success(_ message: String, seconds: Double = 1.0, vibrate: HapticFeedbackType? = HapticFeedbackType.success, icon: String = "👍") {
+        success(NSAttributedString(string: message), seconds: seconds, vibrate: vibrate, icon: icon)
     }
     
-    static func success(_ message: NSAttributedString, seconds: Double = 1.0, vibrate: HapticFeedbackType? = HapticFeedbackType.success) {
+    static func success(_ message: NSAttributedString, seconds: Double = 1.0, vibrate: HapticFeedbackType? = HapticFeedbackType.success, icon: String = "👍") {
         if let vibrate = vibrate {
             Haptic.notification(vibrate).generate()
         }
@@ -60,7 +60,7 @@ class BannerHelper {
         let nib = UINib(nibName: "CenteredBanner", bundle: Bundle.main)
         let view = (nib.instantiate(withOwner: nil, options: nil)[0] as? MessageView)!
         
-        view.iconLabel?.text = "👍"
+        view.iconLabel?.text = icon
         view.titleLabel?.attributedText = message
         
         SwiftMessages.hideAll()

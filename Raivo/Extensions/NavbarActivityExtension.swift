@@ -29,14 +29,9 @@ extension UIViewController {
     }
     
     /// Dismiss the loading animation on the right of the navbar
-    public func dismissNavBarActivity() {
-        self.navigationItem.rightBarButtonItem = nil
-    }
-    
-    /// Dismiss the loading animation on the right of the navbar
     ///
     /// - Parameter backup: Revert to the previous bar button item
-    public func dismissNavBarActivity(_ backup: UIBarButtonItem?) {
+    public func dismissNavBarActivity(_ backup: UIBarButtonItem? = nil) {
         self.navigationItem.rightBarButtonItem = backup
     }
 
