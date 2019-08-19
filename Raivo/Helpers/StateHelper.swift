@@ -139,7 +139,28 @@ class StateHelper {
     ///     The `Keychain` can't be used since it's persistent even after uninstalling the app.
     ///
     ///     https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
+    /// - Note:
+    ///     Apparently the `UserDefaults` aren't that reliable, as stated in the article "The Mystery of the
+    ///     Disappearing NSUserDefaults Keys". Therefore, a file on disk is used as the primary method from now on.
+    ///
+    ///     https://damir.me/the-mystery-of-the-disappearing-nsuserdefaults-keys/
     public func isFirstRun() -> Bool {
+        // FileManager method
+        let fileManager = FileManager.default
+        let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let hasRunBeforeFile = documentsDirectory.appendingPathComponent("hasRunBefore.txt")
+        
+        if fileManager.fileExists(atPath: documentsDirectory.path) {
+            return false
+        } else {
+            fileManager.createFile(
+                atPath: hasRunBeforeFile.path,
+                contents: "RaivoOTP has ran before".data(using: .utf8),
+                attributes: nil
+            )
+        }
+        
+        // UserDefaults method
         let userDefaults = UserDefaults.standard
         
         if !userDefaults.bool(forKey: "hasRunBefore") {
