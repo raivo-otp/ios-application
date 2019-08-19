@@ -12,7 +12,7 @@
         <!--Welcome-->
         <scene sceneID="7Rl-A0-TS6">
             <objects>
-                <viewController restorationIdentifier="AuthViewController" storyboardIdentifier="AuthViewController" id="Tz4-fS-Gxb" customClass="DeprecatedAuthEntryViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AuthViewController" storyboardIdentifier="AuthViewController" id="Tz4-fS-Gxb" customClass="AuthEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sY6-tf-x4h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-Mv-OHZ" customClass="SpringLabel" customModule="Spring">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-Mv-OHZ">
                                         <rect key="frame" x="8" y="405.5" width="398" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -98,7 +98,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="viewBiometricsUnlock" destination="VFf-yI-PgO" id="wqS-nN-Cef"/>
-                        <outlet property="viewExtra" destination="rOQ-Mv-OHZ" id="PCc-2T-4Yn"/>
                         <outlet property="viewPincode" destination="rsg-66-pHf" id="CMT-Oa-tNq"/>
                     </connections>
                 </viewController>

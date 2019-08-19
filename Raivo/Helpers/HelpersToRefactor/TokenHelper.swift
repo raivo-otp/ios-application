@@ -86,7 +86,7 @@ class TokenHelper {
             password = try! token.generator.password(at: lastDate)
         }
         
-        switch password.length {
+        switch password.count {
         case 6, 9, 12:
             password = splitPassword(password, 3)
         default:
@@ -105,7 +105,7 @@ class TokenHelper {
             
             result += String(character)
             
-            if (counter % split) == 0 && counter != password.length {
+            if (counter % split) == 0 && counter != password.count {
                 result += " "
             }
         }

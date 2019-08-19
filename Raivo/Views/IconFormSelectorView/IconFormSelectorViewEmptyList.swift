@@ -10,24 +10,23 @@
 
 import Foundation
 import UIKit
-import Spring
 
+/// - Todo: Remove deprecated Spring code
 class IconFormSelectorViewEmptyList: UIView {
     
-    private var loadingImageAnimated: SpringImageView?
-
-    @IBOutlet weak var loadingImage: SpringImageView! {
-        set {
-            self.loadingImageAnimated = newValue
-            self.loadingImageAnimated!.animation = "pop"
-            self.loadingImageAnimated!.duration = CGFloat(1.6)
-            self.loadingImageAnimated!.repeatCount = Float.infinity
-            self.loadingImageAnimated!.animate()
-        }
-        get {
-            return self.loadingImageAnimated!
-        }
-    }
-    
+//    private var loadingImageAnimated: SpringImageView?
+//
+//    @IBOutlet weak var loadingImage: SpringImageView! {
+//        set {
+//            self.loadingImageAnimated = newValue
+//            self.loadingImageAnimated!.animation = "pop"
+//            self.loadingImageAnimated!.duration = CGFloat(1.6)
+//            self.loadingImageAnimated!.repeatCount = Float.infinity
+//            self.loadingImageAnimated!.animate()
+//        }
+//        get {
+//            return self.loadingImageAnimated!
+//        }
+//    }
     
 }

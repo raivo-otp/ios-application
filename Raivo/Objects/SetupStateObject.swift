@@ -11,6 +11,8 @@
 import Foundation
 
 /// An object used during the app setup. It remembers all options that the user chose.
+///
+/// - Note: This object is deleted (from memory) when the user finishes the setup.
 class SetupStateObject {
     
     /// The ID of the selected synchronization provider
@@ -24,6 +26,9 @@ class SetupStateObject {
     
     /// The encryption password
     var password: String? = nil
+    
+    /// The lock PIN code
+    var pincode: String? = nil
     
     /// Check if a challenge is available.
     ///

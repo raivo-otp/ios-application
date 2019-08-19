@@ -13,4 +13,6 @@ import UIKit
 /// The root controller of the setup storyboard.
 class SetupRootViewController: UINavigationController {
 
+    public var state = SetupStateObject()
+    
 }

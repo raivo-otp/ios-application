@@ -11,16 +11,17 @@
 import Foundation
 import UIKit
 import RealmSwift
-import Spring
 
 /// This controller allows users to change their PIN code
+///
+/// - Todo: Remove old Spring code.
 class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate {
 
     /// The title centered in the view
     @IBOutlet weak var viewTitle: UILabel!
     
     /// Extra information that supports the title
-    @IBOutlet weak var viewExtra: SpringLabel!
+    @IBOutlet weak var viewExtra: UILabel!
     
     /// The actual PIN code field
     @IBOutlet weak var viewPincode: UIPincodeField!
@@ -71,7 +72,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         navigationController?.view.backgroundColor = UIColor.clear
     }
     
-    /// Triggered when the user entered a PIN code.k
+    /// Triggered when the user entered a PIN code.
     /// This method will either;
     ///     * Move on to the second PIN code try
     ///     * Notify if the second PIN code try was wrong
@@ -114,6 +115,13 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         }
     }
     
+    /// Triggered when the user changed the PIN code input
+    ///
+    /// - Parameter pincode: The (possibly incomplete) digit PIN code
+    func onPincodeChange(pincode: String) {
+        // Not implemented
+    }
+    
     /// Reset the controller's view using the given text and other parameters
     ///
     /// - Parameter title: The title centered in the view
@@ -126,9 +134,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         viewPincode.reset()
       
         if flash {
-            viewExtra.delay = CGFloat(0.25)
-            viewExtra.animation = "shake"
-            viewExtra.animate()
+            BannerHelper.error(extra, seconds: 2.0)
         }
     }
     

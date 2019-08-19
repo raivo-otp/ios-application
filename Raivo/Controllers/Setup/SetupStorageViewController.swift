@@ -12,7 +12,7 @@ import UIKit
 import Eureka
 
 /// This controllers enables the user to select a certain synchronization providr
-class SetupStorageViewController: FormViewController {
+class SetupStorageViewController: FormViewController, SetupState {
     
     /// A reference to the form to load into this form view
     private var synchronizationProviderForm: SynchronizationProviderForm?
@@ -155,17 +155,9 @@ class SetupStorageViewController: FormViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == "SetupEncryptionSegue" {
-            if let destination = segue.destination as? SetupEncryptionInitialViewController {
-                let state = SetupStateObject()
-                
-                state.syncerID = synchronizationProviderForm!.getSelectedSyncer()!
-                state.account = self.accounts[state.syncerID!]
-                state.challenge = self.challenges[state.syncerID!]
-                
-                destination.state = state
-            }
-        }
+        state(self).syncerID = synchronizationProviderForm!.getSelectedSyncer()!
+        state(self).account = self.accounts[state(self).syncerID!]
+        state(self).challenge = self.challenges[state(self).syncerID!]
     }
 
 }

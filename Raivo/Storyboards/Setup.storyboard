@@ -390,8 +390,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="forgotView" destination="lzc-bJ-VKm" id="Mrl-7Y-2Hh"/>
+                        <outlet property="password" destination="OlT-xd-KJW" id="tZl-eq-pEN"/>
                         <outlet property="viewDescription" destination="En1-Wf-CAd" id="Y6l-Lb-xUo"/>
-                        <outlet property="viewEncryptionPassword" destination="OlT-xd-KJW" id="tZl-eq-pEN"/>
                         <outlet property="viewTitle" destination="BoX-Bb-B2i" id="xd5-Kl-Dkh"/>
                         <segue destination="dnl-gw-FPY" kind="show" identifier="SetupPINCodeSegue" id="aK7-If-vjI"/>
                         <segue destination="aZF-PO-c5E" kind="popoverPresentation" identifier="SetupEncryptionConfirmationSegue" popoverAnchorView="Smf-TT-yJM" id="deV-sC-kkO">
@@ -509,7 +509,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Security" id="Gvy-nB-Q4S"/>
                     <connections>
-                        <outlet property="viewEncryptionPassword" destination="wLK-pr-MEs" id="enf-pd-enR"/>
+                        <outlet property="password" destination="wLK-pr-MEs" id="enf-pd-enR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Joj-cb-M0U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -519,7 +519,7 @@
         <!--PIN code unlock-->
         <scene sceneID="BRp-fX-uQW">
             <objects>
-                <viewController id="dnl-gw-FPY" sceneMemberID="viewController">
+                <viewController id="dnl-gw-FPY" customClass="SetupPINCodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sQY-MQ-ar5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -531,13 +531,13 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beJ-Dx-l6y" userLabel="Content">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="654"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mcC-2C-n02">
-                                                <rect key="frame" x="0.0" y="302.5" width="414" height="49"/>
+                                                <rect key="frame" x="0.0" y="312.5" width="414" height="97"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oJk-5h-VOo" userLabel="Padded Stack View">
-                                                        <rect key="frame" x="8" y="0.0" width="398" height="49"/>
+                                                        <rect key="frame" x="8" y="0.0" width="398" height="97"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your PIN code." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEb-wM-vVz" userLabel="Title">
                                                                 <rect key="frame" x="125" y="0.0" width="148" height="20.5"/>
@@ -551,6 +551,14 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-Ff-yFW" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                                <rect key="frame" x="79" y="57" width="240" height="40"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="V44-eJ-fbU"/>
+                                                                    <constraint firstAttribute="width" constant="240" id="lZj-pV-Qem"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
@@ -567,28 +575,10 @@
                                             <constraint firstItem="mcC-2C-n02" firstAttribute="centerY" secondItem="beJ-Dx-l6y" secondAttribute="centerY" id="eeg-22-fCC"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKZ-PE-2qh">
-                                        <rect key="frame" x="16" y="654" width="382" height="52"/>
-                                        <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
-                                        <state key="normal" title="Continue"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="Cnu-66-kbD" kind="presentation" id="EA6-40-vof"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="EKZ-PE-2qh" secondAttribute="bottom" constant="16" id="7wN-2p-bTA"/>
-                                    <constraint firstItem="EKZ-PE-2qh" firstAttribute="top" secondItem="beJ-Dx-l6y" secondAttribute="bottom" id="90N-tP-Ben"/>
-                                    <constraint firstAttribute="trailing" secondItem="EKZ-PE-2qh" secondAttribute="trailing" constant="16" id="b9t-JT-m76"/>
-                                    <constraint firstItem="EKZ-PE-2qh" firstAttribute="leading" secondItem="yhc-Ks-ikz" secondAttribute="leading" constant="16" id="gBh-DP-Da2"/>
+                                    <constraint firstAttribute="bottom" secondItem="beJ-Dx-l6y" secondAttribute="bottom" id="5DA-R1-G9Y"/>
                                     <constraint firstAttribute="trailing" secondItem="beJ-Dx-l6y" secondAttribute="trailing" id="gif-og-WfZ"/>
                                     <constraint firstItem="beJ-Dx-l6y" firstAttribute="leading" secondItem="yhc-Ks-ikz" secondAttribute="leading" id="p5V-AP-cKh"/>
                                     <constraint firstItem="beJ-Dx-l6y" firstAttribute="top" secondItem="yhc-Ks-ikz" secondAttribute="top" id="xfO-vN-qx7"/>
@@ -618,7 +608,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="YYG-LO-sPf" kind="show" id="hgd-C7-ghz"/>
+                        <outlet property="pincodeField" destination="dxg-Ff-yFW" id="QGY-ln-0Qd"/>
+                        <segue destination="YYG-LO-sPf" kind="show" identifier="SetupBiometricSegue" id="hgd-C7-ghz"/>
+                        <segue destination="Cnu-66-kbD" kind="popoverPresentation" identifier="SetupPINCodeConfirmationSegue" popoverAnchorView="dxg-Ff-yFW" id="IDh-Bc-WcK">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUW-6Q-P9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -628,7 +622,7 @@
         <!--PIN code-->
         <scene sceneID="smr-We-Xx1">
             <objects>
-                <viewController id="Cnu-66-kbD" sceneMemberID="viewController">
+                <viewController id="Cnu-66-kbD" customClass="SetupPINCodeConfirmationViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Mx-XC-TOg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -640,13 +634,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHV-pj-Zge" userLabel="Content">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pYt-2C-KxC">
-                                                <rect key="frame" x="0.0" y="345.5" width="414" height="49"/>
+                                                <rect key="frame" x="0.0" y="355.5" width="414" height="97"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xsX-TN-BA0" userLabel="Padded Stack View">
-                                                        <rect key="frame" x="8" y="0.0" width="398" height="49"/>
+                                                        <rect key="frame" x="8" y="0.0" width="398" height="97"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the PIN code." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQw-g3-ez1" userLabel="Title">
                                                                 <rect key="frame" x="111" y="0.0" width="176" height="20.5"/>
@@ -660,6 +654,14 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoq-zi-Jg7" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                                <rect key="frame" x="79" y="57" width="240" height="40"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="BTf-3h-n0S"/>
+                                                                    <constraint firstAttribute="width" constant="240" id="DEN-IN-HFY"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
@@ -676,28 +678,13 @@
                                             <constraint firstItem="pYt-2C-KxC" firstAttribute="centerY" secondItem="PHV-pj-Zge" secondAttribute="centerY" id="sMg-ba-UKj"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0b-yb-4Jm">
-                                        <rect key="frame" x="16" y="740" width="382" height="52"/>
-                                        <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
-                                        <state key="normal" title="Confirm"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="w0b-yb-4Jm" secondAttribute="bottom" constant="16" id="QkA-bR-sUb"/>
-                                    <constraint firstItem="w0b-yb-4Jm" firstAttribute="leading" secondItem="uXZ-7B-mwN" secondAttribute="leading" constant="16" id="SDN-k8-egg"/>
-                                    <constraint firstItem="w0b-yb-4Jm" firstAttribute="top" secondItem="PHV-pj-Zge" secondAttribute="bottom" id="UP0-eS-ZmJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="PHV-pj-Zge" secondAttribute="bottom" id="Rt3-cG-tqL"/>
                                     <constraint firstItem="PHV-pj-Zge" firstAttribute="top" secondItem="uXZ-7B-mwN" secondAttribute="top" id="aGC-E5-Hcy"/>
                                     <constraint firstAttribute="trailing" secondItem="PHV-pj-Zge" secondAttribute="trailing" id="bo0-2x-ve8"/>
                                     <constraint firstItem="PHV-pj-Zge" firstAttribute="leading" secondItem="uXZ-7B-mwN" secondAttribute="leading" id="ebc-pO-LET"/>
-                                    <constraint firstAttribute="trailing" secondItem="w0b-yb-4Jm" secondAttribute="trailing" constant="16" id="zrd-k0-9rx"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -715,6 +702,9 @@
                         <viewLayoutGuide key="safeArea" id="p0m-Uu-o30"/>
                     </view>
                     <navigationItem key="navigationItem" title="PIN code" id="Wip-Bc-0CN"/>
+                    <connections>
+                        <outlet property="pincodeField" destination="uoq-zi-Jg7" id="vjt-Xi-1Vx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CN9-1F-2Cy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -967,7 +957,7 @@
         <image name="pattern" width="67" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qQG-nR-Dhp"/>
+        <segue reference="aXH-EA-OxQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

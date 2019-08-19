@@ -17,5 +17,10 @@ protocol UIPincodeFieldDelegate {
     ///
     /// - Parameter pincode: The final PIN code string
     func onPincodeComplete(pincode: String) -> Void
+    
+    /// Triggered when a user has entered or removed a digit in the UIPincodeField
+    ///
+    /// - Parameter pincode: The current (possibly incomplete) PIN code string
+    func onPincodeChange(pincode: String) -> Void
 
 }

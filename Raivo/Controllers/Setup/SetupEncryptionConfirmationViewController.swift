@@ -14,7 +14,7 @@ import UIKit
 class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDelegate {
 
     /// A reference to the password confirmation field
-    @IBOutlet weak var viewEncryptionPassword: UITextField!
+    @IBOutlet weak var password: UITextField!
     
     /// The sender (previous) controller (because this view is presented as a popover)
     public var sendingController: SetupEncryptionInitialViewController? = nil
@@ -32,7 +32,7 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        viewEncryptionPassword.becomeFirstResponder()
+        password.becomeFirstResponder()
     }
     
     /// On 'return' on the keyboard, perform the same action as the "continue" button.
@@ -40,7 +40,7 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     /// - Parameter textField: The text field whose return button was pressed.
     /// - Returns: Positive if the text field should implement its default behavior for the return button; otherwise, false.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        sendingController!.confirmation = viewEncryptionPassword.text ?? ""
+        sendingController!.confirmation = password.text ?? ""
         
         dismiss(animated: true) {
             self.sendingController?.onContinue(self)
@@ -53,7 +53,7 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     ///
     /// - Parameter sender: The object that triggered the action.
     @IBAction func onContinue(_ sender: Any) {
-        sendingController!.confirmation = viewEncryptionPassword.text ?? ""
+        sendingController!.confirmation = password.text ?? ""
         
         dismiss(animated: true) {
             self.sendingController?.onContinue(self)

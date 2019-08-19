@@ -36,6 +36,9 @@ class UIPincodeField: UIView, UITextFieldDelegate {
     /// If positive, no edits will be allowed in the shadow/mirror field (but it will stay the first responder)
     public var completed: Bool = false
     
+    /// Always set to the latest PIN code that was entered by the user (possibly incomplete)
+    public private(set) var current: String = ""
+    
     /// The UIDigitFields that are added on initialization
     private var digits: [Int: UIDigitField] = [:]
     
@@ -189,6 +192,9 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         } else {
             digits[oldLength]?.value = nil
         }
+        
+        current = newText
+        delegate?.onPincodeChange(pincode: newText)
         
         if newLength == length {
             delegate?.onPincodeComplete(pincode: newText)

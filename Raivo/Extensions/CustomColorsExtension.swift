@@ -15,11 +15,27 @@ import UIKit
 extension UIColor {
     
     public static func getLabel() -> UIColor {
-        return UIColor(named: "color-label")!
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        }
+        
+        if let color = UIColor(named: "color-label") {
+            return color
+        }
+        
+        return UIColor.black
     }
     
     public static func getSecondaryLabel() -> UIColor {
-        return UIColor(named: "color-secondary-label")!
+        if #available(iOS 13.0, *) {
+            return UIColor.secondaryLabel
+        }
+        
+        if let color = UIColor(named: "color-secondary-label") {
+            return color
+        }
+        
+        return UIColor(red: 60, green: 60, blue: 67, alpha: 1)
     }
     
     public static func getTintRed() -> UIColor {

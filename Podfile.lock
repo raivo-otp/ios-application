@@ -16,7 +16,6 @@ PODS:
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
-  - Spring (1.0.6)
   - SSZipArchive (2.2.2)
   - swift_qrcodejs (1.1.1)
   - SwiftMessages (7.0.0):
@@ -38,7 +37,6 @@ DEPENDENCIES:
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `tg/xcode-11-b1`)
   - RNCryptor (= 5.1.0)
   - SDWebImage (= 5.0.6)
-  - Spring (from `https://github.com/MengTo/Spring.git`)
   - SSZipArchive (= 2.2.2)
   - SwiftMessages (= 7.0.0)
   - SwiftyBeaver (= 1.7.0)
@@ -73,8 +71,6 @@ EXTERNAL SOURCES:
     :branch: tg/xcode-11-b1
     :git: https://github.com/realm/realm-cocoa.git
     :submodules: true
-  Spring:
-    :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
   Realm:
@@ -85,9 +81,6 @@ CHECKOUT OPTIONS:
     :commit: 2e58dfe78e5f641262c4c5c7e5a13f05b434c610
     :git: https://github.com/realm/realm-cocoa.git
     :submodules: true
-  Spring:
-    :commit: fafd0b2e8d4d46405bd86fa7ba84bb7f73a20b13
-    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -100,7 +93,6 @@ SPEC CHECKSUMS:
   RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
-  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   swift_qrcodejs: 0bacbfe321a99954c7b8e04c75562007ea4e4f7c
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
@@ -109,6 +101,6 @@ SPEC CHECKSUMS:
   Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: f74a482e647746eca38016dfff8e2d89b32819f8
+PODFILE CHECKSUM: 2a15be201887ce9cac4a6dfb5e528b3ae9019ed1
 
 COCOAPODS: 1.5.3

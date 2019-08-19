@@ -11,16 +11,10 @@
 import UIKit
 
 /// Enable the user to set the master password (initial, not confirm)
-class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegate {
+class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegate, SetupState {
 
-    /// The current state of the setup
-    public var state: SetupStateObject? = nil
-    
     /// If the user confirmed the password, this var will contain the confirmed password
     public var confirmation: String? = nil
-    
-    /// True if a user has setup Raivo before, and is recovering data now
-    private var recoveryMode: Bool = false
     
     /// A reference to the title label of the view
     @IBOutlet weak var viewTitle: UILabel!
@@ -29,7 +23,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     @IBOutlet weak var viewDescription: UILabel!
     
     /// A reference to the password field
-    @IBOutlet weak var viewEncryptionPassword: UITextField!
+    @IBOutlet weak var password: UITextField!
 
     //// A reference the the "I forgot my password" button
     @IBOutlet weak var forgotView: UIButton!
@@ -38,10 +32,10 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewEncryptionPassword.delegate = self
+        password.delegate = self
         adjustViewToKeyboard()
-
-        if recoveryMode {
+        
+        if state(self).recoveryMode() {
             viewTitle.text = "Load data from storage provider."
             viewDescription.text = "You've used Raivo before. Enter the recovery password you took note of back then."
             forgotView.isHidden = false
@@ -55,7 +49,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
         super.viewDidAppear(animated)
         
         if confirmation == nil {
-            viewEncryptionPassword.becomeFirstResponder()
+            password.becomeFirstResponder()
         }
     }
     
@@ -83,27 +77,27 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     ///
     /// - Parameter sender: The object that triggered the action.
     @IBAction func onContinue(_ sender: Any) {
-        guard viewEncryptionPassword.text?.length ?? 0 >= 8 else {
-            viewEncryptionPassword.becomeFirstResponder()
+        guard password.text?.count ?? 0 >= 8 else {
+            password.becomeFirstResponder()
             return BannerHelper.error("The minimum password length is 8 characters.", seconds: 2.0, icon: "👮")
         }
         
-        guard state!.recoveryMode() || confirmation != nil else {
-            viewEncryptionPassword.resignFirstResponder()
+        guard state(self).recoveryMode() || confirmation != nil else {
             return performSegue(withIdentifier: "SetupEncryptionConfirmationSegue", sender: sender)
         }
         
-        guard state!.recoveryMode() || viewEncryptionPassword.text == confirmation else {
+        guard state(self).recoveryMode() || password.text == confirmation else {
             confirmation = nil
-            viewEncryptionPassword.becomeFirstResponder()
+            password.becomeFirstResponder()
             return BannerHelper.error("The password and confirmation do not match", seconds: 2.0, icon: "👮")
         }
         
-        guard !state!.recoveryMode() || verifyRecoveryChallenge() else {
-            viewEncryptionPassword.becomeFirstResponder()
+        guard !state(self).recoveryMode() || verifyRecoveryChallenge() else {
+            password.becomeFirstResponder()
             return BannerHelper.error("The password you entered is incorrect", seconds: 2.0, icon: "👮")
         }
-        
+
+        state(self).password = password.text
         performSegue(withIdentifier: "SetupPINCodeSegue", sender: sender)
     }
     
@@ -111,9 +105,9 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     ///
     /// - Returns: Positive if the password was correct or if the user is not recovering data.
     private func verifyRecoveryChallenge() -> Bool {
-        if let challenge = state?.challenge?.challenge {
+        if let challenge = state(self).challenge?.challenge {
             do {
-                let _ = try CryptographyHelper.shared.decrypt(challenge, withKey: viewEncryptionPassword.text ?? "")
+                let _ = try CryptographyHelper.shared.decrypt(challenge, withKey: password.text ?? "")
                 return true
             } catch {
                 return false
@@ -133,13 +127,6 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
         if segue.identifier == "SetupEncryptionConfirmationSegue" {
             if let destination = segue.destination as? SetupEncryptionConfirmationViewController {
                 destination.sendingController = self
-            }
-        }
-        
-        if segue.identifier == "SetupPINCodeSegue" {
-            if let destination = segue.destination as? SetupPINCodeViewController {
-                state!.password = viewEncryptionPassword.text
-                destination.state = state
             }
         }
     }

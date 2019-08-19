@@ -10,13 +10,11 @@
 
 import UIKit
 import RealmSwift
-import Spring
 
 class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     
-    @IBOutlet weak var viewPincode: UIPincodeField!
     
-    @IBOutlet weak var viewExtra: SpringLabel!
+    @IBOutlet weak var viewPincode: UIPincodeField!
     
     @IBOutlet weak var viewBiometricsUnlock: UIButton!
     
@@ -34,7 +32,7 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         viewPincode.delegate = self
         viewPincode.layoutIfNeeded()
         
-        showPincodeView("Enter your PIN code to continue.")
+//        showPincodeView("Enter your PIN code to continue.")
         
         NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
@@ -57,17 +55,6 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         }
     }
     
-    func showPincodeView(_ extra: String, flash: Bool = false) {
-        viewPincode.reset()
-        viewExtra.text = extra
-        
-        if flash {
-            self.viewExtra.delay = CGFloat(0.25)
-            self.viewExtra.animation = "shake"
-            self.viewExtra.animate()
-        }
-    }
-    
     @IBAction func onBiometricsUnlock(_ sender: Any) {
         tryBiometricsUnlock()
     }
@@ -76,7 +63,8 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         let salt = StorageHelper.shared.getEncryptionPassword()!
         
         guard let encryptionKey = try? CryptographyHelper.shared.derive(pincode, withSalt: salt) else {
-            showPincodeView("Key derivation failed.")
+            BannerHelper.error("Key derivation failed.", seconds: 2.0)
+            viewPincode.reset()
             return
         }
         
@@ -86,7 +74,7 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
             guard self.tryNewPincode() else {
                 self.viewPincode.reset()
                 self.viewPincode.becomeFirstResponder()
-                self.showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
+                BannerHelper.error("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", seconds: 2.0)
                 return
             }
             
@@ -100,9 +88,15 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
                 self.viewPincode.becomeFirstResponder()
                 
                 let message = self.getTriesLeft() == 0 ? "Invalid PIN code. That was your last try." : "Invalid PIN code. " + String(self.getTriesLeft()) + " tries left."
-                self.showPincodeView(message, flash: true)
+                
+                BannerHelper.error(message, seconds: 2.0)
+                return
             }
         }
+    }
+    
+    func onPincodeChange(pincode: String) {
+        // Not implemented
     }
     
     internal func resetPincodeTries() {
@@ -150,8 +144,8 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         }
         
         guard self.tryNewPincode(increase: false) else {
+            BannerHelper.error("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", seconds: 2.0)
             viewPincode.reset()
-            showPincodeView("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", flash: true)
             return
         }
         
