@@ -115,9 +115,16 @@ class StateHelper {
     /// Reset the state of the app to `State.LOCAL_DATABASE_UNKNOWN`.
     ///
     /// - Parameter dueToPINCodeChange: Positive if only certain keychain items should be removed.
-    /// - Note: The `dueToPINCodeChange` parameter can be set to true on e.g. a PIN code change.
+    /// - Note: The 'dueToPINCodeChange' param can be set to true on e.g. a PIN code change.
+    /// - Note: Realm auxiliary files will be deleted (https://realm.io/docs/swift/latest/#deleting-realm-files)
     public func reset(dueToPINCodeChange PINChanged: Bool = false) {
-        try? FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+        
+        try? FileManager.default.removeItem(at: realmURL)
+        try? FileManager.default.removeItem(at: realmURL.appendingPathExtension("lock"))
+        try? FileManager.default.removeItem(at: realmURL.appendingPathExtension("unlockme"))
+        try? FileManager.default.removeItem(at: realmURL.appendingPathExtension("note"))
+        try? FileManager.default.removeItem(at: realmURL.appendingPathExtension("management"))
         
         SyncerHelper.shared.clear(dueToPINCodeChange: PINChanged)
         StorageHelper.shared.clear(dueToPINCodeChange: PINChanged)

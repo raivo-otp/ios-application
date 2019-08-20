@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 
 /// The last resort for users that forgot their password.
-class SetupFlushDataViewController: UIViewController {
+class SetupFlushDataViewController: UIViewController, SetupState {
     
     /// If a user confirms that he/she want's to flush all data, ask for confirmation one more time, then delete all data.
     ///
@@ -40,21 +40,14 @@ class SetupFlushDataViewController: UIViewController {
     
     /// Flush all data via the storage provider
     private func flushData() {
-        let _ = displayNavBarActivity()
+        displayNavBarActivity()
         
-        SyncerHelper.shared.getSyncer().flushAllData(success: { (syncerType) in
+        SyncerHelper.shared.getSyncer(state(presentingViewController!).syncerID!).flushAllData(success: { (syncerType) in
             self.dismissNavBarActivity()
             StateHelper.shared.reset()
         }) { (error, syncerType) in
             self.dismissNavBarActivity()
-            
-            let popup = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            
-            popup.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                popup.dismiss(animated: true, completion: nil)
-            }))
-            
-            self.present(popup, animated: true, completion: nil)
+            BannerHelper.error(error.localizedDescription)
         }
     }
     

@@ -60,15 +60,34 @@ class RealmHelper {
     }
     
     public static func isCorrectEncryptionKey(_ encryptionKey: Data?) -> Bool {
+        // Realm exceptions can't be caught, therefore copy the DB and try to unlock it, afterwards delete that file.
+        // https://stackoverflow.com/questions/37014101/realm-swift-how-to-catch-rlmexception
+        
         if let encryptionKey = encryptionKey {
             RealmHelper.initDefaultRealmConfiguration(encryptionKey: encryptionKey)
             
+            let originalURL = Realm.Configuration.defaultConfiguration.fileURL!
+            let unlockURL = originalURL.appendingPathExtension("unlockme")
+            
+            var unlockConfiguration = Realm.Configuration.defaultConfiguration
+            unlockConfiguration.fileURL = unlockURL
+            
+            var result = false
+            
             do {
-                let _ = try Realm(configuration: Realm.Configuration.defaultConfiguration)
-                return true
+                try FileManager.default.copyItem(at: originalURL, to: unlockURL)
+                let _ = try Realm(configuration: unlockConfiguration)
+                result = true
             } catch {
-                return false
+                result = false
             }
+            
+            try? FileManager.default.removeItem(at: unlockURL)
+            try? FileManager.default.removeItem(at: unlockURL.appendingPathExtension("lock"))
+            try? FileManager.default.removeItem(at: unlockURL.appendingPathExtension("note"))
+            try? FileManager.default.removeItem(at: unlockURL.appendingPathExtension("management"))
+            
+            return result
         }
         
         return false

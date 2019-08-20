@@ -13,10 +13,9 @@ import RealmSwift
 
 class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     
+    @IBOutlet weak var pincodeField: UIPincodeField!
     
-    @IBOutlet weak var viewPincode: UIPincodeField!
-    
-    @IBOutlet weak var viewBiometricsUnlock: UIButton!
+    @IBOutlet weak var biometricLabel: UIButton!
     
     final let maximumTries = 6
     
@@ -27,12 +26,10 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         
         adjustViewToKeyboard()
         
-        viewBiometricsUnlock.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
+        biometricLabel.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
         
-        viewPincode.delegate = self
-        viewPincode.layoutIfNeeded()
-        
-//        showPincodeView("Enter your PIN code to continue.")
+        pincodeField.delegate = self
+        pincodeField.layoutIfNeeded()
         
         NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
@@ -51,7 +48,7 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         if getAppDelegate().previousStoryboardName == StateHelper.Storyboard.LOAD {
             tryBiometricsUnlock()
         } else {
-            viewPincode.becomeFirstResponder()
+            pincodeField.becomeFirstResponder()
         }
     }
     
@@ -63,8 +60,10 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         let salt = StorageHelper.shared.getEncryptionPassword()!
         
         guard let encryptionKey = try? CryptographyHelper.shared.derive(pincode, withSalt: salt) else {
-            BannerHelper.error("Key derivation failed.", seconds: 2.0)
-            viewPincode.reset()
+            BannerHelper.error("Key derivation failed.") {
+                self.pincodeField.reset()
+            }
+            
             return
         }
         
@@ -72,9 +71,10 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         
         DispatchQueue.main.async {
             guard self.tryNewPincode() else {
-                self.viewPincode.reset()
-                self.viewPincode.becomeFirstResponder()
-                BannerHelper.error("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", seconds: 2.0)
+                BannerHelper.error("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.") {
+                    self.pincodeField.reset()
+                }
+                
                 return
             }
             
@@ -84,12 +84,11 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
                 self.resetPincodeTries()
                 getAppDelegate().updateStoryboard()
             } else {
-                self.viewPincode.reset()
-                self.viewPincode.becomeFirstResponder()
+                self.pincodeField.reset()
                 
                 let message = self.getTriesLeft() == 0 ? "Invalid PIN code. That was your last try." : "Invalid PIN code. " + String(self.getTriesLeft()) + " tries left."
                 
-                BannerHelper.error(message, seconds: 2.0)
+                BannerHelper.error(message, seconds: 1.0)
                 return
             }
         }
@@ -139,17 +138,19 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     
     internal func tryBiometricsUnlock() {
         guard StorageHelper.shared.getBiometricUnlockEnabled() else {
-            viewPincode.becomeFirstResponder()
+            pincodeField.becomeFirstResponder()
             return
         }
         
         guard self.tryNewPincode(increase: false) else {
-            BannerHelper.error("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", seconds: 2.0)
-            viewPincode.reset()
+            BannerHelper.error("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.") {
+                self.pincodeField.reset()
+            }
+            
             return
         }
         
-        viewPincode.resignFirstResponder()
+        pincodeField.resignFirstResponder()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
@@ -158,7 +159,7 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
                 getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
                 getAppDelegate().updateStoryboard()
             } else {
-                self.viewPincode.becomeFirstResponder()
+                self.pincodeField.becomeFirstResponder()
             }
         }
     }

@@ -18,18 +18,23 @@ class BannerHelper {
         var config = SwiftMessages.Config()
         
         config.presentationStyle = .center
-        config.presentationContext = .window(windowLevel: .statusBar)
         config.duration = .seconds(seconds: TimeInterval(seconds))
         config.dimMode = .color(color: UIColor.clear, interactive: true)
+        
+        if let controller = getAppDelegate().window?.rootViewController {
+            config.presentationContext = .viewController(controller)
+        } else {
+            config.presentationContext = .window(windowLevel: .statusBar)
+        }
         
         return config
     }
     
-    static func error(_ message: String, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟") {
-        error(NSAttributedString(string: message), seconds: seconds, vibrate: vibrate, icon: icon)
+    static func error(_ message: String, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟", callback: (() -> Void)? = nil) {
+        error(NSAttributedString(string: message), seconds: seconds, vibrate: vibrate, icon: icon, callback: callback)
     }
     
-    static func error(_ message: NSAttributedString, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟") {
+    static func error(_ message: NSAttributedString, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟", callback: (() -> Void)? = nil) {
         if let vibrate = vibrate {
             Haptic.notification(vibrate).generate()
         }
@@ -44,6 +49,12 @@ class BannerHelper {
         
         SwiftMessages.hideAll()
         SwiftMessages.show(config: config, view: view)
+        
+        if let dismissing = callback {
+            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                dismissing()
+            }
+        }
     }
     
     static func success(_ message: String, seconds: Double = 1.0, vibrate: HapticFeedbackType? = HapticFeedbackType.success, icon: String = "👍") {

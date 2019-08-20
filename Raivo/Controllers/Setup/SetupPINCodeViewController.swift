@@ -52,6 +52,7 @@ class SetupPINCodeViewController: UIViewController, UIPincodeFieldDelegate, Setu
         confirmation = nil
     }
     
+    /// On continue is called by various triggers and should try to continue to the next setup stage
     func onContinue() {
         let pincode = pincodeField.current
         
@@ -64,11 +65,20 @@ class SetupPINCodeViewController: UIViewController, UIPincodeFieldDelegate, Setu
             pincodeField.reset()
             pincodeField.becomeFirstResponder()
             
-            return BannerHelper.error("The password and confirmation do not match", seconds: 2.0, icon: "👮")
+            return BannerHelper.error("The password and confirmation do not match", icon: "👮")
         }
-
-        state(self).pincode = pincode
-        performSegue(withIdentifier: "SetupBiometricSegue", sender: nil)
+        
+        do {
+            state(self).encryptionKey = try CryptographyHelper.shared.derive(pincode, withSalt: state(self).password!)
+        } catch let error {
+            return BannerHelper.error(error.localizedDescription)
+        }
+        
+        if StorageHelper.shared.canAccessSecrets() {
+            performSegue(withIdentifier: "SetupBiometricSegue", sender: nil)
+        } else {
+            performSegue(withIdentifier: "SkipToSetupFinalizeSegue", sender: nil)
+        }
     }
     
     /// Prepare for the setup encryption segue

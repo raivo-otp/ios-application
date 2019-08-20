@@ -9,6 +9,7 @@
 // 
 
 import Foundation
+import RealmSwift
 
 /// An object used during the app setup. It remembers all options that the user chose.
 ///
@@ -27,14 +28,42 @@ class SetupStateObject {
     /// The encryption password
     var password: String? = nil
     
-    /// The lock PIN code
-    var pincode: String? = nil
+    /// The encryption key derived from the password and PIN code
+    var encryptionKey: Data? = nil
+    
+    /// Should enable biometric unlock
+    var biometric: Bool = false
     
     /// Check if a challenge is available.
     ///
     /// - Returns: Positive if user is recovering data.
     public func recoveryMode() -> Bool {
         return challenge?.challenge != nil
+    }
+    
+    /// Persist the current storage into storage
+    public func persist() throws {
+        // Set the current storage provider (e.g. iCloud/CloudKit)
+        StorageHelper.shared.setSynchronizationProvider(syncerID!)
+        
+        // Set the current account identifier in both the keychain and the current app state
+        StorageHelper.shared.setSynchronizationAccountIdentifier(account!.identifier)
+        getAppDelegate().syncerAccountIdentifier = account!.identifier
+        
+        // Store the password in the keychain
+        StorageHelper.shared.setEncryptionPassword(password!)
+        
+        // Create a Realm database
+        getAppDelegate().updateEncryptionKey(encryptionKey!)
+        
+        // Create an empty database using the default realm configuration
+        let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
+        
+        // Enable biometric unlock if needed
+        if biometric {
+            StorageHelper.shared.setEncryptionKey(encryptionKey!.base64EncodedString())
+            StorageHelper.shared.setBiometricUnlockEnabled(true)
+        }
     }
     
 }

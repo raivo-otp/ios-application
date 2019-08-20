@@ -12,7 +12,7 @@ import Foundation
 import CommonCrypto
 import RNCryptor
 
-/// A helper class for running cryptographic calculations
+/// A helper class for performing cryptographic calculations.
 class CryptographyHelper {
     
     /// The singleton instance for the CryptographyHelper
@@ -24,13 +24,13 @@ class CryptographyHelper {
     /// Use the PBKDF2 key derivation algorithm to derive the given data to a 64 byte encryption key
     /// https://realm.io/docs/swift/latest/#encryption
     ///
-    /// - Parameter secret: The secret to derive
-    /// - Parameter salt: The salt to use for derivation
+    /// - Parameter secret: The secret to derive (for end-users, this is called the PIN code)
+    /// - Parameter salt: The salt to use for derivation (for end-users, this is called the password)
     /// - Returns: A key based on the secret and salt
     /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
     public func derive(_ secret: String, withSalt salt: String) throws -> Data {
         guard let salt = salt.data(using: .utf8) else {
-            throw CryptographyError.derivationFailed("Salt contains non UTF-8 characters")
+            throw CryptographyError.derivationFailed("Password contains non UTF-8 characters")
         }
         
         return try derive(secret, withSalt: salt)

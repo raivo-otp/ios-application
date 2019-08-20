@@ -134,7 +134,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         viewPincode.reset()
       
         if flash {
-            BannerHelper.error(extra, seconds: 2.0)
+            BannerHelper.error(extra)
         }
     }
     

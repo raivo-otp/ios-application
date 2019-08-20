@@ -68,7 +68,7 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
             BannerHelper.error(error.localizedDescription)
         } else {
             log.verbose("Now wait a moment, sending mails with attatchments can take a few seconds!")
-            BannerHelper.success("You should receive a mail within a few minutes!", seconds: 2.0)
+            BannerHelper.success("You should receive a mail within a few minutes!")
         }
     }
         

@@ -249,7 +249,7 @@
         <!--New Pincode-->
         <scene sceneID="0zb-Hm-etg">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="DeprecatedMainChangePincodeViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="MainChangePincodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RLv-3W-khe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
