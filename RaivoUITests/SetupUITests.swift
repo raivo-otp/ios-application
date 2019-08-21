@@ -46,7 +46,7 @@ class SetupUITests: XCTestCase {
     }
     
     func testMinimumPasswordLength() {
-        app.buttons["continueToEncryption"].tap()
+        // Not implemented
     }
 
 }

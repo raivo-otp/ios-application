@@ -1,10 +1,16 @@
 os: osx
 language: swift
 xcode_project: Raivo.xcodeproj
-xcode_scheme: RaivoUITests
-xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
+xcode_scheme: "Raivo RELEASE"
 
 matrix:
   include:
-  - osx_image: xcode11
-  - osx_image: xcode10.3
+    - name: Xcode 10.3, iOS 12.1, iPhone X
+      osx_image: xcode10.3
+      env:
+        - XCODE_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone X"
+
+    - name: Xcode 11.0, iOS 12.1, iPhone X
+      osx_image: xcode11
+      env:
+        - XCODE_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone X"
