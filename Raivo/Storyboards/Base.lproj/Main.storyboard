@@ -28,7 +28,7 @@
         <!--Scan-->
         <scene sceneID="f4l-0E-nB9">
             <objects>
-                <viewController title="Scan" id="I4h-xK-fAb" customClass="MainScanPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I4h-xK-fAb" customClass="MainScanPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zc4-fI-UmP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,6 +98,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aJL-SM-eC0"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Scan" largeTitleDisplayMode="always" id="cBj-RV-F7Z"/>
                     <connections>
                         <outlet property="cameraPreview" destination="Y9c-rB-tZr" id="hSa-V1-wvg"/>
                         <outlet property="cameraUnavailableLabel" destination="LNY-AU-Znv" id="Ndc-97-EAA"/>
@@ -118,7 +119,7 @@
                         <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="agh-vy-GIo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Password" id="B8I-jh-gwg">
+                    <navigationItem key="navigationItem" title="Create Password" largeTitleDisplayMode="always" id="B8I-jh-gwg">
                         <barButtonItem key="backBarButtonItem" title="Create" id="ZAw-mY-4Yc"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wRy-iv-iCx">
                             <connections>
@@ -154,7 +155,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WSM-vr-gJL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Passwords" id="Rqw-bM-Zhl">
+                    <navigationItem key="navigationItem" title="Passwords" largeTitleDisplayMode="never" id="Rqw-bM-Zhl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yGK-UY-Xc4">
                             <connections>
                                 <segue destination="I4h-xK-fAb" kind="show" identifier="ScanPassword" id="ch3-mr-f4W"/>
@@ -181,7 +182,7 @@
                         <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="j0L-dn-8mA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Password" id="fWU-Md-GCH">
+                    <navigationItem key="navigationItem" title="Edit Password" largeTitleDisplayMode="always" id="fWU-Md-GCH">
                         <barButtonItem key="backBarButtonItem" title="Edit" id="gLm-9e-Sec"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0r9-Ba-kbs">
                             <connections>
@@ -204,7 +205,7 @@
                         <color key="backgroundColor" name="color-background-opaque"/>
                         <viewLayoutGuide key="safeArea" id="oXZ-Dr-lMs"/>
                     </view>
-                    <navigationItem key="navigationItem" title="QR code" id="v6q-mk-7lO"/>
+                    <navigationItem key="navigationItem" title="QR code" largeTitleDisplayMode="always" id="v6q-mk-7lO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzA-ZB-Aga" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
