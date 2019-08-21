@@ -1,6 +1,7 @@
 os: osx
-language: swift
-xcode_project: Raivo.xcodeproj
+language: objective-c
+# xcode_project: Raivo.xcodeproj
+xcode_workspace: Raivo.xcworkspace
 xcode_scheme: "Raivo DEBUG"
 
 script:
