@@ -20,9 +20,11 @@ class LoadEntryViewController: UIViewController {
         getAppDelegate().updateEncryptionKey(getAppDelegate().getEncryptionKey())
 
         // Initialize debug logging (if applicable)
-        let console = ConsoleDestination()
-        console.minLevel = AppHelper.logLevel
-        log.addDestination(console)
+        if AppHelper.compilation == AppHelper.Compilation.debug {
+            let console = ConsoleDestination()
+            console.minLevel = AppHelper.logLevel
+            log.addDestination(console)
+        }
         
         // Initialize SDImage configurations
         SDImageCache.shared.config.maxDiskAge = TimeInterval(60 * 60 * 24 * 365 * 4)

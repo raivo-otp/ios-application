@@ -41,7 +41,8 @@ class QuickResponseCodeForm {
     }
     
     private func buildGenericSection(_ password: Password) -> Section {
-        let genericSection = Section(password.issuer + " (" + password.account + ")", { section in
+        let title = password.issuer + (password.account.count > 0 ? " (" + password.account + ")" : "")
+        let genericSection = Section(title, { section in
             section.tag = "generic"
         })
         

@@ -19,22 +19,21 @@ class BannerHelper {
         
         config.presentationStyle = .center
         config.duration = .seconds(seconds: TimeInterval(seconds))
-        config.dimMode = .color(color: UIColor.clear, interactive: true)
+        config.dimMode = .color(color: UIColor.clear, interactive: false)
+        config.presentationContext = .window(windowLevel: .statusBar)
         
-        if let controller = getAppDelegate().window?.rootViewController {
-            config.presentationContext = .viewController(controller)
-        } else {
-            config.presentationContext = .window(windowLevel: .statusBar)
-        }
+//        if let controller = getAppDelegate().window?.rootViewController {
+//            config.presentationContext = .viewController(controller)
+//        }
         
         return config
     }
     
-    static func error(_ message: String, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟", callback: (() -> Void)? = nil) {
+    static func error(_ message: String, seconds: Double = 1.8, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟", callback: (() -> Void)? = nil) {
         error(NSAttributedString(string: message), seconds: seconds, vibrate: vibrate, icon: icon, callback: callback)
     }
     
-    static func error(_ message: NSAttributedString, seconds: Double = 2.0, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟", callback: (() -> Void)? = nil) {
+    static func error(_ message: NSAttributedString, seconds: Double = 1.8, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟", callback: (() -> Void)? = nil) {
         if let vibrate = vibrate {
             Haptic.notification(vibrate).generate()
         }

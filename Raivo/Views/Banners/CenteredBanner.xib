@@ -54,6 +54,7 @@
                             <constraint firstItem="T1i-ce-9y8" firstAttribute="top" secondItem="Cjc-ma-VWy" secondAttribute="top" constant="15" id="yk9-Bn-kDb"/>
                         </constraints>
                     </view>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <blurEffect style="regular"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -117,7 +118,7 @@
     </objects>
     <resources>
         <namedColor name="color-tint-red">
-            <color red="1" green="0.24313725490196078" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.91764705882352937" green="0.058823529411764705" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

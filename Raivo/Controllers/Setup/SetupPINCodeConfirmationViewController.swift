@@ -28,13 +28,6 @@ class SetupPINCodeConfirmationViewController: UIViewController, UIPincodeFieldDe
         
         pincodeField.delegate = self
         pincodeField.layoutIfNeeded()
-    }
-    
-    /// Notifies the view controller that its view was added to a view hierarchy.
-    ///
-    /// - Parameter animated: If positive, the view was added to the window using an animation.
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         pincodeField.becomeFirstResponder()
     }
     

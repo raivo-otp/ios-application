@@ -284,10 +284,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="654"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0pT-X8-fAp">
-                                                <rect key="frame" x="0.0" y="268.5" width="414" height="117.5"/>
+                                                <rect key="frame" x="0.0" y="266" width="414" height="122.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0MK-1Z-Kvs" userLabel="Padded Stack View">
-                                                        <rect key="frame" x="8" y="0.0" width="398" height="117.5"/>
+                                                        <rect key="frame" x="8" y="0.0" width="398" height="122.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your master password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoX-Bb-B2i" userLabel="Title">
                                                                 <rect key="frame" x="92.5" y="0.0" width="213.5" height="20.5"/>
@@ -295,22 +295,25 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will need it when configuring Raivo on other devices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="En1-Wf-CAd" userLabel="Description">
-                                                                <rect key="frame" x="36.5" y="28.5" width="325" height="41"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will need it when configuring data synchronization on other devices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="En1-Wf-CAd" userLabel="Description">
+                                                                <rect key="frame" x="52.5" y="28.5" width="293.5" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="••••••••••••••••" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-xd-KJW">
-                                                                <rect key="frame" x="0.0" y="77.5" width="398" height="40"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hC^FA7gW}TnW5MXB" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-xd-KJW">
+                                                                <rect key="frame" x="0.0" y="77.5" width="398" height="45"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="ReS-sI-JFs"/>
+                                                                    <constraint firstAttribute="height" constant="45" id="ReS-sI-JFs"/>
                                                                 </constraints>
+                                                                <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password">
+                                                                    <passwordRules key="passwordRules" passwordRulesDescriptor="minlength: 8;"/>
+                                                                </textInputTraits>
                                                             </textField>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-bJ-VKm">
-                                                                <rect key="frame" x="99" y="117.5" width="200" height="0.0"/>
+                                                                <rect key="frame" x="99" y="122.5" width="200" height="0.0"/>
                                                                 <state key="normal" title="I forgot my master password."/>
                                                                 <connections>
                                                                     <segue destination="JV5-fL-M0g" kind="popoverPresentation" popoverAnchorView="lzc-bJ-VKm" id="KCy-Xp-PLa">
@@ -394,7 +397,7 @@
                         <outlet property="viewDescription" destination="En1-Wf-CAd" id="Y6l-Lb-xUo"/>
                         <outlet property="viewTitle" destination="BoX-Bb-B2i" id="xd5-Kl-Dkh"/>
                         <segue destination="dnl-gw-FPY" kind="show" identifier="SetupPINCodeSegue" id="aK7-If-vjI"/>
-                        <segue destination="aZF-PO-c5E" kind="popoverPresentation" identifier="SetupEncryptionConfirmationSegue" popoverAnchorView="Smf-TT-yJM" id="deV-sC-kkO">
+                        <segue destination="aZF-PO-c5E" kind="popoverPresentation" identifier="SetupEncryptionConfirmationSegue" popoverAnchorView="OlT-xd-KJW" id="deV-sC-kkO">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -421,10 +424,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m8h-2R-p78">
-                                                <rect key="frame" x="0.0" y="311.5" width="414" height="117.5"/>
+                                                <rect key="frame" x="0.0" y="309" width="414" height="122.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HGW-wv-5zd" userLabel="Padded Stack View">
-                                                        <rect key="frame" x="8" y="0.0" width="398" height="117.5"/>
+                                                        <rect key="frame" x="8" y="0.0" width="398" height="122.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-Yp-PNV" userLabel="Title">
                                                                 <rect key="frame" x="108.5" y="0.0" width="181.5" height="20.5"/>
@@ -438,13 +441,15 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="••••••••••••••••" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="wLK-pr-MEs">
-                                                                <rect key="frame" x="0.0" y="77.5" width="398" height="40"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hC^FA7gW}TnW5MXB" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wLK-pr-MEs">
+                                                                <rect key="frame" x="0.0" y="77.5" width="398" height="45"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="S9i-Fh-Jw7"/>
+                                                                    <constraint firstAttribute="height" constant="45" id="S9i-Fh-Jw7"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password">
+                                                                    <passwordRules key="passwordRules" passwordRulesDescriptor="minlength: 8;"/>
+                                                                </textInputTraits>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -1081,7 +1086,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OLy-2Y-whp"/>
-        <segue reference="aXH-EA-OxQ"/>
+        <segue reference="qQG-nR-Dhp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

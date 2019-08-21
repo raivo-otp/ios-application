@@ -32,14 +32,16 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        password.delegate = self
-        adjustViewToKeyboard()
-        
         if state(self).recoveryMode() {
             viewTitle.text = "Load data from storage provider."
             viewDescription.text = "You've used Raivo before. Enter the recovery password you took note of back then."
             forgotView.isHidden = false
         }
+        
+        adjustViewToKeyboard()
+        
+        password.delegate = self
+        password.becomeFirstResponder()
     }
     
     /// Notifies the view controller that its view was added to a view hierarchy.
