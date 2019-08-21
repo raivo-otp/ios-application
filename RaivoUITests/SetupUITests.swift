@@ -23,16 +23,15 @@ class SetupUITests: XCTestCase {
     override func tearDown() {
         // Not implemented
     }
-
-    func testWelcome() {
-        XCTAssertTrue(app.buttons["continueToStorage"].exists)
-    }
     
-    func testWelcomeToStorage() {
-        app.buttons["continueToStorage"].tap()
+    func testWelcome() {
+        let continueToStorage = app.buttons["continueToStorage"]
+        XCTAssertTrue(continueToStorage.exists)
     }
     
     func testStorage() {
+        app.buttons["continueToStorage"].tap()
+        
         let continueToEncryption = app.buttons["continueToEncryption"]
         XCTAssertTrue(continueToEncryption.exists)
         
@@ -41,11 +40,10 @@ class SetupUITests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testStorageToEncryption() {
-        app.buttons["continueToEncryption"].tap()
-    }
-    
     func testMinimumPasswordLength() {
+        app.buttons["continueToStorage"].tap()
+        app.buttons["continueToEncryption"].tap()
+        
         // Not implemented
     }
 

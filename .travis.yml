@@ -3,14 +3,27 @@ language: swift
 xcode_project: Raivo.xcodeproj
 xcode_scheme: "Raivo DEBUG"
 
+script:
+  - set -o pipefail
+  - xcodebuild $XCODE_ACTION
+      -workspace "$TRAVIS_XCODE_WORKSPACE"
+      -scheme "$TRAVIS_XCODE_SCHEME"
+      -sdk "$XCODE_SDK"
+      -destination "$XCODE_DESTINATION"
+      RUN_CLANG_STATIC_ANALYZER=NO
+      | xcpretty
+
 matrix:
   include:
     - name: Xcode 10.3, iOS 12.1, iPhone X
       osx_image: xcode10.3
       env:
+        - XCODE_ACTION=test
+        - XCODE_SDK=iphonesimulator
         - XCODE_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone X"
-
     - name: Xcode 11.0, iOS 12.1, iPhone X
       osx_image: xcode11
       env:
+        - XCODE_ACTION=test
+        - XCODE_SDK=iphonesimulator
         - XCODE_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone X"
