@@ -35,6 +35,7 @@
 		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
 		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
 		70617A592270DBD80032076A /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A582270DBD80032076A /* QueryHelper.swift */; };
+		70631CAE230DC2A10040DD71 /* SetupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70631CAD230DC2A10040DD71 /* SetupUITests.swift */; };
 		7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C796226A455800C1A949 /* SyncerChallenge.swift */; };
 		7066C79B226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79A226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift */; };
 		7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79C226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift */; };
@@ -139,6 +140,16 @@
 		70FA4C552287546D00A3B754 /* IconFormSelectorViewEmptyList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		70631CA8230DC24D0040DD71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 700908B921FCCE5F00603AA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 700908C021FCCE5F00603AA2;
+			remoteInfo = Raivo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raivo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Raivo/Pods-Raivo.debug.xcconfig"; sourceTree = "<group>"; };
 		700908C121FCCE5F00603AA2 /* Raivo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raivo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +181,9 @@
 		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
 		7059680F2299AB0A0032D70F /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		70617A582270DBD80032076A /* QueryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelper.swift; sourceTree = "<group>"; };
+		70631CA3230DC24D0040DD71 /* RaivoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaivoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70631CA7230DC24D0040DD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70631CAD230DC2A10040DD71 /* SetupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUITests.swift; sourceTree = "<group>"; };
 		7066C796226A455800C1A949 /* SyncerChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerChallenge.swift; sourceTree = "<group>"; };
 		7066C79A226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModelSyncerProtocol.swift; sourceTree = "<group>"; };
 		7066C79C226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModelConverterProtocol.swift; sourceTree = "<group>"; };
@@ -287,6 +301,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		70631CA0230DC24D0040DD71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -294,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				700908C321FCCE5F00603AA2 /* Raivo */,
+				70631CA4230DC24D0040DD71 /* RaivoUITests */,
 				700908C221FCCE5F00603AA2 /* Products */,
 				8889524049857A298B4406FB /* Pods */,
 				8803730FEA035491C97F262B /* Frameworks */,
@@ -304,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				700908C121FCCE5F00603AA2 /* Raivo.app */,
+				70631CA3230DC24D0040DD71 /* RaivoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -536,6 +559,15 @@
 				7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */,
 			);
 			path = Selectors;
+			sourceTree = "<group>";
+		};
+		70631CA4230DC24D0040DD71 /* RaivoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				70631CAD230DC2A10040DD71 /* SetupUITests.swift */,
+				70631CA7230DC24D0040DD71 /* Info.plist */,
+			);
+			path = RaivoUITests;
 			sourceTree = "<group>";
 		};
 		70684DF2225A37530038BDB4 /* Options */ = {
@@ -837,13 +869,31 @@
 			productReference = 700908C121FCCE5F00603AA2 /* Raivo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		70631CA2230DC24D0040DD71 /* RaivoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70631CAC230DC24D0040DD71 /* Build configuration list for PBXNativeTarget "RaivoUITests" */;
+			buildPhases = (
+				70631C9F230DC24D0040DD71 /* Sources */,
+				70631CA0230DC24D0040DD71 /* Frameworks */,
+				70631CA1230DC24D0040DD71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				70631CA9230DC24D0040DD71 /* PBXTargetDependency */,
+			);
+			name = RaivoUITests;
+			productName = RaivoUITests;
+			productReference = 70631CA3230DC24D0040DD71 /* RaivoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		700908B921FCCE5F00603AA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Tijme Gommers";
 				TargetAttributes = {
@@ -862,6 +912,10 @@
 							};
 						};
 					};
+					70631CA2230DC24D0040DD71 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 700908C021FCCE5F00603AA2;
+					};
 				};
 			};
 			buildConfigurationList = 700908BC21FCCE5F00603AA2 /* Build configuration list for PBXProject "Raivo" */;
@@ -878,6 +932,7 @@
 			projectRoot = "";
 			targets = (
 				700908C021FCCE5F00603AA2 /* Raivo */,
+				70631CA2230DC24D0040DD71 /* RaivoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -911,6 +966,13 @@
 				70B5585F225E74AE00F83A34 /* CounterBasedPasswordCell.xib in Resources */,
 				707B38E22275F87100D35897 /* CenteredBanner.xib in Resources */,
 				7077A34A227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70631CA1230DC24D0040DD71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1109,7 +1171,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		70631C9F230DC24D0040DD71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70631CAE230DC2A10040DD71 /* SetupUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		70631CA9230DC24D0040DD71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 700908C021FCCE5F00603AA2 /* Raivo */;
+			targetProxy = 70631CA8230DC24D0040DD71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		700908C821FCCE5F00603AA2 /* Main.storyboard */ = {
@@ -1296,6 +1374,44 @@
 			};
 			name = Release;
 		};
+		70631CAA230DC24D0040DD71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 564B4ETY69;
+				INFOPLIST_FILE = RaivoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.RaivoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Raivo;
+			};
+			name = Debug;
+		};
+		70631CAB230DC24D0040DD71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 564B4ETY69;
+				INFOPLIST_FILE = RaivoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.RaivoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Raivo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1313,6 +1429,15 @@
 			buildConfigurations = (
 				700908D421FCCE6100603AA2 /* Debug */,
 				700908D521FCCE6100603AA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70631CAC230DC24D0040DD71 /* Build configuration list for PBXNativeTarget "RaivoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70631CAA230DC24D0040DD71 /* Debug */,
+				70631CAB230DC24D0040DD71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
