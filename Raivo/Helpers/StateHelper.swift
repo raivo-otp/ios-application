@@ -64,11 +64,27 @@ class StateHelper {
     ///
     /// - Returns: The current state
     public func getCurrentState() -> String {
-        guard applicationIsLoaded() else { return State.APPLICATION_NOT_LOADED }
-        guard localDatabaseExists() else { return State.LOCAL_DATABASE_UNKNOWN }
-        guard syncerAccountIsAvailable() else { return State.SYNCER_ACCOUNT_UNAVAILABLE }
-        guard encryptionKeyIsKnown() else { return State.ENCRYPTION_KEY_UNKNOWN }
+        guard applicationIsLoaded() else {
+            log.verbose("State: " + State.APPLICATION_NOT_LOADED)
+            return State.APPLICATION_NOT_LOADED
+        }
         
+        guard localDatabaseExists() else {
+            log.verbose("State: " + State.LOCAL_DATABASE_UNKNOWN)
+            return State.LOCAL_DATABASE_UNKNOWN
+        }
+        
+        guard syncerAccountIsAvailable() else {
+            log.verbose("State: " + State.SYNCER_ACCOUNT_UNAVAILABLE)
+            return State.SYNCER_ACCOUNT_UNAVAILABLE
+        }
+        
+        guard encryptionKeyIsKnown() else {
+            log.verbose("State: " + State.ENCRYPTION_KEY_UNKNOWN)
+            return State.ENCRYPTION_KEY_UNKNOWN
+        }
+
+        log.verbose("State: " + State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE)
         return State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE
     }
     
@@ -88,6 +104,7 @@ class StateHelper {
         case State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE:
             return Storyboard.MAIN
         default:
+            log.error("Unknown current state.")
             fatalError("Unknown current state.")
         }
     }
@@ -108,6 +125,7 @@ class StateHelper {
         case Storyboard.MAIN:
             return StoryboardController.MAIN
         default:
+            log.error("Unknown storyboard.")
             fatalError("Unknown storyboard.")
         }
     }
@@ -118,6 +136,8 @@ class StateHelper {
     /// - Note: The 'dueToPINCodeChange' param can be set to true on e.g. a PIN code change.
     /// - Note: Realm auxiliary files will be deleted (https://realm.io/docs/swift/latest/#deleting-realm-files)
     public func reset(dueToPINCodeChange PINChanged: Bool = false) {
+        log.warning("Resetting the state and all data of the app")
+        
         let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
         
         try? FileManager.default.removeItem(at: realmURL)
@@ -160,9 +180,11 @@ class StateHelper {
         if fileManager.fileExists(atPath: documentsDirectory.path) {
             return false
         } else {
+            log.verbose("Creating hasRunBefore file in filesystem")
+            
             fileManager.createFile(
                 atPath: hasRunBeforeFile.path,
-                contents: "RaivoOTP has ran before".data(using: .utf8),
+                contents: "Raivo OTP has ran before".data(using: .utf8),
                 attributes: nil
             )
         }
@@ -171,6 +193,8 @@ class StateHelper {
         let userDefaults = UserDefaults.standard
         
         if !userDefaults.bool(forKey: "hasRunBefore") {
+            log.verbose("Setting hasRunBefore flag in UserDefaults")
+            
             userDefaults.set(true, forKey: "hasRunBefore")
             return true
         } else {

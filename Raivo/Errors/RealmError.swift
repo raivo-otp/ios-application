@@ -21,6 +21,7 @@ public enum RealmError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .unknownError:
+            log.error("Exception occurred")
             return "An unknown Realm Objective-C exception occurred"
         }
     }

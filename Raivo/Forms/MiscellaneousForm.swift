@@ -22,6 +22,7 @@ class MiscellaneousForm {
     public var authenticationSection: Section { return form.sectionBy(tag: "authentication")! }
     public var interfaceSection: Section { return form.sectionBy(tag: "interface")! }
     public var dataSection: Section { return form.sectionBy(tag: "data")! }
+    public var loggingSection: Section { return form.sectionBy(tag: "logging")! }
     public var aboutSection: Section { return form.sectionBy(tag: "about")! }
     public var legalSection: Section { return form.sectionBy(tag: "legal")! }
     public var advancedSection: Section { return form.sectionBy(tag: "advanced")! }
@@ -33,6 +34,8 @@ class MiscellaneousForm {
     public var changePINCodeRow: ButtonRow { return form.rowBy(tag: "change_pin_code") as! ButtonRow }
     public var iconsEffectRow: PickerInlineRow<MiscellaneousIconsEffectFormOption> { return form.rowBy(tag: "icons_effect") as! PickerInlineRow<MiscellaneousIconsEffectFormOption> }
     public var exportRow: ButtonRow { return form.rowBy(tag: "export") as! ButtonRow }
+    public var loggingEnabledRow: SwitchRow { return form.rowBy(tag: "logging_enabled") as! SwitchRow }
+    public var loggingShareRow: ButtonRow { return form.rowBy(tag: "logging_share") as! ButtonRow }
     public var versionRow: LabelRow { return form.rowBy(tag: "version") as! LabelRow }
     public var compilationRow: LabelRow { return form.rowBy(tag: "compilation") as! LabelRow }
     public var authorRow: LabelRow { return form.rowBy(tag: "author") as! LabelRow }
@@ -53,6 +56,7 @@ class MiscellaneousForm {
         buildAuthenticationSection(controller)
         buildInterfaceSection(controller)
         buildDataSection(controller)
+        buildLoggingSection(controller)
         buildAboutSection(controller)
         buildLegalSection(controller)
         buildAdvancedSection(controller)
@@ -226,9 +230,96 @@ class MiscellaneousForm {
                 }
                 
                 let dataExportMail = ComposeMailFeature(.dataExport)
-                dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
-                dataExportMail.send(popupFrom: controller) {
-                    dataExport.deleteArchive()
+                
+                if dataExportMail.canSendMail() {
+                    dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
+                    dataExportMail.send(popupFrom: controller) {
+                        dataExport.deleteArchive()
+                    }
+                } else {
+                    let activity = UIActivityViewController(activityItems: [archive], applicationActivities: nil)
+                    controller.present(activity, animated: true, completion: {
+                        dataExport.deleteArchive()
+                    })
+                }
+            })
+    }
+    
+    private func buildLoggingSection(_ controller: UIViewController) {
+        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
+        
+        form +++ Section("Local file logging", { section in
+            section.tag = "logging"
+            section.hidden = Condition(booleanLiteral: !authenticated)
+            section.footer = HeaderFooterView(title: "Local file logging can be enabled for debugging purposes.")
+        })
+            
+            <<< SwitchRow("logging_enabled", { row in
+                row.title = "Logging"
+                row.value = StorageHelper.shared.getFileLoggingEnabled()
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textColor = UIColor.getTintRed()
+                cell.imageView?.image = UIImage(named: "form-logging-enabled")
+                cell.switchControl.tintColor = UIColor.getTintRed()
+                cell.switchControl.onTintColor = UIColor.getTintRed()
+            }).onChange({ row in
+                StorageHelper.shared.setFileLoggingEnabled(row.value ?? false)
+                
+                let refreshAlert = UIAlertController(
+                    title: "Restart required!",
+                    message: "The logging behaviour will change after you've restarted Raivo.",
+                    preferredStyle: UIAlertController.Style.alert
+                )
+                
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                controller.present(refreshAlert, animated: true, completion: nil)
+            })
+            
+            <<< ButtonRow("logging_share", { row in
+                row.title = "Export data to TXT"
+                row.hidden = Condition.function(["logging_enabled"], { form in
+                    return !(self.loggingEnabledRow.value ?? false)
+                })
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-logging-share")
+            }).onCellSelection({ cell, row in
+                if let logFile = logFileDestination.logFileURL {
+                    let activity = UIActivityViewController(activityItems: [logFile], applicationActivities: nil)
+                    controller.present(activity, animated: true, completion: nil)
+                } else {
+                    let refreshAlert = UIAlertController(
+                        title: "Log unavailable!",
+                        message: "The local log file could not be found.",
+                        preferredStyle: UIAlertController.Style.alert
+                    )
+                    
+                    refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    controller.present(refreshAlert, animated: true, completion: nil)
+                }
+            })
+            
+            <<< ButtonRow("logging_delete", { row in
+                row.title = "Export data to TXT"
+                row.hidden = Condition.function(["logging_enabled"], { form in
+                    return !(self.loggingEnabledRow.value ?? false)
+                })
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-logging-share")
+            }).onCellSelection({ cell, row in
+                if let logFile = logFileDestination.logFileURL {
+                    let activity = UIActivityViewController(activityItems: [logFile], applicationActivities: nil)
+                    controller.present(activity, animated: true, completion: nil)
+                } else {
+                    let refreshAlert = UIAlertController(
+                        title: "Log unavailable!",
+                        message: "The local log file could not be found.",
+                        preferredStyle: UIAlertController.Style.alert
+                    )
+                    
+                    refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    controller.present(refreshAlert, animated: true, completion: nil)
                 }
             })
     }

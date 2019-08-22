@@ -24,11 +24,15 @@ class MigrationToBuild9: MigrationProtocol {
     
     /// Run the migrations that are needed to succesfully use this build after an update
     func migrateGeneric() {
+        log.verbose("Running migrations")
+        
         migrateSyncerTypeInStorage()
     }
     
     /// Run the migrations that are needed to succesfully use this build after an update
     func migrateGeneric(withAccount: SyncerAccount) {
+        log.verbose("Running migrations with account")
+        
         migrateSyncerAccountIdentifierInStorage(withAccount)
     }
     

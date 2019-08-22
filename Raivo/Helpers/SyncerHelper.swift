@@ -36,6 +36,7 @@ class SyncerHelper {
         let intented = type ?? StorageHelper.shared.getSynchronizationProvider()
         
         if intented != nil && !SyncerHelper.availableSyncers.contains(intented!) {
+            log.error(String(format: "Intended syncer `%@` does not exist.", intented!))
             fatalError(String(format: "Intended syncer `%@` does not exist.", intented!))
         }
         
@@ -54,6 +55,7 @@ class SyncerHelper {
             case id(CloudKitSyncer.self):
                 syncers[type] = CloudKitSyncer()
             default:
+                log.error(String(format: "Intended syncer `%@` does not exist.", type))
                 fatalError(String(format: "Intended syncer `%@` does not exist.", type))
             }
         }

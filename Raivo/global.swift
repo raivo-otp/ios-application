@@ -12,6 +12,8 @@ import SwiftyBeaver
 
 /// Global reference to the SwiftyBeaver logging framework
 let log = SwiftyBeaver.self
+let logFileDestination = FileDestination()
+let logConsoleDestination = ConsoleDestination()
 
 /// Get the Application Principal (shared `UIApplication` class).
 ///

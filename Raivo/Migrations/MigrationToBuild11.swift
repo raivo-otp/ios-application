@@ -24,6 +24,8 @@ class MigrationToBuild11: MigrationProtocol {
     
     /// Run the migrations that are needed to succesfully use this build after an update
     func migrateGeneric() {
+        log.verbose("Running migrations")
+        
         migrateTouchIDToBiometricInStorage()
     }
     

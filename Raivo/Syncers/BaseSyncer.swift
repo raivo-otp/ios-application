@@ -35,10 +35,14 @@ class BaseSyncer {
     var challengeError: Error?
     
     func enable() {
+        log.verbose("Enabling syncer")
+        
         self.enabled = true
     }
     
     func disable() {
+        log.verbose("Disabling syncer")
+        
         self.enabled = false
         self.accountPreloaded = false
         self.accountPreloading = false
