@@ -10,14 +10,19 @@
 
 import RealmSwift
 
+/// A protocol for data and Realm migrations.
 protocol MigrationProtocol {
     
+    /// A migration must have a build number that it targets.
     static var build: Int { get }
     
+    /// A function for running realm migrations.
     func migrateRealm(_ migration: Migration) -> Void
     
+    /// A function for running generic migrations before initializing the syncers.
     func migrateGeneric() -> Void
     
-    func migrateGeneric(withAccount: SyncerAccount) -> Void
+    /// A function for running migrations that require synchronization provider access.
+    func migrateGeneric(with account: SyncerAccount) -> Void
     
 }

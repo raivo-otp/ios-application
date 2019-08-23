@@ -24,18 +24,26 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustViewToKeyboard()
-        
         biometricLabel.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
         
         pincodeField.delegate = self
         pincodeField.layoutIfNeeded()
         
-        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) {
+        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                 self.tryBiometricsUnlock()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        attachKeyboardConstraint()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        detachKeyboardConstraint()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -59,7 +59,7 @@ class StorageHelper {
     public func clear(dueToPINCodeChange: Bool = false) {
         guard !dueToPINCodeChange else { return }
 
-        log.verbose("Removing all keychain and secure enclave entries")
+        log.warning("Removing all keychain and secure enclave entries")
         
         settings().removeAllObjects()
         secrets().removeAllObjects()
@@ -274,6 +274,16 @@ class StorageHelper {
         default:
             return nil
         }
+    }
+    
+    /// Set a boolean representing if TouchID unlock is enabled.
+    ///
+    /// - Parameter enabled: Positive if TouchID unlock is enabled
+    @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
+    public func setTouchIDUnlockEnabled(_ enabled: Bool) {
+        log.verbose("Setting TouchID unlock enabled")
+        
+        settings().set(string: String(enabled), forKey: Key.TOUCHID_ENABLED)
     }
     
     /// Check if TouchID unlock is currently enabled.

@@ -37,11 +37,25 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
             viewDescription.text = "You've used Raivo before. Enter the recovery password you took note of back then."
             forgotView.isHidden = false
         }
-        
-        adjustViewToKeyboard()
-        
+    
         password.delegate = self
         password.becomeFirstResponder()
+    }
+    
+    /// Notifies the view controller that its view is about to be added to a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the view is being added to the window using an animation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        attachKeyboardConstraint()
+    }
+
+    /// Notifies the view controller that its view is about to be removed from a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the disappearance of the view is being animated.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        detachKeyboardConstraint()
     }
     
     /// Notifies the view controller that its view was added to a view hierarchy.

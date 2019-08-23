@@ -19,18 +19,12 @@ class LoadEntryViewController: UIViewController {
 
         // Initialize console logging (in debug builds)
         if AppHelper.compilation == AppHelper.Compilation.debug {
-            logConsoleDestination.minLevel = AppHelper.logLevel
-            log.addDestination(logConsoleDestination)
-            log.verbose("Console log destination initialized")
+            initializeConsoleLogging()
         }
         
         // Initialize file logging (if logging is enabled)
         if StorageHelper.shared.getFileLoggingEnabled() {
-            logFileDestination.minLevel = AppHelper.logLevel
-            logFileDestination.logFileURL = logFileDestination.logFileURL?.deletingLastPathComponent().appendingPathComponent("raivo-debug-log.txt")
-            logFileDestination.format = "$Dyyyy-MM-dd HH:mm:ss$d$d $T $N.$F:$l $L: $M"
-            log.addDestination(logFileDestination)
-            log.verbose("File log destination initialized")
+            initializeFileLogging()
         }
         
         log.verbose("Loading Raivo OTP")
@@ -57,7 +51,7 @@ class LoadEntryViewController: UIViewController {
         SyncerHelper.shared.getSyncer().getAccount(success: { (account, syncerID) in
             DispatchQueue.main.async {
                 log.verbose("Got syncer account succesfully")
-                MigrationHelper.runGenericMigrations(withAccount: account)
+                MigrationHelper.runGenericMigrations(with: account)
                 
                 getAppDelegate().syncerAccountIdentifier = account.identifier
                 getAppDelegate().applicationIsLoaded = true

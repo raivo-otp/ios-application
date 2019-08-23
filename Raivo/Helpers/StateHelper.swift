@@ -39,6 +39,7 @@ class StateHelper {
         
         // Available error controllers
         static let ERROR_SAU = "ErrorSyncerAccountChangedViewController"
+        static let ERROR_DNP = "ErrorDowngradeNotPermittedViewController"
     }
     
     /// The states that the application can reside in
@@ -52,6 +53,9 @@ class StateHelper {
         /// If the user e.g. revoked the syncer API key (or if e.g. the iCloud account changed in the background)
         static let SYNCER_ACCOUNT_UNAVAILABLE = "SYNCER_ACCOUNT_UNAVAILABLE"
         
+        /// Migration rollbacks can't be done, the application must show an error if the user downgraded the app
+        static let DOWNGRADE_NOT_PERMITTED = "DOWNGRADE_NOT_PERMITTED"
+        
         /// If the application is fully initialized, but the user needs to enter the pincode
         static let ENCRYPTION_KEY_UNKNOWN = "ENCRYPTION_KEY_UNKNOWN"
         
@@ -64,6 +68,11 @@ class StateHelper {
     ///
     /// - Returns: The current state
     public func getCurrentState() -> String {
+        guard userDidNotDowngrade() else {
+            log.verbose("State: " + State.DOWNGRADE_NOT_PERMITTED)
+            return State.DOWNGRADE_NOT_PERMITTED
+        }
+        
         guard applicationIsLoaded() else {
             log.verbose("State: " + State.APPLICATION_NOT_LOADED)
             return State.APPLICATION_NOT_LOADED
@@ -93,6 +102,8 @@ class StateHelper {
     /// - Returns: The current storyboard
     public func getCurrentStoryboard() -> String {
         switch getCurrentState() {
+        case State.DOWNGRADE_NOT_PERMITTED:
+            return Storyboard.ERROR
         case State.APPLICATION_NOT_LOADED:
             return Storyboard.LOAD
         case State.LOCAL_DATABASE_UNKNOWN:
@@ -111,7 +122,7 @@ class StateHelper {
     
     /// Retrieve the storyboard controller belonging to current storyboard.
     ///
-    /// - Returns: The current storyboard controller name (e.g. `Main`)
+    /// - Returns: The current storyboard controller name (e.g. `MainRootController`)
     public func getCurrentStoryboardController() -> String {
         switch getCurrentStoryboard() {
         case Storyboard.LOAD:
@@ -119,7 +130,7 @@ class StateHelper {
         case Storyboard.SETUP:
             return StoryboardController.SETUP
         case Storyboard.ERROR:
-            return StoryboardController.ERROR_SAU
+            return getCurrentErrorStoryboardController()
         case Storyboard.AUTH:
             return StoryboardController.AUTH
         case Storyboard.MAIN:
@@ -130,11 +141,27 @@ class StateHelper {
         }
     }
     
+    /// Retrieve the storyboard controller belonging to error storyboard.
+    ///
+    /// - Returns: The current storyboard error controller name (e.g. `ErrorSyncerAccountChangedViewController`)
+    public func getCurrentErrorStoryboardController() -> String {
+        switch getCurrentState() {
+        case State.SYNCER_ACCOUNT_UNAVAILABLE:
+            return StoryboardController.ERROR_SAU
+        case State.DOWNGRADE_NOT_PERMITTED:
+            return StoryboardController.ERROR_DNP
+        default:
+            log.error("Unknown error storyboard.")
+            fatalError("Unknown error storyboard.")
+        }
+    }
+    
     /// Reset the state of the app to `State.LOCAL_DATABASE_UNKNOWN`.
     ///
     /// - Parameter dueToPINCodeChange: Positive if only certain keychain items should be removed.
     /// - Note: The 'dueToPINCodeChange' param can be set to true on e.g. a PIN code change.
-    /// - Note: Realm auxiliary files will be deleted (https://realm.io/docs/swift/latest/#deleting-realm-files)
+    /// - Note: Realm auxiliary files will be deleted
+    ///         https://realm.io/docs/swift/latest/#deleting-realm-files
     public func reset(dueToPINCodeChange PINChanged: Bool = false) {
         log.warning("Resetting the state and all data of the app")
         
@@ -164,12 +191,10 @@ class StateHelper {
     /// - Note:
     ///     This method uses the `UserDefaults` (which are flushed on reinstall) to check wether this is the first run.
     ///     The `Keychain` can't be used since it's persistent even after uninstalling the app.
-    ///
     ///     https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
     /// - Note:
     ///     Apparently the `UserDefaults` aren't that reliable, as stated in the article "The Mystery of the
-    ///     Disappearing NSUserDefaults Keys". Therefore, a file on disk is used as the primary method from now on.
-    ///
+    ///     Disappearing NSUserDefaults Keys". Therefore, a file on disk is used as the primary check from now on.
     ///     https://damir.me/the-mystery-of-the-disappearing-nsuserdefaults-keys/
     public func isFirstRun() -> Bool {
         // FileManager method
@@ -202,16 +227,28 @@ class StateHelper {
         }
     }
     
+    /// Ensure the user did not downgrade to a lower version of the application.
+    ///
+    /// - Returns: Positive if the user did not downgrade.
+    private func userDidNotDowngrade() -> Bool {
+        if let previous = StorageHelper.shared.getPreviousBuild() {
+            let downgraded = AppHelper.build < previous
+            return !downgraded
+        }
+        
+        return true
+    }
+    
     /// Checks if the application passed the loading storyboard.
     ///
-    /// - Returns: Positive if it passed the loading storyboard
+    /// - Returns: Positive if it passed the loading storyboard.
     private func applicationIsLoaded() -> Bool {
         return getAppDelegate().applicationIsLoaded
     }
     
     /// Checks if a local realm database exists.
     ///
-    /// - Returns: Positive if a local ream database exists
+    /// - Returns: Positive if a local ream database exists.
     private func localDatabaseExists() -> Bool {
         return RealmHelper.fileURLExists()
     }
@@ -219,7 +256,7 @@ class StateHelper {
     /// Checks if the syncer account is available and if e.g. the API key hasn't been revoked.
     /// This makes sure we can still save data to our synchronization provider.
     ///
-    /// - Returns: Positive if synchronization account is available
+    /// - Returns: Positive if synchronization account is available.
     private func syncerAccountIsAvailable() -> Bool {
         let currentSAI = getAppDelegate().syncerAccountIdentifier
         let storedSAI = StorageHelper.shared.getSynchronizationAccountIdentifier()
@@ -229,7 +266,7 @@ class StateHelper {
 
     /// Checks if the user entered his/her PIN code and that therefore the encryption key is known.
     ///
-    /// - Returns: Positive if encryption key is known
+    /// - Returns: Positive if encryption key is known.
     private func encryptionKeyIsKnown() -> Bool {
         return getAppDelegate().getEncryptionKey() != nil
     }

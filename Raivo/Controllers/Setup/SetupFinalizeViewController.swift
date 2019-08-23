@@ -14,6 +14,12 @@ import Foundation
 /// Persist the SetupState into e.g. the Keychain, FileStorage and UserDefaults.
 class SetupFinalizeViewController: UIViewController, SetupState {
     
+    /// Called after the controller's view is loaded into memory.
+    override func viewDidLoad() {
+        // The setup is done, prevent back swiping
+        navigationItem.hidesBackButton = true
+    }
+    
     /// Triggers when the user taps on the "Start" button.
     ///
     /// - Parameter sender: The object that triggered the action.

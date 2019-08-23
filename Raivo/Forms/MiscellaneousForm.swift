@@ -143,22 +143,12 @@ class MiscellaneousForm {
                     return
                 }
                 
-                // The async call is a bugfix for the invalid SwitchRow background if biometric authentication was cancelled.
-                // Even apps from Apple use this hack, so I'm not sure why they're not fixing it.
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    if !(row.value ?? false) {
-                        StorageHelper.shared.setEncryptionKey(nil)
-                        StorageHelper.shared.setBiometricUnlockEnabled(false)
-                    } else {
-                        StorageHelper.shared.setEncryptionKey(key.base64EncodedString())
-                        
-                        if StorageHelper.shared.getEncryptionKey(prompt: "Confirm to enable biometric authentication") != nil {
-                            StorageHelper.shared.setBiometricUnlockEnabled(true)
-                        } else {
-                            row.value = false
-                            row.cell.switchControl.setOn(false, animated: true)
-                        }
-                    }
+                if !(row.value ?? false) {
+                    StorageHelper.shared.setEncryptionKey(nil)
+                    StorageHelper.shared.setBiometricUnlockEnabled(false)
+                } else {
+                    StorageHelper.shared.setEncryptionKey(key.base64EncodedString())
+                    StorageHelper.shared.setBiometricUnlockEnabled(true)
                 }
             })
             
@@ -210,37 +200,45 @@ class MiscellaneousForm {
         form +++ Section("Data", { section in
             section.tag = "data"
             section.hidden = Condition(booleanLiteral: !authenticated)
-            section.footer = HeaderFooterView(title: "Your data will be exported in a AES encrypted ZIP file (using your encryption password).")
+            section.footer = HeaderFooterView(title: "Your data will be exported in an AES encrypted ZIP archive (using your encryption password).")
         })
             
             <<< ButtonRow("export", { row in
-                row.title = "Export data to ZIP"
+                row.title = "Export OTPs to ZIP archive"
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-zip")
             }).onCellSelection({ cell, row in
-                let dataExport = DataExportFeature()
+                let barButtonItem = controller.displayNavBarActivity()
+                
+                DispatchQueue.global(qos: .background).async {
+                    let dataExport = DataExportFeature()
 
-                let password = StorageHelper.shared.getEncryptionPassword()
-                let status = dataExport.generateArchive(protectedWith: password!)
-                
-                guard case let DataExportFeature.Result.success(archive) = status else {
-                    log.error("Archive generation failed!")
-                    return
-                }
-                
-                let dataExportMail = ComposeMailFeature(.dataExport)
-                
-                if dataExportMail.canSendMail() {
-                    dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
-                    dataExportMail.send(popupFrom: controller) {
-                        dataExport.deleteArchive()
+                    let password = StorageHelper.shared.getEncryptionPassword()
+                    let status = dataExport.generateArchive(protectedWith: password!)
+                    
+                    guard case let DataExportFeature.Result.success(archive) = status else {
+                        log.error("Archive generation failed!")
+                        return
                     }
-                } else {
-                    let activity = UIActivityViewController(activityItems: [archive], applicationActivities: nil)
-                    controller.present(activity, animated: true, completion: {
-                        dataExport.deleteArchive()
-                    })
+                    
+                    let dataExportMail = ComposeMailFeature(.dataExport)
+                    
+                    DispatchQueue.main.async {
+                        if dataExportMail.canSendMail() {
+                            dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
+                            dataExportMail.send(popupFrom: controller) {
+                                controller.dismissNavBarActivity(barButtonItem)
+                                dataExport.deleteArchive()
+                            }
+                        } else {
+                            let activity = UIActivityViewController(activityItems: [archive], applicationActivities: nil)
+                            controller.present(activity, animated: true, completion: {
+                                controller.dismissNavBarActivity(barButtonItem)
+                                dataExport.deleteArchive()
+                            })
+                        }
+                    }
                 }
             })
     }
@@ -248,14 +246,14 @@ class MiscellaneousForm {
     private func buildLoggingSection(_ controller: UIViewController) {
         let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
         
-        form +++ Section("Local file logging", { section in
+        form +++ Section("Debug logging", { section in
             section.tag = "logging"
             section.hidden = Condition(booleanLiteral: !authenticated)
-            section.footer = HeaderFooterView(title: "Local file logging can be enabled for debugging purposes.")
+            section.footer = HeaderFooterView(title: "Log files are stored locally and contain metadata only. Please note that they're persistent, even if you sign out.")
         })
             
             <<< SwitchRow("logging_enabled", { row in
-                row.title = "Logging"
+                row.title = "Log to local file"
                 row.value = StorageHelper.shared.getFileLoggingEnabled()
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textColor = UIColor.getTintRed()
@@ -265,18 +263,15 @@ class MiscellaneousForm {
             }).onChange({ row in
                 StorageHelper.shared.setFileLoggingEnabled(row.value ?? false)
                 
-                let refreshAlert = UIAlertController(
-                    title: "Restart required!",
-                    message: "The logging behaviour will change after you've restarted Raivo.",
-                    preferredStyle: UIAlertController.Style.alert
-                )
-                
-                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                controller.present(refreshAlert, animated: true, completion: nil)
+                if StorageHelper.shared.getFileLoggingEnabled() {
+                    initializeFileLogging()
+                } else {
+                    log.removeDestination(logFileDestination)
+                }
             })
             
             <<< ButtonRow("logging_share", { row in
-                row.title = "Export data to TXT"
+                row.title = "Export log to TXT file"
                 row.hidden = Condition.function(["logging_enabled"], { form in
                     return !(self.loggingEnabledRow.value ?? false)
                 })
@@ -397,6 +392,7 @@ class MiscellaneousForm {
                 )
                 
                 refreshAlert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action: UIAlertAction!) in
+                    log.warning("Signing out of the application")
                     StateHelper.shared.reset()
                 }))
                 

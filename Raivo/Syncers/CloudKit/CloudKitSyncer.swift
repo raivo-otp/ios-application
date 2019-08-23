@@ -52,7 +52,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         if accountPreloaded {
             accountError == nil ? success(account!, id(self)) : error(accountError!, id(self))
         } else {
-            NotificationHelper.shared.listenOnce(to: BaseSyncer.ACCOUNT_NOTIFICATION) {
+            NotificationHelper.shared.listenOnce(to: BaseSyncer.ACCOUNT_NOTIFICATION) { _ in
                 self.getAccount(success: success, error: error)
             }
             
@@ -96,7 +96,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         if challengePreloaded {
             challengeError == nil ? success(challenge!, id(self)) : error(challengeError!, id(self))
         } else {
-            NotificationHelper.shared.listenOnce(to: BaseSyncer.CHALLENGE_NOTIFICATION) {
+            NotificationHelper.shared.listenOnce(to: BaseSyncer.CHALLENGE_NOTIFICATION) { _ in
                 self.getChallenge(success: success, error: error)
             }
             
@@ -199,7 +199,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     private func enableAccountChangeListener() {
         log.verbose("Enabling account change listener")
         
-        NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: id(self)) {
+        NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: id(self)) { _ in
             log.verbose("CKAccountChanged notification")
             
             self.accountPreloaded = false

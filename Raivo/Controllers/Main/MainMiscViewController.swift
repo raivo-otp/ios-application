@@ -17,7 +17,7 @@ import MessageUI
 class MainMiscViewController: FormViewController, MFMailComposeViewControllerDelegate {
     
     private var miscellaneousForm: MiscellaneousForm?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,8 +67,16 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
             log.error(error)
             BannerHelper.error(error.localizedDescription)
         } else {
-            log.verbose("Now wait a moment, sending mails with attatchments can take a few seconds!")
-            BannerHelper.success("You should receive a mail within a few minutes!")
+            switch result {
+            case .sent:
+                log.verbose("ZIP archive export mail sent successfully")
+                BannerHelper.success("You should receive a mail within a few minutes!")
+            case .failed:
+                log.verbose("Could not send mail due to MFMailComposeResult failure.")
+                BannerHelper.success("Something went wrong while sending the mail!")
+            default:
+                break
+            }
         }
     }
         

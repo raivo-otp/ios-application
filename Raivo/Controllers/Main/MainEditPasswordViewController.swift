@@ -17,7 +17,7 @@ class MainEditPasswordViewController: FormViewController {
     private var passwordForm: PasswordForm?
     
     public var password: Password?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

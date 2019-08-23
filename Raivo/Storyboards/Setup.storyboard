@@ -567,6 +567,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="oJk-5h-VOo" secondAttribute="trailing" constant="8" id="Z9S-rP-2mh"/>
                                                     <constraint firstItem="oJk-5h-VOo" firstAttribute="leading" secondItem="mcC-2C-n02" secondAttribute="leading" constant="8" id="pfW-6a-T9g"/>
@@ -842,11 +843,11 @@
             <objects>
                 <viewController id="rsm-CC-mgT" customClass="SetupMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Lm-Ia-NyJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="s12-Ko-d1C" userLabel="Background" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1071,7 +1072,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="D5W-sU-mVn">
                         <barButtonItem key="backBarButtonItem" title="Welcome" id="nIw-Mm-cbW"/>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="pCL-0d-f6G"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="pCL-0d-f6G">
+                            <connections>
+                                <segue destination="rsm-CC-mgT" kind="show" id="eiK-Dx-I6p"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mq-Mp-PxZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1085,8 +1090,8 @@
         <image name="pattern" width="67" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OLy-2Y-whp"/>
-        <segue reference="qQG-nR-Dhp"/>
+        <segue reference="l9d-6b-Nce"/>
+        <segue reference="eiK-Dx-I6p"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

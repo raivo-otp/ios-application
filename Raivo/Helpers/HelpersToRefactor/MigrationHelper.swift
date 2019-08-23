@@ -25,7 +25,7 @@ class MigrationHelper {
     static func runGenericMigrations() {
         var previous = initialPreviousBuild
         
-        while previous <= AppHelper.build {
+        while previous < AppHelper.build {
             if let migration = migrations[previous + 1] {
                 migration.migrateGeneric()
             }
@@ -36,17 +36,16 @@ class MigrationHelper {
         StorageHelper.shared.setPreviousBuild(AppHelper.build)
     }
     
-    static func runGenericMigrations(withAccount: SyncerAccount) {
+    static func runGenericMigrations(with account: SyncerAccount) {
         var previous = initialPreviousBuild
         
-        while previous <= AppHelper.build {
+        while previous < AppHelper.build {
             if let migration = migrations[previous + 1] {
-                migration.migrateGeneric(withAccount: withAccount)
+                migration.migrateGeneric(with: account)
             }
             
             previous += 1
         }
-        
     }
     
     private static func getPreviousBuild() -> Int {

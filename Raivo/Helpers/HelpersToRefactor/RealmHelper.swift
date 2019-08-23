@@ -21,8 +21,16 @@ class RealmHelper {
             encryptionKey: encryptionKey,
             schemaVersion: UInt64(AppHelper.build) + 1,
             migrationBlock: { migration, oldSchemaVersion in
-                // Walk through every migration that is needed
-                if (oldSchemaVersion < 6) { MigrationHelper.migrations[6]?.migrateRealm(migration) }
+                var oldVersion = oldSchemaVersion
+                let newVersion = UInt64(AppHelper.build) + 1
+
+                while oldVersion < newVersion {
+                    if let migrate = MigrationHelper.migrations[Int(oldVersion)] {
+                        migrate.migrateRealm(migration)
+                    }
+                    
+                    oldVersion += 1
+                }
             }
         )
     }

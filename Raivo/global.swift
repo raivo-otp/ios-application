@@ -29,6 +29,26 @@ func getAppDelegate() -> ApplicationDelegate {
     return (getAppPrincipal().delegate as! ApplicationDelegate)
 }
 
+/// Add the current console as a SwiftyBeaver logging destination
+func initializeConsoleLogging() {
+    log.removeDestination(logConsoleDestination)
+    
+    logConsoleDestination.minLevel = AppHelper.logLevel
+    log.addDestination(logConsoleDestination)
+    log.verbose("Console log destination initialized")
+}
+
+/// Add the debug log file as a SwiftyBeaver logging destination
+func initializeFileLogging() {
+    log.removeDestination(logFileDestination)
+    
+    logFileDestination.minLevel = AppHelper.logLevel
+    logFileDestination.logFileURL = AppHelper.logFile
+    logFileDestination.format = "$Dyyyy-MM-dd HH:mm:ss$d$d $T $N.$F:$l $L: $M"
+    log.addDestination(logFileDestination)
+    log.verbose("File log destination initialized")
+}
+
 /// Return a uniquely identifiable string (ID) for the given class.
 ///
 /// - Parameter reference: The class or object to describe

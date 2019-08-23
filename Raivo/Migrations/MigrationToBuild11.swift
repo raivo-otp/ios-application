@@ -11,27 +11,35 @@
 import Foundation
 import RealmSwift
 
+/// A class for migrating and rolling back changes for the corresponding build.
 class MigrationToBuild11: MigrationProtocol {
-    
+
+    /// The build number belonging to this migration.
     static var build: Int = 11
     
-    /// This build does not require Realm migrations
+    /// Run Realm migrations to make data compatible with this build.
     ///
     /// - Parameter migration: The Realm migration containing the old and new entities
     func migrateRealm(_ migration: Migration) {
+        log.warning("Running Realm migration...")
         
+        // Not implemented
     }
     
-    /// Run the migrations that are needed to succesfully use this build after an update
+    /// Run generic migrations to make data compatible with this build.
     func migrateGeneric() {
-        log.verbose("Running migrations")
+        log.warning("Running generic migration...")
         
         migrateTouchIDToBiometricInStorage()
     }
     
-    /// Run the migrations that are needed to succesfully use this build after an update
-    func migrateGeneric(withAccount: SyncerAccount) {
-
+    /// This build does not require generic migrations using the syncer account.
+    ///
+    /// - Parameter account: The syncer account that can be used for migrating.
+    func migrateGeneric(with account: SyncerAccount) {
+        log.warning("Running generic migration with syncer account...")
+        
+        // Not implemented
     }
     
     /// Migrate the TouchID key to the Biometric Authentication key
