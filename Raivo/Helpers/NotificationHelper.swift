@@ -45,15 +45,15 @@ class NotificationHelper {
     /// - Parameter to: Which notification to listen to
     /// - Parameter distinctBy: Overwrite previous listeners with this name, to allow only one observer instance
     /// - Parameter callback: A closure that is called when the notification is observed
-    public func listen(to: Notification.Name, distinctBy: String, _ callback: @escaping (() -> Void)) {
+    public func listen(to: Notification.Name, distinctBy: String, _ callback: @escaping ((Notification) -> Void)) {
         let key = to.rawValue + distinctBy
         
         if singleInstances.keys.contains(key) {
             NotificationCenter.default.removeObserver(singleInstances[key]!)
         }
         
-        singleInstances[key] = NotificationCenter.default.addObserver(forName: to, object: nil, queue: nil) { note in
-            callback()
+        singleInstances[key] = NotificationCenter.default.addObserver(forName: to, object: nil, queue: nil) { notification in
+            callback(notification)
         }
     }
 
@@ -73,12 +73,12 @@ class NotificationHelper {
     ///
     /// - Parameter to: Which notification to listen to
     /// - Parameter callback: A closure that is called when the notification is observed
-    public func listenOnce(to: Notification.Name, _ callback: @escaping (() -> Void)) {
+    public func listenOnce(to: Notification.Name, _ callback: @escaping ((Notification) -> Void)) {
         var observer: NSObjectProtocol? = nil
         
-        observer = NotificationCenter.default.addObserver(forName: to, object: nil, queue: nil) { note in
+        observer = NotificationCenter.default.addObserver(forName: to, object: nil, queue: nil) { notification in
             NotificationCenter.default.removeObserver(observer!)
-            callback()
+            callback(notification)
         }
     }
 

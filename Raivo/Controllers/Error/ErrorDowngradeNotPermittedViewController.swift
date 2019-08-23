@@ -6,12 +6,11 @@
 //
 // This source code is licensed under the CC BY-NC 4.0 license found
 // in the LICENSE.md file in the root directory of this source tree.
-// 
+//
 
+import Foundation
 import UIKit
 
-/// Please note that this is a stub controller for search TabBarItem.
-/// When one navigates to 'search', the PasswordsViewController is opened with a search interaface.
-class MainSearchViewController: UIViewController {
-    // Stub...
+class ErrorDowngradeNotPermittedViewController: ErrorRootViewController {
+
 }

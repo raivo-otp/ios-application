@@ -56,14 +56,28 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
-        adjustViewToKeyboard()
-        
+                
         initializeCollectionView()
         initializeRefreshButton()
         initializeSearchBar()
         
         refresh()
+    }
+    
+    /// Notifies the view controller that its view is about to be added to a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the view is being added to the window using an animation
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        attachKeyboardConstraint()
+    }
+
+    /// Notifies the view controller that its view is about to be removed from a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the disappearance of the view is being animated.
+    override public func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        detachKeyboardConstraint()
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -105,6 +119,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
         searchBar.placeholder = "Search..."
         searchBar.returnKeyType = .search
         navigationItem.titleView = searchBar
+        navigationItem.title = "Icons"
         
         searchBar.delegate = self
     }

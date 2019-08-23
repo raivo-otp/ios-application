@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import SwiftyBeaver
 
 /// A helper class for general application information
 class AppHelper {
@@ -49,6 +50,9 @@ class AppHelper {
     
     /// The minimum level to log to the SwiftyBeaver destination
     public static let logLevel = (compilation == Compilation.debug) ? log.Level.verbose : log.Level.verbose
+    
+    /// The path the the debug log file
+    public static let logFile = FileDestination().logFileURL?.deletingLastPathComponent().appendingPathComponent("raivo-debug-log.txt")
     
     /// The domain (including directory) that hosts the custom issuer icons
     ///

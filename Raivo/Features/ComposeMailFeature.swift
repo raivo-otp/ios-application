@@ -29,6 +29,10 @@ class ComposeMailFeature {
         attachments.append((data, mime, name))
     }
     
+    public func canSendMail() -> Bool {
+        return MFMailComposeViewController.canSendMail()
+    }
+    
     public func send<T: UIViewController & MFMailComposeViewControllerDelegate>(popupFrom controller: T, _ callback: @escaping (() -> Void)) {
         let mailComposer = MFMailComposeViewController()
         

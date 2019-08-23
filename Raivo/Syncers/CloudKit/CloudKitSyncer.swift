@@ -52,7 +52,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         if accountPreloaded {
             accountError == nil ? success(account!, id(self)) : error(accountError!, id(self))
         } else {
-            NotificationHelper.shared.listenOnce(to: BaseSyncer.ACCOUNT_NOTIFICATION) {
+            NotificationHelper.shared.listenOnce(to: BaseSyncer.ACCOUNT_NOTIFICATION) { _ in
                 self.getAccount(success: success, error: error)
             }
             
@@ -96,7 +96,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         if challengePreloaded {
             challengeError == nil ? success(challenge!, id(self)) : error(challengeError!, id(self))
         } else {
-            NotificationHelper.shared.listenOnce(to: BaseSyncer.CHALLENGE_NOTIFICATION) {
+            NotificationHelper.shared.listenOnce(to: BaseSyncer.CHALLENGE_NOTIFICATION) { _ in
                 self.getChallenge(success: success, error: error)
             }
             
@@ -147,6 +147,8 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     func flushAllData(success: @escaping ((String) -> Void), error: @escaping ((Error, String) -> Void)) {
+        log.warning("Flushing all data remotely")
+        
         let group = DispatchGroup()
         var modelError: Error? = nil
         
@@ -195,7 +197,11 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     private func enableAccountChangeListener() {
-        NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: id(self)) {
+        log.verbose("Enabling account change listener")
+        
+        NotificationHelper.shared.listen(to: .CKAccountChanged, distinctBy: id(self)) { _ in
+            log.verbose("CKAccountChanged notification")
+            
             self.accountPreloaded = false
             
             self.getAccount(success: { (account, syncerID) in
@@ -204,11 +210,15 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
                         return
                     }
                     
+                    log.verbose("New iCloud account differs from current account")
+                    
                     getAppDelegate().syncerAccountIdentifier = account.identifier
                     getAppDelegate().updateStoryboard()
                 }
             }, error: { (error, syncerID) in
                 DispatchQueue.main.async {
+                    log.verbose("Couldn't get iCloud account")
+                    
                     getAppDelegate().syncerAccountIdentifier = nil
                     getAppDelegate().updateStoryboard()
                 }
@@ -217,6 +227,8 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     private func disableAccountChangeListener() {
+        log.verbose("Disabling account change listener")
+        
         NotificationHelper.shared.discard(.CKAccountChanged, byDistinctName: id(self))
     }
     

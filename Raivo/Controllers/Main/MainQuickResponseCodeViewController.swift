@@ -19,7 +19,7 @@ class MainQuickResponseCodeViewController: FormViewController {
     
     /// The current password to show the QR code for
     public var password: Password?
-    
+
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()

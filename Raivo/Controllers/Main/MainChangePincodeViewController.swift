@@ -33,8 +33,6 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustViewToKeyboard()
-         
         resetView(
             "Choose a new PIN code",
             "You need it to unlock Raivo, so make sure you'll be able to remember it."
@@ -51,6 +49,8 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
     /// - Parameter animated: If positive, the view is being added to the window using an animation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        attachKeyboardConstraint()
+        
         navigationController?.view.backgroundColor = UIColor.white
     }
     
@@ -60,6 +60,14 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewPincode.becomeFirstResponder()
+    }
+    
+    /// Notifies the view controller that its view is about to be removed from a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the disappearance of the view is being animated.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        detachKeyboardConstraint()
     }
 
     /// Notifies the view controller that its view was removed from a view hierarchy.

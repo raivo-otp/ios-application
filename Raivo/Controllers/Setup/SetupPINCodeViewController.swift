@@ -23,19 +23,47 @@ class SetupPINCodeViewController: UIViewController, UIPincodeFieldDelegate, Setu
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        adjustViewToKeyboard()
-        
+                
         pincodeField.delegate = self
         pincodeField.layoutIfNeeded()
         pincodeField.becomeFirstResponder()
+    }
+    
+    /// Notifies the view controller that its view is about to be added to a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the view is being added to the window using an animation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        attachKeyboardConstraint()
+    }
+
+    /// Notifies the view controller that its view is about to be removed from a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the disappearance of the view is being animated.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        detachKeyboardConstraint()
+    }
+    
+    /// Notifies the view controller that its view was removed from a view hierarchy.
+    ///
+    /// - Parameter animated: If true, the disappearance of the view was animated.
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if confirmation != nil {
+            pincodeField.reset()
+        }
     }
     
     /// Called if the user finished entering the PIN code.
     ///
     /// - Parameter pincode: The  PIN code that the user entered.
     func onPincodeComplete(pincode: String) {
-        onContinue()
+        // Allow UIPincodeField to finish animations before continueing
+        DispatchQueue.main.async {
+            self.onContinue()
+        }
     }
     
     /// If the PIN code changes, set the confirmation to nil.
@@ -58,7 +86,7 @@ class SetupPINCodeViewController: UIViewController, UIPincodeFieldDelegate, Setu
             pincodeField.reset()
             pincodeField.becomeFirstResponder()
             
-            return BannerHelper.error("The password and confirmation do not match", icon: "👮")
+            return BannerHelper.error("The PIN code and confirmation do not match", icon: "👮")
         }
         
         do {
@@ -66,6 +94,9 @@ class SetupPINCodeViewController: UIViewController, UIPincodeFieldDelegate, Setu
         } catch let error {
             return BannerHelper.error(error.localizedDescription)
         }
+        
+        pincodeField.reset()
+        pincodeField.layoutIfNeeded()
         
         if StorageHelper.shared.canAccessSecrets() {
             performSegue(withIdentifier: "SetupBiometricSegue", sender: nil)

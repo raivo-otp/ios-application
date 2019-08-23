@@ -30,12 +30,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icon-twitter.png",
+      "filename" : "form-author.png",
       "scale" : "3x"
     },
     {
       "idiom" : "universal",
-      "filename" : "form-twitter-white.png",
+      "filename" : "form-author-white.png",
       "appearances" : [
         {
           "appearance" : "luminosity",

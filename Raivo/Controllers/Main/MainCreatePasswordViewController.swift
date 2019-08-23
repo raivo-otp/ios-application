@@ -20,7 +20,7 @@ class MainCreatePasswordViewController: FormViewController {
     private var passwordForm: PasswordForm?
     
     public var token: Token? = nil
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         

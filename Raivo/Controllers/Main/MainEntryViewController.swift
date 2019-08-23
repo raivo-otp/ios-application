@@ -18,24 +18,12 @@ class MainEntryViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
     }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-//        if #available(iOS 12.0, *) {
-//            switch traitCollection.userInterfaceStyle {
-//            case .dark:
-//                view.backgroundColor = UIColor.getBackgroundOpaque(true)
-//            default:
-//                view.backgroundColor = UIColor.getBackgroundOpaque()
-//            }
-//        }
-    }
-    
+   
     /// On tab bar item change, run custom functionality
-    /// In this case, custom search functionality was added
+    /// 
+    /// - Note: In this case, custom search functionality was added
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if (viewController.restorationIdentifier == "SearchViewController") {
+        if (viewController.restorationIdentifier == "SearchStubController") {
             
             // Pop all the way back to one of the tabs (e.g. from CreatePassword to Passwords)
             if let navigationController = (viewControllers![0] as? UINavigationController) {
@@ -43,12 +31,12 @@ class MainEntryViewController: UITabBarController, UITabBarControllerDelegate {
             }
             
             if (selectedIndex == 0) {
-                log.verbose("SearchViewController selectedIndex = 0")
+                log.verbose("SearchStubController selectedIndex = 0")
                 // PasswordsViewController is active, show search bar
                 let passwordsController = (selectedViewController!.children[0] as! MainPasswordsViewController)
                 passwordsController.showSearchBar()
             } else {
-                log.verbose("SearchViewController selectedIndex != 0")
+                log.verbose("SearchStubController selectedIndex != 0")
                 // Show PasswordsViewController instead of SearchViewController
                 selectedIndex = 0
                 

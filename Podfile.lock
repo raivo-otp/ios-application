@@ -21,7 +21,6 @@ PODS:
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
-  - SwiftTryCatch (0.0.1)
   - SwiftyBeaver (1.7.0)
   - SwipeCellKit (2.6.0)
   - Valet (3.2.5)
@@ -40,7 +39,6 @@ DEPENDENCIES:
   - SDWebImage (= 5.0.6)
   - SSZipArchive (= 2.2.2)
   - SwiftMessages (= 7.0.0)
-  - SwiftTryCatch (= 0.0.1)
   - SwiftyBeaver (= 1.7.0)
   - SwipeCellKit (= 2.6.0)
   - Valet (= 3.2.5)
@@ -59,7 +57,6 @@ SPEC REPOS:
     - SSZipArchive
     - swift_qrcodejs
     - SwiftMessages
-    - SwiftTryCatch
     - SwiftyBeaver
     - SwipeCellKit
     - Valet
@@ -99,12 +96,11 @@ SPEC CHECKSUMS:
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   swift_qrcodejs: 0bacbfe321a99954c7b8e04c75562007ea4e4f7c
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
-  SwiftTryCatch: fb6d2b34abe48efd69578dac919293a44f95b481
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
   SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
   Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: 2e3dc5881770ab32191e63d117bd28d46dff0354
+PODFILE CHECKSUM: e1493d33cc8db85bf712bc8a6a6a353965614743
 
 COCOAPODS: 1.5.3

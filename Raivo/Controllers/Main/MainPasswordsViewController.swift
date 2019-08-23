@@ -45,7 +45,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustViewToKeyboard()
+        setNeedsStatusBarAppearanceUpdate()
         
         tableViewEmptyList = loadXIBAsUIView("UIPasswordsEmptyListView")
         tableViewEmptySearch = loadXIBAsUIView("UIPasswordsEmptySearchView")
@@ -58,7 +58,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
 
         initializeTableViewNotifications()
         
-        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) {
+        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) { _ in
             self.appMovedToForeground()
         }
     }
@@ -119,8 +119,13 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        attachKeyboardConstraint()
         updateTableCellStates()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        detachKeyboardConstraint()
     }
     
     override func viewDidAppear(_ animated: Bool) {

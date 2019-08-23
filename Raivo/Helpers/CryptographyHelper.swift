@@ -22,12 +22,13 @@ class CryptographyHelper {
     private init() {}
     
     /// Use the PBKDF2 key derivation algorithm to derive the given data to a 64 byte encryption key
-    /// https://realm.io/docs/swift/latest/#encryption
     ///
     /// - Parameter secret: The secret to derive (for end-users, this is called the PIN code)
     /// - Parameter salt: The salt to use for derivation (for end-users, this is called the password)
     /// - Returns: A key based on the secret and salt
     /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
+    /// - Note: Specifications:
+    ///         https://realm.io/docs/swift/latest/#encryption
     public func derive(_ secret: String, withSalt salt: String) throws -> Data {
         guard let salt = salt.data(using: .utf8) else {
             throw CryptographyError.derivationFailed("Password contains non UTF-8 characters")
@@ -37,12 +38,13 @@ class CryptographyHelper {
     }
     
     /// Use the PBKDF2 key derivation algorithm to derive the given data to a 64 byte encryption key
-    /// https://realm.io/docs/swift/latest/#encryption
     ///
     /// - Parameter secret: The secret to derive
     /// - Parameter salt: The salt to use for derivation
     /// - Returns: A key based on the secret and salt
     /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
+    /// - Note: Specifications:
+    ///         https://realm.io/docs/swift/latest/#encryption
     public func derive(_ secret: String, withSalt salt: Data) throws -> Data {
         let secretArray = secret.utf8.map(Int8.init)
         let saltArray = Array(salt)
@@ -71,10 +73,11 @@ class CryptographyHelper {
     }
     
     /// Encrypt data using the AES-256 algorithm
-    /// https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md
     ///
     /// - Parameter plaintext: The UTF-8 string to encrypt
     /// - Returns: The encrypted string (base64 encoded)
+    /// - Note: Specifications:
+    ///         https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md
     public func encrypt(_ plaintext: String) throws -> String {
         guard let plaintextData = plaintext.data(using: .utf8) else {
             throw CryptographyError.encryptionFailed("Plaintext contains non UTF-8 characters")
@@ -93,12 +96,13 @@ class CryptographyHelper {
     }
     
     /// Decrypt data using the AES-256 algorithm
-    /// https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md
     ///
     /// - Parameter cipher: The string to decrypt (base64 encoded)
     /// - Parameter withKey: An optional key to use for decryption (default is key in keychain)
     /// - Returns: The decrypted string
     /// - Throws: Throws error if the password is incorrect or ciphertext is in the wrong format
+    /// - Note: Specifications:
+    ///         https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md
     public func decrypt(_ cipher: String, withKey key: String? = nil) throws -> String {
         guard let cipherData = Data.init(base64Encoded: cipher) else {
             throw CryptographyError.decryptionFailed("Cipher was not a valid base64 string")

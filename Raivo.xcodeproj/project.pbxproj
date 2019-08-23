@@ -36,6 +36,7 @@
 		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
 		70617A592270DBD80032076A /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A582270DBD80032076A /* QueryHelper.swift */; };
 		70631CAE230DC2A10040DD71 /* SetupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70631CAD230DC2A10040DD71 /* SetupUITests.swift */; };
+		7065070A23106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065070923106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift */; };
 		7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C796226A455800C1A949 /* SyncerChallenge.swift */; };
 		7066C79B226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79A226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift */; };
 		7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7066C79C226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift */; };
@@ -77,7 +78,6 @@
 		70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B10F223061E50084F15B /* MainScanPasswordViewController.swift */; };
 		70A7B112223061EE0084F15B /* MainCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B111223061EE0084F15B /* MainCreatePasswordViewController.swift */; };
 		70A7B114223061F80084F15B /* MainEditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B113223061F80084F15B /* MainEditPasswordViewController.swift */; };
-		70A7B116223062080084F15B /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B115223062080084F15B /* MainSearchViewController.swift */; };
 		70A7B118223062380084F15B /* MainMiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B117223062380084F15B /* MainMiscViewController.swift */; };
 		70A7B11C22306DB60084F15B /* TimeBasedPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B11B22306DB60084F15B /* TimeBasedPasswordCell.swift */; };
 		70A7B12122306DF40084F15B /* UIPasswordsEmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B12022306DF40084F15B /* UIPasswordsEmptyListView.swift */; };
@@ -184,6 +184,7 @@
 		70631CA3230DC24D0040DD71 /* RaivoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaivoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70631CA7230DC24D0040DD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70631CAD230DC2A10040DD71 /* SetupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupUITests.swift; sourceTree = "<group>"; };
+		7065070923106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDowngradeNotPermittedViewController.swift; sourceTree = "<group>"; };
 		7066C796226A455800C1A949 /* SyncerChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerChallenge.swift; sourceTree = "<group>"; };
 		7066C79A226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModelSyncerProtocol.swift; sourceTree = "<group>"; };
 		7066C79C226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitModelConverterProtocol.swift; sourceTree = "<group>"; };
@@ -226,7 +227,6 @@
 		70A7B10F223061E50084F15B /* MainScanPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScanPasswordViewController.swift; sourceTree = "<group>"; };
 		70A7B111223061EE0084F15B /* MainCreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCreatePasswordViewController.swift; sourceTree = "<group>"; };
 		70A7B113223061F80084F15B /* MainEditPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditPasswordViewController.swift; sourceTree = "<group>"; };
-		70A7B115223062080084F15B /* MainSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
 		70A7B117223062380084F15B /* MainMiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMiscViewController.swift; sourceTree = "<group>"; };
 		70A7B11B22306DB60084F15B /* TimeBasedPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBasedPasswordCell.swift; sourceTree = "<group>"; };
 		70A7B12022306DF40084F15B /* UIPasswordsEmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPasswordsEmptyListView.swift; sourceTree = "<group>"; };
@@ -431,7 +431,6 @@
 				70A7B10F223061E50084F15B /* MainScanPasswordViewController.swift */,
 				70A7B111223061EE0084F15B /* MainCreatePasswordViewController.swift */,
 				70A7B113223061F80084F15B /* MainEditPasswordViewController.swift */,
-				70A7B115223062080084F15B /* MainSearchViewController.swift */,
 				70A7B117223062380084F15B /* MainMiscViewController.swift */,
 				702A14092263672200B278BB /* MainChangePincodeViewController.swift */,
 				7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */,
@@ -757,8 +756,9 @@
 		70D0FD652291B8C20016BD95 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				70D0FD6A2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift */,
 				70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */,
+				70D0FD6A2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift */,
+				7065070923106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -1000,7 +1000,6 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftTryCatch/SwiftTryCatch.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Valet/Valet.framework",
@@ -1023,7 +1022,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTryCatch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Valet.framework",
@@ -1116,6 +1114,7 @@
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
 				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
+				7065070A23106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift in Sources */,
 				704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */,
 				708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */,
 				70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */,
@@ -1155,7 +1154,6 @@
 				70DE925122A1A37200D00BB0 /* CryptographyError.swift in Sources */,
 				7077A342227F0FCC00338CA3 /* IconFormRowCell.swift in Sources */,
 				702CA6CD2263A16D000DCC1D /* UnexpectedError.swift in Sources */,
-				70A7B116223062080084F15B /* MainSearchViewController.swift in Sources */,
 				70C0BB68230B333200143FA4 /* SetupStateExtension.swift in Sources */,
 				70A7B114223061F80084F15B /* MainEditPasswordViewController.swift in Sources */,
 				70A7B10E223061D60084F15B /* MainPasswordsViewController.swift in Sources */,

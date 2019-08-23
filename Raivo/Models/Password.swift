@@ -11,8 +11,10 @@
 import RealmSwift
 import OneTimePassword
 
-// Implemented as per;
-// * https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+/// A password object is basically just a One-Time-Password.
+///
+/// - Note: This was implemented as per Google guidelines:
+///         https://github.com/google/google-authenticator/wiki/Key-Uri-Format
 class Password: Object {
     
     public static let TABLE = "Password"

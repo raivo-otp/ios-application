@@ -22,10 +22,24 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        adjustViewToKeyboard()
-        
+                
         password.becomeFirstResponder()
+    }
+    
+    /// Notifies the view controller that its view is about to be added to a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the view is being added to the window using an animation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        attachKeyboardConstraint()
+    }
+
+    /// Notifies the view controller that its view is about to be removed from a view hierarchy.
+    ///
+    /// - Parameter animated: If positive, the disappearance of the view is being animated.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        detachKeyboardConstraint()
     }
     
     /// On 'return' on the keyboard, perform the same action as the "continue" button.

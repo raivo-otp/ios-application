@@ -29,6 +29,7 @@ class StorageHelper {
         static let ENCRYPTION_KEY = "EncryptionKey"
         static let TOUCHID_ENABLED = "TouchIDEnabled"
         static let BIOMETRIC_AUTHENTICATION_ENABLED = "BiometricAuthenticationEnabled"
+        static let FILE_LOGGING_ENABLED = "FileLoggingEnabled"
     }
     
     /// The singleton instance for the StorageHelper
@@ -57,6 +58,8 @@ class StorageHelper {
     /// - Note: The `dueToPINCodeChange` parameter can be set to true on e.g. a PIN code change.
     public func clear(dueToPINCodeChange: Bool = false) {
         guard !dueToPINCodeChange else { return }
+
+        log.warning("Removing all keychain and secure enclave entries")
         
         settings().removeAllObjects()
         secrets().removeAllObjects()
@@ -92,6 +95,7 @@ class StorageHelper {
     ///
     /// - Parameter password: The new password
     public func setEncryptionPassword(_ password: String) {
+        log.verbose("Setting encryption password")
         settings().set(string: password, forKey: Key.PASSWORD)
     }
     
@@ -106,6 +110,7 @@ class StorageHelper {
     ///
     /// - Parameter seconds: The new lockscreen timeout
     public func setLockscreenTimeout(_ seconds: TimeInterval) {
+        log.verbose("Setting lockscreen timeout")
         settings().set(string: String(seconds), forKey: Key.LOCKSCREEN_TIMEOUT)
     }
     
@@ -124,6 +129,7 @@ class StorageHelper {
     ///
     /// - Parameter filename: The new filename
     public func setRealmFilename(_ filename: String) {
+        log.verbose("Setting realm filename")
         settings().set(string: filename, forKey: Key.REALM_FILENAME)
     }
     
@@ -138,6 +144,7 @@ class StorageHelper {
     ///
     /// - Parameter provider: The unique ID of the synchronization provider
     public func setSynchronizationProvider(_ provider: String) {
+        log.verbose("Setting synchronization provider")
         settings().set(string: provider, forKey: Key.SYNCHRONIZATION_PROVIDER)
     }
     
@@ -152,6 +159,8 @@ class StorageHelper {
     ///
     /// - Parameter accountIdentifier: The identifier
     public func setSynchronizationAccountIdentifier(_ accountIdentifier: String?) {
+        log.verbose("Setting synchronization account identifier")
+        
         if let accountIdentifier = accountIdentifier {
             settings().set(string: accountIdentifier, forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
         } else {
@@ -170,6 +179,7 @@ class StorageHelper {
     ///
     /// - Parameter effect: The icons effect
     public func setIconsEffect(_ effect: String) {
+        log.verbose("Setting icons effect")
         settings().set(string: effect, forKey: Key.ICONS_EFFECT)
     }
     
@@ -184,6 +194,7 @@ class StorageHelper {
     ///
     /// - Parameter tries: The amount of tries
     public func setPincodeTriedAmount(_ tries: Int) {
+        log.verbose("Setting pincode tried amount")
         settings().set(string: String(tries), forKey: Key.PINCODE_TRIED_AMOUNT)
     }
     
@@ -202,6 +213,7 @@ class StorageHelper {
     ///
     /// - Parameter timestamp: The last time the user tried a PIN code
     public func setPincodeTriedTimestamp(_ timestamp: TimeInterval) {
+        log.verbose("Setting pincode tried timestamp")
         settings().set(string: String(timestamp), forKey: Key.PINCODE_TRIED_TIMESTAMP)
         
     }
@@ -221,6 +233,7 @@ class StorageHelper {
     ///
     /// - Parameter build: The new 'previous build'.
     public func setPreviousBuild(_ build: Int) {
+        log.verbose("Setting previous build")
         settings().set(string: String(build), forKey: Key.PREVIOUS_BUILD)
     }
     
@@ -239,6 +252,8 @@ class StorageHelper {
     ///
     /// - Parameter key: The encryption key
     public func setEncryptionKey(_ key: String?) {
+        log.verbose("Setting encryption key")
+        
         if let key = key {
             secrets().set(string: key, forKey: Key.ENCRYPTION_KEY)
         } else {
@@ -261,6 +276,16 @@ class StorageHelper {
         }
     }
     
+    /// Set a boolean representing if TouchID unlock is enabled.
+    ///
+    /// - Parameter enabled: Positive if TouchID unlock is enabled
+    @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
+    public func setTouchIDUnlockEnabled(_ enabled: Bool) {
+        log.verbose("Setting TouchID unlock enabled")
+        
+        settings().set(string: String(enabled), forKey: Key.TOUCHID_ENABLED)
+    }
+    
     /// Check if TouchID unlock is currently enabled.
     ///
     /// - Returns: Positive if biometric unlock is enabled
@@ -277,6 +302,8 @@ class StorageHelper {
     ///
     /// - Parameter enabled: Positive if biometric unlock is enabled
     public func setBiometricUnlockEnabled(_ enabled: Bool) {
+        log.verbose("Setting biometric unlock enabled")
+        
         settings().set(string: String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
     }
     
@@ -285,6 +312,26 @@ class StorageHelper {
     /// - Returns: Positive if biometric unlock is enabled
     public func getBiometricUnlockEnabled() -> Bool {
         guard let enabled = settings().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
+            return false
+        }
+        
+        return Bool(enabled) ?? false
+    }
+    
+    /// Set a boolean representing if local file logging is enabled.
+    ///
+    /// - Parameter enabled: Positive if local file logging is enabled.
+    public func setFileLoggingEnabled(_ enabled: Bool) {
+        log.verbose("Setting file logging enabled")
+        
+        settings().set(string: String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
+    }
+    
+    /// Check if local file logging is enabled.
+    ///
+    /// - Returns: Positive if local file logging is enabled.
+    public func getFileLoggingEnabled() -> Bool {
+        guard let enabled = settings().string(forKey: Key.FILE_LOGGING_ENABLED) else {
             return false
         }
         

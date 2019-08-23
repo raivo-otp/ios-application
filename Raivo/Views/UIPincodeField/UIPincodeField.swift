@@ -70,7 +70,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
             digits[position]?.value = nil
         }
         
-        shadow?.text = nil
+        shadow?.text = ""
         completed = false
     }
     

@@ -42,10 +42,10 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         AVMetadataObject.ObjectType.interleaved2of5,
         AVMetadataObject.ObjectType.qr
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back)
 
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
@@ -130,22 +130,30 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         currentlyCheckingToken = true
 
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-
-        if metadataObj.stringValue != nil {
-            if SeedValueValidator.isValid(metadataObj.stringValue!) {
-                lastScannedToken = Token(url: URL(string: metadataObj.stringValue!)!)
-                performSegue(withIdentifier: "CreatePasswordAutomatically", sender: nil)
-            } else {
-                currentlyCheckingToken = false
+        
+        guard let contents = metadataObj.stringValue else {
+            log.verbose("The scanned QR code is empty.")
+            return BannerHelper.error("The scanned QR code is empty.") {
+                self.currentlyCheckingToken = false
             }
         }
+        
+        guard SeedValueValidator.isValid(contents) else {
+            log.verbose("The scanned QR code is not a valid OTP.")
+            return BannerHelper.error("The scanned QR code is not a valid OTP.") {
+                self.currentlyCheckingToken = false
+            }
+        }
+        
+        lastScannedToken = Token(url: URL(string: metadataObj.stringValue!)!)
+        performSegue(withIdentifier: "CreatePasswordAutomatically", sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier != "CreatePasswordManually" {
             let newViewController = segue.destination as! MainCreatePasswordViewController
             newViewController.token = lastScannedToken
-            newViewController.navigationItem.title = "Verify Details"
+            newViewController.navigationItem.title = "Verify"
         }
     }
     

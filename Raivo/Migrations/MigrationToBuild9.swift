@@ -6,32 +6,43 @@
 //
 // This source code is licensed under the CC BY-NC 4.0 license found
 // in the LICENSE.md file in the root directory of this source tree.
-// 
+//
 
 import Foundation
 import RealmSwift
 
+/// A class for migrating and rolling back changes for the corresponding build.
 class MigrationToBuild9: MigrationProtocol {
-    
+
+    /// The build number belonging to this migration.
     static var build: Int = 9
     
-    /// This build does not require Realm migrations
+    /// Run Realm migrations to make data compatible with this build.
     ///
     /// - Parameter migration: The Realm migration containing the old and new entities
     func migrateRealm(_ migration: Migration) {
-        
+        // Not implemented
     }
     
-    /// Run the migrations that are needed to succesfully use this build after an update
+    /// Run generic migrations to make data compatible with this build.
     func migrateGeneric() {
+        log.verbose("Running Build9 migrations...")
+        
         migrateSyncerTypeInStorage()
     }
     
-    /// Run the migrations that are needed to succesfully use this build after an update
-    func migrateGeneric(withAccount: SyncerAccount) {
-        migrateSyncerAccountIdentifierInStorage(withAccount)
+    /// This build does not require generic migrations using the syncer account.
+    ///
+    /// - Parameter account: The syncer account that can be used for migrating.
+    func migrateGeneric(with account: SyncerAccount) {
+        log.verbose("Running Build9 migrations using the syncer account...")
+        
+        migrateSyncerAccountIdentifierInStorage(with: account)
     }
     
+    /// Migrate the syncer identifier that is currently stored.
+    ///
+    /// - Note: This migration converts e.g. `OFFLINE_SYNCER` to `id(OfflineSyncer.self)`.
     private func migrateSyncerTypeInStorage() {
         guard let syncerType = StorageHelper.shared.getSynchronizationProvider() else {
             return
@@ -55,7 +66,11 @@ class MigrationToBuild9: MigrationProtocol {
         StorageHelper.shared.setSynchronizationProvider(newSyncerType)
     }
     
-    private func migrateSyncerAccountIdentifierInStorage(_ account: SyncerAccount) {
+    /// Store the current synchronization identifier in storage.
+    ///
+    /// - Parameter account: The syncer account that can be used for migrating.
+    /// - Note: This will be used to identify account changes.
+    private func migrateSyncerAccountIdentifierInStorage(with account: SyncerAccount) {
         StorageHelper.shared.setSynchronizationAccountIdentifier(account.identifier)
     }
     

@@ -169,6 +169,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter application: The singleton app object.
     /// - Parameter userInfo: A dictionary that contains information related to the remote notification.
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        log.verbose("Received a remote notification")
         SyncerHelper.shared.getSyncer().notify(userInfo)
     }
     

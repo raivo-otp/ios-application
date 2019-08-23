@@ -10,8 +10,10 @@
 
 import UIKit
 
-// Create the event lifecycle using the application principal and delegate.
-// https://developer.apple.com/documentation/uikit/1622933-uiapplicationmain
+/// Create the event lifecycle using the application principal and delegate.
+/// 
+/// - Note: Specifications:
+///         https://developer.apple.com/documentation/uikit/1622933-uiapplicationmain
 UIApplicationMain(
     CommandLine.argc,
     CommandLine.unsafeArgv,

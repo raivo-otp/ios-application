@@ -15,7 +15,11 @@ class UIPasswordsEmptySearchView: UIView {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        adjustConstraintToKeyboard()
+        attachKeyboardConstraint()
+    }
+    
+    deinit {
+        detachKeyboardConstraint()
     }
 
 }

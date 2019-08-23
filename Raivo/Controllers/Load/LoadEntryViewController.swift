@@ -16,15 +16,21 @@ import SDWebImage
 class LoadEntryViewController: UIViewController {
     
     override func viewDidLoad() {
+
+        // Initialize console logging (in debug builds)
+        if AppHelper.compilation == AppHelper.Compilation.debug {
+            initializeConsoleLogging()
+        }
+        
+        // Initialize file logging (if logging is enabled)
+        if StorageHelper.shared.getFileLoggingEnabled() {
+            initializeFileLogging()
+        }
+        
+        log.verbose("Loading Raivo OTP")
+        
         // Trigger Realm to use the current encryption key
         getAppDelegate().updateEncryptionKey(getAppDelegate().getEncryptionKey())
-
-        // Initialize debug logging (if applicable)
-        if AppHelper.compilation == AppHelper.Compilation.debug {
-            let console = ConsoleDestination()
-            console.minLevel = AppHelper.logLevel
-            log.addDestination(console)
-        }
         
         // Initialize SDImage configurations
         SDImageCache.shared.config.maxDiskAge = TimeInterval(60 * 60 * 24 * 365 * 4)
@@ -34,6 +40,7 @@ class LoadEntryViewController: UIViewController {
         // This means that e.g. encryption keys could still be available in the keychain.
         // https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
         if StateHelper.shared.isFirstRun() {
+            log.verbose("This is the first run of the app")
             StorageHelper.shared.clear()
         }
         
@@ -43,7 +50,8 @@ class LoadEntryViewController: UIViewController {
         // Preload the synchronization information
         SyncerHelper.shared.getSyncer().getAccount(success: { (account, syncerID) in
             DispatchQueue.main.async {
-                MigrationHelper.runGenericMigrations(withAccount: account)
+                log.verbose("Got syncer account succesfully")
+                MigrationHelper.runGenericMigrations(with: account)
                 
                 getAppDelegate().syncerAccountIdentifier = account.identifier
                 getAppDelegate().applicationIsLoaded = true
@@ -51,24 +59,12 @@ class LoadEntryViewController: UIViewController {
             }
         }, error: { (error, syncerID) in
             DispatchQueue.main.async {
+                log.verbose("Error while getting syncer account")
                 getAppDelegate().syncerAccountIdentifier = nil
                 getAppDelegate().applicationIsLoaded = true
                 getAppDelegate().updateStoryboard(.transitionCrossDissolve)
             }
         })
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-//
-//        if #available(iOS 12.0, *) {
-//            switch traitCollection.userInterfaceStyle {
-//            case .dark:
-//                view.backgroundColor = UIColor.getBackgroundOpaque(true)
-//            default:
-//                view.backgroundColor = UIColor.getBackgroundOpaque()
-//            }
-//        }
     }
     
 }

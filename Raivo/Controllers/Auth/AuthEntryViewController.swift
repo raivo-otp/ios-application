@@ -24,18 +24,26 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adjustViewToKeyboard()
-        
         biometricLabel.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
         
         pincodeField.delegate = self
         pincodeField.layoutIfNeeded()
         
-        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) {
+        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                 self.tryBiometricsUnlock()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        attachKeyboardConstraint()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        detachKeyboardConstraint()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -79,11 +87,15 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
             }
             
             if isCorrect {
+                log.verbose("Unlocked app via pincode")
+                
                 getAppDelegate().updateEncryptionKey(encryptionKey)
                 
                 self.resetPincodeTries()
                 getAppDelegate().updateStoryboard()
             } else {
+                log.verbose("Invalid pincode entered")
+                
                 self.pincodeField.reset()
                 
                 let message = self.getTriesLeft() == 0 ? "Invalid PIN code. That was your last try." : "Invalid PIN code. " + String(self.getTriesLeft()) + " tries left."
@@ -155,6 +167,8 @@ class AuthEntryViewController: UIViewController, UIPincodeFieldDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
                 self.resetPincodeTries()
+                
+                log.verbose("Unlocked app via biometric")
                 
                 getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
                 getAppDelegate().updateStoryboard()

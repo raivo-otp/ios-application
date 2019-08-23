@@ -7,48 +7,48 @@ target 'Raivo' do
   use_frameworks!
 
   # Realm SQLite database handler that supports encryption
-  pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true
-  pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true
-  # pod 'RealmSwift', '3.14.2'
+  pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true, :inhibit_warnings => true
+  pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true, :inhibit_warnings => true
+  # pod 'RealmSwift', '3.14.2', :inhibit_warnings => true
   
   # To encrypt sensitive data before being synced
-  pod 'RNCryptor', '5.1.0'
+  pod 'RNCryptor', '5.1.0', :inhibit_warnings => true
   
   # Allow access to Secure Enclave
-  pod 'Valet', '3.2.5'
+  pod 'Valet', '3.2.5', :inhibit_warnings => true
 
   # A one time password URI parser (for if you scan QR codes)
-  pod 'OneTimePassword', '3.1.5'
+  pod 'OneTimePassword', '3.1.5', :inhibit_warnings => true
 
   # Enables easy form creation for adding and editing passwords
-  # pod 'Eureka', git: 'https://github.com/ykphuah/Eureka.git', branch: 'darkmode'
-  pod 'Eureka', '5.0.0'
-  pod 'ViewRow', '0.6'
+  # pod 'Eureka', git: 'https://github.com/ykphuah/Eureka.git', branch: 'darkmode', :inhibit_warnings => true
+  pod 'Eureka', '5.0.0', :inhibit_warnings => true
+  pod 'ViewRow', '0.6', :inhibit_warnings => true
   
   # Retrieves, caches and displays images from the web (for issuer logos)
-  pod 'SDWebImage', '5.0.6'
+  pod 'SDWebImage', '5.0.6', :inhibit_warnings => true
 
   # Debug logging (only used in debug builds)
-  pod 'SwiftyBeaver', '1.7.0'
+  pod 'SwiftyBeaver', '1.7.0', :inhibit_warnings => true
 
   # UI notification banners (e.g. for a notification if you copied an OTP)
-  pod 'SwiftMessages', '7.0.0'
+  pod 'SwiftMessages', '7.0.0', :inhibit_warnings => true
   
   # Haptic feedback while e.g. entering PIN code or copying an OTP
-  pod 'Haptica', '3.0.0'
+  pod 'Haptica', '3.0.0', :inhibit_warnings => true
   
   # HTTP requests for custom issuer icons
-  pod 'Alamofire', '4.8.1'
+  pod 'Alamofire', '4.8.1', :inhibit_warnings => true
   
   # Allows encrypted ZIP file creation for OTP exporting
-  pod 'SSZipArchive', '2.2.2'
+  pod 'SSZipArchive', '2.2.2', :inhibit_warnings => true
   
   # QRCode generation for data export
-  pod 'EFQRCode', '5.0.0'
+  pod 'EFQRCode', '5.0.0', :inhibit_warnings => true
   
   # Swipable table view actions (for iOS < 11)
-  pod 'SwipeCellKit', '2.6.0'
-  
+  pod 'SwipeCellKit', '2.6.0', :inhibit_warnings => true
+
 end
 
 # Specific dependencies compile using Swift 4.2
