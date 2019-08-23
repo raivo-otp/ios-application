@@ -7,9 +7,9 @@ target 'Raivo' do
   use_frameworks!
 
   # Realm SQLite database handler that supports encryption
-  pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true, :inhibit_warnings => true
-  pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true, :inhibit_warnings => true
-  # pod 'RealmSwift', '3.14.2', :inhibit_warnings => true
+  # pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true, :inhibit_warnings => true
+  # pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true, :inhibit_warnings => true
+  pod 'RealmSwift', '3.14.2', :inhibit_warnings => true
   
   # To encrypt sensitive data before being synced
   pod 'RNCryptor', '5.1.0', :inhibit_warnings => true

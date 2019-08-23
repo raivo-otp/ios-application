@@ -7,11 +7,11 @@ PODS:
   - Haptica (3.0.0)
   - OneTimePassword (3.1.5):
     - Base32 (~> 1.1.2)
-  - Realm (3.16.1):
-    - Realm/Headers (= 3.16.1)
-  - Realm/Headers (3.16.1)
-  - RealmSwift (3.16.1):
-    - Realm (= 3.16.1)
+  - Realm (3.14.2):
+    - Realm/Headers (= 3.14.2)
+  - Realm/Headers (3.14.2)
+  - RealmSwift (3.14.2):
+    - Realm (= 3.14.2)
   - RNCryptor (5.1.0)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
@@ -33,8 +33,7 @@ DEPENDENCIES:
   - Eureka (= 5.0.0)
   - Haptica (= 3.0.0)
   - OneTimePassword (= 3.1.5)
-  - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `tg/xcode-11-b1`)
-  - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `tg/xcode-11-b1`)
+  - RealmSwift (= 3.14.2)
   - RNCryptor (= 5.1.0)
   - SDWebImage (= 5.0.6)
   - SSZipArchive (= 2.2.2)
@@ -52,6 +51,8 @@ SPEC REPOS:
     - Eureka
     - Haptica
     - OneTimePassword
+    - Realm
+    - RealmSwift
     - RNCryptor
     - SDWebImage
     - SSZipArchive
@@ -62,26 +63,6 @@ SPEC REPOS:
     - Valet
     - ViewRow
 
-EXTERNAL SOURCES:
-  Realm:
-    :branch: tg/xcode-11-b1
-    :git: https://github.com/realm/realm-cocoa.git
-    :submodules: true
-  RealmSwift:
-    :branch: tg/xcode-11-b1
-    :git: https://github.com/realm/realm-cocoa.git
-    :submodules: true
-
-CHECKOUT OPTIONS:
-  Realm:
-    :commit: 2e58dfe78e5f641262c4c5c7e5a13f05b434c610
-    :git: https://github.com/realm/realm-cocoa.git
-    :submodules: true
-  RealmSwift:
-    :commit: 2e58dfe78e5f641262c4c5c7e5a13f05b434c610
-    :git: https://github.com/realm/realm-cocoa.git
-    :submodules: true
-
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
@@ -89,8 +70,8 @@ SPEC CHECKSUMS:
   Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   Haptica: ee4abaf262f456fe3854b493f506debe421ddf2c
   OneTimePassword: 247500f67ab074f10501bb1c46bd1596c57bdb2a
-  Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
-  RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
+  Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
+  RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
@@ -101,6 +82,6 @@ SPEC CHECKSUMS:
   Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: e1493d33cc8db85bf712bc8a6a6a353965614743
+PODFILE CHECKSUM: efadc2aabc3e42a17827c9ce9bdbbf44bac067f0
 
 COCOAPODS: 1.5.3

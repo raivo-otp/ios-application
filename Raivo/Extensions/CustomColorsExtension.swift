@@ -15,9 +15,9 @@ import UIKit
 extension UIColor {
     
     public static func getLabel() -> UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.label
-        }
+//        if #available(iOS 13.0, *) {
+//            return UIColor.label
+//        }
         
         if let color = UIColor(named: "color-label") {
             return color
@@ -27,9 +27,9 @@ extension UIColor {
     }
     
     public static func getSecondaryLabel() -> UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.secondaryLabel
-        }
+//        if #available(iOS 13.0, *) {
+//            return UIColor.secondaryLabel
+//        }
         
         if let color = UIColor(named: "color-secondary-label") {
             return color
