@@ -298,30 +298,6 @@ class MiscellaneousForm {
                     controller.present(refreshAlert, animated: true, completion: nil)
                 }
             })
-            
-            <<< ButtonRow("logging_delete", { row in
-                row.title = "Export data to TXT"
-                row.hidden = Condition.function(["logging_enabled"], { form in
-                    return !(self.loggingEnabledRow.value ?? false)
-                })
-            }).cellUpdate({ cell, row in
-                cell.textLabel?.textAlignment = .left
-                cell.imageView?.image = UIImage(named: "form-logging-share")
-            }).onCellSelection({ cell, row in
-                if let logFile = logFileDestination.logFileURL {
-                    let activity = UIActivityViewController(activityItems: [logFile], applicationActivities: nil)
-                    controller.present(activity, animated: true, completion: nil)
-                } else {
-                    let refreshAlert = UIAlertController(
-                        title: "Log unavailable!",
-                        message: "The local log file could not be found.",
-                        preferredStyle: UIAlertController.Style.alert
-                    )
-                    
-                    refreshAlert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-                    controller.present(refreshAlert, animated: true, completion: nil)
-                }
-            })
     }
     
     private func buildAboutSection(_ controller: UIViewController) {

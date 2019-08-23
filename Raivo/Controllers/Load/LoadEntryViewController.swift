@@ -27,6 +27,7 @@ class LoadEntryViewController: UIViewController {
         // Initialize file logging (if logging is enabled)
         if StorageHelper.shared.getFileLoggingEnabled() {
             logFileDestination.minLevel = AppHelper.logLevel
+            logFileDestination.logFileURL = logFileDestination.logFileURL?.deletingLastPathComponent().appendingPathComponent("raivo-debug-log.txt")
             logFileDestination.format = "$Dyyyy-MM-dd HH:mm:ss$d$d $T $N.$F:$l $L: $M"
             log.addDestination(logFileDestination)
             log.verbose("File log destination initialized")
