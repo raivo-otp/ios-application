@@ -139,7 +139,7 @@ class SetupStorageViewController: FormViewController, SetupState {
     /// - Parameter identifier: The string that identifies the triggered segue.
     /// - Parameter sender; The object that initiated the segue.
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-         if identifier == "SetupEncryptionSegue" {
+         if identifier == "SetupPasswordSegue" {
             guard let _ = synchronizationProviderForm!.getSelectedSyncer() else {
                 return false
             }

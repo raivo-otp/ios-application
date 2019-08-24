@@ -74,7 +74,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     /// - Parameter textField: The text field whose return button was pressed.
     /// - Returns: Positive if the text field should implement its default behavior for the return button; otherwise, false.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        performSegue(withIdentifier: "SetupEncryptionConfirmationSegue", sender: textField)
+        performSegue(withIdentifier: "SetupPasswordConfirmationSegue", sender: textField)
         return false
     }
     
@@ -99,7 +99,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
         }
         
         guard state(self).recoveryMode() || confirmation != nil else {
-            return performSegue(withIdentifier: "SetupEncryptionConfirmationSegue", sender: sender)
+            return performSegue(withIdentifier: "SetupPasswordConfirmationSegue", sender: sender)
         }
         
         guard state(self).recoveryMode() || password.text == confirmation else {
@@ -114,7 +114,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
         }
 
         state(self).password = password.text
-        performSegue(withIdentifier: "SetupPINCodeSegue", sender: sender)
+        performSegue(withIdentifier: "SetupPasscodeSegue", sender: sender)
     }
     
     /// Verify if the current password is correct (if the user is recovering data)
@@ -140,7 +140,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == "SetupEncryptionConfirmationSegue" {
+        if segue.identifier == "SetupPasswordConfirmationSegue" {
             if let destination = segue.destination as? SetupEncryptionConfirmationViewController {
                 destination.sendingController = self
             }

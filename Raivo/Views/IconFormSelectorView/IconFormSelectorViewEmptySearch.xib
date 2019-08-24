@@ -20,37 +20,35 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2s-nA-Ilh">
                     <rect key="frame" x="0.0" y="44" width="397" height="410"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No search results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnE-vz-Nrf">
-                            <rect key="frame" x="32" y="181" width="333" height="24"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfJ-0k-rsZ">
-                            <rect key="frame" x="30" y="209" width="337" height="40.5"/>
-                            <attributedString key="attributedText">
-                                <fragment content="If you want to add a new icon, go to ">
-                                    <attributes>
-                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content="github.com/tijme/raivo-issuer-icons">
-                                    <attributes>
-                                        <font key="NSFont" size="17" name="HelveticaNeue-Medium"/>
-                                        <url key="NSLink" string="http://github.com/tijme/raivo-issuer-icons"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a3H-sp-JqB">
+                            <rect key="frame" x="8" y="150" width="381" height="110"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No search results." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnE-vz-Nrf">
+                                    <rect key="frame" x="110" y="0.0" width="161" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can add new icons via the Raivo OTP icon repository on GitHub." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfJ-0k-rsZ">
+                                    <rect key="frame" x="11" y="32" width="359" height="40"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzI-Ga-S0W">
+                                    <rect key="frame" x="68.5" y="80" width="244" height="30"/>
+                                    <state key="normal" title="github.com/tijme/raivo-issuer-icons"/>
+                                    <connections>
+                                        <action selector="addIcon:" destination="iN0-l3-epB" eventType="touchUpInside" id="bGl-fF-NX0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="rnE-vz-Nrf" firstAttribute="bottom" secondItem="H2s-nA-Ilh" secondAttribute="centerY" id="Hjy-Q3-V5s"/>
-                        <constraint firstAttribute="trailing" secondItem="rnE-vz-Nrf" secondAttribute="trailing" constant="32" id="UVp-gY-Lfp"/>
-                        <constraint firstItem="rnE-vz-Nrf" firstAttribute="leading" secondItem="H2s-nA-Ilh" secondAttribute="leading" constant="32" id="f30-Xi-aAS"/>
-                        <constraint firstItem="EfJ-0k-rsZ" firstAttribute="top" secondItem="rnE-vz-Nrf" secondAttribute="bottom" constant="4" id="rd4-1B-Tz4"/>
+                        <constraint firstItem="a3H-sp-JqB" firstAttribute="leading" secondItem="H2s-nA-Ilh" secondAttribute="leading" constant="8" id="HBo-7u-Fh4"/>
+                        <constraint firstAttribute="trailing" secondItem="a3H-sp-JqB" secondAttribute="trailing" constant="8" id="ObC-aw-Okz"/>
+                        <constraint firstItem="a3H-sp-JqB" firstAttribute="centerY" secondItem="H2s-nA-Ilh" secondAttribute="centerY" id="WGe-n3-oXM"/>
                     </constraints>
                 </view>
             </subviews>
@@ -58,11 +56,9 @@
             <color key="tintColor" name="color-tint-red"/>
             <constraints>
                 <constraint firstItem="H2s-nA-Ilh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4e9-tv-vWY"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EfJ-0k-rsZ" secondAttribute="trailing" constant="30" id="Vf9-iT-GzF"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="H2s-nA-Ilh" secondAttribute="trailing" id="Y8P-4l-2DX"/>
                 <constraint firstItem="H2s-nA-Ilh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="YAv-ec-cJk"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="H2s-nA-Ilh" secondAttribute="bottom" id="Zrb-N5-SNX"/>
-                <constraint firstItem="EfJ-0k-rsZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="muF-nI-J0D"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

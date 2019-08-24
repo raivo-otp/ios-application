@@ -9,8 +9,9 @@
 // 
 
 import UIKit
+import SPStorkController
 
 /// The entry controller of the setup storyboard (this is the first controller that users see).
 class SetupEntryViewController: UIViewController {
-    
+
 }

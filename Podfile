@@ -29,7 +29,7 @@ target 'Raivo' do
   pod 'SDWebImage', '5.0.6', :inhibit_warnings => true
 
   # Debug logging (only used in debug builds)
-  pod 'SwiftyBeaver', '1.7.0', :inhibit_warnings => true
+  pod 'SwiftyBeaver', '1.7.1', :inhibit_warnings => true
 
   # UI notification banners (e.g. for a notification if you copied an OTP)
   pod 'SwiftMessages', '7.0.0', :inhibit_warnings => true
@@ -48,13 +48,19 @@ target 'Raivo' do
   
   # Swipable table view actions (for iOS < 11)
   pod 'SwipeCellKit', '2.6.0', :inhibit_warnings => true
+  
+  # More user friendly popover segues
+  pod 'SPStorkController', '1.7.9', :inhibit_warnings => true
+  
+  # Nice banners
+  pod 'SPAlert', '1.1.1', :inhibit_warnings => true
 
 end
 
 # Specific dependencies compile using Swift 4.2
 post_install do |installer|
   installer.pods_project.targets.each do |target|
-    if ['SwiftyBeaver', 'Alamofire'].include? target.name
+    if ['Alamofire'].include? target.name
       target.build_configurations.each do |config|
         config.build_settings['SWIFT_VERSION'] = '4.2'
       end

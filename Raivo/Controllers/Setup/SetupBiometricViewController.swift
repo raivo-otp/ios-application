@@ -29,11 +29,11 @@ class SetupBiometricViewController: UIViewController, SetupState {
         
         if BiometricHelper.shared.type() == .face {
             titleLabel.text = "Configure FaceID unlock."
-            descriptionLabel.text = "Biometry allows you to unlock Raivo with FaceID, instead of your PIN code."
+            descriptionLabel.text = "Biometry allows you to unlock Raivo with FaceID, instead of your passcode."
             dismissButton.setTitle("I don't want to use FaceID unlock.", for: .normal)
         } else {
             titleLabel.text = "Configure TouchID unlock."
-            descriptionLabel.text = "Biometry allows you to unlock Raivo with TouchID, instead of your PIN code."
+            descriptionLabel.text = "Biometry allows you to unlock Raivo with TouchID, instead of your passcode."
             dismissButton.setTitle("I don't want to use TouchID unlock.", for: .normal)
         }
     }

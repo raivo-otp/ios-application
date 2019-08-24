@@ -13,4 +13,8 @@ import UIKit
 
 class IconFormSelectorViewEmptySearch: UIView {
 
+    @IBAction func addIcon(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo-issuer-icons")!, options: [:])
+    }
+    
 }

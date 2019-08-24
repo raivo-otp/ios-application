@@ -22,6 +22,7 @@ class AuthMiscViewController: FormViewController, MFMailComposeViewControllerDel
         super.viewDidLoad()
         
         miscellaneousForm = MiscellaneousForm(form).build(controller: self).ready()
+        tableView.alwaysBounceVertical = false
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

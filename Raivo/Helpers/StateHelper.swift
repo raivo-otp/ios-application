@@ -56,7 +56,7 @@ class StateHelper {
         /// Migration rollbacks can't be done, the application must show an error if the user downgraded the app
         static let DOWNGRADE_NOT_PERMITTED = "DOWNGRADE_NOT_PERMITTED"
         
-        /// If the application is fully initialized, but the user needs to enter the pincode
+        /// If the application is fully initialized, but the user needs to enter the passcode
         static let ENCRYPTION_KEY_UNKNOWN = "ENCRYPTION_KEY_UNKNOWN"
         
         /// The user is signed in and all checks were passed
@@ -158,11 +158,11 @@ class StateHelper {
     
     /// Reset the state of the app to `State.LOCAL_DATABASE_UNKNOWN`.
     ///
-    /// - Parameter dueToPINCodeChange: Positive if only certain keychain items should be removed.
-    /// - Note: The 'dueToPINCodeChange' param can be set to true on e.g. a PIN code change.
+    /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
+    /// - Note: The 'dueToPasscodeChange' param can be set to true on e.g. a passcode change.
     /// - Note: Realm auxiliary files will be deleted
     ///         https://realm.io/docs/swift/latest/#deleting-realm-files
-    public func reset(dueToPINCodeChange PINChanged: Bool = false) {
+    public func reset(dueToPasscodeChange passcodeChanged: Bool = false) {
         log.warning("Resetting the state and all data of the app")
         
         let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
@@ -173,8 +173,8 @@ class StateHelper {
         try? FileManager.default.removeItem(at: realmURL.appendingPathExtension("note"))
         try? FileManager.default.removeItem(at: realmURL.appendingPathExtension("management"))
         
-        SyncerHelper.shared.clear(dueToPINCodeChange: PINChanged)
-        StorageHelper.shared.clear(dueToPINCodeChange: PINChanged)
+        SyncerHelper.shared.clear(dueToPasscodeChange: passcodeChanged)
+        StorageHelper.shared.clear(dueToPasscodeChange: passcodeChanged)
         
         lock()
     }
@@ -264,7 +264,7 @@ class StateHelper {
         return currentSAI == storedSAI
     }
 
-    /// Checks if the user entered his/her PIN code and that therefore the encryption key is known.
+    /// Checks if the user entered his/her passcode and that therefore the encryption key is known.
     ///
     /// - Returns: Positive if encryption key is known.
     private func encryptionKeyIsKnown() -> Bool {

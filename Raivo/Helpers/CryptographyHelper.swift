@@ -23,7 +23,7 @@ class CryptographyHelper {
     
     /// Use the PBKDF2 key derivation algorithm to derive the given data to a 64 byte encryption key
     ///
-    /// - Parameter secret: The secret to derive (for end-users, this is called the PIN code)
+    /// - Parameter secret: The secret to derive (for end-users, this is called the passcode)
     /// - Parameter salt: The salt to use for derivation (for end-users, this is called the password)
     /// - Returns: A key based on the secret and salt
     /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)

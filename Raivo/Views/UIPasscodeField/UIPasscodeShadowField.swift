@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 
 /// A shadow/mirror UITextField that doesn't allow any actions other that adding and removing characters
-class UIPincodeShadowField: UITextField {
+class UIPasscodeShadowField: UITextField {
     
     /// Initialize the current UITextField using a frame
     ///

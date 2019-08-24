@@ -12,10 +12,10 @@ import Foundation
 import UIKit
 import RealmSwift
 
-/// This controller allows users to change their PIN code
+/// This controller allows users to change their passcode.
 ///
 /// - Todo: Remove old Spring code.
-class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate {
+class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegate {
 
     /// The title centered in the view
     @IBOutlet weak var viewTitle: UILabel!
@@ -23,10 +23,10 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
     /// Extra information that supports the title
     @IBOutlet weak var viewExtra: UILabel!
     
-    /// The actual PIN code field
-    @IBOutlet weak var viewPincode: UIPincodeField!
+    /// The actual passcode field
+    @IBOutlet weak var viewPasscode: UIPasscodeField!
     
-    /// Derived PIN+salt from the first try (a user needs to enter the same PIN twice before it will change)
+    /// Derived passcode+salt from the first try (a user needs to enter the same passcode twice before it will change)
     private var initialKey: Data? = nil
     
     /// Called after the controller's view is loaded into memory.
@@ -34,12 +34,12 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         super.viewDidLoad()
         
         resetView(
-            "Choose a new PIN code",
+            "Choose a new passcode code",
             "You need it to unlock Raivo, so make sure you'll be able to remember it."
         )
         
-        viewPincode.delegate = self
-        viewPincode.layoutIfNeeded()
+        viewPasscode.delegate = self
+        viewPasscode.layoutIfNeeded()
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
@@ -59,7 +59,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
     /// - Parameter animated: If positive, the view was added to the window using an animation.
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewPincode.becomeFirstResponder()
+        viewPasscode.becomeFirstResponder()
     }
     
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.
@@ -80,21 +80,21 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         navigationController?.view.backgroundColor = UIColor.clear
     }
     
-    /// Triggered when the user entered a PIN code.
+    /// Triggered when the user entered a passcode.
     /// This method will either;
-    ///     * Move on to the second PIN code try
-    ///     * Notify if the second PIN code try was wrong
-    ///     * Migrate the database using the new PIN code
+    ///     * Move on to the second passcode try
+    ///     * Notify if the second passcode try was wrong
+    ///     * Migrate the database using the new passcode
     ///
-    /// - Parameter pincode: The x digit PIN code
-    internal func onPincodeComplete(pincode: String) {
+    /// - Parameter passcode: The x digit passcode
+    internal func onPasscodeComplete(passcode: String) {
         var currentKey: Data? = nil
         let salt = StorageHelper.shared.getEncryptionPassword()
         
         do {
-            currentKey = try CryptographyHelper.shared.derive(pincode, withSalt: salt!)
+            currentKey = try CryptographyHelper.shared.derive(passcode, withSalt: salt!)
         } catch let error {
-            ui { self.resetView("Invalid PIN code", "Please start over by choosing a new PIN code.") }
+            ui { self.resetView("Invalid passcode", "Please start over by choosing a new passcode.") }
             return log.error(error)
         }
         
@@ -105,28 +105,28 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
             ui {
                 self.resetView(
                     "Almost there!",
-                    "Confirm your PIN code to continue (you'll be signed out after this step)."
+                    "Confirm your passcode to continue (you'll be signed out after this step)."
                 )
             }
         case currentKey:
-            changePincode(to: currentKey!)
+            changePasscode(to: currentKey!)
         default:
             initialKey = nil
             
             ui {
                 self.resetView(
                     "Oh oh, not similar :/",
-                    "Please start over by choosing a new PIN code.",
+                    "Please start over by choosing a new passcode.",
                     flash: true
                 )
             }
         }
     }
     
-    /// Triggered when the user changed the PIN code input
+    /// Triggered when the user changed the passcode input
     ///
-    /// - Parameter pincode: The (possibly incomplete) digit PIN code
-    func onPincodeChange(pincode: String) {
+    /// - Parameter passcode: The (possibly incomplete) digit passcode
+    func onPasscodeChange(passcode: String) {
         // Not implemented
     }
     
@@ -139,7 +139,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         viewTitle.text = title
         viewExtra.text = extra
         
-        viewPincode.reset()
+        viewPasscode.reset()
       
         if flash {
             BannerHelper.error(extra)
@@ -149,7 +149,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
     /// Migrate the old Realm database to the a new Realm database using the new encryption key
     ///
     /// - Parameter newKey: The new encryption key
-    private func changePincode(to newKey: Data) {
+    private func changePasscode(to newKey: Data) {
         let newName = RealmHelper.getProposedNewFileName()
         let newFile = RealmHelper.getFileURL(forceFilename: newName)
         
@@ -166,7 +166,7 @@ class MainChangePincodeViewController: UIViewController, UIPincodeFieldDelegate 
         }
         
         StorageHelper.shared.setRealmFilename(newName)
-        StateHelper.shared.reset(dueToPINCodeChange: true)
+        StateHelper.shared.reset(dueToPasscodeChange: true)
         
         getAppDelegate().updateStoryboard()
     }

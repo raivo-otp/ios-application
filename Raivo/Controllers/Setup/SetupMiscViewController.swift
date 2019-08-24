@@ -23,7 +23,9 @@ class SetupMiscViewController: FormViewController, MFMailComposeViewControllerDe
         super.viewDidLoad()
         
         miscellaneousForm = MiscellaneousForm(form).build(controller: self).ready()
+        
         tableView.backgroundColor = UIColor.getBackgroundEureka()
+        tableView.alwaysBounceVertical = false
     }
     
     /// Delegate callback which is called upon user's completion of email composition.

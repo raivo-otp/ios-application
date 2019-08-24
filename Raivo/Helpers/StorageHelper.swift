@@ -23,8 +23,8 @@ class StorageHelper {
         static let SYNCHRONIZATION_PROVIDER = "SynchronizationProvider"
         static let SYNCHRONIZATION_ACCOUNT_IDENTIFIER = "SynchronizationProviderAccountIdentifier"
         static let ICONS_EFFECT = "IconsEffect"
-        static let PINCODE_TRIED_AMOUNT = "PincodeTriedAmount"
-        static let PINCODE_TRIED_TIMESTAMP = "PincodeTriedTimestamp"
+        static let PASSCODE_TRIED_AMOUNT = "PasscodeTriedAmount"
+        static let PASSCODE_TRIED_TIMESTAMP = "PasscodeTriedTimestamp"
         static let PREVIOUS_BUILD = "PreviousBuild"
         static let ENCRYPTION_KEY = "EncryptionKey"
         static let TOUCHID_ENABLED = "TouchIDEnabled"
@@ -41,23 +41,23 @@ class StorageHelper {
     /// Get a `Valet` that enables you to store key/value pairs in the keychain (outside of Secure Encalve).
     ///
     /// - Returns: The `Valet` settings instance
-    private func settings() -> Valet {
+    public func settings() -> Valet {
         return Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .whenUnlocked)
     }
     
     /// Get a `SecureEnclaveValet` that enables you to store key/value pairs in Secure Encalve.
     ///
     /// - Returns: The `SecureEnclaveValet` secrets instance
-    private func secrets() -> SecureEnclaveValet {
+    public func secrets() -> SecureEnclaveValet {
         return SecureEnclaveValet.valet(with: Identifier(nonEmpty: "secrets")!, accessControl: .userPresence)
     }
     
     /// Clear all of the settings and secrets so they can be initialized again in a later stage.
     ///
-    /// - Parameter dueToPINCodeChange: Positive if only certain keychain items should be removed.
-    /// - Note: The `dueToPINCodeChange` parameter can be set to true on e.g. a PIN code change.
-    public func clear(dueToPINCodeChange: Bool = false) {
-        guard !dueToPINCodeChange else { return }
+    /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
+    /// - Note: The `dueToPasscodeChange` parameter can be set to true on e.g. a passcode change.
+    public func clear(dueToPasscodeChange: Bool = false) {
+        guard !dueToPasscodeChange else { return }
 
         log.warning("Removing all keychain and secure enclave entries")
         
@@ -190,39 +190,38 @@ class StorageHelper {
         return settings().string(forKey: Key.ICONS_EFFECT)
     }
     
-    /// Set the amount of times the user entered the PIN code.
+    /// Set the amount of times the user entered the passcode.
     ///
     /// - Parameter tries: The amount of tries
-    public func setPincodeTriedAmount(_ tries: Int) {
-        log.verbose("Setting pincode tried amount")
-        settings().set(string: String(tries), forKey: Key.PINCODE_TRIED_AMOUNT)
+    public func setPasscodeTriedAmount(_ tries: Int) {
+        log.verbose("Setting passcode tried amount")
+        settings().set(string: String(tries), forKey: Key.PASSCODE_TRIED_AMOUNT)
     }
     
-    /// Get the amount of times the user tried to enter the PIN code.
+    /// Get the amount of times the user tried to enter the passcode.
     ///
     /// - Returns: The amount of tries
-    public func getPincodeTriedAmount() -> Int? {
-        guard let tries = settings().string(forKey: Key.PINCODE_TRIED_AMOUNT) else {
+    public func getPasscodeTriedAmount() -> Int? {
+        guard let tries = settings().string(forKey: Key.PASSCODE_TRIED_AMOUNT) else {
             return nil
         }
         
         return Int(tries)
     }
     
-    /// Set the timestamp of the last PIN code try.
+    /// Set the timestamp of the last passcode try.
     ///
-    /// - Parameter timestamp: The last time the user tried a PIN code
-    public func setPincodeTriedTimestamp(_ timestamp: TimeInterval) {
-        log.verbose("Setting pincode tried timestamp")
-        settings().set(string: String(timestamp), forKey: Key.PINCODE_TRIED_TIMESTAMP)
-        
+    /// - Parameter timestamp: The last time the user tried a passcode
+    public func setPasscodeTriedTimestamp(_ timestamp: TimeInterval) {
+        log.verbose("Setting passcode tried timestamp")
+        settings().set(string: String(timestamp), forKey: Key.PASSCODE_TRIED_TIMESTAMP)
     }
     
-    /// Get the timestamp of the last PIN code try.
+    /// Get the timestamp of the last passcode try.
     ///
-    /// - Returns: The last time the user tried a PIN code
-    public func getPincodeTriedTimestamp() -> TimeInterval? {
-        guard let tries = settings().string(forKey: Key.PINCODE_TRIED_TIMESTAMP) else {
+    /// - Returns: The last time the user tried a passcode
+    public func getPasscodeTriedTimestamp() -> TimeInterval? {
+        guard let tries = settings().string(forKey: Key.PASSCODE_TRIED_TIMESTAMP) else {
             return nil
         }
         
@@ -248,7 +247,7 @@ class StorageHelper {
         return Int(build)
     }
     
-    /// Set the complete encryption key (password+PIN) in Secure Enclave.
+    /// Set the complete encryption key (password+passcode) in Secure Enclave.
     ///
     /// - Parameter key: The encryption key
     public func setEncryptionKey(_ key: String?) {
@@ -261,7 +260,7 @@ class StorageHelper {
         }
     }
     
-    /// Get the complete encryption key (password+PIN) from Secure Enclave
+    /// Get the complete encryption key (password+passcode) from Secure Enclave
     ///
     /// - Parameter prompt: The biometric unlock message to show
     /// - Returns: The encryption key

@@ -11,9 +11,9 @@
 import Foundation
 import UIKit
 
-/// An input field for PIN codes
+/// An input field for passcodes
 @IBDesignable
-class UIPincodeField: UIView, UITextFieldDelegate {
+class UIPasscodeField: UIView, UITextFieldDelegate {
     
     /// The amount of digits to enter
     @IBInspectable
@@ -28,7 +28,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
     public var digitWidth: CGFloat = 20
     
     /// The delegate that allows you to bind to e.g. the on completion listener
-    public var delegate: UIPincodeFieldDelegate? = nil
+    public var delegate: UIPasscodeFieldDelegate? = nil
     
     /// A shadow/mirror (hidden) text field that the user is actually typing into
     private var shadow: UITextField? = nil
@@ -36,7 +36,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
     /// If positive, no edits will be allowed in the shadow/mirror field (but it will stay the first responder)
     public var completed: Bool = false
     
-    /// Always set to the latest PIN code that was entered by the user (possibly incomplete)
+    /// Always set to the latest passcode that was entered by the user (possibly incomplete)
     public private(set) var current: String = ""
     
     /// The UIDigitFields that are added on initialization
@@ -64,7 +64,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         addDigits()
     }
     
-    /// Reset the PIN view to its initial state (revert any text that was entered)
+    /// Reset the passcode view to its initial state (revert any text that was entered)
     public func reset() {
         for position in 1...length {
             digits[position]?.value = nil
@@ -84,7 +84,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         }
     }
     
-    /// If the UIPincodeField has to become the first responder, we actually want to focus on the shadow UITextField.
+    /// If the UIPasscodeField has to become the first responder, we actually want to focus on the shadow UITextField.
     ///
     /// - Returns: Positive if this object is now the first-responder or negative if it is not
     @discardableResult
@@ -92,7 +92,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         return shadow!.becomeFirstResponder()
     }
     
-    /// If the UIPincodeField has to resign as the first responder, we actually want to resign the shadow UITextField.
+    /// If the UIPasscodeField has to resign as the first responder, we actually want to resign the shadow UITextField.
     ///
     /// - Returns: Positive if this object resigned as the first-responder or negative if it did not
     @discardableResult
@@ -137,7 +137,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
     private func addShadow() {
         let invisibleFrame = CGRect(x: 0.0, y: 0.0, width: 0.0, height: 0.0)
         
-        shadow = UIPincodeShadowField(frame: invisibleFrame)
+        shadow = UIPasscodeShadowField(frame: invisibleFrame)
         shadow!.delegate = self
         
         addSubview(shadow!)
@@ -172,7 +172,7 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         
         let isAddition = !isBackspace(string) && newLength >= oldLength
         
-        // Pincode was already entered
+        // Passcode was already entered
         guard !completed else {
             return false
         }
@@ -194,10 +194,10 @@ class UIPincodeField: UIView, UITextFieldDelegate {
         }
         
         current = newText
-        delegate?.onPincodeChange(pincode: newText)
+        delegate?.onPasscodeChange(passcode: newText)
         
         if newLength == length {
-            delegate?.onPincodeComplete(pincode: newText)
+            delegate?.onPasscodeComplete(passcode: newText)
             completed = true
         }
         

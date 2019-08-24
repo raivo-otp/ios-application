@@ -147,7 +147,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             let refreshAlert = UIAlertController(title: "Your vault is empty!", message: "Do you want to add your first OTP?", preferredStyle: .alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-                self.performSegue(withIdentifier: "ScanPassword", sender: nil)
+                self.performSegue(withIdentifier: "MainScanQuickResponseCodeSegue", sender: nil)
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -286,7 +286,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         
         let editAction = SwipeAction(style: .default, title: "Edit") { action, indexPath in
             if let result = self.results?[indexPath.row] {
-                self.performSegue(withIdentifier: "PasswordSelectedSegue", sender: result)
+                self.performSegue(withIdentifier: "MainOneTimePasswordSelectedSegue", sender: result)
             }
         }
         
@@ -295,7 +295,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         
         let qrcodeAction = SwipeAction(style: .default, title: "QR code") { action, indexPath in
             if let result = self.results?[indexPath.row] {
-                self.performSegue(withIdentifier: "QuickResponseCodeSelectedSegue", sender: result)
+                self.performSegue(withIdentifier: "MainQuickResponseCodeSelectedSegue", sender: result)
             }
         }
         
@@ -315,7 +315,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         searchBar.resignFirstResponder()
         
-        if segue.identifier == "PasswordSelectedSegue" {
+        if segue.identifier == "MainOneTimePasswordSelectedSegue" {
             guard let destination = segue.destination as? MainEditPasswordViewController else {
                 return
             }
@@ -327,7 +327,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             destination.password = password
         }
         
-        if segue.identifier == "QuickResponseCodeSelectedSegue" {
+        if segue.identifier == "MainQuickResponseCodeSelectedSegue" {
             guard let destination = segue.destination as? MainQuickResponseCodeViewController else {
                 return
             }

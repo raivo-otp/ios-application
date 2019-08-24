@@ -146,11 +146,11 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         }
         
         lastScannedToken = Token(url: URL(string: metadataObj.stringValue!)!)
-        performSegue(withIdentifier: "CreatePasswordAutomatically", sender: nil)
+        performSegue(withIdentifier: "MainCreateScannedOneTimePasswordSegue", sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "CreatePasswordManually" {
+        if segue.identifier != "MainCreateManualOneTimePasswordSegue" {
             let newViewController = segue.destination as! MainCreatePasswordViewController
             newViewController.token = lastScannedToken
             newViewController.navigationItem.title = "Verify"

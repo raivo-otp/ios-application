@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 
-/// A UIDigitField represents a single digit that can be entered in a UIPincodeField
+/// A UIDigitField represents a single digit that can be entered in a UIPasscodeField
 class UIDigitField: UIView, UITextFieldDelegate {
     
     /// The color of the dash

@@ -11,22 +11,22 @@
 import Foundation
 import UIKit
 
-/// This controller allows users to setup their PIN code
-class SetupPINCodeViewController: UIViewController, UIPincodeFieldDelegate, SetupState {
+/// This controller allows users to setup their passcode
+class SetupPasscodeViewController: UIViewController, UIPasscodeFieldDelegate, SetupState {
     
     /// If the user confirmed the password, this var will contain the confirmed password
     public var confirmation: String? = nil
     
-    /// A reference to the PIN code field
-    @IBOutlet weak var pincodeField: UIPincodeField!
+    /// A reference to the passcode field
+    @IBOutlet weak var passcodeField: UIPasscodeField!
     
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        pincodeField.delegate = self
-        pincodeField.layoutIfNeeded()
-        pincodeField.becomeFirstResponder()
+        passcodeField.delegate = self
+        passcodeField.layoutIfNeeded()
+        passcodeField.becomeFirstResponder()
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
@@ -52,56 +52,56 @@ class SetupPINCodeViewController: UIViewController, UIPincodeFieldDelegate, Setu
         super.viewDidDisappear(animated)
         
         if confirmation != nil {
-            pincodeField.reset()
+            passcodeField.reset()
         }
     }
     
-    /// Called if the user finished entering the PIN code.
+    /// Called if the user finished entering the passcode.
     ///
-    /// - Parameter pincode: The  PIN code that the user entered.
-    func onPincodeComplete(pincode: String) {
-        // Allow UIPincodeField to finish animations before continueing
+    /// - Parameter passcode: The passcode that the user entered.
+    func onPasscodeComplete(passcode: String) {
+        // Allow UIPasscodeField to finish animations before continueing
         DispatchQueue.main.async {
             self.onContinue()
         }
     }
     
-    /// If the PIN code changes, set the confirmation to nil.
+    /// If the passcode changes, set the confirmation to nil.
     ///
-    /// - Parameter pincode: The new (possibly incomplete) PIN code.
-    func onPincodeChange(pincode: String) {
+    /// - Parameter passcode: The new (possibly incomplete) passcode.
+    func onPasscodeChange(passcode: String) {
         confirmation = nil
     }
     
     /// On continue is called by various triggers and should try to continue to the next setup stage
     func onContinue() {
-        let pincode = pincodeField.current
+        let passcode = passcodeField.current
         
         guard confirmation != nil else {
-            return performSegue(withIdentifier: "SetupPINCodeConfirmationSegue", sender: nil)
+            return performSegue(withIdentifier: "SetupPasscodeConfirmationSegue", sender: nil)
         }
         
-        guard pincode == confirmation else {
+        guard passcode == confirmation else {
             confirmation = nil
-            pincodeField.reset()
-            pincodeField.becomeFirstResponder()
+            passcodeField.reset()
+            passcodeField.becomeFirstResponder()
             
-            return BannerHelper.error("The PIN code and confirmation do not match", icon: "👮")
+            return BannerHelper.error("The passcode and confirmation do not match", icon: "👮")
         }
         
         do {
-            state(self).encryptionKey = try CryptographyHelper.shared.derive(pincode, withSalt: state(self).password!)
+            state(self).encryptionKey = try CryptographyHelper.shared.derive(passcode, withSalt: state(self).password!)
         } catch let error {
             return BannerHelper.error(error.localizedDescription)
         }
         
-        pincodeField.reset()
-        pincodeField.layoutIfNeeded()
+        passcodeField.reset()
+        passcodeField.layoutIfNeeded()
         
         if StorageHelper.shared.canAccessSecrets() {
             performSegue(withIdentifier: "SetupBiometricSegue", sender: nil)
         } else {
-            performSegue(withIdentifier: "SkipToSetupFinalizeSegue", sender: nil)
+            performSegue(withIdentifier: "SetupSkipToFinalizeSegue", sender: nil)
         }
     }
     
@@ -112,8 +112,8 @@ class SetupPINCodeViewController: UIViewController, UIPincodeFieldDelegate, Setu
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == "SetupPINCodeConfirmationSegue" {
-            if let destination = segue.destination as? SetupPINCodeConfirmationViewController {
+        if segue.identifier == "SetupPasscodeConfirmationSegue" {
+            if let destination = segue.destination as? SetupPasscodeConfirmationViewController {
                 destination.sendingController = self
             }
         }

@@ -12,24 +12,24 @@ import UIKit
 import Foundation
 
 /// Enable the user to confirm the master password (confirm, not initial)
-class SetupPINCodeConfirmationViewController: UIViewController, UIPincodeFieldDelegate {
+class SetupPasscodeConfirmationViewController: UIViewController, UIPasscodeFieldDelegate {
     
-    /// A reference to the PIN code field
-    @IBOutlet weak var pincodeField: UIPincodeField!
+    /// A reference to the passcode field
+    @IBOutlet weak var passcodeField: UIPasscodeField!
     
-    /// If the user finished entering the confirmation PIN code
+    /// If the user finished entering the confirmation passcode
     private var completed: Bool = false
 
     /// The sender (previous) controller (because this view is presented as a popover)
-    public var sendingController: SetupPINCodeViewController? = nil
+    public var sendingController: SetupPasscodeViewController? = nil
 
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        pincodeField.delegate = self
-        pincodeField.layoutIfNeeded()
-        pincodeField.becomeFirstResponder()
+        passcodeField.delegate = self
+        passcodeField.layoutIfNeeded()
+        passcodeField.becomeFirstResponder()
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
@@ -48,7 +48,7 @@ class SetupPINCodeConfirmationViewController: UIViewController, UIPincodeFieldDe
         detachKeyboardConstraint()
         
         if !completed {
-            self.sendingController?.pincodeField.reset()
+            self.sendingController?.passcodeField.reset()
         }
     }
     
@@ -57,18 +57,18 @@ class SetupPINCodeConfirmationViewController: UIViewController, UIPincodeFieldDe
     /// - Parameter animated: If true, the disappearance of the view was animated.
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        pincodeField.reset()
+        passcodeField.reset()
     }
     
-    /// Called if the user finished entering the PIN code.
+    /// Called if the user finished entering the passcode.
     ///
-    /// - Parameter pincode: The  PIN code that the user entered.
-    func onPincodeComplete(pincode: String) {
+    /// - Parameter passcode: The passcode that the user entered.
+    func onPasscodeComplete(passcode: String) {
         completed = true
         
-        // Allow UIPincodeField to finish animations before continueing
+        // Allow UIPasscodeField to finish animations before continueing
         DispatchQueue.main.async {
-            self.sendingController!.confirmation = pincode
+            self.sendingController!.confirmation = passcode
             
             self.dismiss(animated: true) {
                 self.sendingController?.onContinue()
@@ -76,10 +76,10 @@ class SetupPINCodeConfirmationViewController: UIViewController, UIPincodeFieldDe
         }
     }
     
-    /// If the PIN code changes, set the confirmation to nil.
+    /// If the passcode changes, set the confirmation to nil.
     ///
-    /// - Parameter pincode: The new (possibly incomplete) PIN code.
-    func onPincodeChange(pincode: String) {
+    /// - Parameter passcode: The new (possibly incomplete) passcode.
+    func onPasscodeChange(passcode: String) {
         // Not implemented
     }
     

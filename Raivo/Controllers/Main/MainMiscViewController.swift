@@ -21,6 +21,8 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.alwaysBounceVertical = false
+        
         miscellaneousForm = MiscellaneousForm(form).build(controller: self)
         
         // Set default/prefilled values

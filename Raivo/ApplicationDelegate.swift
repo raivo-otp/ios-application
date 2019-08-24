@@ -52,7 +52,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     /// Set the encryption key and update the default realm configuration
     ///
-    /// - Parameter encryptionKey: The new encryption key (password + PIN code)
+    /// - Parameter encryptionKey: The new encryption key (password + passcode)
     public func updateEncryptionKey(_ encryptionKey: Data?) {
         self.encryptionKey = encryptionKey
         RealmHelper.initDefaultRealmConfiguration(encryptionKey: encryptionKey)

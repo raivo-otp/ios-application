@@ -65,10 +65,10 @@ class SyncerHelper {
     
     /// Clear the cached syncers so they can be initialized again in a later stage.
     ///
-    /// - Parameter dueToPINCodeChange: Positive if only certain keychain items should be removed.
-    /// - Note: The `dueToPINCodeChange` parameter can be set to true on e.g. a PIN code change.
-    public func clear(dueToPINCodeChange: Bool = false) {
-        guard !dueToPINCodeChange else { return }
+    /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
+    /// - Note: The `dueToPasscodeChange` parameter can be set to true on e.g. a passcode change.
+    public func clear(dueToPasscodeChange: Bool = false) {
+        guard !dueToPasscodeChange else { return }
         
         syncers.removeAll()
     }

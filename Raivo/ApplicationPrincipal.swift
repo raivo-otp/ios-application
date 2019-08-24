@@ -13,7 +13,7 @@ import UIKit
 /// Main entry point of the application
 class ApplicationPrincipal: UIApplication {
     
-    /// Positive if the inactivity timer is enabled (this is always true if the user entered his PIN code)
+    /// Positive if the inactivity timer is enabled (this is always true if the user entered his passcode)
     private var inactivityTimerEnabled = false
     
     /// A countdown timer that triggers the lockscreen if a certain threshold is met

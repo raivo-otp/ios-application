@@ -28,7 +28,7 @@ class SetupStateObject {
     /// The encryption password
     var password: String? = nil
     
-    /// The encryption key derived from the password and PIN code
+    /// The encryption key derived from the password and passcode
     var encryptionKey: Data? = nil
     
     /// Should enable biometric unlock

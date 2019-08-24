@@ -11,6 +11,7 @@
 import Foundation
 import SwiftMessages
 import Haptica
+import SPAlert
 
 class BannerHelper {
     
@@ -33,22 +34,43 @@ class BannerHelper {
         error(NSAttributedString(string: message), seconds: seconds, vibrate: vibrate, icon: icon, callback: callback)
     }
     
+    private static var keyWindow: UIWindow { return UIApplication.shared.keyWindow ?? UIWindow() }
+    
     static func error(_ message: NSAttributedString, seconds: Double = 1.8, vibrate: HapticFeedbackType? = HapticFeedbackType.error, icon: String = "😟", callback: (() -> Void)? = nil) {
+        
+//        let alertView = SPAlertView(title: "Added to Library", message: nil, preset: .done)
+//        alertView.duration = seconds
+        
+        
+//        alertView.present()
+//        let con = alertView.bottomAnchor.constraint(equalTo: alertView.superview!.bottomAnchor, constant: 260)
+        
+//        alertView.centerXAnchor.constraint(equalTo: parentView.centerXAnchor).isActive = true
+//        alertView.center = CGPoint.init(x: 0, y: 0)
+//        alertView.removeConstraints(alertView.constraints)
+//        alertView.centerYAnchor.constraint(equalTo: alertView.superview!.centerYAnchor, constant: 400).isActive = true
+//        alertView.layoutIfNeeded()
+        
+        
+        
+//        alertView.bottomAnchor.constraint(equalTo: alertView.superview!.bottomAnchor, constant: 260).isActive = true
+        
+        
         if let vibrate = vibrate {
             Haptic.notification(vibrate).generate()
         }
-        
+
         let config = defaultConfig(seconds: seconds)
-        
+
         let nib = UINib(nibName: "CenteredBanner", bundle: Bundle.main)
         let view = (nib.instantiate(withOwner: nil, options: nil)[0] as? MessageView)!
-        
+
         view.iconLabel?.text = icon
         view.titleLabel?.attributedText = message
-        
+
         SwiftMessages.hideAll()
         SwiftMessages.show(config: config, view: view)
-        
+
         if let dismissing = callback {
             DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                 dismissing()

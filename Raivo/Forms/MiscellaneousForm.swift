@@ -31,7 +31,7 @@ class MiscellaneousForm {
     public var providerRow: LabelRow { return form.rowBy(tag: "provider") as! LabelRow }
     public var inactivityLockRow: PickerInlineRow<MiscellaneousInactivityLockFormOption> { return form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscellaneousInactivityLockFormOption> }
     public var biometricUnlockRow: SwitchRow { return form.rowBy(tag: "biometric_unlock") as! SwitchRow }
-    public var changePINCodeRow: ButtonRow { return form.rowBy(tag: "change_pin_code") as! ButtonRow }
+    public var changePasscodeRow: ButtonRow { return form.rowBy(tag: "change_passcode") as! ButtonRow }
     public var iconsEffectRow: PickerInlineRow<MiscellaneousIconsEffectFormOption> { return form.rowBy(tag: "icons_effect") as! PickerInlineRow<MiscellaneousIconsEffectFormOption> }
     public var exportRow: ButtonRow { return form.rowBy(tag: "export") as! ButtonRow }
     public var loggingEnabledRow: SwitchRow { return form.rowBy(tag: "logging_enabled") as! SwitchRow }
@@ -152,13 +152,13 @@ class MiscellaneousForm {
                 }
             })
             
-            <<< ButtonRow("change_pin_code", { row in
-                row.title = "Change PIN code"
+            <<< ButtonRow("change_passcode", { row in
+                row.title = "Change passcode"
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textAlignment = .left
-                cell.imageView?.image = UIImage(named: "form-pincode")
+                cell.imageView?.image = UIImage(named: "form-passcode")
             }).onCellSelection({ cell, row in
-                controller.performSegue(withIdentifier: "ChangePincodeSegue", sender: nil)
+                controller.performSegue(withIdentifier: "MainChangePasscodeSegue", sender: nil)
             })
     }
     
