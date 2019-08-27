@@ -45,7 +45,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" name="color-background-opaque"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <color key="tintColor" name="color-tint-red"/>
             <constraints>
                 <constraint firstItem="H2s-nA-Ilh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4e9-tv-vWY"/>
@@ -61,9 +61,6 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="color-background-opaque">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="color-tint-red">
             <color red="0.90980392156862744" green="0.050980392156862744" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

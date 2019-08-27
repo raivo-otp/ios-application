@@ -56,7 +56,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         initializeCollectionView()
         initializeRefreshButton()
         initializeSearchBar()
@@ -69,6 +69,8 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     /// - Parameter animated: If positive, the view is being added to the window using an animation
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
         attachKeyboardConstraint()
     }
 
@@ -77,6 +79,8 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     /// - Parameter animated: If positive, the disappearance of the view is being animated.
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
         detachKeyboardConstraint()
     }
     

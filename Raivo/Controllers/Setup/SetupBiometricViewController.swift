@@ -28,10 +28,12 @@ class SetupBiometricViewController: UIViewController, SetupState {
         super.viewDidLoad()
         
         if BiometricHelper.shared.type() == .face {
+            navigationItem.title = "FaceID"
             titleLabel.text = "Configure FaceID unlock."
             descriptionLabel.text = "Biometry allows you to unlock Raivo with FaceID, instead of your passcode."
             dismissButton.setTitle("I don't want to use FaceID unlock.", for: .normal)
         } else {
+            navigationItem.title = "TouchID"
             titleLabel.text = "Configure TouchID unlock."
             descriptionLabel.text = "Biometry allows you to unlock Raivo with TouchID, instead of your passcode."
             dismissButton.setTitle("I don't want to use TouchID unlock.", for: .normal)

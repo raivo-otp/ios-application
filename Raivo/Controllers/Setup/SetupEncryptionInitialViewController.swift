@@ -74,7 +74,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     /// - Parameter textField: The text field whose return button was pressed.
     /// - Returns: Positive if the text field should implement its default behavior for the return button; otherwise, false.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        performSegue(withIdentifier: "SetupPasswordConfirmationSegue", sender: textField)
+        onContinue(textField)
         return false
     }
     
