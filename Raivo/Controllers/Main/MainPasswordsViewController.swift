@@ -54,7 +54,9 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         initializeTableView()
         
         let realm = try! Realm()
-        results = realm.objects(Password.self).filter("deleted == 0").sorted(byKeyPath: "issuer", ascending: true)
+
+        let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+        let passwords = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
 
         initializeTableViewNotifications()
         

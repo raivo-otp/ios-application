@@ -62,8 +62,10 @@ class DataExportFeature {
     
     private func getHTMLRepresentation() -> String {
         let realm = try! Realm()
-        let passwords = realm.objects(Password.self)
-        
+
+        let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+        let passwords = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+
         let wrapperTemplateFile = Bundle.main.path(forResource: "all-passwords", ofType: "html")
         let passwordTemplateFile = Bundle.main.path(forResource: "single-password", ofType: "html")
         
