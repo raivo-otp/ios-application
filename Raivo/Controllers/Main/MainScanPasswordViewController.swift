@@ -74,7 +74,7 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
         } catch {
-            log.error(error)
+            log.error(error.localizedDescription)
             return
         }
 

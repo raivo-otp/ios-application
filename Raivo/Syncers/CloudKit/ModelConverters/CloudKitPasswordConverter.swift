@@ -14,14 +14,17 @@ import RealmSwift
 
 class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
     
-    static func getLocal(_ record: CKRecord) -> Password? {
-        let realm = try! Realm()
-        let id = record.value(forKey: "id") as! Int64
+    static func getLocal(_ record: CKRecord) throws -> Password? {
+        guard let realm = RealmHelper.getRealm() else {
+            log.error("Trying to get local CloudKit password but realm is nil")
+            throw RealmError.encryptionError
+        }
         
+        let id = record.value(forKey: "id") as! Int64
         return realm.object(ofType: Password.self, forPrimaryKey: id)
     }
     
-    static func getLocalCopy(_ record: CKRecord, syncedCorrectly: Bool = false) -> Password {
+    static func getLocalCopy(_ record: CKRecord, syncedCorrectly: Bool = false) throws -> Password {
         // We use a mock so we can fill it without write transactions
         let password = Password()
         
@@ -40,12 +43,12 @@ class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
             password.account = try CryptographyHelper.shared.decrypt(record.value(forKey: "account") as! String)
             password.secret = try CryptographyHelper.shared.decrypt(record.value(forKey: "secret") as! String)
         } catch let error {
-            log.error(error)
+            log.error(error.localizedDescription)
         }
         
         // We use some of the original values that are not stored in the CKRecord
         // But only if the local record exists
-        if let original = getLocal(record) {
+        if let original = try getLocal(record) {
             password.synced = original.synced
             password.syncing = original.syncing
             password.syncErrorDescription = original.syncErrorDescription

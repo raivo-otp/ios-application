@@ -17,12 +17,16 @@ import Foundation
 public enum RealmError: LocalizedError {
     
     case unknownError
+    case encryptionError
     
     public var errorDescription: String? {
         switch self {
         case .unknownError:
             log.error("Exception occurred")
             return "An unknown Realm Objective-C exception occurred"
+        case .encryptionError:
+            log.error("Encryption error occurred")
+            return "A Realm Objective-C invalid encryption key exception occurred"
         }
     }
     
