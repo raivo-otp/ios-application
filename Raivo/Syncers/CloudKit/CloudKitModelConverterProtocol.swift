@@ -13,9 +13,9 @@ import CloudKit
 
 protocol CloudKitModelConverterProtocol {
     
-    static func getLocal(_ record: CKRecord) -> Password?
+    static func getLocal(_ record: CKRecord) throws -> Password?
     
-    static func getLocalCopy(_ record: CKRecord, syncedCorrectly: Bool) -> Password
+    static func getLocalCopy(_ record: CKRecord, syncedCorrectly: Bool) throws -> Password
     
     static func getRemote(_ password: Password) -> CKRecord
     

@@ -66,7 +66,7 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
         controller.dismiss(animated: true, completion: nil)
         
         if let error = error {
-            log.error(error)
+            log.error(error.localizedDescription)
             BannerHelper.error(error.localizedDescription)
         } else {
             switch result {

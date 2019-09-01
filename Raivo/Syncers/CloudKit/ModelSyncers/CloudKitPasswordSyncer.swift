@@ -52,25 +52,39 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         
         cloud.perform(query, inZoneWith: nil) { (records, error) in
             guard let records = records, error == nil else {
-                log.error(error ?? "Unknown CloudKit error!")
+                log.error(error?.localizedDescription ?? "Unknown CloudKit error!")
                 return
             }
             
-            let realm = try! Realm()
+            guard StateHelper.shared.getCurrentState() == StateHelper.State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE else {
+                log.error(error?.localizedDescription ?? "CloudKit sync finished but app is not unlocked anymore!")
+                return
+            }
+            
+            guard let realm = RealmHelper.getRealm() else {
+                log.error("CloudKit sync finished but app is not unlocked anymore!")
+                return
+            }
+            
             for record in records {
-                let local = CloudKitPasswordConverter.getLocal(record)
-                
-                guard local == nil || (local?.synced == true && local?.syncing == false) else {
-                    // Do not save passwords that still have to be synced
-                    self.onLocalChange(local!)
-                    continue
-                }
-                
-                let copy = CloudKitPasswordConverter.getLocalCopy(record, syncedCorrectly: true)
-                
-                try! realm.write {
-//                    realm.add(copy, update: .modified)
-                    realm.add(copy, update: true)
+                do {
+                    let local = try CloudKitPasswordConverter.getLocal(record)
+                    
+                    guard local == nil || (local?.synced == true && local?.syncing == false) else {
+                        // Do not save passwords that still have to be synced
+                        self.onLocalChange(local!)
+                        continue
+                    }
+                    
+                    let copy = try CloudKitPasswordConverter.getLocalCopy(record, syncedCorrectly: true)
+                    
+                    try! realm.write {
+//                        realm.add(copy, update: .modified)
+                        realm.add(copy, update: true)
+                    }
+                } catch let error {
+                    log.error(error.localizedDescription)
+                    break
                 }
             }
         }
@@ -143,7 +157,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         modification.qualityOfService = .userInitiated
         modification.modifyRecordsCompletionBlock = { records, deletedIDs, error in
             if records?.count != 1 {
-                log.error(error ?? "Unknown CloudKit error!")
+                log.error(error?.localizedDescription ?? "Unknown CloudKit error!")
             }
             
             let realm = try! Realm()
@@ -181,7 +195,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         
         cloud.save(subscription) { (subscription, error) in
             guard subscription != nil else {
-                log.error(error ?? "Unknown CloudKit error!")
+                log.error(error?.localizedDescription ?? "Unknown CloudKit error!")
                 return
             }
         }

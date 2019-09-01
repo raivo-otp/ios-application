@@ -95,7 +95,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
             currentKey = try CryptographyHelper.shared.derive(passcode, withSalt: salt!)
         } catch let error {
             ui { self.resetView("Invalid passcode", "Please start over by choosing a new passcode.") }
-            return log.error(error)
+            return log.error(error.localizedDescription)
         }
         
         switch initialKey {
@@ -158,7 +158,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
         do {
             try oldRealm.writeCopy(toFile: newFile!, encryptionKey: newKey)
         } catch let error {
-            return log.error(error)
+            return log.error(error.localizedDescription)
         }
         
         if StorageHelper.shared.getBiometricUnlockEnabled() {

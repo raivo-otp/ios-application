@@ -26,7 +26,17 @@ func getAppPrincipal() -> ApplicationPrincipal {
 ///
 /// - Returns: The application delegate singleton instance
 func getAppDelegate() -> ApplicationDelegate {
-    return (getAppPrincipal().delegate as! ApplicationDelegate)
+    if Thread.isMainThread {
+        return (getAppPrincipal().delegate as! ApplicationDelegate)
+    }
+    
+    var appDelegate: ApplicationDelegate?
+    
+    DispatchQueue.main.sync {
+        appDelegate = (getAppPrincipal().delegate as! ApplicationDelegate)
+    }
+    
+    return appDelegate!
 }
 
 /// Add the current console as a SwiftyBeaver logging destination
