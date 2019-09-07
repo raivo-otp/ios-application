@@ -38,9 +38,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-pd-f2P">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <subviews>
-                                    <view alpha="0.0" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-rB-tZr">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
-                                    </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QR codes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
                                         <rect key="frame" x="15" y="230.5" width="345" height="41"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -51,12 +48,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Y9c-rB-tZr" firstAttribute="leading" secondItem="tRN-pd-f2P" secondAttribute="leading" id="4sI-dg-0XI"/>
-                                    <constraint firstAttribute="bottom" secondItem="Y9c-rB-tZr" secondAttribute="bottom" id="7CE-Kp-rtF"/>
-                                    <constraint firstAttribute="trailing" secondItem="Y9c-rB-tZr" secondAttribute="trailing" id="CBP-JF-xep"/>
                                     <constraint firstItem="LNY-AU-Znv" firstAttribute="leading" secondItem="tRN-pd-f2P" secondAttribute="leading" constant="15" id="f48-Mp-NLN"/>
                                     <constraint firstAttribute="trailing" secondItem="LNY-AU-Znv" secondAttribute="trailing" constant="15" id="m3z-lU-ZNi"/>
-                                    <constraint firstItem="Y9c-rB-tZr" firstAttribute="top" secondItem="tRN-pd-f2P" secondAttribute="top" id="shj-Zh-ygK"/>
                                     <constraint firstItem="LNY-AU-Znv" firstAttribute="centerY" secondItem="tRN-pd-f2P" secondAttribute="centerY" id="tAa-yS-yb4"/>
                                 </constraints>
                             </view>
@@ -92,7 +85,7 @@
                     <navigationItem key="navigationItem" title="Scan a QR code" largeTitleDisplayMode="always" id="cBj-RV-F7Z"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="cameraPreview" destination="Y9c-rB-tZr" id="hSa-V1-wvg"/>
+                        <outlet property="cameraPreview" destination="tRN-pd-f2P" id="dYG-ya-qIu"/>
                         <outlet property="cameraUnavailableLabel" destination="LNY-AU-Znv" id="Ndc-97-EAA"/>
                         <segue destination="x2c-1h-doB" kind="show" identifier="MainCreateScannedOneTimePasswordSegue" id="POH-4S-sTl"/>
                     </connections>

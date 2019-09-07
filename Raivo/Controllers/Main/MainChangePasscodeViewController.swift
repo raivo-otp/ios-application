@@ -115,7 +115,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
             
             ui {
                 self.resetView(
-                    "Oh oh, not similar :/",
+                    "Oh oh, not identical :/",
                     "Please start over by choosing a new passcode.",
                     flash: true
                 )

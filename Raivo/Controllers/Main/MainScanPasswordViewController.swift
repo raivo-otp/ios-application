@@ -80,8 +80,6 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
 
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame.size = cameraPreview.frame.size
-        cameraPreview.layer.addSublayer(videoPreviewLayer!)
         
         NotificationCenter.default.addObserver(
             self,
@@ -116,10 +114,19 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             self.cameraUnavailableLabel.isHidden = !unavailable
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         currentlyCheckingToken = false
+        
+        cameraPreview.layoutIfNeeded()
+        videoPreviewLayer?.frame.size = cameraPreview.frame.size
+        cameraPreview.layer.addSublayer(videoPreviewLayer!)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        log.info(cameraPreview.frame)
     }
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
