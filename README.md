@@ -60,4 +60,4 @@ Raivo does not collect personally identifiable information in any way. Please re
 
 ## License
 
-Raivo is non-commercial open-sourced software licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license. Please note that this license **does not** allow you to redistribute the app in the Apple App Store.
+Raivo is non-commercial open-sourced software licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license. **Please note that this license does not allow you to redistribute the app in the Apple App Store.**
