@@ -12,7 +12,10 @@ import Foundation
 import RealmSwift
 
 /// A class for migrating and rolling back changes for the corresponding build.
-class MigrationToBuild21: MigrationProtocol {
+class MigrationToBuild22: MigrationProtocol {
+    
+    /// The build number belonging to this migration.
+    static var build: Int = 22
     
     /// The keys that can be used to get/set values
     private struct Key {
@@ -28,9 +31,6 @@ class MigrationToBuild21: MigrationProtocol {
         static let BIOMETRIC_AUTHENTICATION_ENABLED = "BiometricAuthenticationEnabled"
         static let FILE_LOGGING_ENABLED = "FileLoggingEnabled"
     }
-    
-    /// The build number belonging to this migration.
-    static var build: Int = 21
     
     /// Run Realm migrations to make data compatible with this build.
     ///

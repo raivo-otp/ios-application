@@ -72,7 +72,7 @@
 		709B636522C54C0300697884 /* QuickResponseCodeRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */; };
 		709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D90C4224AC05F0041713A /* SeedValueValidator.swift */; };
 		709D90C7224AC5FB0041713A /* NavbarActivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709D90C6224AC5FB0041713A /* NavbarActivityExtension.swift */; };
-		70A1599E232AA8C900816FE8 /* MigrationToBuild21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1599D232AA8C900816FE8 /* MigrationToBuild21.swift */; };
+		70A1599E232AA8C900816FE8 /* MigrationToBuild22.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1599D232AA8C900816FE8 /* MigrationToBuild22.swift */; };
 		70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5022F7272400152864 /* AuthRootViewController.swift */; };
 		70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */; };
 		70A1BC5922F7534500152864 /* SetupRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5822F7534500152864 /* SetupRootViewController.swift */; };
@@ -211,7 +211,7 @@
 		709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickResponseCodeRowCell.xib; sourceTree = "<group>"; };
 		709D90C4224AC05F0041713A /* SeedValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedValueValidator.swift; sourceTree = "<group>"; };
 		709D90C6224AC5FB0041713A /* NavbarActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarActivityExtension.swift; sourceTree = "<group>"; };
-		70A1599D232AA8C900816FE8 /* MigrationToBuild21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild21.swift; sourceTree = "<group>"; };
+		70A1599D232AA8C900816FE8 /* MigrationToBuild22.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild22.swift; sourceTree = "<group>"; };
 		70A1BC5022F7272400152864 /* AuthRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRootViewController.swift; sourceTree = "<group>"; };
 		70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRootViewController.swift; sourceTree = "<group>"; };
 		70A1BC5822F7534500152864 /* SetupRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupRootViewController.swift; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 				70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */,
 				7079EBD422F6423400F9D340 /* MigrationToBuild11.swift */,
 				703E810C2311706600CAC3DD /* MigrationToBuild15.swift */,
-				70A1599D232AA8C900816FE8 /* MigrationToBuild21.swift */,
+				70A1599D232AA8C900816FE8 /* MigrationToBuild22.swift */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -1041,7 +1041,7 @@
 				70B585E62309A67E00AD1754 /* SetupMiscViewController.swift in Sources */,
 				70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */,
 				70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */,
-				70A1599E232AA8C900816FE8 /* MigrationToBuild21.swift in Sources */,
+				70A1599E232AA8C900816FE8 /* MigrationToBuild22.swift in Sources */,
 				70C80DAE22A0464600413801 /* CryptographyHelper.swift in Sources */,
 				70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */,
 				70C80DAB229F070A00413801 /* UIPasscodeShadowField.swift in Sources */,
