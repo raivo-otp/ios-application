@@ -1,3 +1,5 @@
+> **Please note that this license does not allow you to redistribute the app in the Apple App Store.**
+
 # Attribution-NonCommercial 4.0 International
 
 Creative Commons Corporation ("Creative Commons") is not a law firm and
