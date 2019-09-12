@@ -26,7 +26,7 @@ class SetupPasscodeViewController: UIViewController, UIPasscodeFieldDelegate, Se
                 
         passcodeField.delegate = self
         passcodeField.layoutIfNeeded()
-        passcodeField.becomeFirstResponder()
+        //passcodeField.becomeFirstResponder()
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
@@ -35,6 +35,11 @@ class SetupPasscodeViewController: UIViewController, UIPasscodeFieldDelegate, Se
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         attachKeyboardConstraint()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        passcodeField.becomeFirstResponder()
     }
 
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.

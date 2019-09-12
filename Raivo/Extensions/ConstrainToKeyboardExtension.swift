@@ -74,7 +74,8 @@ extension UIViewController {
         let show = notification.name == UIResponder.keyboardWillShowNotification
         let height = show ? keyboardHeight : 0
         
-        getConstraintToAdjustToKeyboard()!.constant = height
+        additionalSafeAreaInsets.bottom = height
+//        getConstraintToAdjustToKeyboard()!.constant = height
         
         UIView.animate(
             withDuration: keyboardDuration,

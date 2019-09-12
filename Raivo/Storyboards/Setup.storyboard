@@ -826,7 +826,6 @@
         <!--Settings-->
         <scene sceneID="6Qf-Re-bZV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubg-Ym-yJy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="rsm-CC-mgT" customClass="SetupMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Lm-Ia-NyJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -847,6 +846,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="rUN-fT-I5W"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubg-Ym-yJy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2857" y="871"/>
         </scene>
@@ -1080,8 +1080,8 @@
         <image name="pattern" width="67" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l9d-6b-Nce"/>
-        <segue reference="qQG-nR-Dhp"/>
+        <segue reference="OLy-2Y-whp"/>
+        <segue reference="aXH-EA-OxQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

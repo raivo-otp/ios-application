@@ -19,7 +19,8 @@ class MigrationHelper {
         MigrationToBuild4.build: MigrationToBuild4(),
         MigrationToBuild6.build: MigrationToBuild6(),
         MigrationToBuild9.build: MigrationToBuild9(),
-        MigrationToBuild11.build: MigrationToBuild11()
+        MigrationToBuild15.build: MigrationToBuild15(),
+        MigrationToBuild21.build: MigrationToBuild21()
     ]
     
     static func runGenericMigrations() {

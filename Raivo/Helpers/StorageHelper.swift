@@ -38,6 +38,13 @@ class StorageHelper {
     /// A private initializer to make sure this class can only be used as a singleton class
     private init() {}
     
+    /// Get a `Valet` that enables you to store key/value pairs in the keychain (without any protection).
+    ///
+    /// - Returns: The `Valet` settings instance
+    public func globals() -> Valet {
+        return Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .always)
+    }
+    
     /// Get a `Valet` that enables you to store key/value pairs in the keychain (outside of Secure Encalve).
     ///
     /// - Returns: The `Valet` settings instance
@@ -61,6 +68,7 @@ class StorageHelper {
 
         log.warning("Removing all keychain and secure enclave entries")
         
+        globals().removeAllObjects()
         settings().removeAllObjects()
         secrets().removeAllObjects()
     }
@@ -111,14 +119,14 @@ class StorageHelper {
     /// - Parameter seconds: The new lockscreen timeout
     public func setLockscreenTimeout(_ seconds: TimeInterval) {
         log.verbose("Setting lockscreen timeout")
-        settings().set(string: String(seconds), forKey: Key.LOCKSCREEN_TIMEOUT)
+        globals().set(string: String(seconds), forKey: Key.LOCKSCREEN_TIMEOUT)
     }
     
     /// Get the lockscreen timeout.
     ///
     /// - Returns: The lockscreen timeout
     public func getLockscreenTimeout() -> TimeInterval? {
-        guard let timeout = settings().string(forKey: Key.LOCKSCREEN_TIMEOUT) else {
+        guard let timeout = globals().string(forKey: Key.LOCKSCREEN_TIMEOUT) else {
             return nil
         }
         
@@ -130,14 +138,14 @@ class StorageHelper {
     /// - Parameter filename: The new filename
     public func setRealmFilename(_ filename: String) {
         log.verbose("Setting realm filename")
-        settings().set(string: filename, forKey: Key.REALM_FILENAME)
+        globals().set(string: filename, forKey: Key.REALM_FILENAME)
     }
     
     /// Get the realm filename.
     ///
     /// - Returns: The realm filename
     public func getRealmFilename() -> String? {
-        return settings().string(forKey: Key.REALM_FILENAME)
+        return globals().string(forKey: Key.REALM_FILENAME)
     }
     
     /// Set the synchronization provider.
@@ -145,14 +153,14 @@ class StorageHelper {
     /// - Parameter provider: The unique ID of the synchronization provider
     public func setSynchronizationProvider(_ provider: String) {
         log.verbose("Setting synchronization provider")
-        settings().set(string: provider, forKey: Key.SYNCHRONIZATION_PROVIDER)
+        globals().set(string: provider, forKey: Key.SYNCHRONIZATION_PROVIDER)
     }
     
     /// Get the synchronization provider.
     ///
     /// - Returns: The synchronization provider
     public func getSynchronizationProvider() -> String? {
-        return settings().string(forKey: Key.SYNCHRONIZATION_PROVIDER)
+        return globals().string(forKey: Key.SYNCHRONIZATION_PROVIDER)
     }
     
     /// Set the synchronization account identifier.
@@ -162,9 +170,9 @@ class StorageHelper {
         log.verbose("Setting synchronization account identifier")
         
         if let accountIdentifier = accountIdentifier {
-            settings().set(string: accountIdentifier, forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+            globals().set(string: accountIdentifier, forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
         } else {
-            settings().removeObject(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+            globals().removeObject(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
         }
     }
     
@@ -172,7 +180,7 @@ class StorageHelper {
     ///
     /// - Returns: The identifier
     public func getSynchronizationAccountIdentifier() -> String? {
-        return settings().string(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+        return globals().string(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
     }
     
     /// Set the icons effect.
@@ -180,14 +188,14 @@ class StorageHelper {
     /// - Parameter effect: The icons effect
     public func setIconsEffect(_ effect: String) {
         log.verbose("Setting icons effect")
-        settings().set(string: effect, forKey: Key.ICONS_EFFECT)
+        globals().set(string: effect, forKey: Key.ICONS_EFFECT)
     }
     
     /// Get the icons effect.
     ///
     /// - Returns: The icons effect
     public func getIconsEffect() -> String? {
-        return settings().string(forKey: Key.ICONS_EFFECT)
+        return globals().string(forKey: Key.ICONS_EFFECT)
     }
     
     /// Set the amount of times the user entered the passcode.
@@ -195,14 +203,14 @@ class StorageHelper {
     /// - Parameter tries: The amount of tries
     public func setPasscodeTriedAmount(_ tries: Int) {
         log.verbose("Setting passcode tried amount")
-        settings().set(string: String(tries), forKey: Key.PASSCODE_TRIED_AMOUNT)
+        globals().set(string: String(tries), forKey: Key.PASSCODE_TRIED_AMOUNT)
     }
     
     /// Get the amount of times the user tried to enter the passcode.
     ///
     /// - Returns: The amount of tries
     public func getPasscodeTriedAmount() -> Int? {
-        guard let tries = settings().string(forKey: Key.PASSCODE_TRIED_AMOUNT) else {
+        guard let tries = globals().string(forKey: Key.PASSCODE_TRIED_AMOUNT) else {
             return nil
         }
         
@@ -214,14 +222,14 @@ class StorageHelper {
     /// - Parameter timestamp: The last time the user tried a passcode
     public func setPasscodeTriedTimestamp(_ timestamp: TimeInterval) {
         log.verbose("Setting passcode tried timestamp")
-        settings().set(string: String(timestamp), forKey: Key.PASSCODE_TRIED_TIMESTAMP)
+        globals().set(string: String(timestamp), forKey: Key.PASSCODE_TRIED_TIMESTAMP)
     }
     
     /// Get the timestamp of the last passcode try.
     ///
     /// - Returns: The last time the user tried a passcode
     public func getPasscodeTriedTimestamp() -> TimeInterval? {
-        guard let tries = settings().string(forKey: Key.PASSCODE_TRIED_TIMESTAMP) else {
+        guard let tries = globals().string(forKey: Key.PASSCODE_TRIED_TIMESTAMP) else {
             return nil
         }
         
@@ -233,14 +241,14 @@ class StorageHelper {
     /// - Parameter build: The new 'previous build'.
     public func setPreviousBuild(_ build: Int) {
         log.verbose("Setting previous build")
-        settings().set(string: String(build), forKey: Key.PREVIOUS_BUILD)
+        globals().set(string: String(build), forKey: Key.PREVIOUS_BUILD)
     }
     
     /// Get the previous application build version.
     ///
     /// - Returns: The previous build
     public func getPreviousBuild() -> Int? {
-        guard let build = settings().string(forKey: Key.PREVIOUS_BUILD) else {
+        guard let build = globals().string(forKey: Key.PREVIOUS_BUILD) else {
             return nil
         }
         
@@ -282,7 +290,7 @@ class StorageHelper {
     public func setTouchIDUnlockEnabled(_ enabled: Bool) {
         log.verbose("Setting TouchID unlock enabled")
         
-        settings().set(string: String(enabled), forKey: Key.TOUCHID_ENABLED)
+        globals().set(string: String(enabled), forKey: Key.TOUCHID_ENABLED)
     }
     
     /// Check if TouchID unlock is currently enabled.
@@ -290,7 +298,7 @@ class StorageHelper {
     /// - Returns: Positive if biometric unlock is enabled
     @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
     public func getTouchIDUnlockEnabled() -> Bool {
-        guard let enabled = settings().string(forKey: Key.TOUCHID_ENABLED) else {
+        guard let enabled = globals().string(forKey: Key.TOUCHID_ENABLED) else {
             return false
         }
         
@@ -303,14 +311,14 @@ class StorageHelper {
     public func setBiometricUnlockEnabled(_ enabled: Bool) {
         log.verbose("Setting biometric unlock enabled")
         
-        settings().set(string: String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
+        globals().set(string: String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
     }
     
     /// Check if biometric unlock is currently enabled.
     ///
     /// - Returns: Positive if biometric unlock is enabled
     public func getBiometricUnlockEnabled() -> Bool {
-        guard let enabled = settings().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
+        guard let enabled = globals().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
             return false
         }
         
@@ -323,14 +331,14 @@ class StorageHelper {
     public func setFileLoggingEnabled(_ enabled: Bool) {
         log.verbose("Setting file logging enabled")
         
-        settings().set(string: String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
+        globals().set(string: String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
     }
     
     /// Check if local file logging is enabled.
     ///
     /// - Returns: Positive if local file logging is enabled.
     public func getFileLoggingEnabled() -> Bool {
-        guard let enabled = settings().string(forKey: Key.FILE_LOGGING_ENABLED) else {
+        guard let enabled = globals().string(forKey: Key.FILE_LOGGING_ENABLED) else {
             return false
         }
         
