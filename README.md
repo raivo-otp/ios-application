@@ -60,4 +60,4 @@ Raivo does not collect personally identifiable information in any way. Please re
 
 ## License
 
-Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo is non-commercial open-sourced software. View the [license](https://github.com/tijme/raivo/blob/master/LICENSE.md) for more details.
+Copyright (c) 2019 Tijme Gommers. All rights reserved. View [LICENSE.md](https://github.com/tijme/raivo/blob/master/LICENSE.md) for the full license.
