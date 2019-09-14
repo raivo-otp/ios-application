@@ -11,10 +11,10 @@ import Foundation
 import RealmSwift
 
 /// A class for migrating and rolling back changes for the corresponding build.
-class MigrationToBuild22: MigrationProtocol {
+class MigrationToBuild23: MigrationProtocol {
     
     /// The build number belonging to this migration.
-    static var build: Int = 22
+    static var build: Int = 23
     
     /// The keys that can be used to get/set values
     private struct Key {
