@@ -18,8 +18,10 @@ class RealmHelper {
     private static let ORIGINAL_URL = Realm.Configuration.defaultConfiguration.fileURL
     
     public static func getRealm() -> Realm? {
-        if let _ = Realm.Configuration.defaultConfiguration.encryptionKey {
-            return try! Realm()
+        let currentConfig = Realm.Configuration.defaultConfiguration
+        
+        if currentConfig.encryptionKey != nil {
+            return try! Realm(configuration: currentConfig)
         }
         
         return nil

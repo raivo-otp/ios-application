@@ -40,11 +40,18 @@ class MigrationToBuild22: MigrationProtocol {
         // Not implemented
     }
     
+    /// Run migrations to make data compatible with this build (before app initialization).
+    func migratePreInitialize() {
+        log.warning("Running pre init migration...")
+        
+        migrateKeychainSettingsToGlobals()
+    }
+    
     /// Run generic migrations to make data compatible with this build.
     func migrateGeneric() {
         log.warning("Running generic migration...")
         
-        migrateKeychainSettingsToGlobals()
+        // Not implemented
     }
     
     /// This build does not require generic migrations using the syncer account.
@@ -65,7 +72,6 @@ class MigrationToBuild22: MigrationProtocol {
         if let value = getIconsEffect() { StorageHelper.shared.setIconsEffect(value) }
         if let value = getPasscodeTriedAmount() { StorageHelper.shared.setPasscodeTriedAmount(value) }
         if let value = getPasscodeTriedTimestamp() { StorageHelper.shared.setPasscodeTriedTimestamp(value) }
-        if let value = getPreviousBuild() { StorageHelper.shared.setPreviousBuild(value) }
         StorageHelper.shared.setBiometricUnlockEnabled(getBiometricUnlockEnabled())
         StorageHelper.shared.setFileLoggingEnabled(getFileLoggingEnabled())
     }
@@ -129,17 +135,6 @@ class MigrationToBuild22: MigrationProtocol {
         }
         
         return TimeInterval(tries)
-    }
-    
-    /// Get the previous application build version.
-    ///
-    /// - Returns: The previous build
-    public func getPreviousBuild() -> Int? {
-        guard let build = StorageHelper.shared.settings().string(forKey: Key.PREVIOUS_BUILD) else {
-            return nil
-        }
-        
-        return Int(build)
     }
    
     /// Check if biometric unlock is currently enabled.

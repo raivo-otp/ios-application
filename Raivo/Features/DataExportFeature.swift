@@ -61,10 +61,18 @@ class DataExportFeature {
     }
     
     private func getHTMLRepresentation() -> String {
-        let realm = try! Realm()
-
-        let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
-        let passwords = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+        let possiblePasswords = autoreleasepool { () -> Results<Password>? in
+            if let realm = RealmHelper.getRealm() {
+                let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+                return realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+            }
+            
+            return nil
+        }
+        
+        guard let passwords = possiblePasswords else {
+            return "An error occurred during the export. Please try again!"
+        }
 
         let wrapperTemplateFile = Bundle.main.path(forResource: "all-passwords", ofType: "html")
         let passwordTemplateFile = Bundle.main.path(forResource: "single-password", ofType: "html")
@@ -112,8 +120,17 @@ class DataExportFeature {
     }
     
     private func getJSONRepresentation() -> String {
-        let realm = try! Realm()
-        let passwords = Array(realm.objects(Password.self))
+        let possiblePasswords = autoreleasepool { () -> Array<Password>? in
+            if let realm = RealmHelper.getRealm() {
+                return Array(realm.objects(Password.self))
+            }
+            
+            return nil
+        }
+        
+        guard let passwords = possiblePasswords else {
+            return "{\"message\": \"Could not retrieve OTPs from Realm\"}"
+        }
         
         guard let json = try? JSONSerialization.data(withJSONObject: passwords.map { $0.getExportFields() }, options: []) else {
             return "{\"message\": \"Could not convert OTPs to JSON\"}"

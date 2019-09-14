@@ -216,8 +216,10 @@ class MiscellaneousForm {
                 DispatchQueue.global(qos: .background).async {
                     let dataExport = DataExportFeature()
 
-                    let password = StorageHelper.shared.getEncryptionPassword()
-                    let status = dataExport.generateArchive(protectedWith: password!)
+                    let status = autoreleasepool { () -> DataExportFeature.Result in
+                        let password = StorageHelper.shared.getEncryptionPassword()
+                        return dataExport.generateArchive(protectedWith: password!)
+                    }
                     
                     guard case let DataExportFeature.Result.success(archive) = status else {
                         log.error("Archive generation failed!")

@@ -17,13 +17,15 @@ import RealmSwift
 class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
     
     static func getLocal(_ record: CKRecord) throws -> Password? {
-        guard let realm = RealmHelper.getRealm() else {
-            log.error("Trying to get local CloudKit password but realm is nil")
-            throw RealmError.encryptionError
+        return try autoreleasepool { () throws -> Password? in
+            guard let realm = RealmHelper.getRealm() else {
+                log.error("Trying to get local CloudKit password but realm is nil")
+                throw RealmError.encryptionError
+            }
+            
+            let id = record.value(forKey: "id") as! Int64
+            return realm.object(ofType: Password.self, forPrimaryKey: id)
         }
-        
-        let id = record.value(forKey: "id") as! Int64
-        return realm.object(ofType: Password.self, forPrimaryKey: id)
     }
     
     static func getLocalCopy(_ record: CKRecord, syncedCorrectly: Bool = false) throws -> Password {

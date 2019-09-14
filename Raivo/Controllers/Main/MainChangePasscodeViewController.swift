@@ -155,12 +155,20 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
         let newName = RealmHelper.getProposedNewFileName()
         let newFile = RealmHelper.getFileURL(forceFilename: newName)
         
-        let oldRealm = try! Realm()
+        let result = autoreleasepool { () -> Bool in
+            let oldRealm = RealmHelper.getRealm()
+            
+            do {
+                try oldRealm!.writeCopy(toFile: newFile!, encryptionKey: newKey)
+                return true
+            } catch let error {
+                log.error(error.localizedDescription)
+                return false
+            }
+        }
         
-        do {
-            try oldRealm.writeCopy(toFile: newFile!, encryptionKey: newKey)
-        } catch let error {
-            return log.error(error.localizedDescription)
+        guard result else {
+            return
         }
         
         if StorageHelper.shared.getBiometricUnlockEnabled() {

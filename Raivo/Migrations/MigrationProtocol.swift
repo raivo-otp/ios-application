@@ -21,6 +21,9 @@ protocol MigrationProtocol {
     /// A function for running realm migrations.
     func migrateRealm(_ migration: Migration) -> Void
     
+    /// A function for running migrations before initializing the application.
+    func migratePreInitialize() -> Void
+    
     /// A function for running generic migrations before initializing the syncers.
     func migrateGeneric() -> Void
     

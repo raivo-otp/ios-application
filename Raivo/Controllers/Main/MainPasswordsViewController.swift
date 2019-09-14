@@ -55,10 +55,10 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         initializeSearchBar()
         initializeTableView()
         
-        let realm = try! Realm()
-
-        let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
-        results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+        if let realm = RealmHelper.getRealm() {
+            let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+            results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+        }
 
         initializeTableViewNotifications()
         
@@ -186,8 +186,9 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let realm = try! Realm()
-        results = realm.objects(Password.self).filter("deleted == 0").sorted(byKeyPath: "issuer", ascending: true)
+        if let realm = RealmHelper.getRealm() {
+            results = realm.objects(Password.self).filter("deleted == 0").sorted(byKeyPath: "issuer", ascending: true)
+        }
         
         if (searchText.count > 0) {
             self.searchBar.showsCancelButton = true
@@ -249,12 +250,14 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             guard self.results?[indexPath.row].kind == PasswordKindFormOption.OPTION_HOTP.value else { return nil }
             
             let hotpAction = SwipeAction(style: .default, title: "Increase") { action, indexPath in
-                let realm = try! Realm()
-                
-                try! realm.write {
-                    self.results?[indexPath.row].counter += 1
-                    self.results?[indexPath.row].syncing = true
-                    self.results?[indexPath.row].synced = false
+                autoreleasepool {
+                    if let realm = RealmHelper.getRealm() {
+                        try! realm.write {
+                            self.results?[indexPath.row].counter += 1
+                            self.results?[indexPath.row].syncing = true
+                            self.results?[indexPath.row].synced = false
+                        }
+                    }
                 }
             }
             
@@ -269,11 +272,14 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
                 if let result = self.results?[indexPath.row] {
-                    let realm = try! Realm()
-                    try! realm.write {
-                        result.deleted = true
-                        result.syncing = true
-                        result.synced = false
+                    autoreleasepool {
+                        if let realm = RealmHelper.getRealm() {
+                            try! realm.write {
+                                result.deleted = true
+                                result.syncing = true
+                                result.synced = false
+                            }
+                        }
                     }
                 }
             }))

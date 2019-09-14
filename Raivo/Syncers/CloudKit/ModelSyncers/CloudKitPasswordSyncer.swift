@@ -29,9 +29,12 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
     func enable() {
         disable()
         
-        let realm = try! Realm()
-        localResults = realm.objects(Password.self).filter("syncing == 1")
-        localNotifications = localResults!.observe(onLocalChange)
+        autoreleasepool {
+            if let realm = RealmHelper.getRealm() {
+                localResults = realm.objects(Password.self).filter("syncing == 1")
+                localNotifications = localResults!.observe(onLocalChange)
+            }
+        }
         
         subscribeToCloudKitChanges()
     }
@@ -63,30 +66,32 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
                 return
             }
             
-            guard let realm = RealmHelper.getRealm() else {
-                log.error("CloudKit sync finished but app is not unlocked anymore!")
-                return
-            }
+            autoreleasepool {
+                guard let realm = RealmHelper.getRealm() else {
+                    log.error("CloudKit sync finished but app is not unlocked anymore!")
+                    return
+                }
             
-            for record in records {
-                do {
-                    let local = try CloudKitPasswordConverter.getLocal(record)
-                    
-                    guard local == nil || (local?.synced == true && local?.syncing == false) else {
-                        // Do not save passwords that still have to be synced
-                        self.onLocalChange(local!)
-                        continue
+                for record in records {
+                    do {
+                        let local = try CloudKitPasswordConverter.getLocal(record)
+                        
+                        guard local == nil || (local?.synced == true && local?.syncing == false) else {
+                            // Do not save passwords that still have to be synced
+                            self.onLocalChange(local!)
+                            continue
+                        }
+                        
+                        let copy = try CloudKitPasswordConverter.getLocalCopy(record, syncedCorrectly: true)
+                        
+                        try! realm.write {
+    //                        realm.add(copy, update: .modified)
+                            realm.add(copy, update: true)
+                        }
+                    } catch let error {
+                        log.error(error.localizedDescription)
+                        break
                     }
-                    
-                    let copy = try CloudKitPasswordConverter.getLocalCopy(record, syncedCorrectly: true)
-                    
-                    try! realm.write {
-//                        realm.add(copy, update: .modified)
-                        realm.add(copy, update: true)
-                    }
-                } catch let error {
-                    log.error(error.localizedDescription)
-                    break
                 }
             }
         }
@@ -162,17 +167,19 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
                 log.error(error?.localizedDescription ?? "Unknown CloudKit error!")
             }
             
-            let realm = try! Realm()
-            
-            guard let password = realm.resolve(passwordReference) else {
-                return // Password was deleted in the meantime
-            }
-            
-            try! realm.write {
-                password.syncing = false
-                password.synced = records?.count == 1
-                password.syncErrorType = (error == nil) ? nil : Password.SyncErrorTypes.INSERT
-                password.syncErrorDescription = (error == nil) ? nil : error!.localizedDescription
+            autoreleasepool {
+                if let realm = RealmHelper.getRealm() {
+                    guard let password = realm.resolve(passwordReference) else {
+                        return // Password was deleted in the meantime
+                    }
+                    
+                    try! realm.write {
+                        password.syncing = false
+                        password.synced = records?.count == 1
+                        password.syncErrorType = (error == nil) ? nil : Password.SyncErrorTypes.INSERT
+                        password.syncErrorDescription = (error == nil) ? nil : error!.localizedDescription
+                    }
+                }
             }
         }
         

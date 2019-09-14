@@ -25,6 +25,13 @@ class MigrationToBuild6: MigrationProtocol {
         // Not implemented
     }
     
+    /// Run migrations to make data compatible with this build (before app initialization).
+    func migratePreInitialize() {
+        log.warning("Running pre init migration...")
+        
+        // Not implemented
+    }
+    
     /// Run generic migrations to make data compatible with this build.
     func migrateGeneric() {
         log.warning("Running generic migration...")

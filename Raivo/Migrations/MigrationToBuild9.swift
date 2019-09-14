@@ -23,6 +23,13 @@ class MigrationToBuild9: MigrationProtocol {
         // Not implemented
     }
     
+    /// Run migrations to make data compatible with this build (before app initialization).
+    func migratePreInitialize() {
+        log.warning("Running pre init migration...")
+        
+        // Not implemented
+    }
+    
     /// Run generic migrations to make data compatible with this build.
     func migrateGeneric() {
         log.verbose("Running Build9 migrations...")

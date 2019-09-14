@@ -18,6 +18,9 @@ import SDWebImage
 class LoadEntryViewController: UIViewController {
     
     override func viewDidLoad() {
+        
+        // Run migrations prior the the app initialization.
+        MigrationHelper.runPreInitializeMigrations()
 
         // Initialize console logging (in debug builds)
         if AppHelper.compilation == AppHelper.Compilation.debug {

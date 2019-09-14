@@ -54,20 +54,23 @@ class MainEditPasswordViewController: FormViewController {
             return
         }
         
-        let realm = try! Realm()
-        try! realm.write {
-            password!.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
-            password!.account = (passwordForm!.accountRow.value ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-            password!.iconType = passwordForm!.iconRow.iconType ?? ""
-            password!.iconValue = passwordForm!.iconRow.iconValue ?? ""
-            password!.secret = passwordForm!.secretRow.value!
-            password!.algorithm = passwordForm!.algorithmRow.value!.value
-            password!.digits = passwordForm!.digitsRow.value!.value
-            password!.kind = passwordForm!.kindRow.value!.value
-            password!.timer = passwordForm!.timerRow.value ?? 0
-            password!.counter = passwordForm!.counterRow.value ?? 0
-            password!.syncing = true
-            password!.synced = false
+        autoreleasepool {
+            if let realm = RealmHelper.getRealm() {
+                try! realm.write {
+                    password!.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    password!.account = (passwordForm!.accountRow.value ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+                    password!.iconType = passwordForm!.iconRow.iconType ?? ""
+                    password!.iconValue = passwordForm!.iconRow.iconValue ?? ""
+                    password!.secret = passwordForm!.secretRow.value!
+                    password!.algorithm = passwordForm!.algorithmRow.value!.value
+                    password!.digits = passwordForm!.digitsRow.value!.value
+                    password!.kind = passwordForm!.kindRow.value!.value
+                    password!.timer = passwordForm!.timerRow.value ?? 0
+                    password!.counter = passwordForm!.counterRow.value ?? 0
+                    password!.syncing = true
+                    password!.synced = false
+                }
+            }
         }
         
         dismissNavBarActivity(saveButtonBackup)

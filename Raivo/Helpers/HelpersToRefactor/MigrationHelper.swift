@@ -25,6 +25,20 @@ class MigrationHelper {
         MigrationToBuild22.build: MigrationToBuild22()
     ]
     
+    static func runPreInitializeMigrations() {
+        var previous = initialPreviousBuild
+        
+        while previous < AppHelper.build {
+            if let migration = migrations[previous + 1] {
+                migration.migratePreInitialize()
+            }
+            
+            previous += 1
+        }
+        
+        StorageHelper.shared.setPreviousBuild(AppHelper.build)
+    }
+    
     static func runGenericMigrations() {
         var previous = initialPreviousBuild
         
@@ -35,8 +49,6 @@ class MigrationHelper {
             
             previous += 1
         }
-        
-        StorageHelper.shared.setPreviousBuild(AppHelper.build)
     }
     
     static func runGenericMigrations(with account: SyncerAccount) {

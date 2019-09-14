@@ -241,14 +241,14 @@ class StorageHelper {
     /// - Parameter build: The new 'previous build'.
     public func setPreviousBuild(_ build: Int) {
         log.verbose("Setting previous build")
-        globals().set(string: String(build), forKey: Key.PREVIOUS_BUILD)
+        settings().set(string: String(build), forKey: Key.PREVIOUS_BUILD)
     }
     
     /// Get the previous application build version.
     ///
     /// - Returns: The previous build
     public func getPreviousBuild() -> Int? {
-        guard let build = globals().string(forKey: Key.PREVIOUS_BUILD) else {
+        guard let build = settings().string(forKey: Key.PREVIOUS_BUILD) else {
             return nil
         }
         

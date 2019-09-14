@@ -25,11 +25,18 @@ class MigrationToBuild15: MigrationProtocol {
         // Not implemented
     }
     
+    /// Run migrations to make data compatible with this build (before app initialization).
+    func migratePreInitialize() {
+        log.warning("Running pre init migration...")
+        
+        migratePincodeToPasscode()
+    }
+    
     /// Run generic migrations to make data compatible with this build.
     func migrateGeneric() {
         log.warning("Running generic migration...")
         
-        migratePincodeToPasscode()
+        // Not implemented
     }
     
     /// This build does not require generic migrations using the syncer account.
