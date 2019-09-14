@@ -123,12 +123,16 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         
         cameraPreview.layoutIfNeeded()
         videoPreviewLayer?.frame.size = cameraPreview.frame.size
+        
+        guard videoPreviewLayer != nil else {
+            return
+        }
+        
         cameraPreview.layer.addSublayer(videoPreviewLayer!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        log.info(cameraPreview.frame)
     }
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
