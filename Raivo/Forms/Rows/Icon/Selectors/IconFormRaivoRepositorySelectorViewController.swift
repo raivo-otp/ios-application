@@ -73,7 +73,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.prefersLargeTitles = false
-        attachKeyboardConstraint()
+        attachKeyboardConstraint(self)
     }
 
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.
@@ -83,7 +83,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
         super.viewWillDisappear(animated)
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        detachKeyboardConstraint()
+        detachKeyboardConstraint(self)
     }
     
     override public func viewDidAppear(_ animated: Bool) {

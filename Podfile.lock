@@ -1,21 +1,21 @@
 PODS:
   - Alamofire (4.8.1)
   - Base32 (1.1.2)
-  - EFQRCode (5.0.0):
+  - EFQRCode (5.0.1):
     - swift_qrcodejs (~> 1.1.1)
-  - Eureka (5.0.0)
+  - Eureka (5.0.1)
   - Haptica (3.0.0)
   - OneTimePassword (3.1.5):
     - Base32 (~> 1.1.2)
-  - Realm (3.14.2):
-    - Realm/Headers (= 3.14.2)
-  - Realm/Headers (3.14.2)
-  - RealmSwift (3.14.2):
-    - Realm (= 3.14.2)
+  - Realm (3.18.0):
+    - Realm/Headers (= 3.18.0)
+  - Realm/Headers (3.18.0)
+  - RealmSwift (3.18.0):
+    - Realm (= 3.18.0)
   - RNCryptor (5.1.0)
-  - SDWebImage (5.0.6):
-    - SDWebImage/Core (= 5.0.6)
-  - SDWebImage/Core (5.0.6)
+  - SDWebImage (5.1.1):
+    - SDWebImage/Core (= 5.1.1)
+  - SDWebImage/Core (5.1.1)
   - SPAlert (1.1.1)
   - SPStorkController (1.7.9)
   - SSZipArchive (2.2.2)
@@ -24,27 +24,27 @@ PODS:
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
   - SwiftyBeaver (1.7.1)
-  - SwipeCellKit (2.6.0)
-  - Valet (3.2.5)
+  - SwipeCellKit (2.7.0)
+  - Valet (3.2.6)
   - ViewRow (0.6):
     - Eureka (>= 5.0.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.8.1)
-  - EFQRCode (= 5.0.0)
-  - Eureka (= 5.0.0)
+  - EFQRCode (= 5.0.1)
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `xcode11`)
   - Haptica (= 3.0.0)
   - OneTimePassword (= 3.1.5)
-  - RealmSwift (= 3.14.2)
+  - RealmSwift (= 3.18.0)
   - RNCryptor (= 5.1.0)
-  - SDWebImage (= 5.0.6)
+  - SDWebImage (= 5.1.1)
   - SPAlert (= 1.1.1)
   - SPStorkController (= 1.7.9)
   - SSZipArchive (= 2.2.2)
   - SwiftMessages (= 7.0.0)
   - SwiftyBeaver (= 1.7.1)
-  - SwipeCellKit (= 2.6.0)
-  - Valet (= 3.2.5)
+  - SwipeCellKit (= 2.7.0)
+  - Valet (= 3.2.6)
   - ViewRow (= 0.6)
 
 SPEC REPOS:
@@ -52,7 +52,6 @@ SPEC REPOS:
     - Alamofire
     - Base32
     - EFQRCode
-    - Eureka
     - Haptica
     - OneTimePassword
     - Realm
@@ -69,27 +68,39 @@ SPEC REPOS:
     - Valet
     - ViewRow
 
+EXTERNAL SOURCES:
+  Eureka:
+    :branch: xcode11
+    :git: https://github.com/xmartlabs/Eureka.git
+    :submodules: true
+
+CHECKOUT OPTIONS:
+  Eureka:
+    :commit: 6e1a003d47e8a3358fd21a434eec81cf02fef1ee
+    :git: https://github.com/xmartlabs/Eureka.git
+    :submodules: true
+
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
-  EFQRCode: 07437cfbce3a1e497397a4f3d766c980d8972608
-  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
+  EFQRCode: 239efec4dd406d9c635dd937525fc40960ce2e9f
+  Eureka: fcb2bd6975ab3d9b0d11acc465043de49022afdd
   Haptica: ee4abaf262f456fe3854b493f506debe421ddf2c
   OneTimePassword: 247500f67ab074f10501bb1c46bd1596c57bdb2a
-  Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
-  RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
+  Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
+  RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
-  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  SDWebImage: 96d7f03415ccb28d299d765f93557ff8a617abd8
   SPAlert: 292690a27df49ff131d532a0a39d89b08dd93e4d
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   swift_qrcodejs: 0bacbfe321a99954c7b8e04c75562007ea4e4f7c
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
   SwiftyBeaver: da5e573ad583586c18236324c36900990afe1733
-  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
-  Valet: 41882ffa9ed80c5358584837bcf762dfd1888818
+  SwipeCellKit: cfcdcbfb739734e494c9d3832a7b6e6f9411e1fd
+  Valet: dcc4ff74f0d010be665239ab89c7a4a5cd39ee33
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: cd4684c12c5a8229d1b1520c612cc3bf1506a725
+PODFILE CHECKSUM: ced6b8f01332e51db34e2a067c5e0dd26828d06a
 
 COCOAPODS: 1.5.3

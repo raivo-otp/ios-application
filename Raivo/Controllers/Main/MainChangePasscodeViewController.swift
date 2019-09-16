@@ -51,7 +51,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
     /// - Parameter animated: If positive, the view is being added to the window using an animation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        attachKeyboardConstraint()
+        attachKeyboardConstraint(self)
         
         navigationController?.view.backgroundColor = UIColor.white
     }
@@ -69,7 +69,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
     /// - Parameter animated: If positive, the disappearance of the view is being animated.
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        detachKeyboardConstraint()
+        detachKeyboardConstraint(self)
     }
 
     /// Notifies the view controller that its view was removed from a view hierarchy.

@@ -40,12 +40,12 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        attachKeyboardConstraint()
+        attachKeyboardConstraint(self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        detachKeyboardConstraint()
+        detachKeyboardConstraint(self)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

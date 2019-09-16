@@ -123,13 +123,13 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        attachKeyboardConstraint()
+        attachKeyboardConstraint(self)
         updateTableCellStates()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        detachKeyboardConstraint()
+        detachKeyboardConstraint(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {

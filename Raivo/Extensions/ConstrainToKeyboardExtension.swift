@@ -15,116 +15,43 @@ import UIKit
 
 extension UIViewController {
     
-    internal func attachKeyboardConstraint() {
+    struct KeyboardStates {
+        static var visible: [String: Bool] = [:]
+    }
+    
+    internal func attachKeyboardConstraint(_ sender: UIViewController) {
+        let identifier = id(sender)
+        
         NotificationHelper.shared.listen(to: UIResponder.keyboardWillShowNotification, distinctBy: id(self)) { notification in
-            self.keyboardNotification(notification: notification)
+            self.keyboardWillShow(notification: notification, identifier: identifier)
         }
         
         NotificationHelper.shared.listen(to: UIResponder.keyboardWillHideNotification, distinctBy: id(self)) { notification in
-            self.keyboardNotification(notification: notification)
+            self.keyboardWillHide(notification: notification, identifier: identifier)
         }
     }
     
-    internal func detachKeyboardConstraint() {
+    internal func detachKeyboardConstraint(_ sender: UIViewController) {
         NotificationHelper.shared.discard(UIResponder.keyboardWillShowNotification, byDistinctName: id(self))
         NotificationHelper.shared.discard(UIResponder.keyboardWillHideNotification, byDistinctName: id(self))
-    }
-    
-    @objc private func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        for constraint in view.constraints {
-            if constraint.identifier == "KeyboardConstraint" {
-                return constraint
-            }
-        }
-        
-        for element in view.subviews {
-            for constraint in element.constraints {
-                if constraint.identifier == "KeyboardConstraint" {
-                    return constraint
-                }
-            }
-        }
-        
-        return nil
-    }
-    
-    @objc private func keyboardNotification(notification: Notification) {
-        guard let userInfo = notification.userInfo else {
-           return
-        }
-        
-        guard var keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else {
-            return
-        }
-        
-        guard let keyboardDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else {
-            return
-        }
-        
-        guard let keyboardAnimationCurve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber) else {
-            return
-        }
-        
-        if #available(iOS 11.0, *) {
-            keyboardHeight -= view.safeAreaInsets.bottom
-        }
-        
-        if let tabBarHeight = tabBarController?.tabBar.frame.size.height {
-            keyboardHeight += tabBarHeight
-        }
-        
-        let show = notification.name == UIResponder.keyboardWillShowNotification
-        let height = show ? keyboardHeight : 0
-        
-        additionalSafeAreaInsets.bottom = height
-//        getConstraintToAdjustToKeyboard()!.constant = height
-        
-        UIView.animate(
-            withDuration: keyboardDuration,
-            delay: 0,
-            options: UIView.AnimationOptions(rawValue: keyboardAnimationCurve.uintValue),
-            animations: {
-                self.view.layoutIfNeeded()
-            },
-            completion: nil
-        )
-    }
-    
-}
 
-extension UIView {
+        keyboardWillHide(notification: nil, identifier: id(sender))
+    }
     
-    public func attachKeyboardConstraint() {
-        NotificationHelper.shared.listen(to: UIResponder.keyboardWillShowNotification, distinctBy: id(self)) { notification in
-            self.keyboardNotification(notification: notification)
+    @objc private func keyboardWillShow(notification: Notification, identifier: String) {
+        let currentlyVisible = KeyboardStates.visible[identifier] ?? false
+        KeyboardStates.visible[identifier] = true
+        
+        guard currentlyVisible != true else {
+            // Notification is same as previous one
+            return
         }
         
-        NotificationHelper.shared.listen(to: UIResponder.keyboardWillHideNotification, distinctBy: id(self)) { notification in
-            self.keyboardNotification(notification: notification)
-        }
-    }
-    
-    internal func detachKeyboardConstraint() {
-        NotificationHelper.shared.discard(UIResponder.keyboardWillShowNotification, byDistinctName: id(self))
-        NotificationHelper.shared.discard(UIResponder.keyboardWillHideNotification, byDistinctName: id(self))
-    }
-    
-    @objc public func getConstraintToAdjustToKeyboard() -> NSLayoutConstraint? {
-        for constraint in constraints {
-            if constraint.identifier == "KeyboardConstraint" {
-                return constraint
-            }
-        }
-        
-        return nil
-    }
-    
-    @objc private func keyboardNotification(notification: Notification) {
         guard let userInfo = notification.userInfo else {
            return
         }
         
-        guard var keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else {
+        guard var height = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else {
             return
         }
         
@@ -137,23 +64,54 @@ extension UIView {
         }
         
         if #available(iOS 11.0, *) {
-            keyboardHeight -= safeAreaInsets.bottom
+            height -= view.safeAreaInsets.bottom
+        }
+                
+        additionalSafeAreaInsets.bottom = height
+        
+        ui {
+            UIView.animate(
+                withDuration: keyboardDuration,
+                delay: 0,
+                options: UIView.AnimationOptions(rawValue: keyboardAnimationCurve.uintValue),
+                animations: {
+                    self.view.layoutIfNeeded()
+                },
+                completion: nil
+            )
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: Notification?, identifier: String) {
+        let currentlyVisible = KeyboardStates.visible[identifier] ?? false
+        KeyboardStates.visible[identifier] = false
+
+        guard currentlyVisible != false else {
+            // Notification is same as previous one
+            return
         }
         
-        let show = notification.name == UIResponder.keyboardWillShowNotification
-        let height = show ? keyboardHeight : 0
+        let keyboardDuration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.5
         
-        getConstraintToAdjustToKeyboard()!.constant = height
+        var options: UIView.AnimationOptions = []
         
-        UIView.animate(
-            withDuration: keyboardDuration,
-            delay: 0,
-            options: UIView.AnimationOptions(rawValue: keyboardAnimationCurve.uintValue),
-            animations: {
-                self.layoutIfNeeded()
-            },
-            completion: nil
-        )
+        if let keyboardAnimationCurve = (notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber) {
+            options = UIView.AnimationOptions(rawValue: keyboardAnimationCurve.uintValue)
+        }
+        
+        additionalSafeAreaInsets.bottom = CGFloat(0)
+        
+        ui {
+            UIView.animate(
+                withDuration: keyboardDuration,
+                delay: 0,
+                options: options,
+                animations: {
+                    self.view.layoutIfNeeded()
+                },
+                completion: nil
+            )
+        }
     }
     
 }

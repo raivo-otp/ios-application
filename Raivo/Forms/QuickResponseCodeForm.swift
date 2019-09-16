@@ -66,6 +66,7 @@ class QuickResponseCodeForm {
     /// - Returns: Positive if the QR code was added. It can be negative when the QR code fails to generate.
     private func buildQuickResponseCodeRow(_ section: Section, _ image: CGImage) {
         section <<< ViewRow<UIImageView>("qrcode").cellSetup({ cell, row in
+            cell.backgroundColor = UIColor.getBackgroundOpaque()
             cell.view = UIImageView()
             cell.view?.contentMode = .scaleAspectFit
             cell.contentView.addSubview(cell.view!)
@@ -89,12 +90,12 @@ class QuickResponseCodeForm {
         return EFQRCode.generate(
             content: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret,
             size: EFIntSize(width: 400, height: 400),
-            backgroundColor: UIColor.white.cgColor,
-            foregroundColor: UIColor.black.cgColor,
-            watermark: UIImage(named: "app-icon")!.toCGImage(),
-            watermarkMode: .scaleAspectFit,
-            pointShape: .circle,
-            foregroundPointOffset: 0.1
+            backgroundColor: UIColor.getBackgroundOpaque().cgColor,
+            foregroundColor: UIColor.getLabel().cgColor,
+//            watermark: UIImage(named: "app-icon")!.toCGImage(),
+//            watermarkMode: .scaleAspectFit,
+//            pointShape: .diamond,
+            foregroundPointOffset: 0.2
         )
     }
 }
