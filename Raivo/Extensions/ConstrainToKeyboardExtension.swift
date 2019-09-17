@@ -66,7 +66,7 @@ extension UIViewController {
         if #available(iOS 11.0, *) {
             height -= view.safeAreaInsets.bottom
         }
-                
+        
         additionalSafeAreaInsets.bottom = height
         
         ui {
@@ -91,7 +91,7 @@ extension UIViewController {
             return
         }
         
-        let keyboardDuration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.5
+        let keyboardDuration = (notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.6
         
         var options: UIView.AnimationOptions = []
         

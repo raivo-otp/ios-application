@@ -21,6 +21,7 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
+        password.becomeFirstResponder()
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
@@ -29,7 +30,6 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         attachKeyboardConstraint(self)
-        password.becomeFirstResponder()
     }
 
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.

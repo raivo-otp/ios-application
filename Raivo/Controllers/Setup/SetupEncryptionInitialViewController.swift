@@ -38,6 +38,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
         }
     
         password.delegate = self
+        password.becomeFirstResponder()
     }
     
     /// Notifies the view controller that its view is about to be added to a view hierarchy.
@@ -46,7 +47,6 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         attachKeyboardConstraint(self)
-        password.becomeFirstResponder()
     }
 
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.
