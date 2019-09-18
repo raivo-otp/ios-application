@@ -75,7 +75,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     deinit {
         notificationToken?.invalidate()
         
-        NotificationHelper.shared.discard(UIApplication.willEnterForegroundNotification, byDistinctName: id(self))
+        NotificationHelper.shared.discard(UIApplication.willEnterForegroundNotification, byDistinctName: id(MainPasswordsViewController.self))
     }
     
     private func initializeTableViewNotifications() {
