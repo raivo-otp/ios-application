@@ -184,6 +184,10 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
         }
     }
     
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        refresh()
+    }
+    
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionFooter:
@@ -202,7 +206,11 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierIcon, for: indexPath as IndexPath) as! IconFormCell
         
-        cell.imageView.sd_setImage(with: URL(string: AppHelper.iconsURL + self.searchResults[indexPath.item]), completed: nil)
+        cell.imageView.sd_setImage(
+            with: URL(string: AppHelper.iconsURL + self.searchResults[indexPath.item]),
+            placeholderImage: UIImage(named: "vector-empty-item"),
+            context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
+        )
         
         return cell
     }

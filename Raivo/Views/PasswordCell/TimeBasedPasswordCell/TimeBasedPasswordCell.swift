@@ -13,14 +13,15 @@
 import Foundation
 import EFQRCode
 import UIKit
+import SDWebImage
 
 class TimeBasedPasswordCell: PasswordCell {
     
-    var password:Password?
+    var password: Password?
     
-    var stateTimer:Timer?
+    var stateTimer: Timer?
     
-    var isAnimating:Bool = false
+    var isAnimating: Bool = false
     
     @IBOutlet weak var icon: UIImageView!
     
@@ -52,11 +53,18 @@ class TimeBasedPasswordCell: PasswordCell {
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
         previousPassword.text = TokenHelper.formatPassword(password.getToken(), previous: true)
         notSyncedView.isHidden = password.synced || password.syncing
-      
-        icon.sd_setImage(with: password.getIconURL(), placeholderImage: UIImage(named: "vector-empty-item"))
-        icon.image = icon.image?.withIconEffect
         
         progressView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        
+        traitCollectionDidChange(nil)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        icon.sd_setImage(
+            with: password?.getIconURL(),
+            placeholderImage: UIImage(named: "vector-empty-item"),
+            context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
+        )
     }
     
     deinit {

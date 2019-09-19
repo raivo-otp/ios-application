@@ -25,6 +25,10 @@ class IconFormRowCell: AlertSelectorCell<PasswordIconTypeFormOption> {
     override func update() {
         super.update()
         
+        traitCollectionDidChange(nil)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         let iconValue = (row as! IconFormRow).iconValue
         
         guard let value = iconValue, iconValue?.count ?? 0 > 0 else {
@@ -32,10 +36,11 @@ class IconFormRowCell: AlertSelectorCell<PasswordIconTypeFormOption> {
             return
         }
         
-        let url = URL(string: AppHelper.iconsURL + value)
-        
-        iconView?.sd_setImage(with: url, placeholderImage: UIImage(named: "vector-empty-item"))
-        iconView.image = iconView.image?.withIconEffect
+        iconView.sd_setImage(
+            with: URL(string: AppHelper.iconsURL + value),
+            placeholderImage: UIImage(named: "vector-empty-item"),
+            context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
+        )
     }
     
 }

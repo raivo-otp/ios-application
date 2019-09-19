@@ -44,8 +44,15 @@ class CounterBasedPasswordCell: PasswordCell {
         currentPassword.text = TokenHelper.formatPassword(password.getToken())
         notSyncedView.isHidden = password.synced || password.syncing
         
-        icon.sd_setImage(with: password.getIconURL(), placeholderImage: UIImage(named: "vector-empty-item"))
-        icon.image = icon.image?.withIconEffect
+        traitCollectionDidChange(nil)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        icon.sd_setImage(
+            with: password?.getIconURL(),
+            placeholderImage: UIImage(named: "vector-empty-item"),
+            context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
+        )
     }
     
     override internal func updateState(force: Bool = false) {

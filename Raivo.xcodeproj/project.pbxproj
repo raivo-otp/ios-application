@@ -20,6 +20,7 @@
 		700908F421FD027400603AA2 /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F321FD027400603AA2 /* TokenHelper.swift */; };
 		70093238230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70093237230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift */; };
 		7016DE422265193D006C45B6 /* CustomColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016DE412265193D006C45B6 /* CustomColorsExtension.swift */; };
+		701F47462333F38F008C4A9C /* ImageFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701F47452333F38F008C4A9C /* ImageFilterHelper.swift */; };
 		70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70285928226205C50045DA26 /* CloudKitPasswordConverter.swift */; };
 		7028592C226212EA0045DA26 /* CloudKitPasswordSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028592B226212EA0045DA26 /* CloudKitPasswordSyncer.swift */; };
 		702A140A2263672200B278BB /* MainChangePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702A14092263672200B278BB /* MainChangePasscodeViewController.swift */; };
@@ -158,6 +159,7 @@
 		700908F321FD027400603AA2 /* TokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
 		70093237230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasscodeConfirmationViewController.swift; sourceTree = "<group>"; };
 		7016DE412265193D006C45B6 /* CustomColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorsExtension.swift; sourceTree = "<group>"; };
+		701F47452333F38F008C4A9C /* ImageFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterHelper.swift; sourceTree = "<group>"; };
 		70285928226205C50045DA26 /* CloudKitPasswordConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPasswordConverter.swift; sourceTree = "<group>"; };
 		7028592B226212EA0045DA26 /* CloudKitPasswordSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPasswordSyncer.swift; sourceTree = "<group>"; };
 		702A14092263672200B278BB /* MainChangePasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChangePasscodeViewController.swift; sourceTree = "<group>"; };
@@ -795,6 +797,7 @@
 				7059680F2299AB0A0032D70F /* StorageHelper.swift */,
 				7059680C22997EFB0032D70F /* SyncerHelper.swift */,
 				7079EBD222F638DA00F9D340 /* BiometricHelper.swift */,
+				701F47452333F38F008C4A9C /* ImageFilterHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1112,6 +1115,7 @@
 				70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */,
 				70B585F12309DD1400AD1754 /* SetupEncryptionConfirmationViewController.swift in Sources */,
 				709B636322C5495100697884 /* QuickResponseCodeRowCell.swift in Sources */,
+				701F47462333F38F008C4A9C /* ImageFilterHelper.swift in Sources */,
 				70DE925122A1A37200D00BB0 /* CryptographyError.swift in Sources */,
 				7077A342227F0FCC00338CA3 /* IconFormRowCell.swift in Sources */,
 				702CA6CD2263A16D000DCC1D /* UnexpectedError.swift in Sources */,
