@@ -12,7 +12,7 @@ import Foundation
 import LocalAuthentication
 import Valet
 
-/// A helper class for the keychain and Secure Encalve
+/// A helper class for the keychain and Secure Enclave
 class StorageHelper {
     
     /// The keys that can be used to get/set values
