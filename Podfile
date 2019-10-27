@@ -52,7 +52,14 @@ target 'Raivo' do
   
   # More user friendly popover segues
   pod 'SPStorkController', '1.7.9', :inhibit_warnings => true
+
+  # Zalando's monkey testing client
+  pod "SwiftMonkeyPaws", '2.1.1'
   
+end
+
+target 'RaivoUITests' do
+    pod 'SwiftMonkey', '2.1.1'
 end
 
 # Specific dependencies compile using Swift 4.2
