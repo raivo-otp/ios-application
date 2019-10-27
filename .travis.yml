@@ -41,10 +41,10 @@ matrix:
       env:
         - XCODE_ACTION=test
         - XCODE_SDK=iphonesimulator
-        - XCODE_DESTINATION="platform=iOS Simulator,OS=13.1,name=iPhone X"
+        - XCODE_DESTINATION="platform=iOS Simulator,OS=13.1,name=iPhone 11"
     - name: Xcode 11.2, iOS 13.1, iPhone X
       osx_image: xcode11.2
       env:
         - XCODE_ACTION=test
         - XCODE_SDK=iphonesimulator
-        - XCODE_DESTINATION="platform=iOS Simulator,OS=13.1,name=iPhone X"
+        - XCODE_DESTINATION="platform=iOS Simulator,OS=13.1,name=iPhone 11"
