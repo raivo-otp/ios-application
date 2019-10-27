@@ -9,6 +9,7 @@
 // 
 
 import XCTest
+import SwiftMonkey
 
 class SetupUITests: XCTestCase {
     
@@ -17,6 +18,7 @@ class SetupUITests: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments = ["--MonkeyPaws"]
         app.launch()
     }
 
@@ -28,6 +30,14 @@ class SetupUITests: XCTestCase {
         let continueToStorage = app.buttons["continueToStorage"]
         XCTAssertTrue(continueToStorage.exists)
     }
+    
+//    func testWelcomeByMonkey() {
+//        let monkey = Monkey(frame: app.frame)
+//        
+//        monkey.addDefaultUIAutomationActions()
+//        monkey.addXCTestTapAlertAction(interval: 100, application: app)
+//        monkey.monkeyAround(forDuration: TimeInterval(60 * 5))
+//    }
     
     func testStorage() {
         app.buttons["continueToStorage"].tap()

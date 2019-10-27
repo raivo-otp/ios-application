@@ -2,9 +2,8 @@ os: osx
 language: objective-c
 cache: cocoapods
 xcode_workspace: Raivo.xcworkspace
-xcode_scheme: "Raivo DEBUG"
+xcode_scheme: "Raivo TESTING"
 
-# run jobs on changes to master only
 branches:
   only:
     - master

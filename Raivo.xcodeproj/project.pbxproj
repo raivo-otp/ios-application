@@ -142,6 +142,7 @@
 		70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C502287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib */; };
 		70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA4C522287543500A3B754 /* IconFormSelectorViewEmptyList.swift */; };
 		70FA4C552287546D00A3B754 /* IconFormSelectorViewEmptyList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */; };
+		B4F27A36CDAB5724CFEA9C92 /* libPods-RaivoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F6316D8CEC30662F2F85E3 /* libPods-RaivoUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 
 /* Begin PBXFileReference section */
 		1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raivo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Raivo/Pods-Raivo.debug.xcconfig"; sourceTree = "<group>"; };
+		53F6316D8CEC30662F2F85E3 /* libPods-RaivoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RaivoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		700908C121FCCE5F00603AA2 /* Raivo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raivo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEntryViewController.swift; sourceTree = "<group>"; };
@@ -295,8 +297,10 @@
 		70FA4C502287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptySearch.xib; sourceTree = "<group>"; };
 		70FA4C522287543500A3B754 /* IconFormSelectorViewEmptyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyList.swift; sourceTree = "<group>"; };
 		70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyList.xib; sourceTree = "<group>"; };
+		7914C47AAD6D72C3513AE17E /* Pods-RaivoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaivoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RaivoUITests/Pods-RaivoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7C15382D1377197EFF103762 /* Pods-Raivo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raivo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Raivo/Pods-Raivo.release.xcconfig"; sourceTree = "<group>"; };
 		7D1B2FA3D06BC7C8DCA60308 /* Pods_Raivo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Raivo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF7888D5C8A6D940734245C /* Pods-RaivoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaivoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RaivoUITests/Pods-RaivoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +317,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F27A36CDAB5724CFEA9C92 /* libPods-RaivoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +859,7 @@
 			children = (
 				7088B94A22554AF50024BB87 /* CloudKit.framework */,
 				7D1B2FA3D06BC7C8DCA60308 /* Pods_Raivo.framework */,
+				53F6316D8CEC30662F2F85E3 /* libPods-RaivoUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -863,6 +869,8 @@
 			children = (
 				1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */,
 				7C15382D1377197EFF103762 /* Pods-Raivo.release.xcconfig */,
+				BDF7888D5C8A6D940734245C /* Pods-RaivoUITests.debug.xcconfig */,
+				7914C47AAD6D72C3513AE17E /* Pods-RaivoUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -893,6 +901,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70631CAC230DC24D0040DD71 /* Build configuration list for PBXNativeTarget "RaivoUITests" */;
 			buildPhases = (
+				9A7C757517DD600DDA186107 /* [CP] Check Pods Manifest.lock */,
 				70631C9F230DC24D0040DD71 /* Sources */,
 				70631CA0230DC24D0040DD71 /* Frameworks */,
 				70631CA1230DC24D0040DD71 /* Resources */,
@@ -1032,6 +1041,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Raivo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A7C757517DD600DDA186107 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RaivoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1361,6 +1392,7 @@
 		};
 		70631CAA230DC24D0040DD71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDF7888D5C8A6D940734245C /* Pods-RaivoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 564B4ETY69;
@@ -1380,6 +1412,7 @@
 		};
 		70631CAB230DC24D0040DD71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7914C47AAD6D72C3513AE17E /* Pods-RaivoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 564B4ETY69;

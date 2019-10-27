@@ -14,10 +14,12 @@ import UIKit
 import RealmSwift
 import CloudKit
 import Eureka
+import SwiftMonkeyPaws
 
 /// UI events that were launched from the ApplicationPrincipal
 class ApplicationDelegate: UIResponder, UIApplicationDelegate {
-
+    var paws: MonkeyPaws?
+    
     /// Reference to the UIWindow, which is used to set the current controller
     public var window: UIWindow?
     
@@ -45,6 +47,10 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter launchOptions: The launchOptions as passed to `UIApplicationDelegate`
     /// - Returns: Positive if the url contained in the `launchOptions` was intended for Raivo
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if CommandLine.arguments.contains("--MonkeyPaws") {
+            paws = MonkeyPaws(view: window!)
+        }
+        
         setCorrectStoryboard()
         setCorrectTintColor()
         

@@ -28,6 +28,8 @@ PODS:
   - SwiftMessages (7.0.1):
     - SwiftMessages/App (= 7.0.1)
   - SwiftMessages/App (7.0.1)
+  - SwiftMonkey (2.1.1)
+  - SwiftMonkeyPaws (2.1.1)
   - SwiftyBeaver (1.8.2)
   - SwipeCellKit (2.7.1)
   - Valet (3.2.6)
@@ -47,6 +49,8 @@ DEPENDENCIES:
   - SPStorkController (= 1.7.9)
   - SSZipArchive (= 2.2.2)
   - SwiftMessages (= 7.0.1)
+  - SwiftMonkey (= 2.1.1)
+  - SwiftMonkeyPaws (= 2.1.1)
   - SwiftyBeaver (= 1.8.2)
   - SwipeCellKit (= 2.7.1)
   - Valet (= 3.2.6)
@@ -71,6 +75,8 @@ SPEC REPOS:
     - RealmSwift
     - SDWebImage
     - SwiftMessages
+    - SwiftMonkey
+    - SwiftMonkeyPaws
     - SwiftyBeaver
     - SwipeCellKit
 
@@ -102,11 +108,13 @@ SPEC CHECKSUMS:
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
+  SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
+  SwiftMonkeyPaws: 655524bb402df5ac2be836f9f604aca1068fbde6
   SwiftyBeaver: aaf2ebd7dac2e952991f46a82ed24ad642867ae2
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   Valet: dcc4ff74f0d010be665239ab89c7a4a5cd39ee33
   ViewRow: 9bed2e09417d15a800c03cf0a778a3628c08d1a3
 
-PODFILE CHECKSUM: cbf8f9e0ae98c9ba7c595f28ca7036467e2f7339
+PODFILE CHECKSUM: 8fd456fdc7efa1584e4c689ac11028d12d4e4788
 
 COCOAPODS: 1.8.3
