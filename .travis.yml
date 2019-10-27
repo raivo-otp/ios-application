@@ -24,18 +24,6 @@ script:
 
 matrix:
   include:
-    - name: Xcode 11.1, iOS 12.1, iPhone X
-      osx_image: xcode11.1
-      env:
-        - XCODE_ACTION=test
-        - XCODE_SDK=iphonesimulator
-        - XCODE_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone X"
-    - name: Xcode 11.2, iOS 12.1, iPhone X
-      osx_image: xcode11.2
-      env:
-        - XCODE_ACTION=test
-        - XCODE_SDK=iphonesimulator
-        - XCODE_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone X"
     - name: Xcode 11.1, iOS 13.1, iPhone X
       osx_image: xcode11.1
       env:
