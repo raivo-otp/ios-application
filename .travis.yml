@@ -10,6 +10,7 @@ branches:
     - master
     - testflight
     - develop
+    - feature-tests
 
 script:
   - set -o pipefail
