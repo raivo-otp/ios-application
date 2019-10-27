@@ -1,8 +1,15 @@
 os: osx
 language: objective-c
-# xcode_project: Raivo.xcodeproj
+cache: cocoapods
 xcode_workspace: Raivo.xcworkspace
 xcode_scheme: "Raivo DEBUG"
+
+# run jobs on changes to master only
+branches:
+  only:
+    - master
+    - testflight
+    - develop
 
 script:
   - set -o pipefail
@@ -16,15 +23,27 @@ script:
 
 matrix:
   include:
-    - name: Xcode 10.3, iOS 12.1, iPhone X
-      osx_image: xcode10.3
+    - name: Xcode 11.1, iOS 12.1, iPhone X
+      osx_image: xcode11.1
       env:
         - XCODE_ACTION=test
         - XCODE_SDK=iphonesimulator
         - XCODE_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone X"
-    - name: Xcode 11.0, iOS 12.1, iPhone X
-      osx_image: xcode11
+    - name: Xcode 11.2, iOS 12.1, iPhone X
+      osx_image: xcode11.2
       env:
         - XCODE_ACTION=test
         - XCODE_SDK=iphonesimulator
         - XCODE_DESTINATION="platform=iOS Simulator,OS=12.1,name=iPhone X"
+    - name: Xcode 11.1, iOS 13.1, iPhone X
+      osx_image: xcode11.1
+      env:
+        - XCODE_ACTION=test
+        - XCODE_SDK=iphonesimulator
+        - XCODE_DESTINATION="platform=iOS Simulator,OS=13.1,name=iPhone X"
+    - name: Xcode 11.2, iOS 13.1, iPhone X
+      osx_image: xcode11.2
+      env:
+        - XCODE_ACTION=test
+        - XCODE_SDK=iphonesimulator
+        - XCODE_DESTINATION="platform=iOS Simulator,OS=13.1,name=iPhone X"
