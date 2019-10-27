@@ -92,7 +92,7 @@ class SetupPasscodeViewController: UIViewController, UIPasscodeFieldDelegate, Se
             passcodeField.reset()
             passcodeField.becomeFirstResponder()
             
-            return BannerHelper.error("The passcode and confirmation do not match", icon: "👮")
+            return BannerHelper.error("The passcode and confirmation do not match")
         }
         
         do {

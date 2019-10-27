@@ -97,7 +97,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     @IBAction func onContinue(_ sender: Any) {
         guard password.text?.count ?? 0 >= 8 else {
             password.becomeFirstResponder()
-            return BannerHelper.error("The minimum password length is 8 characters.", icon: "👮")
+            return BannerHelper.error("The minimum password length is 8 characters.")
         }
         
         guard state(self).recoveryMode() || confirmation != nil else {
@@ -107,12 +107,12 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
         guard state(self).recoveryMode() || password.text == confirmation else {
             confirmation = nil
             password.becomeFirstResponder()
-            return BannerHelper.error("The password and confirmation do not match", icon: "👮")
+            return BannerHelper.error("The password and confirmation do not match")
         }
         
         guard !state(self).recoveryMode() || verifyRecoveryChallenge() else {
             password.becomeFirstResponder()
-            return BannerHelper.error("The password you entered is incorrect", icon: "👮")
+            return BannerHelper.error("The password you entered is incorrect")
         }
 
         state(self).password = password.text
