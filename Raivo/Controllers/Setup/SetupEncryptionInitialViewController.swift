@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
 import UIKit
@@ -47,7 +49,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     /// - Parameter animated: If positive, the view is being added to the window using an animation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        attachKeyboardConstraint()
+        attachKeyboardConstraint(self)
     }
 
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.
@@ -55,7 +57,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     /// - Parameter animated: If positive, the disappearance of the view is being animated.
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        detachKeyboardConstraint()
+        detachKeyboardConstraint(self)
     }
     
     /// Notifies the view controller that its view was added to a view hierarchy.
@@ -74,7 +76,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     /// - Parameter textField: The text field whose return button was pressed.
     /// - Returns: Positive if the text field should implement its default behavior for the return button; otherwise, false.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        performSegue(withIdentifier: "SetupEncryptionConfirmationSegue", sender: textField)
+        onContinue(textField)
         return false
     }
     
@@ -95,26 +97,26 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     @IBAction func onContinue(_ sender: Any) {
         guard password.text?.count ?? 0 >= 8 else {
             password.becomeFirstResponder()
-            return BannerHelper.error("The minimum password length is 8 characters.", icon: "👮")
+            return BannerHelper.error("The minimum password length is 8 characters.")
         }
         
         guard state(self).recoveryMode() || confirmation != nil else {
-            return performSegue(withIdentifier: "SetupEncryptionConfirmationSegue", sender: sender)
+            return performSegue(withIdentifier: "SetupPasswordConfirmationSegue", sender: sender)
         }
         
         guard state(self).recoveryMode() || password.text == confirmation else {
             confirmation = nil
             password.becomeFirstResponder()
-            return BannerHelper.error("The password and confirmation do not match", icon: "👮")
+            return BannerHelper.error("The password and confirmation do not match")
         }
         
         guard !state(self).recoveryMode() || verifyRecoveryChallenge() else {
             password.becomeFirstResponder()
-            return BannerHelper.error("The password you entered is incorrect", icon: "👮")
+            return BannerHelper.error("The password you entered is incorrect")
         }
 
         state(self).password = password.text
-        performSegue(withIdentifier: "SetupPINCodeSegue", sender: sender)
+        performSegue(withIdentifier: "SetupPasscodeSegue", sender: sender)
     }
     
     /// Verify if the current password is correct (if the user is recovering data)
@@ -140,7 +142,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == "SetupEncryptionConfirmationSegue" {
+        if segue.identifier == "SetupPasswordConfirmationSegue" {
             if let destination = segue.destination as? SetupEncryptionConfirmationViewController {
                 destination.sendingController = self
             }

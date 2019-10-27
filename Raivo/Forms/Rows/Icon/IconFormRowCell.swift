@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import Foundation
@@ -23,17 +25,22 @@ class IconFormRowCell: AlertSelectorCell<PasswordIconTypeFormOption> {
     override func update() {
         super.update()
         
+        traitCollectionDidChange(nil)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         let iconValue = (row as! IconFormRow).iconValue
         
         guard let value = iconValue, iconValue?.count ?? 0 > 0 else {
-            iconView.image = UIImage(named: "password-placeholder")
+            iconView.image = UIImage(named: "vector-empty-item")
             return
         }
         
-        let url = URL(string: AppHelper.iconsURL + value)
-        
-        iconView?.sd_setImage(with: url, placeholderImage: UIImage(named: "password-placeholder"))
-        iconView.image = iconView.image?.withIconEffect
+        iconView.sd_setImage(
+            with: URL(string: AppHelper.iconsURL + value),
+            placeholderImage: UIImage(named: "vector-empty-item"),
+            context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
+        )
     }
     
 }

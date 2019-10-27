@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
 import Foundation
@@ -17,12 +19,16 @@ import Foundation
 public enum RealmError: LocalizedError {
     
     case unknownError
+    case encryptionError
     
     public var errorDescription: String? {
         switch self {
         case .unknownError:
             log.error("Exception occurred")
             return "An unknown Realm Objective-C exception occurred"
+        case .encryptionError:
+            log.error("Encryption error occurred")
+            return "A Realm Objective-C invalid encryption key exception occurred"
         }
     }
     

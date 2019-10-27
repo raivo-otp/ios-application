@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import Foundation
@@ -31,7 +33,7 @@ class MiscellaneousForm {
     public var providerRow: LabelRow { return form.rowBy(tag: "provider") as! LabelRow }
     public var inactivityLockRow: PickerInlineRow<MiscellaneousInactivityLockFormOption> { return form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscellaneousInactivityLockFormOption> }
     public var biometricUnlockRow: SwitchRow { return form.rowBy(tag: "biometric_unlock") as! SwitchRow }
-    public var changePINCodeRow: ButtonRow { return form.rowBy(tag: "change_pin_code") as! ButtonRow }
+    public var changePasscodeRow: ButtonRow { return form.rowBy(tag: "change_passcode") as! ButtonRow }
     public var iconsEffectRow: PickerInlineRow<MiscellaneousIconsEffectFormOption> { return form.rowBy(tag: "icons_effect") as! PickerInlineRow<MiscellaneousIconsEffectFormOption> }
     public var exportRow: ButtonRow { return form.rowBy(tag: "export") as! ButtonRow }
     public var loggingEnabledRow: SwitchRow { return form.rowBy(tag: "logging_enabled") as! SwitchRow }
@@ -152,13 +154,13 @@ class MiscellaneousForm {
                 }
             })
             
-            <<< ButtonRow("change_pin_code", { row in
-                row.title = "Change PIN code"
+            <<< ButtonRow("change_passcode", { row in
+                row.title = "Change passcode"
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textAlignment = .left
-                cell.imageView?.image = UIImage(named: "form-pincode")
+                cell.imageView?.image = UIImage(named: "form-passcode")
             }).onCellSelection({ cell, row in
-                controller.performSegue(withIdentifier: "ChangePincodeSegue", sender: nil)
+                controller.performSegue(withIdentifier: "MainChangePasscodeSegue", sender: nil)
             })
     }
     
@@ -214,8 +216,10 @@ class MiscellaneousForm {
                 DispatchQueue.global(qos: .background).async {
                     let dataExport = DataExportFeature()
 
-                    let password = StorageHelper.shared.getEncryptionPassword()
-                    let status = dataExport.generateArchive(protectedWith: password!)
+                    let status = autoreleasepool { () -> DataExportFeature.Result in
+                        let password = StorageHelper.shared.getEncryptionPassword()
+                        return dataExport.generateArchive(protectedWith: password!)
+                    }
                     
                     guard case let DataExportFeature.Result.success(archive) = status else {
                         log.error("Archive generation failed!")

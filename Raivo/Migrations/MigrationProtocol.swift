@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import RealmSwift
@@ -18,6 +20,9 @@ protocol MigrationProtocol {
     
     /// A function for running realm migrations.
     func migrateRealm(_ migration: Migration) -> Void
+    
+    /// A function for running migrations before initializing the application.
+    func migratePreInitialize() -> Void
     
     /// A function for running generic migrations before initializing the syncers.
     func migrateGeneric() -> Void

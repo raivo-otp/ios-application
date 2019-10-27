@@ -22,9 +22,9 @@ Pull requests are the best way to propose changes to the codebase (we use [GitHu
 4. Once approved by the stakeholders it can be added to the next release.
 5. Profit!
 
-## Any contributions you make will be under the CC BY-NC 4.0 license
+## Any contributions you make will be under the same license
 
-In short, when you submit code changes, your submissions are understood to be under the same [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license that covers the project. Feel free to contact the maintainers if that's a concern.
+In short, when you submit code changes, your submissions are understood to be under the same [license](https://github.com/tijme/raivo/blob/master/LICENSE.md) that covers the project. Feel free to contact the maintainers if that's a concern.
 
 ## Report bugs using GitHub's issue functionality
 
@@ -46,4 +46,4 @@ People *love* thorough bug reports. I'm not even kidding.
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under its [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license.
+By contributing, you agree that your contributions will be licensed under the same [license](https://github.com/tijme/raivo/blob/master/LICENSE.md).

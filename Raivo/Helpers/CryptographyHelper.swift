@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
 import Foundation
@@ -23,7 +25,7 @@ class CryptographyHelper {
     
     /// Use the PBKDF2 key derivation algorithm to derive the given data to a 64 byte encryption key
     ///
-    /// - Parameter secret: The secret to derive (for end-users, this is called the PIN code)
+    /// - Parameter secret: The secret to derive (for end-users, this is called the passcode)
     /// - Parameter salt: The salt to use for derivation (for end-users, this is called the password)
     /// - Returns: A key based on the secret and salt
     /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)

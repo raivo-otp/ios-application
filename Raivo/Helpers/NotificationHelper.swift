@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
 import Foundation
@@ -35,8 +37,11 @@ class NotificationHelper {
     public static let shared = NotificationHelper()
 
     /// Keeps track of observers for notifications that only one observer may listen to
-    private var singleInstances: [String: NSObjectProtocol] = [:]
-
+    private var singleInstances = Dictionary<String, NSObjectProtocol>()
+    
+    /// The access lock to prevent simultaneous access exceptions
+    private let lockable = NSRecursiveLock()
+    
     /// A private initializer to make sure this class can only be used as a singleton class
     private init() {}
 
@@ -46,15 +51,20 @@ class NotificationHelper {
     /// - Parameter distinctBy: Overwrite previous listeners with this name, to allow only one observer instance
     /// - Parameter callback: A closure that is called when the notification is observed
     public func listen(to: Notification.Name, distinctBy: String, _ callback: @escaping ((Notification) -> Void)) {
-        let key = to.rawValue + distinctBy
+        lockable.lock()
         
-        if singleInstances.keys.contains(key) {
+        let key = to.rawValue + distinctBy
+        let keys = singleInstances.keys
+        
+        if keys.contains(key) {
             NotificationCenter.default.removeObserver(singleInstances[key]!)
         }
         
         singleInstances[key] = NotificationCenter.default.addObserver(forName: to, object: nil, queue: nil) { notification in
             callback(notification)
         }
+        
+        lockable.unlock()
     }
 
     /// Stop observing a notification that you're listening to
@@ -62,11 +72,18 @@ class NotificationHelper {
     /// - Parameter notification: Which notification to stop listening to
     /// - Parameter byDistinctName: The identifiable observer name to stop
     public func discard(_ notification: Notification.Name, byDistinctName: String) {
-        let key = notification.rawValue + byDistinctName
+        lockable.lock()
         
-        if singleInstances.keys.contains(key) {
+        let key = notification.rawValue + byDistinctName
+        let keys = singleInstances.keys
+
+        if keys.contains(key) {
             NotificationCenter.default.removeObserver(singleInstances[key]!)
         }
+        
+        singleInstances.removeValue(forKey: key)
+        
+        lockable.unlock()
     }
 
     /// Observe a notification only once, then stop listening

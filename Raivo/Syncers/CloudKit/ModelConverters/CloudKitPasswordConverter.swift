@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import Foundation
@@ -14,14 +16,19 @@ import RealmSwift
 
 class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
     
-    static func getLocal(_ record: CKRecord) -> Password? {
-        let realm = try! Realm()
-        let id = record.value(forKey: "id") as! Int64
-        
-        return realm.object(ofType: Password.self, forPrimaryKey: id)
+    static func getLocal(_ record: CKRecord) throws -> Password? {
+        return try autoreleasepool { () throws -> Password? in
+            guard let realm = RealmHelper.getRealm() else {
+                log.error("Trying to get local CloudKit password but realm is nil")
+                throw RealmError.encryptionError
+            }
+            
+            let id = record.value(forKey: "id") as! Int64
+            return realm.object(ofType: Password.self, forPrimaryKey: id)
+        }
     }
     
-    static func getLocalCopy(_ record: CKRecord, syncedCorrectly: Bool = false) -> Password {
+    static func getLocalCopy(_ record: CKRecord, syncedCorrectly: Bool = false) throws -> Password {
         // We use a mock so we can fill it without write transactions
         let password = Password()
         
@@ -40,12 +47,12 @@ class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
             password.account = try CryptographyHelper.shared.decrypt(record.value(forKey: "account") as! String)
             password.secret = try CryptographyHelper.shared.decrypt(record.value(forKey: "secret") as! String)
         } catch let error {
-            log.error(error)
+            log.error(error.localizedDescription)
         }
         
         // We use some of the original values that are not stored in the CKRecord
         // But only if the local record exists
-        if let original = getLocal(record) {
+        if let original = try getLocal(record) {
             password.synced = original.synced
             password.syncing = original.syncing
             password.syncErrorDescription = original.syncErrorDescription

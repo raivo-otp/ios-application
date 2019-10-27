@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import Foundation
@@ -56,7 +58,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         initializeCollectionView()
         initializeRefreshButton()
         initializeSearchBar()
@@ -69,7 +71,9 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     /// - Parameter animated: If positive, the view is being added to the window using an animation
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        attachKeyboardConstraint()
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
+        attachKeyboardConstraint(self)
     }
 
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.
@@ -77,7 +81,9 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     /// - Parameter animated: If positive, the disappearance of the view is being animated.
     override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        detachKeyboardConstraint()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        detachKeyboardConstraint(self)
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -178,6 +184,10 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
         }
     }
     
+    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        refresh()
+    }
+    
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionFooter:
@@ -196,7 +206,11 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierIcon, for: indexPath as IndexPath) as! IconFormCell
         
-        cell.imageView.sd_setImage(with: URL(string: AppHelper.iconsURL + self.searchResults[indexPath.item]), completed: nil)
+        cell.imageView.sd_setImage(
+            with: URL(string: AppHelper.iconsURL + self.searchResults[indexPath.item]),
+            placeholderImage: UIImage(named: "vector-empty-item"),
+            context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
+        )
         
         return cell
     }

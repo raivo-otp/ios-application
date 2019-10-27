@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import UIKit
@@ -52,7 +54,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     /// Set the encryption key and update the default realm configuration
     ///
-    /// - Parameter encryptionKey: The new encryption key (password + PIN code)
+    /// - Parameter encryptionKey: The new encryption key (password + passcode)
     public func updateEncryptionKey(_ encryptionKey: Data?) {
         self.encryptionKey = encryptionKey
         RealmHelper.initDefaultRealmConfiguration(encryptionKey: encryptionKey)

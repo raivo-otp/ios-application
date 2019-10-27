@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import UIKit
@@ -59,10 +61,13 @@ class MainCreatePasswordViewController: FormViewController {
         
         let password = createPasswordFromForm()
         
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(password, update: true)
-//            realm.add(password, update: .modified)
+        autoreleasepool {
+            if let realm = RealmHelper.getRealm() {
+                try! realm.write {
+                    realm.add(password, update: true)
+                    //            realm.add(password, update: .modified)
+                }
+            }
         }
         
         dismissNavBarActivity(saveButtonBackup)

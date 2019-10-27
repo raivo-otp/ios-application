@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
 import Foundation
@@ -22,6 +24,13 @@ class MigrationToBuild6: MigrationProtocol {
     /// - Parameter migration: The Realm migration containing the old and new entities
     func migrateRealm(_ migration: Migration) {
         log.warning("Running Realm migration...")
+        
+        // Not implemented
+    }
+    
+    /// Run migrations to make data compatible with this build (before app initialization).
+    func migratePreInitialize() {
+        log.warning("Running pre init migration...")
         
         // Not implemented
     }

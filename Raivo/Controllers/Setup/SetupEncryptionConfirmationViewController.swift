@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
 import UIKit
@@ -22,7 +24,6 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-                
         password.becomeFirstResponder()
     }
     
@@ -31,7 +32,7 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     /// - Parameter animated: If positive, the view is being added to the window using an animation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        attachKeyboardConstraint()
+        attachKeyboardConstraint(self)
     }
 
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.
@@ -39,7 +40,7 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     /// - Parameter animated: If positive, the disappearance of the view is being animated.
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        detachKeyboardConstraint()
+        detachKeyboardConstraint(self)
     }
     
     /// On 'return' on the keyboard, perform the same action as the "continue" button.

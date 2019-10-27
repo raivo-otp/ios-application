@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
 import SwiftyBeaver
@@ -26,7 +28,17 @@ func getAppPrincipal() -> ApplicationPrincipal {
 ///
 /// - Returns: The application delegate singleton instance
 func getAppDelegate() -> ApplicationDelegate {
-    return (getAppPrincipal().delegate as! ApplicationDelegate)
+    if Thread.isMainThread {
+        return (getAppPrincipal().delegate as! ApplicationDelegate)
+    }
+    
+    var appDelegate: ApplicationDelegate?
+    
+    DispatchQueue.main.sync {
+        appDelegate = (getAppPrincipal().delegate as! ApplicationDelegate)
+    }
+    
+    return appDelegate!
 }
 
 /// Add the current console as a SwiftyBeaver logging destination
@@ -51,10 +63,18 @@ func initializeFileLogging() {
 
 /// Return a uniquely identifiable string (ID) for the given class.
 ///
-/// - Parameter reference: The class or object to describe
+/// - Parameter reference: The class or object to describe.
+/// - Parameter appId: The application identifier (e.g. release or debug).
 /// - Returns: A string describing the class (e.g. `com.finnwea.Raivo.Debug.StorageHelper`)
-func id(_ reference: Any) -> String {
-    return AppHelper.identifier + String(describing: reference).split(separator: ".").last!
+func id(_ reference: Any, _ appId: String = AppHelper.identifier) -> String {
+    var identifier = String(describing: type(of: reference))
+    
+    if identifier.hasSuffix(".Type") {
+        let typeIndex = identifier.index(identifier.endIndex, offsetBy: -5)
+        identifier = String(identifier.prefix(upTo: typeIndex))
+    }
+    
+    return appId + identifier
 }
 
 /// Return a uniquely identifiable string (ID) for the given class (based on the release bundle identifier).
@@ -62,7 +82,7 @@ func id(_ reference: Any) -> String {
 /// - Parameter reference: The class or object to describe
 /// - Returns: A string describing the class (e.g. `com.finnwea.Raivo.StorageHelper`)
 func idr(_ reference: Any) -> String {
-    return AppHelper.releaseIdentifier + String(describing: reference).split(separator: ".").last!
+    return id(reference, AppHelper.releaseIdentifier)
 }
 
 /// A short hand for running the given closure on the main thread

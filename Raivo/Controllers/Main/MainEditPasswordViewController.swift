@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import UIKit
@@ -52,20 +54,23 @@ class MainEditPasswordViewController: FormViewController {
             return
         }
         
-        let realm = try! Realm()
-        try! realm.write {
-            password!.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
-            password!.account = (passwordForm!.accountRow.value ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-            password!.iconType = passwordForm!.iconRow.iconType ?? ""
-            password!.iconValue = passwordForm!.iconRow.iconValue ?? ""
-            password!.secret = passwordForm!.secretRow.value!
-            password!.algorithm = passwordForm!.algorithmRow.value!.value
-            password!.digits = passwordForm!.digitsRow.value!.value
-            password!.kind = passwordForm!.kindRow.value!.value
-            password!.timer = passwordForm!.timerRow.value ?? 0
-            password!.counter = passwordForm!.counterRow.value ?? 0
-            password!.syncing = true
-            password!.synced = false
+        autoreleasepool {
+            if let realm = RealmHelper.getRealm() {
+                try! realm.write {
+                    password!.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    password!.account = (passwordForm!.accountRow.value ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+                    password!.iconType = passwordForm!.iconRow.iconType ?? ""
+                    password!.iconValue = passwordForm!.iconRow.iconValue ?? ""
+                    password!.secret = passwordForm!.secretRow.value!
+                    password!.algorithm = passwordForm!.algorithmRow.value!.value
+                    password!.digits = passwordForm!.digitsRow.value!.value
+                    password!.kind = passwordForm!.kindRow.value!.value
+                    password!.timer = passwordForm!.timerRow.value ?? 0
+                    password!.counter = passwordForm!.counterRow.value ?? 0
+                    password!.syncing = true
+                    password!.synced = false
+                }
+            }
         }
         
         dismissNavBarActivity(saveButtonBackup)

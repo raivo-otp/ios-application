@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Misc-->
+        <!--Settings-->
         <scene sceneID="3ck-I9-pbb">
             <objects>
                 <viewController id="qNU-ah-yuG" customClass="AuthMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B6u-tF-wOl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jM8-rR-XOj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Misc" id="DE9-4w-90n"/>
+                    <navigationItem key="navigationItem" title="Settings" id="DE9-4w-90n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slK-zn-DG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,8 +28,8 @@
         <scene sceneID="PJd-Wa-Ls1">
             <objects>
                 <navigationController restorationIdentifier="AuthRootController" storyboardIdentifier="AuthRootController" id="gmH-zH-eht" customClass="AuthRootViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="NvE-Ep-Hsc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NvE-Ep-Hsc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -53,13 +52,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRd-ny-Rp6" userLabel="Wrapper">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVE-R8-zi7" userLabel="Content">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5nT-3F-W59">
-                                                <rect key="frame" x="0.0" y="280" width="414" height="302"/>
+                                                <rect key="frame" x="0.0" y="236" width="414" height="302"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="GWG-jo-ayS" userLabel="Logo">
                                                         <rect key="frame" x="127" y="0.0" width="160" height="160"/>
@@ -77,13 +76,13 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your PIN code to continue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDs-zg-TZo" userLabel="Description">
-                                                                <rect key="frame" x="75.5" y="28.5" width="247.5" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your passcode to continue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDs-zg-TZo" userLabel="Description">
+                                                                <rect key="frame" x="73" y="28.5" width="252" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hr9-XI-BmF" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hr9-XI-BmF" customClass="UIPasscodeField" customModule="Raivo" customModuleProvider="target">
                                                                 <rect key="frame" x="79" y="57" width="240" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -134,21 +133,21 @@
                             <constraint firstAttribute="trailing" secondItem="Vz1-KG-knS" secondAttribute="trailing" id="buw-cn-Olv"/>
                             <constraint firstItem="q9X-y2-Q3g" firstAttribute="bottom" secondItem="oRd-ny-Rp6" secondAttribute="bottom" identifier="KeyboardConstraint" id="hpc-9v-vna"/>
                             <constraint firstItem="Vz1-KG-knS" firstAttribute="top" secondItem="4Ag-aZ-ScX" secondAttribute="top" id="tc7-jf-4x9"/>
-                            <constraint firstItem="oRd-ny-Rp6" firstAttribute="top" secondItem="4Ag-aZ-ScX" secondAttribute="top" id="xXG-gS-Gww"/>
+                            <constraint firstItem="oRd-ny-Rp6" firstAttribute="top" secondItem="q9X-y2-Q3g" secondAttribute="top" id="xXG-gS-Gww"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q9X-y2-Q3g"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Vaj-Bd-pgT">
-                        <barButtonItem key="backBarButtonItem" title="PIN code" id="jwC-lh-wPV"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Vaj-Bd-pgT">
+                        <barButtonItem key="backBarButtonItem" title="passcode" id="jwC-lh-wPV"/>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="gLa-Xm-VG5">
                             <connections>
-                                <segue destination="qNU-ah-yuG" kind="show" id="gUw-ag-rhy"/>
+                                <segue destination="qNU-ah-yuG" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="gUw-ag-rhy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="biometricLabel" destination="VFf-yI-PgO" id="Sc0-Cf-N1J"/>
-                        <outlet property="pincodeField" destination="hr9-XI-BmF" id="03y-gn-quq"/>
+                        <outlet property="passcodeField" destination="hr9-XI-BmF" id="03y-gn-quq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tv-D2-TdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -160,9 +159,6 @@
         <image name="app-icon" width="341.33334350585938" height="341.33334350585938"/>
         <image name="icon-misc" width="30" height="30"/>
         <image name="pattern" width="67" height="100"/>
-        <namedColor name="color-background-opaque">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
     <color key="tintColor" name="color-tint-red"/>
 </document>

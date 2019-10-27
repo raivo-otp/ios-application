@@ -1,6 +1,8 @@
 # Security Policy
 
-Raivo ("us", "we", or "our") operates the Raivo mobile application (the "Service"), licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license.
+> Effective date: April 16, 2019
+
+Raivo ("us", "we", or "our") operates the Raivo mobile application (the "Service").
 
 The key words "must", "must not", "required", "shall", "shall not", "should", "should not", "recommended", "may" and "optional" in this document are to be interpreted as described in RFC 2119 [(Bradner, 1997)](https://www.ietf.org/rfc/rfc2119.txt).
 

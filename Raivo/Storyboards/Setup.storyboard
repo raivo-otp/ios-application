@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setup Entry View Controller-->
+        <!--Welcome-->
         <scene sceneID="2B9-FP-tEu">
             <objects>
                 <viewController id="L7F-qU-nuT" customClass="SetupEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eJV-DX-rHs" userLabel="Padded Stack View">
                                                         <rect key="frame" x="8" y="183" width="398" height="118.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo OTP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8d-Qg-WqW" userLabel="Heading">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo OTP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMF-0q-efD" userLabel="Heading">
                                                                 <rect key="frame" x="118.5" y="0.0" width="161.5" height="41"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                                                 <nil key="textColor"/>
@@ -114,13 +114,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5K1-mB-K0a"/>
                     </view>
-                    <navigationItem key="navigationItem" id="s2T-Df-wTP">
-                        <barButtonItem key="backBarButtonItem" title="Welcome" id="0I5-fW-PWW"/>
+                    <navigationItem key="navigationItem" title="Welcome" largeTitleDisplayMode="never" id="s2T-Df-wTP">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="blQ-sD-5Hv">
                             <connections>
-                                <segue destination="rsm-CC-mgT" kind="popoverPresentation" popoverAnchorBarButtonItem="blQ-sD-5Hv" id="kXg-al-pVu">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="rsm-CC-mgT" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="NTB-5G-D3w"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -220,7 +217,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="Nny-vM-lum" kind="show" identifier="SetupEncryptionSegue" id="1Lb-5a-uP5"/>
+                                            <segue destination="Nny-vM-lum" kind="show" identifier="SetupPasswordSegue" id="1Lb-5a-uP5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -249,12 +246,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EQz-pQ-2NM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Storage" id="Ky2-yX-4gQ">
+                    <navigationItem key="navigationItem" title="Storage" largeTitleDisplayMode="always" id="Ky2-yX-4gQ">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="2qR-R5-jtA">
                             <connections>
-                                <segue destination="rsm-CC-mgT" kind="popoverPresentation" popoverAnchorBarButtonItem="2qR-R5-jtA" id="4D3-TK-2g2">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="rsm-CC-mgT" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="4D3-TK-2g2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -268,7 +263,7 @@
             </objects>
             <point key="canvasLocation" x="1436" y="90"/>
         </scene>
-        <!--Encryption-->
+        <!--Password-->
         <scene sceneID="sBg-hW-Dwr">
             <objects>
                 <viewController id="Nny-vM-lum" customClass="SetupEncryptionInitialViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
@@ -308,7 +303,6 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="ReS-sI-JFs"/>
                                                                 </constraints>
-                                                                <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password">
                                                                     <passwordRules key="passwordRules" passwordRulesDescriptor="minlength: 8;"/>
@@ -318,9 +312,7 @@
                                                                 <rect key="frame" x="99" y="122.5" width="200" height="0.0"/>
                                                                 <state key="normal" title="I forgot my master password."/>
                                                                 <connections>
-                                                                    <segue destination="JV5-fL-M0g" kind="popoverPresentation" popoverAnchorView="lzc-bJ-VKm" id="KCy-Xp-PLa">
-                                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                                    </segue>
+                                                                    <segue destination="JV5-fL-M0g" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="KCy-Xp-PLa"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -384,12 +376,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vfi-aW-s2x"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Encryption" id="EWQ-79-udb">
+                    <navigationItem key="navigationItem" title="Password" id="EWQ-79-udb">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="Cqe-aB-L1X">
                             <connections>
-                                <segue destination="rsm-CC-mgT" kind="popoverPresentation" popoverAnchorBarButtonItem="Cqe-aB-L1X" id="qQG-nR-Dhp">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="rsm-CC-mgT" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="qQG-nR-Dhp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -398,10 +388,8 @@
                         <outlet property="password" destination="OlT-xd-KJW" id="tZl-eq-pEN"/>
                         <outlet property="viewDescription" destination="En1-Wf-CAd" id="Y6l-Lb-xUo"/>
                         <outlet property="viewTitle" destination="BoX-Bb-B2i" id="xd5-Kl-Dkh"/>
-                        <segue destination="dnl-gw-FPY" kind="show" identifier="SetupPINCodeSegue" id="aK7-If-vjI"/>
-                        <segue destination="aZF-PO-c5E" kind="popoverPresentation" identifier="SetupEncryptionConfirmationSegue" popoverAnchorView="OlT-xd-KJW" id="deV-sC-kkO">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
+                        <segue destination="dnl-gw-FPY" kind="show" identifier="SetupPasscodeSegue" id="aK7-If-vjI"/>
+                        <segue destination="aZF-PO-c5E" kind="custom" identifier="SetupPasswordConfirmationSegue" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="deV-sC-kkO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVM-cg-cgB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -413,20 +401,20 @@
             <objects>
                 <viewController id="aZF-PO-c5E" customClass="SetupEncryptionConfirmationViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q7Z-oT-E3e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="ToW-qE-aQL" userLabel="Background" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snH-Uz-pZh" userLabel="Wrapper">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGf-ND-lLs" userLabel="Content">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m8h-2R-p78">
-                                                <rect key="frame" x="0.0" y="309" width="414" height="122.5"/>
+                                                <rect key="frame" x="0.0" y="314" width="414" height="122.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HGW-wv-5zd" userLabel="Padded Stack View">
                                                         <rect key="frame" x="8" y="0.0" width="398" height="122.5"/>
@@ -474,7 +462,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRh-ks-bG2">
-                                        <rect key="frame" x="16" y="740" width="382" height="52"/>
+                                        <rect key="frame" x="16" y="750" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -523,10 +511,10 @@
             </objects>
             <point key="canvasLocation" x="3265" y="-680"/>
         </scene>
-        <!--PIN code unlock-->
+        <!--Passcode-->
         <scene sceneID="BRp-fX-uQW">
             <objects>
-                <viewController id="dnl-gw-FPY" customClass="SetupPINCodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dnl-gw-FPY" customClass="SetupPasscodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sQY-MQ-ar5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -546,19 +534,19 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oJk-5h-VOo" userLabel="Padded Stack View">
                                                         <rect key="frame" x="8" y="0.0" width="398" height="97"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your PIN code." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEb-wM-vVz" userLabel="Title">
-                                                                <rect key="frame" x="125" y="0.0" width="148" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your passcode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEb-wM-vVz" userLabel="Title">
+                                                                <rect key="frame" x="122.5" y="0.0" width="153.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can use the PIN code to unlock Raivo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-lP-QS8" userLabel="Description">
-                                                                <rect key="frame" x="38.5" y="28.5" width="321" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can use the passcode to unlock Raivo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-lP-QS8" userLabel="Description">
+                                                                <rect key="frame" x="36.5" y="28.5" width="325.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-Ff-yFW" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-Ff-yFW" customClass="UIPasscodeField" customModule="Raivo" customModuleProvider="target">
                                                                 <rect key="frame" x="79" y="57" width="240" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -606,54 +594,50 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dhH-y2-mD1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PIN code unlock" id="1kZ-QS-P3E">
-                        <barButtonItem key="backBarButtonItem" title="PIN code" id="2ZV-vc-vWm"/>
+                    <navigationItem key="navigationItem" title="Passcode" id="1kZ-QS-P3E">
+                        <barButtonItem key="backBarButtonItem" title="passcode" id="2ZV-vc-vWm"/>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="whS-iv-ZVx">
                             <connections>
-                                <segue destination="rsm-CC-mgT" kind="popoverPresentation" popoverAnchorBarButtonItem="whS-iv-ZVx" id="aXH-EA-OxQ">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="rsm-CC-mgT" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="aXH-EA-OxQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="pincodeField" destination="dxg-Ff-yFW" id="QGY-ln-0Qd"/>
+                        <outlet property="passcodeField" destination="dxg-Ff-yFW" id="QGY-ln-0Qd"/>
                         <segue destination="YYG-LO-sPf" kind="show" identifier="SetupBiometricSegue" id="hgd-C7-ghz"/>
-                        <segue destination="Cnu-66-kbD" kind="popoverPresentation" identifier="SetupPINCodeConfirmationSegue" popoverAnchorView="dxg-Ff-yFW" id="IDh-Bc-WcK">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
-                        <segue destination="zHk-nC-Ffm" kind="show" identifier="SkipToSetupFinalizeSegue" id="OLy-2Y-whp"/>
+                        <segue destination="Cnu-66-kbD" kind="custom" identifier="SetupPasscodeConfirmationSegue" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="IDh-Bc-WcK"/>
+                        <segue destination="zHk-nC-Ffm" kind="show" identifier="SetupSkipToFinalizeSegue" id="OLy-2Y-whp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUW-6Q-P9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4361" y="90"/>
         </scene>
-        <!--PIN code-->
+        <!--passcode-->
         <scene sceneID="smr-We-Xx1">
             <objects>
-                <viewController id="Cnu-66-kbD" customClass="SetupPINCodeConfirmationViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cnu-66-kbD" customClass="SetupPasscodeConfirmationViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Mx-XC-TOg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="hua-7R-fmR" userLabel="Background" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXZ-7B-mwN" userLabel="Wrapper">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHV-pj-Zge" userLabel="Content">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pYt-2C-KxC">
-                                                <rect key="frame" x="0.0" y="355.5" width="414" height="97"/>
+                                                <rect key="frame" x="0.0" y="360.5" width="414" height="97"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xsX-TN-BA0" userLabel="Padded Stack View">
                                                         <rect key="frame" x="8" y="0.0" width="398" height="97"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the PIN code." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQw-g3-ez1" userLabel="Title">
-                                                                <rect key="frame" x="111" y="0.0" width="176" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the passcode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQw-g3-ez1" userLabel="Title">
+                                                                <rect key="frame" x="108.5" y="0.0" width="181" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -664,9 +648,9 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoq-zi-Jg7" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoq-zi-Jg7" customClass="UIPasscodeField" customModule="Raivo" customModuleProvider="target">
                                                                 <rect key="frame" x="79" y="57" width="240" height="40"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="BTf-3h-n0S"/>
                                                                     <constraint firstAttribute="width" constant="240" id="DEN-IN-HFY"/>
@@ -711,16 +695,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p0m-Uu-o30"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PIN code" id="Wip-Bc-0CN"/>
+                    <navigationItem key="navigationItem" title="passcode" id="Wip-Bc-0CN"/>
                     <connections>
-                        <outlet property="pincodeField" destination="uoq-zi-Jg7" id="vjt-Xi-1Vx"/>
+                        <outlet property="passcodeField" destination="uoq-zi-Jg7" id="3pg-Wf-2S3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CN9-1F-2Cy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4361" y="-680"/>
         </scene>
-        <!--Biometric unlock-->
+        <!--BiomID-->
         <scene sceneID="I8t-63-McX">
             <objects>
                 <viewController id="YYG-LO-sPf" customClass="SetupBiometricViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
@@ -749,7 +733,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometry allows you to unlock Raivo with BiomID, instead of your PIN code." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOI-sT-feM" userLabel="Description">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometry allows you to unlock Raivo with BiomID, instead of your passcode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOI-sT-feM" userLabel="Description">
                                                                 <rect key="frame" x="10.5" y="28.5" width="377.5" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -819,13 +803,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tpf-jC-grM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Biometric unlock" id="nL0-4k-ilc">
+                    <navigationItem key="navigationItem" title="BiomID" id="nL0-4k-ilc">
                         <barButtonItem key="backBarButtonItem" title="Biometric" id="djg-Un-mfA"/>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="Azs-q4-c9d">
                             <connections>
-                                <segue destination="rsm-CC-mgT" kind="popoverPresentation" popoverAnchorBarButtonItem="Azs-q4-c9d" id="dDq-jh-N41">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="rsm-CC-mgT" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="dDq-jh-N41"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -852,7 +834,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="s12-Ko-d1C" secondAttribute="trailing" id="dbq-er-VxK"/>
                             <constraint firstItem="s12-Ko-d1C" firstAttribute="leading" secondItem="4Lm-Ia-NyJ" secondAttribute="leading" id="eMH-o0-KoU"/>
@@ -861,7 +843,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0EK-Hk-Z3l"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="rUN-fT-I5W"/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="rUN-fT-I5W"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubg-Ym-yJy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -872,20 +854,20 @@
             <objects>
                 <viewController id="JV5-fL-M0g" customClass="SetupFlushDataViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gpV-cK-pFW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="gif-wJ-clY" userLabel="Background" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kX2-Al-V5x" userLabel="Wrapper">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bu3-9q-AaD" userLabel="Content">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="34P-0c-U4i">
-                                                <rect key="frame" x="0.0" y="286" width="414" height="168"/>
+                                                <rect key="frame" x="0.0" y="291" width="414" height="168"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G7y-uM-Z5j" userLabel="Padded Stack View">
                                                         <rect key="frame" x="8" y="0.0" width="398" height="168"/>
@@ -927,7 +909,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-qW-Gkh">
-                                        <rect key="frame" x="16" y="740" width="382" height="52"/>
+                                        <rect key="frame" x="16" y="750" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
@@ -973,7 +955,7 @@
             </objects>
             <point key="canvasLocation" x="2455" y="-680"/>
         </scene>
-        <!--Setup Finalize View Controller-->
+        <!--Welcome to Raivo OTP-->
         <scene sceneID="lkZ-va-T8s">
             <objects>
                 <viewController id="zHk-nC-Ffm" customClass="SetupFinalizeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
@@ -991,7 +973,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="794"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XoJ-ct-de9">
-                                                <rect key="frame" x="0.0" y="260.5" width="414" height="273"/>
+                                                <rect key="frame" x="0.0" y="246.5" width="414" height="301.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="yaz-zp-dri" userLabel="Logo">
                                                         <rect key="frame" x="119.5" y="0.0" width="175" height="175"/>
@@ -1001,16 +983,22 @@
                                                         </constraints>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d1n-c1-n7d" userLabel="Padded Stack View">
-                                                        <rect key="frame" x="8" y="183" width="398" height="90"/>
+                                                        <rect key="frame" x="8" y="183" width="398" height="118.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGq-Nk-0YE" userLabel="Heading">
-                                                                <rect key="frame" x="125.5" y="0.0" width="147" height="41"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup complete!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGq-Nk-0YE" userLabel="Heading">
+                                                                <rect key="frame" x="68.5" y="0.0" width="261" height="41"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've successfully configured the application and are now ready to add your first OTP token." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcj-XM-RKb" userLabel="Description">
-                                                                <rect key="frame" x="3.5" y="49" width="391" height="41"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy the ease of Raivo OTP!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-FI-sO7" userLabel="Title">
+                                                                <rect key="frame" x="85.5" y="49" width="227" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've successfully configured the application and are now ready to add your first  one-time password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcj-XM-RKb" userLabel="Description">
+                                                                <rect key="frame" x="2" y="77.5" width="394.5" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1072,11 +1060,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Dj-6y-AgQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="D5W-sU-mVn">
-                        <barButtonItem key="backBarButtonItem" title="Welcome" id="nIw-Mm-cbW"/>
+                    <navigationItem key="navigationItem" title="Welcome to Raivo OTP" largeTitleDisplayMode="never" id="D5W-sU-mVn">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="pCL-0d-f6G">
                             <connections>
-                                <segue destination="rsm-CC-mgT" kind="show" id="eiK-Dx-I6p"/>
+                                <segue destination="rsm-CC-mgT" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="eiK-Dx-I6p"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1093,7 +1080,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="l9d-6b-Nce"/>
-        <segue reference="eiK-Dx-I6p"/>
+        <segue reference="dDq-jh-N41"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

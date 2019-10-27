@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import UIKit
@@ -74,14 +76,12 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
         } catch {
-            log.error(error)
+            log.error(error.localizedDescription)
             return
         }
 
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame.size = cameraPreview.frame.size
-        cameraPreview.layer.addSublayer(videoPreviewLayer!)
         
         NotificationCenter.default.addObserver(
             self,
@@ -116,10 +116,23 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             self.cameraUnavailableLabel.isHidden = !unavailable
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         currentlyCheckingToken = false
+        
+        cameraPreview.layoutIfNeeded()
+        videoPreviewLayer?.frame.size = cameraPreview.frame.size
+        
+        guard videoPreviewLayer != nil else {
+            return
+        }
+        
+        cameraPreview.layer.addSublayer(videoPreviewLayer!)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -146,11 +159,11 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         }
         
         lastScannedToken = Token(url: URL(string: metadataObj.stringValue!)!)
-        performSegue(withIdentifier: "CreatePasswordAutomatically", sender: nil)
+        performSegue(withIdentifier: "MainCreateScannedOneTimePasswordSegue", sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "CreatePasswordManually" {
+        if segue.identifier != "MainCreateManualOneTimePasswordSegue" {
             let newViewController = segue.destination as! MainCreatePasswordViewController
             newViewController.token = lastScannedToken
             newViewController.navigationItem.title = "Verify"

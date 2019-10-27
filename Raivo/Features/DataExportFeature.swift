@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found 
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import Foundation
@@ -61,9 +63,19 @@ class DataExportFeature {
     }
     
     private func getHTMLRepresentation() -> String {
-        let realm = try! Realm()
-        let passwords = realm.objects(Password.self)
+        let possiblePasswords = autoreleasepool { () -> Results<Password>? in
+            if let realm = RealmHelper.getRealm() {
+                let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+                return realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+            }
+            
+            return nil
+        }
         
+        guard let passwords = possiblePasswords else {
+            return "An error occurred during the export. Please try again!"
+        }
+
         let wrapperTemplateFile = Bundle.main.path(forResource: "all-passwords", ofType: "html")
         let passwordTemplateFile = Bundle.main.path(forResource: "single-password", ofType: "html")
         
@@ -110,8 +122,17 @@ class DataExportFeature {
     }
     
     private func getJSONRepresentation() -> String {
-        let realm = try! Realm()
-        let passwords = Array(realm.objects(Password.self))
+        let possiblePasswords = autoreleasepool { () -> Array<Password>? in
+            if let realm = RealmHelper.getRealm() {
+                return Array(realm.objects(Password.self))
+            }
+            
+            return nil
+        }
+        
+        guard let passwords = possiblePasswords else {
+            return "{\"message\": \"Could not retrieve OTPs from Realm\"}"
+        }
         
         guard let json = try? JSONSerialization.data(withJSONObject: passwords.map { $0.getExportFields() }, options: []) else {
             return "{\"message\": \"Could not convert OTPs to JSON\"}"

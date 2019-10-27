@@ -4,9 +4,11 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found 
-// in the LICENSE.md file in the root directory of this source tree.
-// 
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
+//
 
 import Foundation
 import LocalAuthentication
@@ -23,8 +25,8 @@ class StorageHelper {
         static let SYNCHRONIZATION_PROVIDER = "SynchronizationProvider"
         static let SYNCHRONIZATION_ACCOUNT_IDENTIFIER = "SynchronizationProviderAccountIdentifier"
         static let ICONS_EFFECT = "IconsEffect"
-        static let PINCODE_TRIED_AMOUNT = "PincodeTriedAmount"
-        static let PINCODE_TRIED_TIMESTAMP = "PincodeTriedTimestamp"
+        static let PASSCODE_TRIED_AMOUNT = "PasscodeTriedAmount"
+        static let PASSCODE_TRIED_TIMESTAMP = "PasscodeTriedTimestamp"
         static let PREVIOUS_BUILD = "PreviousBuild"
         static let ENCRYPTION_KEY = "EncryptionKey"
         static let TOUCHID_ENABLED = "TouchIDEnabled"
@@ -38,29 +40,37 @@ class StorageHelper {
     /// A private initializer to make sure this class can only be used as a singleton class
     private init() {}
     
+    /// Get a `Valet` that enables you to store key/value pairs in the keychain (without any protection).
+    ///
+    /// - Returns: The `Valet` settings instance
+    public func globals() -> Valet {
+        return Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .always)
+    }
+    
     /// Get a `Valet` that enables you to store key/value pairs in the keychain (outside of Secure Encalve).
     ///
     /// - Returns: The `Valet` settings instance
-    private func settings() -> Valet {
+    public func settings() -> Valet {
         return Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .whenUnlocked)
     }
     
     /// Get a `SecureEnclaveValet` that enables you to store key/value pairs in Secure Encalve.
     ///
     /// - Returns: The `SecureEnclaveValet` secrets instance
-    private func secrets() -> SecureEnclaveValet {
+    public func secrets() -> SecureEnclaveValet {
         return SecureEnclaveValet.valet(with: Identifier(nonEmpty: "secrets")!, accessControl: .userPresence)
     }
     
     /// Clear all of the settings and secrets so they can be initialized again in a later stage.
     ///
-    /// - Parameter dueToPINCodeChange: Positive if only certain keychain items should be removed.
-    /// - Note: The `dueToPINCodeChange` parameter can be set to true on e.g. a PIN code change.
-    public func clear(dueToPINCodeChange: Bool = false) {
-        guard !dueToPINCodeChange else { return }
+    /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
+    /// - Note: The `dueToPasscodeChange` parameter can be set to true on e.g. a passcode change.
+    public func clear(dueToPasscodeChange: Bool = false) {
+        guard !dueToPasscodeChange else { return }
 
         log.warning("Removing all keychain and secure enclave entries")
         
+        globals().removeAllObjects()
         settings().removeAllObjects()
         secrets().removeAllObjects()
     }
@@ -111,14 +121,14 @@ class StorageHelper {
     /// - Parameter seconds: The new lockscreen timeout
     public func setLockscreenTimeout(_ seconds: TimeInterval) {
         log.verbose("Setting lockscreen timeout")
-        settings().set(string: String(seconds), forKey: Key.LOCKSCREEN_TIMEOUT)
+        globals().set(string: String(seconds), forKey: Key.LOCKSCREEN_TIMEOUT)
     }
     
     /// Get the lockscreen timeout.
     ///
     /// - Returns: The lockscreen timeout
     public func getLockscreenTimeout() -> TimeInterval? {
-        guard let timeout = settings().string(forKey: Key.LOCKSCREEN_TIMEOUT) else {
+        guard let timeout = globals().string(forKey: Key.LOCKSCREEN_TIMEOUT) else {
             return nil
         }
         
@@ -130,14 +140,14 @@ class StorageHelper {
     /// - Parameter filename: The new filename
     public func setRealmFilename(_ filename: String) {
         log.verbose("Setting realm filename")
-        settings().set(string: filename, forKey: Key.REALM_FILENAME)
+        globals().set(string: filename, forKey: Key.REALM_FILENAME)
     }
     
     /// Get the realm filename.
     ///
     /// - Returns: The realm filename
     public func getRealmFilename() -> String? {
-        return settings().string(forKey: Key.REALM_FILENAME)
+        return globals().string(forKey: Key.REALM_FILENAME)
     }
     
     /// Set the synchronization provider.
@@ -145,14 +155,14 @@ class StorageHelper {
     /// - Parameter provider: The unique ID of the synchronization provider
     public func setSynchronizationProvider(_ provider: String) {
         log.verbose("Setting synchronization provider")
-        settings().set(string: provider, forKey: Key.SYNCHRONIZATION_PROVIDER)
+        globals().set(string: provider, forKey: Key.SYNCHRONIZATION_PROVIDER)
     }
     
     /// Get the synchronization provider.
     ///
     /// - Returns: The synchronization provider
     public func getSynchronizationProvider() -> String? {
-        return settings().string(forKey: Key.SYNCHRONIZATION_PROVIDER)
+        return globals().string(forKey: Key.SYNCHRONIZATION_PROVIDER)
     }
     
     /// Set the synchronization account identifier.
@@ -162,9 +172,9 @@ class StorageHelper {
         log.verbose("Setting synchronization account identifier")
         
         if let accountIdentifier = accountIdentifier {
-            settings().set(string: accountIdentifier, forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+            globals().set(string: accountIdentifier, forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
         } else {
-            settings().removeObject(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+            globals().removeObject(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
         }
     }
     
@@ -172,7 +182,7 @@ class StorageHelper {
     ///
     /// - Returns: The identifier
     public func getSynchronizationAccountIdentifier() -> String? {
-        return settings().string(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+        return globals().string(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
     }
     
     /// Set the icons effect.
@@ -180,49 +190,48 @@ class StorageHelper {
     /// - Parameter effect: The icons effect
     public func setIconsEffect(_ effect: String) {
         log.verbose("Setting icons effect")
-        settings().set(string: effect, forKey: Key.ICONS_EFFECT)
+        globals().set(string: effect, forKey: Key.ICONS_EFFECT)
     }
     
     /// Get the icons effect.
     ///
     /// - Returns: The icons effect
     public func getIconsEffect() -> String? {
-        return settings().string(forKey: Key.ICONS_EFFECT)
+        return globals().string(forKey: Key.ICONS_EFFECT)
     }
     
-    /// Set the amount of times the user entered the PIN code.
+    /// Set the amount of times the user entered the passcode.
     ///
     /// - Parameter tries: The amount of tries
-    public func setPincodeTriedAmount(_ tries: Int) {
-        log.verbose("Setting pincode tried amount")
-        settings().set(string: String(tries), forKey: Key.PINCODE_TRIED_AMOUNT)
+    public func setPasscodeTriedAmount(_ tries: Int) {
+        log.verbose("Setting passcode tried amount")
+        globals().set(string: String(tries), forKey: Key.PASSCODE_TRIED_AMOUNT)
     }
     
-    /// Get the amount of times the user tried to enter the PIN code.
+    /// Get the amount of times the user tried to enter the passcode.
     ///
     /// - Returns: The amount of tries
-    public func getPincodeTriedAmount() -> Int? {
-        guard let tries = settings().string(forKey: Key.PINCODE_TRIED_AMOUNT) else {
+    public func getPasscodeTriedAmount() -> Int? {
+        guard let tries = globals().string(forKey: Key.PASSCODE_TRIED_AMOUNT) else {
             return nil
         }
         
         return Int(tries)
     }
     
-    /// Set the timestamp of the last PIN code try.
+    /// Set the timestamp of the last passcode try.
     ///
-    /// - Parameter timestamp: The last time the user tried a PIN code
-    public func setPincodeTriedTimestamp(_ timestamp: TimeInterval) {
-        log.verbose("Setting pincode tried timestamp")
-        settings().set(string: String(timestamp), forKey: Key.PINCODE_TRIED_TIMESTAMP)
-        
+    /// - Parameter timestamp: The last time the user tried a passcode
+    public func setPasscodeTriedTimestamp(_ timestamp: TimeInterval) {
+        log.verbose("Setting passcode tried timestamp")
+        globals().set(string: String(timestamp), forKey: Key.PASSCODE_TRIED_TIMESTAMP)
     }
     
-    /// Get the timestamp of the last PIN code try.
+    /// Get the timestamp of the last passcode try.
     ///
-    /// - Returns: The last time the user tried a PIN code
-    public func getPincodeTriedTimestamp() -> TimeInterval? {
-        guard let tries = settings().string(forKey: Key.PINCODE_TRIED_TIMESTAMP) else {
+    /// - Returns: The last time the user tried a passcode
+    public func getPasscodeTriedTimestamp() -> TimeInterval? {
+        guard let tries = globals().string(forKey: Key.PASSCODE_TRIED_TIMESTAMP) else {
             return nil
         }
         
@@ -248,7 +257,7 @@ class StorageHelper {
         return Int(build)
     }
     
-    /// Set the complete encryption key (password+PIN) in Secure Enclave.
+    /// Set the complete encryption key (password+passcode) in Secure Enclave.
     ///
     /// - Parameter key: The encryption key
     public func setEncryptionKey(_ key: String?) {
@@ -261,7 +270,7 @@ class StorageHelper {
         }
     }
     
-    /// Get the complete encryption key (password+PIN) from Secure Enclave
+    /// Get the complete encryption key (password+passcode) from Secure Enclave
     ///
     /// - Parameter prompt: The biometric unlock message to show
     /// - Returns: The encryption key
@@ -283,7 +292,7 @@ class StorageHelper {
     public func setTouchIDUnlockEnabled(_ enabled: Bool) {
         log.verbose("Setting TouchID unlock enabled")
         
-        settings().set(string: String(enabled), forKey: Key.TOUCHID_ENABLED)
+        globals().set(string: String(enabled), forKey: Key.TOUCHID_ENABLED)
     }
     
     /// Check if TouchID unlock is currently enabled.
@@ -291,7 +300,7 @@ class StorageHelper {
     /// - Returns: Positive if biometric unlock is enabled
     @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
     public func getTouchIDUnlockEnabled() -> Bool {
-        guard let enabled = settings().string(forKey: Key.TOUCHID_ENABLED) else {
+        guard let enabled = globals().string(forKey: Key.TOUCHID_ENABLED) else {
             return false
         }
         
@@ -304,14 +313,14 @@ class StorageHelper {
     public func setBiometricUnlockEnabled(_ enabled: Bool) {
         log.verbose("Setting biometric unlock enabled")
         
-        settings().set(string: String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
+        globals().set(string: String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
     }
     
     /// Check if biometric unlock is currently enabled.
     ///
     /// - Returns: Positive if biometric unlock is enabled
     public func getBiometricUnlockEnabled() -> Bool {
-        guard let enabled = settings().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
+        guard let enabled = globals().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
             return false
         }
         
@@ -324,14 +333,14 @@ class StorageHelper {
     public func setFileLoggingEnabled(_ enabled: Bool) {
         log.verbose("Setting file logging enabled")
         
-        settings().set(string: String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
+        globals().set(string: String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
     }
     
     /// Check if local file logging is enabled.
     ///
     /// - Returns: Positive if local file logging is enabled.
     public func getFileLoggingEnabled() -> Bool {
-        guard let enabled = settings().string(forKey: Key.FILE_LOGGING_ENABLED) else {
+        guard let enabled = globals().string(forKey: Key.FILE_LOGGING_ENABLED) else {
             return false
         }
         

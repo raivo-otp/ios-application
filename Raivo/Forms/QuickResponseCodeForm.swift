@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
 import Foundation
@@ -67,6 +69,7 @@ class QuickResponseCodeForm {
     /// - Returns: Positive if the QR code was added. It can be negative when the QR code fails to generate.
     private func buildQuickResponseCodeRow(_ section: Section, _ image: CGImage) {
         section <<< ViewRow<UIImageView>("qrcode").cellSetup({ cell, row in
+            cell.backgroundColor = UIColor.getBackgroundOpaque()
             cell.view = UIImageView()
             cell.view?.contentMode = .scaleAspectFit
             cell.contentView.addSubview(cell.view!)
@@ -90,12 +93,12 @@ class QuickResponseCodeForm {
         return EFQRCode.generate(
             content: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret,
             size: EFIntSize(width: 400, height: 400),
-            backgroundColor: UIColor.white.cgColor,
-            foregroundColor: UIColor.black.cgColor,
-            watermark: UIImage(named: "app-icon")!.toCGImage(),
-            watermarkMode: .scaleAspectFit,
-            pointShape: .circle,
-            foregroundPointOffset: 0.1
+            backgroundColor: UIColor.getBackgroundOpaque().cgColor,
+            foregroundColor: UIColor.getLabel().cgColor,
+//            watermark: UIImage(named: "app-icon")!.toCGImage(),
+//            watermarkMode: .scaleAspectFit,
+//            pointShape: .diamond,
+            foregroundPointOffset: 0.2
         )
     }
 }

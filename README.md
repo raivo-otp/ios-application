@@ -7,9 +7,9 @@
     </a>
 </p>
 <p align="center">
-    <a href="https://github.com/tijme/raivo/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=License&secondText=CC%20BY-NC%204.0" /></a>
+    <a href="https://github.com/tijme/raivo/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=Source&secondText=Licensed" /></a>
     <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=iOS%20(11%20or%20higher)" /></a>
-    <a href="https://github.com/tijme/raivo/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue1=raivo&typeValue2=master&typeValue4=Release&cache=2"></a>
+    <a href="https://github.com/tijme/raivo/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue1=raivo&typeValue2=master&typeValue4=Release&cache=3"></a>
     <br/>
     <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
     <br/>
@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_left.png?cache=1" width="280">
-    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_middle.png?cache=1" width="280">
-    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_right.png?cache=1" width="280">
+    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_left.png?cache=3" width="280">
+    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_middle.png?cache=3" width="280">
+    <img src="https://github.com/tijme/raivo/raw/master/.github/preview_right.png?cache=3" width="280">
 </p>
 
 ## Features
@@ -60,4 +60,4 @@ Raivo does not collect personally identifiable information in any way. Please re
 
 ## License
 
-Raivo is non-commercial open-sourced software licensed under the [CC BY-NC 4.0](https://github.com/tijme/raivo/blob/master/LICENSE.md) license.
+Copyright (c) 2019 Tijme Gommers. All rights reserved. View [LICENSE.md](https://github.com/tijme/raivo/blob/master/LICENSE.md) for the full license.

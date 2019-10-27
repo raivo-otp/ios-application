@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,20 +12,20 @@
         <!--Search-->
         <scene sceneID="jpu-Ev-k8S">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dTz-NN-Voq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController restorationIdentifier="SearchStubController" storyboardIdentifier="SearchStubController" id="3fu-P0-KYe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m9f-7z-bfb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="VJX-QR-P9d"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="tabbar-search" id="sDp-5N-GOt"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTz-NN-Voq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2980" y="-305"/>
         </scene>
-        <!--Scan-->
+        <!--Scan a QR code-->
         <scene sceneID="f4l-0E-nB9">
             <objects>
                 <viewController id="I4h-xK-fAb" customClass="MainScanPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,9 +36,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-pd-f2P">
                                 <rect key="frame" x="0.0" y="96" width="375" height="522"/>
                                 <subviews>
-                                    <view alpha="0.0" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-rB-tZr">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
-                                    </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QR codes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
                                         <rect key="frame" x="15" y="240.5" width="345" height="41"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -49,12 +46,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Y9c-rB-tZr" firstAttribute="leading" secondItem="tRN-pd-f2P" secondAttribute="leading" id="4sI-dg-0XI"/>
-                                    <constraint firstAttribute="bottom" secondItem="Y9c-rB-tZr" secondAttribute="bottom" id="7CE-Kp-rtF"/>
-                                    <constraint firstAttribute="trailing" secondItem="Y9c-rB-tZr" secondAttribute="trailing" id="CBP-JF-xep"/>
                                     <constraint firstItem="LNY-AU-Znv" firstAttribute="leading" secondItem="tRN-pd-f2P" secondAttribute="leading" constant="15" id="f48-Mp-NLN"/>
                                     <constraint firstAttribute="trailing" secondItem="LNY-AU-Znv" secondAttribute="trailing" constant="15" id="m3z-lU-ZNi"/>
-                                    <constraint firstItem="Y9c-rB-tZr" firstAttribute="top" secondItem="tRN-pd-f2P" secondAttribute="top" id="shj-Zh-ygK"/>
                                     <constraint firstItem="LNY-AU-Znv" firstAttribute="centerY" secondItem="tRN-pd-f2P" secondAttribute="centerY" id="tAa-yS-yb4"/>
                                 </constraints>
                             </view>
@@ -70,11 +63,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="x2c-1h-doB" kind="show" identifier="CreatePasswordManually" id="ap9-86-9w1"/>
+                                    <segue destination="x2c-1h-doB" kind="show" identifier="MainCreateManualOneTimePasswordSegue" id="ap9-86-9w1"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="tRN-pd-f2P" secondAttribute="trailing" id="1eu-JZ-uEw"/>
                             <constraint firstItem="aJL-SM-eC0" firstAttribute="bottom" secondItem="MPC-LA-oL8" secondAttribute="bottom" constant="16" id="BOu-Xm-SvN"/>
@@ -87,35 +80,29 @@
                         <viewLayoutGuide key="safeArea" id="aJL-SM-eC0"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="tabbar-scan" id="QAq-ma-gUB"/>
-                    <navigationItem key="navigationItem" title="Scan" largeTitleDisplayMode="always" id="cBj-RV-F7Z">
-                        <barButtonItem key="rightBarButtonItem" title="Manually" id="07w-af-hOW">
-                            <connections>
-                                <segue destination="x2c-1h-doB" kind="show" identifier="CreatePasswordManually" id="G5K-IU-bZq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Scan a QR code" largeTitleDisplayMode="always" id="cBj-RV-F7Z"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="cameraPreview" destination="Y9c-rB-tZr" id="hSa-V1-wvg"/>
+                        <outlet property="cameraPreview" destination="tRN-pd-f2P" id="dYG-ya-qIu"/>
                         <outlet property="cameraUnavailableLabel" destination="LNY-AU-Znv" id="Ndc-97-EAA"/>
-                        <segue destination="x2c-1h-doB" kind="show" identifier="CreatePasswordAutomatically" id="POH-4S-sTl"/>
+                        <segue destination="x2c-1h-doB" kind="show" identifier="MainCreateScannedOneTimePasswordSegue" id="POH-4S-sTl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eig-ku-mOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3929" y="412"/>
         </scene>
-        <!--New-->
+        <!--Add-->
         <scene sceneID="JiU-sJ-Ajr">
             <objects>
                 <viewController id="x2c-1h-doB" customClass="MainCreatePasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BE6-kL-9Iw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="agh-vy-GIo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New" largeTitleDisplayMode="always" id="B8I-jh-gwg">
+                    <navigationItem key="navigationItem" title="Add" largeTitleDisplayMode="always" id="B8I-jh-gwg">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wRy-iv-iCx">
                             <connections>
                                 <action selector="onSave:" destination="x2c-1h-doB" id="DQW-cP-VvT"/>
@@ -141,7 +128,7 @@
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ZYE-xS-Xob" firstAttribute="top" secondItem="qHX-Uj-Cbk" secondAttribute="top" id="I0H-VF-U3U"/>
                             <constraint firstItem="WSM-vr-gJL" firstAttribute="trailing" secondItem="ZYE-xS-Xob" secondAttribute="trailing" id="sxN-To-Rfm"/>
@@ -153,31 +140,31 @@
                     <navigationItem key="navigationItem" title="Passwords" largeTitleDisplayMode="never" id="Rqw-bM-Zhl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eG7-Fh-ajV">
                             <connections>
-                                <segue destination="I4h-xK-fAb" kind="show" identifier="ScanQuickResponseCode" id="DeW-jW-R6d"/>
+                                <segue destination="I4h-xK-fAb" kind="show" identifier="MainScanQuickResponseCodeSegue" id="DeW-jW-R6d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZYE-xS-Xob" id="6DY-i7-Rot"/>
-                        <segue destination="6aa-25-buz" kind="show" identifier="PasswordSelectedSegue" id="3L5-BL-qpg"/>
-                        <segue destination="jnb-LR-dDu" kind="show" identifier="QuickResponseCodeSelectedSegue" id="4r2-Ji-KpJ"/>
+                        <segue destination="6aa-25-buz" kind="show" identifier="MainOneTimePasswordSelectedSegue" id="3L5-BL-qpg"/>
+                        <segue destination="jnb-LR-dDu" kind="show" identifier="MainQuickResponseCodeSelectedSegue" id="4r2-Ji-KpJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brY-NW-mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3934" y="-1080"/>
         </scene>
-        <!--Edit Password-->
+        <!--Edit-->
         <scene sceneID="ZaQ-AD-jZ3">
             <objects>
                 <viewController id="6aa-25-buz" customClass="MainEditPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nqk-RL-Ogy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="j0L-dn-8mA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Password" largeTitleDisplayMode="always" id="fWU-Md-GCH">
+                    <navigationItem key="navigationItem" title="Edit" largeTitleDisplayMode="always" id="fWU-Md-GCH">
                         <barButtonItem key="backBarButtonItem" title="Edit" id="gLm-9e-Sec"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0r9-Ba-kbs">
                             <connections>
@@ -197,7 +184,7 @@
                     <view key="view" contentMode="scaleToFill" id="bkg-Mc-WAk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="oXZ-Dr-lMs"/>
                     </view>
                     <navigationItem key="navigationItem" title="QR code" largeTitleDisplayMode="always" id="v6q-mk-7lO"/>
@@ -230,22 +217,22 @@
                     <view key="view" contentMode="scaleToFill" id="tiu-g6-CWn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6fs-mC-1eZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="5Cb-dt-5Cj"/>
                     <connections>
-                        <segue destination="F9t-JF-c77" kind="show" identifier="ChangePincodeSegue" id="xHJ-LE-rn2"/>
+                        <segue destination="F9t-JF-c77" kind="show" identifier="MainChangePasscodeSegue" id="xHJ-LE-rn2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lc6-jd-fiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3930" y="1182"/>
         </scene>
-        <!--New Pincode-->
+        <!--Change passcode-->
         <scene sceneID="0zb-Hm-etg">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="MainChangePincodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="MainChangePasscodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RLv-3W-khe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,7 +255,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umv-KD-VhE" customClass="UIPincodeField" customModule="Raivo" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umv-KD-VhE" userLabel="View Passcode" customClass="UIPasscodeField" customModule="Raivo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="296" width="375" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -289,7 +276,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="color-background-opaque"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Ons-YR-CD1" firstAttribute="bottom" secondItem="bvi-ii-oP4" secondAttribute="bottom" identifier="KeyboardConstraint" id="0YB-jZ-fzy"/>
                             <constraint firstItem="bvi-ii-oP4" firstAttribute="top" secondItem="Ons-YR-CD1" secondAttribute="top" id="1Jm-BZ-NhU"/>
@@ -302,10 +289,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ons-YR-CD1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Pincode" id="R3d-hy-Vna"/>
+                    <navigationItem key="navigationItem" title="Change passcode" id="R3d-hy-Vna"/>
                     <connections>
                         <outlet property="viewExtra" destination="Mi3-NT-HA5" id="CZF-ZS-h8e"/>
-                        <outlet property="viewPincode" destination="umv-KD-VhE" id="4Yw-FB-3XC"/>
+                        <outlet property="viewPasscode" destination="umv-KD-VhE" id="4Yw-FB-3XC"/>
                         <outlet property="viewTitle" destination="I1k-E7-fs8" id="v4e-Hl-ao2"/>
                     </connections>
                 </viewController>
@@ -365,7 +352,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G5K-IU-bZq"/>
+        <segue reference="ap9-86-9w1"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

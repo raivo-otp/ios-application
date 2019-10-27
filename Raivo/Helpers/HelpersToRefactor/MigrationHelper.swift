@@ -4,8 +4,10 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// This source code is licensed under the CC BY-NC 4.0 license found
-// in the LICENSE.md file in the root directory of this source tree.
+// Modification, duplication or distribution of this software (in 
+// source and binary forms) for any purpose is strictly prohibited.
+//
+// https://github.com/tijme/raivo/blob/master/LICENSE.md
 // 
 
 import Foundation
@@ -19,8 +21,23 @@ class MigrationHelper {
         MigrationToBuild4.build: MigrationToBuild4(),
         MigrationToBuild6.build: MigrationToBuild6(),
         MigrationToBuild9.build: MigrationToBuild9(),
-        MigrationToBuild11.build: MigrationToBuild11()
+        MigrationToBuild15.build: MigrationToBuild15(),
+        MigrationToBuild23.build: MigrationToBuild23()
     ]
+    
+    static func runPreInitializeMigrations() {
+        var previous = initialPreviousBuild
+        
+        while previous < AppHelper.build {
+            if let migration = migrations[previous + 1] {
+                migration.migratePreInitialize()
+            }
+            
+            previous += 1
+        }
+        
+        StorageHelper.shared.setPreviousBuild(AppHelper.build)
+    }
     
     static func runGenericMigrations() {
         var previous = initialPreviousBuild
@@ -32,8 +49,6 @@ class MigrationHelper {
             
             previous += 1
         }
-        
-        StorageHelper.shared.setPreviousBuild(AppHelper.build)
     }
     
     static func runGenericMigrations(with account: SyncerAccount) {
