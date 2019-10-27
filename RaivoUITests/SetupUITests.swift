@@ -33,7 +33,7 @@ class SetupUITests: XCTestCase {
     
 //    func testWelcomeByMonkey() {
 //        let monkey = Monkey(frame: app.frame)
-//        
+//
 //        monkey.addDefaultUIAutomationActions()
 //        monkey.addXCTestTapAlertAction(interval: 100, application: app)
 //        monkey.monkeyAround(forDuration: TimeInterval(60 * 5))

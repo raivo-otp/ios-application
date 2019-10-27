@@ -2,7 +2,7 @@ os: osx
 language: objective-c
 cache: cocoapods
 xcode_workspace: Raivo.xcworkspace
-xcode_scheme: "Raivo TESTING"
+xcode_scheme: "Raivo DEBUG"
 
 branches:
   only:
