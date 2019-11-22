@@ -172,7 +172,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
                     self.isRefreshing(false)
                 }
             case .failure(let error):
-                BannerHelper.error(error.localizedDescription)
+                BannerHelper.shared.error("Error", error.localizedDescription, wrapper: self.view)
                 
                 self.collectionView.backgroundView = self.collectionViewEmptyError
                 self.collectionView.backgroundView?.isHidden = self.searchResults.count != 0

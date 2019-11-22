@@ -146,14 +146,14 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         
         guard let contents = metadataObj.stringValue else {
             log.verbose("The scanned QR code is empty.")
-            return BannerHelper.error("The scanned QR code is empty.") {
+            return BannerHelper.shared.error("Error", "The scanned QR code is empty.", wrapper: view) {
                 self.currentlyCheckingToken = false
             }
         }
         
         guard SeedValueValidator.isValid(contents) else {
             log.verbose("The scanned QR code is not a valid OTP.")
-            return BannerHelper.error("The scanned QR code is not a valid OTP.") {
+            return BannerHelper.shared.error("Error", "The scanned QR code is not a valid OTP.", wrapper: view) {
                 self.currentlyCheckingToken = false
             }
         }

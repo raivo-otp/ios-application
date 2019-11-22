@@ -92,13 +92,13 @@ class SetupPasscodeViewController: UIViewController, UIPasscodeFieldDelegate, Se
             passcodeField.reset()
             passcodeField.becomeFirstResponder()
             
-            return BannerHelper.error("The passcode and confirmation do not match")
+            return BannerHelper.shared.error("Error", "The passcode and confirmation do not match", wrapper: view)
         }
         
         do {
             state(self).encryptionKey = try CryptographyHelper.shared.derive(passcode, withSalt: state(self).password!)
         } catch let error {
-            return BannerHelper.error(error.localizedDescription)
+            return BannerHelper.shared.error("Error", error.localizedDescription, wrapper: view)
         }
         
         passcodeField.reset()

@@ -30,7 +30,7 @@ class SetupFinalizeViewController: UIViewController, SetupState {
             try state(self).persist()
             getAppDelegate().updateStoryboard()
         } catch let error {
-            BannerHelper.error(error.localizedDescription)
+            BannerHelper.shared.error("Error", error.localizedDescription, wrapper: view)
         }
     }
     

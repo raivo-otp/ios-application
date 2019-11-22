@@ -70,7 +70,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         let salt = StorageHelper.shared.getEncryptionPassword()!
         
         guard let encryptionKey = try? CryptographyHelper.shared.derive(passcode, withSalt: salt) else {
-            BannerHelper.error("Key derivation failed.") {
+            BannerHelper.shared.error("Error", "Key derivation failed.", wrapper: view) {
                 self.passcodeField.reset()
             }
             
@@ -81,7 +81,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         
         DispatchQueue.main.async {
             guard self.tryNewPasscode() else {
-                BannerHelper.error("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.") {
+                BannerHelper.shared.error("Error", "Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", wrapper: self.view) {
                     self.passcodeField.reset()
                 }
                 
@@ -102,7 +102,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
                 
                 let message = self.getTriesLeft() == 0 ? "Invalid passcode. That was your last try." : "Invalid passcode. " + String(self.getTriesLeft()) + " tries left."
                 
-                BannerHelper.error(message, seconds: 1.0)
+                BannerHelper.shared.error("Error", message, duration: 1.0, wrapper: self.view)
                 return
             }
         }
@@ -157,7 +157,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         }
         
         guard self.tryNewPasscode(increase: false) else {
-            BannerHelper.error("Please wait " + String(self.getSecondsLeft()) + " seconds and try again.") {
+            BannerHelper.shared.error("Locked", "Please wait " + String(getSecondsLeft()) + " seconds and try again.", wrapper: view) {
                 self.passcodeField.reset()
             }
             

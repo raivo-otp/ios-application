@@ -213,6 +213,8 @@ class MiscellaneousForm {
             }).onCellSelection({ cell, row in
                 let barButtonItem = controller.displayNavBarActivity()
                 
+                BannerHelper.shared.done("Hold tight", "Generation takes a few seconds", wrapper: controller.view)
+                
                 DispatchQueue.global(qos: .background).async {
                     let dataExport = DataExportFeature()
 

@@ -144,7 +144,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
         viewPasscode.reset()
       
         if flash {
-            BannerHelper.error(extra)
+            BannerHelper.shared.error("Error", extra, wrapper: view)
         }
     }
     

@@ -49,7 +49,7 @@ class SetupFlushDataViewController: UIViewController, SetupState {
             StateHelper.shared.reset()
         }) { (error, syncerType) in
             self.dismissNavBarActivity()
-            BannerHelper.error(error.localizedDescription)
+            BannerHelper.shared.error("Error", error.localizedDescription, wrapper: self.view)
         }
     }
     

@@ -239,7 +239,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         
         // Copy to clipboard, vibrate and show banner
         UIPasteboard.general.string = password.getToken().currentPassword!
-        BannerHelper.success(BannerHelper.boldText("Copied \(TokenHelper.formatPassword(password.getToken()))!"), seconds: 0.6)
+        BannerHelper.shared.done(TokenHelper.formatPassword(password.getToken()), "Copied to your clipboard.", duration: 0.6, wrapper: view)
         
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
