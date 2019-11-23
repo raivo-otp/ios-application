@@ -252,7 +252,7 @@ class StateHelper {
     ///
     /// - Returns: Positive if a local ream database exists.
     private func localDatabaseExists() -> Bool {
-        return RealmHelper.fileURLExists()
+        return RealmHelper.shared.fileURLExists()
     }
     
     /// Checks if the syncer account is available and if e.g. the API key hasn't been revoked.

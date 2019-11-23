@@ -77,7 +77,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
             return
         }
         
-        let isCorrect = RealmHelper.isCorrectEncryptionKey(encryptionKey)
+        let isCorrect = RealmHelper.shared.isCorrectEncryptionKey(encryptionKey)
         
         DispatchQueue.main.async {
             guard self.tryNewPasscode() else {

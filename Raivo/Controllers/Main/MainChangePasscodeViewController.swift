@@ -152,11 +152,11 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
     ///
     /// - Parameter newKey: The new encryption key
     private func changePasscode(to newKey: Data) {
-        let newName = RealmHelper.getProposedNewFileName()
-        let newFile = RealmHelper.getFileURL(forceFilename: newName)
+        let newName = RealmHelper.shared.getProposedNewFileName()
+        let newFile = RealmHelper.shared.getFileURL(forceFilename: newName)
         
         let result = autoreleasepool { () -> Bool in
-            let oldRealm = RealmHelper.getRealm()
+            let oldRealm = RealmHelper.shared.getRealm()
             
             do {
                 try oldRealm!.writeCopy(toFile: newFile!, encryptionKey: newKey)

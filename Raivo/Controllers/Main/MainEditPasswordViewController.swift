@@ -55,7 +55,7 @@ class MainEditPasswordViewController: FormViewController {
         }
         
         autoreleasepool {
-            if let realm = RealmHelper.getRealm() {
+            if let realm = RealmHelper.shared.getRealm() {
                 try! realm.write {
                     password!.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
                     password!.account = (passwordForm!.accountRow.value ?? "").trimmingCharacters(in: .whitespacesAndNewlines)

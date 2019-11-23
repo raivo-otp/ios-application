@@ -18,7 +18,7 @@ class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
     
     static func getLocal(_ record: CKRecord) throws -> Password? {
         return try autoreleasepool { () throws -> Password? in
-            guard let realm = RealmHelper.getRealm() else {
+            guard let realm = RealmHelper.shared.getRealm() else {
                 log.error("Trying to get local CloudKit password but realm is nil")
                 throw RealmError.encryptionError
             }

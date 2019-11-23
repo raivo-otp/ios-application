@@ -55,7 +55,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         initializeSearchBar()
         initializeTableView()
         
-        if let realm = RealmHelper.getRealm() {
+        if let realm = RealmHelper.shared.getRealm() {
             let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
             results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
         }
@@ -186,7 +186,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if let realm = RealmHelper.getRealm() {
+        if let realm = RealmHelper.shared.getRealm() {
             results = realm.objects(Password.self).filter("deleted == 0").sorted(byKeyPath: "issuer", ascending: true)
         }
         
@@ -251,7 +251,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             
             let hotpAction = SwipeAction(style: .default, title: "Increase") { action, indexPath in
                 autoreleasepool {
-                    if let realm = RealmHelper.getRealm() {
+                    if let realm = RealmHelper.shared.getRealm() {
                         try! realm.write {
                             self.results?[indexPath.row].counter += 1
                             self.results?[indexPath.row].syncing = true
@@ -273,7 +273,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
                 if let result = self.results?[indexPath.row] {
                     autoreleasepool {
-                        if let realm = RealmHelper.getRealm() {
+                        if let realm = RealmHelper.shared.getRealm() {
                             try! realm.write {
                                 result.deleted = true
                                 result.syncing = true

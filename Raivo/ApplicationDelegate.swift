@@ -63,7 +63,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter encryptionKey: The new encryption key (password + passcode)
     public func updateEncryptionKey(_ encryptionKey: Data?) {
         self.encryptionKey = encryptionKey
-        RealmHelper.initDefaultRealmConfiguration(encryptionKey: encryptionKey)
+        RealmHelper.shared.initDefaultRealmConfiguration(encryptionKey: encryptionKey)
     }
     
     /// Get the currently active encryption key

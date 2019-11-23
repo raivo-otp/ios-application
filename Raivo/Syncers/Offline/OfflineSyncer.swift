@@ -70,7 +70,7 @@ class OfflineSyncer: BaseSyncer, SyncerProtocol {
     
     func flushAllData(success: @escaping ((String) -> Void), error: @escaping ((Error, String) -> Void)) {
         autoreleasepool {
-            if let realm = RealmHelper.getRealm() {
+            if let realm = RealmHelper.shared.getRealm() {
                 try! realm.write {
                     realm.deleteAll()
                 }

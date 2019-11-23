@@ -30,7 +30,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         disable()
         
         autoreleasepool {
-            if let realm = RealmHelper.getRealm() {
+            if let realm = RealmHelper.shared.getRealm() {
                 localResults = realm.objects(Password.self).filter("syncing == 1")
                 localNotifications = localResults!.observe(onLocalChange)
             }
@@ -67,7 +67,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
             }
             
             autoreleasepool {
-                guard let realm = RealmHelper.getRealm() else {
+                guard let realm = RealmHelper.shared.getRealm() else {
                     log.error("CloudKit sync finished but app is not unlocked anymore!")
                     return
                 }
@@ -167,7 +167,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
             }
             
             autoreleasepool {
-                if let realm = RealmHelper.getRealm() {
+                if let realm = RealmHelper.shared.getRealm() {
                     guard let password = realm.resolve(passwordReference) else {
                         return // Password was deleted in the meantime
                     }
