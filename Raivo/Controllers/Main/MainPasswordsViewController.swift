@@ -193,7 +193,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         if (searchText.count > 0) {
             self.searchBar.showsCancelButton = true
             tableView.backgroundView = tableViewEmptySearch
-            results = results?.filter(QueryHelper.passwordSearch(searchText))
+            results = results?.filter(QueryHelper.shared.passwordSearch(searchText))
         } else {
             tableView.backgroundView = tableViewEmptyList
         }

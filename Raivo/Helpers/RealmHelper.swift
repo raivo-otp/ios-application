@@ -13,11 +13,23 @@
 import Foundation
 import RealmSwift
 
+/// A helper class for managing the Realm instance
 class RealmHelper {
     
-    private static let ORIGINAL_URL = Realm.Configuration.defaultConfiguration.fileURL
+    /// The singleton instance for the RealmHelper
+    public static let shared = RealmHelper()
     
-    public static func getRealm() -> Realm? {
+    /// The path to the default Realm file
+    private let ORIGINAL_URL = Realm.Configuration.defaultConfiguration.fileURL
+    
+    /// A private initializer to make sure this class can only be used as a singleton class
+    private init() {}
+    
+    /// Get the current Realm instances with the default configuration
+    ///
+    /// - Returns: The Realm instance to use
+    /// - Note: Returns nil if the encryption key is unknown
+    public func getRealm() -> Realm? {
         let currentConfig = Realm.Configuration.defaultConfiguration
         
         if currentConfig.encryptionKey != nil {
@@ -27,7 +39,11 @@ class RealmHelper {
         return nil
     }
     
-    public static func initDefaultRealmConfiguration(encryptionKey: Data?) {
+    /// Update the default Realm configuration to use the given encryption key
+    ///
+    /// - Parameter encryptionKey: Used to decrypt the Realm file
+    /// - Note: This method will run Realm migrations (if any)
+    public func initDefaultRealmConfiguration(encryptionKey: Data?) {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             fileURL: getFileURL(),
             encryptionKey: encryptionKey,
@@ -37,7 +53,7 @@ class RealmHelper {
                 let newVersion = UInt64(AppHelper.build) + 1
 
                 while oldVersion < newVersion {
-                    if let migrate = MigrationHelper.migrations[Int(oldVersion)] {
+                    if let migrate = MigrationHelper.shared.migrations[Int(oldVersion)] {
                         migrate.migrateRealm(migration)
                     }
                     
@@ -47,12 +63,14 @@ class RealmHelper {
         )
     }
     
-    public static func getFileURL(forceFilename: String? = nil) -> URL? {
-        // Unfortunetely we must open a different realm file after logout, because Realm does not
-        // auto release the internal cached references to the database (it keeps the connection
-        // open at all time). Manually `.invalidating()` them does not work.
-        // https://stackoverflow.com/a/54140362/2491049
-        
+    /// Get the filename of the current Realm file (from storage) or a new one.
+    ///
+    /// - Parameter forceFilename: If given, this will be used as the filename in the path to the Realm file
+    /// - Returns: A URL (path) to the requested Realm file
+    /// - Note: Unfortunetely we must open a different realm file after logout, because Realm does not auto release the internal cached references to the database.
+    ///         It keeps the connection open at all time. Manually `.invalidating()` them does not work.
+    ///         https://stackoverflow.com/a/54140362/2491049
+    public func getFileURL(forceFilename: String? = nil) -> URL? {
         if let filename = forceFilename {
             return ORIGINAL_URL!.deletingLastPathComponent().appendingPathComponent(filename)
         }
@@ -67,11 +85,17 @@ class RealmHelper {
         return getFileURL()
     }
     
-    public static func getProposedNewFileName() -> String {
+    /// Get a proposed new (unique) filename for Realm (based on the timestamp)
+    ///
+    /// - Returns: A string with the unix timestamp and a Realm extension (filetype)
+    public func getProposedNewFileName() -> String {
         return String(Int(Date().timeIntervalSince1970)) + ".realm"
     }
     
-    public static func fileURLExists() -> Bool {
+    /// Check if the current Realm file (from `getFileURL()` exists
+    ///
+    /// - Returns: Positive if it exists, false otherwise
+    public func fileURLExists() -> Bool {
         if let fileURL = getFileURL() {
             return FileManager.default.fileExists(atPath: fileURL.path)
         }
@@ -79,12 +103,15 @@ class RealmHelper {
         return false
     }
     
-    public static func isCorrectEncryptionKey(_ encryptionKey: Data?) -> Bool {
-        // Realm exceptions can't be caught, therefore copy the DB and try to unlock it, afterwards delete that file.
-        // https://stackoverflow.com/questions/37014101/realm-swift-how-to-catch-rlmexception
-        
+    /// Check if the given encryption key can unlock the current Realm database
+    ///
+    /// - Parameter encryptionKey: The encryption key to try
+    /// - Returns: Positive if it is the correct key, false otherwise
+    /// - Note: Realm exceptions can't be caught, therefore copy the DB and try to unlock it, afterwards delete that file
+    ///         https://stackoverflow.com/questions/37014101/realm-swift-how-to-catch-rlmexception
+    public func isCorrectEncryptionKey(_ encryptionKey: Data?) -> Bool {
         if let encryptionKey = encryptionKey {
-            RealmHelper.initDefaultRealmConfiguration(encryptionKey: encryptionKey)
+            initDefaultRealmConfiguration(encryptionKey: encryptionKey)
             
             let originalURL = Realm.Configuration.defaultConfiguration.fileURL!
             let unlockURL = originalURL.appendingPathExtension("unlockme")

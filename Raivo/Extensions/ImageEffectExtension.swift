@@ -21,15 +21,18 @@ extension UIImage {
         
         if #available(iOS 12.0, *) {
             if (traitCollection.responds(to: #selector(getter: UITraitCollection.userInterfaceStyle))) {
-               switch traitCollection.userInterfaceStyle {
-               case .light:
-                   log.debug("UserInterfaceStyle: light")
-               case .dark:
-                log.debug("UserInterfaceStyle: dark")
-                   pipeline.append(SDImageFilterTransformer(filter: darkModeFilter))
-               case .unspecified:
+                switch traitCollection.userInterfaceStyle {
+                case .light:
+                    log.debug("UserInterfaceStyle: light")
+                case .dark:
+                    log.debug("UserInterfaceStyle: dark")
+                    pipeline.append(SDImageFilterTransformer(filter: darkModeFilter))
+                case .unspecified:
                     log.debug("UserInterfaceStyle: unspecified")
-               }
+                @unknown default:
+                    log.error("UserInterfaceStyle: undefined")
+                    fatalError()
+                }
             }
         }
         

@@ -20,7 +20,7 @@ class LoadEntryViewController: UIViewController {
     override func viewDidLoad() {
         
         // Run migrations prior the the app initialization.
-        MigrationHelper.runPreInitializeMigrations()
+        MigrationHelper.shared.runPreInitializeMigrations()
 
         // Initialize console logging (in debug builds)
         if AppHelper.compilation == AppHelper.Compilation.debug {
@@ -50,13 +50,13 @@ class LoadEntryViewController: UIViewController {
         }
         
         // Run all migrations except Realm migrations
-        MigrationHelper.runGenericMigrations()
+        MigrationHelper.shared.runGenericMigrations()
 
         // Preload the synchronization information
         SyncerHelper.shared.getSyncer().getAccount(success: { (account, syncerID) in
             DispatchQueue.main.async {
                 log.verbose("Got syncer account succesfully")
-                MigrationHelper.runGenericMigrations(with: account)
+                MigrationHelper.shared.runGenericMigrations(with: account)
                 
                 getAppDelegate().syncerAccountIdentifier = account.identifier
                 getAppDelegate().applicationIsLoaded = true

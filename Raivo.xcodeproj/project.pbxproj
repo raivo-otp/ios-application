@@ -525,8 +525,6 @@
 			isa = PBXGroup;
 			children = (
 				700908F321FD027400603AA2 /* TokenHelper.swift */,
-				70B143AB222AB9360015896F /* RealmHelper.swift */,
-				70617A582270DBD80032076A /* QueryHelper.swift */,
 			);
 			path = HelpersToRefactor;
 			sourceTree = "<group>";
@@ -834,7 +832,9 @@
 				7079EBD222F638DA00F9D340 /* BiometricHelper.swift */,
 				701F47452333F38F008C4A9C /* ImageFilterHelper.swift */,
 				707EDA5B23846C32000B0A97 /* BannerHelper.swift */,
+				70B143AB222AB9360015896F /* RealmHelper.swift */,
 				70AE33262274566B007A12A2 /* MigrationHelper.swift */,
+				70617A582270DBD80032076A /* QueryHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

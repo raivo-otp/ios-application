@@ -20,7 +20,7 @@ class MigrationHelper {
     public static let shared = MigrationHelper()
     
     /// The pervious application runtime build version
-    private let initialPreviousBuild = getPreviousBuild()
+    private var initialPreviousBuild: Int?
     
     /// All vailable migration builds and the corresponding migration classes
     public let migrations: [Int: MigrationProtocol] = [
@@ -36,7 +36,7 @@ class MigrationHelper {
     
     /// Start migrations that have to run before initialization of the app
     public func runPreInitializeMigrations() {
-        var previous = initialPreviousBuild
+        var previous = getPreviousBuild()
         
         while previous < AppHelper.build {
             if let migration = migrations[previous + 1] {
@@ -51,7 +51,7 @@ class MigrationHelper {
     
     /// Start migrations that have to run during initialization of the app (before getting the current syncer account)
     public func runGenericMigrations() {
-        var previous = initialPreviousBuild
+        var previous = getPreviousBuild()
         
         while previous < AppHelper.build {
             if let migration = migrations[previous + 1] {
@@ -64,7 +64,7 @@ class MigrationHelper {
     
     /// Start migrations that have to run during initialization of the app (after getting the current syncer account)
     public func runGenericMigrations(with account: SyncerAccount) {
-        var previous = initialPreviousBuild
+        var previous = getPreviousBuild()
         
         while previous < AppHelper.build {
             if let migration = migrations[previous + 1] {
@@ -79,11 +79,17 @@ class MigrationHelper {
     ///
     /// - Returns: The build version of the previous runtime
     private func getPreviousBuild() -> Int {
-        if let previousVersion = StorageHelper.shared.getPreviousBuild() {
-            return previousVersion
+        if let initialPreviousBuild = initialPreviousBuild {
+            return initialPreviousBuild
         }
         
-        return AppHelper.build
+        if let previousVersion = StorageHelper.shared.getPreviousBuild() {
+            initialPreviousBuild = previousVersion
+        } else {
+            initialPreviousBuild = AppHelper.build
+        }
+        
+        return getPreviousBuild()
     }
     
 }
