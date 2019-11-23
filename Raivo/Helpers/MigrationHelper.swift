@@ -13,11 +13,17 @@
 import Foundation
 import Valet
 
+/// A helper class for managing database, configuration and code migrations
 class MigrationHelper {
     
-    private static let initialPreviousBuild = getPreviousBuild()
+    /// The singleton instance for the MigrationHelper
+    public static let shared = MigrationHelper()
     
-    public static let migrations: [Int: MigrationProtocol] = [
+    /// The pervious application runtime build version
+    private let initialPreviousBuild = getPreviousBuild()
+    
+    /// All vailable migration builds and the corresponding migration classes
+    public let migrations: [Int: MigrationProtocol] = [
         MigrationToBuild4.build: MigrationToBuild4(),
         MigrationToBuild6.build: MigrationToBuild6(),
         MigrationToBuild9.build: MigrationToBuild9(),
@@ -25,7 +31,11 @@ class MigrationHelper {
         MigrationToBuild23.build: MigrationToBuild23()
     ]
     
-    static func runPreInitializeMigrations() {
+    /// A private initializer to make sure this class can only be used as a singleton class
+    private init() {}
+    
+    /// Start migrations that have to run before initialization of the app
+    public func runPreInitializeMigrations() {
         var previous = initialPreviousBuild
         
         while previous < AppHelper.build {
@@ -39,7 +49,8 @@ class MigrationHelper {
         StorageHelper.shared.setPreviousBuild(AppHelper.build)
     }
     
-    static func runGenericMigrations() {
+    /// Start migrations that have to run during initialization of the app (before getting the current syncer account)
+    public func runGenericMigrations() {
         var previous = initialPreviousBuild
         
         while previous < AppHelper.build {
@@ -51,7 +62,8 @@ class MigrationHelper {
         }
     }
     
-    static func runGenericMigrations(with account: SyncerAccount) {
+    /// Start migrations that have to run during initialization of the app (after getting the current syncer account)
+    public func runGenericMigrations(with account: SyncerAccount) {
         var previous = initialPreviousBuild
         
         while previous < AppHelper.build {
@@ -63,7 +75,10 @@ class MigrationHelper {
         }
     }
     
-    private static func getPreviousBuild() -> Int {
+    /// Get the build version of the previous runtime (e.g. before an update)
+    ///
+    /// - Returns: The build version of the previous runtime
+    private func getPreviousBuild() -> Int {
         if let previousVersion = StorageHelper.shared.getPreviousBuild() {
             return previousVersion
         }

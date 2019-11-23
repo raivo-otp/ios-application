@@ -21,21 +21,16 @@ extension UIImage {
         
         if #available(iOS 12.0, *) {
             if (traitCollection.responds(to: #selector(getter: UITraitCollection.userInterfaceStyle))) {
-
                switch traitCollection.userInterfaceStyle {
                case .light:
-                   log.info("light")
+                   log.debug("UserInterfaceStyle: light")
                case .dark:
-                   log.info("dark")
+                log.debug("UserInterfaceStyle: dark")
                    pipeline.append(SDImageFilterTransformer(filter: darkModeFilter))
                case .unspecified:
-                   log.info("unspecified")
+                    log.debug("UserInterfaceStyle: unspecified")
                }
-      
-            } else {
-                 log.info("RETURNING")
             }
-            
         }
         
         if let filter = enabledFilter {
@@ -51,8 +46,6 @@ extension UIImage {
         switch effect {
         case MiscellaneousIconsEffectFormOption.OPTION_GRAYSCALE.value:
             return applying(saturation: 0)
-//        case MiscellaneousIconsEffectFormOption.OPTION_RED_TINT.value:
-//            return fillWithColor(UIColor.raivo.tint)
         default:
             return nil
         }
@@ -64,36 +57,11 @@ extension UIImage {
             "inputMaxComponents" : CIVector(x: 0.92, y: 0.92, z: 0.92, w: 0.92)
         ]
         
-        
-
         return CIFilter(name: "CIColorClamp", parameters: colorClampParams)!
     }
     
     func applying(saturation value: NSNumber) -> CIFilter? {
         return CIFilter(name: "CIColorControls", parameters: [kCIInputSaturationKey: value])
     }
-        
-    //    func applying(_ maskColor: UIColor) -> UIImage? {
-    //        let maskImage = cgImage!
-    //
-    //        let width = size.width
-    //        let height = size.height
-    //        let bounds = CGRect(x: 0, y: 0, width: width, height: height)
-    //
-    //        let colorSpace = CGColorSpaceCreateDeviceRGB()
-    //        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-    //        let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)!
-    //
-    //        context.clip(to: bounds, mask: maskImage)
-    //        context.setFillColor(color.cgColor)
-    //        context.fill(bounds)
-    //
-    //        if let cgImage = context.makeImage() {
-    //            let coloredImage = UIImage(cgImage: cgImage)
-    //            return coloredImage
-    //        } else {
-    //            return nil
-    //        }
-    //    }
-    
+
 }
