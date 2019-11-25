@@ -47,8 +47,12 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter launchOptions: The launchOptions as passed to `UIApplicationDelegate`
     /// - Returns: Positive if the url contained in the `launchOptions` was intended for Raivo
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if CommandLine.arguments.contains("--MonkeyPaws") {
+        if AppHelper.argumentMonkeyPaws {
             paws = MonkeyPaws(view: window!)
+        }
+        
+        if AppHelper.argumentResetState {
+            StateHelper.shared.reset()
         }
         
         setCorrectStoryboard()
