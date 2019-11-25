@@ -37,7 +37,7 @@ class SetupUITests: XCTestCase {
 
         monkey.addDefaultUIAutomationActions()
         monkey.addXCTestTapAlertAction(interval: 100, application: app)
-        monkey.monkeyAround(forDuration: TimeInterval(60 * 5))
+        monkey.monkeyAround(forDuration: TimeInterval(60 * 2))
     }
     
     func testStorage() {
