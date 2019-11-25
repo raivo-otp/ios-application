@@ -521,14 +521,6 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
-		700908EA21FCE7D200603AA2 /* HelpersToRefactor */ = {
-			isa = PBXGroup;
-			children = (
-				700908F321FD027400603AA2 /* TokenHelper.swift */,
-			);
-			path = HelpersToRefactor;
-			sourceTree = "<group>";
-		};
 		70285927226205A50045DA26 /* ModelConverters */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,9 +813,9 @@
 		70E42296229891AB0020D725 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				700908EA21FCE7D200603AA2 /* HelpersToRefactor */,
 				706708E622888265009A15B9 /* AlamofireHelper.swift */,
 				70AE33222273B422007A12A2 /* AppHelper.swift */,
+				700908F321FD027400603AA2 /* TokenHelper.swift */,
 				70C80DAD22A0464600413801 /* CryptographyHelper.swift */,
 				70E42297229891D50020D725 /* NotificationHelper.swift */,
 				7059680A22994CCF0032D70F /* StateHelper.swift */,

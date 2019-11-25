@@ -33,9 +33,9 @@ class MainCreatePasswordViewController: FormViewController {
             passwordForm?.issuerRow.value = token.issuer
             passwordForm?.accountRow.value = token.name
             passwordForm?.secretRow.value = MF_Base32Codec.base32String(from: token.generator.secret)
-            passwordForm?.algorithmRow.value = TokenHelper.getPasswordAlgorithmFromToken(token: token)
+            passwordForm?.algorithmRow.value = TokenHelper.shared.getPasswordAlgorithmFromToken(token: token)
             passwordForm?.digitsRow.value = PasswordDigitsFormOption.build(token.generator.digits)!
-            passwordForm?.kindRow.value = TokenHelper.getPasswordKindFromToken(token: token)
+            passwordForm?.kindRow.value = TokenHelper.shared.getPasswordKindFromToken(token: token)
        
             switch token.generator.factor {
             case .counter(let counterValue):

@@ -14,9 +14,20 @@ import Foundation
 import OneTimePassword
 import Base32
 
+/// A helper class for managing/converting `Password` and `Token` models
 class TokenHelper {
     
-    public static func getTokenFromPassword(password: Password) -> Token {
+    /// The singleton instance for the TokenHelper
+    public static let shared = TokenHelper()
+    
+    /// A private initializer to make sure this class can only be used as a singleton class
+    private init() {}
+    
+    /// Convert the given `Password` model to a  `Token` model
+    ///
+    /// - Parameter password: The password to convert
+    /// - Returns: The resulting token
+    public func getTokenFromPassword(password: Password) -> Token {
         let factor = getTokenFactorFromPassword(password: password)
         let algorithm = getTokenAlgorithmFromPassword(password: password)
 
@@ -27,16 +38,18 @@ class TokenHelper {
             digits: password.digits
         )
 
-        let originalToken = Token(
+        return Token(
             name: password.account,
             issuer: password.issuer,
             generator: generator!
         )
-
-        return originalToken
     }
-
-    public static func getTokenFactorFromPassword(password: Password) -> Generator.Factor {
+    
+    /// Get the factor (counter or timer) from the given password
+    ///
+    /// - Parameter password: The password to convert
+    /// - Returns: The resulting factor
+    public func getTokenFactorFromPassword(password: Password) -> Generator.Factor {
         switch password.kind {
         case PasswordKindFormOption.OPTION_HOTP.value:
             return Generator.Factor.counter(UInt64(password.counter))
@@ -46,8 +59,12 @@ class TokenHelper {
             fatalError("Invalid password kind.")
         }
     }
-
-    public static func getTokenAlgorithmFromPassword(password: Password) -> Generator.Algorithm {
+    
+    /// Get the algorithm (sha1, sha256, etc) from the given password
+    ///
+    /// - Parameter password: The password to use
+    /// - Returns: The resulting algorithm
+    public func getTokenAlgorithmFromPassword(password: Password) -> Generator.Algorithm {
         switch password.algorithm {
         case PasswordAlgorithmFormOption.OPTION_SHA1.value:
             return Generator.Algorithm.sha1
@@ -60,7 +77,11 @@ class TokenHelper {
         }
     }
     
-    public static func getPasswordAlgorithmFromToken(token: Token) -> PasswordAlgorithmFormOption {
+    /// Get the algorithm (sha1, sha256, etc) from the given token
+    ///
+    /// - Parameter token: The token to use
+    /// - Returns: The resulting algorithm
+    public func getPasswordAlgorithmFromToken(token: Token) -> PasswordAlgorithmFormOption {
         switch token.generator.algorithm {
         case .sha1:
             return PasswordAlgorithmFormOption.OPTION_SHA1
@@ -71,7 +92,11 @@ class TokenHelper {
         }
     }
     
-    public static func getPasswordKindFromToken(token: Token) -> PasswordKindFormOption {
+    /// Get the factor/kind (HOTP or TOTP) from the given token
+    ///
+    /// - Parameter token: The token to use
+    /// - Returns: The resulting factor/kind
+    public func getPasswordKindFromToken(token: Token) -> PasswordKindFormOption {
         switch token.generator.factor {
         case .counter( _):
             return PasswordKindFormOption.OPTION_HOTP
@@ -80,7 +105,12 @@ class TokenHelper {
         }
     }
     
-    public static func formatPassword(_ token: Token, previous: Bool = false) -> String {
+    /// Convert the given token to a human-readable string representation
+    ///
+    /// - Parameter token: The token to use
+    /// - Parameter previous: If the previous token should be used
+    /// - Returns: A human-readable string representation of the current token
+    public func formatPassword(_ token: Token, previous: Bool = false) -> String {
         var password = token.currentPassword!
         
         if previous {
@@ -90,15 +120,18 @@ class TokenHelper {
         
         switch password.count {
         case 6, 9, 12:
-            password = splitPassword(password, 3)
+            return splitPassword(password, 3)
         default:
-            password = splitPassword(password, 4)
+            return splitPassword(password, 4)
         }
-        
-        return password
     }
     
-    private static func splitPassword(_ password: String, _ split: Int) -> String {
+    /// Add a space between every X (split) characters in the given password
+    ///
+    /// - Parameter password: The password to use
+    /// - Parameter split: Add a space every x'th (`split`) position
+    /// - Returns: The formatted string with spaces
+    private func splitPassword(_ password: String, _ split: Int) -> String {
         var result = ""
         var counter = 0
         

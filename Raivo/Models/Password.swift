@@ -79,7 +79,7 @@ class Password: Object {
     
     public func getToken(_ recache: Bool = false) -> Token {
         if cachedToken == nil || recache {
-            cachedToken = TokenHelper.getTokenFromPassword(password: self)
+            cachedToken = TokenHelper.shared.getTokenFromPassword(password: self)
         }
         
         return cachedToken!

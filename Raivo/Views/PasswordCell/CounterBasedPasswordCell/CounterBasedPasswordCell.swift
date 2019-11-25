@@ -41,7 +41,7 @@ class CounterBasedPasswordCell: PasswordCell {
         
         issuer.text = password.issuer
         account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
-        currentPassword.text = TokenHelper.formatPassword(password.getToken())
+        currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         notSyncedView.isHidden = password.synced || password.syncing
         
         traitCollectionDidChange(nil)
@@ -60,7 +60,7 @@ class CounterBasedPasswordCell: PasswordCell {
             return
         }
         
-        currentPassword.text = TokenHelper.formatPassword(password!.getToken())
+        currentPassword.text = TokenHelper.shared.formatPassword(password!.getToken())
         notSyncedView.isHidden = password!.synced || password!.syncing
     }
     

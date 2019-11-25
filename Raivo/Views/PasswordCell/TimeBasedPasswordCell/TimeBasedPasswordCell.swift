@@ -50,8 +50,8 @@ class TimeBasedPasswordCell: PasswordCell {
         
         issuer.text = password.issuer
         account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
-        currentPassword.text = TokenHelper.formatPassword(password.getToken())
-        previousPassword.text = TokenHelper.formatPassword(password.getToken(), previous: true)
+        currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
+        previousPassword.text = TokenHelper.shared.formatPassword(password.getToken(), previous: true)
         notSyncedView.isHidden = password.synced || password.syncing
         
         progressView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
@@ -79,8 +79,8 @@ class TimeBasedPasswordCell: PasswordCell {
         self.isAnimating = true
         stateTimer?.invalidate()
         
-        currentPassword.text = TokenHelper.formatPassword(password!.getToken())
-        previousPassword.text = TokenHelper.formatPassword(password!.getToken(), previous: true)
+        currentPassword.text = TokenHelper.shared.formatPassword(password!.getToken())
+        previousPassword.text = TokenHelper.shared.formatPassword(password!.getToken(), previous: true)
         notSyncedView.isHidden = password!.synced || password!.syncing
         
         let timer = TimeInterval(password!.timer)
