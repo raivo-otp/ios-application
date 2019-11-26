@@ -34,6 +34,7 @@ class UIPasscodeShadowField: UITextField {
     
     /// A function that is ran by all public initializers
     private func commonInit() {
+        accessibilityIdentifier = "passcode"
         keyboardType = .numberPad
         keyboardAppearance = .dark
         autocorrectionType = .no

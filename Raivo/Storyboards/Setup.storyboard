@@ -75,7 +75,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2go-91-EAV">
                                         <rect key="frame" x="16" y="794" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506013870239" green="0.050439722836017609" blue="0.20007196068763733" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="continueToStorage"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="continue">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Continue"/>
@@ -102,6 +104,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupWelcome">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="ga4-uj-t2j" firstAttribute="leading" secondItem="5K1-mB-K0a" secondAttribute="leading" id="2fF-ac-CU9"/>
                             <constraint firstAttribute="bottom" secondItem="Nqt-Pi-voe" secondAttribute="bottom" id="FiD-NS-FXb"/>
@@ -207,7 +212,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-eG-sVl">
                                         <rect key="frame" x="16" y="654" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="continueToEncryption"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="continue">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Continue"/>
@@ -234,6 +241,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupStorage">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="thf-kS-wwi" firstAttribute="leading" secondItem="Kc0-8G-TY6" secondAttribute="leading" id="5Rf-Xn-csp"/>
                             <constraint firstAttribute="bottom" secondItem="thf-kS-wwi" secondAttribute="bottom" id="JSz-h6-4xS"/>
@@ -300,7 +310,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hC^FA7gW}TnW5MXB" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-xd-KJW">
                                                                 <rect key="frame" x="0.0" y="77.5" width="398" height="45"/>
-                                                                <accessibility key="accessibilityConfiguration" identifier="password"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="passwordInitial"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="ReS-sI-JFs"/>
                                                                 </constraints>
@@ -339,7 +349,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smf-TT-yJM">
                                         <rect key="frame" x="16" y="654" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="continueToConfirmation"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="continue">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Continue"/>
@@ -366,6 +378,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupPasswordInitial">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="Vfi-aW-s2x" firstAttribute="bottom" secondItem="oQh-sE-drd" secondAttribute="bottom" identifier="KeyboardConstraint" id="4Iq-Gc-H2c"/>
                             <constraint firstAttribute="bottom" secondItem="cSi-PY-hxg" secondAttribute="bottom" id="Cid-E5-An2"/>
@@ -435,7 +450,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hC^FA7gW}TnW5MXB" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wLK-pr-MEs">
                                                                 <rect key="frame" x="0.0" y="77.5" width="398" height="45"/>
-                                                                <accessibility key="accessibilityConfiguration" identifier="password"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="passwordConfirmation"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="S9i-Fh-Jw7"/>
                                                                 </constraints>
@@ -467,7 +482,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRh-ks-bG2">
                                         <rect key="frame" x="16" y="750" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <accessibility key="accessibilityConfiguration" identifier="continueToPasscode"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="confirm">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Confirm"/>
@@ -494,6 +511,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupPasswordConfirmation">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ToW-qE-aQL" secondAttribute="trailing" id="6K1-MZ-rTc"/>
                             <constraint firstItem="EVC-jq-tYX" firstAttribute="bottom" secondItem="snH-Uz-pZh" secondAttribute="bottom" identifier="KeyboardConstraint" id="KFu-9S-3Rc"/>
@@ -586,6 +606,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupPasscodeInitial">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uCU-18-3wa" secondAttribute="trailing" id="3NU-zE-4fd"/>
                             <constraint firstItem="yhc-Ks-ikz" firstAttribute="top" secondItem="dhH-y2-mD1" secondAttribute="top" id="8Mg-zJ-vkR"/>
@@ -687,6 +710,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupPasscodeConfirmation">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="uXZ-7B-mwN" firstAttribute="top" secondItem="p0m-Uu-o30" secondAttribute="top" id="Oev-u8-HtK"/>
                             <constraint firstAttribute="bottom" secondItem="hua-7R-fmR" secondAttribute="bottom" id="Oft-H1-nIP"/>
@@ -769,6 +795,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqt-X6-wLk">
                                         <rect key="frame" x="16" y="654" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="enable">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Enable"/>
@@ -795,6 +824,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupBiometrics">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="FJq-fe-aaE" secondAttribute="bottom" id="0bA-bX-WkT"/>
                             <constraint firstItem="Tpf-jC-grM" firstAttribute="bottom" secondItem="iZf-bv-dUv" secondAttribute="bottom" identifier="KeyboardConstraint" id="3HG-rc-sHq"/>
@@ -839,6 +871,9 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupSettings">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="s12-Ko-d1C" secondAttribute="trailing" id="dbq-er-VxK"/>
                             <constraint firstItem="s12-Ko-d1C" firstAttribute="leading" secondItem="4Lm-Ia-NyJ" secondAttribute="leading" id="eMH-o0-KoU"/>
@@ -915,6 +950,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-qW-Gkh">
                                         <rect key="frame" x="16" y="750" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="cancel">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Cancel"/>
@@ -941,6 +979,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupPasswordForgot">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="kX2-Al-V5x" firstAttribute="leading" secondItem="szk-G1-5tg" secondAttribute="leading" id="2jV-uS-bEZ"/>
                             <constraint firstAttribute="bottom" secondItem="gif-wJ-clY" secondAttribute="bottom" id="61T-ZY-IEZ"/>
@@ -1026,6 +1067,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUE-lN-Pce">
                                         <rect key="frame" x="16" y="794" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="start">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Start"/>
@@ -1052,6 +1096,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="setupComplete">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="ezY-cr-sRO" firstAttribute="leading" secondItem="2Dj-6y-AgQ" secondAttribute="leading" id="1kp-SF-tgp"/>
                             <constraint firstAttribute="trailing" secondItem="KaR-9I-3hx" secondAttribute="trailing" id="4aE-e1-RUX"/>
@@ -1083,7 +1130,7 @@
         <image name="pattern" width="67" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l9d-6b-Nce"/>
+        <segue reference="OLy-2Y-whp"/>
         <segue reference="qQG-nR-Dhp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
