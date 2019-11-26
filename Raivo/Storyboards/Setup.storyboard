@@ -300,6 +300,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hC^FA7gW}TnW5MXB" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-xd-KJW">
                                                                 <rect key="frame" x="0.0" y="77.5" width="398" height="45"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="password"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="ReS-sI-JFs"/>
                                                                 </constraints>
@@ -338,6 +339,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smf-TT-yJM">
                                         <rect key="frame" x="16" y="654" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="continueToConfirmation"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Continue"/>
@@ -433,6 +435,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hC^FA7gW}TnW5MXB" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wLK-pr-MEs">
                                                                 <rect key="frame" x="0.0" y="77.5" width="398" height="45"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="password"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="S9i-Fh-Jw7"/>
                                                                 </constraints>
@@ -464,6 +467,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRh-ks-bG2">
                                         <rect key="frame" x="16" y="750" width="382" height="52"/>
                                         <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="continueToPasscode"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
                                         <state key="normal" title="Confirm"/>
@@ -1080,7 +1084,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="l9d-6b-Nce"/>
-        <segue reference="dDq-jh-N41"/>
+        <segue reference="qQG-nR-Dhp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

@@ -11,7 +11,7 @@
 import XCTest
 import SwiftMonkey
 
-class SetupUITests: XCTestCase {
+class SetupHumanUITests: XCTestCase {
     
     var app: XCUIApplication!
 
@@ -19,7 +19,7 @@ class SetupUITests: XCTestCase {
         continueAfterFailure = false
         
         app = XCUIApplication()
-        app.launchArguments = ["--ResetState", "--MonkeyPaws"]
+        app.launchArguments = ["--ResetState"]
         app.launch()
     }
 
@@ -54,6 +54,13 @@ class SetupUITests: XCTestCase {
     func testMinimumPasswordLength() {
         app.buttons["continueToStorage"].tap()
         app.buttons["continueToEncryption"].tap()
+        
+        app.textFields["password"].tap()
+        app.textFields["password"].typeText("")
+        
+        // password
+        // continueToConfirmation
+        // continueToPasscode
         
         // Not implemented
     }

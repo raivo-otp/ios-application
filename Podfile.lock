@@ -1,14 +1,9 @@
 PODS:
-  - Alamofire (4.9.0)
+  - Alamofire (4.9.1)
   - Base32 (1.1.2)
-  - EFFoundation (1.1.1):
-    - EFFoundation/Core (= 1.1.1)
-  - EFFoundation/Core (1.1.1)
-  - EFQRCode (5.1.3):
-    - EFFoundation (>= 1.1.1)
-    - EFQRCode/Core (= 5.1.3)
-  - EFQRCode/Core (5.1.3):
-    - EFFoundation (>= 1.1.1)
+  - EFQRCode (5.1.6):
+    - EFQRCode/Core (= 5.1.6)
+  - EFQRCode/Core (5.1.6)
   - Eureka (5.1.0)
   - Haptica (3.0.1)
   - OneTimePassword (3.2.0):
@@ -19,15 +14,12 @@ PODS:
   - RealmSwift (4.1.0):
     - Realm (= 4.1.0)
   - RNCryptor (5.1.0)
-  - SDWebImage (5.3.1):
-    - SDWebImage/Core (= 5.3.1)
-  - SDWebImage/Core (5.3.1)
+  - SDWebImage (5.3.2):
+    - SDWebImage/Core (= 5.3.2)
+  - SDWebImage/Core (5.3.2)
   - SPAlert (2.0)
   - SPStorkController (1.7.9)
   - SSZipArchive (2.2.2)
-  - SwiftMessages (7.0.1):
-    - SwiftMessages/App (= 7.0.1)
-  - SwiftMessages/App (7.0.1)
   - SwiftMonkey (2.1.1)
   - SwiftMonkeyPaws (2.1.1)
   - SwiftyBeaver (1.8.3)
@@ -37,18 +29,17 @@ PODS:
     - Eureka (>= 5.0.0)
 
 DEPENDENCIES:
-  - Alamofire (= 4.9.0)
-  - EFQRCode (= 5.1.3)
+  - Alamofire (= 4.9.1)
+  - EFQRCode (= 5.1.6)
   - Eureka (= 5.1.0)
   - Haptica (= 3.0.1)
   - OneTimePassword (= 3.2.0)
   - RealmSwift (= 4.1.0)
   - RNCryptor (= 5.1.0)
-  - SDWebImage (= 5.3.1)
+  - SDWebImage (= 5.3.2)
   - SPAlert (from `https://github.com/tijme/forked-spalert.git`, branch `master`)
   - SPStorkController (= 1.7.9)
   - SSZipArchive (= 2.2.2)
-  - SwiftMessages (= 7.0.1)
   - SwiftMonkey (= 2.1.1)
   - SwiftMonkeyPaws (= 2.1.1)
   - SwiftyBeaver (= 1.8.3)
@@ -60,7 +51,6 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Base32
-    - EFFoundation
     - EFQRCode
     - Eureka
     - Haptica
@@ -71,7 +61,6 @@ SPEC REPOS:
     - SDWebImage
     - SPStorkController
     - SSZipArchive
-    - SwiftMessages
     - SwiftMonkey
     - SwiftMonkeyPaws
     - SwiftyBeaver
@@ -92,21 +81,19 @@ CHECKOUT OPTIONS:
     :submodules: true
 
 SPEC CHECKSUMS:
-  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
-  EFFoundation: 26a2731ace3e22cf5f7bb45d28c6afbc945959dd
-  EFQRCode: 0979a5c181864085ca7f317b5b5c7b5bf496ad0e
+  EFQRCode: a7ea2e517912f5bf6ba258b631327a83cd8084a5
   Eureka: 18a5076dcf0c41f9cd9748aa1c42f4d11434bdae
   Haptica: 122ff121c88ea534e51039577305d104458c08c5
   OneTimePassword: c00ecc908e67e6c5bfda9d50b0b2e4696d0b066e
   Realm: 5d1453468eca02c901c50b8a356f4a98a15b57aa
   RealmSwift: 1d238caa5c64a590c669beef1a7e858a6cf55a1c
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
-  SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
+  SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   SPAlert: 9aa81cf2d1be6a930dfc48ed9df874c452c1035c
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
-  SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
   SwiftMonkeyPaws: 655524bb402df5ac2be836f9f604aca1068fbde6
   SwiftyBeaver: 3d3e93a12d648bd400b6f2948a7ef128b5b183c7
@@ -114,6 +101,6 @@ SPEC CHECKSUMS:
   Valet: dcc4ff74f0d010be665239ab89c7a4a5cd39ee33
   ViewRow: 8da541e9c019f3be63f4e28f311a62cac2045ecf
 
-PODFILE CHECKSUM: 513afbe1610baf0cc56641b713b035c2f58c7dc4
+PODFILE CHECKSUM: dfe50348bc9aeaf8bad254bd4cde87c3eb00a717
 
 COCOAPODS: 1.8.3

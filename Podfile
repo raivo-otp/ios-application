@@ -7,8 +7,6 @@ target 'Raivo' do
   use_frameworks!
 
   # Realm SQLite database handler that supports encryption
-  # pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true, :inhibit_warnings => true
-  # pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'tg/xcode-11-b1', submodules: true, :inhibit_warnings => true
   pod 'RealmSwift', '4.1.0', :inhibit_warnings => true
   
   # To encrypt sensitive data before being synced
@@ -25,7 +23,7 @@ target 'Raivo' do
   pod 'ViewRow', '0.8', :inhibit_warnings => true
   
   # Retrieves, caches and displays images from the web (for issuer logos)
-  pod 'SDWebImage', '5.3.1', :inhibit_warnings => true
+  pod 'SDWebImage', '5.3.2', :inhibit_warnings => true
 
   # Debug logging (only used in debug builds)
   pod 'SwiftyBeaver', '1.8.3', :inhibit_warnings => true
@@ -37,13 +35,13 @@ target 'Raivo' do
   pod 'Haptica', '3.0.1', :inhibit_warnings => true
   
   # HTTP requests for custom issuer icons
-  pod 'Alamofire', '4.9.0', :inhibit_warnings => true
+  pod 'Alamofire', '4.9.1', :inhibit_warnings => true
   
   # Allows encrypted ZIP file creation for OTP exporting
   pod 'SSZipArchive', '2.2.2', :inhibit_warnings => true
   
   # QRCode generation for data export
-  pod 'EFQRCode', '5.1.3', :inhibit_warnings => true
+  pod 'EFQRCode', '5.1.6', :inhibit_warnings => true
   
   # Swipable table view actions (for iOS < 11)
   pod 'SwipeCellKit', '2.7.1', :inhibit_warnings => true
@@ -52,7 +50,7 @@ target 'Raivo' do
   pod 'SPStorkController', '1.7.9', :inhibit_warnings => true
 
   # Zalando's monkey testing client
-  pod "SwiftMonkeyPaws", '2.1.1'
+  pod 'SwiftMonkeyPaws', '2.1.1'
   
 end
 

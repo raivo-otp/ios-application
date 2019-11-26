@@ -333,7 +333,6 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-bug")
             }).onCellSelection({ cell, row in
-//                ApplicationPrincipal.shared.
                 UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/issues/new/choose")!, options: [:])
             })
     }
