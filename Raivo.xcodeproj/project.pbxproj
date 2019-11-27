@@ -138,7 +138,7 @@
 		70F2DB7E238D4E7300CFF63F /* SetupMonkeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F2DB7D238D4E7300CFF63F /* SetupMonkeyTest.swift */; };
 		70F2DB81238D9A4C00CFF63F /* SetupFlowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F2DB80238D9A4C00CFF63F /* SetupFlowHelper.swift */; };
 		70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */; };
-		70F64B55238EF3E100A5F56E /* BiometricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F64B54238EF3E100A5F56E /* BiometricHelper.swift */; };
+		70F64B76238F082400A5F56E /* BiometricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079EBD222F638DA00F9D340 /* BiometricHelper.swift */; };
 		70F8BE7D2205EAFB006FDB5A /* LoadViewFilesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F8BE7C2205EAFB006FDB5A /* LoadViewFilesExtension.swift */; };
 		70FA4C4C2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA4C4B2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift */; };
 		70FA4C4F228752A300A3B754 /* IconFormSelectorViewEmptySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA4C4E228752A300A3B754 /* IconFormSelectorViewEmptySearch.swift */; };
@@ -157,6 +157,19 @@
 			remoteInfo = Raivo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		70F64B75238F06D700A5F56E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raivo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Raivo/Pods-Raivo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -296,7 +309,6 @@
 		70F2DB7D238D4E7300CFF63F /* SetupMonkeyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMonkeyTest.swift; sourceTree = "<group>"; };
 		70F2DB80238D9A4C00CFF63F /* SetupFlowHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFlowHelper.swift; sourceTree = "<group>"; };
 		70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationProviderForm.swift; sourceTree = "<group>"; };
-		70F64B54238EF3E100A5F56E /* BiometricHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricHelper.swift; sourceTree = "<group>"; };
 		70F8BE7C2205EAFB006FDB5A /* LoadViewFilesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewFilesExtension.swift; sourceTree = "<group>"; };
 		70FA4C4B2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousIconsEffectFormOption.swift; sourceTree = "<group>"; };
 		70FA4C4E228752A300A3B754 /* IconFormSelectorViewEmptySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptySearch.swift; sourceTree = "<group>"; };
@@ -850,7 +862,6 @@
 			isa = PBXGroup;
 			children = (
 				70F2DB80238D9A4C00CFF63F /* SetupFlowHelper.swift */,
-				70F64B54238EF3E100A5F56E /* BiometricHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -912,6 +923,7 @@
 				700908BE21FCCE5F00603AA2 /* Frameworks */,
 				700908BF21FCCE5F00603AA2 /* Resources */,
 				41BEA9B6DC7E014DA4383CDA /* [CP] Embed Pods Frameworks */,
+				70F64B75238F06D700A5F56E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -947,7 +959,7 @@
 		700908B921FCCE5F00603AA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Tijme Gommers";
 				TargetAttributes = {
@@ -1218,7 +1230,7 @@
 			files = (
 				70F2DB7E238D4E7300CFF63F /* SetupMonkeyTest.swift in Sources */,
 				70F2DB81238D9A4C00CFF63F /* SetupFlowHelper.swift in Sources */,
-				70F64B55238EF3E100A5F56E /* BiometricHelper.swift in Sources */,
+				70F64B76238F082400A5F56E /* BiometricHelper.swift in Sources */,
 				70631CAE230DC2A10040DD71 /* SetupRoboticTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
