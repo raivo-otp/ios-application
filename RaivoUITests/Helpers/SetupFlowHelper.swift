@@ -12,7 +12,7 @@
 
 import XCTest
 
-class SetupTestHelper {
+class SetupFlowHelper {
     
     static func forwardToWelcome(_ app: XCUIApplication) {
         // start is welcome, nothing to do.
@@ -53,7 +53,12 @@ class SetupTestHelper {
     }
     
     static func forwardToCompletion(_ app: XCUIApplication) {
-        forwardToBiometrics(app)
+        if BiometricHelper.shared.biometricsAvailable() {
+            forwardToBiometrics(app)
+        } else {
+            forwardToPasscodeConfirmation(app)
+        }
+        
         app.buttons["enable"].tap()
     }
     

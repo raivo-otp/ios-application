@@ -12,7 +12,7 @@
 
 import XCTest
 
-class SetupTestRobotic: XCTestCase {
+class SetupRoboticTest: XCTestCase {
     
     var app: XCUIApplication!
 
@@ -29,14 +29,14 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testWelcome() {
-        SetupTestHelper.forwardToWelcome(app)
+        SetupFlowHelper.forwardToWelcome(app)
         
         let setupWelcome = app.otherElements["setupWelcome"]
         XCTAssertTrue(setupWelcome.exists)
     }
     
     func testStorage() {
-        SetupTestHelper.forwardToStorage(app)
+        SetupFlowHelper.forwardToStorage(app)
         
         let setupStorage = app.otherElements["setupStorage"]
         XCTAssertTrue(setupStorage.exists)
@@ -50,7 +50,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testMinimumPasswordLengthToShort() {
-        SetupTestHelper.forwardToPasswordInitial(app)
+        SetupFlowHelper.forwardToPasswordInitial(app)
         
         app.secureTextFields["passwordInitial"].tap()
         app.secureTextFields["passwordInitial"].typeText("1234567")
@@ -62,7 +62,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testMinimumPasswordLengthLongEnough() {
-        SetupTestHelper.forwardToPasswordInitial(app)
+        SetupFlowHelper.forwardToPasswordInitial(app)
         
         app.secureTextFields["passwordInitial"].tap()
         app.secureTextFields["passwordInitial"].typeText("12345678")
@@ -74,7 +74,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testInvalidPasswordConfirmation() {
-        SetupTestHelper.forwardToPasswordConfirmation(app, initialPassword: "AAAAAAAAAA")
+        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: "AAAAAAAAAA")
         
         app.secureTextFields["passwordConfirmation"].tap()
         app.secureTextFields["passwordConfirmation"].typeText("BBBBBBBBBB")
@@ -84,7 +84,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testValidPasswordConfirmation() {
-        SetupTestHelper.forwardToPasswordConfirmation(app, initialPassword: "AAAAAAAAAA")
+        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: "AAAAAAAAAA")
         
         app.secureTextFields["passwordConfirmation"].tap()
         app.secureTextFields["passwordConfirmation"].typeText("AAAAAAAAAA")
@@ -96,7 +96,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testMinimumPasscodeLengthToShort() {
-        SetupTestHelper.forwardToPasscodeInitial(app)
+        SetupFlowHelper.forwardToPasscodeInitial(app)
         
         app.secureTextFields["passcodeInitial"].typeText("12345")
         
@@ -105,7 +105,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testMinimumPasscodeLengthLongEnough() {
-        SetupTestHelper.forwardToPasscodeInitial(app)
+        SetupFlowHelper.forwardToPasscodeInitial(app)
         
         app.secureTextFields["passcodeInitial"].typeText("123456")
         
@@ -114,7 +114,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testInvalidPasscodeConfirmation() {
-        SetupTestHelper.forwardToPasscodeConfirmation(app, initialPasscode: "111111")
+        SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "111111")
         
         app.secureTextFields["passcodeConfirmation"].typeText("222222")
         
@@ -123,7 +123,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testValidPasscodeConfirmation() {
-        SetupTestHelper.forwardToPasscodeConfirmation(app, initialPasscode: "654321")
+        SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "654321")
         
         app.secureTextFields["passcodeConfirmation"].typeText("654321")
         
@@ -132,7 +132,12 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testBiometrics() {
-        SetupTestHelper.forwardToBiometrics(app)
+        if !BiometricHelper.shared.biometricsAvailable() {
+            // Biometrics are not available
+            return
+        }
+        
+        SetupFlowHelper.forwardToBiometrics(app)
         
         app.buttons["enable"].tap()
         
@@ -141,7 +146,7 @@ class SetupTestRobotic: XCTestCase {
     }
     
     func testCompletion() {
-        SetupTestHelper.forwardToCompletion(app)
+        SetupFlowHelper.forwardToCompletion(app)
         
         app.buttons["start"].tap()
         
