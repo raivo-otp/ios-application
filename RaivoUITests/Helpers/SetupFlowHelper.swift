@@ -30,14 +30,14 @@ class SetupFlowHelper {
     
     static func forwardToPasswordConfirmation(_ app: XCUIApplication, initialPassword: String = "12345678") {
         forwardToPasswordInitial(app)
-        app.secureTextFields["passwordInitial"].tap()
+//        app.secureTextFields["passwordInitial"].tap()
         app.secureTextFields["passwordInitial"].typeText(initialPassword)
         app.buttons["continue"].tap()
     }
     
     static func forwardToPasscodeInitial(_ app: XCUIApplication, confirmationPassword: String = "12345678") {
         forwardToPasswordConfirmation(app)
-        app.secureTextFields["passwordConfirmation"].tap()
+//        app.secureTextFields["passwordConfirmation"].tap()
         app.secureTextFields["passwordConfirmation"].typeText(confirmationPassword)
         app.buttons["confirm"].tap()
     }

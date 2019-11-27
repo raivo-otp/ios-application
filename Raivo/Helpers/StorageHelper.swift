@@ -79,26 +79,7 @@ class StorageHelper {
     ///
     /// - Returns: Positive if the secrets can be accessed in theory
     public func canAccessSecrets() -> Bool {
-        var error: NSError?
-        
-        let hasBiometricAuthentication = LAContext().canEvaluatePolicy(
-            LAPolicy.deviceOwnerAuthenticationWithBiometrics,
-            error: &error
-        )
-        
-        // FaceID became available in iOS 11, therefore this condition checks all biometry types for iOS 11 and above.
-        // For iOS versions lower then 11, only TouchID is verified.
-        if #available(iOS 11, *) {
-            guard error?.code != LAError.biometryNotAvailable.rawValue else {
-                return false
-            }
-        } else {
-            guard error?.code != LAError.touchIDNotAvailable.rawValue else {
-                return false
-            }
-        }
-        
-        return hasBiometricAuthentication
+        return BiometricHelper.shared.biometricsAvailable()
     }
     
     /// Set the password part of the encryption key.
