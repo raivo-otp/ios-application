@@ -25,7 +25,7 @@ class SetupRoboticTest: XCTestCase {
     }
 
     override func tearDown() {
-        // Not implemented
+        // No actions required
     }
     
     func testWelcome() {
