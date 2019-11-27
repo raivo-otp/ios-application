@@ -44,6 +44,16 @@ class UIPasscodeField: UIView, UITextFieldDelegate {
     /// The UIDigitFields that are added on initialization
     private var digits: [Int: UIDigitField] = [:]
     
+    /// The `accessibilityIdentifier` is linked to the `accessibilityIdentifier` of the shadow field
+    override var accessibilityIdentifier: String? {
+        get {
+            return shadow?.accessibilityIdentifier
+        }
+        set {
+            shadow?.accessibilityIdentifier = newValue
+        }
+    }
+    
     /// Initialize the current UIView using a frame
     ///
     /// - Parameter frame: The frame to use

@@ -82,5 +82,42 @@ class SetupTestRobotic: XCTestCase {
         let setupPasswordInitial = app.otherElements["setupPasswordInitial"]
         XCTAssertTrue(setupPasswordInitial.exists)
     }
+    
+    
+    
+    
+    func testMinimumPasscodeLengthToShort() {
+        SetupTestHelper.forwardToPasscodeInitial(app)
+        
+        app.secureTextFields["passcodeInitial"].tap()
+        app.secureTextFields["passcodeInitial"].typeText("1234567")
+        
+        app.buttons["continue"].tap()
+        
+        let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
+        XCTAssertTrue(setupPasscodeInitial.exists)
+    }
+    
+    func testMinimumPasscodeLengthLongEnough() {
+        SetupTestHelper.forwardToPasscodeInitial(app)
+        
+        app.secureTextFields["passcodeInitial"].tap()
+        app.secureTextFields["passcodeInitial"].typeText("12345678")
+        
+        app.buttons["continue"].tap()
+        
+        let setupPasscodeConfirmation = app.otherElements["setupPasscodeConfirmation"]
+        XCTAssertTrue(setupPasscodeConfirmation.exists)
+    }
+    
+    func testInvalidPasscodeConfirmation() {
+        SetupTestHelper.forwardToPasscodeConfirmation(app, initialPasscode: "111111")
+        
+        app.secureTextFields["passcodeConfirmation"].tap()
+        app.secureTextFields["passcodeConfirmation"].typeText("222222")
+        
+        let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
+        XCTAssertTrue(setupPasscodeInitial.exists)
+    }
 
 }

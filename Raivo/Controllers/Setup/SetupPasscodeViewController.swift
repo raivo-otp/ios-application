@@ -26,6 +26,7 @@ class SetupPasscodeViewController: UIViewController, UIPasscodeFieldDelegate, Se
     override func viewDidLoad() {
         super.viewDidLoad()
                 
+        passcodeField.accessibilityIdentifier = "passcodeInitial"
         passcodeField.delegate = self
         passcodeField.layoutIfNeeded()
     }

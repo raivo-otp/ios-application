@@ -28,7 +28,8 @@ class SetupPasscodeConfirmationViewController: UIViewController, UIPasscodeField
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
+        passcodeField.accessibilityIdentifier = "passcodeConfirmation"
         passcodeField.delegate = self
         passcodeField.layoutIfNeeded()
     }
