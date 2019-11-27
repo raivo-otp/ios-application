@@ -47,9 +47,14 @@ class SetupTestHelper {
         app.secureTextFields["passcodeInitial"].typeText(initialPasscode)
     }
     
-    static func forwardToCompletion(_ app: XCUIApplication, confirmationPasscode: String = "123456") {
+    static func forwardToBiometrics(_ app: XCUIApplication, confirmationPasscode: String = "123456") {
         forwardToPasscodeConfirmation(app)
         app.secureTextFields["passcodeConfirmation"].typeText(confirmationPasscode)
+    }
+    
+    static func forwardToCompletion(_ app: XCUIApplication) {
+        forwardToBiometrics(app)
+        app.buttons["enable"].tap()
     }
     
     static func forwardToMain(_ app: XCUIApplication) {

@@ -127,8 +127,17 @@ class SetupTestRobotic: XCTestCase {
         
         app.secureTextFields["passcodeConfirmation"].typeText("654321")
         
-        let setupPasscodeInitial = app.otherElements["setupComplete"]
+        let setupPasscodeInitial = app.otherElements["setupBiometrics"]
         XCTAssertTrue(setupPasscodeInitial.exists)
+    }
+    
+    func testBiometrics() {
+        SetupTestHelper.forwardToBiometrics(app)
+        
+        app.buttons["enable"].tap()
+        
+        let setupCompletion = app.otherElements["setupComplete"]
+        XCTAssertTrue(setupCompletion.exists)
     }
     
     func testCompletion() {
