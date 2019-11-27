@@ -29,7 +29,7 @@ class SetupPasscodeConfirmationViewController: UIViewController, UIPasscodeField
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        passcodeField.accessibilityIdentifier = "passcodeConfirmation"
+        passcodeField.shadowAccessibilityIdentifier = "passcodeConfirmation"
         passcodeField.delegate = self
         passcodeField.layoutIfNeeded()
     }

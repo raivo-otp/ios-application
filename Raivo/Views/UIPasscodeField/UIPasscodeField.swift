@@ -44,8 +44,8 @@ class UIPasscodeField: UIView, UITextFieldDelegate {
     /// The UIDigitFields that are added on initialization
     private var digits: [Int: UIDigitField] = [:]
     
-    /// The `accessibilityIdentifier` is linked to the `accessibilityIdentifier` of the shadow field
-    override var accessibilityIdentifier: String? {
+    /// The `shadowAccessibilityIdentifier` is linked to the `accessibilityIdentifier` of the shadow field
+    public var shadowAccessibilityIdentifier: String? {
         get {
             return shadow?.accessibilityIdentifier
         }
@@ -146,8 +146,10 @@ class UIPasscodeField: UIView, UITextFieldDelegate {
     }
     
     /// Add the shadow/mirror UITextField to enable user input
+    ///
+    /// - Note: For UITests, the `CGRect` must be at least 1x1 in order to simulate `typeText`.
     private func addShadow() {
-        let invisibleFrame = CGRect(x: 0.0, y: 0.0, width: 0.0, height: 0.0)
+        let invisibleFrame = CGRect(x: -10.0, y: -10.0, width: 1.0, height: 1.0)
         
         shadow = UIPasscodeShadowField(frame: invisibleFrame)
         shadow!.delegate = self

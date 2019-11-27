@@ -44,14 +44,12 @@ class SetupTestHelper {
     
     static func forwardToPasscodeConfirmation(_ app: XCUIApplication, initialPasscode: String = "123456") {
         forwardToPasscodeInitial(app)
-        app.secureTextFields["passcode"].tap()
-        app.secureTextFields["passcode"].typeText(initialPasscode)
+        app.secureTextFields["passcodeInitial"].typeText(initialPasscode)
     }
     
     static func forwardToCompletion(_ app: XCUIApplication, confirmationPasscode: String = "123456") {
         forwardToPasscodeConfirmation(app)
-        app.secureTextFields["passcode"].tap()
-        app.secureTextFields["passcode"].typeText(confirmationPasscode)
+        app.secureTextFields["passcodeConfirmation"].typeText(confirmationPasscode)
     }
     
     static func forwardToMain(_ app: XCUIApplication) {

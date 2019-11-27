@@ -26,7 +26,7 @@ class SetupTestMonkey: XCTestCase {
     }
 
     override func tearDown() {
-        // Not implemented
+        // No actions required
     }
     
     func testWelcomeByMonkey() {

@@ -83,16 +83,22 @@ class SetupTestRobotic: XCTestCase {
         XCTAssertTrue(setupPasswordInitial.exists)
     }
     
-    
-    
+    func testValidPasswordConfirmation() {
+        SetupTestHelper.forwardToPasswordConfirmation(app, initialPassword: "AAAAAAAAAA")
+        
+        app.secureTextFields["passwordConfirmation"].tap()
+        app.secureTextFields["passwordConfirmation"].typeText("AAAAAAAAAA")
+        
+        app.buttons["confirm"].tap()
+        
+        let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
+        XCTAssertTrue(setupPasscodeInitial.exists)
+    }
     
     func testMinimumPasscodeLengthToShort() {
         SetupTestHelper.forwardToPasscodeInitial(app)
         
-        app.secureTextFields["passcodeInitial"].tap()
-        app.secureTextFields["passcodeInitial"].typeText("1234567")
-        
-        app.buttons["continue"].tap()
+        app.secureTextFields["passcodeInitial"].typeText("12345")
         
         let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
         XCTAssertTrue(setupPasscodeInitial.exists)
@@ -101,10 +107,7 @@ class SetupTestRobotic: XCTestCase {
     func testMinimumPasscodeLengthLongEnough() {
         SetupTestHelper.forwardToPasscodeInitial(app)
         
-        app.secureTextFields["passcodeInitial"].tap()
-        app.secureTextFields["passcodeInitial"].typeText("12345678")
-        
-        app.buttons["continue"].tap()
+        app.secureTextFields["passcodeInitial"].typeText("123456")
         
         let setupPasscodeConfirmation = app.otherElements["setupPasscodeConfirmation"]
         XCTAssertTrue(setupPasscodeConfirmation.exists)
@@ -113,11 +116,28 @@ class SetupTestRobotic: XCTestCase {
     func testInvalidPasscodeConfirmation() {
         SetupTestHelper.forwardToPasscodeConfirmation(app, initialPasscode: "111111")
         
-        app.secureTextFields["passcodeConfirmation"].tap()
         app.secureTextFields["passcodeConfirmation"].typeText("222222")
         
         let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
         XCTAssertTrue(setupPasscodeInitial.exists)
+    }
+    
+    func testValidPasscodeConfirmation() {
+        SetupTestHelper.forwardToPasscodeConfirmation(app, initialPasscode: "654321")
+        
+        app.secureTextFields["passcodeConfirmation"].typeText("654321")
+        
+        let setupPasscodeInitial = app.otherElements["setupComplete"]
+        XCTAssertTrue(setupPasscodeInitial.exists)
+    }
+    
+    func testCompletion() {
+        SetupTestHelper.forwardToCompletion(app)
+        
+        app.buttons["start"].tap()
+        
+        let mainPasswords = app.otherElements["mainPasswords"]
+        XCTAssertTrue(mainPasswords.exists)
     }
 
 }
