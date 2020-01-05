@@ -10,9 +10,9 @@
 // https://github.com/tijme/raivo/blob/master/LICENSE.md
 //
 
-import Foundation
 import UIKit
 
+/// The root navigation controller of the authentication flow
 class AuthRootViewController: UINavigationController {
 
 }

@@ -23,6 +23,12 @@ class AppHelper {
         public static let release = "Release"
     }
     
+    /// Authentication options
+    public struct Authentication {
+        public static let passcodeMaximumTries = 6
+        public static let passcodeLockoutSeconds = TimeInterval(60)
+    }
+    
     /// The main bundle identifier (e.g. com.apple.mainapp). This can vary for every compilation type.
     ///
     /// - Note: Our identifier cannot be nil since it's hardcoded in the 'info.plist' file
