@@ -114,7 +114,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
             log.verbose("Invalid passcode entered")
             
             let left = getTriesLeft()
-            let message = "Invalid passcode. " + (getTriesLeft() > 0 ? String(left) + " tries left." : "That was your last try.")
+            let message = "Invalid passcode. " + ((getTriesLeft() > 0 ? String(left) + " tries left." : "Wait " + String(Int(AppHelper.Authentication.passcodeLockoutSeconds)) + " seconds to retry."))
             
             return BannerHelper.shared.error("Error", message, wrapper: self.view)
         }
