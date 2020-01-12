@@ -211,8 +211,9 @@ class UIPasscodeField: UIView, UITextFieldDelegate {
         delegate?.onPasscodeChange(passcode: newText)
         
         if newLength == length {
-            delegate?.onPasscodeComplete(passcode: newText)
             completed = true
+            delegate?.onPasscodeComplete(passcode: newText)
+            return false
         }
         
         return true

@@ -11,157 +11,193 @@
 //
 
 import UIKit
-import RealmSwift
 
+/// The controller for the miscellaneous view in the authentication flow
 class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
-    
+
+    /// A field representing the six passcode digits
     @IBOutlet weak var passcodeField: UIPasscodeField!
     
-    @IBOutlet weak var biometricLabel: UIButton!
+    /// A button to force a biometric unlock
+    @IBOutlet weak var biometricButton: UIButton!
     
-    final let maximumTries = 6
-    
-    final let lockoutTime = 3.0
-    
+    /// Called after the view controller has loaded its view hierarchy into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        biometricLabel.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
+        biometricButton.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
         
         passcodeField.delegate = self
         passcodeField.layoutIfNeeded()
         
-        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                self.tryBiometricsUnlock()
-            }
+        NotificationHelper.shared.listen(to: UIApplication.didBecomeActiveNotification, distinctBy: id(self)) { _ in
+            self.attemptBiometrickUnlock()
         }
     }
     
+    /// Called before the view controller's view is about to be added to a view hierarchy
+    ///
+    /// - Parameter animated: Positive if the transition should be animated
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         attachKeyboardConstraint(self)
     }
     
+    /// Called in response to a view being removed from a view hierarchy
+    ///
+    /// - Parameter animated: Positive if the transition should be animated
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         detachKeyboardConstraint(self)
     }
     
+    /// Notifies the view controller that its view was removed from a view hierarchy
+    ///
+    /// - Parameter animated: Positive if the transition was animated
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        NotificationHelper.shared.discard(UIApplication.willEnterForegroundNotification, byDistinctName: id(self))
+        NotificationHelper.shared.discard(UIApplication.didBecomeActiveNotification, byDistinctName: id(self))
     }
     
+    /// Notifies the view controller that its view was added to a view hierarchy
+    ///
+    /// - Parameter animated: Positive if the transition was animated
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if getAppDelegate().previousStoryboardName == StateHelper.Storyboard.LOAD {
-            tryBiometricsUnlock()
+            attemptBiometrickUnlock()
         } else {
             passcodeField.becomeFirstResponder()
         }
     }
     
+    /// Called when the user taps on the "biometric unlock" button/link
+    ///
+    /// - Parameter sender :The button that was tapped
     @IBAction func onBiometricsUnlock(_ sender: Any) {
-        tryBiometricsUnlock()
+        attemptBiometrickUnlock()
     }
     
-    func onPasscodeComplete(passcode: String) {
-        let salt = StorageHelper.shared.getEncryptionPassword()!
-        
-        guard let encryptionKey = try? CryptographyHelper.shared.derive(passcode, withSalt: salt) else {
-            BannerHelper.shared.error("Error", "Key derivation failed.", wrapper: view) {
-                self.passcodeField.reset()
-            }
-            
-            return
-        }
-        
-        let isCorrect = RealmHelper.shared.isCorrectEncryptionKey(encryptionKey)
-        
-        DispatchQueue.main.async {
-            guard self.tryNewPasscode() else {
-                BannerHelper.shared.error("Error", "Please wait " + String(self.getSecondsLeft()) + " seconds and try again.", wrapper: self.view) {
-                    self.passcodeField.reset()
-                }
-                
-                return
-            }
-            
-            if isCorrect {
-                log.verbose("Unlocked app via passcode")
-                
-                getAppDelegate().updateEncryptionKey(encryptionKey)
-                
-                self.resetPasscodeTries()
-                getAppDelegate().updateStoryboard()
-            } else {
-                log.verbose("Invalid passcode entered")
-                
-                self.passcodeField.reset()
-                
-                let message = self.getTriesLeft() == 0 ? "Invalid passcode. That was your last try." : "Invalid passcode. " + String(self.getTriesLeft()) + " tries left."
-                
-                BannerHelper.shared.error("Error", message, duration: 1.0, wrapper: self.view)
-                return
-            }
-        }
-    }
-    
+    /// Called when the user enters or removes a single digit
+    ///
+    /// - Parameter passcode: The new passcode value
     func onPasscodeChange(passcode: String) {
-        // Not implemented
+        // Not implemented, we don't listen to digit changes
     }
     
+    /// Called when the user completes entering his/her passcode
+    ///
+    /// - Parameter passcode: The complete passcode value
+    /// - Note: This function will unlock the application if the passcode is correct
+    func onPasscodeComplete(passcode: String) {
+        // Always calculate the result to prevent time-bases guessing attacks
+        let (correct, encryptionKey) = isCorrectPasscode(passcode)
+        
+        // Prevent unlock if user tried to unlock too many times
+        if !hasPasscodeAttemptLeft() {
+            passcodeField.reset()
+            
+            let message = "Please wait " + String(getSecondsLeft()) + " seconds and try again."
+            return BannerHelper.shared.error("Error", message, wrapper: self.view)
+        }
+        
+        increasePasscodeTries()
+        
+        // Make sure the passcode is correct
+        guard correct else {
+            passcodeField.reset()
+            
+            log.verbose("Invalid passcode entered")
+            
+            let left = getTriesLeft()
+            let message = "Invalid passcode. " + ((getTriesLeft() > 0 ? String(left) + " tries left." : "Wait " + String(Int(AppHelper.Authentication.passcodeLockoutSeconds)) + " seconds to retry."))
+            
+            return BannerHelper.shared.error("Error", message, wrapper: self.view)
+        }
+        
+        log.verbose("Valid passcode entered")
+        resetPasscodeTries()
+        
+        getAppDelegate().updateEncryptionKey(encryptionKey!)
+        getAppDelegate().updateStoryboard()
+    }
+    
+    /// Verify if the given passcode can unlock the current Realm database
+    ///
+    /// - Parameter passcode: The passcode to check
+    /// - Returns: A tupple containing if the passcode is correct, and the encryption key that was tried
+    internal func isCorrectPasscode(_ passcode: String) -> (Bool, Data?) {
+        let salt = StorageHelper.shared.getEncryptionPassword()!
+
+        guard let encryptionKey = try? CryptographyHelper.shared.derive(passcode, withSalt: salt) else {
+            return (false, nil)
+        }
+
+        return (RealmHelper.shared.isCorrectEncryptionKey(encryptionKey), encryptionKey)
+    }
+    
+    /// Increase the amount of times the user tried to unlock the application
+    internal func increasePasscodeTries() {
+        let currentTries = StorageHelper.shared.getPasscodeTriedAmount() ?? 0
+        
+        StorageHelper.shared.setPasscodeTriedAmount(currentTries + 1)
+        StorageHelper.shared.setPasscodeTriedTimestamp(Date().timeIntervalSince1970)
+    }
+    
+    /// Check if the user may try to unlock the device based on the amount of tries left
+    ///
+    /// - Returns: Positive if there is a try left, false otherwise
+    internal func hasPasscodeAttemptLeft() -> Bool {
+        let lastTryTimestamp = StorageHelper.shared.getPasscodeTriedTimestamp() ?? TimeInterval(0)
+        let lockoutSeconds = AppHelper.Authentication.passcodeLockoutSeconds
+        
+        if getTriesLeft() > 0 {
+            return true
+        }
+        
+        return (lastTryTimestamp + lockoutSeconds) < Date().timeIntervalSince1970
+    }
+    
+    /// If a user unlocked the application, this function may be used to reset the unlock tries and timestamp
     internal func resetPasscodeTries() {
         StorageHelper.shared.setPasscodeTriedAmount(0)
         StorageHelper.shared.setPasscodeTriedTimestamp(0)
     }
     
+    /// Get the amount of tries that a user has left to unlock the application
+    ///
+    /// - Returns: The amount of tries the user has left
     internal func getTriesLeft() -> Int {
-        return maximumTries - (StorageHelper.shared.getPasscodeTriedAmount() ?? 0)
+        let maximum = AppHelper.Authentication.passcodeMaximumTries
+        return maximum - (StorageHelper.shared.getPasscodeTriedAmount() ?? 0)
     }
     
+    /// Get the amount of seconds a user has to wait before he/she can unlock the application again
+    ///
+    /// - Returns: The amount of seconds left
     internal func getSecondsLeft() -> Int {
         let lastTryTimestamp = StorageHelper.shared.getPasscodeTriedTimestamp() ?? TimeInterval(0)
-        return Int((lastTryTimestamp + (lockoutTime * 60)) - Date().timeIntervalSince1970)
+        let lockoutSeconds = AppHelper.Authentication.passcodeLockoutSeconds
+        
+        return Int(lastTryTimestamp + lockoutSeconds - Date().timeIntervalSince1970)
     }
     
-    internal func tryNewPasscode(increase: Bool = true) -> Bool {
-        let currentTries = StorageHelper.shared.getPasscodeTriedAmount() ?? 0
-        let lastTryTimestamp = StorageHelper.shared.getPasscodeTriedTimestamp() ?? TimeInterval(0)
-        
-        // If can try
-        guard currentTries >= maximumTries else {
-            if increase {
-                StorageHelper.shared.setPasscodeTriedTimestamp(Date().timeIntervalSince1970)
-                StorageHelper.shared.setPasscodeTriedAmount(currentTries + 1)
-            }
-            
-            return true
-        }
-        
-        // If reset counter required
-        guard (lastTryTimestamp + (lockoutTime * 60)) > Date().timeIntervalSince1970 else {
-            resetPasscodeTries()
-            return tryNewPasscode()
-        }
-        
-        // If can try
-        return false
-    }
-    
-    internal func tryBiometricsUnlock() {
+    /// Attempt to unlock the application via biometric (e.g. FaceID or TouchID)
+    internal func attemptBiometrickUnlock() {
+        // Biometric unlock must be enabled
         guard StorageHelper.shared.getBiometricUnlockEnabled() else {
             passcodeField.becomeFirstResponder()
             return
         }
         
-        guard self.tryNewPasscode(increase: false) else {
-            BannerHelper.shared.error("Locked", "Please wait " + String(getSecondsLeft()) + " seconds and try again.", wrapper: view) {
-                self.passcodeField.reset()
-            }
-            
-            return
+        // User must have a passcode attempt left
+        guard hasPasscodeAttemptLeft() else {
+            let message = "Please wait " + String(getSecondsLeft()) + " seconds and try again."
+            return BannerHelper.shared.error("Error", message, wrapper: self.view)
         }
         
         passcodeField.resignFirstResponder()
@@ -169,9 +205,9 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
                 self.resetPasscodeTries()
-                
+
                 log.verbose("Unlocked app via biometric")
-                
+
                 getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
                 getAppDelegate().updateStoryboard()
             } else {
@@ -179,4 +215,5 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
             }
         }
     }
+
 }

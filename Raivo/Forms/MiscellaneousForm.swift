@@ -235,13 +235,11 @@ class MiscellaneousForm {
                             dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
                             dataExportMail.send(popupFrom: controller) {
                                 controller.dismissNavBarActivity(barButtonItem)
-                                dataExport.deleteArchive()
                             }
                         } else {
                             let activity = UIActivityViewController(activityItems: [archive], applicationActivities: nil)
                             controller.present(activity, animated: true, completion: {
                                 controller.dismissNavBarActivity(barButtonItem)
-                                dataExport.deleteArchive()
                             })
                         }
                     }
