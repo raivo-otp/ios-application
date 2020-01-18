@@ -20,6 +20,7 @@
 		700908F421FD027400603AA2 /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F321FD027400603AA2 /* TokenHelper.swift */; };
 		70093238230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70093237230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift */; };
 		7016DE422265193D006C45B6 /* CustomColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016DE412265193D006C45B6 /* CustomColorsExtension.swift */; };
+		701ECE3C23D387700015D12A /* HumanDelayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701ECE3B23D387700015D12A /* HumanDelayHelper.swift */; };
 		701F47462333F38F008C4A9C /* ImageFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701F47452333F38F008C4A9C /* ImageFilterHelper.swift */; };
 		70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70285928226205C50045DA26 /* CloudKitPasswordConverter.swift */; };
 		7028592C226212EA0045DA26 /* CloudKitPasswordSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028592B226212EA0045DA26 /* CloudKitPasswordSyncer.swift */; };
@@ -188,6 +189,7 @@
 		700908F321FD027400603AA2 /* TokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
 		70093237230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasscodeConfirmationViewController.swift; sourceTree = "<group>"; };
 		7016DE412265193D006C45B6 /* CustomColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorsExtension.swift; sourceTree = "<group>"; };
+		701ECE3B23D387700015D12A /* HumanDelayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanDelayHelper.swift; sourceTree = "<group>"; };
 		701F47452333F38F008C4A9C /* ImageFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterHelper.swift; sourceTree = "<group>"; };
 		70285928226205C50045DA26 /* CloudKitPasswordConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPasswordConverter.swift; sourceTree = "<group>"; };
 		7028592B226212EA0045DA26 /* CloudKitPasswordSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPasswordSyncer.swift; sourceTree = "<group>"; };
@@ -539,6 +541,22 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
+		701ECE3923D3870A0015D12A /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				70F2DB80238D9A4C00CFF63F /* SetupFlowHelper.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		701ECE3A23D387130015D12A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				701ECE3B23D387700015D12A /* HumanDelayHelper.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		70285927226205A50045DA26 /* ModelConverters */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,7 +879,8 @@
 		70F64B52238EF3AA00A5F56E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				70F2DB80238D9A4C00CFF63F /* SetupFlowHelper.swift */,
+				701ECE3A23D387130015D12A /* Utilities */,
+				701ECE3923D3870A0015D12A /* Flows */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1228,6 +1247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				701ECE3C23D387700015D12A /* HumanDelayHelper.swift in Sources */,
 				70F2DB7E238D4E7300CFF63F /* SetupMonkeyTest.swift in Sources */,
 				70F2DB81238D9A4C00CFF63F /* SetupFlowHelper.swift in Sources */,
 				70F64B76238F082400A5F56E /* BiometricHelper.swift in Sources */,

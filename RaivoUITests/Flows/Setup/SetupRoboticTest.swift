@@ -46,7 +46,7 @@ class SetupRoboticTest: XCTestCase {
         
         let buttonEnabled = NSPredicate(format: "isEnabled == true")
         expectation(for: buttonEnabled, evaluatedWith: continueButton, handler: nil)
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 2, handler: nil)
     }
     
     func testMinimumPasswordLengthToShort() {
@@ -56,6 +56,7 @@ class SetupRoboticTest: XCTestCase {
         app.secureTextFields["passwordInitial"].typeText("1234567")
         
         app.buttons["continue"].tap()
+        HumanDelayHelper.idle()
         
         let setupPasswordInitial = app.otherElements["setupPasswordInitial"]
         XCTAssertTrue(setupPasswordInitial.exists)
@@ -68,6 +69,7 @@ class SetupRoboticTest: XCTestCase {
         app.secureTextFields["passwordInitial"].typeText("12345678")
         
         app.buttons["continue"].tap()
+        HumanDelayHelper.idle()
         
         let setupPasswordConfirmation = app.otherElements["setupPasswordConfirmation"]
         XCTAssertTrue(setupPasswordConfirmation.exists)
@@ -90,6 +92,7 @@ class SetupRoboticTest: XCTestCase {
         app.secureTextFields["passwordConfirmation"].typeText("AAAAAAAAAA")
         
         app.buttons["confirm"].tap()
+        HumanDelayHelper.idle()
         
         let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
         XCTAssertTrue(setupPasscodeInitial.exists)
@@ -99,6 +102,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToPasscodeInitial(app)
         
         app.secureTextFields["passcodeInitial"].typeText("12345")
+        HumanDelayHelper.idle()
         
         let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
         XCTAssertTrue(setupPasscodeInitial.exists)
@@ -108,6 +112,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToPasscodeInitial(app)
         
         app.secureTextFields["passcodeInitial"].typeText("123456")
+        HumanDelayHelper.idle()
         
         let setupPasscodeConfirmation = app.otherElements["setupPasscodeConfirmation"]
         XCTAssertTrue(setupPasscodeConfirmation.exists)
@@ -117,6 +122,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "111111")
         
         app.secureTextFields["passcodeConfirmation"].typeText("222222")
+        HumanDelayHelper.idle()
         
         let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
         XCTAssertTrue(setupPasscodeInitial.exists)
@@ -126,6 +132,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "654321")
         
         app.secureTextFields["passcodeConfirmation"].typeText("654321")
+        HumanDelayHelper.idle()
         
         let setupPasscodeInitial = app.otherElements["setupBiometrics"]
         XCTAssertTrue(setupPasscodeInitial.exists)
@@ -140,6 +147,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToBiometrics(app)
         
         app.buttons["enable"].tap()
+        HumanDelayHelper.idle()
         
         let setupCompletion = app.otherElements["setupComplete"]
         XCTAssertTrue(setupCompletion.exists)
@@ -149,6 +157,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToCompletion(app)
         
         app.buttons["start"].tap()
+        HumanDelayHelper.idle()
         
         let mainPasswords = app.otherElements["mainPasswords"]
         XCTAssertTrue(mainPasswords.exists)

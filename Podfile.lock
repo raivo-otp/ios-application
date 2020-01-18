@@ -5,26 +5,26 @@ PODS:
     - EFQRCode/Core (= 5.1.6)
   - EFQRCode/Core (5.1.6)
   - Eureka (5.1.0)
-  - Haptica (3.0.1)
+  - Haptica (3.0.2)
   - OneTimePassword (3.2.0):
     - Base32 (~> 1.1.2)
-  - Realm (4.1.0):
-    - Realm/Headers (= 4.1.0)
-  - Realm/Headers (4.1.0)
-  - RealmSwift (4.1.0):
-    - Realm (= 4.1.0)
+  - Realm (4.3.1):
+    - Realm/Headers (= 4.3.1)
+  - Realm/Headers (4.3.1)
+  - RealmSwift (4.3.1):
+    - Realm (= 4.3.1)
   - RNCryptor (5.1.0)
-  - SDWebImage (5.3.2):
-    - SDWebImage/Core (= 5.3.2)
-  - SDWebImage/Core (5.3.2)
+  - SDWebImage (5.5.1):
+    - SDWebImage/Core (= 5.5.1)
+  - SDWebImage/Core (5.5.1)
   - SPAlert (2.0)
   - SPStorkController (1.7.9)
   - SSZipArchive (2.2.2)
   - SwiftMonkey (2.1.1)
   - SwiftMonkeyPaws (2.1.1)
-  - SwiftyBeaver (1.8.3)
+  - SwiftyBeaver (1.8.4)
   - SwipeCellKit (2.7.1)
-  - Valet (3.2.6)
+  - Valet (3.2.8)
   - ViewRow (0.8):
     - Eureka (>= 5.0.0)
 
@@ -32,19 +32,19 @@ DEPENDENCIES:
   - Alamofire (= 4.9.1)
   - EFQRCode (= 5.1.6)
   - Eureka (= 5.1.0)
-  - Haptica (= 3.0.1)
+  - Haptica (= 3.0.2)
   - OneTimePassword (= 3.2.0)
-  - RealmSwift (= 4.1.0)
+  - RealmSwift (= 4.3.1)
   - RNCryptor (= 5.1.0)
-  - SDWebImage (= 5.3.2)
+  - SDWebImage (= 5.5.1)
   - SPAlert (from `https://github.com/tijme/forked-spalert.git`, branch `master`)
   - SPStorkController (= 1.7.9)
   - SSZipArchive (= 2.2.2)
   - SwiftMonkey (= 2.1.1)
   - SwiftMonkeyPaws (= 2.1.1)
-  - SwiftyBeaver (= 1.8.3)
+  - SwiftyBeaver (= 1.8.4)
   - SwipeCellKit (= 2.7.1)
-  - Valet (= 3.2.6)
+  - Valet (= 3.2.8)
   - ViewRow (= 0.8)
 
 SPEC REPOS:
@@ -85,22 +85,22 @@ SPEC CHECKSUMS:
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
   EFQRCode: a7ea2e517912f5bf6ba258b631327a83cd8084a5
   Eureka: 18a5076dcf0c41f9cd9748aa1c42f4d11434bdae
-  Haptica: 122ff121c88ea534e51039577305d104458c08c5
+  Haptica: dc206651beeca25ab4744c633fbf0ae4d1e86baf
   OneTimePassword: c00ecc908e67e6c5bfda9d50b0b2e4696d0b066e
-  Realm: 5d1453468eca02c901c50b8a356f4a98a15b57aa
-  RealmSwift: 1d238caa5c64a590c669beef1a7e858a6cf55a1c
+  Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
+  RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
-  SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
+  SDWebImage: 1245d058b7b8f59adef7a6da6bbafd4f1ab67041
   SPAlert: 9aa81cf2d1be6a930dfc48ed9df874c452c1035c
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
   SwiftMonkeyPaws: 655524bb402df5ac2be836f9f604aca1068fbde6
-  SwiftyBeaver: 3d3e93a12d648bd400b6f2948a7ef128b5b183c7
+  SwiftyBeaver: f9a9aba96a6a6166e21682377804d728b0d20b95
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
-  Valet: dcc4ff74f0d010be665239ab89c7a4a5cd39ee33
+  Valet: 16d0537d70db79d9ba953b9060b5da4fb8004e51
   ViewRow: 8da541e9c019f3be63f4e28f311a62cac2045ecf
 
-PODFILE CHECKSUM: dfe50348bc9aeaf8bad254bd4cde87c3eb00a717
+PODFILE CHECKSUM: d25072fd46b88f0f8c3c5a5b0788eca6e09b48c5
 
 COCOAPODS: 1.8.3

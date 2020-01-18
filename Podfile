@@ -7,13 +7,13 @@ target 'Raivo' do
   use_frameworks!
 
   # Realm SQLite database handler that supports encryption
-  pod 'RealmSwift', '4.1.0', :inhibit_warnings => true
+  pod 'RealmSwift', '4.3.1', :inhibit_warnings => true
   
   # To encrypt sensitive data before being synced
   pod 'RNCryptor', '5.1.0', :inhibit_warnings => true
   
   # Allow access to Secure Enclave
-  pod 'Valet', '3.2.6', :inhibit_warnings => true
+  pod 'Valet', '3.2.8', :inhibit_warnings => true
 
   # A one time password URI parser (for if you scan QR codes)
   pod 'OneTimePassword', '3.2.0', :inhibit_warnings => true
@@ -23,16 +23,16 @@ target 'Raivo' do
   pod 'ViewRow', '0.8', :inhibit_warnings => true
   
   # Retrieves, caches and displays images from the web (for issuer logos)
-  pod 'SDWebImage', '5.3.2', :inhibit_warnings => true
+  pod 'SDWebImage', '5.5.1', :inhibit_warnings => true
 
   # Debug logging (only used in debug builds)
-  pod 'SwiftyBeaver', '1.8.3', :inhibit_warnings => true
+  pod 'SwiftyBeaver', '1.8.4', :inhibit_warnings => true
 
   # UI notification banners (e.g. for a notification if you copied an OTP)
   pod 'SPAlert', git: 'https://github.com/tijme/forked-spalert.git', branch: 'master', submodules: true, :inhibit_warnings => true
 
   # Haptic feedback while e.g. entering PIN code or copying an OTP
-  pod 'Haptica', '3.0.1', :inhibit_warnings => true
+  pod 'Haptica', '3.0.2', :inhibit_warnings => true
   
   # HTTP requests for custom issuer icons
   pod 'Alamofire', '4.9.1', :inhibit_warnings => true
