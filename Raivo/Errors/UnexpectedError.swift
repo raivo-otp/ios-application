@@ -21,6 +21,7 @@ public enum UnexpectedError: LocalizedError {
     case vitalFunctionalityIsStub
     case noErrorButNotSuccessful(_ message: String)
     
+    /// A localized message describing what error occurred.
     public var errorDescription: String? {
         switch self {
         case .vitalFunctionalityIsStub:

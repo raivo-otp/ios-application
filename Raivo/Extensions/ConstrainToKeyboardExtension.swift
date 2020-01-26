@@ -17,6 +17,7 @@ extension UIViewController {
     
     struct KeyboardStates {
         static var visible: [String: Bool] = [:]
+        static var inset: CGFloat? = nil
     }
     
     internal func attachKeyboardConstraint(_ sender: UIViewController) {
@@ -39,14 +40,8 @@ extension UIViewController {
     }
     
     @objc private func keyboardWillShow(notification: Notification, identifier: String) {
-        let currentlyVisible = KeyboardStates.visible[identifier] ?? false
         KeyboardStates.visible[identifier] = true
-        
-        guard currentlyVisible != true else {
-            // Notification is same as previous one
-            return
-        }
-        
+      
         guard let userInfo = notification.userInfo else {
            return
         }
@@ -64,7 +59,11 @@ extension UIViewController {
         }
         
         if #available(iOS 11.0, *) {
-            height -= view.safeAreaInsets.bottom
+            if KeyboardStates.inset == nil {
+                KeyboardStates.inset = view.safeAreaInsets.bottom
+            }
+            
+            height -= KeyboardStates.inset!
         }
         
         additionalSafeAreaInsets.bottom = height

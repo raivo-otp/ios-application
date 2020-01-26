@@ -21,6 +21,7 @@ public enum RealmError: LocalizedError {
     case unknownError
     case encryptionError
     
+    /// A localized message describing what error occurred.
     public var errorDescription: String? {
         switch self {
         case .unknownError:

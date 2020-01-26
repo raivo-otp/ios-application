@@ -24,6 +24,7 @@ public enum CryptographyError: LocalizedError {
     case encryptionFailed(_ message: String)
     case decryptionFailed(_ message: String)
     
+    /// A localized message describing what error occurred.
     public var errorDescription: String? {
         switch self {
         case .derivationFailed(let message):

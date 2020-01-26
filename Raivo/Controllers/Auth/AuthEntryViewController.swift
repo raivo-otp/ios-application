@@ -31,7 +31,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         passcodeField.layoutIfNeeded()
         
         NotificationHelper.shared.listen(to: UIApplication.didBecomeActiveNotification, distinctBy: id(self)) { _ in
-            self.attemptBiometrickUnlock()
+//            self.attemptBiometrickUnlock()
         }
     }
     
