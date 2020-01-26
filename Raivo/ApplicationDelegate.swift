@@ -18,7 +18,6 @@ import SwiftMonkeyPaws
 
 /// UI events that were launched from the ApplicationPrincipal
 class ApplicationDelegate: UIResponder, UIApplicationDelegate {
-    var paws: MonkeyPaws?
     
     /// Reference to the UIWindow, which is used to set the current controller
     public var window: UIWindow?
@@ -41,6 +40,9 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// The icons effect is cached throughout the runtime to prevent rendering issues
     private var iconsEffect: String? = nil
     
+    /// An instance of the monkey testing paws
+    private var paws: MonkeyPaws?
+    
     /// When the application finished launching
     ///
     /// - Parameter application: The application as passed to `UIApplicationDelegate`
@@ -57,7 +59,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
         
         setCorrectStoryboard()
         setCorrectTintColor()
-        
+                
         // We accept all launch options
         return true
     }

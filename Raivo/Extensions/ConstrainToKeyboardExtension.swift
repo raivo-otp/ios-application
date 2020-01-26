@@ -84,6 +84,7 @@ extension UIViewController {
     @objc private func keyboardWillHide(notification: Notification?, identifier: String) {
         let currentlyVisible = KeyboardStates.visible[identifier] ?? false
         KeyboardStates.visible[identifier] = false
+        KeyboardStates.inset = nil
 
         guard currentlyVisible != false else {
             // Notification is same as previous one
