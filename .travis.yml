@@ -18,7 +18,7 @@ script:
       -sdk "$XCODE_SDK"
       -destination "$XCODE_DESTINATION"
       RUN_CLANG_STATIC_ANALYZER=NO
-      | xcpretty
+      | awk 'BEGIN {success=0} $0 ~ /.* tests, with 0 failures \(.*/ {success=1} {print $0} END {if(success==0){exit 1}}
 
 matrix:
   include:
