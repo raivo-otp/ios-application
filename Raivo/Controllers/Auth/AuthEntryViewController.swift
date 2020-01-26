@@ -21,6 +21,9 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
     /// A button to force a biometric unlock
     @IBOutlet weak var biometricButton: UIButton!
     
+    /// If Raivo is currently attempting a biometric unlock
+    private var attemptingBiometricUnlock: Bool = false
+    
     /// Called after the view controller has loaded its view hierarchy into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         passcodeField.layoutIfNeeded()
         
         NotificationHelper.shared.listen(to: UIApplication.didBecomeActiveNotification, distinctBy: id(self)) { _ in
-//            self.attemptBiometrickUnlock()
+            self.attemptBiometrickUnlock()
         }
     }
     
@@ -194,6 +197,11 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
             return
         }
         
+        // Already attempting biometric unlock
+        guard !attemptingBiometricUnlock else {
+            return
+        }
+        
         // User must have a passcode attempt left
         guard hasPasscodeAttemptLeft() else {
             let message = "Please wait " + String(getSecondsLeft()) + " seconds and try again."
@@ -201,9 +209,11 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         }
         
         passcodeField.resignFirstResponder()
+        attemptingBiometricUnlock = true
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
+                self.attemptingBiometricUnlock = false
                 self.resetPasscodeTries()
 
                 log.verbose("Unlocked app via biometric")
@@ -211,6 +221,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
                 getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
                 getAppDelegate().updateStoryboard()
             } else {
+                self.attemptingBiometricUnlock = false
                 self.passcodeField.becomeFirstResponder()
             }
         }
