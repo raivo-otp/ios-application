@@ -33,7 +33,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         passcodeField.delegate = self
         passcodeField.layoutIfNeeded()
         
-        NotificationHelper.shared.listen(to: UIApplication.didBecomeActiveNotification, distinctBy: id(self)) { _ in
+        NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) { _ in
             self.attemptBiometrickUnlock()
         }
     }
@@ -62,7 +62,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        NotificationHelper.shared.discard(UIApplication.didBecomeActiveNotification, byDistinctName: id(self))
+        NotificationHelper.shared.discard(UIApplication.willEnterForegroundNotification, byDistinctName: id(self))
     }
     
     /// Notifies the view controller that its view was added to a view hierarchy
