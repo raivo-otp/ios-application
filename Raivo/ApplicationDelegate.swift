@@ -34,6 +34,9 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// The last known syncer account identifier (used to check of account changes)
     public var syncerAccountIdentifier: String? = nil
     
+    /// Tapped 'otpauth://' URI that launched the application. Temporarily stored because the app is most likely locked.
+    public var tappedLaunchUri: URL? = nil
+    
     /// The currently active encryption key (available when the app is unlocked)
     private var encryptionKey: Data?
     
@@ -62,6 +65,21 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
                 
         // We accept all launch options
         return true
+    }
+    
+    /// Trigger when a user taps a 'otpauth://' URI.
+    ///
+    /// - Parameter application: The application as passed to `UIApplicationDelegate`
+    /// - Parameter url: The URL resource to open. Probably an 'otpauth://' URI.
+    /// - Parameter options: A dictionary of URL handling options.
+    /// - Returns: If the URI was succesfully handled or not.
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        if SeedValueValidator.isValid(url) {
+            tappedLaunchUri = url
+            return true
+        }
+        
+        return false
     }
     
     /// Set the encryption key and update the default realm configuration
