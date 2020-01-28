@@ -74,7 +74,7 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
             switch result {
             case .sent:
                 log.verbose("ZIP archive export mail sent successfully")
-                BannerHelper.shared.done("Hold tight", "You should receive a mail within a few minutes!", wrapper: view)
+                BannerHelper.shared.done("Hold tight", "Sending the mail takes a few minutes!", duration: 3.0, wrapper: view)
             case .failed:
                 log.verbose("Could not send mail due to MFMailComposeResult failure.")
                 BannerHelper.shared.error("Error", "Something went wrong while sending the mail!", wrapper: view)

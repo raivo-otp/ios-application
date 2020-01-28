@@ -215,7 +215,8 @@ class MiscellaneousForm {
                 
                 BannerHelper.shared.done("Hold tight", "Generation takes a few seconds", wrapper: controller.view)
                 
-                DispatchQueue.global(qos: .background).async {
+                // Run in the background and fake a delay so the user can read the banner
+                DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1, execute: {
                     let dataExport = DataExportFeature()
 
                     let status = autoreleasepool { () -> DataExportFeature.Result in
@@ -243,7 +244,7 @@ class MiscellaneousForm {
                             })
                         }
                     }
-                }
+                })
             })
     }
     
