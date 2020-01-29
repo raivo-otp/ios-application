@@ -69,15 +69,15 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
         
         if let error = error {
             log.error(error.localizedDescription)
-            BannerHelper.shared.error("Error", error.localizedDescription, wrapper: view)
+            BannerHelper.shared.error("Something went wrong", error.localizedDescription, wrapper: view)
         } else {
             switch result {
             case .sent:
                 log.verbose("ZIP archive export mail sent successfully")
-                BannerHelper.shared.done("Hold tight", "Sending the mail takes a few minutes!", duration: 3.0, wrapper: view)
+                BannerHelper.shared.done("Hold tight", "Sending the mail takes a few minutes", duration: 3.0, wrapper: view)
             case .failed:
                 log.verbose("Could not send mail due to MFMailComposeResult failure.")
-                BannerHelper.shared.error("Error", "Something went wrong while sending the mail!", wrapper: view)
+                BannerHelper.shared.error("Failed to send", "Something went wrong while sending the mail", wrapper: view)
             default:
                 break
             }
