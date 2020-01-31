@@ -103,7 +103,9 @@ class Password: Object {
             "digits": String(digits),
             "kind": kind,
             "timer": String(timer),
-            "counter": String(counter)
+            "counter": String(counter),
+            "iconType": iconType,
+            "iconValue": iconValue
         ]
     }
 

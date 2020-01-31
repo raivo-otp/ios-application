@@ -95,6 +95,9 @@ class DataExportFeature {
             text = text.replacingOccurrences(of: "{{kind}}", with: password.kind)
             text = text.replacingOccurrences(of: "{{timer}}", with: String(password.timer))
             text = text.replacingOccurrences(of: "{{counter}}", with: String(password.counter))
+            text = text.replacingOccurrences(of: "{{iconType}}", with: password.iconType)
+            text = text.replacingOccurrences(of: "{{iconValue}}", with: password.iconValue)
+            text = text.replacingOccurrences(of: "{{icon}}", with: getIconHTML(password))
             text = text.replacingOccurrences(of: "{{qrcode}}", with: getQuickResponseCodeHTML(password))
             
             passwordTextArray.append(text)
@@ -104,6 +107,14 @@ class DataExportFeature {
         wrapperText = wrapperText.replacingOccurrences(of: "{{passwords}}", with: passwordTextArray.joined(separator: "<hr>"))
         
         return wrapperText
+    }
+    
+    private func getIconHTML(_ password: Password) -> String {
+        guard let url = password.getIconURL()?.absoluteString else {
+            return "URI could not be generated from icon type and value."
+        }
+        
+        return "<img src='" + url + "' height=200 width=200 />"
     }
     
     private func getQuickResponseCodeHTML(_ password: Password) -> String {
@@ -118,7 +129,7 @@ class DataExportFeature {
             return "PNG data could not be extracted from QR code."
         }
         
-        return "<img src='data:image/png;base64," + qrcodeData.base64EncodedString() + "' height=300 width=300 />"
+        return "<img src='data:image/png;base64," + qrcodeData.base64EncodedString() + "' height=200 width=200 />"
     }
     
     private func getJSONRepresentation() -> String {

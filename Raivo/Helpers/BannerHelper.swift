@@ -33,6 +33,11 @@ class BannerHelper {
     ///
     /// - ToDo: Figure out why we can only specify the center after calling "layoutIfNeeded"
     private func show(_ alert: SPAlertView, duration: Double, haptics: HapticFeedbackType? = nil, wrapper: UIView? = nil, callback: (() -> Void)? = nil) {
+        alert.layout.topSpace = 35
+        alert.layout.bottomIconSpace = 35
+        alert.layout.iconWidth = 65
+        alert.layout.iconHeight = 65
+        
         alert.duration = duration
         alert.haptic = .none
         
@@ -60,7 +65,7 @@ class BannerHelper {
     /// - Parameter wrapper: The UIView to center this alert in
     /// - Parameter callback: Called after the given duration.
     public func done(_ title: String, _ message: String, duration: Double = 2.0, wrapper: UIView? = nil, callback: (() -> Void)? = nil) {
-        let alert = SPAlertView(title: title, message: message, preset: .done)
+        let alert = SPAlertView(title: title, message: message, preset: .like)
         show(alert, duration: duration, haptics: .success, wrapper: wrapper, callback: callback)
     }
     

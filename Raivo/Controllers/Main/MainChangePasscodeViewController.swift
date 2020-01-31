@@ -12,6 +12,7 @@
 
 import Foundation
 import UIKit
+import Haptica
 import RealmSwift
 
 /// This controller allows users to change their passcode.
@@ -36,8 +37,8 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
         super.viewDidLoad()
         
         resetView(
-            "Choose a new passcode code",
-            "You need it to unlock Raivo, so make sure you'll be able to remember it."
+            "Choose a new passcode",
+            "And make sure you'll be able to remember it."
         )
         
         viewPasscode.delegate = self
@@ -96,7 +97,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
         do {
             currentKey = try CryptographyHelper.shared.derive(passcode, withSalt: salt!)
         } catch let error {
-            ui { self.resetView("Invalid passcode", "Please start over by choosing a new passcode.") }
+            ui { self.resetView("Invalid passcode", "Please start over by choosing a new passcode.", haptica: .error) }
             return log.error(error.localizedDescription)
         }
         
@@ -105,10 +106,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
             initialKey = currentKey
             
             ui {
-                self.resetView(
-                    "Almost there!",
-                    "Confirm your passcode to continue (you'll be signed out after this step)."
-                )
+                self.resetView("Confirm your passcode", "You'll be signed out after this step")
             }
         case currentKey:
             changePasscode(to: currentKey!)
@@ -116,10 +114,11 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
             initialKey = nil
             
             ui {
+                BannerHelper.shared.error("Not identical", "The passcode and confirmation do not match", wrapper: self.view)
+                
                 self.resetView(
-                    "Oh oh, not identical :/",
-                    "Please start over by choosing a new passcode.",
-                    flash: true
+                    "Choose a new passcode",
+                    "And make sure you'll be able to remember it."
                 )
             }
         }
@@ -136,15 +135,15 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
     ///
     /// - Parameter title: The title centered in the view
     /// - Parameter extra: Extra information that supports the title
-    /// - Parameter flash: If the extra message should flash/wobble
-    private func resetView(_ title: String, _ extra: String, flash: Bool = false) {
+    /// - Parameter haptica: Optionally vibrate for user feedback
+    private func resetView(_ title: String, _ extra: String, haptica: HapticFeedbackType? = nil) {
         viewTitle.text = title
         viewExtra.text = extra
         
         viewPasscode.reset()
-      
-        if flash {
-            BannerHelper.shared.error("Error", extra, wrapper: view)
+        
+        if let type = haptica {
+            Haptic.notification(type).generate()
         }
     }
     

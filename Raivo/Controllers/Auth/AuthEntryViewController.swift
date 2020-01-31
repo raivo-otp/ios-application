@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Haptica
 
 /// The controller for the miscellaneous view in the authentication flow
 class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
@@ -104,8 +105,8 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         if !hasPasscodeAttemptLeft() {
             passcodeField.reset()
             
-            let message = "Please wait " + String(getSecondsLeft()) + " seconds and try again."
-            return BannerHelper.shared.error("Error", message, wrapper: self.view)
+            let message = "Wait " + String(getSecondsLeft()) + " seconds to try again"
+            return BannerHelper.shared.error("No attempts left", message, wrapper: self.view)
         }
         
         increasePasscodeTries()
@@ -116,10 +117,16 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
             
             log.verbose("Invalid passcode entered")
             
-            let left = getTriesLeft()
-            let message = "Invalid passcode. " + ((getTriesLeft() > 0 ? String(left) + " tries left." : "Wait " + String(Int(AppHelper.Authentication.passcodeLockoutSeconds)) + " seconds to retry."))
+            var message = "Wait \(String(Int(AppHelper.Authentication.passcodeLockoutSeconds))) seconds to try again"
+            let triesLeft = getTriesLeft()
             
-            return BannerHelper.shared.error("Error", message, wrapper: self.view)
+            if triesLeft > 1 {
+                message = "Only \(triesLeft) tries left"
+            } else if triesLeft == 1 {
+                message = "Only \(triesLeft) try left"
+            }
+            
+            return BannerHelper.shared.error("Invalid passcode", message, wrapper: self.view)
         }
         
         log.verbose("Valid passcode entered")
@@ -204,8 +211,8 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         
         // User must have a passcode attempt left
         guard hasPasscodeAttemptLeft() else {
-            let message = "Please wait " + String(getSecondsLeft()) + " seconds and try again."
-            return BannerHelper.shared.error("Error", message, wrapper: self.view)
+            let message = "Wait " + String(getSecondsLeft()) + " seconds and try again"
+            return BannerHelper.shared.error("Invalid passcode", message, wrapper: self.view)
         }
         
         passcodeField.resignFirstResponder()
