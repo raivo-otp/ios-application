@@ -38,6 +38,20 @@
 
 ## Icons
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/reddit/reddit-alien.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/bitbucket/bitbucket.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/google/google.svg?sanitize=true" width="75" /> 
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/whatsapp/whatsapp.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/amazon/amazon.svg?sanitize=true" width="75" /> 
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/atlassian/atlassian.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/spotify/spotify.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/slack/slack.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/facebook-messenger/facebook-messenger.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/tijme/raivo-issuer-icons/master/vectors/gitlab/gitlab.svg?sanitize=true" width="75" />
+</p>
+
+
 Raivo enables you to add your own icons to OTPs. You can add your own icon via the [Raivo icon repository](https://github.com/tijme/raivo-issuer-icons). Make sure to read the contribution guidelines before making a pull request.
 
 ## Migrating
