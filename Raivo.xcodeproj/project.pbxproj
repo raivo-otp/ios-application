@@ -38,6 +38,7 @@
 		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
 		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
 		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
+		705E432023E5D01B00D26619 /* AddTappedUriFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E431F23E5D01B00D26619 /* AddTappedUriFeature.swift */; };
 		70617A592270DBD80032076A /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A582270DBD80032076A /* QueryHelper.swift */; };
 		70631CAE230DC2A10040DD71 /* SetupRoboticTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70631CAD230DC2A10040DD71 /* SetupRoboticTest.swift */; };
 		7065070A23106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065070923106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift */; };
@@ -207,6 +208,7 @@
 		7059680A22994CCF0032D70F /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
 		7059680F2299AB0A0032D70F /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
+		705E431F23E5D01B00D26619 /* AddTappedUriFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTappedUriFeature.swift; sourceTree = "<group>"; };
 		70617A582270DBD80032076A /* QueryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelper.swift; sourceTree = "<group>"; };
 		70631CA3230DC24D0040DD71 /* RaivoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaivoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70631CA7230DC24D0040DD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -834,6 +836,7 @@
 			children = (
 				70DC72E822A3F2FC006FE7B7 /* ComposeMailFeature.swift */,
 				70DC72EA22A3F306006FE7B7 /* DataExportFeature.swift */,
+				705E431F23E5D01B00D26619 /* AddTappedUriFeature.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1155,6 +1158,7 @@
 				70A1599E232AA8C900816FE8 /* MigrationToBuild23.swift in Sources */,
 				70C80DAE22A0464600413801 /* CryptographyHelper.swift in Sources */,
 				70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */,
+				705E432023E5D01B00D26619 /* AddTappedUriFeature.swift in Sources */,
 				70C80DAB229F070A00413801 /* UIPasscodeShadowField.swift in Sources */,
 				7059680B22994CCF0032D70F /* StateHelper.swift in Sources */,
 				7077A34C227F610700338CA3 /* PasswordIconTypeFormOption.swift in Sources */,

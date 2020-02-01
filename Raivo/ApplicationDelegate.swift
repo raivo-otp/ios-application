@@ -73,13 +73,10 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter url: The URL resource to open. Probably an 'otpauth://' URI.
     /// - Parameter options: A dictionary of URL handling options.
     /// - Returns: If the URI was succesfully handled or not.
+    /// - Note: We always accept all URLs. They will be validated in a later stage and the user will receive feedback if the link is incorrect.
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        if SeedValueValidator.isValid(url) {
-            tappedLaunchUri = url
-            return true
-        }
-        
-        return false
+        tappedLaunchUri = url
+        return true
     }
     
     /// Set the encryption key and update the default realm configuration

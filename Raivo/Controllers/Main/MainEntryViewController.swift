@@ -15,12 +15,33 @@ import UIKit
 /// This ViewController is basically a tabbar controller, it can be managed using the storyboard.
 class MainEntryViewController: UITabBarController, UITabBarControllerDelegate {
     
+    var handlingTappedAttempt: Bool = false
+    
     /// Triggers after the view was parsed
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
     }
-   
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+                
+        NotificationHelper.shared.listen(to: UIApplication.didBecomeActiveNotification, distinctBy: id(self)) { (notification) in
+            AddTappedUriFeature.shared.notify(on: self)
+        }
+        
+        AddTappedUriFeature.shared.notify(on: self)
+    }
+    
+    /// Notifies the view controller that its view was removed from a view hierarchy
+    ///
+    /// - Parameter animated: Positive if the transition was animated
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        NotificationHelper.shared.discard(UIApplication.didBecomeActiveNotification, byDistinctName: id(self))
+    }
+    
     /// On tab bar item change, run custom functionality
     /// 
     /// - Note: In this case, custom search functionality was added

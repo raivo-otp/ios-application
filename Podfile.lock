@@ -18,6 +18,7 @@ PODS:
     - SDWebImage/Core (= 5.5.1)
   - SDWebImage/Core (5.5.1)
   - SPAlert (2.1.1)
+  - SPFakeBar (1.0.9)
   - SPStorkController (1.7.9)
   - SSZipArchive (2.2.2)
   - SwiftMonkey (2.1.1)
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - RNCryptor (= 5.1.0)
   - SDWebImage (= 5.5.1)
   - SPAlert (= 2.1.1)
+  - SPFakeBar (= 1.0.9)
   - SPStorkController (= 1.7.9)
   - SSZipArchive (= 2.2.2)
   - SwiftMonkey (= 2.1.1)
@@ -60,6 +62,7 @@ SPEC REPOS:
     - RNCryptor
     - SDWebImage
     - SPAlert
+    - SPFakeBar
     - SPStorkController
     - SSZipArchive
     - SwiftMonkey
@@ -81,6 +84,7 @@ SPEC CHECKSUMS:
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SDWebImage: 1245d058b7b8f59adef7a6da6bbafd4f1ab67041
   SPAlert: 4ea95d93f3bc6b2df533559e7ff96ce378d2507e
+  SPFakeBar: b74ebaa7ff9ca06a39f13dbe668238f15825ee88
   SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
@@ -90,6 +94,6 @@ SPEC CHECKSUMS:
   Valet: 16d0537d70db79d9ba953b9060b5da4fb8004e51
   ViewRow: 8da541e9c019f3be63f4e28f311a62cac2045ecf
 
-PODFILE CHECKSUM: 94639b07b95c5b848ea9cf0bfba89d2077f0744b
+PODFILE CHECKSUM: 21c8be67d544e6c7f0e3938b45de2d6bffae0d3f
 
 COCOAPODS: 1.8.3

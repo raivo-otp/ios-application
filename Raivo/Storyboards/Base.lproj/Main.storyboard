@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqi-7u-P3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4890" y="412"/>
+            <point key="canvasLocation" x="4894" y="412"/>
         </scene>
         <!--Passwords-->
         <scene sceneID="zgE-9c-30Q">
@@ -338,6 +338,7 @@
                         <segue destination="j5u-qg-LTV" kind="relationship" relationship="viewControllers" id="F57-jh-f8D"/>
                         <segue destination="3fu-P0-KYe" kind="relationship" relationship="viewControllers" id="BzW-oZ-wWl"/>
                         <segue destination="JqB-dd-yVm" kind="relationship" relationship="viewControllers" id="Y33-LH-qeV"/>
+                        <segue destination="x2c-1h-doB" kind="custom" identifier="MainCreateTappedOneTimePasswordSegue" id="oAN-q3-j0q"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaa-3w-TyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,7 +357,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ap9-86-9w1"/>
+        <segue reference="oAN-q3-j0q"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
 </document>

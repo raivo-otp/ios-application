@@ -29,9 +29,6 @@ target 'Raivo' do
   # Debug logging (only used in debug builds)
   pod 'SwiftyBeaver', '1.8.4'
 
-  # UI notification banners (e.g. for a notification if you copied an OTP)
-  pod 'SPAlert', '2.1.1'
-
   # Haptic feedback while e.g. entering PIN code or copying an OTP
   pod 'Haptica', '3.0.2'
   
@@ -46,10 +43,13 @@ target 'Raivo' do
   
   # Swipable table view actions (for iOS < 11)
   pod 'SwipeCellKit', '2.7.1'
+
+  # UI notification banners (e.g. for a notification if you copied an OTP)
+  pod 'SPAlert', '2.1.1'
   
   # More user friendly popover segues
   pod 'SPStorkController', '1.7.9'
-
+  
   # Zalando's monkey testing client
   pod 'SwiftMonkeyPaws', '2.1.1'
   

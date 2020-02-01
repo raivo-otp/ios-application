@@ -16,20 +16,15 @@ import OneTimePassword
 
 class SeedValueValidator {
     
-    static func isValid(_ uri: URL) -> Bool {
-        do {
-            let uriString = try String(contentsOf: uri)
-            return isValid(uriString)
-        } catch {
-            return false
-        }
-    }
-    
     static func isValid(_ uri: String) -> Bool {
         guard let uri = URL(string: uri) else {
             return false
         }
         
+        return isValid(uri)
+    }
+    
+    static func isValid(_ uri: URL) -> Bool {
         guard Token(url: uri) != nil else {
             return false
         }

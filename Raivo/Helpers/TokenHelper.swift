@@ -45,6 +45,14 @@ class TokenHelper {
         )
     }
     
+    /// Convert the given `URL` to a `Token` model
+    ///
+    /// - Parameter uri: The URL to convert
+    /// - Returns: The resulting token
+    public func getTokenFromUri(_ uri: URL) -> Token? {
+        return Token(url: uri)
+    }
+    
     /// Get the factor (counter or timer) from the given password
     ///
     /// - Parameter password: The password to convert
@@ -75,6 +83,33 @@ class TokenHelper {
         default:
             fatalError("Invalid password algorithm.")
         }
+    }
+    
+    /// Convert a `Token` to a `Password` model
+    ///
+    /// - Parameter token: The given token to convert
+    /// - Returns: The resulting password
+    public func getPasswordFromToken(token: Token) -> Password {
+        let password = Password()
+         
+        password.id = password.getNewPrimaryKey()
+        password.issuer = token.issuer.trimmingCharacters(in: .whitespacesAndNewlines)
+        password.account = token.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        password.secret = MF_Base32Codec.base32String(from: token.generator.secret)
+        password.algorithm = getPasswordAlgorithmFromToken(token: token).value
+        password.digits = token.generator.digits
+        password.kind = getPasswordKindFromToken(token: token).value
+        password.syncing = true
+        password.synced = false
+        
+        switch token.generator.factor {
+        case .counter(let counterValue):
+            password.counter = Int(counterValue)
+        case .timer(let timerInterval):
+            password.timer = Int(timerInterval)
+        }
+
+        return password
     }
     
     /// Get the algorithm (sha1, sha256, etc) from the given token
