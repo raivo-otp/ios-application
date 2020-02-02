@@ -24,11 +24,11 @@ Pull requests are the best way to propose changes to the codebase (we use [GitHu
 
 ## Any contributions you make will be under the same license
 
-In short, when you submit code changes, your submissions are understood to be under the same [license](https://github.com/tijme/raivo/blob/master/LICENSE.md) that covers the project. Feel free to contact the maintainers if that's a concern.
+In short, when you submit code changes, your submissions are understood to be under the same [license](https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md) that covers the project. Feel free to contact the maintainers if that's a concern.
 
 ## Report bugs using GitHub's issue functionality
 
-We use GitHub [issues](https://github.com/tijme/raivo/issues) to track public bugs. Report a bug by [opening a new issue](https://github.com/tijme/raivo/issues/new). Please make sure your issue or feature has not yet been reported by anyone else before submitting a new one.
+We use GitHub [issues](https://github.com/raivo-otp/ios-application/issues) to track public bugs. Report a bug by [opening a new issue](https://github.com/raivo-otp/ios-application/issues/new). Please make sure your issue or feature has not yet been reported by anyone else before submitting a new one.
 
 ## Write bug reports with detail, background, and sample code
 
@@ -46,4 +46,4 @@ People *love* thorough bug reports. I'm not even kidding.
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the same [license](https://github.com/tijme/raivo/blob/master/LICENSE.md).
+By contributing, you agree that your contributions will be licensed under the same [license](https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md).

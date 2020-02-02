@@ -7,7 +7,7 @@
 // Modification, duplication or distribution of this software (in 
 // source and binary forms) for any purpose is strictly prohibited.
 //
-// https://github.com/tijme/raivo/blob/master/LICENSE.md
+// https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md
 // 
 
 import Foundation
@@ -332,7 +332,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-bug")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/issues/new/choose")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/issues/new/choose")!, options: [:])
             })
     }
     
@@ -347,7 +347,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-privacy")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/PRIVACY.md#privacy-policy")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/blob/master/PRIVACY.md#privacy-policy")!, options: [:])
             })
             
             <<< ButtonRow("security_policy", { row in
@@ -356,7 +356,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-security")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/SECURITY.md#security-policy")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/blob/master/SECURITY.md#security-policy")!, options: [:])
             })
             
             <<< ButtonRow("license", { row in
@@ -365,7 +365,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-license")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo/blob/master/LICENSE.md#attribution-noncommercial-40-international")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md#attribution-noncommercial-40-international")!, options: [:])
             })
     }
     

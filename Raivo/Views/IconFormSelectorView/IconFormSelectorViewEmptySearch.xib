@@ -35,7 +35,7 @@
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzI-Ga-S0W">
                                     <rect key="frame" x="68.5" y="80" width="244" height="30"/>
-                                    <state key="normal" title="github.com/tijme/raivo-issuer-icons"/>
+                                    <state key="normal" title="github.com/raivo-otp/issuer-icons"/>
                                     <connections>
                                         <action selector="addIcon:" destination="iN0-l3-epB" eventType="touchUpInside" id="bGl-fF-NX0"/>
                                     </connections>

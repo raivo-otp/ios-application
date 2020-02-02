@@ -7,7 +7,7 @@
 // Modification, duplication or distribution of this software (in
 // source and binary forms) for any purpose is strictly prohibited.
 //
-// https://github.com/tijme/raivo/blob/master/LICENSE.md
+// https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md
 //
 
 import UIKit

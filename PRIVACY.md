@@ -31,7 +31,7 @@ Our Service may contain links to other sites that are not operated by us. If you
 
 ## Security
 
-Please refer to the [Security Policy](https://github.com/tijme/raivo/blob/master/SECURITY.md) for information on the security procedures, policies and features of the Service.
+Please refer to the [Security Policy](https://github.com/raivo-otp/ios-application/blob/master/SECURITY.md) for information on the security procedures, policies and features of the Service.
 
 ## Changes To This Privacy Policy
 
