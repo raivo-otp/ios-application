@@ -7,7 +7,7 @@
 // Modification, duplication or distribution of this software (in 
 // source and binary forms) for any purpose is strictly prohibited.
 //
-// https://github.com/tijme/raivo/blob/master/LICENSE.md
+// https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md
 // 
 
 import Foundation
@@ -16,7 +16,7 @@ import UIKit
 class IconFormSelectorViewEmptySearch: UIView {
 
     @IBAction func addIcon(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://github.com/tijme/raivo-issuer-icons")!, options: [:])
+        UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/issuer-icons")!, options: [:])
     }
     
 }
