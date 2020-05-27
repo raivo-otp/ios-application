@@ -13,7 +13,7 @@
 import UIKit
 import Haptica
 
-/// The controller for the miscellaneous view in the authentication flow
+/// The controller for the main view in the authentication flow
 class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
 
     /// A field representing the six passcode digits
@@ -39,7 +39,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         }
     }
     
-    /// Called before the view controller's view is about to be added to a view hierarchy
+    /// Called before the view controller's view is about to be added to a view hierarchy
     ///
     /// - Parameter animated: Positive if the transition should be animated
     override func viewWillAppear(_ animated: Bool) {
