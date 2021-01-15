@@ -15,6 +15,7 @@ import UIKit
 import RealmSwift
 import SSZipArchive
 import EFQRCode
+import HTMLString
 
 class DataExportFeature {
     
@@ -87,16 +88,16 @@ class DataExportFeature {
         for password in passwords {
             var text = passwordText
             
-            text = text.replacingOccurrences(of: "{{issuer}}", with: password.issuer)
-            text = text.replacingOccurrences(of: "{{account}}", with: password.account)
-            text = text.replacingOccurrences(of: "{{secret}}", with: password.secret)
-            text = text.replacingOccurrences(of: "{{algorithm}}", with: password.algorithm)
-            text = text.replacingOccurrences(of: "{{digits}}", with: String(password.digits))
-            text = text.replacingOccurrences(of: "{{kind}}", with: password.kind)
-            text = text.replacingOccurrences(of: "{{timer}}", with: String(password.timer))
-            text = text.replacingOccurrences(of: "{{counter}}", with: String(password.counter))
-            text = text.replacingOccurrences(of: "{{iconType}}", with: password.iconType)
-            text = text.replacingOccurrences(of: "{{iconValue}}", with: password.iconValue)
+            text = text.replacingOccurrences(of: "{{issuer}}", with: password.issuer.addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{account}}", with: password.account.addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{secret}}", with: password.secret.addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{algorithm}}", with: password.algorithm.addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{digits}}", with: String(password.digits).addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{kind}}", with: password.kind.addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{timer}}", with: String(password.timer).addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{counter}}", with: String(password.counter).addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{iconType}}", with: password.iconType.addingASCIIEntities())
+            text = text.replacingOccurrences(of: "{{iconValue}}", with: password.iconValue.addingASCIIEntities())
             text = text.replacingOccurrences(of: "{{icon}}", with: getIconHTML(password))
             text = text.replacingOccurrences(of: "{{qrcode}}", with: getQuickResponseCodeHTML(password))
             
@@ -108,9 +109,9 @@ class DataExportFeature {
         
         return wrapperText
     }
-    
+
     private func getIconHTML(_ password: Password) -> String {
-        guard let url = password.getIconURL()?.absoluteString else {
+        guard let url = password.getIconURL()?.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             return "URI could not be generated from icon type and value."
         }
         
@@ -119,7 +120,7 @@ class DataExportFeature {
     
     private func getQuickResponseCodeHTML(_ password: Password) -> String {
         guard let qrcodeImage = EFQRCode.generate(
-            content: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret,
+            content: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!,
             size: EFIntSize(width: 300, height: 300)
         ) else {
             return "QR code could not be generated."

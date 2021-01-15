@@ -20,14 +20,14 @@ target 'Raivo' do
   pod 'OneTimePassword', '3.2.0'
 
   # Enables easy form creation for adding and editing passwords
-  pod 'Eureka', '5.1.0'
+  pod 'Eureka', '5.3.2'
   pod 'ViewRow', '0.8'
   
   # Retrieves, caches and displays images from the web (for issuer logos)
-  pod 'SDWebImage', '5.5.1'
+  pod 'SDWebImage', '5.10.2'
 
   # Debug logging (only used in debug builds)
-  pod 'SwiftyBeaver', '1.8.4'
+  pod 'SwiftyBeaver', '1.9.3'
 
   # Haptic feedback while e.g. entering PIN code or copying an OTP
   pod 'Haptica', '3.0.2'
@@ -36,10 +36,10 @@ target 'Raivo' do
   pod 'Alamofire', '4.9.1'
   
   # Allows encrypted ZIP file creation for OTP exporting
-  pod 'SSZipArchive', '2.2.2'
+  pod 'SSZipArchive', '2.2.3'
   
   # QRCode generation for data export
-  pod 'EFQRCode', '5.1.6'
+  pod 'EFQRCode', '6.0.0'
   
   # Swipable table view actions (for iOS < 11)
   pod 'SwipeCellKit', '2.7.1'
@@ -48,10 +48,13 @@ target 'Raivo' do
   pod 'SPAlert', '2.1.1'
   
   # More user friendly popover segues
-  pod 'SPStorkController', '1.7.9'
+  pod 'SPStorkController', '1.8.4'
   
   # Zalando's monkey testing client
   pod 'SwiftMonkeyPaws', '2.1.1'
+
+  # HTML utilities (encoding/decoding)
+  pod 'HTMLString', '6.0.1'
   
 end
 
