@@ -9,7 +9,7 @@
 <p align="center">
     <a href="https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=Source&secondText=Licensed" /></a>
     <a href="https://itunes.apple.com/"><img src="https://raw.finnwea.com/shield/?firstText=Platform&secondText=iOS%20(11%20or%20higher)" /></a>
-    <a href="https://github.com/raivo-otp/ios-application/releases"><img src="https://raw.finnwea.com/shield/?typeKey=SemverVersion&typeValue0=raivo-otp&typeValue1=ios-application&typeValue2=master&typeValue4=Release&cache=3"></a>
+    <a href="https://github.com/raivo-otp/ios-application/releases"><img src="https://raw.finnwea.com/vector-shields-v1/?typeKey=SemverVersion&typeValue1=raivo-otp&typeValue2=ios-application&typeValue4=Release&cache=4"></a>
     <br/>
     <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
     <br/>
@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_left.png?cache=3" width="280">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_middle.png?cache=3" width="280">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_right.png?cache=3" width="280">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_left.png?cache=4" width="275">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_middle.png?cache=4" width="275">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_right.png?cache=4" width="275">
 </p>
 
 ## Features
