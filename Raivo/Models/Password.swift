@@ -85,10 +85,14 @@ class Password: Object {
         return cachedToken!
     }
     
+    /// Get the (properly encoded) absolute URL to the icon of the password
+    ///
+    /// - Returns: The URL, if any icon is selected/set.
+    /// - Note: The URL must be properly encoded such that URL injection is not possible (https://github.com/raivo-otp/ios-application/issues/31).
     public func getIconURL() -> URL? {
         switch iconType {
         case PasswordIconTypeFormOption.OPTION_RAIVO_REPOSITORY.value:
-            return URL(string: AppHelper.iconsURL + self.iconValue)
+            return URL(string: AppHelper.iconsURL + self.iconValue.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!)
         default:
             return nil
         }

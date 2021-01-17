@@ -111,7 +111,7 @@ class DataExportFeature {
     }
 
     private func getIconHTML(_ password: Password) -> String {
-        guard let url = password.getIconURL()?.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+        guard let url = password.getIconURL()?.absoluteString else {
             return "URI could not be generated from icon type and value."
         }
         

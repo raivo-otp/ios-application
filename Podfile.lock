@@ -8,16 +8,16 @@ PODS:
   - HTMLString (6.0.1)
   - OneTimePassword (3.2.0):
     - Base32 (~> 1.1.2)
-  - Realm (4.3.1):
-    - Realm/Headers (= 4.3.1)
-  - Realm/Headers (4.3.1)
-  - RealmSwift (4.3.1):
-    - Realm (= 4.3.1)
+  - Realm (4.4.1):
+    - Realm/Headers (= 4.4.1)
+  - Realm/Headers (4.4.1)
+  - RealmSwift (4.4.1):
+    - Realm (= 4.4.1)
   - RNCryptor (5.1.0)
   - SDWebImage (5.10.2):
     - SDWebImage/Core (= 5.10.2)
   - SDWebImage/Core (5.10.2)
-  - SPAlert (2.1.1)
+  - SPAlert (2.1.4)
   - SPStorkController (1.8.4)
   - SSZipArchive (2.2.3)
   - SwiftMonkey (2.1.1)
@@ -35,10 +35,10 @@ DEPENDENCIES:
   - Haptica (= 3.0.2)
   - HTMLString (= 6.0.1)
   - OneTimePassword (= 3.2.0)
-  - RealmSwift (= 4.3.1)
+  - RealmSwift (= 4.4.1)
   - RNCryptor (= 5.1.0)
   - SDWebImage (= 5.10.2)
-  - SPAlert (= 2.1.1)
+  - SPAlert (= 2.1.4)
   - SPStorkController (= 1.8.4)
   - SSZipArchive (= 2.2.3)
   - SwiftMonkey (= 2.1.1)
@@ -79,11 +79,11 @@ SPEC CHECKSUMS:
   Haptica: dc206651beeca25ab4744c633fbf0ae4d1e86baf
   HTMLString: 4abe8cbe94660b328bbe4fc014dabdf0481b16a7
   OneTimePassword: c00ecc908e67e6c5bfda9d50b0b2e4696d0b066e
-  Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
-  RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
+  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
+  RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
   SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
-  SPAlert: 4ea95d93f3bc6b2df533559e7ff96ce378d2507e
+  SPAlert: 1a8afa1c6ac86a82ab5b2cfdf7f9a51e68cb6c0c
   SPStorkController: 95926db63e1c5826f38f1c108b159a3c35c588a6
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
@@ -93,6 +93,6 @@ SPEC CHECKSUMS:
   Valet: 16d0537d70db79d9ba953b9060b5da4fb8004e51
   ViewRow: 8da541e9c019f3be63f4e28f311a62cac2045ecf
 
-PODFILE CHECKSUM: cd89155be5caed67a09f5ece9c862b5d6c08804f
+PODFILE CHECKSUM: 429336cf76ff256906beac53d297d8f7834c6a84
 
 COCOAPODS: 1.10.1

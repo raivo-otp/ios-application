@@ -8,7 +8,7 @@ target 'Raivo' do
   use_frameworks!
 
   # Realm SQLite database handler that supports encryption
-  pod 'RealmSwift', '4.3.1'
+  pod 'RealmSwift', '4.4.1'
   
   # To encrypt sensitive data before being synced
   pod 'RNCryptor', '5.1.0'
@@ -45,7 +45,7 @@ target 'Raivo' do
   pod 'SwipeCellKit', '2.7.1'
 
   # UI notification banners (e.g. for a notification if you copied an OTP)
-  pod 'SPAlert', '2.1.1'
+  pod 'SPAlert', '2.1.4'
   
   # More user friendly popover segues
   pod 'SPStorkController', '1.8.4'
