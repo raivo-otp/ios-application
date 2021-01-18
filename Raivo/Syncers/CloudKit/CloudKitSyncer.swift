@@ -20,7 +20,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         
     var name = "Apple iCloud"
     
-    var help = "Your Apple iCloud account is used to store your passwords (encrypted)."
+    var help = "Your Apple iCloud account is used to store your passwords (encrypted). Consult the iCloud account settings in iOS to check which account is being used."
     
     let modelSyncers = [
         id(Password.self): CloudKitPasswordSyncer()
