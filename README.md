@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_left.png?cache=4" width="275">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_middle.png?cache=4" width="275">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_right.png?cache=4" width="275">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_left.png?cache=5" width="270">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_middle.png?cache=5" width="270">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_right.png?cache=5" width="270">
 </p>
 
 ## Features
