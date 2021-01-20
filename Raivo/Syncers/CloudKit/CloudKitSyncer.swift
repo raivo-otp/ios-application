@@ -4,11 +4,11 @@
 // Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// Modification, duplication or distribution of this software (in 
+// Modification, duplication or distribution of this software (in
 // source and binary forms) for any purpose is strictly prohibited.
 //
 // https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md
-// 
+//
 
 import Foundation
 import CloudKit
@@ -20,7 +20,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         
     var name = "Apple iCloud"
     
-    var help = "Your Apple iCloud account is used to store your passwords (encrypted)."
+    var help = "Your Apple iCloud account is used to store your passwords (encrypted). Consult the iCloud account settings in iOS to check which account is being used."
     
     let modelSyncers = [
         id(Password.self): CloudKitPasswordSyncer()

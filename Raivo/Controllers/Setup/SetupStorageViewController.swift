@@ -69,13 +69,15 @@ class SetupStorageViewController: FormViewController, SetupState {
     /// - Parameter account: The account that was loaded.
     /// - Parameter syncerID: The ID of the synchronization provider.
     func accountSuccess(_ account: SyncerAccount, _ syncerID: String) {
+        log.verbose("Account resolved for syncer: " + syncerID)
+        
         self.accounts[syncerID] = account
         self.progress[syncerID + "Account"] = true
         
         DispatchQueue.main.async {
-            self.evaluateAllowContinue()
-            
             (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).disabled = Condition(booleanLiteral: false)
+            
+            self.evaluateAllowContinue()
         }
     }
     
@@ -84,12 +86,14 @@ class SetupStorageViewController: FormViewController, SetupState {
     /// - Parameter error: The error that occurred.
     /// - Parameter syncerID: The ID of the synchronization provider.
     func accountError(_ error: Error, _ syncerID: String) {
+        log.error("Account error for syncer: " + syncerID)
+        
         self.progress[syncerID + "Account"] = true
         
         DispatchQueue.main.async {
-            self.evaluateAllowContinue()
-            
             (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).disabled = Condition(booleanLiteral: true)
+            
+            self.evaluateAllowContinue()
         }
     }
     
@@ -98,6 +102,8 @@ class SetupStorageViewController: FormViewController, SetupState {
     /// - Parameter account: The challenge that was loaded.
     /// - Parameter syncerID: The ID of the synchronization provider.
     func challengeSuccess(_ challenge: SyncerChallenge, _ syncerID: String) {
+        log.verbose("Challenge resolved for syncer: " + syncerID)
+        
         self.challenges[syncerID] = challenge
         self.progress[syncerID + "Challenge"] = true
         
@@ -111,6 +117,8 @@ class SetupStorageViewController: FormViewController, SetupState {
     /// - Parameter error: The error that occurred.
     /// - Parameter syncerID: The ID of the synchronization provider.
     func challengeError(_ error: Error, _ syncerID: String) {
+        log.error("Challenge error for syncer: " + syncerID)
+        
         self.progress[syncerID + "Challenge"] = true
         
         DispatchQueue.main.async {

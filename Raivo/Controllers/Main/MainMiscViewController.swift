@@ -55,7 +55,7 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
     private func accountError(_ error: Error, _ syncerID: String) {
         DispatchQueue.main.async {
             self.miscellaneousForm?.accountRow.value = "Unknown (syncing service N/A)"
-            self.miscellaneousForm?.providerRow.value = "None (syncing service N/A)"
+            self.miscellaneousForm?.providerRow.value = "Unknown (syncing service N/A)"
             self.miscellaneousForm?.synchronizationSection.footer = HeaderFooterView(title: error.localizedDescription)
 
             self.miscellaneousForm?.accountRow.reload()

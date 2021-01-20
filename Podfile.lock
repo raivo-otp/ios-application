@@ -1,28 +1,28 @@
 PODS:
   - Alamofire (4.9.1)
   - Base32 (1.1.2)
-  - EFQRCode (5.1.6):
-    - EFQRCode/Core (= 5.1.6)
-  - EFQRCode/Core (5.1.6)
-  - Eureka (5.1.0)
+  - EFQRCode (6.0.0):
+    - swift_qrcodejs (~> 1.2.0)
+  - Eureka (5.3.2)
   - Haptica (3.0.2)
+  - HTMLString (6.0.1)
   - OneTimePassword (3.2.0):
     - Base32 (~> 1.1.2)
-  - Realm (4.3.1):
-    - Realm/Headers (= 4.3.1)
-  - Realm/Headers (4.3.1)
-  - RealmSwift (4.3.1):
-    - Realm (= 4.3.1)
+  - Realm (4.4.1):
+    - Realm/Headers (= 4.4.1)
+  - Realm/Headers (4.4.1)
+  - RealmSwift (4.4.1):
+    - Realm (= 4.4.1)
   - RNCryptor (5.1.0)
-  - SDWebImage (5.5.1):
-    - SDWebImage/Core (= 5.5.1)
-  - SDWebImage/Core (5.5.1)
-  - SPAlert (2.1.1)
-  - SPStorkController (1.7.9)
-  - SSZipArchive (2.2.2)
+  - SDWebImage (5.10.2):
+    - SDWebImage/Core (= 5.10.2)
+  - SDWebImage/Core (5.10.2)
+  - SPAlert (2.1.4)
+  - SPStorkController (1.8.4)
+  - SSZipArchive (2.2.3)
   - SwiftMonkey (2.1.1)
   - SwiftMonkeyPaws (2.1.1)
-  - SwiftyBeaver (1.8.4)
+  - SwiftyBeaver (1.9.3)
   - SwipeCellKit (2.7.1)
   - Valet (3.2.8)
   - ViewRow (0.8):
@@ -30,19 +30,20 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 4.9.1)
-  - EFQRCode (= 5.1.6)
-  - Eureka (= 5.1.0)
+  - EFQRCode (= 6.0.0)
+  - Eureka (= 5.3.2)
   - Haptica (= 3.0.2)
+  - HTMLString (= 6.0.1)
   - OneTimePassword (= 3.2.0)
-  - RealmSwift (= 4.3.1)
+  - RealmSwift (= 4.4.1)
   - RNCryptor (= 5.1.0)
-  - SDWebImage (= 5.5.1)
-  - SPAlert (= 2.1.1)
-  - SPStorkController (= 1.7.9)
-  - SSZipArchive (= 2.2.2)
+  - SDWebImage (= 5.10.2)
+  - SPAlert (= 2.1.4)
+  - SPStorkController (= 1.8.4)
+  - SSZipArchive (= 2.2.3)
   - SwiftMonkey (= 2.1.1)
   - SwiftMonkeyPaws (= 2.1.1)
-  - SwiftyBeaver (= 1.8.4)
+  - SwiftyBeaver (= 1.9.3)
   - SwipeCellKit (= 2.7.1)
   - Valet (= 3.2.8)
   - ViewRow (= 0.8)
@@ -54,6 +55,7 @@ SPEC REPOS:
     - EFQRCode
     - Eureka
     - Haptica
+    - HTMLString
     - OneTimePassword
     - Realm
     - RealmSwift
@@ -72,24 +74,25 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
-  EFQRCode: a7ea2e517912f5bf6ba258b631327a83cd8084a5
-  Eureka: 18a5076dcf0c41f9cd9748aa1c42f4d11434bdae
+  EFQRCode: 27f7ef4382159d79d583d839cdfc596b5ac98c9f
+  Eureka: 1c2b8b5892bfb0e972d0fe05f8c09fd89f8625ec
   Haptica: dc206651beeca25ab4744c633fbf0ae4d1e86baf
+  HTMLString: 4abe8cbe94660b328bbe4fc014dabdf0481b16a7
   OneTimePassword: c00ecc908e67e6c5bfda9d50b0b2e4696d0b066e
-  Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
-  RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
+  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
+  RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
-  SDWebImage: 1245d058b7b8f59adef7a6da6bbafd4f1ab67041
-  SPAlert: 4ea95d93f3bc6b2df533559e7ff96ce378d2507e
-  SPStorkController: 36bd84206267232747b19d48852659bd71ede28f
-  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
+  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
+  SPAlert: 1a8afa1c6ac86a82ab5b2cfdf7f9a51e68cb6c0c
+  SPStorkController: 95926db63e1c5826f38f1c108b159a3c35c588a6
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
   SwiftMonkeyPaws: 655524bb402df5ac2be836f9f604aca1068fbde6
-  SwiftyBeaver: f9a9aba96a6a6166e21682377804d728b0d20b95
+  SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   Valet: 16d0537d70db79d9ba953b9060b5da4fb8004e51
   ViewRow: 8da541e9c019f3be63f4e28f311a62cac2045ecf
 
-PODFILE CHECKSUM: b8f5af67639e24497dcc6ab7bbef736649d9831c
+PODFILE CHECKSUM: 429336cf76ff256906beac53d297d8f7834c6a84
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.10.1

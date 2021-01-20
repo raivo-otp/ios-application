@@ -72,11 +72,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if getAppDelegate().previousStoryboardName == StateHelper.Storyboard.LOAD {
-            attemptBiometrickUnlock()
-        } else {
-            passcodeField.becomeFirstResponder()
-        }
+        attemptBiometrickUnlock()
     }
     
     /// Called when the user taps on the "biometric unlock" button/link
