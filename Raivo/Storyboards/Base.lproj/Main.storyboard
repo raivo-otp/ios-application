@@ -230,6 +230,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="5Cb-dt-5Cj"/>
                     <connections>
                         <segue destination="F9t-JF-c77" kind="show" identifier="MainChangePasscodeSegue" id="xHJ-LE-rn2"/>
+                        <segue destination="AmC-rI-wF9" kind="show" identifier="MainDataExportSegue" id="p9m-GC-4bg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lc6-jd-fiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -324,6 +325,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pS-ya-tLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2980" y="-1080"/>
+        </scene>
+        <!--Main Data Export View Controller-->
+        <scene sceneID="LGr-ck-kjU">
+            <objects>
+                <viewController id="AmC-rI-wF9" customClass="MainDataExportViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tyf-FC-Te4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Rzt-Pt-lyA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wcx-05-L7E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PHd-pO-rXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4894" y="1954"/>
         </scene>
         <!--Main-->
         <scene sceneID="cUE-Wc-pa4">

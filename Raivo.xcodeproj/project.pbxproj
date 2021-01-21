@@ -113,6 +113,7 @@
 		70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EDF22567223005C98EF /* SyncerAccount.swift */; };
 		70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EE122567603005C98EF /* BaseSyncer.swift */; };
 		70BC3EE522569881005C98EF /* OfflineSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC3EE422569881005C98EF /* OfflineSyncer.swift */; };
+		70BD738425B9BA4D002F9347 /* MainDataExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BD738325B9BA4D002F9347 /* MainDataExportViewController.swift */; };
 		70BEE09D226B248200D5CF4B /* AuthMiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BEE09C226B248200D5CF4B /* AuthMiscViewController.swift */; };
 		70C0BB68230B333200143FA4 /* SetupStateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C0BB67230B333200143FA4 /* SetupStateExtension.swift */; };
 		70C80DA8229F070A00413801 /* UIPasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C80DA4229F070900413801 /* UIPasscodeField.swift */; };
@@ -286,6 +287,7 @@
 		70BC3EDF22567223005C98EF /* SyncerAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerAccount.swift; sourceTree = "<group>"; };
 		70BC3EE122567603005C98EF /* BaseSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSyncer.swift; sourceTree = "<group>"; };
 		70BC3EE422569881005C98EF /* OfflineSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineSyncer.swift; sourceTree = "<group>"; };
+		70BD738325B9BA4D002F9347 /* MainDataExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataExportViewController.swift; sourceTree = "<group>"; };
 		70BEE09C226B248200D5CF4B /* AuthMiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMiscViewController.swift; sourceTree = "<group>"; };
 		70C0BB67230B333200143FA4 /* SetupStateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupStateExtension.swift; sourceTree = "<group>"; };
 		70C80DA4229F070900413801 /* UIPasscodeField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPasscodeField.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				70A7B117223062380084F15B /* MainMiscViewController.swift */,
 				702A14092263672200B278BB /* MainChangePasscodeViewController.swift */,
 				7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */,
+				70BD738325B9BA4D002F9347 /* MainDataExportViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1210,6 +1213,7 @@
 				70B5585D225E74A000F83A34 /* CounterBasedPasswordCell.swift in Sources */,
 				70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */,
 				70CDB176230C82D300D63A79 /* RealmError.swift in Sources */,
+				70BD738425B9BA4D002F9347 /* MainDataExportViewController.swift in Sources */,
 				700908F021FCEC3100603AA2 /* SetupEntryViewController.swift in Sources */,
 				70684DED225A1BD40038BDB4 /* ApplicationPrincipal.swift in Sources */,
 				702A140A2263672200B278BB /* MainChangePasscodeViewController.swift in Sources */,
