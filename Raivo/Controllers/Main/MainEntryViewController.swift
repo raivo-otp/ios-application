@@ -64,7 +64,7 @@ class MainEntryViewController: UITabBarController, UITabBarControllerDelegate {
                 selectedIndex = 0
                 
                 // PasswordsViewController is not yet active, notify that it has to show the search bar asap
-                let passwordsController = (selectedViewController!.children[0] as! MainPasswordsViewController)
+                let passwordsController = (selectedViewController!.children.last as! MainPasswordsViewController)
                 passwordsController.startSearching = true
             }
             
