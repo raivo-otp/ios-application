@@ -56,7 +56,7 @@ class MainEntryViewController: UITabBarController, UITabBarControllerDelegate {
             if (selectedIndex == 0) {
                 log.verbose("SearchStubController selectedIndex = 0")
                 // PasswordsViewController is active, show search bar
-                let passwordsController = (selectedViewController!.children[0] as! MainPasswordsViewController)
+                let passwordsController = (selectedViewController!.children.last as! MainPasswordsViewController)
                 passwordsController.showSearchBar()
             } else {
                 log.verbose("SearchStubController selectedIndex != 0")
