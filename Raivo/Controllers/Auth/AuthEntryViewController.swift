@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -92,7 +92,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
     /// Called when the user completes entering his/her passcode
     ///
     /// - Parameter passcode: The complete passcode value
-    /// - Note: This function will unlock the application if the passcode is correct
+    /// - Note This function will unlock the application if the passcode is correct
     func onPasscodeComplete(passcode: String) {
         // Always calculate the result to prevent time-bases guessing attacks
         let (correct, encryptionKey) = isCorrectPasscode(passcode)

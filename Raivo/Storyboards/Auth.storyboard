@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,8 +16,8 @@
                     <view key="view" contentMode="scaleToFill" id="B6u-tF-wOl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jM8-rR-XOj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="DE9-4w-90n"/>
                 </viewController>
@@ -71,13 +72,13 @@
                                                         <rect key="frame" x="8" y="168" width="398" height="134"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo, OTP management done right." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT3-vY-qOe" userLabel="Title">
-                                                                <rect key="frame" x="55.5" y="0.0" width="287" height="20.5"/>
+                                                                <rect key="frame" x="56" y="0.0" width="286" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your passcode to continue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDs-zg-TZo" userLabel="Description">
-                                                                <rect key="frame" x="73" y="28.5" width="252" height="20.5"/>
+                                                                <rect key="frame" x="73.5" y="28.5" width="251" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -90,7 +91,7 @@
                                                                     <constraint firstAttribute="width" constant="240" id="dYv-Ce-xb0"/>
                                                                 </constraints>
                                                             </view>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-yI-PgO">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-yI-PgO">
                                                                 <rect key="frame" x="126.5" y="105" width="145" height="29"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <state key="normal" title="Unlock using biometry"/>
@@ -124,7 +125,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="q9X-y2-Q3g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="q9X-y2-Q3g" firstAttribute="trailing" secondItem="oRd-ny-Rp6" secondAttribute="trailing" id="23Z-bq-p2y"/>
                             <constraint firstAttribute="bottom" secondItem="Vz1-KG-knS" secondAttribute="bottom" id="K1l-BU-u1v"/>
@@ -135,7 +137,6 @@
                             <constraint firstItem="Vz1-KG-knS" firstAttribute="top" secondItem="4Ag-aZ-ScX" secondAttribute="top" id="tc7-jf-4x9"/>
                             <constraint firstItem="oRd-ny-Rp6" firstAttribute="top" secondItem="q9X-y2-Q3g" secondAttribute="top" id="xXG-gS-Gww"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="q9X-y2-Q3g"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Vaj-Bd-pgT">
                         <barButtonItem key="backBarButtonItem" title="passcode" id="jwC-lh-wPV"/>
@@ -155,10 +156,16 @@
             <point key="canvasLocation" x="1000" y="487"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="color-tint-red"/>
     <resources>
         <image name="app-icon" width="341.33334350585938" height="341.33334350585938"/>
         <image name="icon-misc" width="30" height="30"/>
         <image name="pattern" width="67" height="100"/>
+        <namedColor name="color-tint-red">
+            <color red="0.90980392156862744" green="0.050980392156862744" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
-    <color key="tintColor" name="color-tint-red"/>
 </document>

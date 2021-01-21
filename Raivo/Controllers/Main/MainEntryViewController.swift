@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -44,7 +44,7 @@ class MainEntryViewController: UITabBarController, UITabBarControllerDelegate {
     
     /// On tab bar item change, run custom functionality
     /// 
-    /// - Note: In this case, custom search functionality was added
+    /// - Note In this case, custom search functionality was added
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if (viewController.restorationIdentifier == "SearchStubController") {
             

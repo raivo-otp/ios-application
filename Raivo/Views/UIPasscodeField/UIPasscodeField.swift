@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -147,7 +147,7 @@ class UIPasscodeField: UIView, UITextFieldDelegate {
     
     /// Add the shadow/mirror UITextField to enable user input
     ///
-    /// - Note: For UITests, the `CGRect` must be at least 1x1 in order to simulate `typeText`.
+    /// - Note For UITests, the `CGRect` must be at least 1x1 in order to simulate `typeText`.
     private func addShadow() {
         let invisibleFrame = CGRect(x: -10.0, y: -10.0, width: 1.0, height: 1.0)
         

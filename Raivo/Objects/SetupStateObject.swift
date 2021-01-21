@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in
@@ -15,7 +15,7 @@ import RealmSwift
 
 /// An object used during the app setup. It remembers all options that the user chose.
 ///
-/// - Note: This object is deleted (from memory) when the user finishes the setup.
+/// - Note This object is deleted (from memory) when the user finishes the setup.
 class SetupStateObject {
     
     /// The ID of the selected synchronization provider

@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -51,7 +51,7 @@ class MigrationToBuild9: MigrationProtocol {
     
     /// Migrate the syncer identifier that is currently stored.
     ///
-    /// - Note: This migration converts e.g. `OFFLINE_SYNCER` to `id(OfflineSyncer.self)`.
+    /// - Note This migration converts e.g. `OFFLINE_SYNCER` to `id(OfflineSyncer.self)`.
     private func migrateSyncerTypeInStorage() {
         guard let syncerType = StorageHelper.shared.getSynchronizationProvider() else {
             return
@@ -78,7 +78,7 @@ class MigrationToBuild9: MigrationProtocol {
     /// Store the current synchronization identifier in storage.
     ///
     /// - Parameter account: The syncer account that can be used for migrating.
-    /// - Note: This will be used to identify account changes.
+    /// - Note This will be used to identify account changes.
     private func migrateSyncerAccountIdentifierInStorage(with account: SyncerAccount) {
         StorageHelper.shared.setSynchronizationAccountIdentifier(account.identifier)
     }

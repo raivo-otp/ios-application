@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in
@@ -161,8 +161,8 @@ class StateHelper {
     /// Reset the state of the app to `State.LOCAL_DATABASE_UNKNOWN`.
     ///
     /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
-    /// - Note: The 'dueToPasscodeChange' param can be set to true on e.g. a passcode change.
-    /// - Note: Realm auxiliary files will be deleted
+    /// - Note The 'dueToPasscodeChange' param can be set to true on e.g. a passcode change.
+    /// - Note Realm auxiliary files will be deleted
     ///         https://realm.io/docs/swift/latest/#deleting-realm-files
     public func reset(dueToPasscodeChange passcodeChanged: Bool = false) {
         log.warning("Resetting the state and all data of the app")

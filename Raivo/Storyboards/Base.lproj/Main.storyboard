@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,8 +17,8 @@
                     <view key="view" contentMode="scaleToFill" id="m9f-7z-bfb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="VJX-QR-P9d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="tabbar-search" id="sDp-5N-GOt"/>
                 </viewController>
@@ -67,7 +68,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="aJL-SM-eC0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="mainPasswordScan"/>
                         <constraints>
                             <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="tRN-pd-f2P" secondAttribute="trailing" id="1eu-JZ-uEw"/>
@@ -78,7 +80,6 @@
                             <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="MPC-LA-oL8" secondAttribute="trailing" constant="16" id="Y92-dK-r9H"/>
                             <constraint firstItem="tRN-pd-f2P" firstAttribute="top" secondItem="aJL-SM-eC0" secondAttribute="top" id="mN2-dN-LLc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="aJL-SM-eC0"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="tabbar-scan" id="QAq-ma-gUB"/>
                     <navigationItem key="navigationItem" title="Scan a QR code" largeTitleDisplayMode="always" id="cBj-RV-F7Z"/>
@@ -100,9 +101,9 @@
                     <view key="view" contentMode="scaleToFill" id="BE6-kL-9Iw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordAdd"/>
                         <viewLayoutGuide key="safeArea" id="agh-vy-GIo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordAdd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add" largeTitleDisplayMode="always" id="B8I-jh-gwg">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wRy-iv-iCx">
@@ -126,11 +127,12 @@
                         <subviews>
                             <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZYE-xS-Xob">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="WSM-vr-gJL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="mainPasswords"/>
                         <constraints>
                             <constraint firstItem="ZYE-xS-Xob" firstAttribute="top" secondItem="qHX-Uj-Cbk" secondAttribute="top" id="I0H-VF-U3U"/>
@@ -138,7 +140,6 @@
                             <constraint firstItem="ZYE-xS-Xob" firstAttribute="leading" secondItem="WSM-vr-gJL" secondAttribute="leading" id="uak-2h-iJg"/>
                             <constraint firstAttribute="bottom" secondItem="ZYE-xS-Xob" secondAttribute="bottom" identifier="KeyboardConstraint" id="zDH-kG-cff"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="WSM-vr-gJL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Passwords" largeTitleDisplayMode="never" id="Rqw-bM-Zhl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eG7-Fh-ajV">
@@ -164,9 +165,9 @@
                     <view key="view" contentMode="scaleToFill" id="nqk-RL-Ogy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordEdit"/>
                         <viewLayoutGuide key="safeArea" id="j0L-dn-8mA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordEdit"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit" largeTitleDisplayMode="always" id="fWU-Md-GCH">
                         <barButtonItem key="backBarButtonItem" title="Edit" id="gLm-9e-Sec"/>
@@ -188,9 +189,9 @@
                     <view key="view" contentMode="scaleToFill" id="bkg-Mc-WAk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordQuickResponseCode"/>
                         <viewLayoutGuide key="safeArea" id="oXZ-Dr-lMs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordQuickResponseCode"/>
                     </view>
                     <navigationItem key="navigationItem" title="QR code" largeTitleDisplayMode="always" id="v6q-mk-7lO"/>
                 </viewController>
@@ -222,9 +223,9 @@
                     <view key="view" contentMode="scaleToFill" id="tiu-g6-CWn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <accessibility key="accessibilityConfiguration" identifier="mainSettings"/>
                         <viewLayoutGuide key="safeArea" id="6fs-mC-1eZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainSettings"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="5Cb-dt-5Cj"/>
                     <connections>
@@ -282,7 +283,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ons-YR-CD1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="mainChangePasscode"/>
                         <constraints>
                             <constraint firstItem="Ons-YR-CD1" firstAttribute="bottom" secondItem="bvi-ii-oP4" secondAttribute="bottom" identifier="KeyboardConstraint" id="0YB-jZ-fzy"/>
@@ -294,7 +296,6 @@
                             <constraint firstAttribute="bottom" secondItem="9wa-hk-cHr" secondAttribute="bottom" id="pnl-AX-7aR"/>
                             <constraint firstItem="9wa-hk-cHr" firstAttribute="leading" secondItem="Ons-YR-CD1" secondAttribute="leading" id="v84-o6-Omc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ons-YR-CD1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Change passcode" id="R3d-hy-Vna"/>
                     <connections>
@@ -346,6 +347,10 @@
             <point key="canvasLocation" x="2062" y="35"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oAN-q3-j0q"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" name="color-tint-red"/>
     <resources>
         <image name="pattern" width="67" height="100"/>
         <image name="tabbar-misc" width="30" height="30"/>
@@ -355,9 +360,8 @@
         <namedColor name="color-tint-red">
             <color red="0.90980392156862744" green="0.050980392156862744" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="oAN-q3-j0q"/>
-    </inferredMetricsTieBreakers>
-    <color key="tintColor" name="color-tint-red"/>
 </document>

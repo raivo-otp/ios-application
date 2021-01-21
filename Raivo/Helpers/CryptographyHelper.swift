@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -28,8 +28,8 @@ class CryptographyHelper {
     /// - Parameter secret: The secret to derive (for end-users, this is called the passcode)
     /// - Parameter salt: The salt to use for derivation (for end-users, this is called the password)
     /// - Returns: A key based on the secret and salt
-    /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
-    /// - Note: Specifications:
+    /// - Note Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
+    /// - Note Specifications:
     ///         https://realm.io/docs/swift/latest/#encryption
     public func derive(_ secret: String, withSalt salt: String) throws -> Data {
         guard let salt = salt.data(using: .utf8) else {
@@ -44,8 +44,8 @@ class CryptographyHelper {
     /// - Parameter secret: The secret to derive
     /// - Parameter salt: The salt to use for derivation
     /// - Returns: A key based on the secret and salt
-    /// - Note: Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
-    /// - Note: Specifications:
+    /// - Note Realm only supports 64 byte keys (which is the reason why 64 bytes were chosen)
+    /// - Note Specifications:
     ///         https://realm.io/docs/swift/latest/#encryption
     public func derive(_ secret: String, withSalt salt: Data) throws -> Data {
         let secretArray = secret.utf8.map(Int8.init)
@@ -78,7 +78,7 @@ class CryptographyHelper {
     ///
     /// - Parameter plaintext: The UTF-8 string to encrypt
     /// - Returns: The encrypted string (base64 encoded)
-    /// - Note: Specifications:
+    /// - Note Specifications:
     ///         https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md
     public func encrypt(_ plaintext: String) throws -> String {
         guard let plaintextData = plaintext.data(using: .utf8) else {
@@ -103,7 +103,7 @@ class CryptographyHelper {
     /// - Parameter withKey: An optional key to use for decryption (default is key in keychain)
     /// - Returns: The decrypted string
     /// - Throws: Throws error if the password is incorrect or ciphertext is in the wrong format
-    /// - Note: Specifications:
+    /// - Note Specifications:
     ///         https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md
     public func decrypt(_ cipher: String, withKey key: String? = nil) throws -> String {
         guard let cipherData = Data.init(base64Encoded: cipher) else {

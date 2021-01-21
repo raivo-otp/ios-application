@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in
@@ -68,7 +68,7 @@ class SyncerHelper {
     /// Clear the cached syncers so they can be initialized again in a later stage.
     ///
     /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
-    /// - Note: The `dueToPasscodeChange` parameter can be set to true on e.g. a passcode change.
+    /// - Note The `dueToPasscodeChange` parameter can be set to true on e.g. a passcode change.
     public func clear(dueToPasscodeChange: Bool = false) {
         guard !dueToPasscodeChange else { return }
         

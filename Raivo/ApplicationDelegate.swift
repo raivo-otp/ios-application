@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -73,7 +73,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter url: The URL resource to open. Probably an 'otpauth://' URI.
     /// - Parameter options: A dictionary of URL handling options.
     /// - Returns: If the URI was succesfully handled or not.
-    /// - Note: We always accept all URLs. They will be validated in a later stage and the user will receive feedback if the link is incorrect.
+    /// - Note We always accept all URLs. They will be validated in a later stage and the user will receive feedback if the link is incorrect.
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         tappedLaunchUri = url
         return true
@@ -235,6 +235,16 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter application: The singleton app object.
     func applicationWillTerminate(_ application: UIApplication) {
         // Not implemented
+    }
+    
+    /// Asks the delegate to grant permission to use app extensions that are based on a specified extension point identifier.
+    ///
+    /// - Parameter application: The singleton app object.
+    /// - Parameter extensionPointIdentifier: A constant identifying an extension point.
+    /// - Returns false to disallow use of a specified app extension type, or true to allow use of the type.
+    /// - Note This disables third party keyboards throughout the entire application.
+    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
+        return extensionPointIdentifier != .keyboard
     }
     
 }

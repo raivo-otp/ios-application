@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,19 +40,19 @@
                                                         <rect key="frame" x="8" y="183" width="398" height="118.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo OTP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMF-0q-efD" userLabel="Heading">
-                                                                <rect key="frame" x="118.5" y="0.0" width="161.5" height="41"/>
+                                                                <rect key="frame" x="118.5" y="0.0" width="161" height="41"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two-factor authentication done right!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mT-Di-l1w" userLabel="Title">
-                                                                <rect key="frame" x="49" y="49" width="300" height="20.5"/>
+                                                                <rect key="frame" x="50" y="49" width="298" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage all of your time-based and counter-based OTP tokens without the hassle." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhF-SM-abq" userLabel="Description">
-                                                                <rect key="frame" x="5.5" y="77.5" width="387.5" height="41"/>
+                                                                <rect key="frame" x="6.5" y="77.5" width="385.5" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -103,7 +104,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5K1-mB-K0a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupWelcome">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -117,7 +119,6 @@
                             <constraint firstItem="Nqt-Pi-voe" firstAttribute="leading" secondItem="OuK-Ro-Yh2" secondAttribute="leading" id="vLy-fT-AxC"/>
                             <constraint firstItem="ga4-uj-t2j" firstAttribute="top" secondItem="OuK-Ro-Yh2" secondAttribute="top" id="yl9-8p-nUh"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="5K1-mB-K0a"/>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" largeTitleDisplayMode="never" id="s2T-Df-wTP">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="blQ-sD-5Hv">
@@ -171,13 +172,13 @@
                                                         <rect key="frame" x="8" y="0.0" width="398" height="69.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading storage providers..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6D-OM-R4n" userLabel="Title">
-                                                                <rect key="frame" x="87" y="0.0" width="224" height="20.5"/>
+                                                                <rect key="frame" x="87.5" y="0.0" width="223" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a storage provider that you want to synchronize and backup your tokens to." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNS-RY-b8z" userLabel="Description">
-                                                                <rect key="frame" x="32" y="28.5" width="334.5" height="41"/>
+                                                                <rect key="frame" x="33" y="28.5" width="332.5" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -240,7 +241,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="EQz-pQ-2NM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupStorage">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -254,7 +256,6 @@
                             <constraint firstAttribute="trailing" secondItem="thf-kS-wwi" secondAttribute="trailing" id="sCi-3e-Ap8"/>
                             <constraint firstItem="EQz-pQ-2NM" firstAttribute="bottom" secondItem="YSs-v1-hTK" secondAttribute="bottom" identifier="KeyboardConstraint" id="yVq-hN-4DY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="EQz-pQ-2NM"/>
                     </view>
                     <navigationItem key="navigationItem" title="Storage" largeTitleDisplayMode="always" id="Ky2-yX-4gQ">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="2qR-R5-jtA">
@@ -297,13 +298,13 @@
                                                         <rect key="frame" x="8" y="0.0" width="398" height="122.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your master password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoX-Bb-B2i" userLabel="Title">
-                                                                <rect key="frame" x="92.5" y="0.0" width="213.5" height="20.5"/>
+                                                                <rect key="frame" x="93" y="0.0" width="212.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will need it when configuring data synchronization on other devices." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="En1-Wf-CAd" userLabel="Description">
-                                                                <rect key="frame" x="52.5" y="28.5" width="293.5" height="41"/>
+                                                                <rect key="frame" x="53" y="28.5" width="292" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -319,8 +320,8 @@
                                                                     <passwordRules key="passwordRules" passwordRulesDescriptor="minlength: 8;"/>
                                                                 </textInputTraits>
                                                             </textField>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-bJ-VKm">
-                                                                <rect key="frame" x="99" y="122.5" width="200" height="0.0"/>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-bJ-VKm">
+                                                                <rect key="frame" x="99.5" y="122.5" width="199" height="0.0"/>
                                                                 <state key="normal" title="I forgot my master password."/>
                                                                 <connections>
                                                                     <segue destination="JV5-fL-M0g" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="KCy-Xp-PLa"/>
@@ -377,7 +378,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Vfi-aW-s2x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupPasswordInitial">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -391,7 +393,6 @@
                             <constraint firstItem="oQh-sE-drd" firstAttribute="top" secondItem="Vfi-aW-s2x" secondAttribute="top" id="dfc-H2-9yU"/>
                             <constraint firstItem="Vfi-aW-s2x" firstAttribute="trailing" secondItem="oQh-sE-drd" secondAttribute="trailing" id="eQf-NN-LCG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Vfi-aW-s2x"/>
                     </view>
                     <navigationItem key="navigationItem" title="Password" id="EWQ-79-udb">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="Cqe-aB-L1X">
@@ -437,13 +438,13 @@
                                                         <rect key="frame" x="8" y="0.0" width="398" height="122.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-Yp-PNV" userLabel="Title">
-                                                                <rect key="frame" x="108.5" y="0.0" width="181.5" height="20.5"/>
+                                                                <rect key="frame" x="109" y="0.0" width="180.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure to save it in a safe place. All your data will be encrypted using this password!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1H-tL-vSU" userLabel="Description">
-                                                                <rect key="frame" x="12" y="28.5" width="374.5" height="41"/>
+                                                                <rect key="frame" x="0.0" y="28.5" width="398" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -510,7 +511,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="EVC-jq-tYX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupPasswordConfirmation">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -524,7 +526,6 @@
                             <constraint firstItem="ToW-qE-aQL" firstAttribute="leading" secondItem="Q7Z-oT-E3e" secondAttribute="leading" id="nHO-kG-D7B"/>
                             <constraint firstItem="snH-Uz-pZh" firstAttribute="leading" secondItem="EVC-jq-tYX" secondAttribute="leading" id="sRT-kP-oez"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="EVC-jq-tYX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Security" id="Gvy-nB-Q4S"/>
                     <connections>
@@ -559,13 +560,13 @@
                                                         <rect key="frame" x="8" y="0.0" width="398" height="97"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set your passcode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEb-wM-vVz" userLabel="Title">
-                                                                <rect key="frame" x="122.5" y="0.0" width="153.5" height="20.5"/>
+                                                                <rect key="frame" x="123" y="0.0" width="152.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can use the passcode to unlock Raivo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-lP-QS8" userLabel="Description">
-                                                                <rect key="frame" x="36.5" y="28.5" width="325.5" height="20.5"/>
+                                                                <rect key="frame" x="37.5" y="28.5" width="323.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -605,7 +606,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dhH-y2-mD1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupPasscodeInitial">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -619,7 +621,6 @@
                             <constraint firstItem="dhH-y2-mD1" firstAttribute="trailing" secondItem="yhc-Ks-ikz" secondAttribute="trailing" id="WM1-ra-fm1"/>
                             <constraint firstItem="uCU-18-3wa" firstAttribute="top" secondItem="sQY-MQ-ar5" secondAttribute="top" id="puT-nU-LFw"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dhH-y2-mD1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Passcode" id="1kZ-QS-P3E">
                         <barButtonItem key="backBarButtonItem" title="passcode" id="2ZV-vc-vWm"/>
@@ -664,13 +665,13 @@
                                                         <rect key="frame" x="8" y="0.0" width="398" height="97"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the passcode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQw-g3-ez1" userLabel="Title">
-                                                                <rect key="frame" x="108.5" y="0.0" width="181" height="20.5"/>
+                                                                <rect key="frame" x="109" y="0.0" width="180.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure you'll be able to remember it!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vF-KW-lxc" userLabel="Description">
-                                                                <rect key="frame" x="46.5" y="28.5" width="305" height="20.5"/>
+                                                                <rect key="frame" x="47" y="28.5" width="304" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -709,7 +710,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="p0m-Uu-o30"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupPasscodeConfirmation">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -723,7 +725,6 @@
                             <constraint firstAttribute="trailing" secondItem="hua-7R-fmR" secondAttribute="trailing" id="t7o-xS-c0v"/>
                             <constraint firstItem="uXZ-7B-mwN" firstAttribute="leading" secondItem="p0m-Uu-o30" secondAttribute="leading" id="z1s-bQ-6z9"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="p0m-Uu-o30"/>
                     </view>
                     <navigationItem key="navigationItem" title="passcode" id="Wip-Bc-0CN"/>
                     <connections>
@@ -758,18 +759,18 @@
                                                         <rect key="frame" x="8" y="0.0" width="398" height="107.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configure BiomID unlock." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSe-AD-GQD" userLabel="Title">
-                                                                <rect key="frame" x="97.5" y="0.0" width="203.5" height="20.5"/>
+                                                                <rect key="frame" x="98" y="0.0" width="202" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biometry allows you to unlock Raivo with BiomID, instead of your passcode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOI-sT-feM" userLabel="Description">
-                                                                <rect key="frame" x="10.5" y="28.5" width="377.5" height="41"/>
+                                                                <rect key="frame" x="11.5" y="28.5" width="375" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofA-bq-sca">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofA-bq-sca">
                                                                 <rect key="frame" x="82.5" y="77.5" width="233" height="30"/>
                                                                 <state key="normal" title="I don't want to use BiomID unlock."/>
                                                                 <connections>
@@ -823,7 +824,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Tpf-jC-grM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupBiometrics">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -837,7 +839,6 @@
                             <constraint firstItem="FJq-fe-aaE" firstAttribute="top" secondItem="Wli-2g-JYk" secondAttribute="top" id="jm4-ny-07X"/>
                             <constraint firstItem="iZf-bv-dUv" firstAttribute="leading" secondItem="Tpf-jC-grM" secondAttribute="leading" id="l5O-4o-wO2"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Tpf-jC-grM"/>
                     </view>
                     <navigationItem key="navigationItem" title="BiomID" id="nL0-4k-ilc">
                         <barButtonItem key="backBarButtonItem" title="Biometric" id="djg-Un-mfA"/>
@@ -868,10 +869,11 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="s12-Ko-d1C" userLabel="Background" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="0EK-Hk-Z3l"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupSettings">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -881,7 +883,6 @@
                             <constraint firstItem="s12-Ko-d1C" firstAttribute="top" secondItem="4Lm-Ia-NyJ" secondAttribute="top" id="gGf-aK-Hmz"/>
                             <constraint firstAttribute="bottom" secondItem="s12-Ko-d1C" secondAttribute="bottom" id="ixJ-LR-02y"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="0EK-Hk-Z3l"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="rUN-fT-I5W"/>
                 </viewController>
@@ -919,13 +920,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRw-Uw-bdd" userLabel="Description">
-                                                                <rect key="frame" x="6" y="28.5" width="386.5" height="101.5"/>
+                                                                <rect key="frame" x="7" y="28.5" width="384.5" height="101.5"/>
                                                                 <string key="text">Unfortunately there is no way to recover your data without your master password.  The only option you have is to delete all data from your synchronization provider and start all over.</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0n-4v-DQm">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0n-4v-DQm">
                                                                 <rect key="frame" x="137.5" y="138" width="123" height="30"/>
                                                                 <state key="normal" title="Delete all my data"/>
                                                                 <connections>
@@ -979,7 +980,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="szk-G1-5tg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupPasswordForgot">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -993,7 +995,6 @@
                             <constraint firstItem="kX2-Al-V5x" firstAttribute="top" secondItem="szk-G1-5tg" secondAttribute="top" id="llU-6o-VWN"/>
                             <constraint firstItem="gif-wJ-clY" firstAttribute="leading" secondItem="gpV-cK-pFW" secondAttribute="leading" id="ppz-Rd-MSY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="szk-G1-5tg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Security" id="bFY-bw-HBq"/>
                 </viewController>
@@ -1038,13 +1039,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enjoy the ease of Raivo OTP!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-FI-sO7" userLabel="Title">
-                                                                <rect key="frame" x="85.5" y="49" width="227" height="20.5"/>
+                                                                <rect key="frame" x="86" y="49" width="226" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've successfully configured the application and are now ready to add your first one-time password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcj-XM-RKb" userLabel="Description">
-                                                                <rect key="frame" x="3" y="77.5" width="392.5" height="41"/>
+                                                                <rect key="frame" x="4" y="77.5" width="390.5" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1096,7 +1097,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2Dj-6y-AgQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="setupComplete">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -1110,7 +1112,6 @@
                             <constraint firstItem="KaR-9I-3hx" firstAttribute="top" secondItem="G4f-OG-Iga" secondAttribute="top" id="gKA-rl-BU4"/>
                             <constraint firstItem="KaR-9I-3hx" firstAttribute="leading" secondItem="G4f-OG-Iga" secondAttribute="leading" id="i0G-Bn-MuS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="2Dj-6y-AgQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome to Raivo OTP" largeTitleDisplayMode="never" id="D5W-sU-mVn">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="pCL-0d-f6G">
@@ -1125,14 +1126,20 @@
             <point key="canvasLocation" x="7403" y="90"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="app-icon" width="341.33334350585938" height="341.33334350585938"/>
-        <image name="icon-misc" width="30" height="30"/>
-        <image name="pattern" width="67" height="100"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="l9d-6b-Nce"/>
         <segue reference="NTB-5G-D3w"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
+    <resources>
+        <image name="app-icon" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="icon-misc" width="30" height="30"/>
+        <image name="pattern" width="67" height="100"/>
+        <namedColor name="color-tint-red">
+            <color red="0.90980392156862744" green="0.050980392156862744" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

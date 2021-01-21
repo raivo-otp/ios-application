@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -91,7 +91,7 @@ class ApplicationPrincipal: UIApplication {
     
     /// Open the given URL (by the native UIApplication.open handler
     ///
-    /// - Note: The URL is only opened if `AppHelper.monkeyPaws` is false
+    /// - Note The URL is only opened if `AppHelper.monkeyPaws` is false
     override func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil) {
         if (!AppHelper.argumentMonkeyPaws) {
             super.open(url, options: options, completionHandler: completion)

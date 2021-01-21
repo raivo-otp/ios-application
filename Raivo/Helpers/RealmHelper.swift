@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -28,7 +28,7 @@ class RealmHelper {
     /// Get the current Realm instances with the default configuration
     ///
     /// - Returns: The Realm instance to use
-    /// - Note: Returns nil if the encryption key is unknown
+    /// - Note Returns nil if the encryption key is unknown
     public func getRealm() -> Realm? {
         let currentConfig = Realm.Configuration.defaultConfiguration
         
@@ -42,7 +42,7 @@ class RealmHelper {
     /// Update the default Realm configuration to use the given encryption key
     ///
     /// - Parameter encryptionKey: Used to decrypt the Realm file
-    /// - Note: This method will run Realm migrations (if any)
+    /// - Note This method will run Realm migrations (if any)
     public func initDefaultRealmConfiguration(encryptionKey: Data?) {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             fileURL: getFileURL(),
@@ -67,7 +67,7 @@ class RealmHelper {
     ///
     /// - Parameter forceFilename: If given, this will be used as the filename in the path to the Realm file
     /// - Returns: A URL (path) to the requested Realm file
-    /// - Note: Unfortunetely we must open a different realm file after logout, because Realm does not auto release the internal cached references to the database.
+    /// - Note Unfortunetely we must open a different realm file after logout, because Realm does not auto release the internal cached references to the database.
     ///         It keeps the connection open at all time. Manually `.invalidating()` them does not work.
     ///         https://stackoverflow.com/a/54140362/2491049
     public func getFileURL(forceFilename: String? = nil) -> URL? {
@@ -107,7 +107,7 @@ class RealmHelper {
     ///
     /// - Parameter encryptionKey: The encryption key to try
     /// - Returns: Positive if it is the correct key, false otherwise
-    /// - Note: Realm exceptions can't be caught, therefore copy the DB and try to unlock it, afterwards delete that file
+    /// - Note Realm exceptions can't be caught, therefore copy the DB and try to unlock it, afterwards delete that file
     ///         https://stackoverflow.com/questions/37014101/realm-swift-how-to-catch-rlmexception
     public func isCorrectEncryptionKey(_ encryptionKey: Data?) -> Bool {
         if let encryptionKey = encryptionKey {

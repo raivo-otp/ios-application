@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2019 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in 
@@ -15,7 +15,7 @@ import OneTimePassword
 
 /// A password object is basically just a One-Time-Password.
 ///
-/// - Note: This was implemented as per Google guidelines:
+/// - Note This was implemented as per Google guidelines:
 ///         https://github.com/google/google-authenticator/wiki/Key-Uri-Format
 class Password: Object {
     
@@ -88,7 +88,7 @@ class Password: Object {
     /// Get the (properly encoded) absolute URL to the icon of the password
     ///
     /// - Returns: The URL, if any icon is selected/set.
-    /// - Note: The URL must be properly encoded such that URL injection is not possible (https://github.com/raivo-otp/ios-application/issues/31).
+    /// - Note The URL must be properly encoded such that URL injection is not possible (https://github.com/raivo-otp/ios-application/issues/31).
     public func getIconURL() -> URL? {
         switch iconType {
         case PasswordIconTypeFormOption.OPTION_RAIVO_REPOSITORY.value:
