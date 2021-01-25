@@ -25,7 +25,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// The name of the current/active storyboard
     public var currentStoryboardName: String? = nil
     
-    /// The name of the storyboard that was active before the current one became active
+    /// The name if the storyboard that was active before the current one became active
     public var previousStoryboardName: String? = nil
     
     /// Indicating of the application passed the `Load` app state
