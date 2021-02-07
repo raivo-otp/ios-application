@@ -81,6 +81,9 @@
 		70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5022F7272400152864 /* AuthRootViewController.swift */; };
 		70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */; };
 		70A1BC5922F7534500152864 /* SetupRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5822F7534500152864 /* SetupRootViewController.swift */; };
+		70A3F4FA25CDD282004F053B /* MainDataExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3F4F925CDD282004F053B /* MainDataExportView.swift */; };
+		70A3F50325CECAAB004F053B /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3F50225CECAAB004F053B /* FilledButton.swift */; };
+		70A3F50825CEF0AB004F053B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A3F50725CEF0AB004F053B /* ActivityIndicator.swift */; };
 		70A7B10E223061D60084F15B /* MainPasswordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B10D223061D60084F15B /* MainPasswordsViewController.swift */; };
 		70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B10F223061E50084F15B /* MainScanPasswordViewController.swift */; };
 		70A7B112223061EE0084F15B /* MainCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7B111223061EE0084F15B /* MainCreatePasswordViewController.swift */; };
@@ -255,6 +258,9 @@
 		70A1BC5022F7272400152864 /* AuthRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRootViewController.swift; sourceTree = "<group>"; };
 		70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRootViewController.swift; sourceTree = "<group>"; };
 		70A1BC5822F7534500152864 /* SetupRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupRootViewController.swift; sourceTree = "<group>"; };
+		70A3F4F925CDD282004F053B /* MainDataExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataExportView.swift; sourceTree = "<group>"; };
+		70A3F50225CECAAB004F053B /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
+		70A3F50725CEF0AB004F053B /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		70A7B10D223061D60084F15B /* MainPasswordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPasswordsViewController.swift; sourceTree = "<group>"; };
 		70A7B10F223061E50084F15B /* MainScanPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScanPasswordViewController.swift; sourceTree = "<group>"; };
 		70A7B111223061EE0084F15B /* MainCreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCreatePasswordViewController.swift; sourceTree = "<group>"; };
@@ -423,14 +429,8 @@
 		700908D921FCE27000603AA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				70A7B11F22306DDE0084F15B /* UIPasswordsEmptyListView */,
-				70C80DAC229FF69500413801 /* UIPasswordsEmptySearchView */,
-				70C80DA3229F06FB00413801 /* UIPasscodeField */,
-				70FA4C4D2287526400A3B754 /* IconFormSelectorView */,
-				70A9E38D2280C10200980D4E /* IconFormCell */,
-				707B38E02275F85C00D35897 /* Banners */,
-				70B55860225E760A00F83A34 /* PasswordCell */,
-				70D7D7CB225BB0CF008DA2FD /* PatternImage */,
+				70A3F4F525CDD227004F053B /* UIKit */,
+				70A3F4F425CDD21E004F053B /* SwiftUI */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -689,6 +689,47 @@
 				709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */,
 			);
 			path = QuickResponseCode;
+			sourceTree = "<group>";
+		};
+		70A3F4F425CDD21E004F053B /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				70A3F50625CEF089004F053B /* Misc */,
+				70A3F50125CECA8C004F053B /* Buttons */,
+				70A3F4F925CDD282004F053B /* MainDataExportView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		70A3F4F525CDD227004F053B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				70A7B11F22306DDE0084F15B /* UIPasswordsEmptyListView */,
+				70C80DAC229FF69500413801 /* UIPasswordsEmptySearchView */,
+				70C80DA3229F06FB00413801 /* UIPasscodeField */,
+				70FA4C4D2287526400A3B754 /* IconFormSelectorView */,
+				70A9E38D2280C10200980D4E /* IconFormCell */,
+				707B38E02275F85C00D35897 /* Banners */,
+				70B55860225E760A00F83A34 /* PasswordCell */,
+				70D7D7CB225BB0CF008DA2FD /* PatternImage */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		70A3F50125CECA8C004F053B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				70A3F50225CECAAB004F053B /* FilledButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		70A3F50625CEF089004F053B /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				70A3F50725CEF0AB004F053B /* ActivityIndicator.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		70A7B11A22306D950084F15B /* TimeBasedPasswordCell */ = {
@@ -1157,6 +1198,7 @@
 				702BAEA82258FD1B008E5C5F /* PasswordForm.swift in Sources */,
 				70B585E62309A67E00AD1754 /* SetupMiscViewController.swift in Sources */,
 				70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */,
+				70A3F4FA25CDD282004F053B /* MainDataExportView.swift in Sources */,
 				70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */,
 				70A1599E232AA8C900816FE8 /* MigrationToBuild23.swift in Sources */,
 				70C80DAE22A0464600413801 /* CryptographyHelper.swift in Sources */,
@@ -1183,6 +1225,7 @@
 				70B585E82309B80E00AD1754 /* SetupStorageViewController.swift in Sources */,
 				7077A339227CCA9300338CA3 /* PasswordKindFormOption.swift in Sources */,
 				70A7B11C22306DB60084F15B /* TimeBasedPasswordCell.swift in Sources */,
+				70A3F50825CEF0AB004F053B /* ActivityIndicator.swift in Sources */,
 				70BC3EE522569881005C98EF /* OfflineSyncer.swift in Sources */,
 				70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */,
 				702CA6CA2263A119000DCC1D /* StubSyncer.swift in Sources */,
@@ -1210,6 +1253,7 @@
 				70A7B118223062380084F15B /* MainMiscViewController.swift in Sources */,
 				70C80DA8229F070A00413801 /* UIPasscodeField.swift in Sources */,
 				70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */,
+				70A3F50325CECAAB004F053B /* FilledButton.swift in Sources */,
 				70B5585D225E74A000F83A34 /* CounterBasedPasswordCell.swift in Sources */,
 				70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */,
 				70CDB176230C82D300D63A79 /* RealmError.swift in Sources */,
@@ -1422,7 +1466,7 @@
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1446,7 +1490,7 @@
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -13,9 +13,14 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
-class MainDataExportViewController: UIViewController {
+class MainDataExportViewController: UIHostingController<MainDataExportView> {
     
+    required init?(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder, rootView: MainDataExportView())
+    }
+
 }
 
 /*

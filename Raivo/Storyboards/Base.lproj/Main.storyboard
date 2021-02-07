@@ -230,7 +230,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="5Cb-dt-5Cj"/>
                     <connections>
                         <segue destination="F9t-JF-c77" kind="show" identifier="MainChangePasscodeSegue" id="xHJ-LE-rn2"/>
-                        <segue destination="AmC-rI-wF9" kind="show" identifier="MainDataExportSegue" id="p9m-GC-4bg"/>
+                        <segue destination="P2U-OT-7BE" kind="show" identifier="MainDataExportSegue" id="r8T-aZ-TpT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lc6-jd-fiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -326,21 +326,15 @@
             </objects>
             <point key="canvasLocation" x="2980" y="-1080"/>
         </scene>
-        <!--Main Data Export View Controller-->
-        <scene sceneID="LGr-ck-kjU">
+        <!--ZIP archive-->
+        <scene sceneID="LZi-lN-Rxm">
             <objects>
-                <viewController id="AmC-rI-wF9" customClass="MainDataExportViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Tyf-FC-Te4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Rzt-Pt-lyA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="wcx-05-L7E"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PHd-pO-rXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <hostingController title="ZIP archive" hidesBottomBarWhenPushed="YES" id="P2U-OT-7BE" customClass="MainDataExportViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Kdu-4v-3f4"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAw-hS-gYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4894" y="1954"/>
+            <point key="canvasLocation" x="4889" y="1950"/>
         </scene>
         <!--Main-->
         <scene sceneID="cUE-Wc-pa4">
