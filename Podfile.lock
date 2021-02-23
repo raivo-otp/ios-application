@@ -20,8 +20,8 @@ PODS:
   - SPAlert (2.1.4)
   - SPStorkController (1.8.4)
   - SSZipArchive (2.2.3)
-  - SwiftMonkey (2.1.1)
-  - SwiftMonkeyPaws (2.1.1)
+  - SwiftMonkey (2.2.0)
+  - SwiftMonkeyPaws (2.2.0)
   - SwiftyBeaver (1.9.3)
   - SwipeCellKit (2.7.1)
   - Valet (3.2.8)
@@ -41,8 +41,8 @@ DEPENDENCIES:
   - SPAlert (= 2.1.4)
   - SPStorkController (= 1.8.4)
   - SSZipArchive (= 2.2.3)
-  - SwiftMonkey (= 2.1.1)
-  - SwiftMonkeyPaws (= 2.1.1)
+  - SwiftMonkey (= 2.2.0)
+  - SwiftMonkeyPaws (= 2.2.0)
   - SwiftyBeaver (= 1.9.3)
   - SwipeCellKit (= 2.7.1)
   - Valet (= 3.2.8)
@@ -86,13 +86,13 @@ SPEC CHECKSUMS:
   SPAlert: 1a8afa1c6ac86a82ab5b2cfdf7f9a51e68cb6c0c
   SPStorkController: 95926db63e1c5826f38f1c108b159a3c35c588a6
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
-  SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
-  SwiftMonkeyPaws: 655524bb402df5ac2be836f9f604aca1068fbde6
+  SwiftMonkey: 24ffde5b590d3658cfcb1d775cf74b9f5280eb9c
+  SwiftMonkeyPaws: 9d183b8a1b9cfd497c2704342e861b71412d94f5
   SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   Valet: 16d0537d70db79d9ba953b9060b5da4fb8004e51
   ViewRow: 8da541e9c019f3be63f4e28f311a62cac2045ecf
 
-PODFILE CHECKSUM: 429336cf76ff256906beac53d297d8f7834c6a84
+PODFILE CHECKSUM: 91310991c171edf30db88f088a7a49fe1c02cfdb
 
 COCOAPODS: 1.10.1

@@ -51,7 +51,7 @@ target 'Raivo' do
   pod 'SPStorkController', '1.8.4'
   
   # Zalando's monkey testing client
-  pod 'SwiftMonkeyPaws', '2.1.1'
+  pod 'SwiftMonkeyPaws', '2.2.0'
 
   # HTML utilities (encoding/decoding)
   pod 'HTMLString', '6.0.1'
@@ -60,7 +60,7 @@ end
 
 # Tests
 target 'RaivoUITests' do
-    pod 'SwiftMonkey', '2.1.1'
+    pod 'SwiftMonkey', '2.2.0'
 end
 
 # Specific dependencies compile using Swift 4.2

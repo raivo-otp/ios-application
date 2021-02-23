@@ -18,6 +18,8 @@ class SetupMonkeyTest: XCTestCase {
     var app: XCUIApplication!
 
     override func setUp() {
+        super.setUp()
+        
         continueAfterFailure = false
         
         app = XCUIApplication()
@@ -32,7 +34,7 @@ class SetupMonkeyTest: XCTestCase {
     func testWelcomeByMonkey() {
         let monkey = Monkey(frame: app.frame)
 
-        monkey.addDefaultUIAutomationActions()
+        monkey.addDefaultXCTestPublicActions(app: app)
         monkey.addXCTestTapAlertAction(interval: 100, application: app)
         monkey.monkeyAround(forDuration: TimeInterval(60 * 2))
     }
