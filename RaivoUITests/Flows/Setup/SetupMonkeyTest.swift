@@ -18,8 +18,6 @@ class SetupMonkeyTest: XCTestCase {
     var app: XCUIApplication!
 
     override func setUp() {
-        super.setUp()
-        
         continueAfterFailure = false
         
         app = XCUIApplication()
