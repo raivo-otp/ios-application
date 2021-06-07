@@ -18,7 +18,7 @@ import SwiftUI
 class MainDataExportViewController: UIHostingController<MainDataExportView> {
     
     required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder, rootView: MainDataExportView())
+        super.init(coder: aDecoder, rootView: MainDataExportView(mainDataExport: MainDataExportViewObservable()))
     }
 
 }

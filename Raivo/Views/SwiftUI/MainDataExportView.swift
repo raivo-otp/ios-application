@@ -15,47 +15,76 @@ import SwiftUI
 
 struct MainDataExportView: View {
     
-    @State(initialValue: false) var busy: Bool
-    
+    @ObservedObject var mainDataExport: MainDataExportViewObservable
+        
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 10, content: {
                 
                 Spacer()
                 
-                Text("The export is an AES-encrypted ZIP archive, so make sure you use the right tools when extracting it.")
+                Group {
                 
-                Text("Some archive utilities may not be able to extract AES encrypted ZIP files. ").bold()
-                
-                Text("The archivers below are known to have AES encryption support.")
-                
-                Divider()
-                
-                Button("The Unarchiver (for MacOS)") {
+                    Text("Use one of the utilities below to extract your AES-encrypted ZIP archive, as these are known for their AES-encryption support.")
+                    
+                    Divider()
+                    
+                    Text("The Unarchiver (for MacOS)").bold()
+                    
+                    Button("theunarchiver.com") {
+                        UIApplication.shared.open(URL(string: "https://theunarchiver.com/")!)
+                    }
+                    
+                    Text("7-Zip (For Windows)").bold()
+                    
+                    Button("7-zip.org") {
+                        UIApplication.shared.open(URL(string: "https://www.7-zip.org/")!)
+                    }
+                    
+                    Divider()
+                    
+                    Text("Use your master password (without passcode) to decrypt the archive.")
                     
                 }
-                
-                Button("7-Zip (for Windows)") {
-                    
-                }
-                
-                Divider()
                 
                 Spacer()
                 
-                FilledButton(busy ? "Exporting..." : "Export", busy: $busy) {
-                    busy = true
+                FilledButton(mainDataExport.busy ? "Exporting..." : "Export", busy: $mainDataExport.busy) {
+                    BannerHelper.shared.done("Hold tight", "Generation takes a few seconds")
+                    mainDataExport.export()
                 }
                 
             })
-                .padding(10)
-                .navigationBarTitle("Export")
+                .padding()
+                .navigationBarHidden(true)
+                .sheet(isPresented: $mainDataExport.present, onDismiss: {
+                    mainDataExport.present = false
+                    mainDataExport.busy = false
+                }, content: {
+                    ActivityViewController(activityItems: [mainDataExport.archive!])
+                })
         }
     }
 }
 
+struct ActivityViewController: UIViewControllerRepresentable {
+
+    var activityItems: [Any]
+    var applicationActivities: [UIActivity]? = nil
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
+        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {
+        
+    }
+
+}
+
 struct MainDataExportView_Previews: PreviewProvider {
     static var previews: some View {
-        MainDataExportView()
+        MainDataExportView(mainDataExport: MainDataExportViewObservable())
     }
 }

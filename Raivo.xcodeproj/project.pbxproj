@@ -39,6 +39,7 @@
 		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
 		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
 		705E432023E5D01B00D26619 /* AddTappedUriFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E431F23E5D01B00D26619 /* AddTappedUriFeature.swift */; };
+		706122E5266EA9AA00121035 /* MainDataExportViewObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706122E4266EA9AA00121035 /* MainDataExportViewObservable.swift */; };
 		70617A592270DBD80032076A /* QueryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70617A582270DBD80032076A /* QueryHelper.swift */; };
 		70631CAE230DC2A10040DD71 /* SetupRoboticTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70631CAD230DC2A10040DD71 /* SetupRoboticTest.swift */; };
 		7065070A23106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7065070923106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift */; };
@@ -213,6 +214,7 @@
 		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
 		7059680F2299AB0A0032D70F /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		705E431F23E5D01B00D26619 /* AddTappedUriFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTappedUriFeature.swift; sourceTree = "<group>"; };
+		706122E4266EA9AA00121035 /* MainDataExportViewObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataExportViewObservable.swift; sourceTree = "<group>"; };
 		70617A582270DBD80032076A /* QueryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelper.swift; sourceTree = "<group>"; };
 		70631CA3230DC24D0040DD71 /* RaivoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaivoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70631CA7230DC24D0040DD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				700908D721FCE25D00603AA2 /* Migrations */,
 				700908E221FCE30D00603AA2 /* Models */,
 				70B585EB2309C1BE00AD1754 /* Objects */,
+				706122E2266EA97900121035 /* Observables */,
 				700908DD21FCE2B600603AA2 /* Storyboards */,
 				700908E321FCE34800603AA2 /* Supporting */,
 				70BC3ED722566379005C98EF /* Syncers */,
@@ -611,6 +614,22 @@
 				7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */,
 			);
 			path = Selectors;
+			sourceTree = "<group>";
+		};
+		706122E2266EA97900121035 /* Observables */ = {
+			isa = PBXGroup;
+			children = (
+				706122E3266EA99400121035 /* Main */,
+			);
+			path = Observables;
+			sourceTree = "<group>";
+		};
+		706122E3266EA99400121035 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				706122E4266EA9AA00121035 /* MainDataExportViewObservable.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		70631CA4230DC24D0040DD71 /* RaivoUITests */ = {
@@ -1253,6 +1272,7 @@
 				70A7B118223062380084F15B /* MainMiscViewController.swift in Sources */,
 				70C80DA8229F070A00413801 /* UIPasscodeField.swift in Sources */,
 				70BC3EE022567223005C98EF /* SyncerAccount.swift in Sources */,
+				706122E5266EA9AA00121035 /* MainDataExportViewObservable.swift in Sources */,
 				70A3F50325CECAAB004F053B /* FilledButton.swift in Sources */,
 				70B5585D225E74A000F83A34 /* CounterBasedPasswordCell.swift in Sources */,
 				70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */,
@@ -1463,7 +1483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1471,7 +1491,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.15;
+				MARKETING_VERSION = 1.1.16;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1487,7 +1507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1495,7 +1515,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.15;
+				MARKETING_VERSION = 1.1.16;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

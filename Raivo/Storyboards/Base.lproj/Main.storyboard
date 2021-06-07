@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -330,7 +330,7 @@
         <scene sceneID="LZi-lN-Rxm">
             <objects>
                 <hostingController title="ZIP archive" hidesBottomBarWhenPushed="YES" id="P2U-OT-7BE" customClass="MainDataExportViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Kdu-4v-3f4"/>
+                    <navigationItem key="navigationItem" title="Export ZIP archive" id="Kdu-4v-3f4"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kAw-hS-gYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
