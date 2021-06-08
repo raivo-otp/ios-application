@@ -46,14 +46,20 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
         
         if let realm = RealmHelper.shared.getRealm() {
             unsyncedPasswords = realm.objects(Password.self).filter("synced == 0 or syncing == 1")
-            updateSyncingStatus()
             
-            syncStatusToken = unsyncedPasswords?.observe { RealmCollectionChange in
-                self.updateSyncingStatus()
-            }
         }
         
         miscellaneousForm!.ready()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateSyncingStatus()
+        
+        syncStatusToken = unsyncedPasswords?.observe { RealmCollectionChange in
+            self.updateSyncingStatus()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,10 +70,12 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
     private func updateSyncingStatus() {
         let unsyncedPasswordsCount = self.unsyncedPasswords?.count ?? 0
         
-        if unsyncedPasswordsCount == 1 {
+        if SyncerHelper.shared.getSyncer().name == SyncerHelper.shared.getSyncer(id(OfflineSyncer.self)).name {
+            self.miscellaneousForm?.statusRow.value = "None (offline)"
+        } else if unsyncedPasswordsCount == 1 {
             self.miscellaneousForm?.statusRow.value = "1 unsynced OTP"
         } else if unsyncedPasswordsCount > 1 {
-                self.miscellaneousForm?.statusRow.value = String(unsyncedPasswordsCount) + " unsynced OTP's"
+            self.miscellaneousForm?.statusRow.value = String(unsyncedPasswordsCount) + " unsynced OTP's"
         } else {
             self.miscellaneousForm?.statusRow.value = "Syncing up-to-date"
         }
