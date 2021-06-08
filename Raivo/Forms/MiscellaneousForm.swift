@@ -31,6 +31,7 @@ class MiscellaneousForm {
     
     public var accountRow: LabelRow { return form.rowBy(tag: "account") as! LabelRow }
     public var providerRow: LabelRow { return form.rowBy(tag: "provider") as! LabelRow }
+    public var statusRow: LabelRow { return form.rowBy(tag: "status") as! LabelRow }
     public var inactivityLockRow: PickerInlineRow<MiscellaneousInactivityLockFormOption> { return form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscellaneousInactivityLockFormOption> }
     public var biometricUnlockRow: SwitchRow { return form.rowBy(tag: "biometric_unlock") as! SwitchRow }
     public var changePasscodeRow: ButtonRow { return form.rowBy(tag: "change_passcode") as! ButtonRow }
@@ -101,13 +102,20 @@ class MiscellaneousForm {
             }).cellUpdate({ cell, row in
                 cell.imageView?.image = UIImage(named: "form-account")
             })
-            
-            <<< LabelRow("provider", { row in
-                row.title = "Provider"
-                row.value = "Loading..."
-            }).cellUpdate({ cell, row in
-                cell.imageView?.image = UIImage(named: "form-sync")
-            })
+        
+        <<< LabelRow("provider", { row in
+            row.title = "Provider"
+            row.value = "Loading..."
+        }).cellUpdate({ cell, row in
+            cell.imageView?.image = UIImage(named: "form-provider")
+        })
+        
+        <<< LabelRow("status", { row in
+            row.title = "Status"
+            row.value = "Loading..."
+        }).cellUpdate({ cell, row in
+            cell.imageView?.image = UIImage(named: "form-status")
+        })
     }
     
     private func buildAuthenticationSection(_ controller: UIViewController) {
