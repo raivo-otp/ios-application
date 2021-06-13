@@ -20,6 +20,12 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
     
     private var miscellaneousForm: MiscellaneousForm?
 
+    /// The Realm result set of unsynced passwords
+    var unsyncedPasswords: Results<Password>?
+    
+    /// The Realm token to observe password sync changes
+    var syncStatusToken: NotificationToken?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +44,43 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
         
         SyncerHelper.shared.getSyncer().getAccount(success: accountSuccess, error: accountError)
         
+        if let realm = RealmHelper.shared.getRealm() {
+            unsyncedPasswords = realm.objects(Password.self).filter("synced == 0 or syncing == 1")
+            
+        }
+        
         miscellaneousForm!.ready()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateSyncingStatus()
+        
+        syncStatusToken = unsyncedPasswords?.observe { RealmCollectionChange in
+            self.updateSyncingStatus()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        syncStatusToken?.invalidate()
+    }
+    
+    private func updateSyncingStatus() {
+        let unsyncedPasswordsCount = self.unsyncedPasswords?.count ?? 0
+        
+        if SyncerHelper.shared.getSyncer().name == SyncerHelper.shared.getSyncer(id(OfflineSyncer.self)).name {
+            self.miscellaneousForm?.statusRow.value = "None (offline)"
+        } else if unsyncedPasswordsCount == 1 {
+            self.miscellaneousForm?.statusRow.value = "1 unsynced OTP"
+        } else if unsyncedPasswordsCount > 1 {
+            self.miscellaneousForm?.statusRow.value = String(unsyncedPasswordsCount) + " unsynced OTP's"
+        } else {
+            self.miscellaneousForm?.statusRow.value = "Syncing up-to-date"
+        }
+        
+        self.miscellaneousForm?.statusRow.updateCell()
     }
     
     private func accountSuccess(_ account: SyncerAccount, _ syncerID: String) {

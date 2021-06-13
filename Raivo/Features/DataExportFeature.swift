@@ -136,7 +136,8 @@ class DataExportFeature {
     private func getJSONRepresentation() -> String {
         let possiblePasswords = autoreleasepool { () -> Array<Password>? in
             if let realm = RealmHelper.shared.getRealm() {
-                return Array(realm.objects(Password.self))
+                let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+                return Array(realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties))
             }
             
             return nil

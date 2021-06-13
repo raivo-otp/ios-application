@@ -31,6 +31,7 @@ class MiscellaneousForm {
     
     public var accountRow: LabelRow { return form.rowBy(tag: "account") as! LabelRow }
     public var providerRow: LabelRow { return form.rowBy(tag: "provider") as! LabelRow }
+    public var statusRow: LabelRow { return form.rowBy(tag: "status") as! LabelRow }
     public var inactivityLockRow: PickerInlineRow<MiscellaneousInactivityLockFormOption> { return form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscellaneousInactivityLockFormOption> }
     public var biometricUnlockRow: SwitchRow { return form.rowBy(tag: "biometric_unlock") as! SwitchRow }
     public var changePasscodeRow: ButtonRow { return form.rowBy(tag: "change_passcode") as! ButtonRow }
@@ -41,6 +42,7 @@ class MiscellaneousForm {
     public var versionRow: LabelRow { return form.rowBy(tag: "version") as! LabelRow }
     public var compilationRow: LabelRow { return form.rowBy(tag: "compilation") as! LabelRow }
     public var authorRow: LabelRow { return form.rowBy(tag: "author") as! LabelRow }
+    public var changelogRow: ButtonRow { return form.rowBy(tag: "changelog") as! ButtonRow }
     public var reportBugRow: ButtonRow { return form.rowBy(tag: "report_a_bug") as! ButtonRow }
     public var privacyPolicyRow: ButtonRow { return form.rowBy(tag: "privacy_policy") as! ButtonRow }
     public var securityPolicyRow: ButtonRow { return form.rowBy(tag: "security_policy") as! ButtonRow }
@@ -101,13 +103,20 @@ class MiscellaneousForm {
             }).cellUpdate({ cell, row in
                 cell.imageView?.image = UIImage(named: "form-account")
             })
-            
-            <<< LabelRow("provider", { row in
-                row.title = "Provider"
-                row.value = "Loading..."
-            }).cellUpdate({ cell, row in
-                cell.imageView?.image = UIImage(named: "form-sync")
-            })
+        
+        <<< LabelRow("provider", { row in
+            row.title = "Provider"
+            row.value = "Loading..."
+        }).cellUpdate({ cell, row in
+            cell.imageView?.image = UIImage(named: "form-provider")
+        })
+        
+        <<< LabelRow("status", { row in
+            row.title = "Status"
+            row.value = "Loading..."
+        }).cellUpdate({ cell, row in
+            cell.imageView?.image = UIImage(named: "form-status")
+        })
     }
     
     private func buildAuthenticationSection(_ controller: UIViewController) {
@@ -211,40 +220,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-zip")
             }).onCellSelection({ cell, row in
-                let barButtonItem = controller.displayNavBarActivity()
-                
-                BannerHelper.shared.done("Hold tight", "Generation takes a few seconds", wrapper: controller.view)
-                
-                // Run in the background and fake a delay so the user can read the banner
-                DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1, execute: {
-                    let dataExport = DataExportFeature()
-
-                    let status = autoreleasepool { () -> DataExportFeature.Result in
-                        let password = StorageHelper.shared.getEncryptionPassword()
-                        return dataExport.generateArchive(protectedWith: password!)
-                    }
-                    
-                    guard case let DataExportFeature.Result.success(archive) = status else {
-                        log.error("Archive generation failed!")
-                        return
-                    }
-                    
-                    let dataExportMail = ComposeMailFeature(.dataExport)
-                    
-                    DispatchQueue.main.async {
-                        if dataExportMail.canSendMail() {
-                            dataExportMail.addAttachment(archive, "application/zip", "raivo-otp-export.zip")
-                            dataExportMail.send(popupFrom: controller) {
-                                controller.dismissNavBarActivity(barButtonItem)
-                            }
-                        } else {
-                            let activity = UIActivityViewController(activityItems: [archive], applicationActivities: nil)
-                            controller.present(activity, animated: true, completion: {
-                                controller.dismissNavBarActivity(barButtonItem)
-                            })
-                        }
-                    }
-                })
+                controller.performSegue(withIdentifier: "MainDataExportSegue", sender: self)
             })
     }
     
@@ -325,7 +301,16 @@ class MiscellaneousForm {
             }).cellUpdate({ cell, row in
                 cell.imageView?.image = UIImage(named: "form-author")
             })
-            
+        
+            <<< ButtonRow("changelog", { row in
+                row.title = "Changelog"
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-changelog")
+            }).onCellSelection({ cell, row in
+                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/releases")!, options: [:])
+            })
+        
             <<< ButtonRow("report_a_bug", { row in
                 row.title = "Report a bug"
             }).cellUpdate({ cell, row in

@@ -175,6 +175,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
                     try! realm.write {
                         password.syncing = false
                         password.synced = records?.count == 1
+                        password.deleted = (records?.count != 1) ? false : password.deleted
                         password.syncErrorType = (error == nil) ? nil : Password.SyncErrorTypes.INSERT
                         password.syncErrorDescription = (error == nil) ? nil : error!.localizedDescription
                     }
