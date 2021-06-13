@@ -42,6 +42,7 @@ class MiscellaneousForm {
     public var versionRow: LabelRow { return form.rowBy(tag: "version") as! LabelRow }
     public var compilationRow: LabelRow { return form.rowBy(tag: "compilation") as! LabelRow }
     public var authorRow: LabelRow { return form.rowBy(tag: "author") as! LabelRow }
+    public var changelogRow: ButtonRow { return form.rowBy(tag: "changelog") as! ButtonRow }
     public var reportBugRow: ButtonRow { return form.rowBy(tag: "report_a_bug") as! ButtonRow }
     public var privacyPolicyRow: ButtonRow { return form.rowBy(tag: "privacy_policy") as! ButtonRow }
     public var securityPolicyRow: ButtonRow { return form.rowBy(tag: "security_policy") as! ButtonRow }
@@ -300,7 +301,16 @@ class MiscellaneousForm {
             }).cellUpdate({ cell, row in
                 cell.imageView?.image = UIImage(named: "form-author")
             })
-            
+        
+            <<< ButtonRow("changelog", { row in
+                row.title = "Changelog"
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-changelog")
+            }).onCellSelection({ cell, row in
+                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/releases")!, options: [:])
+            })
+        
             <<< ButtonRow("report_a_bug", { row in
                 row.title = "Report a bug"
             }).cellUpdate({ cell, row in
