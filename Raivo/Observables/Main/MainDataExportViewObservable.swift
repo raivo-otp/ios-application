@@ -41,6 +41,7 @@ final class MainDataExportViewObservable: ObservableObject {
             
             ui {
                 self.archive = archive
+                self.busy = false
                 self.present = true
             }
         }

@@ -57,12 +57,9 @@ struct MainDataExportView: View {
             })
                 .padding()
                 .navigationBarHidden(true)
-                .sheet(isPresented: $mainDataExport.present, onDismiss: {
-                    mainDataExport.present = false
-                    mainDataExport.busy = false
-                }, content: {
+                .sheet(isPresented: $mainDataExport.present) {
                     ActivityViewController(activityItems: [mainDataExport.archive!])
-                })
+                }
         }
     }
 }
