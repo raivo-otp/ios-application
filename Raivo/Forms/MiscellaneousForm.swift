@@ -36,6 +36,7 @@ class MiscellaneousForm {
     public var biometricUnlockRow: SwitchRow { return form.rowBy(tag: "biometric_unlock") as! SwitchRow }
     public var changePasscodeRow: ButtonRow { return form.rowBy(tag: "change_passcode") as! ButtonRow }
     public var iconsEffectRow: PickerInlineRow<MiscellaneousIconsEffectFormOption> { return form.rowBy(tag: "icons_effect") as! PickerInlineRow<MiscellaneousIconsEffectFormOption> }
+    public var changeAppIconRow: ButtonRow { return form.rowBy(tag: "change_app_icon") as! ButtonRow }
     public var exportRow: ButtonRow { return form.rowBy(tag: "export") as! ButtonRow }
     public var loggingEnabledRow: SwitchRow { return form.rowBy(tag: "logging_enabled") as! SwitchRow }
     public var loggingShareRow: ButtonRow { return form.rowBy(tag: "logging_share") as! ButtonRow }
@@ -202,6 +203,16 @@ class MiscellaneousForm {
                 
                 refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 controller.present(refreshAlert, animated: true, completion: nil)
+            })
+        
+            <<< ButtonRow("change_app_icon", { row in
+                row.title = "Application icon"
+                row.hidden = Condition(booleanLiteral: !getAppPrincipal().supportsAlternateIcons)
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-appicon")
+            }).onCellSelection({ cell, row in
+                controller.performSegue(withIdentifier: "MainChangeAppIconSegue", sender: self)
             })
     }
     

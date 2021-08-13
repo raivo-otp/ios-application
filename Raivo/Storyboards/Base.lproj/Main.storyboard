@@ -231,6 +231,7 @@
                     <connections>
                         <segue destination="F9t-JF-c77" kind="show" identifier="MainChangePasscodeSegue" id="xHJ-LE-rn2"/>
                         <segue destination="P2U-OT-7BE" kind="show" identifier="MainDataExportSegue" id="r8T-aZ-TpT"/>
+                        <segue destination="r26-NN-T5X" kind="show" identifier="MainChangeAppIconSegue" id="iHC-A0-yPr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lc6-jd-fiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -325,6 +326,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pS-ya-tLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2980" y="-1080"/>
+        </scene>
+        <!--Application icon-->
+        <scene sceneID="Qvq-vD-bWC">
+            <objects>
+                <hostingController title="Application icon" hidesBottomBarWhenPushed="YES" id="r26-NN-T5X" customClass="MainChangeAppIconViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Application icon" id="COZ-7k-pqg"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPk-bI-fsn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4889" y="2708"/>
         </scene>
         <!--ZIP archive-->
         <scene sceneID="LZi-lN-Rxm">

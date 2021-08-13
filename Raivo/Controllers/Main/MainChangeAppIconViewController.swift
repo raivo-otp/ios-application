@@ -15,10 +15,17 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class MainDataExportViewController: UIHostingController<MainDataExportView> {
+class MainChangeAppIconViewController: UIHostingController<AnyView> {
     
-    required init?(coder aDecoder: NSCoder){
-        super.init(coder: aDecoder, rootView: MainDataExportView(mainDataExport: MainDataExportViewObservable()))
+    required init?(coder aDecoder: NSCoder) {
+        let root = AnyView(MainChangeAppIconView(mainChangeAppIcon: MainChangeAppIconViewObservable()))
+        
+        super.init(coder: aDecoder, rootView: root)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
 }
