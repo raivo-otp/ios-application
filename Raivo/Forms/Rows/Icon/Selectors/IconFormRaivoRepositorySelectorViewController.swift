@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 import Eureka
 import Alamofire
+import SDWebImage
 
 public class IconFormRaivoRepositorySelectorViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
@@ -162,6 +163,13 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
     
     private func refresh(withoutCache: Bool = false) {
         self.isRefreshing(true)
+        
+        // Purge SD Web Image cache on hard refresh
+        if withoutCache {
+            SDImageCache.shared.clear(with: .all) {
+                log.verbose("Cleared SDWebImage cache.")
+            }
+        }
         
         getRequestManager(withoutCache).request(AppHelper.iconsURL + "search.json").responseJSON { response in
             switch response.result {
