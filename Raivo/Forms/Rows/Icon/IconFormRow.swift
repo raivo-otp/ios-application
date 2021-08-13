@@ -16,6 +16,7 @@ import Eureka
 final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType {
     
     public var iconType: String? = nil
+    
     public var iconValue: String? = nil {
         willSet {
             if newValue?.count ?? 0 > 0 {
@@ -25,7 +26,7 @@ final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType {
             }
         }
     }
-
+    
     convenience init(tag: String?, controller: UIViewController, _ initializer: (IconFormRow) -> Void = { _ in }) {
         self.init(tag: tag)
         initializer(self)

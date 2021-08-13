@@ -17,4 +17,6 @@ class IconFormCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var iconLabel: UILabel!
+    
 }
