@@ -2,8 +2,50 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(APP_DISPLAY_NAME)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
 	<dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>app-icon-dark-tint-large</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>app-icon-dark-tint-large</string>
+				</array>
+				<key>Name</key>
+				<string>Dark (large)</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>app-icon-dark-tint-small</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>app-icon-dark-tint-small</string>
+				</array>
+				<key>Name</key>
+				<string>Dark (small)</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+			<key>app-icon-light-tint-small</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>app-icon-light-tint-small</string>
+				</array>
+				<key>Name</key>
+				<string>Light (small)</string>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+		</dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
 			<key>CFBundleIconFiles</key>
@@ -13,49 +55,7 @@
 			<key>UIPrerenderedIcon</key>
 			<false/>
 		</dict>
-		<key>CFBundleAlternateIcons</key>
-		<dict>
-			<key>app-icon-light-tint-small</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>app-icon-light-tint-small</string>
-				</array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
-                <key>Name</key>
-                <string>Light (small)</string>
-			</dict>
-			<key>app-icon-dark-tint-large</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>app-icon-dark-tint-large</string>
-				</array>
-				<key>UIPrerenderedIcon</key>
-				<false/>
-                <key>Name</key>
-                <string>Dark (large)</string>
-			</dict>
-			<key>app-icon-dark-tint-small</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>app-icon-dark-tint-small</string>
-				</array>
-				<key>UIPrerenderedIcon</key>
-				<false/>
-                <key>Name</key>
-                <string>Dark (small)</string>
-			</dict>
-		</dict>
 	</dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleDisplayName</key>
-	<string>$(APP_DISPLAY_NAME)</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
