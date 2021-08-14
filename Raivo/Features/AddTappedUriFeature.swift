@@ -47,6 +47,12 @@ class AddTappedUriFeature {
             return
         }
         
+        // If this is an empty URI, just return and show the main screen
+        if uri.absoluteString == "otpauth://" {
+            getAppDelegate().tappedLaunchUri = nil
+            return
+        }
+        
         tappedToken = TokenHelper.shared.getTokenFromUri(uri)
         
         // Check if the URI is a valid `otpauth` URI

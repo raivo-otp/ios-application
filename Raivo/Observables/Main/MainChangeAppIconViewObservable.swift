@@ -21,7 +21,7 @@ final class MainChangeAppIconViewObservable: ObservableObject {
     @Published var index = 0
     
     init() {
-        fetchPrimaryIcon("Light (large)")
+        fetchPrimaryIcon("Light (small)")
         fetchAlternateIcons()
         
         if let currentIcon = getAppPrincipal().alternateIconName {

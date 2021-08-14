@@ -34,14 +34,14 @@
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
-			<key>app-icon-light-tint-small</key>
+			<key>app-icon-light-tint-large</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>app-icon-light-tint-small</string>
+					<string>app-icon-light-tint-large</string>
 				</array>
 				<key>Name</key>
-				<string>Light (small)</string>
+				<string>Light (large)</string>
 				<key>UIPrerenderedIcon</key>
 				<false/>
 			</dict>
