@@ -18,33 +18,29 @@ struct MainChangeAppIconView: View {
     @ObservedObject var mainChangeAppIcon: MainChangeAppIconViewObservable
    
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 10, content: {
-                ForEach(0 ..< mainChangeAppIcon.icons.count) { i in
-                    Button(action: {
-                        let selected = self.mainChangeAppIcon.icons[i]
-                        if getAppPrincipal().alternateIconName != selected.getAlternateKey() {
-                            getAppPrincipal().setAlternateIconName(selected.getAlternateKey(), completionHandler: {
-                                error in
-                                if let error = error {
-                                    log.error(error.localizedDescription)
-                                } else {
-                                    self.mainChangeAppIcon.index = i
-                                }
-                            })
-                        }
-                    }) {
-                        AppIconRow(
-                            selectedIndex: self.$mainChangeAppIcon.index,
-                            index: i,
-                            icon: self.mainChangeAppIcon.icons[i]
-                        )
+        List {
+            ForEach(0 ..< mainChangeAppIcon.icons.count) { i in
+                Button(action: {
+                    let selected = self.mainChangeAppIcon.icons[i]
+                    if getAppPrincipal().alternateIconName != selected.getAlternateKey() {
+                        getAppPrincipal().setAlternateIconName(selected.getAlternateKey(), completionHandler: {
+                            error in
+                            if let error = error {
+                                log.error(error.localizedDescription)
+                            } else {
+                                self.mainChangeAppIcon.index = i
+                            }
+                        })
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                }) {
+                    AppIconRow(
+                        selectedIndex: self.$mainChangeAppIcon.index,
+                        index: i,
+                        icon: self.mainChangeAppIcon.icons[i]
+                    )
                 }
-            })
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
     }
 }
@@ -59,7 +55,7 @@ struct AppIconRow: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(uiImage: UIImage(named: icon.key ?? "") ?? UIImage())
+            Image(uiImage: UIImage(named: icon.key) ?? UIImage())
                 .resizable()
                 .renderingMode(.original)
                 .frame(width: 72, height: 72, alignment: .leading)

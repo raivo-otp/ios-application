@@ -67,6 +67,9 @@ class AppHelper {
     /// - ToDo: Convert this to a Content Delivery Network (CDN).
     public static let iconsURL = "https://raw.finnwea.com/raivo-issuer-icons/dist/"
     
+    /// The domain (including directory) that hosts the MacOS Receiver APNS service
+    public static let apnsURL = "https://raw.finnwea.com/raivo-apns/"
+    
     /// User agent for HTTP requests (e.g. searching icons)
     public static let userAgent = identifier + "/" + version + " (" + compilation + ")"
     

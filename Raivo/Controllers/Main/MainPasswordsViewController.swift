@@ -241,6 +241,9 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         UIPasteboard.general.string = password.getToken().currentPassword!
         BannerHelper.shared.done(TokenHelper.shared.formatPassword(password.getToken()), "Copied to your clipboard", wrapper: view)
         
+        // Also send to receivers if applicable
+        ReceiverHelper.shared.sendPassword(password)
+        
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     

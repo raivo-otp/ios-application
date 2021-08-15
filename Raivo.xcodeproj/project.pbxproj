@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -74,6 +74,15 @@
 		7088B94B22554AF50024BB87 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088B94A22554AF50024BB87 /* CloudKit.framework */; };
 		708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A2B14228859CC00981BBC /* IconFormSelectorViewFooter.swift */; };
 		708A2B1B22885DCE00981BBC /* IconFormSelectorViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 708A2B1A22885DCE00981BBC /* IconFormSelectorViewFooter.xib */; };
+		7092B99F26C92D2300B10065 /* Receiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7092B99E26C92D2300B10065 /* Receiver.swift */; };
+		7092B9A126C9305B00B10065 /* MainReceiversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7092B9A026C9305B00B10065 /* MainReceiversViewController.swift */; };
+		7092B9A326C9309400B10065 /* MainReceiversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7092B9A226C9309400B10065 /* MainReceiversView.swift */; };
+		7092B9A526C932D500B10065 /* MainReceiversViewObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7092B9A426C932D500B10065 /* MainReceiversViewObservable.swift */; };
+		7092B9AA26C941BD00B10065 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 7092B9A926C941BD00B10065 /* CodeScanner */; };
+		7092B9AC26C9442C00B10065 /* ReceiverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7092B9AB26C9442C00B10065 /* ReceiverHelper.swift */; };
+		7092B9AE26C9494000B10065 /* BindableResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7092B9AD26C9494000B10065 /* BindableResults.swift */; };
+		7092B9B026C96BF600B10065 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7092B9AF26C96BF600B10065 /* ValidationError.swift */; };
+		7092B9B926C971D800B10065 /* SwipeCell in Frameworks */ = {isa = PBXBuildFile; productRef = 7092B9B826C971D800B10065 /* SwipeCell */; };
 		709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709B636022C548E800697884 /* QuickResponseCodeRow.swift */; };
 		709B636322C5495100697884 /* QuickResponseCodeRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709B636222C5495100697884 /* QuickResponseCodeRowCell.swift */; };
 		709B636522C54C0300697884 /* QuickResponseCodeRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */; };
@@ -266,6 +275,13 @@
 		7088B94A22554AF50024BB87 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		708A2B14228859CC00981BBC /* IconFormSelectorViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewFooter.swift; sourceTree = "<group>"; };
 		708A2B1A22885DCE00981BBC /* IconFormSelectorViewFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewFooter.xib; sourceTree = "<group>"; };
+		7092B99E26C92D2300B10065 /* Receiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receiver.swift; sourceTree = "<group>"; };
+		7092B9A026C9305B00B10065 /* MainReceiversViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainReceiversViewController.swift; sourceTree = "<group>"; };
+		7092B9A226C9309400B10065 /* MainReceiversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainReceiversView.swift; sourceTree = "<group>"; };
+		7092B9A426C932D500B10065 /* MainReceiversViewObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainReceiversViewObservable.swift; sourceTree = "<group>"; };
+		7092B9AB26C9442C00B10065 /* ReceiverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverHelper.swift; sourceTree = "<group>"; };
+		7092B9AD26C9494000B10065 /* BindableResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableResults.swift; sourceTree = "<group>"; };
+		7092B9AF26C96BF600B10065 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		709B636022C548E800697884 /* QuickResponseCodeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickResponseCodeRow.swift; sourceTree = "<group>"; };
 		709B636222C5495100697884 /* QuickResponseCodeRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickResponseCodeRowCell.swift; sourceTree = "<group>"; };
 		709B636422C54C0300697884 /* QuickResponseCodeRowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickResponseCodeRowCell.xib; sourceTree = "<group>"; };
@@ -369,7 +385,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				27C4D6B8E3B0B1DD3729F02F /* Pods_Raivo.framework in Frameworks */,
+				7092B9B926C971D800B10065 /* SwipeCell in Frameworks */,
 				7088B94B22554AF50024BB87 /* CloudKit.framework in Frameworks */,
+				7092B9AA26C941BD00B10065 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +525,7 @@
 				7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */,
 				70BD738325B9BA4D002F9347 /* MainDataExportViewController.swift */,
 				70ED04DE26763A16005C4D14 /* MainChangeAppIconViewController.swift */,
+				7092B9A026C9305B00B10065 /* MainReceiversViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -563,6 +582,7 @@
 			isa = PBXGroup;
 			children = (
 				700908F121FCFADF00603AA2 /* Password.swift */,
+				7092B99E26C92D2300B10065 /* Receiver.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -624,6 +644,7 @@
 				702CA6CC2263A16D000DCC1D /* UnexpectedError.swift */,
 				70DE925022A1A37200D00BB0 /* CryptographyError.swift */,
 				70CDB175230C82D300D63A79 /* RealmError.swift */,
+				7092B9AF26C96BF600B10065 /* ValidationError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -649,6 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				706122E3266EA99400121035 /* Main */,
+				7092B9AD26C9494000B10065 /* BindableResults.swift */,
 			);
 			path = Observables;
 			sourceTree = "<group>";
@@ -658,6 +680,7 @@
 			children = (
 				706122E4266EA9AA00121035 /* MainDataExportViewObservable.swift */,
 				70ED04E026763A6D005C4D14 /* MainChangeAppIconViewObservable.swift */,
+				7092B9A426C932D500B10065 /* MainReceiversViewObservable.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -747,6 +770,7 @@
 				70A3F50125CECA8C004F053B /* Buttons */,
 				70A3F4F925CDD282004F053B /* MainDataExportView.swift */,
 				70ED04E226763A8E005C4D14 /* MainChangeAppIconView.swift */,
+				7092B9A226C9309400B10065 /* MainReceiversView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -953,6 +977,7 @@
 				70B143AB222AB9360015896F /* RealmHelper.swift */,
 				70AE33262274566B007A12A2 /* MigrationHelper.swift */,
 				70617A582270DBD80032076A /* QueryHelper.swift */,
+				7092B9AB26C9442C00B10065 /* ReceiverHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1057,6 +1082,10 @@
 			dependencies = (
 			);
 			name = Raivo;
+			packageProductDependencies = (
+				7092B9A926C941BD00B10065 /* CodeScanner */,
+				7092B9B826C971D800B10065 /* SwipeCell */,
+			);
 			productName = Raivo;
 			productReference = 700908C121FCCE5F00603AA2 /* Raivo.app */;
 			productType = "com.apple.product-type.application";
@@ -1120,6 +1149,10 @@
 				Base,
 			);
 			mainGroup = 700908B821FCCE5F00603AA2;
+			packageReferences = (
+				7092B9A826C941BD00B10065 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				7092B9B726C971D800B10065 /* XCRemoteSwiftPackageReference "SwipeCell" */,
+			);
 			productRefGroup = 700908C221FCCE5F00603AA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1250,6 +1283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7092B9A126C9305B00B10065 /* MainReceiversViewController.swift in Sources */,
 				70CDB174230C5EBD00D63A79 /* SetupFinalizeViewController.swift in Sources */,
 				703E810D2311706600CAC3DD /* MigrationToBuild15.swift in Sources */,
 				70DC72E922A3F2FC006FE7B7 /* ComposeMailFeature.swift in Sources */,
@@ -1310,16 +1344,19 @@
 				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
 				7065070A23106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift in Sources */,
+				7092B9B026C96BF600B10065 /* ValidationError.swift in Sources */,
 				704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */,
 				708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */,
 				70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */,
 				7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */,
+				7092B99F26C92D2300B10065 /* Receiver.swift in Sources */,
 				70A7B12322306DFD0084F15B /* UIPasswordsEmptySearchView.swift in Sources */,
 				70A9E38F2280C15C00980D4E /* IconFormCell.swift in Sources */,
 				700908F421FD027400603AA2 /* TokenHelper.swift in Sources */,
 				7077A337227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift in Sources */,
 				70AE33272274566B007A12A2 /* MigrationHelper.swift in Sources */,
 				70E42298229891D50020D725 /* NotificationHelper.swift in Sources */,
+				7092B9A326C9309400B10065 /* MainReceiversView.swift in Sources */,
 				700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */,
 				7066C797226A455800C1A949 /* SyncerChallenge.swift in Sources */,
 				70DC72EB22A3F306006FE7B7 /* DataExportFeature.swift in Sources */,
@@ -1346,6 +1383,7 @@
 				70B585ED2309C1E000AD1754 /* SetupStateObject.swift in Sources */,
 				70B585F32309E32700AD1754 /* SetupFlushDataViewController.swift in Sources */,
 				703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */,
+				7092B9AE26C9494000B10065 /* BindableResults.swift in Sources */,
 				7077A346227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift in Sources */,
 				70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */,
 				70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */,
@@ -1355,6 +1393,7 @@
 				70DE925122A1A37200D00BB0 /* CryptographyError.swift in Sources */,
 				7077A342227F0FCC00338CA3 /* IconFormRowCell.swift in Sources */,
 				702CA6CD2263A16D000DCC1D /* UnexpectedError.swift in Sources */,
+				7092B9AC26C9442C00B10065 /* ReceiverHelper.swift in Sources */,
 				70C0BB68230B333200143FA4 /* SetupStateExtension.swift in Sources */,
 				70A7B114223061F80084F15B /* MainEditPasswordViewController.swift in Sources */,
 				70A7B10E223061D60084F15B /* MainPasswordsViewController.swift in Sources */,
@@ -1364,6 +1403,7 @@
 				70A7B112223061EE0084F15B /* MainCreatePasswordViewController.swift in Sources */,
 				70CDB172230C5C1300D63A79 /* SetupBiometricViewController.swift in Sources */,
 				70A7B12122306DF40084F15B /* UIPasswordsEmptyListView.swift in Sources */,
+				7092B9A526C932D500B10065 /* MainReceiversViewObservable.swift in Sources */,
 				706FD81522EB71A500F433F7 /* QuickResponseCodeForm.swift in Sources */,
 				703E81102311862500CAC3DD /* StorkPopoverSegue.swift in Sources */,
 				706708E722888265009A15B9 /* AlamofireHelper.swift in Sources */,
@@ -1539,15 +1579,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.20;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1563,15 +1603,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.20;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1649,6 +1689,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7092B9A826C941BD00B10065 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.7;
+			};
+		};
+		7092B9B726C971D800B10065 /* XCRemoteSwiftPackageReference "SwipeCell" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fatbobman/SwipeCell";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7092B9A926C941BD00B10065 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7092B9A826C941BD00B10065 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+		7092B9B826C971D800B10065 /* SwipeCell */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7092B9B726C971D800B10065 /* XCRemoteSwiftPackageReference "SwipeCell" */;
+			productName = SwipeCell;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 700908B921FCCE5F00603AA2 /* Project object */;
 }

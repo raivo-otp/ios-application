@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+platform :ios, '14.1'
 
 # Ignore warnings from external libraries
 inhibit_all_warnings!
@@ -8,7 +8,7 @@ target 'Raivo' do
   use_frameworks!
 
   # Realm SQLite database handler that supports encryption
-  pod 'RealmSwift', '4.4.1'
+  pod 'RealmSwift', '5.4.7'
   
   # To encrypt sensitive data before being synced
   pod 'RNCryptor', '5.1.0'

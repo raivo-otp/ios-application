@@ -32,6 +32,7 @@ class MiscellaneousForm {
     public var accountRow: LabelRow { return form.rowBy(tag: "account") as! LabelRow }
     public var providerRow: LabelRow { return form.rowBy(tag: "provider") as! LabelRow }
     public var statusRow: LabelRow { return form.rowBy(tag: "status") as! LabelRow }
+    public var receiversRow: ButtonRow { return form.rowBy(tag: "receivers") as! ButtonRow }
     public var inactivityLockRow: PickerInlineRow<MiscellaneousInactivityLockFormOption> { return form.rowBy(tag: "inactivity_lock") as! PickerInlineRow<MiscellaneousInactivityLockFormOption> }
     public var biometricUnlockRow: SwitchRow { return form.rowBy(tag: "biometric_unlock") as! SwitchRow }
     public var changePasscodeRow: ButtonRow { return form.rowBy(tag: "change_passcode") as! ButtonRow }
@@ -118,6 +119,16 @@ class MiscellaneousForm {
         }).cellUpdate({ cell, row in
             cell.imageView?.image = UIImage(named: "form-status")
         })
+        
+        <<< ButtonRow("receivers", { row in
+            row.title = "Receivers"
+        }).cellUpdate({ cell, row in
+            cell.textLabel?.textAlignment = .left
+            cell.imageView?.image = UIImage(named: "form-macbook")
+        }).onCellSelection({ cell, row in
+            controller.performSegue(withIdentifier: "MainReceiversSegue", sender: self)
+        })
+        
     }
     
     private func buildAuthenticationSection(_ controller: UIViewController) {
