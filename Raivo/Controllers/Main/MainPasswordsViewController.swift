@@ -237,9 +237,12 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             return
         }
         
+        // Prepare banner message
+        let message = ReceiverHelper.shared.hasReceivers() ? "Copied to your clipboard and sending it to MacOS" : "Copied to your clipboard"
+        
         // Copy to clipboard, vibrate and show banner
         UIPasteboard.general.string = password.getToken().currentPassword!
-        BannerHelper.shared.done(TokenHelper.shared.formatPassword(password.getToken()), "Copied to your clipboard", wrapper: view)
+        BannerHelper.shared.done(TokenHelper.shared.formatPassword(password.getToken()), message, wrapper: view)
         
         // Also send to receivers if applicable
         ReceiverHelper.shared.sendPassword(password)

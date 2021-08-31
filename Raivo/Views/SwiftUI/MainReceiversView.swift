@@ -30,7 +30,7 @@ struct MainReceiversView: View {
         .navigationBarItems(trailing: Button(action: {
             self.isPresentingScanner = true
         }) {
-            Image(systemName: "plus")
+            Image(systemName: "plus").imageScale(.large)
         })
     }
     
@@ -47,7 +47,7 @@ struct MainReceiversView: View {
         return AnyView(
             ScrollView {
                 LazyVStack {
-                    ForEach(receivers.results.freeze(), id: \.id) { receiver in
+                    ForEach(receivers.results.freeze(), id: \.pushToken) { receiver in
                         HStack(alignment: .center, spacing: 15) {
                             Image(systemName: "laptopcomputer.and.iphone")
                                 .resizable().scaledToFit()
@@ -68,7 +68,7 @@ struct MainReceiversView: View {
                                     autoreleasepool {
                                         if let realm = RealmHelper.shared.getRealm() {
                                             try! realm.write {
-                                                realm.delete(realm.objects(Receiver.self).filter("id=%@", receiver.id))
+                                                realm.delete(realm.objects(Receiver.self).filter("pushToken=%@", receiver.pushToken))
                                             }
                                         }
                                     }

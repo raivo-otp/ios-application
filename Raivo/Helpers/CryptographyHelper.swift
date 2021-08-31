@@ -77,15 +77,18 @@ class CryptographyHelper {
     /// Encrypt data using the AES-256 algorithm
     ///
     /// - Parameter plaintext: The UTF-8 string to encrypt
+    /// - Parameter withKey: An optional key to use for encryption (default is key in keychain)
     /// - Returns: The encrypted string (base64 encoded)
     /// - Note Specifications:
     ///         https://github.com/RNCryptor/RNCryptor-Spec/blob/master/RNCryptor-Spec-v3.md
-    public func encrypt(_ plaintext: String) throws -> String {
+    public func encrypt(_ plaintext: String, withKey key: String? = nil) throws -> String {
         guard let plaintextData = plaintext.data(using: .utf8) else {
             throw CryptographyError.encryptionFailed("Plaintext contains non UTF-8 characters")
         }
         
-        guard let password = StorageHelper.shared.getEncryptionPassword() else {
+        let proposedPassword = key ?? StorageHelper.shared.getEncryptionPassword()
+        
+        guard let password = proposedPassword else {
             throw CryptographyError.encryptionFailed("Encryption password unknown (not available in the keychain)")
         }
         

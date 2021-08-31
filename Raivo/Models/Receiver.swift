@@ -18,23 +18,20 @@ class Receiver: Object, Identifiable {
     
     public static let TABLE = "Receiver"
         
-    @objc dynamic var id = Int64(0)
-    
     @objc dynamic var pushToken = ""
+    
+    @objc dynamic var password = ""
     
     @objc dynamic var name = ""
     
     override static func primaryKey() -> String? {
-        return "id"
-    }
-    
-    public func getNewPrimaryKey() -> Int64 {
-        return Int64(Date().timeIntervalSince1970 * 1000)
+        return "pushToken"
     }
     
     public func getExportFields() -> [String: String] {
         return [
             "pushToken": pushToken,
+            "password": password,
             "name": name
         ]
     }

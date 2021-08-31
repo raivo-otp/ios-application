@@ -68,7 +68,11 @@ class AppHelper {
     public static let iconsURL = "https://raw.finnwea.com/raivo-issuer-icons/dist/"
     
     /// The domain (including directory) that hosts the MacOS Receiver APNS service
-    public static let apnsURL = "https://raw.finnwea.com/raivo-apns/"
+    #if DEBUG
+    public static let apnsURL = "https://raivo.finnwea.com/apns/v1/apns.php"
+    #else
+    public static let apnsURL = "https://raivo.finnwea.com/apns/apns.php"
+    #endif
     
     /// User agent for HTTP requests (e.g. searching icons)
     public static let userAgent = identifier + "/" + version + " (" + compilation + ")"
