@@ -71,7 +71,7 @@ class AppHelper {
     #if DEBUG
     public static let apnsURL = "https://raivo.finnwea.com/apns/v1/apns.php"
     #else
-    public static let apnsURL = "https://raivo.finnwea.com/apns/apns.php"
+    public static let apnsURL = "https://raivo.finnwea.com/apns/v1/apns.php"
     #endif
     
     /// User agent for HTTP requests (e.g. searching icons)
