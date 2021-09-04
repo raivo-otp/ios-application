@@ -69,7 +69,7 @@ class AppHelper {
     
     /// The domain (including directory) that hosts the MacOS Receiver APNS service
     #if DEBUG
-    public static let apnsURL = "https://raivo.finnwea.com/apns/v1/apns.php"
+    public static let apnsURL = "https://raivo.finnwea.com/apns/v1/apns-debug.php"
     #else
     public static let apnsURL = "https://raivo.finnwea.com/apns/v1/apns.php"
     #endif
