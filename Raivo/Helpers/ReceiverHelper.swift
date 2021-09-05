@@ -36,11 +36,11 @@ class ReceiverHelper {
         }
         
         guard let password = uri.queryItems?.first(where: { $0.name == "password" })?.value else {
-            throw ValidationError.invalidFormat("QR-code does not contain a valid password")
+            throw ValidationError.invalidFormat("QR-code does not contain a valid password.")
         }
         
         guard let name = uri.queryItems?.first(where: { $0.name == "name" })?.value else {
-            throw ValidationError.invalidFormat("QR-code does not contain a valid name")
+            throw ValidationError.invalidFormat("QR-code does not contain a valid name.")
         }
         
         let pushToken = String(uri.path.dropFirst())

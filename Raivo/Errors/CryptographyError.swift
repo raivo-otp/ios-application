@@ -28,17 +28,14 @@ public enum CryptographyError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .derivationFailed(let message):
-            log.error("Exception occurred")
-            log.error(message)
-            return id(self) + " - Derivation error. " + message
+            log.error(id(self) + " - Derivation error. " + message)
+            return message
         case .encryptionFailed(let message):
-            log.error("Exception occurred")
-            log.error(message)
-            return id(self) + " - Encryption error. " + message
+            log.error(id(self) + " - Encryption error. " + message)
+            return message
         case .decryptionFailed(let message):
-            log.error("Exception occurred")
-            log.error(message)
-            return id(self) + " - Decryption error. " + message
+            log.error(id(self) + " - Decryption error. " + message)
+            return message
         }
     }
     

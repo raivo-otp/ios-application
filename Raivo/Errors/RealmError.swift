@@ -25,10 +25,10 @@ public enum RealmError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .unknownError:
-            log.error("Exception occurred")
+            log.error(id(self) + " - Unknown Error. " + "An unknown Realm Objective-C exception occurred")
             return "An unknown Realm Objective-C exception occurred"
         case .encryptionError:
-            log.error("Encryption error occurred")
+            log.error(id(self) + " - Encryption Error. " + "A Realm Objective-C invalid encryption key exception occurred")
             return "A Realm Objective-C invalid encryption key exception occurred"
         }
     }

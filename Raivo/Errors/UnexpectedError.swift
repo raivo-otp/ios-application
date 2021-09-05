@@ -25,11 +25,10 @@ public enum UnexpectedError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .vitalFunctionalityIsStub:
-            log.error("Exception occurred")
+            log.error(id(self) + " - VitalFunctionalityIsStub. " + "A vital method was executed, but it turned out to be a stub method")
             return "A vital method was executed, but it turned out to be a stub method"
         case .noErrorButNotSuccessful(let message):
-            log.error("Exception occurred")
-            log.error(message)
+            log.error(id(self) + " - NoErrorButNotSuccessful. " + message)
             return message
         }
     }

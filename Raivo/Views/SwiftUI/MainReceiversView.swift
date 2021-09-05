@@ -94,8 +94,9 @@ struct MainReceiversView: View {
                     
                     do {
                         receiver = try ReceiverHelper.shared.getReceiverFromQRCode(qrcode: code)
-                    } catch {
-                        return BannerHelper.shared.done("Error", "The QR-code does not appear to be from a MacOS Receiver.", duration: 3.0)
+                    } catch let error {
+                        log.error(error.localizedDescription)
+                        return BannerHelper.shared.done("Error", error.localizedDescription, duration: 3.0)
                     }
 
                     autoreleasepool {

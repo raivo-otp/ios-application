@@ -23,9 +23,8 @@ public enum ValidationError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .invalidFormat(let message):
-            log.error("Exception occurred")
-            log.error(message)
-            return id(self) + " - Validation error. " + message
+            log.error(id(self) + " - Invalid format. " + message)
+            return message
         }
     }
     
