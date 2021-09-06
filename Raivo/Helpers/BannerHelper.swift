@@ -13,6 +13,7 @@
 import Foundation
 import SPAlert
 import Haptica
+import UIKit
 
 /// A helper class for managing banners/alerts
 class BannerHelper {

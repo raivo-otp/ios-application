@@ -14,7 +14,6 @@ import UIKit
 import RealmSwift
 import CloudKit
 import Eureka
-import SwiftMonkeyPaws
 
 /// UI events that were launched from the ApplicationPrincipal
 class ApplicationDelegate: UIResponder, UIApplicationDelegate {
@@ -43,19 +42,12 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// The icons effect is cached throughout the runtime to prevent rendering issues
     private var iconsEffect: String? = nil
     
-    /// An instance of the monkey testing paws
-    private var paws: MonkeyPaws?
-    
     /// When the application finished launching
     ///
     /// - Parameter application: The application as passed to `UIApplicationDelegate`
     /// - Parameter launchOptions: The launchOptions as passed to `UIApplicationDelegate`
     /// - Returns: Positive if the url contained in the `launchOptions` was intended for Raivo
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if AppHelper.argumentMonkeyPaws {
-            paws = MonkeyPaws(view: window!)
-        }
-        
         if AppHelper.argumentResetState {
             StateHelper.shared.reset()
         }
@@ -177,8 +169,12 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
         DispatchQueue.main.async {
             self.setCorrectStoryboard()
             
+            guard let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first else {
+                return
+            }
+            
             UIView.transition(
-                with: UIApplication.shared.keyWindow!,
+                with: keyWindow,
                 duration: 0.5,
                 options: options,
                 animations: nil,

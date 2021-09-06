@@ -14,6 +14,7 @@ import Foundation
 import Eureka
 import ViewRow
 import EFQRCode
+import UIKit
 
 class QuickResponseCodeForm {
     
@@ -91,14 +92,11 @@ class QuickResponseCodeForm {
     /// - Returns: The image if the generation was successful
     private func generateQuickResponseCode(_ password: Password) -> CGImage? {
         return EFQRCode.generate(
-            content: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret,
+            for: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret,
             size: EFIntSize(width: 400, height: 400),
             backgroundColor: UIColor.getBackgroundOpaque().cgColor,
             foregroundColor: UIColor.getLabel().cgColor,
-//            watermark: UIImage(named: "app-icon")!.toCGImage(),
-//            watermarkMode: .scaleAspectFit,
-//            pointShape: .diamond,
-            foregroundPointOffset: 0.2
+            pointOffset: 0.2
         )
     }
 }

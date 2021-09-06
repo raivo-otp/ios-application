@@ -90,12 +90,8 @@ class ApplicationPrincipal: UIApplication {
     }
     
     /// Open the given URL (by the native UIApplication.open handler
-    ///
-    /// - Note The URL is only opened if `AppHelper.monkeyPaws` is false
     override func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil) {
-        if (!AppHelper.argumentMonkeyPaws) {
-            super.open(url, options: options, completionHandler: completion)
-        }
+        super.open(url, options: options, completionHandler: completion)
     }
     
 }

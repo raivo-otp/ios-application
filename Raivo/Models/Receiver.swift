@@ -12,6 +12,7 @@
 
 import RealmSwift
 import OneTimePassword
+import Foundation
 
 /// A receiver object is e.g. a Macbook that can receive an encrypted One-Time-Password
 class Receiver: Object, Identifiable {

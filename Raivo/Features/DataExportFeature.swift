@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 import RealmSwift
-import SSZipArchive
+import ZipArchive
 import EFQRCode
 import HTMLString
 
@@ -120,7 +120,7 @@ class DataExportFeature {
     
     private func getQuickResponseCodeHTML(_ password: Password) -> String {
         guard let qrcodeImage = EFQRCode.generate(
-            content: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!,
+            for: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!,
             size: EFIntSize(width: 300, height: 300)
         ) else {
             return "QR code could not be generated."

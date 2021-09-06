@@ -11,6 +11,7 @@
 // 
 
 import SwiftyBeaver
+import Foundation
 
 /// Global reference to the SwiftyBeaver logging framework
 let log = SwiftyBeaver.self

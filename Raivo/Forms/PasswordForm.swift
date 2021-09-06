@@ -14,6 +14,7 @@ import Foundation
 import Eureka
 import ViewRow
 import EFQRCode
+import UIKit
 
 class PasswordForm {
     

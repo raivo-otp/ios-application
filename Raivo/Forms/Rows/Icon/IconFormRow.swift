@@ -12,6 +12,7 @@
 
 import Foundation
 import Eureka
+import SwiftUI
 
 final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType {
     

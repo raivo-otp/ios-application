@@ -12,6 +12,7 @@
 
 import Foundation
 import Eureka
+import UIKit
 
 class SynchronizationProviderForm {
     

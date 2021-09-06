@@ -21,7 +21,7 @@ extension UIViewController {
     /// - Returns: The bar button item that was removed
     @discardableResult
     public func displayNavBarActivity() -> UIBarButtonItem? {
-        let indicator = UIActivityIndicatorView(style: .gray)
+        let indicator = UIActivityIndicatorView(style: .medium)
         indicator.startAnimating()
         let item = UIBarButtonItem(customView: indicator)
         

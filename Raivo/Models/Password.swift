@@ -12,6 +12,7 @@
 
 import RealmSwift
 import OneTimePassword
+import Foundation
 
 /// A password object is basically just a One-Time-Password.
 ///

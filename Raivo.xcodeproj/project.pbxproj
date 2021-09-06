@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27C4D6B8E3B0B1DD3729F02F /* Pods_Raivo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1B2FA3D06BC7C8DCA60308 /* Pods_Raivo.framework */; };
 		700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */; };
 		700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */; };
 		700908CA21FCCE5F00603AA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908C821FCCE5F00603AA2 /* Main.storyboard */; };
@@ -33,6 +32,23 @@
 		703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */; };
 		703E810D2311706600CAC3DD /* MigrationToBuild15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703E810C2311706600CAC3DD /* MigrationToBuild15.swift */; };
 		703E81102311862500CAC3DD /* StorkPopoverSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703E810F2311862500CAC3DD /* StorkPopoverSegue.swift */; };
+		704B1C1926E681D500CE0067 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C1826E681D500CE0067 /* ZipArchive */; };
+		704B1C1C26E683DA00CE0067 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C1B26E683DA00CE0067 /* Realm */; };
+		704B1C1E26E683DA00CE0067 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C1D26E683DA00CE0067 /* RealmSwift */; };
+		704B1C2126E6840200CE0067 /* RNCryptor in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C2026E6840200CE0067 /* RNCryptor */; };
+		704B1C2426E6842500CE0067 /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C2326E6842500CE0067 /* Valet */; };
+		704B1C2726E6879400CE0067 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C2626E6879400CE0067 /* Eureka */; };
+		704B1C2A26E687A500CE0067 /* ViewRow in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C2926E687A500CE0067 /* ViewRow */; };
+		704B1C2D26E687FC00CE0067 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C2C26E687FC00CE0067 /* SDWebImage */; };
+		704B1C3026E6881500CE0067 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C2F26E6881500CE0067 /* SwiftyBeaver */; };
+		704B1C3326E6886B00CE0067 /* Haptica in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C3226E6886B00CE0067 /* Haptica */; };
+		704B1C3626E6889000CE0067 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C3526E6889000CE0067 /* Alamofire */; };
+		704B1C3926E69DAF00CE0067 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C3826E69DAF00CE0067 /* EFQRCode */; };
+		704B1C3C26E69DF900CE0067 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C3B26E69DF900CE0067 /* SwipeCellKit */; };
+		704B1C3F26E69E3D00CE0067 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C3E26E69E3D00CE0067 /* SPAlert */; };
+		704B1C4226E6A3B400CE0067 /* SPStorkController in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C4126E6A3B400CE0067 /* SPStorkController */; };
+		704B1C4526E6A3CA00CE0067 /* HTMLString in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C4426E6A3CA00CE0067 /* HTMLString */; };
+		704B1C4826E6A5BE00CE0067 /* OneTimePassword in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C4726E6A5BE00CE0067 /* OneTimePassword */; };
 		704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */; };
 		704E16DB22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */; };
 		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
@@ -165,7 +181,6 @@
 		70ED04DF26763A16005C4D14 /* MainChangeAppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED04DE26763A16005C4D14 /* MainChangeAppIconViewController.swift */; };
 		70ED04E126763A6D005C4D14 /* MainChangeAppIconViewObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED04E026763A6D005C4D14 /* MainChangeAppIconViewObservable.swift */; };
 		70ED04E326763A8E005C4D14 /* MainChangeAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ED04E226763A8E005C4D14 /* MainChangeAppIconView.swift */; };
-		70F2DB7E238D4E7300CFF63F /* SetupMonkeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F2DB7D238D4E7300CFF63F /* SetupMonkeyTest.swift */; };
 		70F2DB81238D9A4C00CFF63F /* SetupFlowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F2DB80238D9A4C00CFF63F /* SetupFlowHelper.swift */; };
 		70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */; };
 		70F64B76238F082400A5F56E /* BiometricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079EBD222F638DA00F9D340 /* BiometricHelper.swift */; };
@@ -175,7 +190,6 @@
 		70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C502287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib */; };
 		70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA4C522287543500A3B754 /* IconFormSelectorViewEmptyList.swift */; };
 		70FA4C552287546D00A3B754 /* IconFormSelectorViewEmptyList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */; };
-		B4F27A36CDAB5724CFEA9C92 /* libPods-RaivoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F6316D8CEC30662F2F85E3 /* libPods-RaivoUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,8 +216,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raivo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Raivo/Pods-Raivo.debug.xcconfig"; sourceTree = "<group>"; };
-		53F6316D8CEC30662F2F85E3 /* libPods-RaivoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RaivoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		700908C121FCCE5F00603AA2 /* Raivo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raivo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEntryViewController.swift; sourceTree = "<group>"; };
@@ -364,7 +376,6 @@
 		70ED04DE26763A16005C4D14 /* MainChangeAppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChangeAppIconViewController.swift; sourceTree = "<group>"; };
 		70ED04E026763A6D005C4D14 /* MainChangeAppIconViewObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChangeAppIconViewObservable.swift; sourceTree = "<group>"; };
 		70ED04E226763A8E005C4D14 /* MainChangeAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChangeAppIconView.swift; sourceTree = "<group>"; };
-		70F2DB7D238D4E7300CFF63F /* SetupMonkeyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupMonkeyTest.swift; sourceTree = "<group>"; };
 		70F2DB80238D9A4C00CFF63F /* SetupFlowHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFlowHelper.swift; sourceTree = "<group>"; };
 		70F46AA922637FEB0059EFDB /* SynchronizationProviderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationProviderForm.swift; sourceTree = "<group>"; };
 		70F8BE7C2205EAFB006FDB5A /* LoadViewFilesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewFilesExtension.swift; sourceTree = "<group>"; };
@@ -373,10 +384,6 @@
 		70FA4C502287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptySearch.xib; sourceTree = "<group>"; };
 		70FA4C522287543500A3B754 /* IconFormSelectorViewEmptyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyList.swift; sourceTree = "<group>"; };
 		70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyList.xib; sourceTree = "<group>"; };
-		7914C47AAD6D72C3513AE17E /* Pods-RaivoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaivoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RaivoUITests/Pods-RaivoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		7C15382D1377197EFF103762 /* Pods-Raivo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raivo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Raivo/Pods-Raivo.release.xcconfig"; sourceTree = "<group>"; };
-		7D1B2FA3D06BC7C8DCA60308 /* Pods_Raivo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Raivo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDF7888D5C8A6D940734245C /* Pods-RaivoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaivoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RaivoUITests/Pods-RaivoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,8 +391,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27C4D6B8E3B0B1DD3729F02F /* Pods_Raivo.framework in Frameworks */,
+				704B1C3F26E69E3D00CE0067 /* SPAlert in Frameworks */,
+				704B1C3626E6889000CE0067 /* Alamofire in Frameworks */,
+				704B1C3926E69DAF00CE0067 /* EFQRCode in Frameworks */,
+				704B1C1C26E683DA00CE0067 /* Realm in Frameworks */,
+				704B1C1926E681D500CE0067 /* ZipArchive in Frameworks */,
+				704B1C1E26E683DA00CE0067 /* RealmSwift in Frameworks */,
+				704B1C3C26E69DF900CE0067 /* SwipeCellKit in Frameworks */,
+				704B1C2126E6840200CE0067 /* RNCryptor in Frameworks */,
+				704B1C4826E6A5BE00CE0067 /* OneTimePassword in Frameworks */,
+				704B1C2726E6879400CE0067 /* Eureka in Frameworks */,
+				704B1C4526E6A3CA00CE0067 /* HTMLString in Frameworks */,
+				704B1C3026E6881500CE0067 /* SwiftyBeaver in Frameworks */,
+				704B1C2D26E687FC00CE0067 /* SDWebImage in Frameworks */,
 				7092B9B926C971D800B10065 /* SwipeCell in Frameworks */,
+				704B1C4226E6A3B400CE0067 /* SPStorkController in Frameworks */,
+				704B1C2A26E687A500CE0067 /* ViewRow in Frameworks */,
+				704B1C2426E6842500CE0067 /* Valet in Frameworks */,
+				704B1C3326E6886B00CE0067 /* Haptica in Frameworks */,
 				7088B94B22554AF50024BB87 /* CloudKit.framework in Frameworks */,
 				7092B9AA26C941BD00B10065 /* CodeScanner in Frameworks */,
 			);
@@ -395,7 +418,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4F27A36CDAB5724CFEA9C92 /* libPods-RaivoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +430,6 @@
 				700908C321FCCE5F00603AA2 /* Raivo */,
 				70631CA4230DC24D0040DD71 /* RaivoUITests */,
 				700908C221FCCE5F00603AA2 /* Products */,
-				8889524049857A298B4406FB /* Pods */,
 				8803730FEA035491C97F262B /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -1022,7 +1043,6 @@
 			isa = PBXGroup;
 			children = (
 				70631CAD230DC2A10040DD71 /* SetupRoboticTest.swift */,
-				70F2DB7D238D4E7300CFF63F /* SetupMonkeyTest.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -1046,21 +1066,8 @@
 			isa = PBXGroup;
 			children = (
 				7088B94A22554AF50024BB87 /* CloudKit.framework */,
-				7D1B2FA3D06BC7C8DCA60308 /* Pods_Raivo.framework */,
-				53F6316D8CEC30662F2F85E3 /* libPods-RaivoUITests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8889524049857A298B4406FB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */,
-				7C15382D1377197EFF103762 /* Pods-Raivo.release.xcconfig */,
-				BDF7888D5C8A6D940734245C /* Pods-RaivoUITests.debug.xcconfig */,
-				7914C47AAD6D72C3513AE17E /* Pods-RaivoUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1070,11 +1077,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 700908D321FCCE6100603AA2 /* Build configuration list for PBXNativeTarget "Raivo" */;
 			buildPhases = (
-				5A4400C43DF28B35D362DF20 /* [CP] Check Pods Manifest.lock */,
 				700908BD21FCCE5F00603AA2 /* Sources */,
 				700908BE21FCCE5F00603AA2 /* Frameworks */,
 				700908BF21FCCE5F00603AA2 /* Resources */,
-				41BEA9B6DC7E014DA4383CDA /* [CP] Embed Pods Frameworks */,
 				70F64B75238F06D700A5F56E /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1085,6 +1090,23 @@
 			packageProductDependencies = (
 				7092B9A926C941BD00B10065 /* CodeScanner */,
 				7092B9B826C971D800B10065 /* SwipeCell */,
+				704B1C1826E681D500CE0067 /* ZipArchive */,
+				704B1C1B26E683DA00CE0067 /* Realm */,
+				704B1C1D26E683DA00CE0067 /* RealmSwift */,
+				704B1C2026E6840200CE0067 /* RNCryptor */,
+				704B1C2326E6842500CE0067 /* Valet */,
+				704B1C2626E6879400CE0067 /* Eureka */,
+				704B1C2926E687A500CE0067 /* ViewRow */,
+				704B1C2C26E687FC00CE0067 /* SDWebImage */,
+				704B1C2F26E6881500CE0067 /* SwiftyBeaver */,
+				704B1C3226E6886B00CE0067 /* Haptica */,
+				704B1C3526E6889000CE0067 /* Alamofire */,
+				704B1C3826E69DAF00CE0067 /* EFQRCode */,
+				704B1C3B26E69DF900CE0067 /* SwipeCellKit */,
+				704B1C3E26E69E3D00CE0067 /* SPAlert */,
+				704B1C4126E6A3B400CE0067 /* SPStorkController */,
+				704B1C4426E6A3CA00CE0067 /* HTMLString */,
+				704B1C4726E6A5BE00CE0067 /* OneTimePassword */,
 			);
 			productName = Raivo;
 			productReference = 700908C121FCCE5F00603AA2 /* Raivo.app */;
@@ -1094,7 +1116,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70631CAC230DC24D0040DD71 /* Build configuration list for PBXNativeTarget "RaivoUITests" */;
 			buildPhases = (
-				9A7C757517DD600DDA186107 /* [CP] Check Pods Manifest.lock */,
 				70631C9F230DC24D0040DD71 /* Sources */,
 				70631CA0230DC24D0040DD71 /* Frameworks */,
 				70631CA1230DC24D0040DD71 /* Resources */,
@@ -1116,7 +1137,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Tijme Gommers";
 				TargetAttributes = {
 					700908C021FCCE5F00603AA2 = {
@@ -1152,6 +1173,22 @@
 			packageReferences = (
 				7092B9A826C941BD00B10065 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				7092B9B726C971D800B10065 /* XCRemoteSwiftPackageReference "SwipeCell" */,
+				704B1C1726E681D500CE0067 /* XCRemoteSwiftPackageReference "ZipArchive" */,
+				704B1C1A26E683DA00CE0067 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				704B1C1F26E6840200CE0067 /* XCRemoteSwiftPackageReference "RNCryptor" */,
+				704B1C2226E6842500CE0067 /* XCRemoteSwiftPackageReference "Valet" */,
+				704B1C2526E6879400CE0067 /* XCRemoteSwiftPackageReference "Eureka" */,
+				704B1C2826E687A500CE0067 /* XCRemoteSwiftPackageReference "ViewRow" */,
+				704B1C2B26E687FC00CE0067 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				704B1C2E26E6881500CE0067 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				704B1C3126E6886B00CE0067 /* XCRemoteSwiftPackageReference "Haptica" */,
+				704B1C3426E6889000CE0067 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				704B1C3726E69DAF00CE0067 /* XCRemoteSwiftPackageReference "EFQRCode" */,
+				704B1C3A26E69DF900CE0067 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+				704B1C3D26E69E3D00CE0067 /* XCRemoteSwiftPackageReference "SPAlert" */,
+				704B1C4026E6A3B400CE0067 /* XCRemoteSwiftPackageReference "SPStorkController" */,
+				704B1C4326E6A3CA00CE0067 /* XCRemoteSwiftPackageReference "HTMLString" */,
+				704B1C4626E6A5BE00CE0067 /* XCRemoteSwiftPackageReference "OneTimePassword" */,
 			);
 			productRefGroup = 700908C221FCCE5F00603AA2 /* Products */;
 			projectDirPath = "";
@@ -1213,70 +1250,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		41BEA9B6DC7E014DA4383CDA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Raivo/Pods-Raivo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Raivo/Pods-Raivo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Raivo/Pods-Raivo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5A4400C43DF28B35D362DF20 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Raivo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A7C757517DD600DDA186107 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RaivoUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		700908BD21FCCE5F00603AA2 /* Sources */ = {
@@ -1416,7 +1389,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				701ECE3C23D387700015D12A /* HumanDelayHelper.swift in Sources */,
-				70F2DB7E238D4E7300CFF63F /* SetupMonkeyTest.swift in Sources */,
 				70F2DB81238D9A4C00CFF63F /* SetupFlowHelper.swift in Sources */,
 				70F64B76238F082400A5F56E /* BiometricHelper.swift in Sources */,
 				70631CAE230DC2A10040DD71 /* SetupRoboticTest.swift in Sources */,
@@ -1479,6 +1451,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1541,6 +1514,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1573,13 +1547,12 @@
 		};
 		700908D421FCCE6100603AA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CCBEEBDD9087242BF60531F /* Pods-Raivo.debug.xcconfig */;
 			buildSettings = {
 				APP_DISPLAY_NAME = "Raivo Debug";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1587,7 +1560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1597,13 +1570,12 @@
 		};
 		700908D521FCCE6100603AA2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C15382D1377197EFF103762 /* Pods-Raivo.release.xcconfig */;
 			buildSettings = {
 				APP_DISPLAY_NAME = "Raivo OTP";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1611,7 +1583,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1620,7 +1592,6 @@
 		};
 		70631CAA230DC24D0040DD71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDF7888D5C8A6D940734245C /* Pods-RaivoUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 564B4ETY69;
@@ -1640,7 +1611,6 @@
 		};
 		70631CAB230DC24D0040DD71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7914C47AAD6D72C3513AE17E /* Pods-RaivoUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 564B4ETY69;
@@ -1691,6 +1661,134 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		704B1C1726E681D500CE0067 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZipArchive/ZipArchive.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.2;
+			};
+		};
+		704B1C1A26E683DA00CE0067 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.7;
+			};
+		};
+		704B1C1F26E6840200CE0067 /* XCRemoteSwiftPackageReference "RNCryptor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RNCryptor/RNCryptor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		704B1C2226E6842500CE0067 /* XCRemoteSwiftPackageReference "Valet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/square/Valet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.8;
+			};
+		};
+		704B1C2526E6879400CE0067 /* XCRemoteSwiftPackageReference "Eureka" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xmartlabs/Eureka.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.2;
+			};
+		};
+		704B1C2826E687A500CE0067 /* XCRemoteSwiftPackageReference "ViewRow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EurekaCommunity/ViewRow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
+		704B1C2B26E687FC00CE0067 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.1;
+			};
+		};
+		704B1C2E26E6881500CE0067 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.5;
+			};
+		};
+		704B1C3126E6886B00CE0067 /* XCRemoteSwiftPackageReference "Haptica" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/efremidze/Haptica.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
+		704B1C3426E6889000CE0067 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.1;
+			};
+		};
+		704B1C3726E69DAF00CE0067 /* XCRemoteSwiftPackageReference "EFQRCode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EFPrefix/EFQRCode.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+		704B1C3A26E69DF900CE0067 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
+		704B1C3D26E69E3D00CE0067 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.4;
+			};
+		};
+		704B1C4026E6A3B400CE0067 /* XCRemoteSwiftPackageReference "SPStorkController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPStorkController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.5;
+			};
+		};
+		704B1C4326E6A3CA00CE0067 /* XCRemoteSwiftPackageReference "HTMLString" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexisakers/HTMLString.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.1;
+			};
+		};
+		704B1C4626E6A5BE00CE0067 /* XCRemoteSwiftPackageReference "OneTimePassword" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattrubin/OneTimePassword";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		7092B9A826C941BD00B10065 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner";
@@ -1710,6 +1808,91 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		704B1C1826E681D500CE0067 /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C1726E681D500CE0067 /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
+		};
+		704B1C1B26E683DA00CE0067 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C1A26E683DA00CE0067 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		704B1C1D26E683DA00CE0067 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C1A26E683DA00CE0067 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		704B1C2026E6840200CE0067 /* RNCryptor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C1F26E6840200CE0067 /* XCRemoteSwiftPackageReference "RNCryptor" */;
+			productName = RNCryptor;
+		};
+		704B1C2326E6842500CE0067 /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C2226E6842500CE0067 /* XCRemoteSwiftPackageReference "Valet" */;
+			productName = Valet;
+		};
+		704B1C2626E6879400CE0067 /* Eureka */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C2526E6879400CE0067 /* XCRemoteSwiftPackageReference "Eureka" */;
+			productName = Eureka;
+		};
+		704B1C2926E687A500CE0067 /* ViewRow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C2826E687A500CE0067 /* XCRemoteSwiftPackageReference "ViewRow" */;
+			productName = ViewRow;
+		};
+		704B1C2C26E687FC00CE0067 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C2B26E687FC00CE0067 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		704B1C2F26E6881500CE0067 /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C2E26E6881500CE0067 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+		704B1C3226E6886B00CE0067 /* Haptica */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C3126E6886B00CE0067 /* XCRemoteSwiftPackageReference "Haptica" */;
+			productName = Haptica;
+		};
+		704B1C3526E6889000CE0067 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C3426E6889000CE0067 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		704B1C3826E69DAF00CE0067 /* EFQRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C3726E69DAF00CE0067 /* XCRemoteSwiftPackageReference "EFQRCode" */;
+			productName = EFQRCode;
+		};
+		704B1C3B26E69DF900CE0067 /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C3A26E69DF900CE0067 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
+		};
+		704B1C3E26E69E3D00CE0067 /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C3D26E69E3D00CE0067 /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
+		};
+		704B1C4126E6A3B400CE0067 /* SPStorkController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C4026E6A3B400CE0067 /* XCRemoteSwiftPackageReference "SPStorkController" */;
+			productName = SPStorkController;
+		};
+		704B1C4426E6A3CA00CE0067 /* HTMLString */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C4326E6A3CA00CE0067 /* XCRemoteSwiftPackageReference "HTMLString" */;
+			productName = HTMLString;
+		};
+		704B1C4726E6A5BE00CE0067 /* OneTimePassword */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 704B1C4626E6A5BE00CE0067 /* XCRemoteSwiftPackageReference "OneTimePassword" */;
+			productName = OneTimePassword;
+		};
 		7092B9A926C941BD00B10065 /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7092B9A826C941BD00B10065 /* XCRemoteSwiftPackageReference "CodeScanner" */;

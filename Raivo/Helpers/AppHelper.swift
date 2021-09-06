@@ -80,7 +80,4 @@ class AppHelper {
     /// If the current runtime should reset the app state before startup
     public static let argumentResetState = CommandLine.arguments.contains("--ResetState")
     
-    /// If the current runtime is for automated UI monkey tests
-    public static let argumentMonkeyPaws = CommandLine.arguments.contains("--MonkeyPaws")
-    
 }
