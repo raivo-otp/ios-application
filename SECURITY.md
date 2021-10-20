@@ -18,7 +18,7 @@ This document outlines security procedures, policies and features for the Servic
 
 If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. If you find a security vulnerability in a third-party module that is in use by Raivo, please also report the vulnerability to the person or team maintaining the module.
 
-The Raivo HackerOne program (currently a private program) is used to manage security vulnerabilities in Raivo. If you have discoverd a vulnerability, please send a mail to the lead maintainer at `raivo {at} finnwea {dot} com`. You will be invited to the HackerOne program to be able to report your security vulnerability.
+The Raivo HackerOne program (currently a private program) is used to manage security vulnerabilities in Raivo. If you have discoverd a vulnerability, please send a mail to the lead maintainer at `t{{dot}}gommers{{plus}}raivo{{at}}outlook{{dot}}com`. You will be invited to the HackerOne program to be able to report your security vulnerability.
 
 The lead maintainer will acknowledge your report within 2 business days, and will send a more detailed response within 2 additional business days indicating the next steps in handling your report. After the initial reply to your report, the security team will endeavor to keep you informed of the progress towards a fix and full announcement, and may ask for additional information or guidance.
 

@@ -39,4 +39,4 @@ We may update our Privacy Policy from time to time. We will notify you of any ch
 
 ## Contact us
 
-If you have any questions or suggestions about the privacy policy, do not hesitate to get in touch via `raivo {at} finnwea {dot} com`.
+If you have any questions or suggestions about the privacy policy, do not hesitate to get in touch via `t{{dot}}gommers{{plus}}raivo{{at}}outlook{{dot}}com`.

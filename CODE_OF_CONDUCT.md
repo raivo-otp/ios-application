@@ -29,7 +29,7 @@ Project maintainers have the right and responsibility to remove, edit, orreject 
 This Code of Conduct applies both within project spaces and in public spaceswhen an individual is representing the project or its community. Examples ofrepresenting a project or community include using an official project e-mailaddress, posting via an official social media account, or acting as an appointedrepresentative at an online or offline event. Representation of a project may befurther defined and clarified by project maintainers.
 
 ## Enforcement
-Instances of abusive, harassing, or otherwise unacceptable behavior may bereported by contacting the project team at raivo {at} finnwea {dot} com. Allcomplaints will be reviewed and investigated and will result in a response thatis deemed necessary and appropriate to the circumstances. The project team isobligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
+Instances of abusive, harassing, or otherwise unacceptable behavior may bereported by contacting the project team at `t{{dot}}gommers{{plus}}raivo{{at}}outlook{{dot}}com`. Allcomplaints will be reviewed and investigated and will result in a response thatis deemed necessary and appropriate to the circumstances. The project team isobligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in goodfaith may face temporary or permanent repercussions as determined by othermembers of the project's leadership.
 
