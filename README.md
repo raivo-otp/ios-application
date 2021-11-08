@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_left.png?cache=5" width="270">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_middle.png?cache=5" width="270">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_right.png?cache=5" width="270">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_left.png?cache=5" width="268">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_middle.png?cache=5" width="268">
+    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_right.png?cache=5" width="268">
 </p>
 
 ## Features
@@ -39,16 +39,16 @@
 ## Icons
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/reddit/reddit-alien.svg?sanitize=true" width="75" />
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/bitbucket/bitbucket.svg?sanitize=true" width="75" />
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/google/google.svg?sanitize=true" width="75" /> 
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/whatsapp/whatsapp.svg?sanitize=true" width="75" />
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/amazon/amazon.svg?sanitize=true" width="75" /> 
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/atlassian/atlassian.svg?sanitize=true" width="75" />
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/spotify/spotify.svg?sanitize=true" width="75" />
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/slack/slack.svg?sanitize=true" width="75" />
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/facebook-messenger/facebook-messenger.svg?sanitize=true" width="75" />
-    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/gitlab/gitlab.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/reddit.com/reddit.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/bitbucket.com/bitbucket.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/google.com/google.svg?sanitize=true" width="75" /> 
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/whatsapp.com/whatsapp.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/amazon.com/amazon.svg?sanitize=true" width="75" /> 
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/atlassian.com/atlassian.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/spotify.com/spotify.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/slack.com/slack.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/facebook.com/facebook-messenger.svg?sanitize=true" width="75" />
+    <img src="https://raw.githubusercontent.com/raivo-otp/issuer-icons/master/vectors/gitlab.com/gitlab.svg?sanitize=true" width="75" />
 </p>
 
 
