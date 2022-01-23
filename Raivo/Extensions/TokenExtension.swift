@@ -32,8 +32,8 @@ extension Token {
     func toCompatibleURL() throws -> URL {
         let url = try toURL()
         
-        let encodedIssuer = self.issuer.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        let encodedName = self.name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let encodedIssuer = self.issuer.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let encodedName = self.name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
         
         var compatible = URLComponents(string: url.absoluteString)
         compatible!.path = "/\(encodedIssuer):\(encodedName)"

@@ -1789,8 +1789,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mattrubin/OneTimePassword";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = revision;
+				revision = 52c31133acc16e5b6954c5ee50c6dfe5d22e1603;
 			};
 		};
 		7092B9A826C941BD00B10065 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {

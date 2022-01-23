@@ -68,8 +68,8 @@
         "package": "OneTimePassword",
         "repositoryURL": "https://github.com/mattrubin/OneTimePassword",
         "state": {
-          "branch": "develop",
-          "revision": "bd2a8fa24057916e4e543ae323e34f75ae744db8",
+          "branch": null,
+          "revision": "52c31133acc16e5b6954c5ee50c6dfe5d22e1603",
           "version": null
         }
       },
