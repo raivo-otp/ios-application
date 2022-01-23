@@ -166,7 +166,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter options: The transition/animation options
     public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionFlipFromLeft) {
-        DispatchQueue.main.async {
+        ui {
             self.setCorrectStoryboard()
             
             guard let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first else {
