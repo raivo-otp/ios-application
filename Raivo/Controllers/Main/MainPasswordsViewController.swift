@@ -187,7 +187,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let realm = RealmHelper.shared.getRealm() {
-            results = realm.objects(Password.self).filter("deleted == 0").sorted(byKeyPath: "issuer", ascending: true)
+            let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+            results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
         }
         
         if (searchText.count > 0) {
