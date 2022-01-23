@@ -26,7 +26,7 @@ class ReceiverHelper {
     ///
     /// - Parameter qrcode: The given QR-code containing a device name and APNS token
     /// - Returns: The resulting receiver
-    public func getReceiverFromQRCode(qrcode: String) throws -> Receiver {
+    public func getReceiverFromQRCode(_ qrcode: String) throws -> Receiver {
         guard let uri = URLComponents(string: qrcode) else {
             throw ValidationError.invalidFormat("QR-code does not contain a valid URL.")
         }
@@ -52,6 +52,18 @@ class ReceiverHelper {
         receiver.name = name
         
         return receiver
+    }
+    
+    /// Validate a `Receiver` QR code
+    ///
+    /// - Parameter qrcode: The given QR-code containing a device name and APNS token
+    /// - Returns: Positive if the given QR code is valid
+    public func isValid(_ qrcode: String) -> Bool {
+        guard let _ = try? getReceiverFromQRCode(qrcode) else {
+            return true
+        }
+        
+        return false
     }
     
     /// Check if there are any MacOS receivers currently registered

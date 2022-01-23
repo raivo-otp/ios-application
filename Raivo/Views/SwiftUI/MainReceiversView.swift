@@ -93,7 +93,7 @@ struct MainReceiversView: View {
                     var receiver: Receiver? = nil
                     
                     do {
-                        receiver = try ReceiverHelper.shared.getReceiverFromQRCode(qrcode: code.string)
+                        receiver = try ReceiverHelper.shared.getReceiverFromQRCode(code.string)
                     } catch let error {
                         log.error(error.localizedDescription)
                         return BannerHelper.shared.done("Error", error.localizedDescription, duration: 3.0)
