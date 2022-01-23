@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700794B0279D6BC8007510A5 /* TokenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700794AF279D6BC8007510A5 /* TokenExtension.swift */; };
 		700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */; };
 		700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */; };
 		700908CA21FCCE5F00603AA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908C821FCCE5F00603AA2 /* Main.storyboard */; };
@@ -216,6 +217,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		700794AF279D6BC8007510A5 /* TokenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtension.swift; sourceTree = "<group>"; };
 		700908C121FCCE5F00603AA2 /* Raivo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raivo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEntryViewController.swift; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 				707B38DC2275E57200D35897 /* ImageEffectExtension.swift */,
 				703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */,
 				70C0BB67230B333200143FA4 /* SetupStateExtension.swift */,
+				700794AF279D6BC8007510A5 /* TokenExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1359,6 +1362,7 @@
 				7092B9AE26C9494000B10065 /* BindableResults.swift in Sources */,
 				7077A346227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift in Sources */,
 				70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */,
+				700794B0279D6BC8007510A5 /* TokenExtension.swift in Sources */,
 				70A7B110223061E50084F15B /* MainScanPasswordViewController.swift in Sources */,
 				70B585F12309DD1400AD1754 /* SetupEncryptionConfirmationViewController.swift in Sources */,
 				709B636322C5495100697884 /* QuickResponseCodeRowCell.swift in Sources */,

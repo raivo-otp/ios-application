@@ -120,7 +120,7 @@ class DataExportFeature {
     
     private func getQuickResponseCodeHTML(_ password: Password) -> String {
         guard let qrcodeImage = EFQRCode.generate(
-            for: try! password.getToken().toURL().absoluteString + "&secret=" + password.secret.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!,
+            for: try! password.getToken().toCompatibleURL().absoluteString + "&secret=" + password.secret.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!,
             size: EFIntSize(width: 300, height: 300)
         ) else {
             return "QR code could not be generated."

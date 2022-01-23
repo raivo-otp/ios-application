@@ -37,7 +37,7 @@ class TokenHelper {
             algorithm: algorithm,
             digits: password.digits
         )
-
+        
         return Token(
             name: password.account,
             issuer: password.issuer,
