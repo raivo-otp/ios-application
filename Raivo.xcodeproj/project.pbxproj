@@ -1552,7 +1552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 56;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1575,7 +1575,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 53;
+				CURRENT_PROJECT_VERSION = 56;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1674,7 +1674,7 @@
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.7;
+				minimumVersion = 10.21.1;
 			};
 		};
 		704B1C1F26E6840200CE0067 /* XCRemoteSwiftPackageReference "RNCryptor" */ = {
@@ -1698,7 +1698,7 @@
 			repositoryURL = "https://github.com/xmartlabs/Eureka.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.3.2;
+				minimumVersion = 5.3.4;
 			};
 		};
 		704B1C2826E687A500CE0067 /* XCRemoteSwiftPackageReference "ViewRow" */ = {
@@ -1706,7 +1706,7 @@
 			repositoryURL = "https://github.com/EurekaCommunity/ViewRow.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.8.0;
+				minimumVersion = 0.9.0;
 			};
 		};
 		704B1C2B26E687FC00CE0067 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
@@ -1714,7 +1714,7 @@
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.11.1;
+				minimumVersion = 5.12.2;
 			};
 		};
 		704B1C2E26E6881500CE0067 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
@@ -1730,7 +1730,7 @@
 			repositoryURL = "https://github.com/efremidze/Haptica.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.2;
+				minimumVersion = 3.0.3;
 			};
 		};
 		704B1C3426E6889000CE0067 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -1746,7 +1746,7 @@
 			repositoryURL = "https://github.com/EFPrefix/EFQRCode.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.0;
+				minimumVersion = 6.2.0;
 			};
 		};
 		704B1C3A26E69DF900CE0067 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
@@ -1794,7 +1794,7 @@
 			repositoryURL = "https://github.com/twostraws/CodeScanner";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.7;
+				minimumVersion = 2.0.0;
 			};
 		};
 		7092B9B726C971D800B10065 /* XCRemoteSwiftPackageReference "SwipeCell" */ = {

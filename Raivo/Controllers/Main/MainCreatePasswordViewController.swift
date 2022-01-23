@@ -64,7 +64,7 @@ class MainCreatePasswordViewController: FormViewController {
         autoreleasepool {
             if let realm = RealmHelper.shared.getRealm() {
                 try! realm.write {
-                    realm.add(password, update: .modified)
+                    realm.add(password)
                 }
             }
         }

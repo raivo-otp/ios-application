@@ -53,13 +53,13 @@ class MigrationToBuild15: MigrationProtocol {
     
     /// Migrate "Pincode" to "Passcode" in the keychain.
     private func migratePincodeToPasscode() {
-        if let triesString = StorageHelper.shared.settings().string(forKey: "PincodeTriedAmount") {
+        if let triesString = try? StorageHelper.shared.settings().string(forKey: "PincodeTriedAmount") {
             if let tries = Int(triesString) {
                 StorageHelper.shared.setPasscodeTriedAmount(tries)
             }
         }
         
-        if let timestampString = StorageHelper.shared.settings().string(forKey: "PincodeTriedTimestamp") {
+        if let timestampString = try? StorageHelper.shared.settings().string(forKey: "PincodeTriedTimestamp") {
             if let timestamp = TimeInterval(timestampString) {
                 StorageHelper.shared.setPasscodeTriedTimestamp(timestamp)
             }

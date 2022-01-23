@@ -83,7 +83,7 @@ class MigrationToBuild23: MigrationProtocol {
     ///
     /// - Returns: The lockscreen timeout
     private func getLockscreenTimeout() -> TimeInterval? {
-        guard let timeout = StorageHelper.shared.settings().string(forKey: Key.LOCKSCREEN_TIMEOUT) else {
+        guard let timeout = try? StorageHelper.shared.settings().string(forKey: Key.LOCKSCREEN_TIMEOUT) else {
             return nil
         }
         
@@ -94,35 +94,35 @@ class MigrationToBuild23: MigrationProtocol {
     ///
     /// - Returns: The realm filename
     public func getRealmFilename() -> String? {
-        return StorageHelper.shared.settings().string(forKey: Key.REALM_FILENAME)
+        return try? StorageHelper.shared.settings().string(forKey: Key.REALM_FILENAME)
     }
     
     /// Get the synchronization provider.
     ///
     /// - Returns: The synchronization provider
     public func getSynchronizationProvider() -> String? {
-        return StorageHelper.shared.settings().string(forKey: Key.SYNCHRONIZATION_PROVIDER)
+        return try? StorageHelper.shared.settings().string(forKey: Key.SYNCHRONIZATION_PROVIDER)
     }
     
     /// Get the synchronization account identifier.
     ///
     /// - Returns: The identifier
     public func getSynchronizationAccountIdentifier() -> String? {
-        return StorageHelper.shared.settings().string(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+        return try? StorageHelper.shared.settings().string(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
     }
     
     /// Get the icons effect.
     ///
     /// - Returns: The icons effect
     public func getIconsEffect() -> String? {
-        return StorageHelper.shared.settings().string(forKey: Key.ICONS_EFFECT)
+        return try? StorageHelper.shared.settings().string(forKey: Key.ICONS_EFFECT)
     }
     
     /// Get the amount of times the user tried to enter the passcode.
     ///
     /// - Returns: The amount of tries
     public func getPasscodeTriedAmount() -> Int? {
-        guard let tries = StorageHelper.shared.settings().string(forKey: Key.PASSCODE_TRIED_AMOUNT) else {
+        guard let tries = try? StorageHelper.shared.settings().string(forKey: Key.PASSCODE_TRIED_AMOUNT) else {
             return nil
         }
         
@@ -133,7 +133,7 @@ class MigrationToBuild23: MigrationProtocol {
     ///
     /// - Returns: The last time the user tried a passcode
     public func getPasscodeTriedTimestamp() -> TimeInterval? {
-        guard let tries = StorageHelper.shared.settings().string(forKey: Key.PASSCODE_TRIED_TIMESTAMP) else {
+        guard let tries = try? StorageHelper.shared.settings().string(forKey: Key.PASSCODE_TRIED_TIMESTAMP) else {
             return nil
         }
         
@@ -144,7 +144,7 @@ class MigrationToBuild23: MigrationProtocol {
     ///
     /// - Returns: Positive if biometric unlock is enabled
     public func getBiometricUnlockEnabled() -> Bool {
-        guard let enabled = StorageHelper.shared.settings().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
+        guard let enabled = try? StorageHelper.shared.settings().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
             return false
         }
         
@@ -155,7 +155,7 @@ class MigrationToBuild23: MigrationProtocol {
     ///
     /// - Returns: Positive if local file logging is enabled.
     public func getFileLoggingEnabled() -> Bool {
-        guard let enabled = StorageHelper.shared.settings().string(forKey: Key.FILE_LOGGING_ENABLED) else {
+        guard let enabled = try? StorageHelper.shared.settings().string(forKey: Key.FILE_LOGGING_ENABLED) else {
             return false
         }
         

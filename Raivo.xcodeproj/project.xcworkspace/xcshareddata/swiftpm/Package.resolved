@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/twostraws/CodeScanner",
         "state": {
           "branch": null,
-          "revision": "a2144ddaa7c43a6ee00873edd4cc7815ad97942f",
-          "version": "1.0.7"
+          "revision": "c27a66149b7483fe42e2ec6aad61d5c3fffe522d",
+          "version": "2.1.1"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/EFPrefix/EFQRCode.git",
         "state": {
           "branch": null,
-          "revision": "4a72d79f9cae6d2f189f768178cc8594b427c190",
-          "version": "6.1.0"
+          "revision": "56278ea800d7fdc20f42cd77bdbf0fecc8c1c0c8",
+          "version": "6.2.0"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/xmartlabs/Eureka.git",
         "state": {
           "branch": null,
-          "revision": "523af88efc83cdaf39b415446be1ca1529f5664d",
-          "version": "5.3.3"
+          "revision": "975e8d5e0ea3c86aff828537b2d4abe4430d6312",
+          "version": "5.3.4"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/efremidze/Haptica.git",
         "state": {
           "branch": null,
-          "revision": "4084702c85102c2d17d58e42ec5a750094944864",
-          "version": "3.0.2"
+          "revision": "e03932406d2f36f10beefd31717730b2c2fa9014",
+          "version": "3.0.3"
         }
       },
       {
@@ -78,17 +78,17 @@
         "repositoryURL": "https://github.com/realm/realm-cocoa.git",
         "state": {
           "branch": null,
-          "revision": "2dce752b48c3265c63ab04a8c66ddfdf9185f847",
-          "version": "5.5.2"
+          "revision": "39177714b95bb5b1b29fffe28f1c7da77eef8e8b",
+          "version": "10.21.1"
         }
       },
       {
-        "package": "RealmCore",
+        "package": "RealmDatabase",
         "repositoryURL": "https://github.com/realm/realm-core",
         "state": {
           "branch": null,
-          "revision": "66d79b3c5213fb14d491c1b22193077b488d49a6",
-          "version": "6.2.4"
+          "revision": "f1976f0d96d9b06fbe0afbd60090b1c3966b1e23",
+          "version": "11.8.0"
         }
       },
       {
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {
           "branch": null,
-          "revision": "76dd4b49110b8624317fc128e7fa0d8a252018bc",
-          "version": "5.11.1"
+          "revision": "0fff0d7505b5306348263ea64fcc561253bbeb21",
+          "version": "5.12.2"
         }
       },
       {
