@@ -22,7 +22,9 @@ class LoadEntryViewController: UIViewController {
     override func viewDidLoad() {
         
         // Run migrations prior the the app initialization.
-        MigrationHelper.shared.runPreInitializeMigrations()
+        do { try MigrationHelper.shared.runPreInitializeMigrations() } catch {
+            return errorMessage = "Could not run pre-initialization migrations"
+        }
 
         // Initialize console logging (in debug builds)
         if AppHelper.compilation == AppHelper.Compilation.debug {
@@ -55,7 +57,9 @@ class LoadEntryViewController: UIViewController {
         }
         
         // Run all migrations except Realm migrations
-        MigrationHelper.shared.runGenericMigrations()
+        do { try MigrationHelper.shared.runGenericMigrations() } catch {
+            return errorMessage = "Could not run generic migrations"
+        }
 
         // Preload the synchronization information
         SyncerHelper.shared.getSyncer().getAccount(success: { (account, syncerID) in

@@ -41,19 +41,23 @@ class MigrationToBuild60: MigrationProtocol {
         } catch KeychainError.itemNotFound {
             // No worries, we don't have anything to migrate
         } catch {
-            print("Unexpected error: \(error).")
+            log.error("Unexpected pre-boot Valet migration error: \(error).")
         }
     }
     
     /// Run migrations to make data compatible with this build (before app initialization).
-    func migratePreInitialize() {
+    ///
+    /// - Throws: Migration exceptions on fail
+    func migratePreInitialize() throws {
         log.warning("Running pre init migration...")
         
         // Not implemented
     }
     
     /// Run generic migrations to make data compatible with this build.
-    func migrateGeneric() {
+    ///
+    /// - Throws: Migration exceptions on fail
+    func migrateGeneric() throws {
         log.warning("Running generic migration...")
         
         // Not implemented

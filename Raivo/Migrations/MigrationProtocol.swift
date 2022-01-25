@@ -28,10 +28,14 @@ protocol MigrationProtocol {
     func migratePreBoot() -> Void
     
     /// A function for running migrations before initializing the application.
-    func migratePreInitialize() -> Void
+    ///
+    /// - Throws: Migration exceptions on fail
+    func migratePreInitialize() throws -> Void
     
     /// A function for running generic migrations before initializing the syncers.
-    func migrateGeneric() -> Void
+    ///
+    /// - Throws: Migration exceptions on fail
+    func migrateGeneric() throws -> Void
     
     /// A function for running migrations that require synchronization provider access.
     func migrateGeneric(with account: SyncerAccount) -> Void

@@ -24,11 +24,6 @@ class MigrationHelper {
     
     /// All vailable migration builds and the corresponding migration classes
     public let migrations: [Int: MigrationProtocol] = [
-        MigrationToBuild4.build: MigrationToBuild4(),
-        MigrationToBuild6.build: MigrationToBuild6(),
-        MigrationToBuild9.build: MigrationToBuild9(),
-        MigrationToBuild15.build: MigrationToBuild15(),
-        MigrationToBuild23.build: MigrationToBuild23(),
         MigrationToBuild60.build: MigrationToBuild60()
     ]
     
@@ -54,27 +49,27 @@ class MigrationHelper {
     /// Start migrations that have to run before initialization of the app
     ///
     /// - Note: This should usually be the preferred migration method
-    public func runPreInitializeMigrations() {
+    public func runPreInitializeMigrations() throws {
         var previous = getPreviousBuild()
         
         while previous < AppHelper.build {
             if let migration = migrations[previous + 1] {
-                migration.migratePreInitialize()
+                try migration.migratePreInitialize()
             }
             
             previous += 1
         }
         
-        StorageHelper.shared.setPreviousBuild(AppHelper.build)
+        try StorageHelper.shared.setPreviousBuild(AppHelper.build)
     }
     
     /// Start migrations that have to run during initialization of the app (before getting the current syncer account)
-    public func runGenericMigrations() {
+    public func runGenericMigrations() throws {
         var previous = getPreviousBuild()
         
         while previous < AppHelper.build {
             if let migration = migrations[previous + 1] {
-                migration.migrateGeneric()
+                try migration.migrateGeneric()
             }
             
             previous += 1

@@ -170,13 +170,25 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
             return
         }
         
-        if StorageHelper.shared.getBiometricUnlockEnabled() {
-            StorageHelper.shared.setEncryptionKey(newKey.base64EncodedString())
+        do {
+            if StorageHelper.shared.getBiometricUnlockEnabled() {
+                try StorageHelper.shared.setEncryptionKey(newKey.base64EncodedString())
+            }
+        } catch {
+            log.error("Could not set encryption key while changing passcode: \(error)")
+            BannerHelper.shared.error("Error", "Could not save passcode")
+            return
         }
         
-        StorageHelper.shared.setRealmFilename(newName)
+        do {
+            try StorageHelper.shared.setRealmFilename(newName)
+        } catch {
+            log.error("Could not set realm filename whilechanging passcode: \(error)")
+            BannerHelper.shared.error("Error", "Could not save passcode")
+            return
+        }
+    
         StateHelper.shared.reset(dueToPasscodeChange: true)
-        
         getAppDelegate().updateStoryboard()
     }
     

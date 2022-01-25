@@ -65,6 +65,7 @@ class StorageHelper {
     ///
     /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
     /// - Returns: Positive on success
+    /// - Throws: Valet/Keychain exceptions on fail
     /// - Note The `dueToPasscodeChange` parameter can be set to true on e.g. a passcode change.
     public func clear(dueToPasscodeChange: Bool = false) throws {
         guard !dueToPasscodeChange else { return }
@@ -86,6 +87,7 @@ class StorageHelper {
     /// Set the password part of the encryption key.
     ///
     /// - Parameter password: The new password
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setEncryptionPassword(_ password: String) throws {
         log.verbose("Setting encryption password")
         try settings().setString(password, forKey: Key.PASSWORD)
@@ -101,6 +103,7 @@ class StorageHelper {
     /// Set the lockscreen timeout.
     ///
     /// - Parameter seconds: The new lockscreen timeout
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setLockscreenTimeout(_ seconds: TimeInterval) throws {
         log.verbose("Setting lockscreen timeout")
         try globals().setString(String(seconds), forKey: Key.LOCKSCREEN_TIMEOUT)
@@ -120,6 +123,7 @@ class StorageHelper {
     /// Set the realm (sqlite) filename (not the absolute path).
     ///
     /// - Parameter filename: The new filename
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setRealmFilename(_ filename: String) throws {
         log.verbose("Setting realm filename")
         try globals().setString(filename, forKey: Key.REALM_FILENAME)
@@ -135,6 +139,7 @@ class StorageHelper {
     /// Set the synchronization provider.
     ///
     /// - Parameter provider: The unique ID of the synchronization provider
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setSynchronizationProvider(_ provider: String) throws {
         log.verbose("Setting synchronization provider")
         try globals().setString(provider, forKey: Key.SYNCHRONIZATION_PROVIDER)
@@ -150,6 +155,7 @@ class StorageHelper {
     /// Set the synchronization account identifier.
     ///
     /// - Parameter accountIdentifier: The identifier
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setSynchronizationAccountIdentifier(_ accountIdentifier: String?) throws {
         log.verbose("Setting synchronization account identifier")
         
@@ -170,6 +176,7 @@ class StorageHelper {
     /// Set the icons effect.
     ///
     /// - Parameter effect: The icons effect
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setIconsEffect(_ effect: String) throws {
         log.verbose("Setting icons effect")
         try globals().setString(effect, forKey: Key.ICONS_EFFECT)
@@ -185,7 +192,8 @@ class StorageHelper {
     /// Set the amount of times the user entered the passcode.
     ///
     /// - Parameter tries: The amount of tries
-    public func setPasscodeTriedAmount(_ tries: Int) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setPasscodeTriedAmount(_ tries: Int) throws {
         log.verbose("Setting passcode tried amount")
         try globals().setString(String(tries), forKey: Key.PASSCODE_TRIED_AMOUNT)
     }
@@ -204,6 +212,7 @@ class StorageHelper {
     /// Set the timestamp of the last passcode try.
     ///
     /// - Parameter timestamp: The last time the user tried a passcode
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setPasscodeTriedTimestamp(_ timestamp: TimeInterval) throws {
         log.verbose("Setting passcode tried timestamp")
         try globals().setString(String(timestamp), forKey: Key.PASSCODE_TRIED_TIMESTAMP)
@@ -223,6 +232,7 @@ class StorageHelper {
     /// Set the previous application build version.
     ///
     /// - Parameter build: The new 'previous build'.
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setPreviousBuild(_ build: Int) throws {
         log.verbose("Setting previous build")
         try settings().setString(String(build), forKey: Key.PREVIOUS_BUILD)
@@ -242,6 +252,7 @@ class StorageHelper {
     /// Set the complete encryption key (password+passcode) in Secure Enclave.
     ///
     /// - Parameter key: The encryption key
+    /// - Throws: Valet/Keychain exceptions on fail
     public func setEncryptionKey(_ key: String?) throws {
         log.verbose("Setting encryption key")
         
@@ -263,6 +274,7 @@ class StorageHelper {
     /// Set a boolean representing if TouchID unlock is enabled.
     ///
     /// - Parameter enabled: Positive if TouchID unlock is enabled
+    /// - Throws: Valet/Keychain exceptions on fail
     @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
     public func setTouchIDUnlockEnabled(_ enabled: Bool) throws {
         log.verbose("Setting TouchID unlock enabled")
@@ -285,10 +297,11 @@ class StorageHelper {
     /// Set a boolean representing if biometric unlock is enabled.
     ///
     /// - Parameter enabled: Positive if biometric unlock is enabled
-    public func setBiometricUnlockEnabled(_ enabled: Bool) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setBiometricUnlockEnabled(_ enabled: Bool) throws {
         log.verbose("Setting biometric unlock enabled")
         
-        try! globals().setString(String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
+        try globals().setString(String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
     }
     
     /// Check if biometric unlock is currently enabled.
@@ -305,10 +318,11 @@ class StorageHelper {
     /// Set a boolean representing if local file logging is enabled.
     ///
     /// - Parameter enabled: Positive if local file logging is enabled.
-    public func setFileLoggingEnabled(_ enabled: Bool) {
+    /// - Throws: Valet/Keychain exceptions on fail 
+    public func setFileLoggingEnabled(_ enabled: Bool) throws {
         log.verbose("Setting file logging enabled")
         
-        try! globals().setString(String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
+        try globals().setString(String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
     }
     
     /// Check if local file logging is enabled.

@@ -150,8 +150,9 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
     internal func increasePasscodeTries() {
         let currentTries = StorageHelper.shared.getPasscodeTriedAmount() ?? 0
         
-        StorageHelper.shared.setPasscodeTriedAmount(currentTries + 1)
-        StorageHelper.shared.setPasscodeTriedTimestamp(Date().timeIntervalSince1970)
+        // Force 'passcode tried' set. We rather crash than letting someone try again
+        try! StorageHelper.shared.setPasscodeTriedAmount(currentTries + 1)
+        try! StorageHelper.shared.setPasscodeTriedTimestamp(Date().timeIntervalSince1970)
     }
     
     /// Check if the user may try to unlock the device based on the amount of tries left
@@ -170,8 +171,9 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
     
     /// If a user unlocked the application, this function may be used to reset the unlock tries and timestamp
     internal func resetPasscodeTries() {
-        StorageHelper.shared.setPasscodeTriedAmount(0)
-        StorageHelper.shared.setPasscodeTriedTimestamp(0)
+        // We try to reset the 'passcode tries', but if it fails it doesn't really matter
+        try? StorageHelper.shared.setPasscodeTriedAmount(0)
+        try? StorageHelper.shared.setPasscodeTriedTimestamp(0)
     }
     
     /// Get the amount of tries that a user has left to unlock the application

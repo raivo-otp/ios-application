@@ -44,27 +44,29 @@ class SetupStateObject {
     }
     
     /// Persist the current storage into storage
+    ///
+    /// - Throws: Various exceptions in the storage helper or Realm setup
     public func persist() throws {
         // Set the current storage provider (e.g. iCloud/CloudKit)
-        StorageHelper.shared.setSynchronizationProvider(syncerID!)
+        try StorageHelper.shared.setSynchronizationProvider(syncerID!)
         
         // Set the current account identifier in both the keychain and the current app state
-        StorageHelper.shared.setSynchronizationAccountIdentifier(account!.identifier)
+        try StorageHelper.shared.setSynchronizationAccountIdentifier(account!.identifier)
         getAppDelegate().syncerAccountIdentifier = account!.identifier
         
         // Store the password in the keychain
-        StorageHelper.shared.setEncryptionPassword(password!)
+        try StorageHelper.shared.setEncryptionPassword(password!)
         
         // Create a Realm database
         getAppDelegate().updateEncryptionKey(encryptionKey!)
         
         // Create an empty database using the default realm configuration
-        let _ = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
+        let _ = try Realm(configuration: Realm.Configuration.defaultConfiguration)
         
         // Enable biometric unlock if needed
         if biometric {
-            StorageHelper.shared.setEncryptionKey(encryptionKey!.base64EncodedString())
-            StorageHelper.shared.setBiometricUnlockEnabled(true)
+            try StorageHelper.shared.setEncryptionKey(encryptionKey!.base64EncodedString())
+            try StorageHelper.shared.setBiometricUnlockEnabled(true)
         }
     }
     
