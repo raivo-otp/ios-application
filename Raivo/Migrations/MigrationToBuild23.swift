@@ -43,6 +43,14 @@ class MigrationToBuild23: MigrationProtocol {
         // Not implemented
     }
     
+    /// A migration function that is always called, for all builds, on every startup.
+    ///
+    /// - Note: Only required when e.g. migrating (keychain) items that are referenced before initialization of the app
+    /// - Note: This migration function should include its own conditionals for when to be executed.
+    func migratePreBoot() {
+        // Not implemented
+    }
+    
     /// Run migrations to make data compatible with this build (before app initialization).
     func migratePreInitialize() {
         log.warning("Running pre init migration...")

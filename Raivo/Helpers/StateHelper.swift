@@ -176,7 +176,10 @@ class StateHelper {
         try? FileManager.default.removeItem(at: realmURL.appendingPathExtension("management"))
         
         SyncerHelper.shared.clear(dueToPasscodeChange: passcodeChanged)
-        StorageHelper.shared.clear(dueToPasscodeChange: passcodeChanged)
+        
+        do { try StorageHelper.shared.clear(dueToPasscodeChange: passcodeChanged) } catch {
+            log.error("Could not succesfully clear storage during reset")
+        }
         
         lock()
     }

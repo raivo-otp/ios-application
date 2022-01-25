@@ -21,6 +21,12 @@ protocol MigrationProtocol {
     /// A function for running realm migrations.
     func migrateRealm(_ migration: Migration) -> Void
     
+    /// A function for running migrations before performing any app functions (first thing first in the application delegate)
+    ///
+    /// - Note: Only required when e.g. migrating (keychain) items that are referenced before initialization of the app
+    /// - Note: This method always runs, for all migrations, always, even for previous builds. The migrations should include conditionals for when to be executed.
+    func migratePreBoot() -> Void
+    
     /// A function for running migrations before initializing the application.
     func migratePreInitialize() -> Void
     

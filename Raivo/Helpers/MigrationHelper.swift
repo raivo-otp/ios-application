@@ -28,13 +28,32 @@ class MigrationHelper {
         MigrationToBuild6.build: MigrationToBuild6(),
         MigrationToBuild9.build: MigrationToBuild9(),
         MigrationToBuild15.build: MigrationToBuild15(),
-        MigrationToBuild23.build: MigrationToBuild23()
+        MigrationToBuild23.build: MigrationToBuild23(),
+        MigrationToBuild60.build: MigrationToBuild60()
     ]
     
     /// A private initializer to make sure this class can only be used as a singleton class
     private init() {}
     
+    /// Start migrations that have to run before performing any app functions (first thing first in the application delegate)
+    ///
+    /// - Note: Only required when e.g. migrating (keychain) items that are referenced before initialization of the app
+    /// - Note: This migration function runs all migrations, always, even for previous builds. The migrations should include conditionals for when to be executed.
+    public func runPreBootMigrations() {
+        var previous = 0
+        
+        while previous < AppHelper.build {
+            if let migration = migrations[previous + 1] {
+                migration.migratePreBoot()
+            }
+            
+            previous += 1
+        }
+    }
+    
     /// Start migrations that have to run before initialization of the app
+    ///
+    /// - Note: This should usually be the preferred migration method
     public func runPreInitializeMigrations() {
         var previous = getPreviousBuild()
         

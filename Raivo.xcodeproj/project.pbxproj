@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		700794B0279D6BC8007510A5 /* TokenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700794AF279D6BC8007510A5 /* TokenExtension.swift */; };
+		700794B2279D91BC007510A5 /* MigrationToBuild60.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700794B1279D91BC007510A5 /* MigrationToBuild60.swift */; };
 		700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */; };
 		700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */; };
 		700908CA21FCCE5F00603AA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 700908C821FCCE5F00603AA2 /* Main.storyboard */; };
@@ -218,6 +219,7 @@
 
 /* Begin PBXFileReference section */
 		700794AF279D6BC8007510A5 /* TokenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtension.swift; sourceTree = "<group>"; };
+		700794B1279D91BC007510A5 /* MigrationToBuild60.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild60.swift; sourceTree = "<group>"; };
 		700908C121FCCE5F00603AA2 /* Raivo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raivo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEntryViewController.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 				7079EBD422F6423400F9D340 /* MigrationToBuild11.swift */,
 				703E810C2311706600CAC3DD /* MigrationToBuild15.swift */,
 				70A1599D232AA8C900816FE8 /* MigrationToBuild23.swift */,
+				700794B1279D91BC007510A5 /* MigrationToBuild60.swift */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -1315,6 +1318,7 @@
 				70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */,
 				7079EBD522F6423400F9D340 /* MigrationToBuild11.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
+				700794B2279D91BC007510A5 /* MigrationToBuild60.swift in Sources */,
 				70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */,
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
 				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,
@@ -1556,7 +1560,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 60;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1564,7 +1568,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1579,7 +1583,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 60;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1587,7 +1591,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1694,7 +1698,7 @@
 			repositoryURL = "https://github.com/square/Valet.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.8;
+				minimumVersion = 4.0.0;
 			};
 		};
 		704B1C2526E6879400CE0067 /* XCRemoteSwiftPackageReference "Eureka" */ = {
