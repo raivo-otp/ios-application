@@ -29,9 +29,7 @@
 		702BAEAA2259481A008E5C5F /* TimeBasedPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 702BAEA92259481A008E5C5F /* TimeBasedPasswordCell.xib */; };
 		702CA6CA2263A119000DCC1D /* StubSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6C92263A119000DCC1D /* StubSyncer.swift */; };
 		702CA6CD2263A16D000DCC1D /* UnexpectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6CC2263A16D000DCC1D /* UnexpectedError.swift */; };
-		702CA6D12263B2CD000DCC1D /* MigrationToBuild4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */; };
 		703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */; };
-		703E810D2311706600CAC3DD /* MigrationToBuild15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703E810C2311706600CAC3DD /* MigrationToBuild15.swift */; };
 		703E81102311862500CAC3DD /* StorkPopoverSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703E810F2311862500CAC3DD /* StorkPopoverSegue.swift */; };
 		704B1C1926E681D500CE0067 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C1826E681D500CE0067 /* ZipArchive */; };
 		704B1C1C26E683DA00CE0067 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C1B26E683DA00CE0067 /* Realm */; };
@@ -82,12 +80,11 @@
 		7077A346227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A345227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift */; };
 		7077A34A227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */; };
 		7077A34C227F610700338CA3 /* PasswordIconTypeFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A34B227F610700338CA3 /* PasswordIconTypeFormOption.swift */; };
-		7077A34E227F675200338CA3 /* MigrationToBuild6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A34D227F675200338CA3 /* MigrationToBuild6.swift */; };
 		7079EBD322F638DA00F9D340 /* BiometricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079EBD222F638DA00F9D340 /* BiometricHelper.swift */; };
-		7079EBD522F6423400F9D340 /* MigrationToBuild11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079EBD422F6423400F9D340 /* MigrationToBuild11.swift */; };
 		707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707B38DC2275E57200D35897 /* ImageEffectExtension.swift */; };
 		707B38E22275F87100D35897 /* CenteredBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707B38E12275F87100D35897 /* CenteredBanner.xib */; };
 		707EDA5C23846C32000B0A97 /* BannerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EDA5B23846C32000B0A97 /* BannerHelper.swift */; };
+		70808FB927A35451002DCE60 /* MigrationToBuild60.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808FB827A35451002DCE60 /* MigrationToBuild60.swift */; };
 		7088B94B22554AF50024BB87 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088B94A22554AF50024BB87 /* CloudKit.framework */; };
 		708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708A2B14228859CC00981BBC /* IconFormSelectorViewFooter.swift */; };
 		708A2B1B22885DCE00981BBC /* IconFormSelectorViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 708A2B1A22885DCE00981BBC /* IconFormSelectorViewFooter.xib */; };
@@ -117,7 +114,6 @@
 		709FA2C12676922400BDB44D /* app-icon-dark-tint-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 709FA2B52676922400BDB44D /* app-icon-dark-tint-small@2x.png */; };
 		709FA2C22676922400BDB44D /* app-icon-dark-tint-large@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 709FA2B62676922400BDB44D /* app-icon-dark-tint-large@1x.png */; };
 		709FA2C32676922400BDB44D /* app-icon-light-tint-large@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 709FA2B72676922400BDB44D /* app-icon-light-tint-large@1x.png */; };
-		70A1599E232AA8C900816FE8 /* MigrationToBuild23.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1599D232AA8C900816FE8 /* MigrationToBuild23.swift */; };
 		70A1BC5122F7272400152864 /* AuthRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5022F7272400152864 /* AuthRootViewController.swift */; };
 		70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */; };
 		70A1BC5922F7534500152864 /* SetupRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A1BC5822F7534500152864 /* SetupRootViewController.swift */; };
@@ -167,7 +163,6 @@
 		70CDB172230C5C1300D63A79 /* SetupBiometricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB171230C5C1300D63A79 /* SetupBiometricViewController.swift */; };
 		70CDB174230C5EBD00D63A79 /* SetupFinalizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB173230C5EBD00D63A79 /* SetupFinalizeViewController.swift */; };
 		70CDB176230C82D300D63A79 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB175230C82D300D63A79 /* RealmError.swift */; };
-		70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */; };
 		70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD612291B00E0016BD95 /* Load.storyboard */; };
 		70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */; };
 		70D0FD692291B8F10016BD95 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD682291B8F10016BD95 /* Error.storyboard */; };
@@ -241,9 +236,7 @@
 		702BAEA92259481A008E5C5F /* TimeBasedPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeBasedPasswordCell.xib; sourceTree = "<group>"; };
 		702CA6C92263A119000DCC1D /* StubSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSyncer.swift; sourceTree = "<group>"; };
 		702CA6CC2263A16D000DCC1D /* UnexpectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnexpectedError.swift; sourceTree = "<group>"; };
-		702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild4.swift; sourceTree = "<group>"; };
 		703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstrainToKeyboardExtension.swift; sourceTree = "<group>"; };
-		703E810C2311706600CAC3DD /* MigrationToBuild15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild15.swift; sourceTree = "<group>"; };
 		703E810F2311862500CAC3DD /* StorkPopoverSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorkPopoverSegue.swift; sourceTree = "<group>"; };
 		704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyError.swift; sourceTree = "<group>"; };
 		704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyError.xib; sourceTree = "<group>"; };
@@ -279,12 +272,11 @@
 		7077A345227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormRaivoRepositorySelectorViewController.swift; sourceTree = "<group>"; };
 		7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormRaivoRepositorySelectorViewController.xib; sourceTree = "<group>"; };
 		7077A34B227F610700338CA3 /* PasswordIconTypeFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordIconTypeFormOption.swift; sourceTree = "<group>"; };
-		7077A34D227F675200338CA3 /* MigrationToBuild6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild6.swift; sourceTree = "<group>"; };
 		7079EBD222F638DA00F9D340 /* BiometricHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricHelper.swift; sourceTree = "<group>"; };
-		7079EBD422F6423400F9D340 /* MigrationToBuild11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild11.swift; sourceTree = "<group>"; };
 		707B38DC2275E57200D35897 /* ImageEffectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEffectExtension.swift; sourceTree = "<group>"; };
 		707B38E12275F87100D35897 /* CenteredBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredBanner.xib; sourceTree = "<group>"; };
 		707EDA5B23846C32000B0A97 /* BannerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerHelper.swift; sourceTree = "<group>"; };
+		70808FB827A35451002DCE60 /* MigrationToBuild60.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild60.swift; sourceTree = "<group>"; };
 		7088B94922554AF10024BB87 /* Raivo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Raivo.entitlements; sourceTree = "<group>"; };
 		7088B94A22554AF50024BB87 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		708A2B14228859CC00981BBC /* IconFormSelectorViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewFooter.swift; sourceTree = "<group>"; };
@@ -313,7 +305,6 @@
 		709FA2B52676922400BDB44D /* app-icon-dark-tint-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-dark-tint-small@2x.png"; sourceTree = "<group>"; };
 		709FA2B62676922400BDB44D /* app-icon-dark-tint-large@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-dark-tint-large@1x.png"; sourceTree = "<group>"; };
 		709FA2B72676922400BDB44D /* app-icon-light-tint-large@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-light-tint-large@1x.png"; sourceTree = "<group>"; };
-		70A1599D232AA8C900816FE8 /* MigrationToBuild23.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild23.swift; sourceTree = "<group>"; };
 		70A1BC5022F7272400152864 /* AuthRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRootViewController.swift; sourceTree = "<group>"; };
 		70A1BC5222F74E6100152864 /* ErrorRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRootViewController.swift; sourceTree = "<group>"; };
 		70A1BC5822F7534500152864 /* SetupRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupRootViewController.swift; sourceTree = "<group>"; };
@@ -363,7 +354,6 @@
 		70CDB171230C5C1300D63A79 /* SetupBiometricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBiometricViewController.swift; sourceTree = "<group>"; };
 		70CDB173230C5EBD00D63A79 /* SetupFinalizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFinalizeViewController.swift; sourceTree = "<group>"; };
 		70CDB175230C82D300D63A79 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
-		70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild9.swift; sourceTree = "<group>"; };
 		70D0FD612291B00E0016BD95 /* Load.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Load.storyboard; sourceTree = "<group>"; };
 		70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEntryViewController.swift; sourceTree = "<group>"; };
 		70D0FD682291B8F10016BD95 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
@@ -476,12 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				70AE33242273B73D007A12A2 /* MigrationProtocol.swift */,
-				702CA6D02263B2CD000DCC1D /* MigrationToBuild4.swift */,
-				7077A34D227F675200338CA3 /* MigrationToBuild6.swift */,
-				70D0FD5E2291A57A0016BD95 /* MigrationToBuild9.swift */,
-				7079EBD422F6423400F9D340 /* MigrationToBuild11.swift */,
-				703E810C2311706600CAC3DD /* MigrationToBuild15.swift */,
-				70A1599D232AA8C900816FE8 /* MigrationToBuild23.swift */,
+				70808FB827A35451002DCE60 /* MigrationToBuild60.swift */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -1261,17 +1246,14 @@
 			files = (
 				7092B9A126C9305B00B10065 /* MainReceiversViewController.swift in Sources */,
 				70CDB174230C5EBD00D63A79 /* SetupFinalizeViewController.swift in Sources */,
-				703E810D2311706600CAC3DD /* MigrationToBuild15.swift in Sources */,
 				70DC72E922A3F2FC006FE7B7 /* ComposeMailFeature.swift in Sources */,
 				7066C79B226A4E0F00C1A949 /* CloudKitModelSyncerProtocol.swift in Sources */,
 				70F46AAA22637FEB0059EFDB /* SynchronizationProviderForm.swift in Sources */,
 				700908F221FCFADF00603AA2 /* Password.swift in Sources */,
 				7028592C226212EA0045DA26 /* CloudKitPasswordSyncer.swift in Sources */,
 				70D0FD6B2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift in Sources */,
-				702CA6D12263B2CD000DCC1D /* MigrationToBuild4.swift in Sources */,
 				70C80DA9229F070A00413801 /* UIPasscodeFieldDelegate.swift in Sources */,
 				700908EE21FCEC2800603AA2 /* AuthEntryViewController.swift in Sources */,
-				70D0FD5F2291A57A0016BD95 /* MigrationToBuild9.swift in Sources */,
 				70C80DAA229F070A00413801 /* UIDigitField.swift in Sources */,
 				70675F262677D874009A7AE9 /* AppIconObject.swift in Sources */,
 				70B585EF2309D3BE00AD1754 /* SetupPasscodeViewController.swift in Sources */,
@@ -1282,7 +1264,6 @@
 				70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */,
 				70A3F4FA25CDD282004F053B /* MainDataExportView.swift in Sources */,
 				70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */,
-				70A1599E232AA8C900816FE8 /* MigrationToBuild23.swift in Sources */,
 				70C80DAE22A0464600413801 /* CryptographyHelper.swift in Sources */,
 				70D7D7CD225BB0DD008DA2FD /* PatternImage.swift in Sources */,
 				705E432023E5D01B00D26619 /* AddTappedUriFeature.swift in Sources */,
@@ -1301,7 +1282,6 @@
 				707EDA5C23846C32000B0A97 /* BannerHelper.swift in Sources */,
 				70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */,
 				7077A340227F0FAE00338CA3 /* IconFormRow.swift in Sources */,
-				7077A34E227F675200338CA3 /* MigrationToBuild6.swift in Sources */,
 				705968102299AB0A0032D70F /* StorageHelper.swift in Sources */,
 				70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */,
 				709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */,
@@ -1313,7 +1293,6 @@
 				70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */,
 				702CA6CA2263A119000DCC1D /* StubSyncer.swift in Sources */,
 				70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */,
-				7079EBD522F6423400F9D340 /* MigrationToBuild11.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
 				70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */,
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
@@ -1382,6 +1361,7 @@
 				70A7B12122306DF40084F15B /* UIPasswordsEmptyListView.swift in Sources */,
 				7092B9A526C932D500B10065 /* MainReceiversViewObservable.swift in Sources */,
 				706FD81522EB71A500F433F7 /* QuickResponseCodeForm.swift in Sources */,
+				70808FB927A35451002DCE60 /* MigrationToBuild60.swift in Sources */,
 				703E81102311862500CAC3DD /* StorkPopoverSegue.swift in Sources */,
 				706708E722888265009A15B9 /* AlamofireHelper.swift in Sources */,
 				709D90C7224AC5FB0041713A /* NavbarActivityExtension.swift in Sources */,
@@ -1694,7 +1674,7 @@
 			repositoryURL = "https://github.com/square/Valet.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.8;
+				minimumVersion = 4.1.2;
 			};
 		};
 		704B1C2526E6879400CE0067 /* XCRemoteSwiftPackageReference "Eureka" */ = {
