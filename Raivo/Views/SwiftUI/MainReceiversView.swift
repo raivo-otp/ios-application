@@ -2,7 +2,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2022 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in
@@ -16,12 +16,16 @@ import CodeScanner
 import SwipeCell
 import RealmSwift
 
+/// Shows all connected MacOS receivers and enables users to add or remove receivers.
 struct MainReceiversView: View {
     
+    /// An observable that contains the variable content of the view
     @ObservedObject var receivers = BindableResults<Receiver>(RealmHelper.shared.getRealm()!.objects(Receiver.self))
     
+    /// A boolean indicating if the user is currently scanning a QR code
     @State var isPresentingScanner: Bool = false
     
+    /// The body of the view
     var body: some View {
         listOrPlaceholder
         .sheet(isPresented: $isPresentingScanner) {
@@ -34,6 +38,7 @@ struct MainReceiversView: View {
         })
     }
     
+    /// Basically also the body of the view. This subview shows either a placeholder (if the list is empty), or the list of connected MacOS receivers
     private var listOrPlaceholder: some View {
         if receivers.results.count == 0 {
             return AnyView(VStack(alignment: .center, spacing: 10) {
@@ -83,6 +88,7 @@ struct MainReceiversView: View {
         )
     }
     
+    /// A view that enables the user to scan MacOS receiver QR codes
     var scanner: some View {
         CodeScannerView(
             codeTypes: [.qr],
@@ -114,6 +120,7 @@ struct MainReceiversView: View {
     }
 }
 
+/// A preview for the MacOS receivers list
 struct MainReceiversView_Previews: PreviewProvider {
     static var previews: some View {
         MainReceiversView()

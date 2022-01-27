@@ -2,7 +2,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
+// Copyright (c) 2022 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
 // Modification, duplication or distribution of this software (in
@@ -13,10 +13,13 @@
 
 import SwiftUI
 
+/// A view that enables the user to change the app icon
 struct MainChangeAppIconView: View {
     
+    /// An observable that contains the variable content of the view
     @ObservedObject var mainChangeAppIcon: MainChangeAppIconViewObservable
-   
+
+    /// The body of the view
     var body: some View {
         List {
             ForEach(0 ..< mainChangeAppIcon.icons.count) { i in
@@ -45,14 +48,19 @@ struct MainChangeAppIconView: View {
     }
 }
 
+/// A row that contains an app icon and the title the icon
 struct AppIconRow: View {
     
+    /// The index of the icon that is currently selected in the list that contains all icon rows
     @Binding var selectedIndex: Int
     
+    /// The index of this app icon
     let index: Int
     
+    /// An object containing details of the current icon
     let icon: AppIconObject
     
+    /// The body of the view
     var body: some View {
         HStack(spacing: 10) {
             Image(uiImage: UIImage(named: icon.key) ?? UIImage())
@@ -70,6 +78,7 @@ struct AppIconRow: View {
     
 }
 
+/// A preview for the change app icon view
 struct MainChangeAppIconView_Previews: PreviewProvider {
     static var previews: some View {
         MainChangeAppIconView(mainChangeAppIcon: MainChangeAppIconViewObservable())
