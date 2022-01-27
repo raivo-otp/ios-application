@@ -2,9 +2,9 @@ name: iOS starter workflow
 
 on:
   push:
-    branches: [ master, testflight ]
+    branches: [ master, testflight, develop ]
   pull_request:
-    branches: [ master, testflight ]
+    branches: [ master, testflight, develop ]
 
 jobs:
   build:
@@ -16,8 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Set Default Scheme
         run: |
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+          default='Raivo DEBUG'
           echo $default | cat >default
           echo Using default scheme: $default
       - name: Build
