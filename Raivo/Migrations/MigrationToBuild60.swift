@@ -4,20 +4,21 @@
 // Copyright (c) 2021 Tijme Gommers. All rights reserved. Raivo OTP
 // is provided 'as-is', without any express or implied warranty.
 //
-// Modification, duplication or distribution of this software (in 
+// Modification, duplication or distribution of this software (in
 // source and binary forms) for any purpose is strictly prohibited.
 //
 // https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md
-// 
+//
 
 import Foundation
 import RealmSwift
+import Valet
 
 /// A class for migrating and rolling back changes for the corresponding build.
-class MigrationToBuild11: MigrationProtocol {
+class MigrationToBuild60: MigrationProtocol {
 
     /// The build number belonging to this migration.
-    static var build: Int = 11
+    static var build: Int = 60
     
     /// Run Realm migrations to make data compatible with this build.
     ///
@@ -28,18 +29,38 @@ class MigrationToBuild11: MigrationProtocol {
         // Not implemented
     }
     
+    /// A migration function that is always called, for all builds, on every startup.
+    ///
+    /// - Note: Only required when e.g. migrating (keychain) items that are referenced before initialization of the app
+    /// - Note: This migration function should include its own conditionals for when to be executed.
+    func migratePreBoot() {
+        do {
+            // Force migration of '.always' Valet items to '.afterFirstUnlock' Valet, throw otherwise.
+            try Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .afterFirstUnlock)
+                .migrateObjectsFromAlwaysAccessibleValet(removeOnCompletion: true)
+        } catch KeychainError.itemNotFound {
+            // No worries, we don't have anything to migrate
+        } catch {
+            log.error("Unexpected pre-boot Valet migration error: \(error).")
+        }
+    }
+    
     /// Run migrations to make data compatible with this build (before app initialization).
-    func migratePreInitialize() {
+    ///
+    /// - Throws: Migration exceptions on fail
+    func migratePreInitialize() throws {
         log.warning("Running pre init migration...")
         
         // Not implemented
     }
     
     /// Run generic migrations to make data compatible with this build.
-    func migrateGeneric() {
+    ///
+    /// - Throws: Migration exceptions on fail
+    func migrateGeneric() throws {
         log.warning("Running generic migration...")
         
-        migrateTouchIDToBiometricInStorage()
+        // Not implemented
     }
     
     /// This build does not require generic migrations using the syncer account.
@@ -51,10 +72,9 @@ class MigrationToBuild11: MigrationProtocol {
         // Not implemented
     }
     
-    /// Migrate the TouchID key to the Biometric Authentication key
-    private func migrateTouchIDToBiometricInStorage() {
-        let biometricEnabled = StorageHelper.shared.getTouchIDUnlockEnabled()
-        StorageHelper.shared.setBiometricUnlockEnabled(biometricEnabled)
+    /// Migrate the Valet dependency one major version from v3 to v4.
+    private func migrateValetFromVersion3ToVersion4() {
+        // migrateObjectsFromAlwaysAccessibleValet(removeOnCompletion:)
     }
     
 }

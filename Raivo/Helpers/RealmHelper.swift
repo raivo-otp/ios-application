@@ -80,7 +80,7 @@ class RealmHelper {
         }
         
         let realmfile = String(Int(Date().timeIntervalSince1970)) + ".realm"
-        StorageHelper.shared.setRealmFilename(realmfile)
+        try! StorageHelper.shared.setRealmFilename(realmfile)
         
         return getFileURL()
     }

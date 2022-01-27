@@ -47,8 +47,8 @@ A PIN code must be used to unlock the Service on your device. After entering a P
 
 #### Offline (none)
 
-If you choose "Offline (none)" as synchronization method, none of your data will be sent to a Service Provider. All the data will be stored in a local database on your device. This data is AES-256 encrypted with a key that is derived using PBKDF2 based on a combination of your encryption key and PIN code. Your encryption key (that was defined during setup) is stored in Secure Enclave. Your PIN code is not stored on the device.
+If you choose "Offline (none)" as synchronization method, none of your data will be sent to a Service Provider. All the data will be stored in a local database on your device. This data is encrypted with a key that is derived using PBKDF2 based on a combination of your encryption key and PIN code. Your encryption key (that was defined during setup) is stored in Secure Enclave. Your PIN code is not stored on the device.
 
 #### Apple iCloud
 
-If you choose "Apple iCloud" as synchronization method, the statements of the "Offline (none)" synchronization method apply to the local database, with in addition that the data in the local database is sent to CloudKit (a database in Apple iCloud). The data that is sent to CloudKit is AES-256 encrypted using your encryption key. Your encryption key (that was defined during setup) is stored in Secure Enclave. This allows you to have different PIN codes on different instances of the Service.
+If you choose "Apple iCloud" as synchronization method, the statements of the "Offline (none)" synchronization method apply to the local database, with in addition that the data in the local database is sent to CloudKit (a database in Apple iCloud). The data that is sent to CloudKit is encrypted using your encryption key. Your encryption key (that was defined during setup) is stored in Secure Enclave. This allows you to have different PIN codes on different instances of the Service.

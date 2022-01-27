@@ -44,7 +44,7 @@ class StorageHelper {
     ///
     /// - Returns: The `Valet` settings instance
     public func globals() -> Valet {
-        return Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .always)
+        return Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .afterFirstUnlock)
     }
     
     /// Get a `Valet` that enables you to store key/value pairs in the keychain (outside of Secure Encalve).
@@ -64,15 +64,17 @@ class StorageHelper {
     /// Clear all of the settings and secrets so they can be initialized again in a later stage.
     ///
     /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
+    /// - Returns: Positive on success
+    /// - Throws: Valet/Keychain exceptions on fail
     /// - Note The `dueToPasscodeChange` parameter can be set to true on e.g. a passcode change.
-    public func clear(dueToPasscodeChange: Bool = false) {
+    public func clear(dueToPasscodeChange: Bool = false) throws {
         guard !dueToPasscodeChange else { return }
 
         log.warning("Removing all keychain and secure enclave entries")
         
-        globals().removeAllObjects()
-        settings().removeAllObjects()
-        secrets().removeAllObjects()
+        try globals().removeAllObjects()
+        try settings().removeAllObjects()
+        try secrets().removeAllObjects()
     }
     
     /// Check if the user can access secrets (some sort of biometric unlock should be available)
@@ -85,31 +87,33 @@ class StorageHelper {
     /// Set the password part of the encryption key.
     ///
     /// - Parameter password: The new password
-    public func setEncryptionPassword(_ password: String) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setEncryptionPassword(_ password: String) throws {
         log.verbose("Setting encryption password")
-        settings().set(string: password, forKey: Key.PASSWORD)
+        try settings().setString(password, forKey: Key.PASSWORD)
     }
     
     /// Get the password part of the encryption key.
     ///
     /// - Returns: The stored password
     public func getEncryptionPassword() -> String? {
-        return settings().string(forKey: Key.PASSWORD)
+        return try? settings().string(forKey: Key.PASSWORD)
     }
     
     /// Set the lockscreen timeout.
     ///
     /// - Parameter seconds: The new lockscreen timeout
-    public func setLockscreenTimeout(_ seconds: TimeInterval) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setLockscreenTimeout(_ seconds: TimeInterval) throws {
         log.verbose("Setting lockscreen timeout")
-        globals().set(string: String(seconds), forKey: Key.LOCKSCREEN_TIMEOUT)
+        try globals().setString(String(seconds), forKey: Key.LOCKSCREEN_TIMEOUT)
     }
     
     /// Get the lockscreen timeout.
     ///
     /// - Returns: The lockscreen timeout
     public func getLockscreenTimeout() -> TimeInterval? {
-        guard let timeout = globals().string(forKey: Key.LOCKSCREEN_TIMEOUT) else {
+        guard let timeout = try? globals().string(forKey: Key.LOCKSCREEN_TIMEOUT) else {
             return nil
         }
         
@@ -119,43 +123,46 @@ class StorageHelper {
     /// Set the realm (sqlite) filename (not the absolute path).
     ///
     /// - Parameter filename: The new filename
-    public func setRealmFilename(_ filename: String) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setRealmFilename(_ filename: String) throws {
         log.verbose("Setting realm filename")
-        globals().set(string: filename, forKey: Key.REALM_FILENAME)
+        try globals().setString(filename, forKey: Key.REALM_FILENAME)
     }
     
     /// Get the realm filename.
     ///
     /// - Returns: The realm filename
     public func getRealmFilename() -> String? {
-        return globals().string(forKey: Key.REALM_FILENAME)
+        return try? globals().string(forKey: Key.REALM_FILENAME)
     }
     
     /// Set the synchronization provider.
     ///
     /// - Parameter provider: The unique ID of the synchronization provider
-    public func setSynchronizationProvider(_ provider: String) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setSynchronizationProvider(_ provider: String) throws {
         log.verbose("Setting synchronization provider")
-        globals().set(string: provider, forKey: Key.SYNCHRONIZATION_PROVIDER)
+        try globals().setString(provider, forKey: Key.SYNCHRONIZATION_PROVIDER)
     }
     
     /// Get the synchronization provider.
     ///
     /// - Returns: The synchronization provider
     public func getSynchronizationProvider() -> String? {
-        return globals().string(forKey: Key.SYNCHRONIZATION_PROVIDER)
+        return try? globals().string(forKey: Key.SYNCHRONIZATION_PROVIDER)
     }
     
     /// Set the synchronization account identifier.
     ///
     /// - Parameter accountIdentifier: The identifier
-    public func setSynchronizationAccountIdentifier(_ accountIdentifier: String?) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setSynchronizationAccountIdentifier(_ accountIdentifier: String?) throws {
         log.verbose("Setting synchronization account identifier")
         
         if let accountIdentifier = accountIdentifier {
-            globals().set(string: accountIdentifier, forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+            try globals().setString(accountIdentifier, forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
         } else {
-            globals().removeObject(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+            try globals().removeObject(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
         }
     }
     
@@ -163,37 +170,39 @@ class StorageHelper {
     ///
     /// - Returns: The identifier
     public func getSynchronizationAccountIdentifier() -> String? {
-        return globals().string(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
+        return try? globals().string(forKey: Key.SYNCHRONIZATION_ACCOUNT_IDENTIFIER)
     }
     
     /// Set the icons effect.
     ///
     /// - Parameter effect: The icons effect
-    public func setIconsEffect(_ effect: String) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setIconsEffect(_ effect: String) throws {
         log.verbose("Setting icons effect")
-        globals().set(string: effect, forKey: Key.ICONS_EFFECT)
+        try globals().setString(effect, forKey: Key.ICONS_EFFECT)
     }
     
     /// Get the icons effect.
     ///
     /// - Returns: The icons effect
     public func getIconsEffect() -> String? {
-        return globals().string(forKey: Key.ICONS_EFFECT)
+        return try? globals().string(forKey: Key.ICONS_EFFECT)
     }
     
     /// Set the amount of times the user entered the passcode.
     ///
     /// - Parameter tries: The amount of tries
-    public func setPasscodeTriedAmount(_ tries: Int) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setPasscodeTriedAmount(_ tries: Int) throws {
         log.verbose("Setting passcode tried amount")
-        globals().set(string: String(tries), forKey: Key.PASSCODE_TRIED_AMOUNT)
+        try globals().setString(String(tries), forKey: Key.PASSCODE_TRIED_AMOUNT)
     }
     
     /// Get the amount of times the user tried to enter the passcode.
     ///
     /// - Returns: The amount of tries
     public func getPasscodeTriedAmount() -> Int? {
-        guard let tries = globals().string(forKey: Key.PASSCODE_TRIED_AMOUNT) else {
+        guard let tries = try? globals().string(forKey: Key.PASSCODE_TRIED_AMOUNT) else {
             return nil
         }
         
@@ -203,16 +212,17 @@ class StorageHelper {
     /// Set the timestamp of the last passcode try.
     ///
     /// - Parameter timestamp: The last time the user tried a passcode
-    public func setPasscodeTriedTimestamp(_ timestamp: TimeInterval) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setPasscodeTriedTimestamp(_ timestamp: TimeInterval) throws {
         log.verbose("Setting passcode tried timestamp")
-        globals().set(string: String(timestamp), forKey: Key.PASSCODE_TRIED_TIMESTAMP)
+        try globals().setString(String(timestamp), forKey: Key.PASSCODE_TRIED_TIMESTAMP)
     }
     
     /// Get the timestamp of the last passcode try.
     ///
     /// - Returns: The last time the user tried a passcode
     public func getPasscodeTriedTimestamp() -> TimeInterval? {
-        guard let tries = globals().string(forKey: Key.PASSCODE_TRIED_TIMESTAMP) else {
+        guard let tries = try? globals().string(forKey: Key.PASSCODE_TRIED_TIMESTAMP) else {
             return nil
         }
         
@@ -222,16 +232,17 @@ class StorageHelper {
     /// Set the previous application build version.
     ///
     /// - Parameter build: The new 'previous build'.
-    public func setPreviousBuild(_ build: Int) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setPreviousBuild(_ build: Int) throws {
         log.verbose("Setting previous build")
-        settings().set(string: String(build), forKey: Key.PREVIOUS_BUILD)
+        try settings().setString(String(build), forKey: Key.PREVIOUS_BUILD)
     }
     
     /// Get the previous application build version.
     ///
     /// - Returns: The previous build
     public func getPreviousBuild() -> Int? {
-        guard let build = settings().string(forKey: Key.PREVIOUS_BUILD) else {
+        guard let build = try? settings().string(forKey: Key.PREVIOUS_BUILD) else {
             return nil
         }
         
@@ -241,13 +252,14 @@ class StorageHelper {
     /// Set the complete encryption key (password+passcode) in Secure Enclave.
     ///
     /// - Parameter key: The encryption key
-    public func setEncryptionKey(_ key: String?) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setEncryptionKey(_ key: String?) throws {
         log.verbose("Setting encryption key")
         
         if let key = key {
-            secrets().set(string: key, forKey: Key.ENCRYPTION_KEY)
+            try secrets().setString(key, forKey: Key.ENCRYPTION_KEY)
         } else {
-            secrets().removeObject(forKey: Key.ENCRYPTION_KEY)
+            try secrets().removeObject(forKey: Key.ENCRYPTION_KEY)
         }
     }
     
@@ -256,24 +268,18 @@ class StorageHelper {
     /// - Parameter prompt: The biometric unlock message to show
     /// - Returns: The encryption key
     public func getEncryptionKey(prompt: String) -> String? {
-        let result = secrets().string(forKey: Key.ENCRYPTION_KEY, withPrompt: prompt)
-        
-        switch result {
-        case .success(let key):
-            return key
-        default:
-            return nil
-        }
+        return try? secrets().string(forKey: Key.ENCRYPTION_KEY, withPrompt: prompt)
     }
     
     /// Set a boolean representing if TouchID unlock is enabled.
     ///
     /// - Parameter enabled: Positive if TouchID unlock is enabled
+    /// - Throws: Valet/Keychain exceptions on fail
     @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
-    public func setTouchIDUnlockEnabled(_ enabled: Bool) {
+    public func setTouchIDUnlockEnabled(_ enabled: Bool) throws {
         log.verbose("Setting TouchID unlock enabled")
         
-        globals().set(string: String(enabled), forKey: Key.TOUCHID_ENABLED)
+        try  globals().setString(String(enabled), forKey: Key.TOUCHID_ENABLED)
     }
     
     /// Check if TouchID unlock is currently enabled.
@@ -281,7 +287,7 @@ class StorageHelper {
     /// - Returns: Positive if biometric unlock is enabled
     @available(*, deprecated, message: "TouchID has been migrated to Biometric Authentication since build 11.")
     public func getTouchIDUnlockEnabled() -> Bool {
-        guard let enabled = globals().string(forKey: Key.TOUCHID_ENABLED) else {
+        guard let enabled = try? globals().string(forKey: Key.TOUCHID_ENABLED) else {
             return false
         }
         
@@ -291,17 +297,18 @@ class StorageHelper {
     /// Set a boolean representing if biometric unlock is enabled.
     ///
     /// - Parameter enabled: Positive if biometric unlock is enabled
-    public func setBiometricUnlockEnabled(_ enabled: Bool) {
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setBiometricUnlockEnabled(_ enabled: Bool) throws {
         log.verbose("Setting biometric unlock enabled")
         
-        globals().set(string: String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
+        try globals().setString(String(enabled), forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED)
     }
     
     /// Check if biometric unlock is currently enabled.
     ///
     /// - Returns: Positive if biometric unlock is enabled
     public func getBiometricUnlockEnabled() -> Bool {
-        guard let enabled = globals().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
+        guard let enabled = try? globals().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
             return false
         }
         
@@ -311,17 +318,18 @@ class StorageHelper {
     /// Set a boolean representing if local file logging is enabled.
     ///
     /// - Parameter enabled: Positive if local file logging is enabled.
-    public func setFileLoggingEnabled(_ enabled: Bool) {
+    /// - Throws: Valet/Keychain exceptions on fail 
+    public func setFileLoggingEnabled(_ enabled: Bool) throws {
         log.verbose("Setting file logging enabled")
         
-        globals().set(string: String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
+        try globals().setString(String(enabled), forKey: Key.FILE_LOGGING_ENABLED)
     }
     
     /// Check if local file logging is enabled.
     ///
     /// - Returns: Positive if local file logging is enabled.
     public func getFileLoggingEnabled() -> Bool {
-        guard let enabled = globals().string(forKey: Key.FILE_LOGGING_ENABLED) else {
+        guard let enabled = try? globals().string(forKey: Key.FILE_LOGGING_ENABLED) else {
             return false
         }
         

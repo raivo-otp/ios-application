@@ -147,9 +147,14 @@ class MiscellaneousForm {
                 cell.textLabel?.textColor = UIColor.getTintRed()
                 cell.imageView?.image = UIImage(named: "form-lock")
             }).onChange({ row in
-                StorageHelper.shared.setLockscreenTimeout(row.value!.value)
-                getAppPrincipal().scheduleInactivityTimer()
-                row.collapseInlineRow()
+                do {
+                    try StorageHelper.shared.setLockscreenTimeout(row.value!.value)
+                    getAppPrincipal().scheduleInactivityTimer()
+                    row.collapseInlineRow()
+                } catch {
+                    log.error("Could not save inactivity lock: \(error)")
+                    BannerHelper.shared.error("Error", "Could not save setting")
+                }
             })
             
             <<< SwitchRow("biometric_unlock", { row in
@@ -166,12 +171,17 @@ class MiscellaneousForm {
                     return
                 }
                 
-                if !(row.value ?? false) {
-                    StorageHelper.shared.setEncryptionKey(nil)
-                    StorageHelper.shared.setBiometricUnlockEnabled(false)
-                } else {
-                    StorageHelper.shared.setEncryptionKey(key.base64EncodedString())
-                    StorageHelper.shared.setBiometricUnlockEnabled(true)
+                do {
+                    if !(row.value ?? false) {
+                        try StorageHelper.shared.setEncryptionKey(nil)
+                        try StorageHelper.shared.setBiometricUnlockEnabled(false)
+                    } else {
+                        try StorageHelper.shared.setEncryptionKey(key.base64EncodedString())
+                        try StorageHelper.shared.setBiometricUnlockEnabled(true)
+                    }
+                } catch {
+                    log.error("Could not save biometrick unlock: \(error)")
+                    BannerHelper.shared.error("Error", "Could not save setting")
                 }
             })
             
@@ -203,17 +213,23 @@ class MiscellaneousForm {
             }).onChange({ row in
                 guard self.isReady else { return }
                 
-                StorageHelper.shared.setIconsEffect(row.value!.value)
-                row.collapseInlineRow()
-                
-                let refreshAlert = UIAlertController(
-                    title: "Restart required!",
-                    message: "The effect of the icons will change after you've restarted Raivo.",
-                    preferredStyle: UIAlertController.Style.alert
-                )
-                
-                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                controller.present(refreshAlert, animated: true, completion: nil)
+                do {
+                    try StorageHelper.shared.setIconsEffect(row.value!.value)
+                    
+                    row.collapseInlineRow()
+                    
+                    let refreshAlert = UIAlertController(
+                        title: "Restart required!",
+                        message: "The effect of the icons will change after you've restarted Raivo.",
+                        preferredStyle: UIAlertController.Style.alert
+                    )
+                    
+                    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    controller.present(refreshAlert, animated: true, completion: nil)
+                } catch {
+                    log.error("Could not save icons effect: \(error)")
+                    BannerHelper.shared.error("Error", "Could not save setting")
+                }
             })
         
             <<< ButtonRow("change_app_icon", { row in
@@ -233,7 +249,7 @@ class MiscellaneousForm {
         form +++ Section("Data", { section in
             section.tag = "data"
             section.hidden = Condition(booleanLiteral: !authenticated)
-            section.footer = HeaderFooterView(title: "Your data will be exported in an AES encrypted ZIP archive (using your encryption password).")
+            section.footer = HeaderFooterView(title: "Your data will be exported in an encrypted ZIP archive (using your encryption password).")
         })
             
             <<< ButtonRow("export", { row in
@@ -264,12 +280,17 @@ class MiscellaneousForm {
                 cell.switchControl.tintColor = UIColor.getTintRed()
                 cell.switchControl.onTintColor = UIColor.getTintRed()
             }).onChange({ row in
-                StorageHelper.shared.setFileLoggingEnabled(row.value ?? false)
-                
-                if StorageHelper.shared.getFileLoggingEnabled() {
-                    initializeFileLogging()
-                } else {
-                    log.removeDestination(logFileDestination)
+                do {
+                    try StorageHelper.shared.setFileLoggingEnabled(row.value ?? false)
+                    
+                    if StorageHelper.shared.getFileLoggingEnabled() {
+                        initializeFileLogging()
+                    } else {
+                        log.removeDestination(logFileDestination)
+                    }
+                } catch {
+                    log.error("Could not save file logging enabled: \(error)")
+                    BannerHelper.shared.error("Error", "Could not save setting")
                 }
             })
             

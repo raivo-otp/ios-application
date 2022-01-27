@@ -17,10 +17,14 @@ import SDWebImage
 
 class LoadEntryViewController: UIViewController {
     
+    private var errorMessage: String?
+    
     override func viewDidLoad() {
         
         // Run migrations prior the the app initialization.
-        MigrationHelper.shared.runPreInitializeMigrations()
+        do { try MigrationHelper.shared.runPreInitializeMigrations() } catch {
+            return errorMessage = "Could not run pre-initialization migrations"
+        }
 
         // Initialize console logging (in debug builds)
         if AppHelper.compilation == AppHelper.Compilation.debug {
@@ -46,11 +50,16 @@ class LoadEntryViewController: UIViewController {
         // https://stackoverflow.com/questions/4747404/delete-keychain-items-when-an-app-is-uninstalled
         if StateHelper.shared.isFirstRun() {
             log.verbose("This is the first run of the app")
-            StorageHelper.shared.clear()
+            
+            do { try StorageHelper.shared.clear() } catch {
+                return errorMessage = "Could not clear storage during first run of the app"
+            }
         }
         
         // Run all migrations except Realm migrations
-        MigrationHelper.shared.runGenericMigrations()
+        do { try MigrationHelper.shared.runGenericMigrations() } catch {
+            return errorMessage = "Could not run generic migrations"
+        }
 
         // Preload the synchronization information
         SyncerHelper.shared.getSyncer().getAccount(success: { (account, syncerID) in
@@ -70,6 +79,15 @@ class LoadEntryViewController: UIViewController {
                 getAppDelegate().updateStoryboard(.transitionCrossDissolve)
             }
         })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let errorMessage = errorMessage {
+            log.error("An error occurred during entry loading: \(errorMessage)")
+            BannerHelper.shared.error("Error", errorMessage)
+        }
     }
     
 }

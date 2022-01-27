@@ -177,10 +177,15 @@ class DataExportFeature {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         archiveFile = directory.appendingPathComponent("raivo-otp-export.zip")
         
+        // For now we disable AES encryption, and use regular encryption instead.
+        // Please see: https://github.com/raivo-otp/ios-application/issues/59
         SSZipArchive.createZipFile(
             atPath: archiveFile!.path,
-            withFilesAtPaths: files.map { $0.path },
-            withPassword: password
+            withContentsOfDirectory: files.first!.path,
+            keepParentDirectory: false,
+            compressionLevel: 0,
+            password: password,
+            aes: false
         )
         
         return archiveFile
