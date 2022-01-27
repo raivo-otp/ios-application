@@ -16,7 +16,7 @@ jobs:
         include:
           - destination: 'name=iPhone 12 Pro,OS=14.5'
             scheme: 'Raivo DEBUG'
-          - destination: 'name=iPhone 13 Pro,OS=15.2'
+          - destination: 'name=iPhone 13 Pro,OS=15.0'
             scheme: 'Raivo DEBUG'
     steps:
       - name: Checkout
@@ -30,12 +30,12 @@ jobs:
           xcversion simulators --install='iOS 14.5'
           xcrun simctl create iPhone-12-Pro "iPhone 12 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-14-5"
           xcrun simctl list devices 14.5
-      - name: Prepare iOS 15.2 simulator
-        if: contains(matrix.destination, 'OS=15.2')
+      - name: Prepare iOS 15.0 simulator
+        if: contains(matrix.destination, 'OS=15.0')
         run: |
-          xcversion simulators --install='iOS 15.2'
-          xcrun simctl create iPhone-13-Pro "iPhone 13 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-15-2"
-          xcrun simctl list devices 15.2
+          xcversion simulators --install='iOS 15.0'
+          xcrun simctl create iPhone-13-Pro "iPhone 13 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-15-0"
+          xcrun simctl list devices 15.0
       - name: Build and test
         run: |
           xcodebuild build test -project ${project} -scheme "${scheme}" -destination "${destination}" | xcpretty && exit ${PIPESTATUS[0]}
