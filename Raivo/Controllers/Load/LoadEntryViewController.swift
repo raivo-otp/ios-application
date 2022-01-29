@@ -73,7 +73,7 @@ class LoadEntryViewController: UIViewController {
             }
         }, error: { (error, syncerID) in
             DispatchQueue.main.async {
-                log.verbose("Error while getting syncer account")
+                log.verbose("Error while getting syncer account: \(error)")
                 getAppDelegate().syncerAccountIdentifier = nil
                 getAppDelegate().applicationIsLoaded = true
                 getAppDelegate().updateStoryboard(.transitionCrossDissolve)

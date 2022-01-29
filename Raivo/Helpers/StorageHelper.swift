@@ -18,7 +18,7 @@ import Valet
 class StorageHelper {
     
     /// The keys that can be used to get/set values
-    private struct Key {
+    public struct Key {
         static let PASSWORD = "EncryptionPassword"
         static let LOCKSCREEN_TIMEOUT = "LockscreenTimeout"
         static let REALM_FILENAME = "RealmFilename"
@@ -75,6 +75,13 @@ class StorageHelper {
         try globals().removeAllObjects()
         try settings().removeAllObjects()
         try secrets().removeAllObjects()
+        
+        // Try to delete literally all items in the keychain, available to the app
+        let secItemClasses = [kSecClassGenericPassword, kSecClassInternetPassword, kSecClassCertificate, kSecClassKey, kSecClassIdentity]
+        for itemClass in secItemClasses {
+            let spec: NSDictionary = [kSecClass: itemClass]
+            SecItemDelete(spec)
+        }
     }
     
     /// Check if the user can access secrets (some sort of biometric unlock should be available)

@@ -32,14 +32,22 @@ class MigrationToBuild60: MigrationProtocol {
     /// A migration function that is always called, for all builds, on every startup.
     ///
     /// - Note: Only required when e.g. migrating (keychain) items that are referenced before initialization of the app
-    /// - Note: This migration function should include its own conditionals for when to be executed.
+    /// - Note: This migration function includes its own conditionals for when to be executed.
     func migratePreBoot() {
         do {
-            // Force migration of '.always' Valet items to '.afterFirstUnlock' Valet, throw otherwise.
-            try Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .afterFirstUnlock)
-                .migrateObjectsFromAlwaysAccessibleValet(removeOnCompletion: true)
+            // Try to get one item that should exist in the Keychain (stored with `afterFirstUnlock`) if the migration already ran.
+            let valet = Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .afterFirstUnlock)
+            let realmFilenameInGlobals = (try? valet.string(forKey: StorageHelper.Key.REALM_FILENAME)) ?? ""
+            
+            // If it doesn't exist, we should run the migration. We can even do this if this is the first install, as it will have no further effect.
+            if realmFilenameInGlobals.count < 1 {
+                try Valet.valet(with: Identifier(nonEmpty: "settings")!, accessibility: .afterFirstUnlock)
+                    .migrateObjectsFromAlwaysAccessibleValet(removeOnCompletion: true)
+                
+                log.info("Migrated Valet from version 3 to version 4")
+            }
         } catch KeychainError.itemNotFound {
-            // No worries, we don't have anything to migrate
+            log.verbose("No items found to migrate during pre-boot Valet migration.")
         } catch {
             log.error("Unexpected pre-boot Valet migration error: \(error).")
         }
