@@ -33,6 +33,8 @@ class TimeBasedPasswordCell: PasswordCell {
     
     @IBOutlet weak var previousPassword: UILabel!
     
+    @IBOutlet weak var passwordDelimiter: UILabel!
+    
     @IBOutlet weak var progressView: UIProgressView!
     
     @IBOutlet weak var notSyncedView: UIImageView!
@@ -45,13 +47,25 @@ class TimeBasedPasswordCell: PasswordCell {
         super.init(coder: aDecoder)
     }
     
+    func updatePreviousPassword(_ password: Password) {
+        if StorageHelper.shared.getPreviousPasswordEnabled() {
+            previousPassword.isHidden = false
+            passwordDelimiter.isHidden = false
+            previousPassword.text = TokenHelper.shared.formatPassword(password.getToken(), previous: true)
+        }
+        else {
+            previousPassword.isHidden = true
+            passwordDelimiter.isHidden = true
+        }
+    }
+    
     override internal func setPassword(_ password: Password) {
         self.password = password
         
         issuer.text = password.issuer
         account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
-        previousPassword.text = TokenHelper.shared.formatPassword(password.getToken(), previous: true)
+        updatePreviousPassword(password)
         notSyncedView.isHidden = password.synced || password.syncing
         
         progressView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
@@ -80,7 +94,7 @@ class TimeBasedPasswordCell: PasswordCell {
         stateTimer?.invalidate()
         
         currentPassword.text = TokenHelper.shared.formatPassword(password!.getToken())
-        previousPassword.text = TokenHelper.shared.formatPassword(password!.getToken(), previous: true)
+        updatePreviousPassword(password!)
         notSyncedView.isHidden = password!.synced || password!.syncing
         
         let timer = TimeInterval(password!.timer)

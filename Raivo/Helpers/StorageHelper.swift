@@ -31,6 +31,7 @@ class StorageHelper {
         static let ENCRYPTION_KEY = "EncryptionKey"
         static let TOUCHID_ENABLED = "TouchIDEnabled"
         static let BIOMETRIC_AUTHENTICATION_ENABLED = "BiometricAuthenticationEnabled"
+        static let PREVIOUS_PASSWORD_ENABLED = "PreviousPasswordEnabled"
         static let FILE_LOGGING_ENABLED = "FileLoggingEnabled"
     }
     
@@ -320,6 +321,26 @@ class StorageHelper {
         }
         
         return Bool(enabled) ?? false
+    }
+    
+    /// Set a boolean representing if previous password visibility is enabled.
+    ///
+    /// - Parameter enabled: Positive if previous password visibility is enabled
+    public func setPreviousPasswordEnabled(_ enabled: Bool) throws {
+        log.verbose("Setting previous password visibility enabled to \(enabled)")
+        
+        try globals().setString(String(enabled), forKey: Key.PREVIOUS_PASSWORD_ENABLED)
+    }
+    
+    /// Check if previous password visibility is currently enabled.
+    ///
+    /// - Returns: Positive if previous password visibility is enabled
+    public func getPreviousPasswordEnabled() -> Bool {
+        guard let enabled = try? globals().string(forKey: Key.PREVIOUS_PASSWORD_ENABLED) else {
+            return true
+        }
+        
+        return Bool(enabled) ?? true
     }
     
     /// Set a boolean representing if local file logging is enabled.
