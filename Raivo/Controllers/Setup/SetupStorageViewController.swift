@@ -117,7 +117,7 @@ class SetupStorageViewController: FormViewController, SetupState {
     /// - Parameter error: The error that occurred.
     /// - Parameter syncerID: The ID of the synchronization provider.
     func challengeError(_ error: Error, _ syncerID: String) {
-        log.error("Challenge error for syncer: " + syncerID)
+        log.error("Challenge error for " + syncerID + ": " + error.localizedDescription)
         
         self.progress[syncerID + "Challenge"] = true
         

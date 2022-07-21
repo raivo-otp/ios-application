@@ -161,7 +161,15 @@ class DataExportFeature {
     private func saveRepresentationToFile(_ text: String, _ type: Representation) -> URL? {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
-        let filePath = directory.appendingPathComponent("raivo-otp-export." + getFileExtension(type))
+        let folderPath = directory.appendingPathComponent("raivo-otp-export")
+        
+        do {
+            try FileManager.default.createDirectory(atPath: folderPath.path, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            return nil
+        }
+        
+        let filePath = folderPath.appendingPathComponent("raivo-otp-export." + getFileExtension(type))
         
         do {
             try text.write(to: filePath, atomically: false, encoding: .utf8)
@@ -177,11 +185,13 @@ class DataExportFeature {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         archiveFile = directory.appendingPathComponent("raivo-otp-export.zip")
         
+        let inputFilesPath = files.first!.path.split(separator: "/").dropLast(1).map(String.init).joined(separator: "/")
+        
         // For now we disable AES encryption, and use regular encryption instead.
         // Please see: https://github.com/raivo-otp/ios-application/issues/59
         SSZipArchive.createZipFile(
             atPath: archiveFile!.path,
-            withContentsOfDirectory: files.first!.path,
+            withContentsOfDirectory: inputFilesPath,
             keepParentDirectory: false,
             compressionLevel: 0,
             password: password,
