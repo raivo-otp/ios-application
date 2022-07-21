@@ -160,7 +160,7 @@ class SetupRoboticTest: XCTestCase {
         HumanDelayHelper.idle()
         
         let mainPasswords = app.otherElements["mainPasswords"]
-        XCTAsse rtTrue(mainPasswords.exists)
+        XCTAssertTrue(mainPasswords.exists)
     }
 
 }
