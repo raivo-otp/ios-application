@@ -112,7 +112,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ivanvorobei/SPAlert.git",
       "state" : {
-        "revision" : "12e9c25d650c10ea5988c75e5c5ade1e38742a96",
+        "revision" : "18862409586ac547bcdf8957cd96beb872fbc729",
         "version" : "2.1.4"
       }
     },
@@ -121,7 +121,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ivanvorobei/SPStorkController.git",
       "state" : {
-        "revision" : "9eea2c3259420c278fcd2dbbab242ef5fcf54dc9",
+        "revision" : "87440c439e84bea61b28e82788ae704ab7171eb1",
         "version" : "1.8.5"
       }
     },
