@@ -216,8 +216,10 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         passcodeField.resignFirstResponder()
         attemptingBiometricUnlock = true
         
+        let optionalKey = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time")
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            if let key = StorageHelper.shared.getEncryptionKey(prompt: "Unlock Raivo in no time") {
+            if let key = optionalKey {
                 self.attemptingBiometricUnlock = false
                 self.resetPasscodeTries()
 

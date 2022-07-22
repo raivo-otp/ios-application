@@ -54,6 +54,7 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
             if !response {
                 log.error("Failed to get the camera device; no permissions")
+                self.captureSession.stopRunning()
                 self.cameraUnavailableView(true)
                 self.alertToEncourageCameraAccessInitially()
             }
@@ -61,6 +62,7 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
 
         guard let captureDevice = deviceDiscoverySession.devices.first else {
             log.error("Failed to get the camera device")
+            captureSession.stopRunning()
             self.cameraUnavailableView(true)
             return
         }
@@ -76,6 +78,8 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
         } catch {
             log.error(error.localizedDescription)
+            captureSession.stopRunning()
+            self.cameraUnavailableView(true)
             return
         }
 
@@ -88,13 +92,11 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             name: .AVCaptureSessionDidStartRunning,
             object: self.captureSession
         )
-        
-        DispatchQueue.global().async {
-            self.captureSession.startRunning()
-        }
     }
     
     deinit {
+        self.captureSession.stopRunning()
+        
         NotificationCenter.default.removeObserver(
             self,
             name: .AVCaptureSessionDidStartRunning,
@@ -118,6 +120,11 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        DispatchQueue.global().async {
+            self.captureSession.startRunning()
+        }
+        
         currentlyCheckingToken = false
         
         cameraPreview.layoutIfNeeded()
@@ -128,6 +135,15 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         }
         
         cameraPreview.layer.addSublayer(videoPreviewLayer!)
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        DispatchQueue.global().async {
+            self.captureSession.stopRunning()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -150,21 +166,23 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             }
         }
         
-        guard ReceiverHelper.shared.isValid(contents) else {
+        let encodedContents = contents.replacingOccurrences(of: " ", with: "%20")
+        
+        guard ReceiverHelper.shared.isValid(encodedContents) else {
             log.verbose("The scanned QR code is not a valid OTP (it is a receiver instead).")
             return BannerHelper.shared.error("Invalid QR code", "Please scan your receiver in the settings screen", wrapper: view) {
                 self.currentlyCheckingToken = false
             }
         }
         
-        guard SeedValueValidator.isValid(contents) else {
+        guard SeedValueValidator.isValid(encodedContents) else {
             log.verbose("The scanned QR code is not a valid OTP.")
             return BannerHelper.shared.error("Invalid QR code", "The QR code is not a valid OTP", wrapper: view) {
                 self.currentlyCheckingToken = false
             }
         }
         
-        lastScannedToken = Token(url: URL(string: metadataObj.stringValue!)!)
+        lastScannedToken = Token(url: URL(string: encodedContents)!)
         performSegue(withIdentifier: "MainCreateScannedOneTimePasswordSegue", sender: nil)
     }
 

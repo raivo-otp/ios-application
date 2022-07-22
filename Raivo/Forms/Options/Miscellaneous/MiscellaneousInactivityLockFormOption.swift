@@ -21,6 +21,7 @@ class MiscellaneousInactivityLockFormOption: BaseFormOption {
     static let OPTION_120_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(120), description: "2 minutes")
     static let OPTION_300_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(300), description: "5 minutes")
     static let OPTION_600_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(600), description: "10 minutes")
+    static let OPTION_86400_SECONDS = MiscellaneousInactivityLockFormOption(TimeInterval(86400), description: "1 day")
     
     static let OPTION_DEFAULT = OPTION_300_SECONDS
     
@@ -30,7 +31,8 @@ class MiscellaneousInactivityLockFormOption: BaseFormOption {
         OPTION_60_SECONDS,
         OPTION_120_SECONDS,
         OPTION_300_SECONDS,
-        OPTION_600_SECONDS
+        OPTION_600_SECONDS,
+        OPTION_86400_SECONDS
     ]
     
     var value: TimeInterval

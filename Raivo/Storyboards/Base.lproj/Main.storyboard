@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -33,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-pd-f2P">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-pd-f2P">
                                 <rect key="frame" x="0.0" y="96" width="375" height="522"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QR codes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
@@ -75,7 +76,7 @@
                             <constraint firstItem="aJL-SM-eC0" firstAttribute="bottom" secondItem="MPC-LA-oL8" secondAttribute="bottom" constant="16" id="BOu-Xm-SvN"/>
                             <constraint firstItem="MPC-LA-oL8" firstAttribute="leading" secondItem="aJL-SM-eC0" secondAttribute="leading" constant="16" id="DMr-J8-JFz"/>
                             <constraint firstItem="tRN-pd-f2P" firstAttribute="leading" secondItem="aJL-SM-eC0" secondAttribute="leading" id="Jwh-F1-8OQ"/>
-                            <constraint firstItem="aJL-SM-eC0" firstAttribute="bottom" secondItem="tRN-pd-f2P" secondAttribute="bottom" id="MFu-eB-Sq4"/>
+                            <constraint firstItem="tRN-pd-f2P" firstAttribute="bottom" secondItem="aJL-SM-eC0" secondAttribute="bottom" id="MFu-eB-Sq4"/>
                             <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="MPC-LA-oL8" secondAttribute="trailing" constant="16" id="Y92-dK-r9H"/>
                             <constraint firstItem="tRN-pd-f2P" firstAttribute="top" secondItem="aJL-SM-eC0" secondAttribute="top" id="mN2-dN-LLc"/>
                         </constraints>
@@ -380,7 +381,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oAN-q3-j0q"/>
+        <segue reference="POH-4S-sTl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
     <resources>

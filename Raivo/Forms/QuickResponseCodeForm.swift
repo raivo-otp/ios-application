@@ -95,8 +95,7 @@ class QuickResponseCodeForm {
             for: try! password.getToken().toCompatibleURL().absoluteString + "&secret=" + password.secret,
             size: EFIntSize(width: 400, height: 400),
             backgroundColor: UIColor.getBackgroundOpaque().cgColor,
-            foregroundColor: UIColor.getLabel().cgColor,
-            pointOffset: 0.2
+            foregroundColor: UIColor.getLabel().cgColor
         )
     }
 }
