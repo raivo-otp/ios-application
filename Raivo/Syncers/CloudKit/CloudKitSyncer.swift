@@ -22,6 +22,8 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     
     var help = "Your Apple iCloud account is used to store your passwords (encrypted). Consult the iCloud account settings in iOS to check which account is being used."
     
+    var errorHelp = "Enable 'iCloud Drive' in iPhone settings to enable Apple iCloud."
+    
     let modelSyncers = [
         id(Password.self): CloudKitPasswordSyncer()
     ]
@@ -86,7 +88,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     }
     
     private func preloadAccountSuccess(_ recordID: CKRecord.ID) {
-        self.account = SyncerAccount(name: "Personal iCloud", identifier: recordID.recordName)
+        self.account = SyncerAccount(name: self.name, identifier: recordID.recordName)
         self.accountError = nil
         self.accountPreloaded = true
         self.accountPreloading = false

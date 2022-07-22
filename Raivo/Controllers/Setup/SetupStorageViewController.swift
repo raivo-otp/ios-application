@@ -37,6 +37,9 @@ class SetupStorageViewController: FormViewController, SetupState {
     /// A reference to the title label of the view
     @IBOutlet weak var viewTitle: UILabel!
     
+    /// A reference to the error label of the view
+    @IBOutlet weak var viewError: UILabel!
+    
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +95,7 @@ class SetupStorageViewController: FormViewController, SetupState {
         
         DispatchQueue.main.async {
             (self.form.rowBy(tag: syncerID) as! ListCheckRow<String>).disabled = Condition(booleanLiteral: true)
+            self.viewError.text = SyncerHelper.shared.getSyncer(syncerID).errorHelp
             
             self.evaluateAllowContinue()
         }

@@ -22,6 +22,8 @@ protocol SyncerProtocol {
     
     var help: String { get }
     
+    var errorHelp: String { get }
+    
     var accountPreloading: Bool { get set }
     
     var accountPreloaded: Bool { get set }

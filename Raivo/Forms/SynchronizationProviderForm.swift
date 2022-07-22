@@ -77,13 +77,13 @@ class SynchronizationProviderForm {
             
             <<< ListCheckRow<String>(id(OfflineSyncer.self), { row in
                 row.selectableValue = id(OfflineSyncer.self)
-                row.title = "None (offline)"
+                row.title = SyncerHelper.shared.getSyncer(id(OfflineSyncer.self)).name
                 row.disabled = Condition(booleanLiteral: true)
             })
             
             <<< ListCheckRow<String>(id(CloudKitSyncer.self), { row in
                 row.selectableValue = id(CloudKitSyncer.self)
-                row.title = "Personal iCloud"
+                row.title = SyncerHelper.shared.getSyncer(id(CloudKitSyncer.self)).name
                 row.disabled = Condition(booleanLiteral: true)
             })
     }

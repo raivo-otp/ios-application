@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -166,7 +166,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="654"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VLj-Dz-bjT">
-                                                <rect key="frame" x="0.0" y="243.5" width="414" height="167.5"/>
+                                                <rect key="frame" x="0.0" y="239.5" width="414" height="175.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-MU-kGz" userLabel="Padded Stack View">
                                                         <rect key="frame" x="8" y="0.0" width="398" height="69.5"/>
@@ -194,12 +194,25 @@
                                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z64-1O-rUh" userLabel="Padded Stack View">
+                                                        <rect key="frame" x="8" y="175.5" width="398" height="0.0"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgz-1q-RV9" userLabel="Error">
+                                                                <rect key="frame" x="199" y="0.0" width="0.0" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="sGv-MU-kGz" firstAttribute="leading" secondItem="VLj-Dz-bjT" secondAttribute="leading" constant="8" id="4Xx-po-A0b"/>
                                                     <constraint firstAttribute="trailing" secondItem="aA1-E6-qmd" secondAttribute="trailing" id="Nvl-kA-zc7"/>
                                                     <constraint firstItem="aA1-E6-qmd" firstAttribute="leading" secondItem="VLj-Dz-bjT" secondAttribute="leading" id="VNv-IU-JSc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Z64-1O-rUh" secondAttribute="trailing" constant="8" id="YTa-cd-if9"/>
                                                     <constraint firstAttribute="trailing" secondItem="sGv-MU-kGz" secondAttribute="trailing" constant="8" id="cZI-bU-fLw"/>
+                                                    <constraint firstItem="Z64-1O-rUh" firstAttribute="leading" secondItem="VLj-Dz-bjT" secondAttribute="leading" constant="8" id="hnf-lG-UyH"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -267,6 +280,7 @@
                     <connections>
                         <outlet property="continueButton" destination="gcC-eG-sVl" id="uEy-wo-Yek"/>
                         <outlet property="tableView" destination="aA1-E6-qmd" id="x6h-UN-3KT"/>
+                        <outlet property="viewError" destination="Cgz-1q-RV9" id="lwV-9P-Yuw"/>
                         <outlet property="viewTitle" destination="j6D-OM-R4n" id="Z4H-5D-70J"/>
                     </connections>
                 </viewController>
@@ -920,7 +934,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRw-Uw-bdd" userLabel="Description">
-                                                                <rect key="frame" x="7" y="28.5" width="384.5" height="101.5"/>
+                                                                <rect key="frame" x="7" y="28.5" width="384" height="101.5"/>
                                                                 <string key="text">Unfortunately there is no way to recover your data without your master password.  The only option you have is to delete all data from your synchronization provider and start all over.</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -1128,7 +1142,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="OLy-2Y-whp"/>
-        <segue reference="aXH-EA-OxQ"/>
+        <segue reference="4D3-TK-2g2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="color-tint-red"/>
     <resources>

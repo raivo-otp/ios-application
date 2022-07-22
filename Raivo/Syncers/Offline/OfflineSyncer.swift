@@ -19,6 +19,8 @@ class OfflineSyncer: BaseSyncer, SyncerProtocol {
     
     var help = "Synchronization is currently disabled."
     
+    var errorHelp = ""
+    
     func notify(_ userInfo: [AnyHashable : Any]) {
         // Not implemented
     }
@@ -40,7 +42,7 @@ class OfflineSyncer: BaseSyncer, SyncerProtocol {
             accountPreloading = false
             
             account = SyncerAccount(
-                name: "None (offline)",
+                name: self.name,
                 identifier: "Offline"
             )
             

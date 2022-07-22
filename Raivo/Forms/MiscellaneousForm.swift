@@ -243,7 +243,7 @@ class MiscellaneousForm {
             })
         
             <<< SwitchRow("previous_password_enabled", { row in
-                row.title = "Show Previous Password"
+                row.title = "Show previous OTPs"
                 row.value = StorageHelper.shared.getPreviousPasswordEnabled()
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textColor = UIColor.getTintRed()

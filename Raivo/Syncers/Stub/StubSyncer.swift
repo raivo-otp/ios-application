@@ -18,6 +18,8 @@ class StubSyncer: BaseSyncer, SyncerProtocol {
     
     var help = "Synchronization is currently disabled."
     
+    var errorHelp = ""
+    
     func notify(_ userInfo: [AnyHashable : Any]) {
         // Not implemented
     }

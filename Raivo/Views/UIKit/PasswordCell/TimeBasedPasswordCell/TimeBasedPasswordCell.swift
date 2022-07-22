@@ -48,15 +48,14 @@ class TimeBasedPasswordCell: PasswordCell {
     }
     
     func updatePreviousPassword(_ password: Password) {
+        previousPassword.text = TokenHelper.shared.formatPassword(password.getToken(), previous: true)
+        
         if StorageHelper.shared.getPreviousPasswordEnabled() {
             previousPassword.isHidden = false
             passwordDelimiter.isHidden = false
-            previousPassword.text = TokenHelper.shared.formatPassword(password.getToken(), previous: true)
-        }
-        else {
+        } else {
             previousPassword.isHidden = true
-            passwordDelimiter.isHidden = true
-        }
+            passwordDelimiter.isHidden = true}
     }
     
     override internal func setPassword(_ password: Password) {
