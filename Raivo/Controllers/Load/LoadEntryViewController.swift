@@ -81,6 +81,9 @@ class LoadEntryViewController: UIViewController {
         })
     }
     
+    /// Notifies the view controller that its view was added to a view hierarchy
+    ///
+    /// - Parameter animated: Positive if the transition was animated
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

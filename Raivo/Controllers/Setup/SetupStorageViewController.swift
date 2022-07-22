@@ -19,6 +19,9 @@ class SetupStorageViewController: FormViewController, SetupState {
     /// A reference to the form to load into this form view
     private var synchronizationProviderForm: SynchronizationProviderForm?
     
+    /// A reference to the form height
+    @IBOutlet weak var synchronizationProviderFormHeight: NSLayoutConstraint!
+    
     /// The available syncrhonization accounts
     public var accounts: [String: SyncerAccount] = [:]
     
@@ -48,6 +51,18 @@ class SetupStorageViewController: FormViewController, SetupState {
         continueButton.setTitle("Loading...", for: UIControl.State.disabled)
         
         resolveSyncers()
+    }
+    
+    /// Notifies the view controller that its view was added to a view hierarchy
+    ///
+    /// - Parameter animated: Positive if the transition was animated
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let cellHeight = synchronizationProviderForm?.syncerOfflineRow.cell.frame.height {
+            let targetHeight = CGFloat(SyncerHelper.availableSyncers.count) * cellHeight
+            synchronizationProviderFormHeight.constant = targetHeight
+        }
     }
     
     /// Start loading all the available synchronization providers and challenges

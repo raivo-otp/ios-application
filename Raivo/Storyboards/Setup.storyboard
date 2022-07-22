@@ -166,7 +166,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="654"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VLj-Dz-bjT">
-                                                <rect key="frame" x="0.0" y="239.5" width="414" height="175.5"/>
+                                                <rect key="frame" x="0.0" y="224.5" width="414" height="205.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-MU-kGz" userLabel="Padded Stack View">
                                                         <rect key="frame" x="8" y="0.0" width="398" height="69.5"/>
@@ -186,16 +186,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-E6-qmd">
-                                                        <rect key="frame" x="0.0" y="77.5" width="414" height="90"/>
+                                                        <rect key="frame" x="0.0" y="77.5" width="414" height="120"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" priority="250" constant="90" id="2Rw-jq-Aup"/>
+                                                            <constraint firstAttribute="height" constant="120" id="pGo-AG-oAo"/>
                                                         </constraints>
                                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z64-1O-rUh" userLabel="Padded Stack View">
-                                                        <rect key="frame" x="8" y="175.5" width="398" height="0.0"/>
+                                                        <rect key="frame" x="8" y="205.5" width="398" height="0.0"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgz-1q-RV9" userLabel="Error">
                                                                 <rect key="frame" x="199" y="0.0" width="0.0" height="0.0"/>
@@ -279,6 +279,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="continueButton" destination="gcC-eG-sVl" id="uEy-wo-Yek"/>
+                        <outlet property="synchronizationProviderFormHeight" destination="pGo-AG-oAo" id="czD-a4-65f"/>
                         <outlet property="tableView" destination="aA1-E6-qmd" id="x6h-UN-3KT"/>
                         <outlet property="viewError" destination="Cgz-1q-RV9" id="lwV-9P-Yuw"/>
                         <outlet property="viewTitle" destination="j6D-OM-R4n" id="Z4H-5D-70J"/>

@@ -38,7 +38,7 @@ class MainQuickResponseCodeViewController: FormViewController {
     ///
     /// - Parameter animated: Positive if the transition was animated
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
         UIScreen.animateBrightness(to: 1.0)
     }
     
@@ -46,7 +46,7 @@ class MainQuickResponseCodeViewController: FormViewController {
     ///
     /// - Parameter animated: Positive if the transition was animated
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+        super.viewWillDisappear(animated)
         UIScreen.animateBrightness(to: previousBrightness!)
     }
 
