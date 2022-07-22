@@ -61,7 +61,7 @@ class SetupStorageViewController: FormViewController, SetupState {
         
         if let cellHeight = synchronizationProviderForm?.syncerOfflineRow.cell.frame.height {
             let targetHeight = CGFloat(SyncerHelper.availableSyncers.count) * cellHeight
-            synchronizationProviderFormHeight.constant = targetHeight
+            synchronizationProviderFormHeight.constant = targetHeight + 2 // + 2 (border)
         }
     }
     
