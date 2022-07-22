@@ -54,6 +54,7 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
             if !response {
                 log.error("Failed to get the camera device; no permissions")
+                self.captureSession.stopRunning()
                 self.cameraUnavailableView(true)
                 self.alertToEncourageCameraAccessInitially()
             }
@@ -61,6 +62,7 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
 
         guard let captureDevice = deviceDiscoverySession.devices.first else {
             log.error("Failed to get the camera device")
+            captureSession.stopRunning()
             self.cameraUnavailableView(true)
             return
         }
@@ -76,6 +78,8 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
         } catch {
             log.error(error.localizedDescription)
+            captureSession.stopRunning()
+            self.cameraUnavailableView(true)
             return
         }
 
@@ -88,13 +92,11 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             name: .AVCaptureSessionDidStartRunning,
             object: self.captureSession
         )
-        
-        DispatchQueue.global().async {
-            self.captureSession.startRunning()
-        }
     }
     
     deinit {
+        self.captureSession.stopRunning()
+        
         NotificationCenter.default.removeObserver(
             self,
             name: .AVCaptureSessionDidStartRunning,
@@ -118,6 +120,11 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        DispatchQueue.global().async {
+            self.captureSession.startRunning()
+        }
+        
         currentlyCheckingToken = false
         
         cameraPreview.layoutIfNeeded()
@@ -128,6 +135,15 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
         }
         
         cameraPreview.layer.addSublayer(videoPreviewLayer!)
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        DispatchQueue.global().async {
+            self.captureSession.stopRunning()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
