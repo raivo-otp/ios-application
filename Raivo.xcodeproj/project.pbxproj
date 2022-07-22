@@ -163,6 +163,7 @@
 		70CDB172230C5C1300D63A79 /* SetupBiometricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB171230C5C1300D63A79 /* SetupBiometricViewController.swift */; };
 		70CDB174230C5EBD00D63A79 /* SetupFinalizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB173230C5EBD00D63A79 /* SetupFinalizeViewController.swift */; };
 		70CDB176230C82D300D63A79 /* RealmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CDB175230C82D300D63A79 /* RealmError.swift */; };
+		70CE41CF288A9C41002EDC8C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE41CE288A9C41002EDC8C /* ScreenExtension.swift */; };
 		70D0FD622291B00E0016BD95 /* Load.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD612291B00E0016BD95 /* Load.storyboard */; };
 		70D0FD642291B0740016BD95 /* LoadEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */; };
 		70D0FD692291B8F10016BD95 /* Error.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70D0FD682291B8F10016BD95 /* Error.storyboard */; };
@@ -354,6 +355,7 @@
 		70CDB171230C5C1300D63A79 /* SetupBiometricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBiometricViewController.swift; sourceTree = "<group>"; };
 		70CDB173230C5EBD00D63A79 /* SetupFinalizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupFinalizeViewController.swift; sourceTree = "<group>"; };
 		70CDB175230C82D300D63A79 /* RealmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmError.swift; sourceTree = "<group>"; };
+		70CE41CE288A9C41002EDC8C /* ScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenExtension.swift; sourceTree = "<group>"; };
 		70D0FD612291B00E0016BD95 /* Load.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Load.storyboard; sourceTree = "<group>"; };
 		70D0FD632291B0740016BD95 /* LoadEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadEntryViewController.swift; sourceTree = "<group>"; };
 		70D0FD682291B8F10016BD95 /* Error.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Error.storyboard; sourceTree = "<group>"; };
@@ -583,6 +585,7 @@
 				703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */,
 				70C0BB67230B333200143FA4 /* SetupStateExtension.swift */,
 				700794AF279D6BC8007510A5 /* TokenExtension.swift */,
+				70CE41CE288A9C41002EDC8C /* ScreenExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1285,6 +1288,7 @@
 				705968102299AB0A0032D70F /* StorageHelper.swift in Sources */,
 				70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */,
 				709D90C5224AC05F0041713A /* SeedValueValidator.swift in Sources */,
+				70CE41CF288A9C41002EDC8C /* ScreenExtension.swift in Sources */,
 				70B585E82309B80E00AD1754 /* SetupStorageViewController.swift in Sources */,
 				7077A339227CCA9300338CA3 /* PasswordKindFormOption.swift in Sources */,
 				70A7B11C22306DB60084F15B /* TimeBasedPasswordCell.swift in Sources */,
