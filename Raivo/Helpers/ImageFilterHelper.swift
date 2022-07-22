@@ -32,10 +32,10 @@ class ImageFilterHelper {
         
         if #available(iOS 12.0, *) {
             switch sender.traitCollection.userInterfaceStyle {
+            case .light:
+                transformers.append(SDImageFilterTransformer(filter: getLightModeFilter()))
             case .dark:
-                if let filter = getDarkModeFilter() {
-                    transformers.append(SDImageFilterTransformer(filter: filter))
-                }
+                transformers.append(SDImageFilterTransformer(filter: getDarkModeFilter()))
             default:
                 break
             }
@@ -48,10 +48,22 @@ class ImageFilterHelper {
         return SDImagePipelineTransformer(transformers: transformers)
     }
     
+    /// An image filter that can be used if Light Mode is enabled. The filter increases light colors (e.g. converts white to grey).
+    ///
+    /// - Returns: The CoreImageFilter.
+    public func getLightModeFilter() -> CIFilter {
+        let colorClampParams : [String : AnyObject] = [
+            "inputMinComponents": CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0),
+            "inputMaxComponents" : CIVector(x: 0.8, y: 0.8, z: 0.8, w: 0.8)
+        ]
+
+        return CIFilter(name: "CIColorClamp", parameters: colorClampParams)!
+    }
+    
     /// An image filter that can be used if Dark Mode is enabled. The filter reduces dark colors (e.g. converts black to grey).
     ///
     /// - Returns: The CoreImageFilter.
-    private func getDarkModeFilter() -> CIFilter? {
+    public func getDarkModeFilter() -> CIFilter {
         let colorClampParams : [String : AnyObject] = [
             "inputMinComponents": CIVector(x: 0.05, y: 0.05, z: 0.05, w: 0.0),
             "inputMaxComponents" : CIVector(x: 0.92, y: 0.92, z: 0.92, w: 0.92)

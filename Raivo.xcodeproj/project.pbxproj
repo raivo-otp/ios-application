@@ -81,7 +81,6 @@
 		7077A34A227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */; };
 		7077A34C227F610700338CA3 /* PasswordIconTypeFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A34B227F610700338CA3 /* PasswordIconTypeFormOption.swift */; };
 		7079EBD322F638DA00F9D340 /* BiometricHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079EBD222F638DA00F9D340 /* BiometricHelper.swift */; };
-		707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707B38DC2275E57200D35897 /* ImageEffectExtension.swift */; };
 		707B38E22275F87100D35897 /* CenteredBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707B38E12275F87100D35897 /* CenteredBanner.xib */; };
 		707EDA5C23846C32000B0A97 /* BannerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EDA5B23846C32000B0A97 /* BannerHelper.swift */; };
 		70808FB927A35451002DCE60 /* MigrationToBuild60.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808FB827A35451002DCE60 /* MigrationToBuild60.swift */; };
@@ -274,7 +273,6 @@
 		7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormRaivoRepositorySelectorViewController.xib; sourceTree = "<group>"; };
 		7077A34B227F610700338CA3 /* PasswordIconTypeFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordIconTypeFormOption.swift; sourceTree = "<group>"; };
 		7079EBD222F638DA00F9D340 /* BiometricHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricHelper.swift; sourceTree = "<group>"; };
-		707B38DC2275E57200D35897 /* ImageEffectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEffectExtension.swift; sourceTree = "<group>"; };
 		707B38E12275F87100D35897 /* CenteredBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredBanner.xib; sourceTree = "<group>"; };
 		707EDA5B23846C32000B0A97 /* BannerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerHelper.swift; sourceTree = "<group>"; };
 		70808FB827A35451002DCE60 /* MigrationToBuild60.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationToBuild60.swift; sourceTree = "<group>"; };
@@ -581,7 +579,6 @@
 				7016DE412265193D006C45B6 /* CustomColorsExtension.swift */,
 				70F8BE7C2205EAFB006FDB5A /* LoadViewFilesExtension.swift */,
 				709D90C6224AC5FB0041713A /* NavbarActivityExtension.swift */,
-				707B38DC2275E57200D35897 /* ImageEffectExtension.swift */,
 				703414C3223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift */,
 				70C0BB67230B333200143FA4 /* SetupStateExtension.swift */,
 				700794AF279D6BC8007510A5 /* TokenExtension.swift */,
@@ -1300,7 +1297,6 @@
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
 				70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */,
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
-				707B38DD2275E57200D35897 /* ImageEffectExtension.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
 				7065070A23106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift in Sources */,
 				7092B9B026C96BF600B10065 /* ValidationError.swift in Sources */,
