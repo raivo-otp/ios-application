@@ -166,21 +166,23 @@ class MainScanPasswordViewController: UIViewController, AVCaptureMetadataOutputO
             }
         }
         
-        guard ReceiverHelper.shared.isValid(contents) else {
+        let encodedContents = contents.replacingOccurrences(of: " ", with: "%20")
+        
+        guard ReceiverHelper.shared.isValid(encodedContents) else {
             log.verbose("The scanned QR code is not a valid OTP (it is a receiver instead).")
             return BannerHelper.shared.error("Invalid QR code", "Please scan your receiver in the settings screen", wrapper: view) {
                 self.currentlyCheckingToken = false
             }
         }
         
-        guard SeedValueValidator.isValid(contents) else {
+        guard SeedValueValidator.isValid(encodedContents) else {
             log.verbose("The scanned QR code is not a valid OTP.")
             return BannerHelper.shared.error("Invalid QR code", "The QR code is not a valid OTP", wrapper: view) {
                 self.currentlyCheckingToken = false
             }
         }
         
-        lastScannedToken = Token(url: URL(string: metadataObj.stringValue!)!)
+        lastScannedToken = Token(url: URL(string: encodedContents)!)
         performSegue(withIdentifier: "MainCreateScannedOneTimePasswordSegue", sender: nil)
     }
 
