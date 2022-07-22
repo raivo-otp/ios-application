@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/EFPrefix/EFQRCode.git",
       "state" : {
-        "revision" : "56278ea800d7fdc20f42cd77bdbf0fecc8c1c0c8",
-        "version" : "6.2.0"
+        "revision" : "bebbd09eaf28243ec576f6d53cbf9cc5b10eaffb",
+        "version" : "6.2.1"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xmartlabs/Eureka.git",
       "state" : {
-        "revision" : "975e8d5e0ea3c86aff828537b2d4abe4430d6312",
-        "version" : "5.3.4"
+        "revision" : "a7523afdfe38478c6d5706a8ac01d26590835493",
+        "version" : "5.3.6"
       }
     },
     {
@@ -103,8 +103,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "0fff0d7505b5306348263ea64fcc561253bbeb21",
-        "version" : "5.12.2"
+        "revision" : "2e63d0061da449ad0ed130768d05dceb1496de44",
+        "version" : "5.12.5"
       }
     },
     {
@@ -112,7 +112,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ivanvorobei/SPAlert.git",
       "state" : {
-        "revision" : "18862409586ac547bcdf8957cd96beb872fbc729",
+        "revision" : "12e9c25d650c10ea5988c75e5c5ade1e38742a96",
         "version" : "2.1.4"
       }
     },
@@ -121,7 +121,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ivanvorobei/SPStorkController.git",
       "state" : {
-        "revision" : "87440c439e84bea61b28e82788ae704ab7171eb1",
+        "revision" : "9eea2c3259420c278fcd2dbbab242ef5fcf54dc9",
         "version" : "1.8.5"
       }
     },

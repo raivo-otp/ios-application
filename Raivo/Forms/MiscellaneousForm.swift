@@ -241,6 +241,23 @@ class MiscellaneousForm {
             }).onCellSelection({ cell, row in
                 controller.performSegue(withIdentifier: "MainChangeAppIconSegue", sender: self)
             })
+        
+            <<< SwitchRow("previous_password_enabled", { row in
+                row.title = "Show Previous Password"
+                row.value = StorageHelper.shared.getPreviousPasswordEnabled()
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textColor = UIColor.getTintRed()
+                cell.imageView?.image = UIImage(named: "form-previous-password")
+                cell.switchControl.tintColor = UIColor.getTintRed()
+                cell.switchControl.onTintColor = UIColor.getTintRed()
+            }).onChange({ row in
+                do {
+                    try StorageHelper.shared.setPreviousPasswordEnabled(row.value ?? true)
+                } catch {
+                    log.error("Could not save previous password enabled: \(error)")
+                    BannerHelper.shared.error("Error", "Could not save setting")
+                }
+            })
     }
     
     private func buildDataSection<T: UIViewController & MFMailComposeViewControllerDelegate>(_ controller: T) {
