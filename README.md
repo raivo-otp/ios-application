@@ -8,7 +8,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=Source&secondText=Licensed" /></a>
-    <a href="https://apps.apple.com/us/app/raivo-otp/id1459042137#?platform=iphone"><img src="https://raw.finnwea.com/vector-shields-v1/?firstText=Platform&secondText=iOS%20%26%20iPadOS%20(13%20or%20higher)" /></a>
+    <a href="https://www.apple.com/ios"><img src="https://raw.finnwea.com/vector-shields-v1/?firstText=Platform&secondText=iOS%20%26%20iPadOS%20(13%20or%20higher)" /></a>
     <a href="https://github.com/raivo-otp/ios-application/releases"><img src="https://raw.finnwea.com/vector-shields-v1/?typeKey=SemverVersion&typeValue1=raivo-otp&typeValue2=ios-application&typeValue4=Release&cache=4"></a>
     <br/>
     <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
