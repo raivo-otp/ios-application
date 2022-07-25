@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_left.png?cache=5" width="265">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_middle.png?cache=5" width="265">
-    <img src="https://github.com/raivo-otp/ios-application/raw/master/.github/preview_right.png?cache=5" width="265">
+    <img src="https://raw.githubusercontent.com/raivo-otp/ios-application/master/Assets/appstore-previews/Apple%20iPhone%2011%20Pro%20Max%20(1242x2688)/Apple%20iPhone%2011%20Pro%20Max%20Screenshot%203.png?cache=5" width="265">
+    <img src="https://raw.githubusercontent.com/raivo-otp/ios-application/master/Assets/appstore-previews/Apple%20iPhone%2011%20Pro%20Max%20(1242x2688)/Apple%20iPhone%2011%20Pro%20Max%20Screenshot%206.png?cache=5" width="265">
+    <img src="https://raw.githubusercontent.com/raivo-otp/ios-application/master/Assets/appstore-previews/Apple%20iPhone%2011%20Pro%20Max%20(1242x2688)/Apple%20iPhone%2011%20Pro%20Max%20Screenshot%202.png?cache=5" width="265">
 </p>
 
 ## Features
