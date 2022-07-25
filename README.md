@@ -2,7 +2,7 @@
     <img src="https://raw.githubusercontent.com/raivo-otp/ios-application/master/Assets/app-icon.png" width="200"/>
 </p>
 <p align="center">
-    <a href="https://apps.apple.com/us/app/raivo-otp/id1459042137#?platform=iphone">
+    <a href="https://apps.apple.com/app/raivo-otp/id1459042137?platform=iphone">
         <img src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2019-08-01&kind=iossoftware&bubble=ios_apps" width="180"/>
     </a>
 </p>
