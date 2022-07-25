@@ -43,6 +43,8 @@ struct MainDataExportView: View {
                     BannerHelper.shared.done("Hold tight", "Generation takes a few seconds")
                     mainDataExport.export()
                 }
+
+
             })
                 .padding()
                 .navigationBarHidden(true)
@@ -50,6 +52,7 @@ struct MainDataExportView: View {
                     ActivityViewController(activityItems: [mainDataExport.archive!])
                 }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
