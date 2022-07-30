@@ -74,4 +74,4 @@ Raivo does not collect personally identifiable information in any way. Please re
 
 ## License
 
-Copyright (c) 2022 Tijme Gommers. All rights reserved. View [LICENSE.md](https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md) for the full license.
+Copyright © 2022 Tijme Gommers. All rights reserved. View [LICENSE.md](https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md) for the full license.
