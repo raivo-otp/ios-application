@@ -368,7 +368,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-changelog")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/releases")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://raivo-otp.com/changelog/")!, options: [:])
             })
         
             <<< ButtonRow("report_a_bug", { row in
@@ -377,7 +377,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-bug")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/issues/new/choose")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://raivo-otp.com/support/")!, options: [:])
             })
     }
     
@@ -392,7 +392,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-privacy")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/blob/master/PRIVACY.md#privacy-policy")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://raivo-otp.com/privacy-policy/")!, options: [:])
             })
             
             <<< ButtonRow("security_policy", { row in
@@ -401,7 +401,7 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-security")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://github.com/raivo-otp/ios-application/blob/master/SECURITY.md#security-policy")!, options: [:])
+                UIApplication.shared.open(URL(string: "https://raivo-otp.com/security-policy/")!, options: [:])
             })
             
             <<< ButtonRow("license", { row in
