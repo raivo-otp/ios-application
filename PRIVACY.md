@@ -1,8 +1,10 @@
 # Privacy Policy
 
-> Effective date: July 29, 2022
+> Effective date: July 30, 2022
 
-Raivo OTP ("us", "we", "our", "Raivo") operates all Raivo OTP software as a service (the "Service"). The Service includes the application Raivo OTP for Apple iOS, the application Raivo OTP for Apple MacOS, and the website raivo-otp.com. This privacy policy (the "Privacy Policy") informs you (the "User") of our policies regarding the collection, use, and disclosure of personally identifiable information ("Personal Data") when you use our aforementioned Services and the choices you have associated with that data. Within this Privacy Policy, the key words "must", "must not", "required", "shall", "shall not", "should", "should not", "recommended", "may" and "optional" are to be interpreted as described in RFC 2119 [(Bradner, 1997)](https://www.ietf.org/rfc/rfc2119.txt).
+Raivo OTP ("us", "we", "our", "Raivo", "Tijme Gommers") operates the Raivo OTP related services (the "Services"). The Services include and are limited to the Source Format and Processed Format of [Raivo OTP for Apple iOS](https://github.com/raivo-otp/ios-application), [Raivo OTP for Apple MacOS](https://github.com/raivo-otp/macos-receiver), [Raivo OTP Issuer Icons](https://github.com/raivo-otp/issuer-icons), [Raivo OTP APNS Server](https://github.com/raivo-otp/apns-server) and [Raivo OTP Marketing Website](https://github.com/raivo-otp/marketing-website) (raivo-otp.com).
+
+This privacy policy (the "Privacy Policy") informs you (the "User") of our policies regarding the collection, use, and disclosure of personally identifiable information ("Personal Data") when you use our aforementioned Services and the choices you have associated with that data. Within this Privacy Policy, the key words "must", "must not", "required", "shall", "shall not", "should", "should not", "recommended", "may" and "optional" are to be interpreted as described in RFC 2119 [(Bradner, 1997)](https://www.ietf.org/rfc/rfc2119.txt).
 
 Please read this Privacy Policy carefully to understand our views and practices regarding your Personal Data and how we will treat it. By using the Service, you agree to the collection and use of information in accordance with this Privacy Policy.
 
