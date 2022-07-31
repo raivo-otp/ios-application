@@ -1,14 +1,19 @@
 # License
 
-> Effective date: September 12, 2019
+> Effective date: July 30, 2022
 
-Raivo ("us", "we", or "our") operates the Raivo mobile application (the "Service").
+Copyright © 2022 Tijme Gommers. All rights reserved.
 
-The key words "must", "must not", "required", "shall", "shall not", "should", "should not", "recommended", "may" and "optional" in this document are to be interpreted as described in RFC 2119 [(Bradner, 1997)](https://www.ietf.org/rfc/rfc2119.txt).
+Raivo OTP ("us", "we", "our", "Raivo", "Tijme Gommers") operates the Raivo OTP related services (the "Services"). The Services include and are limited to the Source Format and Processed Format of [Raivo OTP for Apple iOS](https://github.com/raivo-otp/ios-application), [Raivo OTP for Apple MacOS](https://github.com/raivo-otp/macos-receiver), [Raivo OTP Issuer Icons](https://github.com/raivo-otp/issuer-icons), [Raivo OTP APNS Server](https://github.com/raivo-otp/apns-server) and [Raivo OTP Marketing Website](https://github.com/raivo-otp/marketing-website) (raivo-otp.com).
 
----
+The Services are provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the Services or the use or other dealings in the Services.
 
-Copyright (c) 2022 Tijme Gommers. All rights reserved.
+## Source Format
 
+Permission is hereby granted, free of charge, to any person who obtains a copy of the Services in source format ("Source Format"), to use the Services in Source Format, subject to restrictions, to the rights to use, copy, modify, merge, and provided to allow you to do so, subject to the following conditions:
 
-The Service is provided 'as-is', without any express or implied warranty. **Modification, duplication or distribution of this Service (in source and binary forms) for any purpose is strictly prohibited.**
+This license and copyright notice and this permission notice shall be included in all copies or substantial portions of the Services. Any form of Processed Format arising from the Source Format shall be used as specified in section [Processed Format](#processed-format). 
+
+## Processed Format
+
+Modification, duplication, and (re)distribution of the Services in binary or published format ("Processed Format") for any purposes and/or reasons is strictly prohibited without the explicit permission from Raivo OTP. Permission for modification, duplication, and (re)distribution of the "Service" in Processed Format can be requested via [GitHub](https://github.com/raivo-otp/ios-application/issues/new?assignees=tijme&labels=Question).
