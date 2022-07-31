@@ -141,7 +141,7 @@ public class IconFormRaivoRepositorySelectorViewController: UIViewController, UI
             target: self,
             action: #selector(refreshTapped)
         )
-        
+                
         refreshButton?.isEnabled = !isRefreshing
         navigationItem.rightBarButtonItem = refreshButton
     }

@@ -21,7 +21,6 @@ class MainChangeAppIconViewController: UIHostingController<AnyView> {
         let root = AnyView(MainChangeAppIconView(mainChangeAppIcon: MainChangeAppIconViewObservable()))
         
         super.init(coder: aDecoder, rootView: root)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

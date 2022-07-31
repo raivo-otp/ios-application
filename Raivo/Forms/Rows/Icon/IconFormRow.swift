@@ -60,11 +60,11 @@ final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType {
     private func raivoRepositorySelector(_ sender: UIViewController, _ row: IconFormRow) {
         let controller = IconFormRaivoRepositorySelectorViewController()
         controller.set(iconFormRow: row)
-        
+
         controller.set(dismissCallback: {
             row.reload()
         })
-        
+
         sender.navigationController?.pushViewController(controller, animated: true)
     }
     
