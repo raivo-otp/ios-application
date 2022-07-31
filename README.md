@@ -74,4 +74,4 @@ Raivo does not collect personally identifiable information in any way. Please re
 
 ## License
 
-Copyright © 2022 Tijme Gommers. All rights reserved. View [LICENSE.md](https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md) for the full license.
+The source of Raivo OTP is copyrighted but available to anyone on the internet. You can use it in accordence of the license. View [LICENSE.md](https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md) for the full license.
