@@ -63,9 +63,7 @@ class AppHelper {
     public static let logFile = FileDestination().logFileURL?.deletingLastPathComponent().appendingPathComponent("raivo-debug-log.txt")
     
     /// The domain (including directory) that hosts the custom issuer icons
-    ///
-    /// - ToDo: Convert this to a Content Delivery Network (CDN).
-    public static let iconsURL = "https://raw.finnwea.com/raivo-issuer-icons/dist/"
+    public static let iconsURL = "https://icons.raivo-otp.com/"
     
     /// The domain (including directory) that hosts the MacOS Receiver APNS service
     #if DEBUG
