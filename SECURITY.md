@@ -1,6 +1,6 @@
 # Security Policy
 
-> Effective date: July 30, 2022
+> Effective date: August 1, 2022
 
 Raivo OTP ("us", "we", "our", "Raivo", "Tijme Gommers") operates the Raivo OTP related services (the "Services"). The Services include and are limited to the Source Format and Processed Format of [Raivo OTP for Apple iOS](https://github.com/raivo-otp/ios-application), [Raivo OTP for Apple MacOS](https://github.com/raivo-otp/macos-receiver), [Raivo OTP Issuer Icons](https://github.com/raivo-otp/issuer-icons), [Raivo OTP APNS Server](https://github.com/raivo-otp/apns-server) and [Raivo OTP Marketing Website](https://github.com/raivo-otp/marketing-website) (raivo-otp.com).
 
@@ -15,9 +15,7 @@ The security of your data is important to us, but remember that no method of tra
 
 If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. If you find a security vulnerability in a third-party ("Third Party") module that is in use by Raivo OTP, please also report the vulnerability to the person or team maintaining the module.
 
-The Raivo OTP HackerOne program (currently a private program) is used to manage security vulnerabilities in Raivo OTP. If you have discoverd a security vulnerability, please send a mail to the lead maintainer at `t(dot)gommers(plus)raivo(at)outlook(dot)com`. You will be invited to the HackerOne program to be able to report your security vulnerability.
-
-The lead maintainer will acknowledge your report within 5 business days, and will send a more detailed response within 10 additional business days indicating the next steps in handling your report. After the initial reply to your report, the security team will endeavor to keep you informed of the progress towards a fix and full announcement, and may ask for additional information or guidance.
+The [Raivo OTP HackerOne program](https://hackerone.com/raivo) is used to manage security vulnerabilities in Raivo OTP. If you have discoverd a security vulnerability, please report it via the HackerOne program. The lead maintainer will acknowledge your report within 5 business days, and will send a more detailed response within 5 additional business days indicating the next steps in handling your report. After the initial reply to your report, the security team will endeavor to keep you informed of the progress towards a fix and full announcement, and may ask for additional information or guidance.
 
 We strive to resolve all problems as quickly as possible, and we would like to play an active role in the ultimate publication on the problem after it is resolved.
 
