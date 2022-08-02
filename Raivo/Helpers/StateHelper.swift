@@ -1,14 +1,13 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2022 Tijme Gommers. All rights reserved. Raivo OTP
-// is provided 'as-is', without any express or implied warranty.
+// Copyright (c) 2022 Tijme Gommers. All rights reserved. 
 //
-// Modification, duplication or distribution of this software (in
-// source and binary forms) for any purpose is strictly prohibited.
+// View the license that applies to the Raivo OTP source 
+// code and published services to learn how you can use
+// Raivo OTP.
 //
-// https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md
-//
+// https://raivo-otp.com/license/.
 
 import Foundation
 import RealmSwift
