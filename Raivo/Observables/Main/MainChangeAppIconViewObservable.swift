@@ -19,7 +19,7 @@ final class MainChangeAppIconViewObservable: ObservableObject {
     @Published var index = 0
     
     init() {
-        fetchPrimaryIcon("Light (small)")
+        fetchPrimaryIcon("1. Light (small)")
         fetchAlternateIcons()
         
         if let currentIcon = getAppPrincipal().alternateIconName {
@@ -56,6 +56,8 @@ final class MainChangeAppIconViewObservable: ObservableObject {
                 self.icons.append(AppIconObject(icon, name))
             }
         }
+        
+        self.icons = self.icons.sorted { $0.name < $1.name }
     }
 
 }

@@ -134,6 +134,12 @@
 		70AE33232273B422007A12A2 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE33222273B422007A12A2 /* AppHelper.swift */; };
 		70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE33242273B73D007A12A2 /* MigrationProtocol.swift */; };
 		70AE33272274566B007A12A2 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE33262274566B007A12A2 /* MigrationHelper.swift */; };
+		70AF718A28A0299500F1D44C /* app-icon-pelican@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AF718728A0299500F1D44C /* app-icon-pelican@3x.png */; };
+		70AF718B28A0299500F1D44C /* app-icon-pelican@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AF718828A0299500F1D44C /* app-icon-pelican@1x.png */; };
+		70AF718C28A0299500F1D44C /* app-icon-pelican@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AF718928A0299500F1D44C /* app-icon-pelican@2x.png */; };
+		70AF719028A0369E00F1D44C /* app-icon-halo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AF718D28A0369E00F1D44C /* app-icon-halo@2x.png */; };
+		70AF719128A0369E00F1D44C /* app-icon-halo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AF718E28A0369E00F1D44C /* app-icon-halo@1x.png */; };
+		70AF719228A0369E00F1D44C /* app-icon-halo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AF718F28A0369E00F1D44C /* app-icon-halo@3x.png */; };
 		70B143AC222AB9360015896F /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B143AB222AB9360015896F /* RealmHelper.swift */; };
 		70B5585D225E74A000F83A34 /* CounterBasedPasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B5585C225E74A000F83A34 /* CounterBasedPasswordCell.swift */; };
 		70B5585F225E74AE00F83A34 /* CounterBasedPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70B5585E225E74AE00F83A34 /* CounterBasedPasswordCell.xib */; };
@@ -325,6 +331,12 @@
 		70AE33222273B422007A12A2 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		70AE33242273B73D007A12A2 /* MigrationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationProtocol.swift; sourceTree = "<group>"; };
 		70AE33262274566B007A12A2 /* MigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationHelper.swift; sourceTree = "<group>"; };
+		70AF718728A0299500F1D44C /* app-icon-pelican@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-pelican@3x.png"; sourceTree = "<group>"; };
+		70AF718828A0299500F1D44C /* app-icon-pelican@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-pelican@1x.png"; sourceTree = "<group>"; };
+		70AF718928A0299500F1D44C /* app-icon-pelican@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-pelican@2x.png"; sourceTree = "<group>"; };
+		70AF718D28A0369E00F1D44C /* app-icon-halo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-halo@2x.png"; sourceTree = "<group>"; };
+		70AF718E28A0369E00F1D44C /* app-icon-halo@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-halo@1x.png"; sourceTree = "<group>"; };
+		70AF718F28A0369E00F1D44C /* app-icon-halo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-halo@3x.png"; sourceTree = "<group>"; };
 		70B143AB222AB9360015896F /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		70B5585C225E74A000F83A34 /* CounterBasedPasswordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterBasedPasswordCell.swift; sourceTree = "<group>"; };
 		70B5585E225E74AE00F83A34 /* CounterBasedPasswordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterBasedPasswordCell.xib; sourceTree = "<group>"; };
@@ -994,6 +1006,12 @@
 		70ED04E426768697005C4D14 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				70AF718E28A0369E00F1D44C /* app-icon-halo@1x.png */,
+				70AF718D28A0369E00F1D44C /* app-icon-halo@2x.png */,
+				70AF718F28A0369E00F1D44C /* app-icon-halo@3x.png */,
+				70AF718828A0299500F1D44C /* app-icon-pelican@1x.png */,
+				70AF718928A0299500F1D44C /* app-icon-pelican@2x.png */,
+				70AF718728A0299500F1D44C /* app-icon-pelican@3x.png */,
 				709FA2B62676922400BDB44D /* app-icon-dark-tint-large@1x.png */,
 				709FA2B32676922300BDB44D /* app-icon-dark-tint-large@2x.png */,
 				709FA2B02676922200BDB44D /* app-icon-dark-tint-large@3x.png */,
@@ -1193,6 +1211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70AF718C28A0299500F1D44C /* app-icon-pelican@2x.png in Resources */,
 				709FA2BD2676922400BDB44D /* app-icon-light-tint-small@1x.png in Resources */,
 				70D0FD692291B8F10016BD95 /* Error.storyboard in Resources */,
 				70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */,
@@ -1203,11 +1222,14 @@
 				704E16DB22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib in Resources */,
 				70DC72EE22A41054006FE7B7 /* all-passwords.html in Resources */,
 				709FA2B82676922400BDB44D /* app-icon-light-tint-small@2x.png in Resources */,
+				70AF719028A0369E00F1D44C /* app-icon-halo@2x.png in Resources */,
 				700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */,
+				70AF718B28A0299500F1D44C /* app-icon-pelican@1x.png in Resources */,
 				700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */,
 				709FA2C32676922400BDB44D /* app-icon-light-tint-large@1x.png in Resources */,
 				70B585E323098D6400AD1754 /* Setup.storyboard in Resources */,
 				709FA2C22676922400BDB44D /* app-icon-dark-tint-large@1x.png in Resources */,
+				70AF719128A0369E00F1D44C /* app-icon-halo@1x.png in Resources */,
 				708A2B1B22885DCE00981BBC /* IconFormSelectorViewFooter.xib in Resources */,
 				709FA2C02676922400BDB44D /* app-icon-dark-tint-small@1x.png in Resources */,
 				700908CC21FCCE6100603AA2 /* Assets.xcassets in Resources */,
@@ -1223,7 +1245,9 @@
 				70FA4C552287546D00A3B754 /* IconFormSelectorViewEmptyList.xib in Resources */,
 				709B636522C54C0300697884 /* QuickResponseCodeRowCell.xib in Resources */,
 				709FA2BC2676922400BDB44D /* app-icon-dark-tint-large@3x.png in Resources */,
+				70AF719228A0369E00F1D44C /* app-icon-halo@3x.png in Resources */,
 				709FA2BB2676922400BDB44D /* app-icon-light-tint-large@2x.png in Resources */,
+				70AF718A28A0299500F1D44C /* app-icon-pelican@3x.png in Resources */,
 				70B5585F225E74AE00F83A34 /* CounterBasedPasswordCell.xib in Resources */,
 				707B38E22275F87100D35897 /* CenteredBanner.xib in Resources */,
 				7077A34A227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib in Resources */,
