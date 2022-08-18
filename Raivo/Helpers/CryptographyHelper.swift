@@ -125,5 +125,69 @@ class CryptographyHelper {
         
         return String(data: plaintext, encoding: .utf8)!
     }
+    
+    /// Check if given passcode is very weak
+    ///
+    /// - Parameter passcode: The passcode to check the weakness for
+    /// - Returns: Positive if very weak
+    public func passcodeIsVeryWeak(_ passcode: String) -> Bool {
+        // Remove duplicate characters and check string length
+        var set = Set<Character>()
+        let squeezed = passcode.filter{ set.insert($0).inserted }
+        if (squeezed.count <= 2) {
+            return true
+        }
+        
+        if "0123456789".contains(passcode) {
+            return true
+        }
+        
+        if "9876543210".contains(passcode) {
+            return true
+        }
+        
+        return false
+    }
+    
+    /// Check if given password is very weak
+    ///
+    /// - Parameter passcode: The password to check the weakness for
+    /// - Returns: Positive if very weak
+    public func passwordIsVeryWeak(_ password: String) -> Bool {
+        // Remove duplicate characters and check string length
+        var set = Set<Character>()
+        let squeezed = password.filter{ set.insert($0).inserted }
+        if (squeezed.count <= 3) {
+            return true
+        }
+        
+        var strength: Int = 0
+        
+        switch password.count {
+        case 0...7:
+            return true
+        case 8...12:
+            strength += 2
+        default:
+            strength += 3
+        }
+        
+        let patterns = [
+            try! NSRegularExpression(pattern: "[A-Z]"),
+            try! NSRegularExpression(pattern:"[a-z]"),
+            try! NSRegularExpression(pattern:"[0-9]"),
+            try! NSRegularExpression(pattern:"[^A-Za-z0-9]")
+        ]
+        
+        let range = NSRange(location: 0, length: password.utf16.count)
+
+        for pattern in patterns {
+            if (pattern.firstMatch(in: password, options: [], range: range) != nil) {
+                strength += 1
+            }
+        }
+        
+        return strength < 5
+    }
 
 }

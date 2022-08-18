@@ -93,6 +93,11 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
         var currentKey: Data? = nil
         let salt = StorageHelper.shared.getEncryptionPassword()
         
+        guard !CryptographyHelper.shared.passcodeIsVeryWeak(passcode) else {
+            ui { self.resetView("Weak passcode", "Please try another one.", haptica: .error) }
+            return
+        }
+        
         do {
             currentKey = try CryptographyHelper.shared.derive(passcode, withSalt: salt!)
         } catch let error {

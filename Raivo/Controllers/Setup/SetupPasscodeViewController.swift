@@ -86,6 +86,14 @@ class SetupPasscodeViewController: UIViewController, UIPasscodeFieldDelegate, Se
     func onContinue() {
         let passcode = passcodeField.current
         
+        guard !CryptographyHelper.shared.passcodeIsVeryWeak(passcode) else {
+            confirmation = nil
+            passcodeField.reset()
+            passcodeField.becomeFirstResponder()
+            
+            return BannerHelper.shared.error("Weak passcode", "Please try another one", wrapper: view)
+        }
+        
         guard confirmation != nil else {
             return performSegue(withIdentifier: "SetupPasscodeConfirmationSegue", sender: nil)
         }
