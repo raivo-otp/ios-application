@@ -151,7 +151,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         
         // Force 'passcode tried' set. We rather crash than letting someone try again
         try! StorageHelper.shared.setPasscodeTriedAmount(currentTries + 1)
-        try! StorageHelper.shared.setPasscodeTriedTimestamp(Date().timeIntervalSince1970)
+        try! StorageHelper.shared.setPasscodeTriedTimestamp(uptime())
     }
     
     /// Check if the user may try to unlock the device based on the amount of tries left
@@ -165,7 +165,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
             return true
         }
         
-        return (lastTryTimestamp + lockoutSeconds) < Date().timeIntervalSince1970
+        return (lastTryTimestamp + lockoutSeconds) < uptime()
     }
     
     /// If a user unlocked the application, this function may be used to reset the unlock tries and timestamp
@@ -190,7 +190,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         let lastTryTimestamp = StorageHelper.shared.getPasscodeTriedTimestamp() ?? TimeInterval(0)
         let lockoutSeconds = AppHelper.Authentication.passcodeLockoutSeconds
         
-        return Int(lastTryTimestamp + lockoutSeconds - Date().timeIntervalSince1970)
+        return Int(lastTryTimestamp + lockoutSeconds - uptime())
     }
     
     /// Attempt to unlock the application via biometric (e.g. FaceID or TouchID)

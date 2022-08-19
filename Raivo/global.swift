@@ -93,3 +93,17 @@ func ui(_ callback: @escaping () -> Void) {
         callback()
     }
 }
+
+/// Get the kernel uptime
+///
+/// - Returns: The uptime since boot or clock change
+/// - Note: https://stackoverflow.com/questions/36203662/getting-system-uptime-in-ios-swift
+func uptime() -> TimeInterval {
+    var uptime = timespec()
+    
+    if 0 != clock_gettime(CLOCK_MONOTONIC_RAW, &uptime) {
+        fatalError("Could not execute clock_gettime, errno: \(errno)")
+    }
+
+    return TimeInterval(uptime.tv_sec)
+}
