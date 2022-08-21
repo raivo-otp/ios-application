@@ -186,15 +186,13 @@ class DataExportFeature {
         
         let inputFilesPath = files.first!.path.split(separator: "/").dropLast(1).map(String.init).joined(separator: "/")
         
-        // For now we disable AES encryption, and use regular encryption instead.
-        // Please see: https://github.com/raivo-otp/ios-application/issues/59
         SSZipArchive.createZipFile(
             atPath: archiveFile!.path,
             withContentsOfDirectory: inputFilesPath,
             keepParentDirectory: false,
             compressionLevel: 0,
             password: password,
-            aes: false
+            aes: true
         )
         
         return archiveFile

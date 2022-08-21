@@ -23,18 +23,13 @@ struct MainDataExportView: View {
             VStack(alignment: .leading, spacing: 10, content: {
                 Spacer()
                 Group {
-                    Text("You can use one of the utilities below to extract your encrypted ZIP archive.")
+                    Text("Please read the following notice carefully!").bold()
                     Divider()
-                    Text("The Unarchiver (for MacOS)").bold()
-                    Button("theunarchiver.com") {
-                        UIApplication.shared.open(URL(string: "https://theunarchiver.com/")!)
-                    }
-                    Text("7-Zip (For Windows)").bold()
-                    Button("7-zip.org") {
-                        UIApplication.shared.open(URL(string: "https://www.7-zip.org/")!)
-                    }
+                    Text("Your ZIP-archive is encrypted using your master password (without passcode).")
                     Divider()
-                    Text("Use your master password (without passcode) to decrypt the archive.")
+                    Text("If your master password contains special characters, your unzip utility might not be able to decrypt it. If your unzip utility does not support AES-encryption, it will not be able to decrypt the ZIP-export either.")
+                    Divider()
+                    Text("If you're having trouble decrypting your ZIP-export, try to decrypt it via the iOS/iPadOS files application itself.")
                 }
                 Spacer()
                 FilledButton(mainDataExport.busy ? "Exporting..." : "Export", busy: $mainDataExport.busy) {
