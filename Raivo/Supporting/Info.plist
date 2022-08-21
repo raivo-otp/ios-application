@@ -78,6 +78,76 @@
 			<false/>
 		</dict>
 	</dict>
+    <key>CFBundleIcons~ipad</key>
+    <dict>
+        <key>CFBundleAlternateIcons</key>
+        <dict>
+            <key>app-icon-dark-tint-large</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app-icon-dark-tint-large</string>
+                </array>
+                <key>Name</key>
+                <string>4. Dark (large)</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>app-icon-dark-tint-small</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app-icon-dark-tint-small</string>
+                </array>
+                <key>Name</key>
+                <string>3. Dark (small)</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>app-icon-halo</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app-icon-halo</string>
+                </array>
+                <key>Name</key>
+                <string>5. Halo</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>app-icon-light-tint-large</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app-icon-light-tint-large</string>
+                </array>
+                <key>Name</key>
+                <string>2. Light (large)</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+            <key>app-icon-pelican</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>app-icon-pelican</string>
+                </array>
+                <key>Name</key>
+                <string>6. Pelican</string>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>CFBundlePrimaryIcon</key>
+        <dict>
+            <key>CFBundleIconFiles</key>
+            <array>
+                <string>app-icon-light-tint-large</string>
+            </array>
+            <key>UIPrerenderedIcon</key>
+            <false/>
+        </dict>
+    </dict>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
