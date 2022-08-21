@@ -165,6 +165,10 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
             return true
         }
         
+        if (uptime() < lastTryTimestamp) {
+            return true
+        }
+        
         return (lastTryTimestamp + lockoutSeconds) < uptime()
     }
     

@@ -99,7 +99,7 @@ class SetupEncryptionInitialViewController: UIViewController, UITextFieldDelegat
             return BannerHelper.shared.error("Invalid password", "The minimum length is 8 characters", wrapper: view)
         }
         
-        guard !CryptographyHelper.shared.passwordIsVeryWeak(password.text ?? "") else {
+        guard state(self).recoveryMode() || !CryptographyHelper.shared.passwordIsVeryWeak(password.text ?? "") else {
             password.becomeFirstResponder()
             return BannerHelper.shared.error("Weak password", "Please try another one", wrapper: view)
         }
