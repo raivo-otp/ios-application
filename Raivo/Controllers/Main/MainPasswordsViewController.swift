@@ -55,7 +55,11 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         initializeTableView()
         
         if let realm = RealmHelper.shared.getRealm() {
-            let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+            let sortProperties = [
+                SortDescriptor(keyPath: "pinned", ascending: false),
+                SortDescriptor(keyPath: "issuer"),
+                SortDescriptor(keyPath: "account")
+            ]
             results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
         }
 
@@ -189,7 +193,12 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let realm = RealmHelper.shared.getRealm() {
-            let sortProperties = [SortDescriptor(keyPath: "issuer"), SortDescriptor(keyPath: "account")]
+            let sortProperties = [
+                SortDescriptor(keyPath: "pinned", ascending: false),
+                SortDescriptor(keyPath: "issuer"),
+                SortDescriptor(keyPath: "account")
+            ]
+            
             results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
         }
         
@@ -321,7 +330,25 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         qrcodeAction.backgroundColor = UIColor.gray
         qrcodeAction.image = UIImage(named: "icon-qrcode")?.sd_tintedImage(with: UIColor.white)
         
-        return [deleteAction, editAction, qrcodeAction]
+        let pinActionTitle = self.results?[indexPath.row].pinned ?? false ? "Unpin" : "Pin"
+        let pinAction = SwipeAction(style: .default, title: pinActionTitle) { action, indexPath in
+            if let result = self.results?[indexPath.row] {
+                autoreleasepool {
+                    if let realm = RealmHelper.shared.getRealm() {
+                        try! realm.write {
+                            result.pinned = !result.pinned
+                            result.syncing = true
+                            result.synced = false
+                        }
+                    }
+                }
+            }
+        }
+        
+        pinAction.backgroundColor = UIColor.lightGray
+        pinAction.image = UIImage(named: "icon-pin")?.sd_tintedImage(with: UIColor.white)
+        
+        return [deleteAction, editAction, qrcodeAction, pinAction]
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {

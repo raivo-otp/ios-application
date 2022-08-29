@@ -60,7 +60,8 @@ class TimeBasedPasswordCell: PasswordCell {
     override internal func setPassword(_ password: Password) {
         self.password = password
         
-        issuer.text = password.issuer
+        let pinned = password.pinned ? "• " : ""
+        issuer.text = pinned + password.issuer
         account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         updatePreviousPassword(password)

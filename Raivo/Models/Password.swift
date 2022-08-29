@@ -53,6 +53,8 @@ class Password: Object {
     // Required if TOTP
     @objc dynamic var timer = 30
     
+    @objc dynamic var pinned = false
+    
     @objc dynamic var deleted = false
     
     @objc dynamic var syncing = false
@@ -107,6 +109,7 @@ class Password: Object {
             "digits": String(digits),
             "kind": kind,
             "timer": String(timer),
+            "pinned": String(pinned),
             "counter": String(counter),
             "iconType": iconType,
             "iconValue": iconValue

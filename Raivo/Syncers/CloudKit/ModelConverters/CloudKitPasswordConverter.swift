@@ -39,8 +39,9 @@ class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
         password.digits = record.value(forKey: "digits") as! Int
         password.counter = record.value(forKey: "counter") as! Int
         password.timer = record.value(forKey: "timer") as! Int
-        password.deleted = record.value(forKey: "deleted") as! Int == 1
-        
+        password.pinned = (record.value(forKey: "pinned") as? Int ?? 0) == 1
+        password.deleted = (record.value(forKey: "deleted") as! Int) == 1
+                
         do {
             password.issuer = try CryptographyHelper.shared.decrypt(record.value(forKey: "issuer") as! String)
             password.account = try CryptographyHelper.shared.decrypt(record.value(forKey: "account") as! String)
@@ -82,6 +83,7 @@ class CloudKitPasswordConverter: CloudKitModelConverterProtocol {
         record.setValue(password.iconValue, forKey: "iconValue")
         record.setValue(password.algorithm, forKey: "algorithm")
         record.setValue(password.digits, forKey: "digits")
+        record.setValue(password.pinned, forKey: "pinned")
         record.setValue(password.deleted, forKey: "deleted")
         record.setValue(password.counter, forKey: "counter")
         record.setValue(password.timer, forKey: "timer")
