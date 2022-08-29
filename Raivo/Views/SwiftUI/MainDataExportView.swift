@@ -27,12 +27,12 @@ struct MainDataExportView: View {
                     Divider()
                     Text("Your ZIP-archive is encrypted using your master password (without passcode).")
                     Divider()
-                    Text("If your master password contains special characters, your unzip utility might not be able to decrypt it. If your unzip utility does not support AES-encryption, it will not be able to decrypt the ZIP-export either.")
+                    Text("If your master password contains special characters, third-party unzip utilities might not be able to decrypt it. If your unzip utility does not support AES-encryption, it will not be able to decrypt the ZIP-export either.")
                     Divider()
                     Text("If you're having trouble decrypting your ZIP-export, try to decrypt it via the iOS/iPadOS files application itself.")
                 }
                 Spacer()
-                FilledButton(mainDataExport.busy ? "Exporting..." : "Export", busy: $mainDataExport.busy) {
+                FilledButtonText(mainDataExport.busy ? "Exporting..." : "Export", busy: $mainDataExport.busy) {
                     BannerHelper.shared.done("Hold tight", "Generation takes a few seconds")
                     mainDataExport.export()
                 }

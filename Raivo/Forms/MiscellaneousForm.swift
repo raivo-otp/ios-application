@@ -11,6 +11,7 @@
 
 import Foundation
 import Eureka
+import SwiftyStoreKit
 import MessageUI
 
 class MiscellaneousForm {
@@ -20,6 +21,7 @@ class MiscellaneousForm {
     private var isReady = false
     
     public var synchronizationSection: Section { return form.sectionBy(tag: "synchronization")! }
+    public var donationSection: Section { return form.sectionBy(tag: "donate")! }
     public var authenticationSection: Section { return form.sectionBy(tag: "authentication")! }
     public var interfaceSection: Section { return form.sectionBy(tag: "interface")! }
     public var dataSection: Section { return form.sectionBy(tag: "data")! }
@@ -58,6 +60,7 @@ class MiscellaneousForm {
     
     public func build<T: UIViewController & MFMailComposeViewControllerDelegate>(controller: T) -> Self {
         buildSynchronizationSection(controller)
+        buildDonateSection(controller)
         buildAuthenticationSection(controller)
         buildInterfaceSection(controller)
         buildDataSection(controller)
@@ -128,6 +131,22 @@ class MiscellaneousForm {
             controller.performSegue(withIdentifier: "MainReceiversSegue", sender: self)
         })
         
+    }
+    
+    private func buildDonateSection(_ controller: UIViewController) {
+        form +++ Section("Raivo lives on donations", { section in
+            section.tag = "donate"
+            section.footer = HeaderFooterView(title: "If you feel like it, support me by partially funding Raivo's domain name, push notification server, or developer license.")
+        })
+        
+        <<< ButtonRow("donate", { row in
+                row.title = "Donate"
+            }).cellUpdate({ cell, row in
+                cell.textLabel?.textAlignment = .left
+                cell.imageView?.image = UIImage(named: "form-donate")
+            }).onCellSelection({ cell, row in
+                controller.performSegue(withIdentifier: "MainDonateSegue", sender: self)
+            })
     }
     
     private func buildAuthenticationSection(_ controller: UIViewController) {

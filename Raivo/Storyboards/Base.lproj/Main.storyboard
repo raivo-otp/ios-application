@@ -233,6 +233,7 @@
                         <segue destination="P2U-OT-7BE" kind="show" identifier="MainDataExportSegue" id="r8T-aZ-TpT"/>
                         <segue destination="r26-NN-T5X" kind="show" identifier="MainChangeAppIconSegue" id="iHC-A0-yPr"/>
                         <segue destination="Oub-Y9-5bZ" kind="show" identifier="MainReceiversSegue" id="rWU-EU-9ek"/>
+                        <segue destination="DXg-HA-DGt" kind="show" identifier="MainDonateSegue" id="klT-oe-U82"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lc6-jd-fiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,6 +338,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPk-bI-fsn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4889" y="2708"/>
+        </scene>
+        <!--Donate-->
+        <scene sceneID="I11-7z-EM0">
+            <objects>
+                <hostingController id="DXg-HA-DGt" customClass="MainDonateViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Donate" id="kRH-0p-9Wd"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrf-Fp-pBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4889" y="4214"/>
         </scene>
         <!--Receivers-->
         <scene sceneID="UBh-Km-rzB">

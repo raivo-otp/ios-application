@@ -19,6 +19,10 @@
 		700908F221FCFADF00603AA2 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F121FCFADF00603AA2 /* Password.swift */; };
 		700908F421FD027400603AA2 /* TokenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908F321FD027400603AA2 /* TokenHelper.swift */; };
 		70093238230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70093237230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift */; };
+		700B993628BBE1F3002F5731 /* MainDonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700B993528BBE1F3002F5731 /* MainDonateViewController.swift */; };
+		700B993828BBE21D002F5731 /* MainDonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700B993728BBE21D002F5731 /* MainDonateView.swift */; };
+		70131F0028BD348900DBF4DB /* SKProductExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70131EFF28BD348900DBF4DB /* SKProductExtension.swift */; };
+		70131F0228BD485B00DBF4DB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70131F0128BD485B00DBF4DB /* StoreKit.framework */; };
 		7016DE422265193D006C45B6 /* CustomColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016DE412265193D006C45B6 /* CustomColorsExtension.swift */; };
 		701ECE3C23D387700015D12A /* HumanDelayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701ECE3B23D387700015D12A /* HumanDelayHelper.swift */; };
 		701F47462333F38F008C4A9C /* ImageFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701F47452333F38F008C4A9C /* ImageFilterHelper.swift */; };
@@ -192,6 +196,8 @@
 		70FA4C512287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C502287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib */; };
 		70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA4C522287543500A3B754 /* IconFormSelectorViewEmptyList.swift */; };
 		70FA4C552287546D00A3B754 /* IconFormSelectorViewEmptyList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */; };
+		70FFB33728B8A47800C1A112 /* MainDonateViewObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FFB33628B8A47800C1A112 /* MainDonateViewObservable.swift */; };
+		70FFB33A28B8A57B00C1A112 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 70FFB33928B8A57B00C1A112 /* SwiftyStoreKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +238,10 @@
 		700908F121FCFADF00603AA2 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		700908F321FD027400603AA2 /* TokenHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHelper.swift; sourceTree = "<group>"; };
 		70093237230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasscodeConfirmationViewController.swift; sourceTree = "<group>"; };
+		700B993528BBE1F3002F5731 /* MainDonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDonateViewController.swift; sourceTree = "<group>"; };
+		700B993728BBE21D002F5731 /* MainDonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDonateView.swift; sourceTree = "<group>"; };
+		70131EFF28BD348900DBF4DB /* SKProductExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKProductExtension.swift; sourceTree = "<group>"; };
+		70131F0128BD485B00DBF4DB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7016DE412265193D006C45B6 /* CustomColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorsExtension.swift; sourceTree = "<group>"; };
 		701ECE3B23D387700015D12A /* HumanDelayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanDelayHelper.swift; sourceTree = "<group>"; };
 		701F47452333F38F008C4A9C /* ImageFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterHelper.swift; sourceTree = "<group>"; };
@@ -388,6 +398,7 @@
 		70FA4C502287535F00A3B754 /* IconFormSelectorViewEmptySearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptySearch.xib; sourceTree = "<group>"; };
 		70FA4C522287543500A3B754 /* IconFormSelectorViewEmptyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyList.swift; sourceTree = "<group>"; };
 		70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyList.xib; sourceTree = "<group>"; };
+		70FFB33628B8A47800C1A112 /* MainDonateViewObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDonateViewObservable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +415,7 @@
 				704B1C3C26E69DF900CE0067 /* SwipeCellKit in Frameworks */,
 				704B1C2126E6840200CE0067 /* RNCryptor in Frameworks */,
 				704B1C4826E6A5BE00CE0067 /* OneTimePassword in Frameworks */,
+				70FFB33A28B8A57B00C1A112 /* SwiftyStoreKit in Frameworks */,
 				704B1C2726E6879400CE0067 /* Eureka in Frameworks */,
 				704B1C4526E6A3CA00CE0067 /* HTMLString in Frameworks */,
 				704B1C3026E6881500CE0067 /* SwiftyBeaver in Frameworks */,
@@ -415,6 +427,7 @@
 				704B1C3326E6886B00CE0067 /* Haptica in Frameworks */,
 				7088B94B22554AF50024BB87 /* CloudKit.framework in Frameworks */,
 				7092B9AA26C941BD00B10065 /* CodeScanner in Frameworks */,
+				70131F0228BD485B00DBF4DB /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +559,7 @@
 				70BD738325B9BA4D002F9347 /* MainDataExportViewController.swift */,
 				70ED04DE26763A16005C4D14 /* MainChangeAppIconViewController.swift */,
 				7092B9A026C9305B00B10065 /* MainReceiversViewController.swift */,
+				700B993528BBE1F3002F5731 /* MainDonateViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -595,6 +609,7 @@
 				70C0BB67230B333200143FA4 /* SetupStateExtension.swift */,
 				700794AF279D6BC8007510A5 /* TokenExtension.swift */,
 				70CE41CE288A9C41002EDC8C /* ScreenExtension.swift */,
+				70131EFF28BD348900DBF4DB /* SKProductExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -702,6 +717,7 @@
 				706122E4266EA9AA00121035 /* MainDataExportViewObservable.swift */,
 				70ED04E026763A6D005C4D14 /* MainChangeAppIconViewObservable.swift */,
 				7092B9A426C932D500B10065 /* MainReceiversViewObservable.swift */,
+				70FFB33628B8A47800C1A112 /* MainDonateViewObservable.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -792,6 +808,7 @@
 				70A3F4F925CDD282004F053B /* MainDataExportView.swift */,
 				70ED04E226763A8E005C4D14 /* MainChangeAppIconView.swift */,
 				7092B9A226C9309400B10065 /* MainReceiversView.swift */,
+				700B993728BBE21D002F5731 /* MainDonateView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -1071,6 +1088,7 @@
 		8803730FEA035491C97F262B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70131F0128BD485B00DBF4DB /* StoreKit.framework */,
 				7088B94A22554AF50024BB87 /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -1113,6 +1131,7 @@
 				704B1C4126E6A3B400CE0067 /* SPStorkController */,
 				704B1C4426E6A3CA00CE0067 /* HTMLString */,
 				704B1C4726E6A5BE00CE0067 /* OneTimePassword */,
+				70FFB33928B8A57B00C1A112 /* SwiftyStoreKit */,
 			);
 			productName = Raivo;
 			productReference = 700908C121FCCE5F00603AA2 /* Raivo.app */;
@@ -1195,6 +1214,7 @@
 				704B1C4026E6A3B400CE0067 /* XCRemoteSwiftPackageReference "SPStorkController" */,
 				704B1C4326E6A3CA00CE0067 /* XCRemoteSwiftPackageReference "HTMLString" */,
 				704B1C4626E6A5BE00CE0067 /* XCRemoteSwiftPackageReference "OneTimePassword" */,
+				70FFB33828B8A57B00C1A112 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 			);
 			productRefGroup = 700908C221FCCE5F00603AA2 /* Products */;
 			projectDirPath = "";
@@ -1293,6 +1313,7 @@
 				705E432023E5D01B00D26619 /* AddTappedUriFeature.swift in Sources */,
 				70C80DAB229F070A00413801 /* UIPasscodeShadowField.swift in Sources */,
 				7059680B22994CCF0032D70F /* StateHelper.swift in Sources */,
+				700B993628BBE1F3002F5731 /* MainDonateViewController.swift in Sources */,
 				7077A34C227F610700338CA3 /* PasswordIconTypeFormOption.swift in Sources */,
 				70FA4C4C2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift in Sources */,
 				70BEE09D226B248200D5CF4B /* AuthMiscViewController.swift in Sources */,
@@ -1325,6 +1346,7 @@
 				7065070A23106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift in Sources */,
 				7092B9B026C96BF600B10065 /* ValidationError.swift in Sources */,
 				704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */,
+				70FFB33728B8A47800C1A112 /* MainDonateViewObservable.swift in Sources */,
 				708A2B15228859CC00981BBC /* IconFormSelectorViewFooter.swift in Sources */,
 				70285929226205C50045DA26 /* CloudKitPasswordConverter.swift in Sources */,
 				7066C79D226A4E2400C1A949 /* CloudKitModelConverterProtocol.swift in Sources */,
@@ -1360,6 +1382,7 @@
 				70093238230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift in Sources */,
 				70A1BC5922F7534500152864 /* SetupRootViewController.swift in Sources */,
 				70B585ED2309C1E000AD1754 /* SetupStateObject.swift in Sources */,
+				70131F0028BD348900DBF4DB /* SKProductExtension.swift in Sources */,
 				70B585F32309E32700AD1754 /* SetupFlushDataViewController.swift in Sources */,
 				703414C4223D8EA500D220A4 /* ConstrainToKeyboardExtension.swift in Sources */,
 				7092B9AE26C9494000B10065 /* BindableResults.swift in Sources */,
@@ -1388,6 +1411,7 @@
 				70808FB927A35451002DCE60 /* MigrationToBuild60.swift in Sources */,
 				703E81102311862500CAC3DD /* StorkPopoverSegue.swift in Sources */,
 				706708E722888265009A15B9 /* AlamofireHelper.swift in Sources */,
+				700B993828BBE21D002F5731 /* MainDonateView.swift in Sources */,
 				709D90C7224AC5FB0041713A /* NavbarActivityExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1813,6 +1837,14 @@
 				minimumVersion = 0.9.3;
 			};
 		};
+		70FFB33828B8A57B00C1A112 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1910,6 +1942,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7092B9B726C971D800B10065 /* XCRemoteSwiftPackageReference "SwipeCell" */;
 			productName = SwipeCell;
+		};
+		70FFB33928B8A57B00C1A112 /* SwiftyStoreKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70FFB33828B8A57B00C1A112 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
+			productName = SwiftyStoreKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
