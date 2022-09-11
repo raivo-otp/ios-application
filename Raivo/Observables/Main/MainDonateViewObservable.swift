@@ -64,7 +64,7 @@ class MainDonateViewObservable: ObservableObject {
             })
 //        }
         #else
-        SwiftyStoreKit.retrieveProductsInfo(ObservableProducts.PRODUCT_IDS) { result in
+        SwiftyStoreKit.retrieveProductsInfo(MainDonateViewObservable.PRODUCT_IDS) { result in
             guard result.error == nil else {
                 return
             }
