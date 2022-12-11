@@ -21,6 +21,9 @@ class RealmHelper {
     /// The path to the default Realm file
     private let ORIGINAL_URL = Realm.Configuration.defaultConfiguration.fileURL
     
+    /// The database schema version (increase to latest `AppHelper.build` to migrate)
+    private let SCHEMA_VERSION = UInt64(69)
+    
     /// A private initializer to make sure this class can only be used as a singleton class
     private init() {}
     
@@ -46,10 +49,10 @@ class RealmHelper {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             fileURL: getFileURL(),
             encryptionKey: encryptionKey,
-            schemaVersion: UInt64(AppHelper.build) + 1,
+            schemaVersion: self.SCHEMA_VERSION,
             migrationBlock: { migration, oldSchemaVersion in
                 var oldVersion = oldSchemaVersion
-                let newVersion = UInt64(AppHelper.build) + 1
+                let newVersion = self.SCHEMA_VERSION
 
                 while oldVersion < newVersion {
                     if let migrate = MigrationHelper.shared.migrations[Int(oldVersion)] {

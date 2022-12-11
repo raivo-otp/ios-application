@@ -69,7 +69,7 @@ class StateHelper {
     ///
     /// - Returns: The current state
     public func getCurrentState() -> String {
-        guard userDidNotDowngrade() else {
+        guard userDidNotDowngradeMajor() else {
             log.verbose("State: " + State.DOWNGRADE_NOT_PERMITTED)
             return State.DOWNGRADE_NOT_PERMITTED
         }
@@ -235,6 +235,18 @@ class StateHelper {
     ///
     /// - Returns: Positive if the user did not downgrade.
     private func userDidNotDowngrade() -> Bool {
+        if let previous = StorageHelper.shared.getPreviousBuild() {
+            let downgraded = AppHelper.build < previous
+            return !downgraded
+        }
+        
+        return true
+    }
+    
+    /// Ensure the user did not downgrade to a lower "major" version of the application.
+    ///
+    /// - Returns: Positive if the user did not downgrade a "major" version.
+    private func userDidNotDowngradeMajor() -> Bool {
         if let previous = StorageHelper.shared.getPreviousBuild() {
             let downgraded = AppHelper.build < previous
             return !downgraded
