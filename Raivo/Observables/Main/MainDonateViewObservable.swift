@@ -18,7 +18,12 @@ import StoreKit
 class MainDonateViewObservable: ObservableObject {
     
     /// The product ID's
-    public static var PRODUCT_IDS: Set<String> = ["raivo.otp.ios.tip.small"]
+    public static var PRODUCT_IDS: Set<String> = [
+        "raivo.otp.ios.tip.small",
+        "raivo.otp.ios.tip.large",
+        "raivo.otp.ios.tip.hosting",
+        "raivo.otp.ios.tip.license"
+    ]
     
     /// The purchases
     @Published var tips: [SKProduct] = []
@@ -35,25 +40,25 @@ class MainDonateViewObservable: ObservableObject {
             let retrievedProducts = [
                 SKProduct(
                     identifier: "raivo.otp.ios.tip.small",
-                    title: "Domain-sized Tip",
+                    title: "Domain-sized tip",
                     description: "Keep raivo-otp.com (domain) registered for one more year.",
                     price: 1.99
                 ),
                 SKProduct(
                     identifier: "raivo.otp.ios.tip.large",
-                    title: "Domain-sized Tip (x5)",
+                    title: "Domain-sized tip (x5)",
                     description: "Keep raivo-otp.com (domain) registered for another five years.",
                     price: 9.99
                 ),
                 SKProduct(
                     identifier: "raivo.otp.ios.tip.hosting",
-                    title: "Hosting-sized Tip",
+                    title: "Hosting-sized tip",
                     description: "Donate a year of hosting for the push notification server. 🙈",
                     price: 49.99
                 ),
                 SKProduct(
                     identifier: "raivo.otp.ios.tip.license",
-                    title: "License-sized Tip",
+                    title: "License-sized tip",
                     description: "Donate the cost of the annual developer license. 🚀",
                     price: 99.99
                 )
