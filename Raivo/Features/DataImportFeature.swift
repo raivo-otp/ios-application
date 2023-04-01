@@ -43,10 +43,42 @@ class DataImportFeature {
         }
     }
     
-    private func importNewPasswords(_ data: Data) {
+    // Attempts to read a file from a zip; returns its data on success, nil otherwise
+    private func readFileFromZip(atPath zipPath: String, fileName: String, password: String) -> Data? {
+        guard let destinationPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else {
+            return nil
+        }
+    
+        do {
+            try SSZipArchive.unzipFile(
+                atPath: zipPath,
+                toDestination: destinationPath.path,
+                overwrite: true,
+                password: password
+            )
+            
+            let filePath = destinationPath.appendingPathComponent(fileName)
+            if FileManager.default.fileExists(atPath: filePath.path) {
+                let data = try Data(contentsOf: filePath)
+                deleteFile(filePath)
+                return data
+            } else {
+                return nil
+            }
+        } catch {
+            return nil
+        }
+    }
+    
+    // Imports passwords from file data; returns nil on success, error string otherwise
+    private func importNewPasswords(_ data: Data) -> String? {
         let decoder = JSONDecoder()
         do {
             let jsonData = try decoder.decode([PasswordJson].self, from: data)
+            
+            if jsonData.isEmpty {
+                return "JSON file in ZIP contains no passwords."
+            }
             
             for item in jsonData {
                 
@@ -76,36 +108,37 @@ class DataImportFeature {
             }
         } catch {
             print("error importing passwords")
+            return "Invalid JSON file in ZIP."
         }
+        
+        return nil
     }
     
     public func importArchive(archiveFileURL: URL, withPassword password: String) -> (title: String, message: String) {
-        do {
-            // Unzip the file
-            let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            try SSZipArchive.unzipFile(
-                atPath: archiveFileURL.path,
-                toDestination: directory.path,
-                overwrite: true,
-                password: password
-            )
-            
-            // Read the JSON data from the unzipped file
-            let filename = directory.appendingPathComponent("raivo-otp-export.json")
-            let data = try Data(contentsOf: filename)
-            deleteFile(filename)
-            
-            // Clean up old passwords
-            deleteAllPasswords()
-            
-            // Import new passwords
-            importNewPasswords(data)
-            
-            // Return success message
-            return ("Import Successful", "New OTPs were successfully imported from the ZIP archive.")
-        } catch {
-            // Return error message
-            return ("Import Failed", "Failed to import OTPs from ZIP archive.")
+        
+        func myError(_ message: String) -> (title: String, message: String) {
+            return ("Import Failed", message)
         }
+        
+        // Password validation
+        if SSZipArchive.isPasswordValidForArchive(atPath: archiveFileURL.path, password: password, error: nil) == false {
+            return myError("Password incorrect.")
+        }
+        
+        // Load file from zip
+        guard let data = readFileFromZip(atPath: archiveFileURL.path, fileName: "raivo-otp-export.json", password: password) else {
+            return myError("Not a Raivo OTP export archive.")
+        }
+        
+        // Clean up old passwords
+        deleteAllPasswords()
+        
+        // Import new passwords
+        if let result = importNewPasswords(data) {
+            return myError(result)
+        }
+        
+        // Return success message
+        return ("Import Successful", "New OTPs were successfully imported from the ZIP archive.")
     }
 }
