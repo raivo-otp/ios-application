@@ -114,7 +114,7 @@ class DataImportFeature {
         return nil
     }
     
-    public func importArchive(archiveFileURL: URL, withPassword password: String) -> (title: String, message: String) {
+    public func importArchive(archiveFileURL: URL, withPassword password: String, shouldDeleteOldPasswords: Bool = false) -> (title: String, message: String) {
         
         func myError(_ message: String) -> (title: String, message: String) {
             return ("Import Failed", message)
@@ -131,7 +131,9 @@ class DataImportFeature {
         }
         
         // Clean up old passwords
-        deleteAllPasswords()
+        if shouldDeleteOldPasswords {
+            deleteAllPasswords()
+        }
         
         // Import new passwords
         if let result = importNewPasswords(data) {

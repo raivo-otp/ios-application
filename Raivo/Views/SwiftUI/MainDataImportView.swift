@@ -86,7 +86,9 @@ struct MainDataImportView: View {
                     Divider()
                     Text("The ZIP archive you select is assumed to be a backup previously exported from Raivo. You will be asked to provide the password necessary to decrypt it, which may or may not differ from your current master password.")
                     Divider()
-                    Text("Any OTPs currently stored in Raivo will be erased. If in doubt, export your current OTPs first.")
+                    // Maybe revisit this idea in the future once there is a way to recover deleted OTPs?
+                    //Text("Any OTPs currently stored in Raivo will be erased. If in doubt, export your current OTPs first.")
+                    Text("Any OTPs currently stored in Raivo will not be erased nor overwritten.")
                     Divider()
                     Text("Your master password will not be changed.")
                 }
