@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/EFPrefix/EFQRCode.git",
       "state" : {
-        "revision" : "bebbd09eaf28243ec576f6d53cbf9cc5b10eaffb",
-        "version" : "6.2.1"
+        "revision" : "2991c2f318ad9529d93b2a73a382a3f9c72c64ce",
+        "version" : "6.2.2"
       }
     },
     {
@@ -76,8 +76,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-cocoa.git",
       "state" : {
-        "revision" : "fd279e0a94b46c5bd65b17e36817a4365c7a5482",
-        "version" : "10.28.2"
+        "revision" : "b442ee3e9caa1abab26fd9b23f060f6f0815ff48",
+        "version" : "10.33.0"
       }
     },
     {
@@ -85,8 +85,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core",
       "state" : {
-        "revision" : "55a48c287b5e3a8ca129c257ec7e3b92bcb2a05f",
-        "version" : "12.3.0"
+        "revision" : "b77443ca7fa25407869ca537bf3ae912b1427bff",
+        "version" : "12.13.0"
       }
     },
     {
@@ -112,7 +112,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ivanvorobei/SPAlert.git",
       "state" : {
-        "revision" : "18862409586ac547bcdf8957cd96beb872fbc729",
+        "revision" : "12e9c25d650c10ea5988c75e5c5ade1e38742a96",
         "version" : "2.1.4"
       }
     },
@@ -121,7 +121,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ivanvorobei/SPStorkController.git",
       "state" : {
-        "revision" : "87440c439e84bea61b28e82788ae704ab7171eb1",
+        "revision" : "9eea2c3259420c278fcd2dbbab242ef5fcf54dc9",
         "version" : "1.8.5"
       }
     },
