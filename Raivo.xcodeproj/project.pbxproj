@@ -1786,7 +1786,7 @@
 			repositoryURL = "https://github.com/EFPrefix/EFQRCode.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.2.0;
+				minimumVersion = 6.2.2;
 			};
 		};
 		704B1C3A26E69DF900CE0067 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
