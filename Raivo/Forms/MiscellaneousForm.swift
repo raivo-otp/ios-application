@@ -287,7 +287,7 @@ class MiscellaneousForm {
         form +++ Section("Data", { section in
             section.tag = "data"
             section.hidden = Condition(booleanLiteral: !authenticated)
-            //section.footer = HeaderFooterView(title: "Your data will be exported in an encrypted ZIP archive (using your encryption password).")
+            section.footer = HeaderFooterView(title: "All Raivo ZIP archives are encrypted (using your encryption password).")
         })
             
             <<< ButtonRow("export", { row in

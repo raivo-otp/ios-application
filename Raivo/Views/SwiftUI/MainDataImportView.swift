@@ -33,20 +33,22 @@ struct MainDataImportProcess: UIViewControllerRepresentable {
         
         // The user selected a file: prompt them for a password
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            let alertController = UIAlertController(title: "Enter Password", message: "Please enter the password for decrypting the selected ZIP archive.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Enter password", message: "Please enter the password for decrypting the selected ZIP archive.", preferredStyle: .alert)
+            
             alertController.addTextField { (textField) in
                 textField.placeholder = "Password"
                 textField.isSecureTextEntry = true
             }
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let okAction = UIAlertAction(title: "OK", style: .default) { [ self] (action) in
                 guard let selectedFileURL = urls.first, let password = alertController.textFields?[0].text else { return }
                 // The user entered a password: attempt to import the archive, and report the outcome
-                let results = dataImport.importArchive(archiveFileURL: selectedFileURL, withPassword: password)
-                let alertController = UIAlertController(title: results.title, message: results.message, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(okAction)
-                doAlert(alertController)
+                if let error = dataImport.importArchive(archiveFileURL: selectedFileURL, withPassword: password) {
+                    BannerHelper.shared.error("Import failed", error)
+                } else {
+                    BannerHelper.shared.done("Import succesful", "New OTPs were successfully imported from the ZIP archive")
+                }
             }
             
             alertController.addAction(cancelAction)
@@ -74,6 +76,7 @@ struct MainDataImportView: View {
     
     /// An observable that contains the variable content of the view
     @ObservedObject var mainDataImport: MainDataImportViewObservable
+    
     @State private var isPresented = false
     
     /// The body of the view
@@ -84,11 +87,9 @@ struct MainDataImportView: View {
                 Group {
                     Text("Please read the following notice carefully!").bold()
                     Divider()
-                    Text("The ZIP archive you select is assumed to be a backup previously exported from Raivo. You will be asked to provide the password necessary to decrypt it, which may or may not differ from your current master password.")
+                    Text("The ZIP archive you select is assumed to be a backup previously exported from Raivo. You will be asked to provide a master password (without passcode), which may or may not differ from your current master password, to decrypt it.")
                     Divider()
-                    // Maybe revisit this idea in the future once there is a way to recover deleted OTPs?
-                    //Text("Any OTPs currently stored in Raivo will be erased. If in doubt, export your current OTPs first.")
-                    Text("Any OTPs currently stored in Raivo will not be erased nor overwritten.")
+                    Text("All imported OTP's will be added to Raivo (your existing OTP's will not be deleted.")
                     Divider()
                     Text("Your master password will not be changed.")
                 }

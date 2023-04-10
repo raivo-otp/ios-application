@@ -54,13 +54,15 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         initializeSearchBar()
         initializeTableView()
         
-        if let realm = RealmHelper.shared.getRealm() {
-            let sortProperties = [
-                SortDescriptor(keyPath: "pinned", ascending: false),
-                SortDescriptor(keyPath: "issuer"),
-                SortDescriptor(keyPath: "account")
-            ]
-            results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+        autoreleasepool {
+            if let realm = RealmHelper.shared.getRealm() {
+                let sortProperties = [
+                    SortDescriptor(keyPath: "pinned", ascending: false),
+                    SortDescriptor(keyPath: "issuer"),
+                    SortDescriptor(keyPath: "account")
+                ]
+                results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+            }
         }
 
         initializeTableViewNotifications()
@@ -192,14 +194,16 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if let realm = RealmHelper.shared.getRealm() {
-            let sortProperties = [
-                SortDescriptor(keyPath: "pinned", ascending: false),
-                SortDescriptor(keyPath: "issuer"),
-                SortDescriptor(keyPath: "account")
-            ]
-            
-            results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+        autoreleasepool {
+            if let realm = RealmHelper.shared.getRealm() {
+                let sortProperties = [
+                    SortDescriptor(keyPath: "pinned", ascending: false),
+                    SortDescriptor(keyPath: "issuer"),
+                    SortDescriptor(keyPath: "account")
+                ]
+                
+                results = realm.objects(Password.self).filter("deleted == 0").sorted(by: sortProperties)
+            }
         }
         
         if (searchText.count > 0) {
