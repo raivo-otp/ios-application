@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F108CD329CFD578007D7D8F /* MainDataImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F108CD229CFD578007D7D8F /* MainDataImportView.swift */; };
+		1F108CD529CFD5B8007D7D8F /* DataImportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F108CD429CFD5B8007D7D8F /* DataImportFeature.swift */; };
+		1F108CD729CFD5FA007D7D8F /* MainDataImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F108CD629CFD5FA007D7D8F /* MainDataImportViewController.swift */; };
+		1F108CD929CFD686007D7D8F /* MainDataImportViewObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F108CD829CFD686007D7D8F /* MainDataImportViewObservable.swift */; };
 		700794B0279D6BC8007510A5 /* TokenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700794AF279D6BC8007510A5 /* TokenExtension.swift */; };
 		700908C521FCCE5F00603AA2 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */; };
 		700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */; };
@@ -224,6 +228,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F108CD229CFD578007D7D8F /* MainDataImportView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDataImportView.swift; sourceTree = "<group>"; };
+		1F108CD429CFD5B8007D7D8F /* DataImportFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataImportFeature.swift; sourceTree = "<group>"; };
+		1F108CD629CFD5FA007D7D8F /* MainDataImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDataImportViewController.swift; sourceTree = "<group>"; };
+		1F108CD829CFD686007D7D8F /* MainDataImportViewObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDataImportViewObservable.swift; sourceTree = "<group>"; };
 		700794AF279D6BC8007510A5 /* TokenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExtension.swift; sourceTree = "<group>"; };
 		700908C121FCCE5F00603AA2 /* Raivo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raivo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		700908C421FCCE5F00603AA2 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
@@ -548,6 +556,7 @@
 		700908DC21FCE2A900603AA2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1F108CD629CFD5FA007D7D8F /* MainDataImportViewController.swift */,
 				700908C621FCCE5F00603AA2 /* MainEntryViewController.swift */,
 				70A7B10D223061D60084F15B /* MainPasswordsViewController.swift */,
 				70A7B10F223061E50084F15B /* MainScanPasswordViewController.swift */,
@@ -714,6 +723,7 @@
 		706122E3266EA99400121035 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1F108CD829CFD686007D7D8F /* MainDataImportViewObservable.swift */,
 				706122E4266EA9AA00121035 /* MainDataExportViewObservable.swift */,
 				70ED04E026763A6D005C4D14 /* MainChangeAppIconViewObservable.swift */,
 				7092B9A426C932D500B10065 /* MainReceiversViewObservable.swift */,
@@ -806,6 +816,7 @@
 				70A3F50625CEF089004F053B /* Misc */,
 				70A3F50125CECA8C004F053B /* Buttons */,
 				70A3F4F925CDD282004F053B /* MainDataExportView.swift */,
+				1F108CD229CFD578007D7D8F /* MainDataImportView.swift */,
 				70ED04E226763A8E005C4D14 /* MainChangeAppIconView.swift */,
 				7092B9A226C9309400B10065 /* MainReceiversView.swift */,
 				700B993728BBE21D002F5731 /* MainDonateView.swift */,
@@ -982,6 +993,7 @@
 		70DC72E722A3F2B2006FE7B7 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				1F108CD429CFD5B8007D7D8F /* DataImportFeature.swift */,
 				70DC72E822A3F2FC006FE7B7 /* ComposeMailFeature.swift */,
 				70DC72EA22A3F306006FE7B7 /* DataExportFeature.swift */,
 				705E431F23E5D01B00D26619 /* AddTappedUriFeature.swift */,
@@ -1302,9 +1314,11 @@
 				70675F262677D874009A7AE9 /* AppIconObject.swift in Sources */,
 				70B585EF2309D3BE00AD1754 /* SetupPasscodeViewController.swift in Sources */,
 				700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */,
+				1F108CD729CFD5FA007D7D8F /* MainDataImportViewController.swift in Sources */,
 				70B585EA2309BED700AD1754 /* SetupEncryptionInitialViewController.swift in Sources */,
 				702BAEA82258FD1B008E5C5F /* PasswordForm.swift in Sources */,
 				70B585E62309A67E00AD1754 /* SetupMiscViewController.swift in Sources */,
+				1F108CD929CFD686007D7D8F /* MainDataImportViewObservable.swift in Sources */,
 				70AE33252273B73D007A12A2 /* MigrationProtocol.swift in Sources */,
 				70A3F4FA25CDD282004F053B /* MainDataExportView.swift in Sources */,
 				70BC3EE222567603005C98EF /* BaseSyncer.swift in Sources */,
@@ -1342,6 +1356,7 @@
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
 				70A1BC5322F74E6100152864 /* ErrorRootViewController.swift in Sources */,
 				709B636122C548E800697884 /* QuickResponseCodeRow.swift in Sources */,
+				1F108CD529CFD5B8007D7D8F /* DataImportFeature.swift in Sources */,
 				7077A33B227CCB1200338CA3 /* PasswordDigitsFormOption.swift in Sources */,
 				7065070A23106E0A004D6E84 /* ErrorDowngradeNotPermittedViewController.swift in Sources */,
 				7092B9B026C96BF600B10065 /* ValidationError.swift in Sources */,
@@ -1372,6 +1387,7 @@
 				70ED04E326763A8E005C4D14 /* MainChangeAppIconView.swift in Sources */,
 				70BD738425B9BA4D002F9347 /* MainDataExportViewController.swift in Sources */,
 				700908F021FCEC3100603AA2 /* SetupEntryViewController.swift in Sources */,
+				1F108CD329CFD578007D7D8F /* MainDataImportView.swift in Sources */,
 				70684DED225A1BD40038BDB4 /* ApplicationPrincipal.swift in Sources */,
 				702A140A2263672200B278BB /* MainChangePasscodeViewController.swift in Sources */,
 				7076C22622E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift in Sources */,
