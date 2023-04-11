@@ -1722,7 +1722,7 @@
 			repositoryURL = "https://github.com/ZipArchive/ZipArchive.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.4.2;
+				minimumVersion = 2.5.4;
 			};
 		};
 		704B1C1A26E683DA00CE0067 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {

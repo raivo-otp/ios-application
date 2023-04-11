@@ -125,18 +125,17 @@ class DataImportFeature {
         return nil
     }
     
-    public func importArchive(archiveFileURL: URL, withPassword password: String) -> String? {
-        // Password validation
-        if SSZipArchive.isPasswordValidForArchive(atPath: archiveFileURL.path, password: password, error: nil) == false {
-            return "Password incorrect"
+    public func importArchive(privateArchiveFileURL: URL, withPassword password: String) -> String? {
+        guard privateArchiveFileURL.startAccessingSecurityScopedResource() else {
+            return "Permission denied"
         }
         
-        // Load file from zip
-        guard let data = readFileFromZip(atPath: archiveFileURL.path, fileName: "raivo-otp-export.json", password: password) else {
+        defer { privateArchiveFileURL.stopAccessingSecurityScopedResource() }
+        
+        guard let data = readFileFromZip(atPath: privateArchiveFileURL.path, fileName: "raivo-otp-export.json", password: password) else {
             return "Not a Raivo OTP export archive"
         }
         
-        // Import new passwords
         if let result = importNewPasswords(data) {
             return result
         }

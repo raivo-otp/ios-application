@@ -43,8 +43,9 @@ struct MainDataImportProcess: UIViewControllerRepresentable {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let okAction = UIAlertAction(title: "OK", style: .default) { [ self] (action) in
                 guard let selectedFileURL = urls.first, let password = alertController.textFields?[0].text else { return }
+                
                 // The user entered a password: attempt to import the archive, and report the outcome
-                if let error = dataImport.importArchive(archiveFileURL: selectedFileURL, withPassword: password) {
+                if let error = dataImport.importArchive(privateArchiveFileURL: selectedFileURL, withPassword: password) {
                     BannerHelper.shared.error("Import failed", error)
                 } else {
                     BannerHelper.shared.done("Import succesful", "New OTPs were successfully imported from the ZIP archive")

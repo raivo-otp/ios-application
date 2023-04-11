@@ -159,7 +159,6 @@ class DataExportFeature {
     
     private func saveRepresentationToFile(_ text: String, _ type: Representation) -> URL? {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
         let folderPath = directory.appendingPathComponent("raivo-otp-export")
         
         do {
