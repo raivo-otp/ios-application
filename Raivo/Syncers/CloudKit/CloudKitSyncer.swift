@@ -112,7 +112,7 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
             return
         }
         
-        let query = CKQuery(recordType: Password.TABLE, predicate: NSPredicate(format: "deleted == 0"))
+        let query = CKQuery(recordType: Password.TABLE, predicate: NSPredicate(format: "deleted == %d", [1]))
         CKContainer.init(identifier: CloudKitSyncer.containerName).privateCloudDatabase.perform(query, inZoneWith: nil) { records, error in
             guard let records = records, error == nil else {
                 return self.preloadChallengeError(error)
@@ -157,7 +157,8 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
         
         for (_, modelSyncer) in modelSyncers {
             group.enter()
-
+            
+            log.warning("Flushing all data remotely specifically for model " + id(modelSyncer) + ".")
             modelSyncer.flushAllData(success: {
                 group.leave()
             }, error: { newError in

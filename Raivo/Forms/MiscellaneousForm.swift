@@ -133,9 +133,7 @@ class MiscellaneousForm {
         
     }
     
-    private func buildDonateSection(_ controller: UIViewController) {
-        let authenticated = StateHelper.shared.getCurrentStoryboard() == StateHelper.Storyboard.MAIN
-        
+    private func buildDonateSection(_ controller: UIViewController) {        
         form +++ Section("Raivo lives on donations", { section in
             section.tag = "donate"
             section.footer = HeaderFooterView(title: "If you feel like it, support me by partially funding Raivo's domain name, push notification server, or developer license.")
