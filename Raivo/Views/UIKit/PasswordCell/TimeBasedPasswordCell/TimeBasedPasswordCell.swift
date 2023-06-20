@@ -54,7 +54,8 @@ class TimeBasedPasswordCell: PasswordCell {
             passwordDelimiter.isHidden = false
         } else {
             previousPassword.isHidden = true
-            passwordDelimiter.isHidden = true}
+            passwordDelimiter.isHidden = true
+        }
     }
     
     override internal func setPassword(_ password: Password) {

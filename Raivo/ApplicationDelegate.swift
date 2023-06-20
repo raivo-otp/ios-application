@@ -9,6 +9,7 @@
 //
 // https://raivo-otp.com/license/.
 
+import SwiftUI
 import UIKit
 import RealmSwift
 import CloudKit
@@ -28,6 +29,9 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     /// Indicating of the application passed the `Load` app state
     public var applicationIsLoaded: Bool = false
+    
+    /// Indicating of the application is in the foreground on iOS
+    public var applicationInForeground: Bool = false
     
     /// The last known syncer account identifier (used to check of account changes)
     public var syncerAccountIdentifier: String? = nil
@@ -109,7 +113,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter storyboard: The upcoming storyboard
     private func beforeStoryboardChange(_ storyboard: String) {
         switch storyboard {
-        case StateHelper.Storyboard.MAIN:
+        case StateHelper.Storyboard.MAIN, StateHelper.Storyboard.BACK:
             // Enable lockscreen timer
             (ApplicationPrincipal.shared as! ApplicationPrincipal).enableInactivityTimer()
             
@@ -166,7 +170,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// Update the storyboard to comply with the current state of the application, using a transition.
     ///
     /// - Parameter options: The transition/animation options
-    public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionFlipFromLeft) {
+    public func updateStoryboard(_ options: UIView.AnimationOptions? = .transitionFlipFromLeft) {
         ui {
             self.setCorrectStoryboard()
             
@@ -174,13 +178,15 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
                 return
             }
             
-            UIView.transition(
-                with: keyWindow,
-                duration: 0.5,
-                options: options,
-                animations: nil,
-                completion: nil
-            )
+            if let options = options {
+                UIView.transition(
+                    with: keyWindow,
+                    duration: 0.5,
+                    options: options,
+                    animations: nil,
+                    completion: nil
+                )
+            }
         }
     }
     
@@ -203,7 +209,8 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationWillResignActive(_ application: UIApplication) {
-        // Not implemented
+        applicationInForeground = false
+        updateStoryboard(.transitionCrossDissolve)
     }
 
     /// Tells the delegate that the app is now in the background.
@@ -224,7 +231,8 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Not implemented
+        applicationInForeground = true
+        updateStoryboard(.transitionCrossDissolve)
     }
 
     /// Tells the delegate when the app is about to terminate.

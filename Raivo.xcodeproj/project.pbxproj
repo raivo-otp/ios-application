@@ -25,6 +25,8 @@
 		70093238230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70093237230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift */; };
 		700B993628BBE1F3002F5731 /* MainDonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700B993528BBE1F3002F5731 /* MainDonateViewController.swift */; };
 		700B993828BBE21D002F5731 /* MainDonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700B993728BBE21D002F5731 /* MainDonateView.swift */; };
+		7011C4D72A422D6C0093A15B /* BackRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7011C4D62A422D6C0093A15B /* BackRootViewController.swift */; };
+		7011C4D92A422DC00093A15B /* Back.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7011C4D82A422DC00093A15B /* Back.storyboard */; };
 		70131F0028BD348900DBF4DB /* SKProductExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70131EFF28BD348900DBF4DB /* SKProductExtension.swift */; };
 		70131F0228BD485B00DBF4DB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70131F0128BD485B00DBF4DB /* StoreKit.framework */; };
 		7016DE422265193D006C45B6 /* CustomColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016DE412265193D006C45B6 /* CustomColorsExtension.swift */; };
@@ -248,6 +250,8 @@
 		70093237230B4FCC00D83A3D /* SetupPasscodeConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPasscodeConfirmationViewController.swift; sourceTree = "<group>"; };
 		700B993528BBE1F3002F5731 /* MainDonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDonateViewController.swift; sourceTree = "<group>"; };
 		700B993728BBE21D002F5731 /* MainDonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDonateView.swift; sourceTree = "<group>"; };
+		7011C4D62A422D6C0093A15B /* BackRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackRootViewController.swift; sourceTree = "<group>"; };
+		7011C4D82A422DC00093A15B /* Back.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Back.storyboard; sourceTree = "<group>"; };
 		70131EFF28BD348900DBF4DB /* SKProductExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKProductExtension.swift; sourceTree = "<group>"; };
 		70131F0128BD485B00DBF4DB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7016DE412265193D006C45B6 /* CustomColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorsExtension.swift; sourceTree = "<group>"; };
@@ -508,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				700908DB21FCE2A400603AA2 /* Auth */,
+				7011C4D52A422D5C0093A15B /* Back */,
 				70D0FD652291B8C20016BD95 /* Error */,
 				70D0FD602291AFE70016BD95 /* Load */,
 				700908DC21FCE2A900603AA2 /* Main */,
@@ -582,6 +587,7 @@
 				70B585E223098D6400AD1754 /* Setup.storyboard */,
 				70D0FD612291B00E0016BD95 /* Load.storyboard */,
 				70D0FD682291B8F10016BD95 /* Error.storyboard */,
+				7011C4D82A422DC00093A15B /* Back.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -641,6 +647,14 @@
 				700908D021FCCE6100603AA2 /* Info.plist */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		7011C4D52A422D5C0093A15B /* Back */ = {
+			isa = PBXGroup;
+			children = (
+				7011C4D62A422D6C0093A15B /* BackRootViewController.swift */,
+			);
+			path = Back;
 			sourceTree = "<group>";
 		};
 		701ECE3923D3870A0015D12A /* Flows */ = {
@@ -1260,6 +1274,7 @@
 				70AF718B28A0299500F1D44C /* app-icon-pelican@1x.png in Resources */,
 				700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */,
 				709FA2C32676922400BDB44D /* app-icon-light-tint-large@1x.png in Resources */,
+				7011C4D92A422DC00093A15B /* Back.storyboard in Resources */,
 				70B585E323098D6400AD1754 /* Setup.storyboard in Resources */,
 				709FA2C22676922400BDB44D /* app-icon-dark-tint-large@1x.png in Resources */,
 				70AF719128A0369E00F1D44C /* app-icon-halo@1x.png in Resources */,
@@ -1311,6 +1326,7 @@
 				70D0FD6B2291D3740016BD95 /* ErrorSyncerAccountChangedViewController.swift in Sources */,
 				70C80DA9229F070A00413801 /* UIPasscodeFieldDelegate.swift in Sources */,
 				700908EE21FCEC2800603AA2 /* AuthEntryViewController.swift in Sources */,
+				7011C4D72A422D6C0093A15B /* BackRootViewController.swift in Sources */,
 				70C80DAA229F070A00413801 /* UIDigitField.swift in Sources */,
 				70675F262677D874009A7AE9 /* AppIconObject.swift in Sources */,
 				70B585EF2309D3BE00AD1754 /* SetupPasscodeViewController.swift in Sources */,

@@ -26,6 +26,7 @@ class StateHelper {
         static let LOAD = "Load"
         static let SETUP = "Setup"
         static let AUTH = "Auth"
+        static let BACK = "Back"
         static let MAIN = "Main"
         static let ERROR = "Error"
     }
@@ -36,6 +37,7 @@ class StateHelper {
         static let LOAD = "LoadRootController"
         static let SETUP = "SetupRootController"
         static let AUTH = "AuthRootController"
+        static let BACK = "BackRootController"
         static let MAIN = "MainRootController"
         
         // Available error controllers
@@ -59,6 +61,9 @@ class StateHelper {
         
         /// If the application is fully initialized, but the user needs to enter the passcode
         static let ENCRYPTION_KEY_UNKNOWN = "ENCRYPTION_KEY_UNKNOWN"
+        
+        /// If the application is fully initialized, but the user moved it to the background
+        static let APPLICATION_IN_BACKGROUND = "APPLICATION_IN_BACKGROUND"
         
         /// The user is signed in and all checks were passed
         static let DATABASE_AND_ENCRYPTION_KEY_AVAILABLE = "DATABASE_AND_ENCRYPTION_KEY_AVAILABLE"
@@ -93,6 +98,11 @@ class StateHelper {
             log.verbose("State: " + State.ENCRYPTION_KEY_UNKNOWN)
             return State.ENCRYPTION_KEY_UNKNOWN
         }
+        
+        guard getAppDelegate().applicationInForeground else {
+            log.verbose("State: " + State.APPLICATION_IN_BACKGROUND)
+            return State.APPLICATION_IN_BACKGROUND
+        }
 
         log.verbose("State: " + State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE)
         return State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE
@@ -113,6 +123,8 @@ class StateHelper {
             return Storyboard.ERROR
         case State.ENCRYPTION_KEY_UNKNOWN:
             return Storyboard.AUTH
+        case State.APPLICATION_IN_BACKGROUND:
+            return Storyboard.BACK
         case State.DATABASE_AND_ENCRYPTION_KEY_AVAILABLE:
             return Storyboard.MAIN
         default:
@@ -134,6 +146,8 @@ class StateHelper {
             return getCurrentErrorStoryboardController()
         case Storyboard.AUTH:
             return StoryboardController.AUTH
+        case Storyboard.BACK:
+            return StoryboardController.BACK
         case Storyboard.MAIN:
             return StoryboardController.MAIN
         default:
