@@ -148,9 +148,15 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     }
     
     /// Update the storyboard to comply with the current state of the application.
-    private func setCorrectStoryboard() {
+    ///
+    ///  - Returns: Positive if the storyboard changed, negative otherwise.
+    @discardableResult private func setCorrectStoryboard() -> Bool {
         let storyboardName = StateHelper.shared.getCurrentStoryboard()
         let controllerName = StateHelper.shared.getCurrentStoryboardController()
+        
+        guard storyboardName != currentStoryboardName else {
+            return false
+        }
         
         self.beforeStoryboardChange(storyboardName)
         
@@ -165,28 +171,32 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: controllerName)
         self.window?.rootViewController = controller
+        
+        return true
     }
     
     /// Update the storyboard to comply with the current state of the application, using a transition.
     ///
     /// - Parameter options: The transition/animation options
-    public func updateStoryboard(_ options: UIView.AnimationOptions? = .transitionFlipFromLeft) {
+    public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionFlipFromLeft) {
         ui {
-            self.setCorrectStoryboard()
+            let changed = self.setCorrectStoryboard()
+            
+            guard changed else {
+                return
+            }
             
             guard let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first else {
                 return
             }
             
-            if let options = options {
-                UIView.transition(
-                    with: keyWindow,
-                    duration: 0.5,
-                    options: options,
-                    animations: nil,
-                    completion: nil
-                )
-            }
+            UIView.transition(
+                with: keyWindow,
+                duration: 0.5,
+                options: options,
+                animations: nil,
+                completion: nil
+            )
         }
     }
     
@@ -217,6 +227,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationDidEnterBackground(_ application: UIApplication) {
+        applicationInForeground = false
         previousStoryboardName = nil
     }
 
@@ -224,7 +235,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Not implemented
+        applicationInForeground = true
     }
 
     /// Tells the delegate that the app has become active.
