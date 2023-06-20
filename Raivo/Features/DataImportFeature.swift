@@ -82,6 +82,7 @@ class DataImportFeature {
     
     private func importNewPasswords(_ data: Data) -> String? {
         let decoder = JSONDecoder()
+        var passwords: [Password] = []
         var jsonData: [PasswordJson]? = nil
         
         do {
@@ -96,9 +97,9 @@ class DataImportFeature {
             return "Given JSON data is empty"
         }
             
-        for item in jsonData! {
+        for (index, item) in jsonData!.enumerated() {
             let password = Password()
-            password.id = password.getNewPrimaryKey()
+            password.id = password.getNewPrimaryKey() + Int64(index)
             password.issuer = item.issuer
             password.account = item.account
             password.iconType = item.iconType
@@ -112,14 +113,28 @@ class DataImportFeature {
             password.syncing = true
             password.synced = false
             password.pinned = Bool(item.pinned) ?? false
-                        
-            autoreleasepool {
-                if let realm = RealmHelper.shared.getRealm() {
-                    try! realm.write {
+            
+            passwords.append(password)
+            log.verbose("Generated new password (ID " + String(password.id) + ") from import file.")
+        }
+        
+        var succesfullySaved = false
+        
+        autoreleasepool {
+            if let realm = RealmHelper.shared.getRealm() {
+                try! realm.write {
+                    for password in passwords {
                         realm.add(password)
                     }
+                    
+                    succesfullySaved = true
                 }
             }
+        }
+        
+        if !succesfullySaved {
+            log.error("Could not sync imported passwords to local Realm.")
+            return "Could not sync imported passwords to local Realm."
         }
         
         return nil

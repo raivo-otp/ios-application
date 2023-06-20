@@ -112,13 +112,13 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
             return
         }
         
-        let query = CKQuery(recordType: Password.TABLE, predicate: NSPredicate(format: "deleted == %d", [1]))
+        let query = CKQuery(recordType: Password.TABLE, predicate: NSPredicate(value: true))
         CKContainer.init(identifier: CloudKitSyncer.containerName).privateCloudDatabase.perform(query, inZoneWith: nil) { records, error in
             guard let records = records, error == nil else {
                 return self.preloadChallengeError(error)
             }
             
-            self.preloadChallengeSuccess(records)
+            self.preloadChallengeSuccess(records.filter { $0.value(forKey: "deleted") as! Int64 == 0 })
         }
     }
     

@@ -140,17 +140,54 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         switch changes {
         case .update(_, _, let insertions, let modifications):
             // For every item that has to be synced
-            for insertion in insertions {
-                self.onLocalChange(localResults![insertion])
+            if !insertions.isEmpty {
+                self.onMultipleLocalChange(insertions.map { localResults![$0] } )
             }
 
             // For every item that is syncing, and has to be synced again
-            for modification in modifications {
-                self.onLocalChange(localResults![modification])
+            if !modifications.isEmpty {
+                self.onMultipleLocalChange(modifications.map { localResults![$0] } )
             }
         default:
             break
         }
+    }
+    
+    internal func onMultipleLocalChange(_ passwords: [Password]) {
+        var recordsToSave: [CKRecord: ThreadSafeReference<Password>] = [:]
+        
+        for password in passwords {
+            recordsToSave[CloudKitPasswordConverter.getRemote(password)] = ThreadSafeReference(to: password)
+        }
+        
+        let modification = CKModifyRecordsOperation(recordsToSave: Array(recordsToSave.keys), recordIDsToDelete: nil)
+        modification.savePolicy = .changedKeys
+        modification.qualityOfService = .userInitiated
+        modification.modifyRecordsCompletionBlock = { records, deletedIDs, error in
+            if records == nil || records?.count != recordsToSave.count {
+                log.error(error?.localizedDescription ?? "Unknown CloudKit error!")
+            }
+            
+            autoreleasepool {
+                if let realm = RealmHelper.shared.getRealm() {
+                    try! realm.write {
+                        for record in records! {
+                            guard let password = realm.resolve(recordsToSave[record]!) else {
+                                return // Password was deleted in the meantime
+                            }
+
+                            password.syncing = false
+                            password.synced = records?.count == recordsToSave.count
+                            password.deleted = (records?.count != recordsToSave.count) ? false : password.deleted
+                            password.syncErrorType = (error == nil) ? nil : Password.SyncErrorTypes.INSERT
+                            password.syncErrorDescription = (error == nil) ? nil : error!.localizedDescription
+                        }
+                    }
+                }
+            }
+        }
+        
+        cloud.add(modification)
     }
     
     internal func onLocalChange(_ password: Password) {
@@ -159,7 +196,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         
         let modification = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
         modification.savePolicy = .changedKeys
-        modification.qualityOfService = .userInitiated
+        modification.qualityOfService = .userInteractive
         modification.modifyRecordsCompletionBlock = { records, deletedIDs, error in
             if records?.count != 1 {
                 log.error(error?.localizedDescription ?? "Unknown CloudKit error!")
