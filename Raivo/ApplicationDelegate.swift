@@ -57,7 +57,6 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
             StateHelper.shared.reset()
         }
         
-        log.verbose("func application(...)")
         setCorrectStoryboard()
         setCorrectTintColor()
                 
@@ -181,7 +180,6 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter options: The transition/animation options
     public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionCrossDissolve) {
         ui {
-            log.verbose("func updateStoryboard(...)")
             let changed = self.setCorrectStoryboard()
             
             guard changed else {

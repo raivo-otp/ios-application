@@ -95,11 +95,12 @@ class ApplicationPrincipal: UIApplication {
     ///
     /// - Parameter application: The singleton app object.
     func applicationWillResignActive(_ application: UIApplication) {
-        guard let inactivityTimer = inactivityTimer else {
+        guard let inactivityTimer = inactivityTimer, inactivityTimer.isValid else {
+            backgroundInactityDate = nil
             return
         }
         
-        backgroundInactityDate = Date() + Date().timeIntervalSince(inactivityTimer.fireDate)
+        backgroundInactityDate = Date().addingTimeInterval(0 - Date().timeIntervalSince(inactivityTimer.fireDate))
         inactivityTimer.invalidate()
     }
     
@@ -111,8 +112,8 @@ class ApplicationPrincipal: UIApplication {
         backgroundInactityDate = nil
         
         guard
-            let currentBackgroundInactityDate = currentBackgroundInactityDate,
-            Date() >= currentBackgroundInactityDate,
+            currentBackgroundInactityDate != nil,
+            Date() >= currentBackgroundInactityDate!,
             inactivityTimerEnabled
         else {
             return
