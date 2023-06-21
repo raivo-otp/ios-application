@@ -228,6 +228,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
 
                 log.verbose("Unlocked app via biometric")
 
+                getAppDelegate().applicationInForeground = true
                 getAppDelegate().updateEncryptionKey(Data(base64Encoded: key))
                 getAppDelegate().updateStoryboard()
             } else {

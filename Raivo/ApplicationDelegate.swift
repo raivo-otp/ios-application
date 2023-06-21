@@ -31,7 +31,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     public var applicationIsLoaded: Bool = false
     
     /// Indicating of the application is in the foreground on iOS
-    public var applicationInForeground: Bool = false
+    public var applicationInForeground: Bool = true
     
     /// The last known syncer account identifier (used to check of account changes)
     public var syncerAccountIdentifier: String? = nil
@@ -57,6 +57,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
             StateHelper.shared.reset()
         }
         
+        log.verbose("func application(...)")
         setCorrectStoryboard()
         setCorrectTintColor()
                 
@@ -178,8 +179,9 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// Update the storyboard to comply with the current state of the application, using a transition.
     ///
     /// - Parameter options: The transition/animation options
-    public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionFlipFromLeft) {
+    public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionCrossDissolve) {
         ui {
+            log.verbose("func updateStoryboard(...)")
             let changed = self.setCorrectStoryboard()
             
             guard changed else {
@@ -219,8 +221,12 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationWillResignActive(_ application: UIApplication) {
+        getAppPrincipal().applicationWillResignActive(application)
         applicationInForeground = false
-        updateStoryboard(.transitionCrossDissolve)
+        
+        if currentStoryboardName == StateHelper.Storyboard.MAIN {
+            updateStoryboard()
+        }
     }
 
     /// Tells the delegate that the app is now in the background.
@@ -242,8 +248,12 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationDidBecomeActive(_ application: UIApplication) {
+        getAppPrincipal().applicationDidBecomeActive(application)
         applicationInForeground = true
-        updateStoryboard(.transitionCrossDissolve)
+        
+        if currentStoryboardName == StateHelper.Storyboard.BACK {
+            updateStoryboard()
+        }
     }
 
     /// Tells the delegate when the app is about to terminate.

@@ -20,6 +20,9 @@ class ApplicationPrincipal: UIApplication {
     /// A countdown timer that triggers the lockscreen if a certain threshold is met
     private var inactivityTimer: Timer?
     
+    /// A date of the last user activity plus the inactivity time (can be used for locking the app while in the background)
+    private var backgroundInactityDate: Date?
+    
     /// Start observing application inactivity (and show the lockscreen if inactive)
     public func enableInactivityTimer() {
         inactivityTimerEnabled = true
@@ -86,6 +89,36 @@ class ApplicationPrincipal: UIApplication {
     /// Stop the active timer so the app won't move to the lockscreen
     private func invalidateInactivityTimer() {
         inactivityTimer?.invalidate()
+    }
+    
+    /// Tells the delegate that the app is about to become inactive.
+    ///
+    /// - Parameter application: The singleton app object.
+    func applicationWillResignActive(_ application: UIApplication) {
+        guard let inactivityTimer = inactivityTimer else {
+            return
+        }
+        
+        backgroundInactityDate = Date() + Date().timeIntervalSince(inactivityTimer.fireDate)
+        inactivityTimer.invalidate()
+    }
+    
+    /// Tells the delegate that the app has become active.
+    ///
+    /// - Parameter application: The singleton app object.
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        let currentBackgroundInactityDate = backgroundInactityDate
+        backgroundInactityDate = nil
+        
+        guard
+            let currentBackgroundInactityDate = currentBackgroundInactityDate,
+            Date() >= currentBackgroundInactityDate,
+            inactivityTimerEnabled
+        else {
+            return
+        }
+        
+        StateHelper.shared.lock()
     }
     
     /// Open the given URL (by the native UIApplication.open handler

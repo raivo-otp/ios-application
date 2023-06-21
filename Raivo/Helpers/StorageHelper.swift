@@ -58,7 +58,7 @@ class StorageHelper {
     ///
     /// - Returns: The `SecureEnclaveValet` secrets instance
     public func secrets() -> SecureEnclaveValet {
-        return SecureEnclaveValet.valet(with: Identifier(nonEmpty: "secrets")!, accessControl: .userPresence)
+        return SecureEnclaveValet.valet(with: Identifier(nonEmpty: "secrets")!, accessControl: .userPresence)        
     }
     
     /// Clear all of the settings and secrets so they can be initialized again in a later stage.
