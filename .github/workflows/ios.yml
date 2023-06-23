@@ -27,18 +27,18 @@ jobs:
       - name: Prepare custom devices
         run: |
           sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
-      - name: Prepare iOS 14.5 simulator
-        if: contains(matrix.destination, 'OS=14.5')
+      - name: Prepare iOS 15.5 simulator
+        if: contains(matrix.destination, 'OS=15.5')
         run: |
-          xcversion simulators --install='iOS 14.5'
-          xcrun simctl create iPhone-12-Pro "iPhone 12 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-14-5"
-          xcrun simctl list devices 14.5
-      - name: Prepare iOS 15.0 simulator
-        if: contains(matrix.destination, 'OS=15.0')
+          xcversion simulators --install='iOS 15.5'
+          xcrun simctl create iPhone-14-Pro "iPhone 14 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-15-5"
+          xcrun simctl list devices 15.5
+      - name: Prepare iOS 16.5 simulator
+        if: contains(matrix.destination, 'OS=16.5')
         run: |
-          xcversion simulators --install='iOS 15.0'
-          xcrun simctl create iPhone-13-Pro "iPhone 13 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-15-0"
-          xcrun simctl list devices 15.0
+          xcversion simulators --install='iOS 16.5'
+          xcrun simctl create iPhone-14-Pro "iPhone 14 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-16-5"
+          xcrun simctl list devices 16.5
       - name: Build and test
         run: |
           xcodebuild build test -project ${project} -scheme "${scheme}" -destination "${destination}" | xcpretty && exit ${PIPESTATUS[0]}
