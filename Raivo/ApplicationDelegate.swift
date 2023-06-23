@@ -168,8 +168,9 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
         
         log.verbose("Changing Storyboard: " + storyboardName)
         
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: controllerName)
+        let storyboard = StoryboardHelper.shared.getCachedStoryboard(storyboardName)
+        let controller = StoryboardHelper.shared.getCachedStoryboardController(storyboard, controllerName)
+        
         self.window?.rootViewController = controller
         
         return true

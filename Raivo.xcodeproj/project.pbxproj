@@ -60,6 +60,7 @@
 		704B1C4826E6A5BE00CE0067 /* OneTimePassword in Frameworks */ = {isa = PBXBuildFile; productRef = 704B1C4726E6A5BE00CE0067 /* OneTimePassword */; };
 		704E16D922EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */; };
 		704E16DB22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */; };
+		704EC48F2A457AEA00D113DE /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704EC48E2A457AEA00D113DE /* StoryboardHelper.swift */; };
 		7059680B22994CCF0032D70F /* StateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680A22994CCF0032D70F /* StateHelper.swift */; };
 		7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680C22997EFB0032D70F /* SyncerHelper.swift */; };
 		705968102299AB0A0032D70F /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7059680F2299AB0A0032D70F /* StorageHelper.swift */; };
@@ -268,6 +269,7 @@
 		703E810F2311862500CAC3DD /* StorkPopoverSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorkPopoverSegue.swift; sourceTree = "<group>"; };
 		704E16D822EC85EF0069FD77 /* IconFormSelectorViewEmptyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyError.swift; sourceTree = "<group>"; };
 		704E16DA22EC85FB0069FD77 /* IconFormSelectorViewEmptyError.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyError.xib; sourceTree = "<group>"; };
+		704EC48E2A457AEA00D113DE /* StoryboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
 		7059680A22994CCF0032D70F /* StateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateHelper.swift; sourceTree = "<group>"; };
 		7059680C22997EFB0032D70F /* SyncerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncerHelper.swift; sourceTree = "<group>"; };
 		7059680F2299AB0A0032D70F /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
@@ -1042,6 +1044,7 @@
 				70AE33262274566B007A12A2 /* MigrationHelper.swift */,
 				70617A582270DBD80032076A /* QueryHelper.swift */,
 				7092B9AB26C9442C00B10065 /* ReceiverHelper.swift */,
+				704EC48E2A457AEA00D113DE /* StoryboardHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1368,6 +1371,7 @@
 				70A3F50825CEF0AB004F053B /* ActivityIndicator.swift in Sources */,
 				70BC3EE522569881005C98EF /* OfflineSyncer.swift in Sources */,
 				70BC3EDA225663A1005C98EF /* SyncerProtocol.swift in Sources */,
+				704EC48F2A457AEA00D113DE /* StoryboardHelper.swift in Sources */,
 				702CA6CA2263A119000DCC1D /* StubSyncer.swift in Sources */,
 				70FA4C532287543500A3B754 /* IconFormSelectorViewEmptyList.swift in Sources */,
 				70B55862225E761800F83A34 /* PasswordCell.swift in Sources */,
@@ -1617,7 +1621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 76;
+				CURRENT_PROJECT_VERSION = 77;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
@@ -1626,7 +1630,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.12;
+				MARKETING_VERSION = 1.4.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1644,7 +1648,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 76;
+				CURRENT_PROJECT_VERSION = 77;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
@@ -1653,7 +1657,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.12;
+				MARKETING_VERSION = 1.4.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
