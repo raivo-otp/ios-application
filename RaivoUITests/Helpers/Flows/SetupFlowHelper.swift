@@ -36,7 +36,7 @@ class SetupFlowHelper {
         HumanDelayHelper.idle()
     }
     
-    static func forwardToPasswordConfirmation(_ app: XCUIApplication, initialPassword: String = "12345678") {
+    static func forwardToPasswordConfirmation(_ app: XCUIApplication, initialPassword: String = "ByxFc8F24wfWtY") {
         forwardToPasswordInitial(app)
         
         _ = app.secureTextFields["passwordInitial"].waitForExistence(timeout: 2)
@@ -46,7 +46,7 @@ class SetupFlowHelper {
         HumanDelayHelper.idle()
     }
     
-    static func forwardToPasscodeInitial(_ app: XCUIApplication, confirmationPassword: String = "12345678") {
+    static func forwardToPasscodeInitial(_ app: XCUIApplication, confirmationPassword: String = "ByxFc8F24wfWtY") {
         forwardToPasswordConfirmation(app)
         
         _ = app.secureTextFields["passwordConfirmation"].waitForExistence(timeout: 2)
@@ -56,7 +56,7 @@ class SetupFlowHelper {
         HumanDelayHelper.idle()
     }
     
-    static func forwardToPasscodeConfirmation(_ app: XCUIApplication, initialPasscode: String = "123456") {
+    static func forwardToPasscodeConfirmation(_ app: XCUIApplication, initialPasscode: String = "112233") {
         forwardToPasscodeInitial(app)
         
         _ = app.secureTextFields["passcodeInitial"].waitForExistence(timeout: 2)
@@ -65,7 +65,7 @@ class SetupFlowHelper {
         HumanDelayHelper.idle()
     }
     
-    static func forwardToBiometrics(_ app: XCUIApplication, confirmationPasscode: String = "123456") {
+    static func forwardToBiometrics(_ app: XCUIApplication, confirmationPasscode: String = "112233") {
         forwardToPasscodeConfirmation(app)
         
         _ = app.secureTextFields["passcodeConfirmation"].waitForExistence(timeout: 2)

@@ -14,6 +14,12 @@ import XCTest
 class SetupRoboticTest: XCTestCase {
     
     var app: XCUIApplication!
+    
+    private let unitTestPasswordCompliant = "ByxFc8F24wfWtY"
+    
+    private let unitTestPasswordUncompliantShort = "12345"
+    
+    private let unitTestPasswordUncompliantWeak = "123456789"
 
     override func setUp() {
         continueAfterFailure = false
@@ -52,7 +58,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToPasswordInitial(app)
         
         app.secureTextFields["passwordInitial"].tap()
-        app.secureTextFields["passwordInitial"].typeText("1234567")
+        app.secureTextFields["passwordInitial"].typeText(unitTestPasswordUncompliantShort)
         
         app.buttons["continue"].tap()
         HumanDelayHelper.idle()
@@ -65,7 +71,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToPasswordInitial(app)
         
         app.secureTextFields["passwordInitial"].tap()
-        app.secureTextFields["passwordInitial"].typeText("12345678")
+        app.secureTextFields["passwordInitial"].typeText(unitTestPasswordCompliant)
         
         app.buttons["continue"].tap()
         HumanDelayHelper.idle()
@@ -75,7 +81,7 @@ class SetupRoboticTest: XCTestCase {
     }
     
     func testInvalidPasswordConfirmation() {
-        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: "AAAAAAAAAA")
+        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: unitTestPasswordCompliant)
         
         app.secureTextFields["passwordConfirmation"].tap()
         app.secureTextFields["passwordConfirmation"].typeText("BBBBBBBBBB")
@@ -85,10 +91,10 @@ class SetupRoboticTest: XCTestCase {
     }
     
     func testValidPasswordConfirmation() {
-        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: "AAAAAAAAAA")
+        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: unitTestPasswordCompliant)
         
         app.secureTextFields["passwordConfirmation"].tap()
-        app.secureTextFields["passwordConfirmation"].typeText("AAAAAAAAAA")
+        app.secureTextFields["passwordConfirmation"].typeText(unitTestPasswordCompliant)
         
         app.buttons["confirm"].tap()
         HumanDelayHelper.idle()
@@ -100,7 +106,7 @@ class SetupRoboticTest: XCTestCase {
     func testMinimumPasscodeLengthToShort() {
         SetupFlowHelper.forwardToPasscodeInitial(app)
         
-        app.secureTextFields["passcodeInitial"].typeText("12345")
+        app.secureTextFields["passcodeInitial"].typeText("1234")
         HumanDelayHelper.idle()
         
         let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
@@ -110,7 +116,7 @@ class SetupRoboticTest: XCTestCase {
     func testMinimumPasscodeLengthLongEnough() {
         SetupFlowHelper.forwardToPasscodeInitial(app)
         
-        app.secureTextFields["passcodeInitial"].typeText("123456")
+        app.secureTextFields["passcodeInitial"].typeText("112233")
         HumanDelayHelper.idle()
         
         let setupPasscodeConfirmation = app.otherElements["setupPasscodeConfirmation"]
@@ -118,9 +124,9 @@ class SetupRoboticTest: XCTestCase {
     }
     
     func testInvalidPasscodeConfirmation() {
-        SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "111111")
+        SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "112233")
         
-        app.secureTextFields["passcodeConfirmation"].typeText("222222")
+        app.secureTextFields["passcodeConfirmation"].typeText("445566")
         HumanDelayHelper.idle()
         
         let setupPasscodeInitial = app.otherElements["setupPasscodeInitial"]
@@ -128,9 +134,9 @@ class SetupRoboticTest: XCTestCase {
     }
     
     func testValidPasscodeConfirmation() {
-        SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "654321")
+        SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "665544")
         
-        app.secureTextFields["passcodeConfirmation"].typeText("654321")
+        app.secureTextFields["passcodeConfirmation"].typeText("665544")
         HumanDelayHelper.idle()
         
         let setupPasscodeInitial = app.otherElements["setupBiometrics"]
