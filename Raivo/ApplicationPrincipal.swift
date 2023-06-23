@@ -125,7 +125,7 @@ class ApplicationPrincipal: UIApplication {
             return
         }
         
-        StateHelper.shared.lock()
+        StateHelper.shared.lock(instant: true)
     }
     
     /// Open the given URL (by the native UIApplication.open handler

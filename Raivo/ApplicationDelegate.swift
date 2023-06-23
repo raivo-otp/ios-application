@@ -186,8 +186,9 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     /// Update the storyboard to comply with the current state of the application, using a transition.
     ///
-    /// - Parameter options: The transition/animation options
-    public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionCrossDissolve) {
+    /// - Parameter options: The transition/animation options.
+    /// - Parameter instant: Positive if app should be locked without a transition (animation).
+    public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionCrossDissolve, instant: Bool = false) {
         ui {
             let changed = self.setCorrectStoryboard()
             
@@ -199,13 +200,15 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
                 return
             }
             
-            UIView.transition(
-                with: keyWindow,
-                duration: 0.5,
-                options: options,
-                animations: nil,
-                completion: nil
-            )
+            if !instant {
+                UIView.transition(
+                    with: keyWindow,
+                    duration: 0.5,
+                    options: options,
+                    animations: nil,
+                    completion: nil
+                )
+            }
         }
     }
     

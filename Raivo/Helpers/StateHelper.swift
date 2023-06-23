@@ -198,9 +198,11 @@ class StateHelper {
     }
     
     /// Remove the encryption key that is in memory and then update the storyboard.
-    public func lock() {
+    ///
+    /// - Parameter instant: Positive if app should be locked without a transition (animation).
+    public func lock(instant: Bool = false) {
         getAppDelegate().updateEncryptionKey(nil)
-        getAppDelegate().updateStoryboard()
+        getAppDelegate().updateStoryboard(instant: instant)
     }
     
     /// Check if this is the first time that the app runs after being (re)installed.
