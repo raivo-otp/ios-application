@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - destination: 'name=iPhone 14 Pro,OS=16.2'
+          - destination: 'name=iPhone 14 Pro,OS=15.4'
             scheme: 'Raivo DEBUG'
     steps:
       - name: Checkout
@@ -25,12 +25,12 @@ jobs:
       - name: Prepare custom devices
         run: |
           sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
-      - name: Prepare iOS 16.2 simulator
-        if: contains(matrix.destination, 'OS=16.2')
+      - name: Prepare iOS 15.4 simulator
+        if: contains(matrix.destination, 'OS=15.4')
         run: |
-          xcversion simulators --install='iOS 16.2'
-          xcrun simctl create iPhone-14-Pro "iPhone 14 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-16-2"
-          xcrun simctl list devices 16.2
+          xcversion simulators --install='iOS 15.4'
+          xcrun simctl create iPhone-14-Pro "iPhone 14 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-15-4"
+          xcrun simctl list devices 15.4
       - name: Build and test
         run: |
           xcodebuild build test -project ${project} -scheme "${scheme}" -destination "${destination}" | xcpretty && exit ${PIPESTATUS[0]}
