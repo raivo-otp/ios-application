@@ -113,7 +113,15 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter storyboard: The upcoming storyboard
     private func beforeStoryboardChange(_ storyboard: String) {
         switch storyboard {
-        case StateHelper.Storyboard.MAIN, StateHelper.Storyboard.BACK:
+        case StateHelper.Storyboard.BACK:
+            // Disable lockscreen timer
+            (ApplicationPrincipal.shared as! ApplicationPrincipal).enableInactivityTimer(schedule: false)
+            
+            // Enable syncer notifications
+            SyncerHelper.shared.getSyncer().enable()
+            SyncerHelper.shared.getSyncer().resyncModel(id(Password.self))
+            UIApplication.shared.registerForRemoteNotifications()
+        case StateHelper.Storyboard.MAIN:
             // Enable lockscreen timer
             (ApplicationPrincipal.shared as! ApplicationPrincipal).enableInactivityTimer()
             

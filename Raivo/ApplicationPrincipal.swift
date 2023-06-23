@@ -24,9 +24,14 @@ class ApplicationPrincipal: UIApplication {
     private var backgroundInactityDate: Date?
     
     /// Start observing application inactivity (and show the lockscreen if inactive)
-    public func enableInactivityTimer() {
+    ///
+    /// - Parameter schedule: If the inactivity timer needs to be scheduled right away.
+    public func enableInactivityTimer(schedule: Bool = true) {
         inactivityTimerEnabled = true
-        scheduleInactivityTimer()
+        
+        if schedule {
+            scheduleInactivityTimer()
+        }
     }
     
     /// Stop observing application inactivity (the lockscreen will not trigger anymore)
@@ -89,6 +94,7 @@ class ApplicationPrincipal: UIApplication {
     /// Stop the active timer so the app won't move to the lockscreen
     private func invalidateInactivityTimer() {
         inactivityTimer?.invalidate()
+        inactivityTimer = nil
     }
     
     /// Tells the delegate that the app is about to become inactive.
@@ -101,7 +107,7 @@ class ApplicationPrincipal: UIApplication {
         }
         
         backgroundInactityDate = Date().addingTimeInterval(0 - Date().timeIntervalSince(inactivityTimer.fireDate))
-        inactivityTimer.invalidate()
+        invalidateInactivityTimer()
     }
     
     /// Tells the delegate that the app has become active.
