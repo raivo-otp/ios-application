@@ -18,7 +18,7 @@ import RealmSwift
 struct MainReceiversView: View {
     
     /// An observable that contains the variable content of the view
-    @ObservedObject var receivers = BindableResults<Receiver>(RealmHelper.shared.getRealm()!.objects(Receiver.self))
+    @ObservedObject var receivers = BindableResults<Receiver>(try! RealmHelper.shared.getRealm()!.objects(Receiver.self))
     
     /// A boolean indicating if the user is currently scanning a QR code
     @State var isPresentingScanner: Bool = false
@@ -69,8 +69,8 @@ struct MainReceiversView: View {
                                 backgroundColor: .red,
                                 action: {
                                     autoreleasepool {
-                                        if let realm = RealmHelper.shared.getRealm() {
-                                            try! realm.write {
+                                        if let realm = try? RealmHelper.shared.getRealm() {
+                                            try? RealmHelper.shared.writeBlock(realm) {
                                                 realm.delete(realm.objects(Receiver.self).filter("pushToken=%@", receiver.pushToken))
                                             }
                                         }
@@ -95,6 +95,7 @@ struct MainReceiversView: View {
                 
                 if case let .success(code) = result {
                     var receiver: Receiver? = nil
+                    var succesfullySaved = false
                     
                     do {
                         receiver = try ReceiverHelper.shared.getReceiverFromQRCode(code.string)
@@ -104,14 +105,17 @@ struct MainReceiversView: View {
                     }
 
                     autoreleasepool {
-                        if let realm = RealmHelper.shared.getRealm() {
-                            try! realm.write {
+                        if let realm = try? RealmHelper.shared.getRealm() {
+                            try? RealmHelper.shared.writeBlock(realm) {
                                 realm.add(receiver!, update: .modified)
+                                succesfullySaved = true
                             }
                         }
                     }
                     
-                    BannerHelper.shared.done("Connected", "The MacOS device will now receive OTP's on tap!", duration: 3.0)
+                    if succesfullySaved {
+                        BannerHelper.shared.done("Connected", "The MacOS device will now receive OTP's on tap!", duration: 3.0)
+                    }
                 }
             }
         )

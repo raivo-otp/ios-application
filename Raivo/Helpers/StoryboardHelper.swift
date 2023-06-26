@@ -76,4 +76,13 @@ class StoryboardHelper {
         return cachedStoryboardControllers[controllerName]!
     }
     
+    /// Clear the cached storyboards so they can be initialized again in a later stage.
+    ///
+    /// - Parameter dueToPasscodeChange: Positive if only certain keychain items should be removed.
+    /// - Note The `dueToPasscodeChange` parameter can be set to true on e.g. a passcode change.
+    public func clear(dueToPasscodeChange: Bool = false) {
+        cachedStoryboards.removeAll()
+        cachedStoryboardControllers.removeAll()
+    }
+    
 }

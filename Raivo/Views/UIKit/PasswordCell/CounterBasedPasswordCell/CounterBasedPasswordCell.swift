@@ -42,7 +42,8 @@ class CounterBasedPasswordCell: PasswordCell {
         issuer.text = pinned + password.issuer
         account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
-        notSyncedView.isHidden = password.synced || password.syncing
+        notSyncedView.isHidden = password.synced
+        notSyncedView.image = password.syncing ? UIImage(named: "icon-syncing-tint") : UIImage(named: "icon-lightning-tint")
         
         traitCollectionDidChange(nil)
     }

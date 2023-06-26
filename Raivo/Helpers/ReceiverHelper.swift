@@ -69,7 +69,7 @@ class ReceiverHelper {
     ///
     /// - Returns: Positive if there are any receivers
     public func hasReceivers() -> Bool {
-        guard let realm = RealmHelper.shared.getRealm() else {
+        guard let realm = try? RealmHelper.shared.getRealm() else {
             return false
         }
         
@@ -80,7 +80,7 @@ class ReceiverHelper {
     ///
     /// - Parameter password: The given password to send
     public func sendPassword(_ password: Password) {
-        guard let realm = RealmHelper.shared.getRealm() else {
+        guard let realm = try? RealmHelper.shared.getRealm() else {
             return
         }
         

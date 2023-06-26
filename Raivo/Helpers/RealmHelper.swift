@@ -29,16 +29,49 @@ class RealmHelper {
     
     /// Get the current Realm instances with the default configuration
     ///
+    /// - Parameter feedbackOnError: Positive if feedback should be shown to the user if the initialization fails.
     /// - Returns: The Realm instance to use
+    /// - Throws: `NSerror` if realm instance could not be created
     /// - Note Returns nil if the encryption key is unknown
-    public func getRealm() -> Realm? {
+    public func getRealm(feedbackOnError: Bool = true) throws -> Realm? {
         let currentConfig = Realm.Configuration.defaultConfiguration
         
-        if currentConfig.encryptionKey != nil {
-            return try! Realm(configuration: currentConfig)
+        guard let _ = currentConfig.encryptionKey else {
+            return nil
         }
         
-        return nil
+        do {
+            return try Realm(configuration: currentConfig)
+        } catch {
+            log.error("A Realm Objective-C instance could not be created: " + error.localizedDescription)
+            
+            if feedbackOnError {
+                ui { BannerHelper.shared.error("Something went wrong", "Could not connect to the database") }
+            }
+            
+            throw error
+        }
+    }
+    
+    /// Fail safe write block for Realms.
+    ///
+    /// - Parameter realm: A previously initialized realm instance.
+    /// - Parameter feedbackOnError: Positive if feedback should be shown to the user if the initialization fails.
+    ///    /// - Parameter callback: Called after the given duration.
+    public func writeBlock(_ realm: Realm, feedbackOnError: Bool = true, callback: (() -> Void)) throws {
+        do {
+            try realm.write {
+                callback()
+            }
+        } catch {
+            log.error("Could not write to the Realm Objective-C instance: " + error.localizedDescription)
+            
+            if feedbackOnError {
+                ui { BannerHelper.shared.error("Something went wrong", "Could not write to the database") }
+            }
+            
+            throw error
+        }
     }
     
     /// Update the default Realm configuration to use the given encryption key

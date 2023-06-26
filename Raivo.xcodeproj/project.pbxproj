@@ -1621,7 +1621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 82;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
@@ -1630,7 +1630,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.16;
+				MARKETING_VERSION = 1.4.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1648,7 +1648,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 82;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
@@ -1657,7 +1657,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.16;
+				MARKETING_VERSION = 1.4.17;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1751,7 +1751,7 @@
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.33.0;
+				minimumVersion = 10.40.2;
 			};
 		};
 		704B1C1F26E6840200CE0067 /* XCRemoteSwiftPackageReference "RNCryptor" */ = {

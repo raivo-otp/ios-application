@@ -23,6 +23,8 @@ class SetupEncryptionConfirmationViewController: UIViewController, UITextFieldDe
     /// Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        password.delegate = self
         password.becomeFirstResponder()
     }
     

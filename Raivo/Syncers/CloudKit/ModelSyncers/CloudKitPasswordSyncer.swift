@@ -29,7 +29,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         disable()
         
         autoreleasepool {
-            if let realm = RealmHelper.shared.getRealm() {
+            if let realm = try? RealmHelper.shared.getRealm(feedbackOnError: false) {
                 localResults = realm.objects(Password.self).filter("syncing == 1")
                 localNotifications = localResults!.observe(onLocalChange)
             }
@@ -66,7 +66,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
             }
             
             autoreleasepool {
-                guard let realm = RealmHelper.shared.getRealm() else {
+                guard let realm = try? RealmHelper.shared.getRealm(feedbackOnError: false) else {
                     log.error("CloudKit sync finished but app is not unlocked anymore!")
                     return
                 }
@@ -83,7 +83,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
                         
                         let copy = try CloudKitPasswordConverter.getLocalCopy(record, syncedCorrectly: true)
                         
-                        try! realm.write {
+                        try? RealmHelper.shared.writeBlock(realm) {
                             realm.add(copy, update: .modified)
                         }
                     } catch let error {
@@ -169,8 +169,8 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
             }
             
             autoreleasepool {
-                if let realm = RealmHelper.shared.getRealm() {
-                    try! realm.write {
+                if let realm = try? RealmHelper.shared.getRealm() {
+                    try? RealmHelper.shared.writeBlock(realm) {
                         for record in records! {
                             guard let password = realm.resolve(recordsToSave[record]!) else {
                                 return // Password was deleted in the meantime
@@ -203,12 +203,12 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
             }
             
             autoreleasepool {
-                if let realm = RealmHelper.shared.getRealm() {
+                if let realm = try? RealmHelper.shared.getRealm() {
                     guard let password = realm.resolve(passwordReference) else {
                         return // Password was deleted in the meantime
                     }
                     
-                    try! realm.write {
+                    try? RealmHelper.shared.writeBlock(realm) {
                         password.syncing = false
                         password.synced = records?.count == 1
                         password.deleted = (records?.count != 1) ? false : password.deleted

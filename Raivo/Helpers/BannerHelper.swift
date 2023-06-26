@@ -88,7 +88,7 @@ class BannerHelper {
     /// - Parameter duration: How long the alert will show
     /// - Parameter wrapper: The UIView to center this alert in
     /// - Parameter callback: Called after the given duration.
-    public func error(_ title: String, _ message: String, duration: Double = 2.0, wrapper: UIView? = nil, callback: (() -> Void)? = nil) {
+    public func error(_ title: String, _ message: String, duration: Double = 3.0, wrapper: UIView? = nil, callback: (() -> Void)? = nil) {
         let alert = SPAlertView(title: title, message: message, preset: .error)
         show(alert, duration: duration, haptics: .success, wrapper: wrapper, callback: callback)
     }

@@ -99,7 +99,8 @@ class TimeBasedPasswordCell: PasswordCell {
         
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         updatePreviousPassword(password)
-        notSyncedView.isHidden = password.synced || password.syncing
+        notSyncedView.isHidden = password.synced
+        notSyncedView.image = password.syncing ? UIImage(named: "icon-syncing-tint") : UIImage(named: "icon-lightning-tint")
         
         let timer = TimeInterval(password.timer)
         let epoch = Date().timeIntervalSince1970

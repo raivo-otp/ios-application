@@ -68,14 +68,14 @@ class LoadEntryViewController: UIViewController {
                 
                 getAppDelegate().syncerAccountIdentifier = account.identifier
                 getAppDelegate().applicationIsLoaded = true
-                getAppDelegate().updateStoryboard(.transitionCrossDissolve)
+                getAppDelegate().updateStoryboard()
             }
         }, error: { (error, syncerID) in
             DispatchQueue.main.async {
                 log.verbose("Error while getting syncer account: \(error)")
                 getAppDelegate().syncerAccountIdentifier = nil
                 getAppDelegate().applicationIsLoaded = true
-                getAppDelegate().updateStoryboard(.transitionCrossDissolve)
+                getAppDelegate().updateStoryboard()
             }
         })
     }

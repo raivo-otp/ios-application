@@ -55,7 +55,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         initializeTableView()
         
         autoreleasepool {
-            if let realm = RealmHelper.shared.getRealm() {
+            if let realm = try? RealmHelper.shared.getRealm() {
                 let sortProperties = [
                     SortDescriptor(keyPath: "pinned", ascending: false),
                     SortDescriptor(keyPath: "issuer"),
@@ -85,6 +85,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     private func initializeTableViewNotifications() {
         notificationToken?.invalidate()
+        notificationToken = nil
         
         notificationToken = results?.observe { [weak self] (changes: RealmCollectionChange) in
             guard let tableView = self?.tableView else { return }
@@ -195,7 +196,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         autoreleasepool {
-            if let realm = RealmHelper.shared.getRealm() {
+            if let realm = try? RealmHelper.shared.getRealm(feedbackOnError: false) {
                 let sortProperties = [
                     SortDescriptor(keyPath: "pinned", ascending: false),
                     SortDescriptor(keyPath: "issuer"),
@@ -273,8 +274,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             
             let hotpAction = SwipeAction(style: .default, title: "Increase") { action, indexPath in
                 autoreleasepool {
-                    if let realm = RealmHelper.shared.getRealm() {
-                        try! realm.write {
+                    if let realm = try? RealmHelper.shared.getRealm() {
+                        try? RealmHelper.shared.writeBlock(realm) {
                             self.results?[indexPath.row].counter += 1
                             self.results?[indexPath.row].syncing = true
                             self.results?[indexPath.row].synced = false
@@ -295,8 +296,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
                 if let result = self.results?[indexPath.row] {
                     autoreleasepool {
-                        if let realm = RealmHelper.shared.getRealm() {
-                            try! realm.write {
+                        if let realm = try? RealmHelper.shared.getRealm() {
+                            try? RealmHelper.shared.writeBlock(realm) {
                                 result.deleted = true
                                 result.syncing = true
                                 result.synced = false
@@ -338,8 +339,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         let pinAction = SwipeAction(style: .default, title: pinActionTitle) { action, indexPath in
             if let result = self.results?[indexPath.row] {
                 autoreleasepool {
-                    if let realm = RealmHelper.shared.getRealm() {
-                        try! realm.write {
+                    if let realm = try? RealmHelper.shared.getRealm() {
+                        try? RealmHelper.shared.writeBlock(realm) {
                             result.pinned = !result.pinned
                             result.syncing = true
                             result.synced = false

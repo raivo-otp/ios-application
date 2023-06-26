@@ -36,7 +36,13 @@ class MainEditPasswordViewController: FormViewController {
             passwordForm?.kindRow.value = PasswordKindFormOption.build(password.kind)
             passwordForm?.counterRow.value = password.counter
             passwordForm?.timerRow.value = password.timer
-
+            
+            if password.syncing {
+                passwordForm?.errorRow.title = "Syncing in progress, but not completed."
+                passwordForm?.synchronizationSection.hidden = false
+                passwordForm?.synchronizationSection.evaluateHidden()
+            }
+            
             if let error = password.syncErrorDescription {
                 passwordForm?.errorRow.title = error
                 passwordForm?.synchronizationSection.hidden = false
@@ -47,6 +53,7 @@ class MainEditPasswordViewController: FormViewController {
     
     @IBAction func onSave(_ sender: Any) {
         let saveButtonBackup = displayNavBarActivity()
+        var succesfullySaved = false
         
         guard passwordForm!.inputIsValid() else {
             dismissNavBarActivity(saveButtonBackup)
@@ -54,8 +61,8 @@ class MainEditPasswordViewController: FormViewController {
         }
         
         autoreleasepool {
-            if let realm = RealmHelper.shared.getRealm() {
-                try! realm.write {
+            if let realm = try? RealmHelper.shared.getRealm() {
+                try? RealmHelper.shared.writeBlock(realm) {
                     password!.issuer = passwordForm!.issuerRow.value!.trimmingCharacters(in: .whitespacesAndNewlines)
                     password!.account = (passwordForm!.accountRow.value ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
                     password!.iconType = passwordForm!.iconRow.iconType ?? ""
@@ -68,13 +75,16 @@ class MainEditPasswordViewController: FormViewController {
                     password!.counter = passwordForm!.counterRow.value ?? 0
                     password!.syncing = true
                     password!.synced = false
+                    succesfullySaved = true
                 }
             }
         }
         
         dismissNavBarActivity(saveButtonBackup)
         
-        self.navigationController?.popViewController(animated: true)
+        if succesfullySaved {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 }

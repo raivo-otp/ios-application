@@ -159,7 +159,7 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
         let newFile = RealmHelper.shared.getFileURL(forceFilename: newName)
         
         let result = autoreleasepool { () -> Bool in
-            let oldRealm = RealmHelper.shared.getRealm()
+            let oldRealm = try? RealmHelper.shared.getRealm()
             
             do {
                 try oldRealm!.writeCopy(toFile: newFile!, encryptionKey: newKey)
@@ -193,7 +193,6 @@ class MainChangePasscodeViewController: UIViewController, UIPasscodeFieldDelegat
         }
     
         StateHelper.shared.reset(dueToPasscodeChange: true)
-        getAppDelegate().updateStoryboard()
     }
     
 }

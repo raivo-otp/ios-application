@@ -189,20 +189,22 @@ class StateHelper {
         try? FileManager.default.removeItem(at: realmURL.appendingPathExtension("management"))
         
         SyncerHelper.shared.clear(dueToPasscodeChange: passcodeChanged)
+        StoryboardHelper.shared.clear(dueToPasscodeChange: passcodeChanged)
         
         do { try StorageHelper.shared.clear(dueToPasscodeChange: passcodeChanged) } catch {
             log.error("Could not succesfully clear storage during reset")
         }
         
-        lock()
+        lock(force: true)
     }
     
     /// Remove the encryption key that is in memory and then update the storyboard.
     ///
     /// - Parameter instant: Positive if app should be locked without a transition (animation).
-    public func lock(instant: Bool = false) {
+    /// - Parameter force: Positive if app should be locked even if the storyboard didn't change.
+    public func lock(instant: Bool = false, force: Bool = false) {
         getAppDelegate().updateEncryptionKey(nil)
-        getAppDelegate().updateStoryboard(instant: instant)
+        getAppDelegate().updateStoryboard(instant: instant, force: force)
     }
     
     /// Check if this is the first time that the app runs after being (re)installed.

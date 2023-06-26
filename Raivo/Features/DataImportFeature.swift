@@ -121,8 +121,8 @@ class DataImportFeature {
         var succesfullySaved = false
         
         autoreleasepool {
-            if let realm = RealmHelper.shared.getRealm() {
-                try! realm.write {
+            if let realm = try? RealmHelper.shared.getRealm(feedbackOnError: false) {
+                try? RealmHelper.shared.writeBlock(realm, feedbackOnError: false) {
                     for password in passwords {
                         realm.add(password)
                     }

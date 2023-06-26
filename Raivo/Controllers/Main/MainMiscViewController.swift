@@ -43,7 +43,7 @@ class MainMiscViewController: FormViewController, MFMailComposeViewControllerDel
         
         SyncerHelper.shared.getSyncer().getAccount(success: accountSuccess, error: accountError)
         
-        if let realm = RealmHelper.shared.getRealm() {
+        if let realm = try? RealmHelper.shared.getRealm(feedbackOnError: false) {
             unsyncedPasswords = realm.objects(Password.self).filter("synced == 0 or syncing == 1")
             
         }

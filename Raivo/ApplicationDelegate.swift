@@ -157,12 +157,13 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     
     /// Update the storyboard to comply with the current state of the application.
     ///
-    ///  - Returns: Positive if the storyboard changed, negative otherwise.
-    @discardableResult private func setCorrectStoryboard() -> Bool {
+    /// - Parameter force: Positive if app should be locked even if the storyboard didn't change.
+    /// - Returns: Positive if the storyboard changed, negative otherwise.
+    @discardableResult private func setCorrectStoryboard(force: Bool = false) -> Bool {
         let storyboardName = StateHelper.shared.getCurrentStoryboard()
         let controllerName = StateHelper.shared.getCurrentStoryboardController()
         
-        guard storyboardName != currentStoryboardName else {
+        guard (storyboardName != currentStoryboardName) || force else {
             return false
         }
         
@@ -188,11 +189,12 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter options: The transition/animation options.
     /// - Parameter instant: Positive if app should be locked without a transition (animation).
-    public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionCrossDissolve, instant: Bool = false) {
+    /// - Parameter force: Positive if app should be locked even if the storyboard didn't change.
+    public func updateStoryboard(_ options: UIView.AnimationOptions = .transitionCrossDissolve, instant: Bool = false, force: Bool = false) {
         ui {
-            let changed = self.setCorrectStoryboard()
+            let changed = self.setCorrectStoryboard(force: force)
             
-            guard changed else {
+            guard changed || force else {
                 return
             }
             

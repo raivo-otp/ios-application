@@ -59,16 +59,22 @@ class MainCreatePasswordViewController: FormViewController {
         }
         
         let password = createPasswordFromForm()
+        var succesfullySaved = false
         
         autoreleasepool {
-            if let realm = RealmHelper.shared.getRealm() {
-                try! realm.write {
+            if let realm = try? RealmHelper.shared.getRealm() {
+                try? RealmHelper.shared.writeBlock(realm) {
                     realm.add(password)
+                    succesfullySaved = true
                 }
             }
         }
         
         dismissNavBarActivity(saveButtonBackup)
+        
+        guard succesfullySaved else {
+            return
+        }
         
         // Pop back to the password list
         let viewControllers = self.navigationController!.viewControllers as [UIViewController]
