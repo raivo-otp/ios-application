@@ -315,6 +315,10 @@ class StorageHelper {
     ///
     /// - Returns: Positive if biometric unlock is enabled
     public func getBiometricUnlockEnabled() -> Bool {
+        guard !AppHelper.argumentDisableBiometrics else {
+            return false
+        }
+        
         guard let enabled = try? globals().string(forKey: Key.BIOMETRIC_AUTHENTICATION_ENABLED) else {
             return false
         }

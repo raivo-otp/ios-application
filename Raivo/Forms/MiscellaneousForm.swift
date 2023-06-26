@@ -458,6 +458,7 @@ class MiscellaneousForm {
             
             <<< ButtonRow("sign_out", { row in
                 row.title = "Sign out of Raivo"
+                row.cell.accessibilityIdentifier = "miscSignOut"
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-logout")

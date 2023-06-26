@@ -30,6 +30,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         
         biometricButton.isHidden = !StorageHelper.shared.getBiometricUnlockEnabled()
         
+        passcodeField.shadowAccessibilityIdentifier = "passcode"
         passcodeField.delegate = self
         passcodeField.layoutIfNeeded()
         

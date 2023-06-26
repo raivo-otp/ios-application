@@ -13,8 +13,21 @@ import XCTest
 
 class SetupFlowHelper {
     
+    static let correctPassword = "ByxFc8F24wfWtY"
+    
+    static let correctPasscode = "112233"
+    
     static func forwardToWelcome(_ app: XCUIApplication) {
         // start is welcome, nothing to do.
+        HumanDelayHelper.idle()
+    }
+    
+    static func forwardToWelcomeSettings(_ app: XCUIApplication) {
+        forwardToWelcome(app)
+        
+        _ = app.navigationBars.children(matching: .button).firstMatch.waitForExistence(timeout: 2)
+        app.navigationBars.children(matching: .button).firstMatch.tap()
+        
         HumanDelayHelper.idle()
     }
     
@@ -36,7 +49,7 @@ class SetupFlowHelper {
         HumanDelayHelper.idle()
     }
     
-    static func forwardToPasswordConfirmation(_ app: XCUIApplication, initialPassword: String = "ByxFc8F24wfWtY") {
+    static func forwardToPasswordConfirmation(_ app: XCUIApplication, initialPassword: String = SetupFlowHelper.correctPassword) {
         forwardToPasswordInitial(app)
         
         _ = app.secureTextFields["passwordInitial"].waitForExistence(timeout: 2)
@@ -46,7 +59,7 @@ class SetupFlowHelper {
         HumanDelayHelper.idle()
     }
     
-    static func forwardToPasscodeInitial(_ app: XCUIApplication, confirmationPassword: String = "ByxFc8F24wfWtY") {
+    static func forwardToPasscodeInitial(_ app: XCUIApplication, confirmationPassword: String = SetupFlowHelper.correctPassword) {
         forwardToPasswordConfirmation(app)
         
         _ = app.secureTextFields["passwordConfirmation"].waitForExistence(timeout: 2)
@@ -56,7 +69,7 @@ class SetupFlowHelper {
         HumanDelayHelper.idle()
     }
     
-    static func forwardToPasscodeConfirmation(_ app: XCUIApplication, initialPasscode: String = "112233") {
+    static func forwardToPasscodeConfirmation(_ app: XCUIApplication, initialPasscode: String = SetupFlowHelper.correctPasscode) {
         forwardToPasscodeInitial(app)
         
         _ = app.secureTextFields["passcodeInitial"].waitForExistence(timeout: 2)
@@ -65,7 +78,7 @@ class SetupFlowHelper {
         HumanDelayHelper.idle()
     }
     
-    static func forwardToBiometrics(_ app: XCUIApplication, confirmationPasscode: String = "112233") {
+    static func forwardToBiometrics(_ app: XCUIApplication, confirmationPasscode: String = SetupFlowHelper.correctPasscode) {
         forwardToPasscodeConfirmation(app)
         
         _ = app.secureTextFields["passcodeConfirmation"].waitForExistence(timeout: 2)
@@ -83,6 +96,15 @@ class SetupFlowHelper {
         
         _ = app.buttons["enable"].waitForExistence(timeout: 2)
         app.buttons["enable"].tap()
+        
+        HumanDelayHelper.idle()
+    }
+    
+    static func forwardToCompletionSettings(_ app: XCUIApplication) {
+        forwardToCompletion(app)
+        
+        _ = app.navigationBars.children(matching: .button).firstMatch.waitForExistence(timeout: 2)
+        app.navigationBars.children(matching: .button).firstMatch.tap()
         
         HumanDelayHelper.idle()
     }

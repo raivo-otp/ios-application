@@ -77,4 +77,7 @@ class AppHelper {
     /// If the current runtime should reset the app state before startup
     public static let argumentResetState = CommandLine.arguments.contains("--ResetState")
     
+    /// If the current runtime should disable biometric unlock
+    public static let argumentDisableBiometrics = CommandLine.arguments.contains("--DisableBiometrics")
+    
 }

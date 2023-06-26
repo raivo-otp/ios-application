@@ -79,6 +79,8 @@
 		70684DEF225A1BF70038BDB4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DEE225A1BF70038BDB4 /* main.swift */; };
 		70684DF1225A2ED90038BDB4 /* MiscellaneousForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */; };
 		70684DF4225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70684DF3225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift */; };
+		706ED9BD2A4A218E00CE66D6 /* AuthRoboticTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706ED9BC2A4A218E00CE66D6 /* AuthRoboticTest.swift */; };
+		706ED9BF2A4A21FB00CE66D6 /* AuthFlowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706ED9BE2A4A21FB00CE66D6 /* AuthFlowHelper.swift */; };
 		706FD81522EB71A500F433F7 /* QuickResponseCodeForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706FD81422EB71A500F433F7 /* QuickResponseCodeForm.swift */; };
 		7076C22622E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */; };
 		7077A337227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7077A336227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift */; };
@@ -290,6 +292,8 @@
 		70684DEE225A1BF70038BDB4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		70684DF0225A2ED90038BDB4 /* MiscellaneousForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousForm.swift; sourceTree = "<group>"; };
 		70684DF3225A37630038BDB4 /* MiscellaneousInactivityLockFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscellaneousInactivityLockFormOption.swift; sourceTree = "<group>"; };
+		706ED9BC2A4A218E00CE66D6 /* AuthRoboticTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRoboticTest.swift; sourceTree = "<group>"; };
+		706ED9BE2A4A21FB00CE66D6 /* AuthFlowHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowHelper.swift; sourceTree = "<group>"; };
 		706FD81422EB71A500F433F7 /* QuickResponseCodeForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickResponseCodeForm.swift; sourceTree = "<group>"; };
 		7076C22522E7909000AFBDD9 /* MainQuickResponseCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQuickResponseCodeViewController.swift; sourceTree = "<group>"; };
 		7077A336227CC84F00338CA3 /* PasswordAlgorithmFormOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordAlgorithmFormOption.swift; sourceTree = "<group>"; };
@@ -663,6 +667,7 @@
 			isa = PBXGroup;
 			children = (
 				70F2DB80238D9A4C00CFF63F /* SetupFlowHelper.swift */,
+				706ED9BE2A4A21FB00CE66D6 /* AuthFlowHelper.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -766,6 +771,14 @@
 				7077A33C227CDF6600338CA3 /* BaseFormOption.swift */,
 			);
 			path = Options;
+			sourceTree = "<group>";
+		};
+		706ED9BB2A4A215100CE66D6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				706ED9BC2A4A218E00CE66D6 /* AuthRoboticTest.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		7077A333227CC75E00338CA3 /* Rows */ = {
@@ -1077,6 +1090,7 @@
 		70F2DB7C238D4E4700CFF63F /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				706ED9BB2A4A215100CE66D6 /* Auth */,
 				70F64B53238EF3B300A5F56E /* Setup */,
 			);
 			path = Flows;
@@ -1458,7 +1472,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				701ECE3C23D387700015D12A /* HumanDelayHelper.swift in Sources */,
+				706ED9BD2A4A218E00CE66D6 /* AuthRoboticTest.swift in Sources */,
 				70F2DB81238D9A4C00CFF63F /* SetupFlowHelper.swift in Sources */,
+				706ED9BF2A4A21FB00CE66D6 /* AuthFlowHelper.swift in Sources */,
 				70F64B76238F082400A5F56E /* BiometricHelper.swift in Sources */,
 				70631CAE230DC2A10040DD71 /* SetupRoboticTest.swift in Sources */,
 			);
@@ -1621,7 +1637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 82;
+				CURRENT_PROJECT_VERSION = 83;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
@@ -1630,7 +1646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.17;
+				MARKETING_VERSION = 1.4.18;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1648,7 +1664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 82;
+				CURRENT_PROJECT_VERSION = 83;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
@@ -1657,7 +1673,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.17;
+				MARKETING_VERSION = 1.4.18;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1673,6 +1689,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = RaivoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1680,6 +1697,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.RaivoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Raivo;
@@ -1692,6 +1712,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 564B4ETY69;
 				INFOPLIST_FILE = RaivoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1699,6 +1720,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.RaivoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Raivo;

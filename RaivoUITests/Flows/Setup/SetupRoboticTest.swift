@@ -14,9 +14,7 @@ import XCTest
 class SetupRoboticTest: XCTestCase {
     
     var app: XCUIApplication!
-    
-    private let unitTestPasswordCompliant = "ByxFc8F24wfWtY"
-    
+        
     private let unitTestPasswordUncompliantShort = "12345"
     
     private let unitTestPasswordUncompliantWeak = "123456789"
@@ -25,7 +23,7 @@ class SetupRoboticTest: XCTestCase {
         continueAfterFailure = false
         
         app = XCUIApplication()
-        app.launchArguments = ["--ResetState"]
+        app.launchArguments = ["--ResetState --DisableBiometrics"]
         app.launch()
     }
 
@@ -38,6 +36,16 @@ class SetupRoboticTest: XCTestCase {
         
         let setupWelcome = app.otherElements["setupWelcome"]
         XCTAssertTrue(setupWelcome.exists)
+    }
+    
+    func testWelcomeSettings() {
+        SetupFlowHelper.forwardToWelcomeSettings(app)
+        
+        let changelog = app.otherElements["setupSettings"]
+        XCTAssertTrue(changelog.exists)
+        
+        let signOut = app.otherElements["miscSignOut"]
+        XCTAssertFalse(signOut.exists)
     }
     
     func testStorage() {
@@ -71,7 +79,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToPasswordInitial(app)
         
         app.secureTextFields["passwordInitial"].tap()
-        app.secureTextFields["passwordInitial"].typeText(unitTestPasswordCompliant)
+        app.secureTextFields["passwordInitial"].typeText(SetupFlowHelper.correctPassword)
         
         app.buttons["continue"].tap()
         HumanDelayHelper.idle()
@@ -81,7 +89,7 @@ class SetupRoboticTest: XCTestCase {
     }
     
     func testInvalidPasswordConfirmation() {
-        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: unitTestPasswordCompliant)
+        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: SetupFlowHelper.correctPassword)
         
         app.secureTextFields["passwordConfirmation"].tap()
         app.secureTextFields["passwordConfirmation"].typeText("BBBBBBBBBB")
@@ -91,10 +99,10 @@ class SetupRoboticTest: XCTestCase {
     }
     
     func testValidPasswordConfirmation() {
-        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: unitTestPasswordCompliant)
+        SetupFlowHelper.forwardToPasswordConfirmation(app, initialPassword: SetupFlowHelper.correctPassword)
         
         app.secureTextFields["passwordConfirmation"].tap()
-        app.secureTextFields["passwordConfirmation"].typeText(unitTestPasswordCompliant)
+        app.secureTextFields["passwordConfirmation"].typeText(SetupFlowHelper.correctPassword)
         
         app.buttons["confirm"].tap()
         HumanDelayHelper.idle()
@@ -116,7 +124,7 @@ class SetupRoboticTest: XCTestCase {
     func testMinimumPasscodeLengthLongEnough() {
         SetupFlowHelper.forwardToPasscodeInitial(app)
         
-        app.secureTextFields["passcodeInitial"].typeText("112233")
+        app.secureTextFields["passcodeInitial"].typeText(SetupFlowHelper.correctPasscode)
         HumanDelayHelper.idle()
         
         let setupPasscodeConfirmation = app.otherElements["setupPasscodeConfirmation"]
@@ -124,7 +132,7 @@ class SetupRoboticTest: XCTestCase {
     }
     
     func testInvalidPasscodeConfirmation() {
-        SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: "112233")
+        SetupFlowHelper.forwardToPasscodeConfirmation(app, initialPasscode: SetupFlowHelper.correctPasscode)
         
         app.secureTextFields["passcodeConfirmation"].typeText("445566")
         HumanDelayHelper.idle()
@@ -166,6 +174,16 @@ class SetupRoboticTest: XCTestCase {
         
         let mainPasswords = app.otherElements["mainPasswords"]
         XCTAssertTrue(mainPasswords.exists)
+    }
+    
+    func testCompletionSettings() {
+        SetupFlowHelper.forwardToCompletionSettings(app)
+        
+        let changelog = app.otherElements["setupSettings"]
+        XCTAssertTrue(changelog.exists)
+        
+        let signOut = app.otherElements["miscSignOut"]
+        XCTAssertFalse(signOut.exists)
     }
 
 }
