@@ -56,12 +56,12 @@ class CounterBasedPasswordCell: PasswordCell {
     }
     
     override internal func updateState(force: Bool = false) {
-        guard !password!.isInvalidated else {
+        guard let password = password, !password.isInvalidated else {
             return
         }
         
-        currentPassword.text = TokenHelper.shared.formatPassword(password!.getToken())
-        notSyncedView.isHidden = password!.synced || password!.syncing
+        currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
+        notSyncedView.isHidden = password.synced || password.syncing
     }
     
 }

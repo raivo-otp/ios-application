@@ -20,7 +20,7 @@ struct MainChangeAppIconView: View {
     /// The body of the view
     var body: some View {
         List {
-            ForEach(0 ..< mainChangeAppIcon.icons.count) { i in
+            ForEach(0 ..< mainChangeAppIcon.icons.count, id: \.self) { i in
                 Button(action: {
                     let selected = self.mainChangeAppIcon.icons[i]
                     if getAppPrincipal().alternateIconName != selected.getAlternateKey() {

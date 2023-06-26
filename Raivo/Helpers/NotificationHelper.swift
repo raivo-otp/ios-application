@@ -93,7 +93,10 @@ class NotificationHelper {
         var observer: NSObjectProtocol? = nil
         
         observer = NotificationCenter.default.addObserver(forName: to, object: nil, queue: nil) { notification in
-            NotificationCenter.default.removeObserver(observer!)
+            if let observer = observer {
+                NotificationCenter.default.removeObserver(observer)
+            }
+            
             callback(notification)
         }
     }

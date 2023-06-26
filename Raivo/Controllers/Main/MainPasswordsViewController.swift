@@ -106,7 +106,7 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
                 break
             }
 
-            self!.updateTableCellStates()
+            self?.updateTableCellStates()
         }
     }
     

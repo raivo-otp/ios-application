@@ -86,18 +86,22 @@ class TimeBasedPasswordCell: PasswordCell {
     }
     
     override internal func updateState(force: Bool = false) {
-        if password!.isInvalidated || (isAnimating && !force) {
+        guard let password = password, !password.isInvalidated else {
+            return
+        }
+        
+        if isAnimating && !force {
             return
         }
         
         self.isAnimating = true
         stateTimer?.invalidate()
         
-        currentPassword.text = TokenHelper.shared.formatPassword(password!.getToken())
-        updatePreviousPassword(password!)
-        notSyncedView.isHidden = password!.synced || password!.syncing
+        currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
+        updatePreviousPassword(password)
+        notSyncedView.isHidden = password.synced || password.syncing
         
-        let timer = TimeInterval(password!.timer)
+        let timer = TimeInterval(password.timer)
         let epoch = Date().timeIntervalSince1970
 
         let from = TimeInterval(UInt64(epoch / timer)) * timer
@@ -115,7 +119,9 @@ class TimeBasedPasswordCell: PasswordCell {
             self.updateState()
         }
         
-        RunLoop.current.add(stateTimer!, forMode: .default)
+        if let stateTimer = stateTimer {
+            RunLoop.current.add(stateTimer, forMode: .default)
+        }
                 
         // Remove old animations (otherwise the progress bar goes further than 100%, which is a bug)
         // https://stackoverflow.com/questions/44397720/swift-progress-view-animation-makes-the-bar-go-further-than-100

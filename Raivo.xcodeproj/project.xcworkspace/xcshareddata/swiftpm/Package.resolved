@@ -184,8 +184,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/square/Valet.git",
       "state" : {
-        "revision" : "2bf3329055f5d71d42a12801dd69d1d770fafa5e",
-        "version" : "4.1.2"
+        "revision" : "89f12b93553055f4908c0d2548c9b8655926940a",
+        "version" : "4.2.0"
       }
     },
     {

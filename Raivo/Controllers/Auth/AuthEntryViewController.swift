@@ -34,7 +34,7 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
         passcodeField.layoutIfNeeded()
         
         NotificationHelper.shared.listen(to: UIApplication.willEnterForegroundNotification, distinctBy: id(self)) { _ in
-            self.attemptBiometrickUnlock()
+            ui { self.attemptBiometrickUnlock() }
         }
     }
     
@@ -71,14 +71,14 @@ class AuthEntryViewController: UIViewController, UIPasscodeFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        attemptBiometrickUnlock()
+        ui { self.attemptBiometrickUnlock() }
     }
     
     /// Called when the user taps on the "biometric unlock" button/link
     ///
     /// - Parameter sender :The button that was tapped
     @IBAction func onBiometricsUnlock(_ sender: Any) {
-        attemptBiometrickUnlock()
+        ui { self.attemptBiometrickUnlock() }
     }
     
     /// Called when the user enters or removes a single digit
