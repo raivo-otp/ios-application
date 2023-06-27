@@ -12,7 +12,7 @@
 
 import XCTest
 
-class SetupAuthTest: XCTestCase {
+class AuthRoboticTest: XCTestCase {
     
     var app: XCUIApplication!
     

@@ -23,6 +23,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="backMain"/>
                         <constraints>
                             <constraint firstItem="33N-wY-prq" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="1lX-er-A4M"/>
                             <constraint firstAttribute="trailing" secondItem="33N-wY-prq" secondAttribute="trailing" id="W4V-cu-ODu"/>

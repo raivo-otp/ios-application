@@ -7,10 +7,10 @@
     </a>
 </p>
 <p align="center">
-    <a href="https://github.com/raivo-otp/ios-application/releases"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2Fraivo-otp%2Fios-application%2Freleases%2Flatest&query=%24.name&style=for-the-badge&label=Latest&color=da0024"></a>
-    <a href="https://www.apple.com/ios"><img src="https://img.shields.io/badge/Platform-iOS%20&%20iPadOS%20(14.1+)-da0024?style=for-the-badge" /></a>
-    <a href="https://github.com/raivo-otp/ios-application/actions/"><img src="https://img.shields.io/github/actions/workflow/status/raivo-otp/ios-application/ios.yml?style=for-the-badge&color=da0024"></a>
-    <a href="https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/Source-Licenced-da0024?style=for-the-badge" /></a>
+    <a href="https://github.com/raivo-otp/ios-application/releases"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2Fraivo-otp%2Fios-application%2Freleases%2Flatest&query=%24.name&style=flat-square&label=Latest&color=da0024"></a>
+    <a href="https://www.apple.com/ios"><img src="https://img.shields.io/badge/Platform-iOS%20&%20iPadOS%20(14.1+)-da0024?style=flat-square" /></a>
+    <a href="https://github.com/raivo-otp/ios-application/actions/"><img src="https://img.shields.io/github/actions/workflow/status/raivo-otp/ios-application/ios.yml?style=flat-square&color=da0024"></a>
+    <a href="https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/Source-Licenced-da0024?style=flat-square" /></a>
     <br/>
     <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
     <br/>
