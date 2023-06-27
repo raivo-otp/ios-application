@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <a href="https://apps.apple.com/app/raivo-otp/id1459042137?platform=iphone">
-        <img src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2019-08-01&kind=iossoftware&bubble=ios_apps" width="180"/>
+        <img src="https://gist.githubusercontent.com/tijme/24d2d9e683d87f893b931c35cfe9f9e9/raw/a43025fc862a983773f3ee0e5e6160d4fcd81dd7/button.svg" width="180"/>
     </a>
 </p>
 <p align="center">
