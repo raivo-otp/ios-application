@@ -23,7 +23,7 @@ class SetupRoboticTest: XCTestCase {
         continueAfterFailure = false
         
         app = XCUIApplication()
-        app.launchArguments = ["--ResetState --DisableBiometrics"]
+        app.launchArguments = ["--ResetState", "--DisableBiometrics"]
         app.launch()
     }
 

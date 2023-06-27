@@ -19,7 +19,7 @@ class HumanDelayHelper {
     /// - Parameter seconds: The amount of seconds to wait/sleep
     /// - Returns: An 'XCTWaiter.Result' timeout if the amount of seconds were passed
     @discardableResult
-    static func idle(_ seconds: TimeInterval = 0.25) -> XCTWaiter.Result {
+    static func idle(_ seconds: TimeInterval = 0.05) -> XCTWaiter.Result {
         return XCTWaiter.wait(for: [XCTestExpectation(description: "User is idle...")], timeout: seconds)
     }
 
