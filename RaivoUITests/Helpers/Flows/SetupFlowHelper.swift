@@ -15,6 +15,10 @@ class SetupFlowHelper {
     
     static let correctPassword = "ByxFc8F24wfWtY"
     
+    static let invalidPasswordTooShort = "ByxF"
+    
+    static let invalidPasswordTooWeak = "123456789"
+    
     static let correctPasscode = "112233"
     
     static func forwardToWelcome(_ app: XCUIApplication) {

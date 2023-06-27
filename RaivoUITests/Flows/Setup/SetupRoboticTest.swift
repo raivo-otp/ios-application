@@ -14,10 +14,6 @@ import XCTest
 class SetupRoboticTest: XCTestCase {
     
     var app: XCUIApplication!
-        
-    private let unitTestPasswordUncompliantShort = "12345"
-    
-    private let unitTestPasswordUncompliantWeak = "123456789"
 
     override func setUp() {
         continueAfterFailure = false
@@ -66,7 +62,7 @@ class SetupRoboticTest: XCTestCase {
         SetupFlowHelper.forwardToPasswordInitial(app)
         
         app.secureTextFields["passwordInitial"].tap()
-        app.secureTextFields["passwordInitial"].typeText(unitTestPasswordUncompliantShort)
+        app.secureTextFields["passwordInitial"].typeText(SetupFlowHelper.invalidPasswordTooShort)
         
         app.buttons["continue"].tap()
         HumanDelayHelper.idle()

@@ -7,13 +7,14 @@
     </a>
 </p>
 <p align="center">
-    <a href="https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md"><img src="https://raw.finnwea.com/shield/?firstText=Source&secondText=Licensed" /></a>
-    <a href="https://www.apple.com/ios"><img src="https://raw.finnwea.com/vector-shields-v1/?firstText=Platform&secondText=iOS%20%26%20iPadOS%20(13%20or%20higher)" /></a>
-    <a href="https://github.com/raivo-otp/ios-application/releases"><img src="https://raw.finnwea.com/vector-shields-v1/?typeKey=SemverVersion&typeValue1=raivo-otp&typeValue2=ios-application&typeValue4=Release&cache=4"></a>
+    <a href="https://github.com/raivo-otp/ios-application/releases"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2Fraivo-otp%2Fios-application%2Freleases%2Flatest&query=%24.name&style=for-the-badge&label=Latest&color=da0024"></a>
+    <a href="https://www.apple.com/ios"><img src="https://img.shields.io/badge/Platform-iOS%20&%20iPadOS%20(14.1+)-da0024?style=for-the-badge" /></a>
+    <a href="https://github.com/raivo-otp/ios-application/actions/"><img src="https://img.shields.io/github/actions/workflow/status/raivo-otp/ios-application/ios.yml?style=for-the-badge&color=da0024"></a>
+    <a href="https://github.com/raivo-otp/ios-application/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/Source-Licenced-da0024?style=for-the-badge" /></a>
     <br/>
     <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
     <br/>
-    <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Buy me a coffee via <a href="https://www.paypal.me/tijmegommers">PayPal</a></sup>
+    <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Buy me a coffee via <a href="https://www.paypal.me/tijmegommers">PayPal</a> – Follow Raivo on <a href="https://twitter.com/RaivoOTP">Twitter</a></sup>
     <br/>
 </p>
 
@@ -52,13 +53,14 @@
 </p>
 
 
-Raivo enables you to add your own icons to OTPs. You can add your own icon via the [Raivo icon repository](https://github.com/raivo-otp/issuer-icons). Make sure to read the contribution guidelines before making a pull request.
+Raivo enables you to add your own icons to OTPs. You can add your own icon via the [icon repository](https://github.com/raivo-otp/issuer-icons). Make sure to read the contribution guidelines before making a pull request. You can view all currently available icons at [icons.raivo-otp.com](https://icons.raivo-otp.com/).
 
 ## Migrating
 
 The following migration guides walk you through the process of migrating from your existing OTP app to Raivo OTP.
 
 * [Migrating from **Authy** to Raivo OTP](https://tij.me/blog/migrating-your-one-time-passwords-from-authy-to-raivo-otp/)
+* [Migrating from **Aegis** to Raivo OTP](https://github.com/tygerbytes/OtpTranslator/commits?author=tygerbytes)
 
 ## Issues
 
