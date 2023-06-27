@@ -27,6 +27,8 @@ class CounterBasedPasswordCell: PasswordCell {
     
     @IBOutlet weak var notSyncedView: UIImageView!
     
+    @IBOutlet weak var syncingView: UIActivityIndicatorView!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -42,8 +44,10 @@ class CounterBasedPasswordCell: PasswordCell {
         issuer.text = pinned + password.issuer
         account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
-        notSyncedView.isHidden = password.synced
-        notSyncedView.image = password.syncing ? UIImage(named: "icon-syncing-tint") : UIImage(named: "icon-lightning-tint")
+        
+        notSyncedView.isHidden = password.synced || password.syncing
+        syncingView.isHidden = password.synced || !password.syncing
+        (!password.synced && password.syncing) ? syncingView.startAnimating() : syncingView.stopAnimating()
         
         traitCollectionDidChange(nil)
     }
@@ -62,7 +66,10 @@ class CounterBasedPasswordCell: PasswordCell {
         }
         
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
+        
         notSyncedView.isHidden = password.synced || password.syncing
+        syncingView.isHidden = password.synced || !password.syncing
+        (!password.synced && password.syncing) ? syncingView.startAnimating() : syncingView.stopAnimating()
     }
     
 }

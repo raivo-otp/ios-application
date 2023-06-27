@@ -95,8 +95,8 @@ class MainCreatePasswordViewController: FormViewController {
         password.kind = passwordForm!.kindRow.value!.value
         password.timer = passwordForm!.timerRow.value ?? 0
         password.counter = passwordForm!.counterRow.value ?? 0
-        password.syncing = true
-        password.synced = false
+        password.syncing = SyncerHelper.shared.getSyncer().recordsRequireSync
+        password.synced = !SyncerHelper.shared.getSyncer().recordsRequireSync
         
         return password
     }

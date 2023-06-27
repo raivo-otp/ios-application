@@ -19,6 +19,8 @@ class StubSyncer: BaseSyncer, SyncerProtocol {
     
     var errorHelp = ""
     
+    var recordsRequireSync = false
+    
     func notify(_ userInfo: [AnyHashable : Any]) {
         // Not implemented
     }

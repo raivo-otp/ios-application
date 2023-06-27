@@ -38,7 +38,7 @@ class MainEditPasswordViewController: FormViewController {
             passwordForm?.timerRow.value = password.timer
             
             if password.syncing {
-                passwordForm?.errorRow.title = "Syncing in progress, but not completed (if this is unexpected, try resaving the OTP)."
+                passwordForm?.errorRow.title = "Syncing in progress, but not completed."
                 passwordForm?.synchronizationSection.hidden = false
                 passwordForm?.synchronizationSection.evaluateHidden()
             }
@@ -73,8 +73,8 @@ class MainEditPasswordViewController: FormViewController {
                     password!.kind = passwordForm!.kindRow.value!.value
                     password!.timer = passwordForm!.timerRow.value ?? 0
                     password!.counter = passwordForm!.counterRow.value ?? 0
-                    password!.syncing = true
-                    password!.synced = false
+                    password!.syncing = SyncerHelper.shared.getSyncer().recordsRequireSync
+                    password!.synced = !SyncerHelper.shared.getSyncer().recordsRequireSync
                     successfullySaved = true
                 }
             }

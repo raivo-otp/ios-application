@@ -23,6 +23,8 @@ class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     
     var errorHelp = "Enable 'iCloud Drive' in iPhone settings to enable Apple iCloud."
     
+    var recordsRequireSync = true
+    
     let modelSyncers = [
         id(Password.self): CloudKitPasswordSyncer()
     ]

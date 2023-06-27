@@ -23,6 +23,8 @@ protocol SyncerProtocol {
     
     var errorHelp: String { get }
     
+    var recordsRequireSync: Bool { get }
+    
     var accountPreloading: Bool { get set }
     
     var accountPreloaded: Bool { get set }

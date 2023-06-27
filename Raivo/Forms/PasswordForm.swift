@@ -78,6 +78,7 @@ class PasswordForm {
     private func buildSynchronizationSection() {
         form +++ Section("Synchronization status", { section in
             section.tag = "synchronization"
+            section.footer = HeaderFooterView(title: "If this is unexpected, try resaving the OTP.")
             section.hidden = Condition(booleanLiteral: true)
         })
             

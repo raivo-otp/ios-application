@@ -98,8 +98,8 @@ class TokenHelper {
         password.algorithm = getPasswordAlgorithmFromToken(token: token).value
         password.digits = token.generator.digits
         password.kind = getPasswordKindFromToken(token: token).value
-        password.syncing = true
-        password.synced = false
+        password.syncing = SyncerHelper.shared.getSyncer().recordsRequireSync
+        password.synced = !SyncerHelper.shared.getSyncer().recordsRequireSync
         
         switch token.generator.factor {
         case .counter(let counterValue):

@@ -277,8 +277,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
                     if let realm = try? RealmHelper.shared.getRealm() {
                         try? RealmHelper.shared.writeBlock(realm) {
                             self.results?[indexPath.row].counter += 1
-                            self.results?[indexPath.row].syncing = true
-                            self.results?[indexPath.row].synced = false
+                            self.results?[indexPath.row].syncing = SyncerHelper.shared.getSyncer().recordsRequireSync
+                            self.results?[indexPath.row].synced = !SyncerHelper.shared.getSyncer().recordsRequireSync
                         }
                     }
                 }
@@ -299,8 +299,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
                         if let realm = try? RealmHelper.shared.getRealm() {
                             try? RealmHelper.shared.writeBlock(realm) {
                                 result.deleted = true
-                                result.syncing = true
-                                result.synced = false
+                                result.syncing = SyncerHelper.shared.getSyncer().recordsRequireSync
+                                result.synced = !SyncerHelper.shared.getSyncer().recordsRequireSync
                             }
                         }
                     }
@@ -342,8 +342,8 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
                     if let realm = try? RealmHelper.shared.getRealm() {
                         try? RealmHelper.shared.writeBlock(realm) {
                             result.pinned = !result.pinned
-                            result.syncing = true
-                            result.synced = false
+                            result.syncing = SyncerHelper.shared.getSyncer().recordsRequireSync
+                            result.synced = !SyncerHelper.shared.getSyncer().recordsRequireSync
                         }
                     }
                 }

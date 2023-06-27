@@ -110,8 +110,8 @@ class DataImportFeature {
             password.kind = item.kind
             password.timer = Int(item.timer) ?? 0
             password.counter = Int(item.counter) ?? 0
-            password.syncing = true
-            password.synced = false
+            password.syncing = SyncerHelper.shared.getSyncer().recordsRequireSync
+            password.synced = !SyncerHelper.shared.getSyncer().recordsRequireSync
             password.pinned = Bool(item.pinned) ?? false
             
             passwords.append(password)

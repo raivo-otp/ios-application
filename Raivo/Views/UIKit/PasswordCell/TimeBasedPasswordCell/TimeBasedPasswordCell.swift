@@ -38,6 +38,8 @@ class TimeBasedPasswordCell: PasswordCell {
     
     @IBOutlet weak var notSyncedView: UIImageView!
     
+    @IBOutlet weak var syncingView: UIActivityIndicatorView!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -66,7 +68,10 @@ class TimeBasedPasswordCell: PasswordCell {
         account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         updatePreviousPassword(password)
+        
         notSyncedView.isHidden = password.synced || password.syncing
+        syncingView.isHidden = password.synced || !password.syncing
+        (!password.synced && password.syncing) ? syncingView.startAnimating() : syncingView.stopAnimating()
         
         progressView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
@@ -99,8 +104,10 @@ class TimeBasedPasswordCell: PasswordCell {
         
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         updatePreviousPassword(password)
-        notSyncedView.isHidden = password.synced
-        notSyncedView.image = password.syncing ? UIImage(named: "icon-syncing-tint") : UIImage(named: "icon-lightning-tint")
+        
+        notSyncedView.isHidden = password.synced || password.syncing
+        syncingView.isHidden = password.synced || !password.syncing
+        (!password.synced && password.syncing) ? syncingView.startAnimating() : syncingView.stopAnimating()
         
         let timer = TimeInterval(password.timer)
         let epoch = Date().timeIntervalSince1970
