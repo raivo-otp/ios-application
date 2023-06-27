@@ -43,8 +43,9 @@ class AuthRoboticTest: XCTestCase {
         HumanDelayHelper.idle()
         
         // Check if numeric keyboard
-        XCTAssertGreaterThanOrEqual(app.keyboards.firstMatch.keys.count, 10)
-        XCTAssertLessThan(app.keyboards.firstMatch.keys.count, 15)
+        for number in 0...9 {
+            XCTAssertTrue(app.keyboards.firstMatch.keys.element(matching: .key, identifier: String(number)).exists)
+        }
         
         // Enter correct passcode
         app.secureTextFields["passcode"].typeText(SetupFlowHelper.correctPasscode)
