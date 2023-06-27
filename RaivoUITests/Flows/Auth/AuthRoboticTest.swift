@@ -46,12 +46,12 @@ class AuthRoboticTest: XCTestCase {
         XCTAssertGreaterThanOrEqual(app.keyboards.firstMatch.keys.count, 10)
         XCTAssertLessThan(app.keyboards.firstMatch.keys.count, 15)
         
-        // Enter incorrect passcode
-        app.secureTextFields["passcode"].typeText(SetupFlowHelper.incorrectPasscode)
+        // Enter correct passcode
+        app.secureTextFields["passcode"].typeText(SetupFlowHelper.correctPasscode)
         HumanDelayHelper.idle()
         
-        // Authentication screen must be visible after incorrect passcode
-        XCTAssertTrue(app.otherElements["authEntry"].exists)
+        // Main password screen must be visible after entering correct passcode
+        XCTAssertTrue(app.otherElements["mainPasswords"].exists)
     }
     
     func testSignInInvalidPasscode() {
@@ -65,16 +65,14 @@ class AuthRoboticTest: XCTestCase {
         HumanDelayHelper.idle()
         
         // Authentication screen must be visible after relaunch
-        let authEntry = app.otherElements["authEntry"]
-        XCTAssertTrue(authEntry.exists)
+        XCTAssertTrue(app.otherElements["authEntry"].exists)
         HumanDelayHelper.idle()
         
         // Enter incorrect passcode
-        app.secureTextFields["passwordConfirmation"].tap()
-        app.secureTextFields["passwordConfirmation"].typeText("BBBBBBBBBB")
+        app.secureTextFields["passcode"].typeText(SetupFlowHelper.incorrectPasscode)
         
-        let setupPasswordInitial = app.otherElements["setupPasswordInitial"]
-        XCTAssertTrue(setupPasswordInitial.exists)
+        // Authentication screen must be visible after incorrect passcode
+        XCTAssertTrue(app.otherElements["authEntry"].exists)
     }
     
     func testSignInSettings() {
@@ -92,37 +90,34 @@ class AuthRoboticTest: XCTestCase {
         app.navigationBars.children(matching: .button).firstMatch.tap()
         
         // Sign out button must exist
-        let signOut = app.cells["miscSignOut"]
-        XCTAssertTrue(signOut.exists)
+        XCTAssertTrue(app.cells["miscSignOut"].exists)
     }
     
     func testSignOut() {
         AuthFlowHelper.forwardToSettingsTab(app)
         
         // Sign out button must be visible
-        let signOutButton = app.cells["miscSignOut"]
-        XCTAssertTrue(signOutButton.exists)
+        XCTAssertTrue(app.cells["miscSignOut"].exists)
         
         // Sign out button tap must show alert
-        signOutButton.tap()
+        app.cells["miscSignOut"].tap()
         HumanDelayHelper.idle()
         XCTAssertEqual(app.alerts.count, 1)
         
         // Cancel must remain on same screen
         app.alerts.firstMatch.buttons.element(boundBy: 0).tap()
         HumanDelayHelper.idle()
-        XCTAssertTrue(signOutButton.exists)
+        XCTAssertTrue(app.cells["miscSignOut"].exists)
         
         // Confirm button tap must sign out the user
-        signOutButton.tap()
+        app.cells["miscSignOut"].tap()
         HumanDelayHelper.idle()
         app.alerts.firstMatch.buttons.element(boundBy: 1).tap()
         HumanDelayHelper.idle()
-        XCTAssertFalse(signOutButton.exists)
+        XCTAssertFalse(app.cells["miscSignOut"].exists)
         
         // Welcome screen must be visible after sign out
-        let setupWelcome = app.otherElements["setupWelcome"]
-        XCTAssertTrue(setupWelcome.exists)
+        XCTAssertTrue(app.otherElements["setupWelcome"].exists)
     }
     
 }
