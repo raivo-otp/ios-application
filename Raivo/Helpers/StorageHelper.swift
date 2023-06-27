@@ -275,7 +275,15 @@ class StorageHelper {
     /// - Parameter prompt: The biometric unlock message to show
     /// - Returns: The encryption key
     public func getEncryptionKey(prompt: String) -> String? {
-        return try? secrets().string(forKey: Key.ENCRYPTION_KEY, withPrompt: prompt)
+        do {
+            return try secrets().string(forKey: Key.ENCRYPTION_KEY, withPrompt: prompt)
+        } catch KeychainError.itemNotFound {
+            log.verbose("The encryption key was not present while biometric unlock might have been enabled. Therefore, biometric unlock will be disabled.")
+            try? setBiometricUnlockEnabled(false)
+            return nil
+        } catch {
+            return nil
+        }
     }
     
     /// Set a boolean representing if TouchID unlock is enabled.
