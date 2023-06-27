@@ -21,6 +21,8 @@ class SetupFlowHelper {
     
     static let correctPasscode = "112233"
     
+    static let incorrectPasscode = "445566"
+    
     static func forwardToWelcome(_ app: XCUIApplication) {
         // start is welcome, nothing to do.
         HumanDelayHelper.idle()

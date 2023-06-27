@@ -39,21 +39,42 @@ class AuthRoboticTest: XCTestCase {
         HumanDelayHelper.idle()
         
         // Authentication screen must be visible after relaunch
-        let authEntry = app.otherElements["authEntry"]
-        XCTAssertTrue(authEntry.exists)
+        XCTAssertTrue(app.otherElements["authEntry"].exists)
         HumanDelayHelper.idle()
         
         // Check if numeric keyboard
         XCTAssertGreaterThanOrEqual(app.keyboards.firstMatch.keys.count, 10)
         XCTAssertLessThan(app.keyboards.firstMatch.keys.count, 15)
         
-        // Enter passcode
-        app.secureTextFields["passcode"].typeText(SetupFlowHelper.correctPasscode)
+        // Enter incorrect passcode
+        app.secureTextFields["passcode"].typeText(SetupFlowHelper.incorrectPasscode)
         HumanDelayHelper.idle()
         
-        // Main storyboard must be visible after authentication
-        let mainPasswords = app.otherElements["mainPasswords"]
-        XCTAssertTrue(mainPasswords.exists)
+        // Authentication screen must be visible after incorrect passcode
+        XCTAssertTrue(app.otherElements["authEntry"].exists)
+    }
+    
+    func testSignInInvalidPasscode() {
+        SetupFlowHelper.forwardToMain(app)
+        
+        // Terminate & launch app again
+        app.launchArguments = ["--DisableBiometrics"]
+        app.terminate()
+        app.launch()
+        
+        HumanDelayHelper.idle()
+        
+        // Authentication screen must be visible after relaunch
+        let authEntry = app.otherElements["authEntry"]
+        XCTAssertTrue(authEntry.exists)
+        HumanDelayHelper.idle()
+        
+        // Enter incorrect passcode
+        app.secureTextFields["passwordConfirmation"].tap()
+        app.secureTextFields["passwordConfirmation"].typeText("BBBBBBBBBB")
+        
+        let setupPasswordInitial = app.otherElements["setupPasswordInitial"]
+        XCTAssertTrue(setupPasswordInitial.exists)
     }
     
     func testSignInSettings() {
