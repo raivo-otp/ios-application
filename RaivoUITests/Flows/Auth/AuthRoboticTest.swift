@@ -49,7 +49,7 @@ class AuthRoboticTest: XCTestCase {
         
         // Enter correct passcode
         app.secureTextFields["passcode"].typeText(SetupFlowHelper.correctPasscode)
-        HumanDelayHelper.idle()
+        HumanDelayHelper.idle() 
         
         // Main password screen must be visible after entering correct passcode
         XCTAssertTrue(app.otherElements["mainPasswords"].exists)

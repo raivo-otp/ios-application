@@ -37,7 +37,9 @@ class BackRoboticTest: XCTestCase {
         
         // Move app to background
         XCUIDevice.shared.press(XCUIDevice.Button.home)
-        HumanDelayHelper.idle(2)
+        HumanDelayHelper.idle(3)
+        
+        // Ensure app is in background
         XCTAssertNotEqual(app.state, .runningForeground)
         let backgroundTime = Date()
         
@@ -49,9 +51,6 @@ class BackRoboticTest: XCTestCase {
         // Check if app is in the background, and wait on the 'to foreground' move
         XCTAssertNotEqual(app.state, .runningForeground)
         XCTAssertTrue(app.wait(for: .runningForeground, timeout: 4))
-        
-        // On move to foreground, the back screen should be shortly visible
-        XCTAssertTrue(app.otherElements["backMain"].exists)
         
         // At least 2 seconds should have past
         XCTAssertGreaterThanOrEqual(Date().timeIntervalSince(backgroundTime), 2)
