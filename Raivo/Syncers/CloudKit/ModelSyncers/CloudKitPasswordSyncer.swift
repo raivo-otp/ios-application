@@ -12,6 +12,7 @@
 import Foundation
 import RealmSwift
 import CloudKit
+import UIKit
 
 class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
 
@@ -239,7 +240,7 @@ class CloudKitPasswordSyncer: CloudKitModelSyncerProtocol {
         subscription.notificationInfo = notificationInfo
         
         cloud.save(subscription) { (subscription, error) in
-            guard subscription != nil else {
+            guard subscription != nil && error == nil else {
                 log.error(error?.localizedDescription ?? "Unknown CloudKit error!")
                 return
             }

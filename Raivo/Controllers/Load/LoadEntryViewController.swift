@@ -63,7 +63,7 @@ class LoadEntryViewController: UIViewController {
         // Preload the synchronization information
         SyncerHelper.shared.getSyncer().getAccount(success: { (account, syncerID) in
             DispatchQueue.main.async {
-                log.verbose("Got syncer account succesfully")
+                log.verbose("Got syncer account successfully")
                 MigrationHelper.shared.runGenericMigrations(with: account)
                 
                 getAppDelegate().syncerAccountIdentifier = account.identifier

@@ -69,7 +69,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - Parameter application: The application as passed to `UIApplicationDelegate`
     /// - Parameter url: The URL resource to open. Probably an 'otpauth://' URI.
     /// - Parameter options: A dictionary of URL handling options.
-    /// - Returns: If the URI was succesfully handled or not.
+    /// - Returns: If the URI was successfully handled or not.
     /// - Note We always accept all URLs. They will be validated in a later stage and the user will receive feedback if the link is incorrect.
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         tappedLaunchUri = url
@@ -227,6 +227,22 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         log.verbose("Received a remote notification")
         SyncerHelper.shared.getSyncer().notify(userInfo)
+    }
+    
+    /// Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
+    ///
+    /// - Parameter application: The singleton app object.
+    /// - Parameter deviceToken: A globally unique token that identifies this device to APNs.
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        log.verbose("Successfully registered for remote notifications")
+    }
+    
+    /// Tells the delegate when Apple Push Notification service cannot successfully complete the registration process.
+    ///
+    /// - Parameter application: The singleton app object.
+    /// - Parameter error: An NSError object that encapsulates information why registration did not succeed. The app can choose to display this information to the user.
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        log.error("Failed to register for remote notifications")
     }
     
     /// Tells the delegate that the app is about to become inactive.

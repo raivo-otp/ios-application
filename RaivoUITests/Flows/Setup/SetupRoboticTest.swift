@@ -139,9 +139,10 @@ class SetupRoboticTest: XCTestCase {
         }
         
         SetupFlowHelper.forwardToBiometrics(app)
+        HumanDelayHelper.idle(1)
         
         app.buttons["enable"].tap()
-        HumanDelayHelper.idle()
+        HumanDelayHelper.idle(1)
         
         XCTAssertTrue(app.otherElements["setupComplete"].exists)
     }

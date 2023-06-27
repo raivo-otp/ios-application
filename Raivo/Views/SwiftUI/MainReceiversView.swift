@@ -95,7 +95,7 @@ struct MainReceiversView: View {
                 
                 if case let .success(code) = result {
                     var receiver: Receiver? = nil
-                    var succesfullySaved = false
+                    var successfullySaved = false
                     
                     do {
                         receiver = try ReceiverHelper.shared.getReceiverFromQRCode(code.string)
@@ -108,12 +108,12 @@ struct MainReceiversView: View {
                         if let realm = try? RealmHelper.shared.getRealm() {
                             try? RealmHelper.shared.writeBlock(realm) {
                                 realm.add(receiver!, update: .modified)
-                                succesfullySaved = true
+                                successfullySaved = true
                             }
                         }
                     }
                     
-                    if succesfullySaved {
+                    if successfullySaved {
                         BannerHelper.shared.done("Connected", "The MacOS device will now receive OTP's on tap!", duration: 3.0)
                     }
                 }

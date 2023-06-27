@@ -118,7 +118,7 @@ class DataImportFeature {
             log.verbose("Generated new password (ID " + String(password.id) + ") from import file.")
         }
         
-        var succesfullySaved = false
+        var successfullySaved = false
         
         autoreleasepool {
             if let realm = try? RealmHelper.shared.getRealm(feedbackOnError: false) {
@@ -127,12 +127,12 @@ class DataImportFeature {
                         realm.add(password)
                     }
                     
-                    succesfullySaved = true
+                    successfullySaved = true
                 }
             }
         }
         
-        if !succesfullySaved {
+        if !successfullySaved {
             log.error("Could not sync imported passwords to local Realm.")
             return "Could not sync imported passwords to local Realm."
         }

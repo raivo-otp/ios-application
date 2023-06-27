@@ -38,7 +38,7 @@ class MainEditPasswordViewController: FormViewController {
             passwordForm?.timerRow.value = password.timer
             
             if password.syncing {
-                passwordForm?.errorRow.title = "Syncing in progress, but not completed."
+                passwordForm?.errorRow.title = "Syncing in progress, but not completed (if this is unexpected, try resaving the OTP)."
                 passwordForm?.synchronizationSection.hidden = false
                 passwordForm?.synchronizationSection.evaluateHidden()
             }
@@ -53,7 +53,7 @@ class MainEditPasswordViewController: FormViewController {
     
     @IBAction func onSave(_ sender: Any) {
         let saveButtonBackup = displayNavBarActivity()
-        var succesfullySaved = false
+        var successfullySaved = false
         
         guard passwordForm!.inputIsValid() else {
             dismissNavBarActivity(saveButtonBackup)
@@ -75,14 +75,14 @@ class MainEditPasswordViewController: FormViewController {
                     password!.counter = passwordForm!.counterRow.value ?? 0
                     password!.syncing = true
                     password!.synced = false
-                    succesfullySaved = true
+                    successfullySaved = true
                 }
             }
         }
         
         dismissNavBarActivity(saveButtonBackup)
         
-        if succesfullySaved {
+        if successfullySaved {
             self.navigationController?.popViewController(animated: true)
         }
     }

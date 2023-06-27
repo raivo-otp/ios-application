@@ -192,7 +192,7 @@ class StateHelper {
         StoryboardHelper.shared.clear(dueToPasscodeChange: passcodeChanged)
         
         do { try StorageHelper.shared.clear(dueToPasscodeChange: passcodeChanged) } catch {
-            log.error("Could not succesfully clear storage during reset")
+            log.error("Could not successfully clear storage during reset")
         }
         
         lock(force: true)

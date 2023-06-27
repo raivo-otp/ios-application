@@ -72,18 +72,18 @@ class AddTappedUriFeature {
     /// - Parameter action: The action that was tapped
     func onAdd(action: UIAlertAction) {
         let password = TokenHelper.shared.getPasswordFromToken(token: tappedToken!)
-        var succesfullySaved = false
+        var successfullySaved = false
         
         autoreleasepool {
             if let realm = try? RealmHelper.shared.getRealm() {
                 try? RealmHelper.shared.writeBlock(realm) {
                     realm.add(password, update: .modified)
-                    succesfullySaved = true
+                    successfullySaved = true
                 }
             }
         }
         
-        if succesfullySaved {
+        if successfullySaved {
             BannerHelper.shared.done("Created", "The one-time password was added", duration: 3.0)
         }
         
