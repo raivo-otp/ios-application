@@ -69,9 +69,9 @@ class TimeBasedPasswordCell: PasswordCell {
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         updatePreviousPassword(password)
         
-        notSyncedView.isHidden = password.synced || password.syncing
-        syncingView.isHidden = password.synced || !password.syncing
-        (!password.synced && password.syncing) ? syncingView.startAnimating() : syncingView.stopAnimating()
+        notSyncedView.isHidden = !SyncerHelper.shared.getSyncer().recordsRequireSync || (password.synced || password.syncing)
+        syncingView.isHidden = !SyncerHelper.shared.getSyncer().recordsRequireSync || (password.synced || !password.syncing)
+        syncingView.isHidden ? syncingView.stopAnimating() : syncingView.startAnimating()
         
         progressView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
@@ -105,9 +105,9 @@ class TimeBasedPasswordCell: PasswordCell {
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         updatePreviousPassword(password)
         
-        notSyncedView.isHidden = password.synced || password.syncing
-        syncingView.isHidden = password.synced || !password.syncing
-        (!password.synced && password.syncing) ? syncingView.startAnimating() : syncingView.stopAnimating()
+        notSyncedView.isHidden = !SyncerHelper.shared.getSyncer().recordsRequireSync || (password.synced || password.syncing)
+        syncingView.isHidden = !SyncerHelper.shared.getSyncer().recordsRequireSync || (password.synced || !password.syncing)
+        syncingView.isHidden ? syncingView.stopAnimating() : syncingView.startAnimating()
         
         let timer = TimeInterval(password.timer)
         let epoch = Date().timeIntervalSince1970

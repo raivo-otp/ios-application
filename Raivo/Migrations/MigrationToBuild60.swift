@@ -79,9 +79,4 @@ class MigrationToBuild60: MigrationProtocol {
         // Not implemented
     }
     
-    /// Migrate the Valet dependency one major version from v3 to v4.
-    private func migrateValetFromVersion3ToVersion4() {
-        // migrateObjectsFromAlwaysAccessibleValet(removeOnCompletion:)
-    }
-    
 }

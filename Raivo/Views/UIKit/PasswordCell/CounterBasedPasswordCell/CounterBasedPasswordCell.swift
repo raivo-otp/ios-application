@@ -45,9 +45,9 @@ class CounterBasedPasswordCell: PasswordCell {
         account.text = password.account.count > 0 ? "(" + password.account + ")" : ""
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         
-        notSyncedView.isHidden = password.synced || password.syncing
-        syncingView.isHidden = password.synced || !password.syncing
-        (!password.synced && password.syncing) ? syncingView.startAnimating() : syncingView.stopAnimating()
+        notSyncedView.isHidden = !SyncerHelper.shared.getSyncer().recordsRequireSync || (password.synced || password.syncing)
+        syncingView.isHidden = !SyncerHelper.shared.getSyncer().recordsRequireSync || (password.synced || !password.syncing)
+        syncingView.isHidden ? syncingView.stopAnimating() : syncingView.startAnimating()
         
         traitCollectionDidChange(nil)
     }
@@ -67,9 +67,9 @@ class CounterBasedPasswordCell: PasswordCell {
         
         currentPassword.text = TokenHelper.shared.formatPassword(password.getToken())
         
-        notSyncedView.isHidden = password.synced || password.syncing
-        syncingView.isHidden = password.synced || !password.syncing
-        (!password.synced && password.syncing) ? syncingView.startAnimating() : syncingView.stopAnimating()
+        notSyncedView.isHidden = !SyncerHelper.shared.getSyncer().recordsRequireSync || (password.synced || password.syncing)
+        syncingView.isHidden = !SyncerHelper.shared.getSyncer().recordsRequireSync || (password.synced || !password.syncing)
+        syncingView.isHidden ? syncingView.stopAnimating() : syncingView.startAnimating()
     }
     
 }

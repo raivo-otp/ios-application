@@ -37,7 +37,7 @@ class MainEditPasswordViewController: FormViewController {
             passwordForm?.counterRow.value = password.counter
             passwordForm?.timerRow.value = password.timer
             
-            if password.syncing {
+            if SyncerHelper.shared.getSyncer().recordsRequireSync && password.syncing {
                 passwordForm?.errorRow.title = "Syncing in progress, but not completed."
                 passwordForm?.synchronizationSection.hidden = false
                 passwordForm?.synchronizationSection.evaluateHidden()
