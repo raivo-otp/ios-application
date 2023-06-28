@@ -27,6 +27,7 @@ class StorageHelper {
         static let PASSCODE_TRIED_AMOUNT = "PasscodeTriedAmount"
         static let PASSCODE_TRIED_TIMESTAMP = "PasscodeTriedTimestamp"
         static let PREVIOUS_BUILD = "PreviousBuild"
+        static let PREVIOUS_MAJOR_VERSION = "PreviousMajorVersion"
         static let ENCRYPTION_KEY = "EncryptionKey"
         static let TOUCHID_ENABLED = "TouchIDEnabled"
         static let BIOMETRIC_AUTHENTICATION_ENABLED = "BiometricAuthenticationEnabled"
@@ -254,6 +255,26 @@ class StorageHelper {
         }
         
         return Int(build)
+    }
+    
+    /// Set the previous application major version.
+    ///
+    /// - Parameter major: The new 'previous major version'.
+    /// - Throws: Valet/Keychain exceptions on fail
+    public func setPreviousMajorVersion(_ major: Int) throws {
+        log.verbose("Setting previous major version")
+        try settings().setString(String(major), forKey: Key.PREVIOUS_MAJOR_VERSION)
+    }
+    
+    /// Get the previous application major version.
+    ///
+    /// - Returns: The previous major version
+    public func getPreviousMajorVersion() -> Int? {
+        guard let major = try? settings().string(forKey: Key.PREVIOUS_MAJOR_VERSION) else {
+            return nil
+        }
+        
+        return Int(major)
     }
     
     /// Set the complete encryption key (password+passcode) in Secure Enclave.
