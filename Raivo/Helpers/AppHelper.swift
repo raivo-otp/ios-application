@@ -45,6 +45,11 @@ class AppHelper {
     ///
     /// - Note Our version cannot be nil since it's hardcoded in the 'info.plist' file
     public static let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    
+    /// The main bundle major version representation (e.g. 3).
+    ///
+    /// - Note Our version cannot be nil since it's hardcoded in the 'info.plist' file
+    public static let versionMajor = Int(version.components(separatedBy: ".")[0])!
  
     /// The main bundle compilation method (e.g. 'Debug' or 'Release').
     ///

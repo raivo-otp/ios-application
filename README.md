@@ -60,7 +60,7 @@ Raivo enables you to add your own icons to OTPs. You can add your own icon via t
 The following migration guides walk you through the process of migrating from your existing OTP app to Raivo OTP.
 
 * [Migrating from **Authy** to Raivo OTP](https://tij.me/blog/migrating-your-one-time-passwords-from-authy-to-raivo-otp/)
-* [Migrating from **Aegis** to Raivo OTP](https://github.com/tygerbytes/OtpTranslator/commits?author=tygerbytes)
+* [Migrating from **Aegis** to Raivo OTP](https://github.com/tygerbytes/OtpTranslator)
 
 ## Issues
 

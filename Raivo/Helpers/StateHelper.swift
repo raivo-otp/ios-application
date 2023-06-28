@@ -249,9 +249,10 @@ class StateHelper {
         }
     }
     
-    /// Ensure the user did not downgrade to a lower version of the application.
+    /// Ensure the user did not downgrade to a lower build of the application.
     ///
     /// - Returns: Positive if the user did not downgrade.
+    @available(*, deprecated, message: "Downgrade detection checks the major version only, since build 86.")
     private func userDidNotDowngrade() -> Bool {
         if let previous = StorageHelper.shared.getPreviousBuild() {
             let downgraded = AppHelper.build < previous
@@ -265,8 +266,8 @@ class StateHelper {
     ///
     /// - Returns: Positive if the user did not downgrade a "major" version.
     private func userDidNotDowngradeMajor() -> Bool {
-        if let previous = StorageHelper.shared.getPreviousBuild() {
-            let downgraded = AppHelper.build < previous
+        if let previous = StorageHelper.shared.getPreviousMajorVersion() {
+            let downgraded = AppHelper.versionMajor < previous
             return !downgraded
         }
         

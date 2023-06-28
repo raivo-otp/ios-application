@@ -253,7 +253,7 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
         applicationInForeground = false
         
         if currentStoryboardName == StateHelper.Storyboard.MAIN {
-            updateStoryboard()
+            updateStoryboard(instant: true)
         }
     }
 

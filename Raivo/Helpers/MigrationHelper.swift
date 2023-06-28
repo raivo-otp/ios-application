@@ -60,6 +60,7 @@ class MigrationHelper {
         }
         
         try StorageHelper.shared.setPreviousBuild(AppHelper.build)
+        try StorageHelper.shared.setPreviousMajorVersion(AppHelper.versionMajor)
     }
     
     /// Start migrations that have to run during initialization of the app (before getting the current syncer account)
