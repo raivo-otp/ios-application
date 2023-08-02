@@ -1218,7 +1218,7 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1430;
-				ORGANIZATIONNAME = "Tijme Gommers";
+				ORGANIZATIONNAME = "Mobime";
 				TargetAttributes = {
 					700908C021FCCE5F00603AA2 = {
 						CreatedOnToolsVersion = 10.1;

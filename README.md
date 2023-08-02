@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <a href="https://apps.apple.com/app/raivo-otp/id1459042137?platform=iphone">
-        <img src="https://gist.githubusercontent.com/tijme/24d2d9e683d87f893b931c35cfe9f9e9/raw/a43025fc862a983773f3ee0e5e6160d4fcd81dd7/button.svg" width="180"/>
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" width="180"/>
     </a>
 </p>
 <p align="center">
@@ -14,7 +14,7 @@
     <br/>
     <b>A native, lightweight and secure time-based (TOTP) & counter-based (HOTP) password client built for iOS</b>
     <br/>
-    <sup>Built by <a href="https://www.linkedin.com/in/tijme/">Tijme Gommers</a> – Buy me a coffee via <a href="https://www.paypal.me/tijmegommers">PayPal</a> – Follow Raivo on <a href="https://twitter.com/RaivoOTP">Twitter</a></sup>
+    <sup>Built by <a href="https://mobime.org/">Mobime</a> – Follow Raivo on <a href="https://twitter.com/RaivoOTP">Twitter</a></sup>
     <br/>
 </p>
 
