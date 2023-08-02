@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2022 Tijme Gommers. All rights reserved.
+// Copyright (c) 2023 Mobime. All rights reserved.
 //
 // View the license that applies to the Raivo OTP source
 // code and published services to learn how you can use
@@ -78,7 +78,7 @@ struct MainDonateView: View {
                         .scaledToFill()
                         .frame(width: 50.0, height: 50.0)
                     Text("That's very generous.\nThank you so much!").multilineTextAlignment(.center)
-                    Text("Regards, Tijme Gommers.").foregroundColor(.secondary)
+                    Text("Regards, Mobime.").foregroundColor(.secondary)
                 }.padding(20)
             } else if paymentError != nil {
                 VStack(alignment: .center, spacing: 20) {

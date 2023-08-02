@@ -1,8 +1,8 @@
 # Security Policy
 
-> Effective date: August 1, 2022
+> Effective date: August 2, 2023
 
-Raivo OTP ("us", "we", "our", "Raivo", "Tijme Gommers") operates the Raivo OTP related services (the "Services"). The Services include and are limited to the Source Format and Processed Format of [Raivo OTP for Apple iOS](https://github.com/raivo-otp/ios-application), [Raivo OTP for Apple MacOS](https://github.com/raivo-otp/macos-receiver), [Raivo OTP Issuer Icons](https://github.com/raivo-otp/issuer-icons), [Raivo OTP APNS Server](https://github.com/raivo-otp/apns-server) and [Raivo OTP Marketing Website](https://github.com/raivo-otp/marketing-website) (raivo-otp.com).
+Raivo ("us", "we", or "our") operates the Raivo OTP related services (the "Services"). The Services include and are limited to the Source Format and Processed Format of [Raivo OTP for Apple iOS](https://github.com/raivo-otp/ios-application), [Raivo OTP for Apple MacOS](https://github.com/raivo-otp/macos-receiver), [Raivo OTP Issuer Icons](https://github.com/raivo-otp/issuer-icons), [Raivo OTP APNS Server](https://github.com/raivo-otp/apns-server) and [Raivo OTP Marketing Website](https://github.com/raivo-otp/marketing-website) (raivo-otp.com).
 
 The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security. This security policy (the "Security Policy") outlines security procedures, policies and features for the Services. Within this Security Policy, the key words "must", "must not", "required", "shall", "shall not", "should", "should not", "recommended", "may" and "optional" are to be interpreted as described in RFC 2119 [(Bradner, 1997)](https://www.ietf.org/rfc/rfc2119.txt).
 

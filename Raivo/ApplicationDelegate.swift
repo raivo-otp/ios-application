@@ -1,7 +1,7 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2022 Tijme Gommers. All rights reserved. 
+// Copyright (c) 2023 Mobime. All rights reserved. 
 //
 // View the license that applies to the Raivo OTP source 
 // code and published services to learn how you can use
@@ -202,15 +202,19 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
                 return
             }
             
-            if !instant {
-                UIView.transition(
-                    with: keyWindow,
-                    duration: 0.5,
-                    options: options,
-                    animations: nil,
-                    completion: nil
-                )
+            keyWindow.layer.removeAllAnimations()
+            
+            guard !instant else {
+                return
             }
+            
+            UIView.transition(
+                with: keyWindow,
+                duration: 0.5,
+                options: options,
+                animations: nil,
+                completion: nil
+            )
         }
     }
     
@@ -249,11 +253,13 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationWillResignActive(_ application: UIApplication) {
+        log.verbose("Application will resign active.")
+        
         getAppPrincipal().applicationWillResignActive(application)
         applicationInForeground = false
         
         if currentStoryboardName == StateHelper.Storyboard.MAIN {
-            updateStoryboard(instant: true)
+            updateStoryboard(instant: true, force: true)
         }
     }
 
@@ -261,6 +267,8 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationDidEnterBackground(_ application: UIApplication) {
+        log.verbose("Application did enter background.")
+        
         applicationInForeground = false
         previousStoryboardName = nil
     }
@@ -269,6 +277,8 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationWillEnterForeground(_ application: UIApplication) {
+        log.verbose("Application will enter foreground.")
+        
         applicationInForeground = true
     }
 
@@ -276,6 +286,8 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationDidBecomeActive(_ application: UIApplication) {
+        log.verbose("Application did become active.")
+        
         getAppPrincipal().applicationDidBecomeActive(application)
         applicationInForeground = true
         
@@ -288,6 +300,8 @@ class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     ///
     /// - Parameter application: The singleton app object.
     func applicationWillTerminate(_ application: UIApplication) {
+        log.verbose("Application will terminate.")
+        
         // Not implemented
     }
     
