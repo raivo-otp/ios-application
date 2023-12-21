@@ -1,0 +1,75 @@
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "5Cb-dt-5Cj"; */
+"5Cb-dt-5Cj.title" = "Settings";
+
+/* Class = "UINavigationItem"; title = "Add"; ObjectID = "B8I-jh-gwg"; */
+"B8I-jh-gwg.title" = "Add";
+
+/* Class = "UINavigationItem"; title = "Application icon"; ObjectID = "COZ-7k-pqg"; */
+"COZ-7k-pqg.title" = "Application icon";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "Fj5-sw-Yre"; */
+"Fj5-sw-Yre.title" = "Settings";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "I1k-E7-fs8"; */
+"I1k-E7-fs8.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "Passwords"; ObjectID = "Jpk-b9-jm1"; */
+"Jpk-b9-jm1.title" = "Passwords";
+
+/* Class = "UINavigationItem"; title = "Export ZIP archive"; ObjectID = "Kdu-4v-3f4"; */
+"Kdu-4v-3f4.title" = "Export ZIP archive";
+
+/* Class = "UILabel"; text = "Raivo does not have the required camera permissions to scan for QR codes!"; ObjectID = "LNY-AU-Znv"; */
+"LNY-AU-Znv.text" = "Raivo does not have the required camera permissions to scan for QR codes!";
+
+/* Class = "UIButton"; normalTitle = "Don't have a QR code? Continue manually!"; ObjectID = "MPC-LA-oL8"; */
+"MPC-LA-oL8.normalTitle" = "Don't have a QR code? Continue manually!";
+
+/* Class = "UILabel"; text = "Extra"; ObjectID = "Mi3-NT-HA5"; */
+"Mi3-NT-HA5.text" = "Extra";
+
+/* Class = "UIHostingController"; title = "Receivers"; ObjectID = "Oub-Y9-5bZ"; */
+"Oub-Y9-5bZ.title" = "Receivers";
+
+/* Class = "UIHostingController"; title = "ZIP archive"; ObjectID = "P2U-OT-7BE"; */
+"P2U-OT-7BE.title" = "ZIP archive";
+
+/* Class = "UITabBarItem"; title = "Scan"; ObjectID = "QAq-ma-gUB"; */
+"QAq-ma-gUB.title" = "Scan";
+
+/* Class = "UINavigationItem"; title = "Change passcode"; ObjectID = "R3d-hy-Vna"; */
+"R3d-hy-Vna.title" = "Change passcode";
+
+/* Class = "UINavigationItem"; title = "Passwords"; ObjectID = "Rqw-bM-Zhl"; */
+"Rqw-bM-Zhl.title" = "Passwords";
+
+/* Class = "UINavigationItem"; title = "Import ZIP archive"; ObjectID = "UaO-RP-VXt"; */
+"UaO-RP-VXt.title" = "Import ZIP archive";
+
+/* Class = "UINavigationItem"; title = "Scan a QR code"; ObjectID = "cBj-RV-F7Z"; */
+"cBj-RV-F7Z.title" = "Scan a QR code";
+
+/* Class = "UINavigationItem"; title = "Edit"; ObjectID = "fWU-Md-GCH"; */
+"fWU-Md-GCH.title" = "Edit";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "gLm-9e-Sec"; */
+"gLm-9e-Sec.title" = "Edit";
+
+/* Class = "UINavigationItem"; title = "Donate"; ObjectID = "kRH-0p-9Wd"; */
+"kRH-0p-9Wd.title" = "Donate";
+
+/* Class = "UINavigationItem"; title = "Receivers"; ObjectID = "n3n-Xb-T6D"; */
+"n3n-Xb-T6D.title" = "Receivers";
+
+/* Class = "UIHostingController"; title = "Application icon"; ObjectID = "r26-NN-T5X"; */
+"r26-NN-T5X.title" = "Application icon";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "sDp-5N-GOt"; */
+"sDp-5N-GOt.title" = "Search";
+
+/* Class = "UIHostingController"; title = "ZIP archive import"; ObjectID = "sEj-Kk-mZP"; */
+"sEj-Kk-mZP.title" = "ZIP archive import";
+
+/* Class = "UINavigationItem"; title = "QR code"; ObjectID = "v6q-mk-7lO"; */
+"v6q-mk-7lO.title" = "QR code";

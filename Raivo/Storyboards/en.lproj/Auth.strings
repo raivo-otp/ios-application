@@ -1,0 +1,18 @@
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "DE9-4w-90n"; */
+"DE9-4w-90n.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Unlock using biometry"; ObjectID = "VFf-yI-PgO"; */
+"VFf-yI-PgO.normalTitle" = "Unlock using biometry";
+
+/* Class = "UILabel"; text = "Enter your passcode to continue."; ObjectID = "XDs-zg-TZo"; */
+"XDs-zg-TZo.text" = "Enter your passcode to continue.";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "gLa-Xm-VG5"; */
+"gLa-Xm-VG5.title" = "Settings";
+
+/* Class = "UILabel"; text = "Raivo, OTP management done right."; ObjectID = "hT3-vY-qOe"; */
+"hT3-vY-qOe.text" = "Raivo, OTP management done right.";
+
+/* Class = "UIBarButtonItem"; title = "passcode"; ObjectID = "jwC-lh-wPV"; */
+"jwC-lh-wPV.title" = "passcode";
