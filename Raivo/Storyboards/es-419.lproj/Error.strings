@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Downgrading Raivo OTP to a lower version is not supported since the app can't rollback previously migrated data."; ObjectID = "1CK-Z1-fNZ"; */
+"1CK-Z1-fNZ.text" = "Downgrading Raivo OTP to a lower version is not supported since the app can't rollback previously migrated data.";
+
+/* Class = "UILabel"; text = "Downgrade not supported."; ObjectID = "Aqk-bB-xy5"; */
+"Aqk-bB-xy5.text" = "Downgrade not supported.";
+
+/* Class = "UILabel"; text = "You've got two options.  1 - Sign out of Raivo to setup Raivo with your new synchronization provider account.   2 - Revert your synchronization provider account and restart the app to go back to a working state."; ObjectID = "KQm-qx-5TC"; */
+"KQm-qx-5TC.text" = "You've got two options.  1 - Sign out of Raivo to setup Raivo with your new synchronization provider account.   2 - Revert your synchronization provider account and restart the app to go back to a working state.";
+
+/* Class = "UILabel"; text = "Please update to the latest version!"; ObjectID = "ZyR-1t-aud"; */
+"ZyR-1t-aud.text" = "Please update to the latest version!";
+
+/* Class = "UIButton"; normalTitle = "Sign out"; ObjectID = "gU9-YJ-WIB"; */
+"gU9-YJ-WIB.normalTitle" = "Sign out";
+
+/* Class = "UILabel"; text = "Synchronization account changed."; ObjectID = "mX1-ui-8Mc"; */
+"mX1-ui-8Mc.text" = "Synchronization account changed.";

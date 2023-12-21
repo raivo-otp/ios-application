@@ -431,6 +431,13 @@
 		AD34493D2B3504A400A2993F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Back.storyboard; sourceTree = "<group>"; };
 		AD3449402B3504A700A2993F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Back.strings; sourceTree = "<group>"; };
 		AD3449422B3504A900A2993F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Back.strings"; sourceTree = "<group>"; };
+		AD3449432B35058500A2993F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Main.strings"; sourceTree = "<group>"; };
+		AD3449442B35058500A2993F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Splash.strings"; sourceTree = "<group>"; };
+		AD3449452B35058500A2993F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Auth.strings"; sourceTree = "<group>"; };
+		AD3449462B35058600A2993F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Setup.strings"; sourceTree = "<group>"; };
+		AD3449472B35058600A2993F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Load.strings"; sourceTree = "<group>"; };
+		AD3449482B35058600A2993F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Error.strings"; sourceTree = "<group>"; };
+		AD3449492B35058600A2993F /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Back.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1261,6 +1268,7 @@
 				en,
 				Base,
 				"pt-BR",
+				"es-419",
 			);
 			mainGroup = 700908B821FCCE5F00603AA2;
 			packageReferences = (
@@ -1521,6 +1529,7 @@
 			children = (
 				700908C921FCCE5F00603AA2 /* Base */,
 				AD34491E2B35040300A2993F /* pt-BR */,
+				AD3449432B35058500A2993F /* es-419 */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1530,6 +1539,7 @@
 			children = (
 				700908CE21FCCE6100603AA2 /* Base */,
 				AD34491F2B35040300A2993F /* pt-BR */,
+				AD3449442B35058500A2993F /* es-419 */,
 			);
 			name = Splash.storyboard;
 			sourceTree = "<group>";
@@ -1540,6 +1550,7 @@
 				AD3449212B35045100A2993F /* Base */,
 				AD3449242B35045600A2993F /* en */,
 				AD3449262B35045B00A2993F /* pt-BR */,
+				AD3449452B35058500A2993F /* es-419 */,
 			);
 			name = Auth.storyboard;
 			sourceTree = "<group>";
@@ -1550,6 +1561,7 @@
 				AD3449282B35046A00A2993F /* Base */,
 				AD34492B2B35046F00A2993F /* en */,
 				AD34492D2B35047300A2993F /* pt-BR */,
+				AD3449462B35058600A2993F /* es-419 */,
 			);
 			name = Setup.storyboard;
 			sourceTree = "<group>";
@@ -1560,6 +1572,7 @@
 				AD34492F2B35047F00A2993F /* Base */,
 				AD3449322B35048300A2993F /* en */,
 				AD3449342B35048500A2993F /* pt-BR */,
+				AD3449472B35058600A2993F /* es-419 */,
 			);
 			name = Load.storyboard;
 			sourceTree = "<group>";
@@ -1570,6 +1583,7 @@
 				AD3449362B35049200A2993F /* Base */,
 				AD3449392B35049500A2993F /* en */,
 				AD34493B2B35049700A2993F /* pt-BR */,
+				AD3449482B35058600A2993F /* es-419 */,
 			);
 			name = Error.storyboard;
 			sourceTree = "<group>";
@@ -1580,6 +1594,7 @@
 				AD34493D2B3504A400A2993F /* Base */,
 				AD3449402B3504A700A2993F /* en */,
 				AD3449422B3504A900A2993F /* pt-BR */,
+				AD3449492B35058600A2993F /* es-419 */,
 			);
 			name = Back.storyboard;
 			sourceTree = "<group>";
