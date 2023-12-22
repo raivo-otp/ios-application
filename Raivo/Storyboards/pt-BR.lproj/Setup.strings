@@ -1,0 +1,153 @@
+
+/* Class = "UINavigationItem"; title = "Passcode"; ObjectID = "1kZ-QS-P3E"; */
+"1kZ-QS-P3E.title" = "Passcode";
+
+/* Class = "UIBarButtonItem"; title = "Passcode"; ObjectID = "2ZV-vc-vWm"; */
+"2ZV-vc-vWm.title" = "Passcode";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "2go-91-EAV"; */
+"2go-91-EAV.normalTitle" = "Continue";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "2qR-R5-jtA"; */
+"2qR-R5-jtA.title" = "Settings";
+
+/* Class = "UILabel"; text = "Two-factor authentication done right!"; ObjectID = "7mT-Di-l1w"; */
+"7mT-Di-l1w.text" = "Two-factor authentication done right!";
+
+/* Class = "UILabel"; text = "Make sure you'll be able to remember it!"; ObjectID = "9vF-KW-lxc"; */
+"9vF-KW-lxc.text" = "Make sure you'll be able to remember it!";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "Azs-q4-c9d"; */
+"Azs-q4-c9d.title" = "Settings";
+
+/* Class = "UILabel"; text = "Set your master password."; ObjectID = "BoX-Bb-B2i"; */
+"BoX-Bb-B2i.text" = "Set your master password.";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "Cqe-aB-L1X"; */
+"Cqe-aB-L1X.title" = "Settings";
+
+/* Class = "UINavigationItem"; title = "Welcome to Raivo OTP"; ObjectID = "D5W-sU-mVn"; */
+"D5W-sU-mVn.title" = "Welcome to Raivo OTP";
+
+/* Class = "UINavigationItem"; title = "Password"; ObjectID = "EWQ-79-udb"; */
+"EWQ-79-udb.title" = "Password";
+
+/* Class = "UILabel"; text = "You will need it when configuring data synchronization on other devices."; ObjectID = "En1-Wf-CAd"; */
+"En1-Wf-CAd.text" = "You will need it when configuring data synchronization on other devices.";
+
+/* Class = "UILabel"; text = "Choose a storage provider that you want to synchronize and backup your tokens to."; ObjectID = "FNS-RY-b8z"; */
+"FNS-RY-b8z.text" = "Choose a storage provider that you want to synchronize and backup your tokens to.";
+
+/* Class = "UINavigationItem"; title = "Security"; ObjectID = "Gvy-nB-Q4S"; */
+"Gvy-nB-Q4S.title" = "Security";
+
+/* Class = "UINavigationItem"; title = "Storage"; ObjectID = "Ky2-yX-4gQ"; */
+"Ky2-yX-4gQ.title" = "Storage";
+
+/* Class = "UILabel"; text = "Enjoy the ease of Raivo OTP!"; ObjectID = "NPr-FI-sO7"; */
+"NPr-FI-sO7.text" = "Enjoy the ease of Raivo OTP!";
+
+/* Class = "UITextField"; placeholder = "hC^FA7gW}TnW5MXB"; ObjectID = "OlT-xd-KJW"; */
+"OlT-xd-KJW.placeholder" = "hC^FA7gW}TnW5MXB";
+
+/* Class = "UIButton"; normalTitle = "Enable"; ObjectID = "Pqt-X6-wLk"; */
+"Pqt-X6-wLk.normalTitle" = "Enable";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "Smf-TT-yJM"; */
+"Smf-TT-yJM.normalTitle" = "Continue";
+
+/* Class = "UIButton"; normalTitle = "Delete all my data"; ObjectID = "U0n-4v-DQm"; */
+"U0n-4v-DQm.normalTitle" = "Delete all my data";
+
+/* Class = "UILabel"; text = "You can use the passcode to unlock Raivo."; ObjectID = "Wat-lP-QS8"; */
+"Wat-lP-QS8.text" = "You can use the passcode to unlock Raivo.";
+
+/* Class = "UINavigationItem"; title = "passcode"; ObjectID = "Wip-Bc-0CN"; */
+"Wip-Bc-0CN.title" = "passcode";
+
+/* Class = "UILabel"; text = "Manage all of your time-based and counter-based OTP tokens without the hassle."; ObjectID = "ZhF-SM-abq"; */
+"ZhF-SM-abq.text" = "Manage all of your time-based and counter-based OTP tokens without the hassle.";
+
+/* Class = "UILabel"; text = "Raivo OTP"; ObjectID = "aMF-0q-efD"; */
+"aMF-0q-efD.text" = "Raivo OTP";
+
+/* Class = "UILabel"; text = "Make sure to save it in a safe place. All your data will be encrypted using this password!"; ObjectID = "b1H-tL-vSU"; */
+"b1H-tL-vSU.text" = "Make sure to save it in a safe place. All your data will be encrypted using this password!";
+
+/* Class = "UINavigationItem"; title = "Security"; ObjectID = "bFY-bw-HBq"; */
+"bFY-bw-HBq.title" = "Security";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "blQ-sD-5Hv"; */
+"blQ-sD-5Hv.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "cRh-ks-bG2"; */
+"cRh-ks-bG2.normalTitle" = "Confirm";
+
+/* Class = "UIBarButtonItem"; title = "Biometric"; ObjectID = "djg-Un-mfA"; */
+"djg-Un-mfA.title" = "Biometric";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "gcC-eG-sVl"; */
+"gcC-eG-sVl.normalTitle" = "Continue";
+
+/* Class = "UILabel"; text = "Set your passcode."; ObjectID = "hEb-wM-vVz"; */
+"hEb-wM-vVz.text" = "Set your passcode.";
+
+/* Class = "UILabel"; text = "Setup complete!"; ObjectID = "hGq-Nk-0YE"; */
+"hGq-Nk-0YE.text" = "Setup complete!";
+
+/* Class = "UILabel"; text = "Loading storage providers..."; ObjectID = "j6D-OM-R4n"; */
+"j6D-OM-R4n.text" = "Loading storage providers...";
+
+/* Class = "UILabel"; text = "You've successfully configured the application and are now ready to add your first one-time password."; ObjectID = "kcj-XM-RKb"; */
+"kcj-XM-RKb.text" = "You've successfully configured the application and are now ready to add your first one-time password.";
+
+/* Class = "UILabel"; text = "Confirm the password."; ObjectID = "lbn-Yp-PNV"; */
+"lbn-Yp-PNV.text" = "Confirm the password.";
+
+/* Class = "UIButton"; normalTitle = "I forgot my master password."; ObjectID = "lzc-bJ-VKm"; */
+"lzc-bJ-VKm.normalTitle" = "I forgot my master password.";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "mF2-qW-Gkh"; */
+"mF2-qW-Gkh.normalTitle" = "Cancel";
+
+/* Class = "UINavigationItem"; title = "BiomID"; ObjectID = "nL0-4k-ilc"; */
+"nL0-4k-ilc.title" = "BiomID";
+
+/* Class = "UILabel"; text = "Confirm the passcode."; ObjectID = "oQw-g3-ez1"; */
+"oQw-g3-ez1.text" = "Confirm the passcode.";
+
+/* Class = "UIButton"; normalTitle = "I don't want to use BiomID unlock."; ObjectID = "ofA-bq-sca"; */
+"ofA-bq-sca.normalTitle" = "I don't want to use BiomID unlock.";
+
+/* Class = "UINavigationItem"; title = "Donate"; ObjectID = "olE-Km-Hoa"; */
+"olE-Km-Hoa.title" = "Donate";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "pCL-0d-f6G"; */
+"pCL-0d-f6G.title" = "Settings";
+
+/* Class = "UILabel"; text = "Configure BiomID unlock."; ObjectID = "pSe-AD-GQD"; */
+"pSe-AD-GQD.text" = "Configure BiomID unlock.";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "rUN-fT-I5W"; */
+"rUN-fT-I5W.title" = "Settings";
+
+/* Class = "UINavigationItem"; title = "Welcome"; ObjectID = "s2T-Df-wTP"; */
+"s2T-Df-wTP.title" = "Welcome";
+
+/* Class = "UILabel"; text = "Biometry allows you to unlock Raivo with BiomID, instead of your passcode."; ObjectID = "sOI-sT-feM"; */
+"sOI-sT-feM.text" = "Biometry allows you to unlock Raivo with BiomID, instead of your passcode.";
+
+/* Class = "UILabel"; text = "We're sorry about that."; ObjectID = "uQ2-tr-o1B"; */
+"uQ2-tr-o1B.text" = "We're sorry about that.";
+
+/* Class = "UITextField"; placeholder = "hC^FA7gW}TnW5MXB"; ObjectID = "wLK-pr-MEs"; */
+"wLK-pr-MEs.placeholder" = "hC^FA7gW}TnW5MXB";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "whS-iv-ZVx"; */
+"whS-iv-ZVx.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "yUE-lN-Pce"; */
+"yUE-lN-Pce.normalTitle" = "Start";
+
+/* Class = "UILabel"; text = "Unfortunately there is no way to recover your data without your master password.  The only option you have is to delete all data from your synchronization provider and start all over."; ObjectID = "zRw-Uw-bdd"; */
+"zRw-Uw-bdd.text" = "Unfortunately there is no way to recover your data without your master password.  The only option you have is to delete all data from your synchronization provider and start all over.";
