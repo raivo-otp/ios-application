@@ -62,10 +62,6 @@ The following migration guides walk you through the process of migrating from yo
 * [Migrating from **Authy** to Raivo OTP](https://tij.me/blog/migrating-your-one-time-passwords-from-authy-to-raivo-otp/)
 * [Migrating from **Aegis** to Raivo OTP](https://github.com/tygerbytes/OtpTranslator)
 
-## Issues
-
-Issues or new features can be reported via the [issue tracker](https://github.com/raivo-otp/ios-application/issues). Please make sure your issue or feature has not yet been reported by anyone else before submitting a new one.
-
 ## Security
 
 If you discover a security vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. Please report your vulnerability via our [HackerOne](https://hackerone.com/raivo) program. If you want to know more about how we keep Raivo OTP secure, check out the [security policy](https://github.com/raivo-otp/ios-application/blob/master/SECURITY.md).
