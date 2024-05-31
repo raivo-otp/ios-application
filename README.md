@@ -24,6 +24,17 @@
     <img src="https://raw.githubusercontent.com/raivo-otp/ios-application/master/Assets/appstore-previews/Apple%20iPhone%2011%20Pro%20Max%20(1242x2688)/Apple%20iPhone%2011%20Pro%20Max%20Screenshot%202.png?cache=5" width="265">
 </p>
 
+## Warning
+
+The iOS app in the App Store link above should be treated as
+alpha quality, and no important data should be trusted to it. Users
+have widely reported issues which are still unfixed and unaddressed:
+
+* The app purposely blocked access to all of their stored tokens until
+  payment was given.
+* When tokens were stored only locally, the tokens were simply deleted
+  altogether.
+
 ## Features
 
 * Backup/sync (T/H)OTPs to iCloud automagically
