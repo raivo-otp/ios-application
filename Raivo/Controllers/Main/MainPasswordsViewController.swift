@@ -1,9 +1,9 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2023 Mobime. All rights reserved. 
+// Copyright (c) 2023 Mobime. All rights reserved.
 //
-// View the license that applies to the Raivo OTP source 
+// View the license that applies to the Raivo OTP source
 // code and published services to learn how you can use
 // Raivo OTP.
 //
@@ -18,9 +18,10 @@ import AVFoundation
 
 class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SwipeTableViewCellDelegate, UISearchBarDelegate {
     
+    static var isAddedNew = false
+    
     /// Is programatically set to true if user tapped the search button
     var startSearching: Bool = false
-    
     var isSearching: Bool = false
     
     @IBOutlet weak var tableView: UITableView!
@@ -101,6 +102,12 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
                 tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
                 tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .none)
                 tableView.endUpdates()
+                
+                if !insertions.isEmpty || !modifications.isEmpty {
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                        self?.popupRating(isAddNew: Self.isAddedNew)
+                    }
+                }
                 break
             case .error(let error):
                 fatalError("\(error)")
@@ -391,4 +398,43 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    func popupRating(isAddNew: Bool) {
+        let isRated = UserDefaults.standard.bool(forKey: "com.mobime.raivo.rating")
+        //let OTP_Added = UserDefaults.standard.bool(forKey: "OTP_Added")
+        
+        //if already rated?
+        if (isRated) {
+            return
+        }
+
+        if (isAddNew) {
+            popupRatingWhenAdd()
+        } else {
+            popupRatingForImport()
+        }
+
+        Self.isAddedNew = false
+    }
+    
+    func popupRatingForImport() {
+        let alert = UIAlertController(title: "Hooray", message: "You've successfully recovered your keys with Raivo 🚀🚀🚀\n\nWe're thrilled that you had a smooth experience. If you're as excited as we are, we'd love to hear your thoughts.", preferredStyle: UIAlertController.Style.alert)
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Yes, Sure ❤️", style: UIAlertAction.Style.cancel, handler: { action in
+            UserDefaults.standard.setValue(true, forKey: "com.mobime.raivo.rating")
+            UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id1459042137?action=write-review")!, options: [:], completionHandler: nil)
+                                      }))
+        alert.addAction(UIAlertAction(title: "later", style: UIAlertAction.Style.destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func popupRatingWhenAdd() {
+        let alert = UIAlertController(title: "Congratulations", message: "It looks like you're enjoying Raivo Authenticator! If you have a moment, we'd love to hear from you", preferredStyle: UIAlertController.Style.alert)
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Yes, Sure", style: UIAlertAction.Style.cancel, handler: { action in
+            UserDefaults.standard.setValue(true, forKey: "com.mobime.raivo.rating")
+            UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id1459042137?action=write-review")!, options: [:], completionHandler: nil)
+                                      }))
+        alert.addAction(UIAlertAction(title: "later", style: UIAlertAction.Style.destructive, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

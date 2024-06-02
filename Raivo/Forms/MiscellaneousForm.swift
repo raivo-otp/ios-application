@@ -60,7 +60,6 @@ class MiscellaneousForm {
     
     public func build<T: UIViewController & MFMailComposeViewControllerDelegate>(controller: T) -> Self {
         buildSynchronizationSection(controller)
-        buildDonateSection(controller)
         buildAuthenticationSection(controller)
         buildInterfaceSection(controller)
         buildDataSection(controller)
