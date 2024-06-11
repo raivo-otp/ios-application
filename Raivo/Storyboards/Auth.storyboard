@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="3ck-I9-pbb">
+            <objects>
+                <viewController id="qNU-ah-yuG" customClass="AuthMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B6u-tF-wOl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jM8-rR-XOj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="DE9-4w-90n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="slK-zn-DG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="-393"/>
+        </scene>
+        <!--Auth Root View Controller-->
+        <scene sceneID="PJd-Wa-Ls1">
+            <objects>
+                <navigationController restorationIdentifier="AuthRootController" storyboardIdentifier="AuthRootController" id="gmH-zH-eht" customClass="AuthRootViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NvE-Ep-Hsc">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ugo-gy-X0w" kind="relationship" relationship="rootViewController" id="iX6-QF-FU1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSV-o4-eO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-261" y="487"/>
+        </scene>
+        <!--Auth Entry View Controller-->
+        <scene sceneID="Wsi-Kr-WPV">
+            <objects>
+                <viewController id="ugo-gy-X0w" customClass="AuthEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Ag-aZ-ScX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="Vz1-KG-knS" userLabel="Background" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRd-ny-Rp6" userLabel="Wrapper">
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVE-R8-zi7" userLabel="Content">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5nT-3F-W59">
+                                                <rect key="frame" x="0.0" y="234" width="414" height="302"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="GWG-jo-ayS" userLabel="Logo">
+                                                        <rect key="frame" x="127" y="0.0" width="160" height="160"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="GWG-jo-ayS" secondAttribute="height" multiplier="1:1" id="XCs-YV-xbC"/>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="160" id="rPH-Hw-d49"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kxr-qN-c5b" userLabel="Padded Stack View">
+                                                        <rect key="frame" x="8" y="168" width="398" height="134"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo, OTP management done right." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT3-vY-qOe" userLabel="Title">
+                                                                <rect key="frame" x="56" y="0.0" width="286" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your passcode to continue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDs-zg-TZo" userLabel="Description">
+                                                                <rect key="frame" x="73.5" y="28.5" width="251" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hr9-XI-BmF" customClass="UIPasscodeField" customModule="Raivo" customModuleProvider="target">
+                                                                <rect key="frame" x="79" y="57" width="240" height="40"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="HOj-A6-aij"/>
+                                                                    <constraint firstAttribute="width" constant="240" id="dYv-Ce-xb0"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFf-yI-PgO">
+                                                                <rect key="frame" x="126.5" y="105" width="145" height="29"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <state key="normal" title="Unlock using biometry"/>
+                                                                <connections>
+                                                                    <action selector="onBiometricsUnlock:" destination="ugo-gy-X0w" eventType="touchUpInside" id="bwa-77-7hL"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="kxr-qN-c5b" secondAttribute="trailing" constant="8" id="0fu-wS-CjF"/>
+                                                    <constraint firstItem="kxr-qN-c5b" firstAttribute="leading" secondItem="5nT-3F-W59" secondAttribute="leading" constant="8" id="GZH-cG-g4b"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="5nT-3F-W59" firstAttribute="centerY" secondItem="PVE-R8-zi7" secondAttribute="centerY" id="IXZ-1Z-CMG"/>
+                                            <constraint firstAttribute="trailing" secondItem="5nT-3F-W59" secondAttribute="trailing" id="m5R-uR-aKr"/>
+                                            <constraint firstItem="5nT-3F-W59" firstAttribute="leading" secondItem="PVE-R8-zi7" secondAttribute="leading" id="rzd-Ti-gsc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PVE-R8-zi7" firstAttribute="top" secondItem="oRd-ny-Rp6" secondAttribute="top" id="7Iq-LW-GGd"/>
+                                    <constraint firstItem="PVE-R8-zi7" firstAttribute="leading" secondItem="oRd-ny-Rp6" secondAttribute="leading" id="m5g-Rr-2cV"/>
+                                    <constraint firstAttribute="trailing" secondItem="PVE-R8-zi7" secondAttribute="trailing" id="tay-BM-K6D"/>
+                                    <constraint firstAttribute="bottom" secondItem="PVE-R8-zi7" secondAttribute="bottom" id="yVc-q9-X7y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="q9X-y2-Q3g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="authEntry"/>
+                        <constraints>
+                            <constraint firstItem="q9X-y2-Q3g" firstAttribute="trailing" secondItem="oRd-ny-Rp6" secondAttribute="trailing" id="23Z-bq-p2y"/>
+                            <constraint firstAttribute="bottom" secondItem="Vz1-KG-knS" secondAttribute="bottom" id="K1l-BU-u1v"/>
+                            <constraint firstItem="Vz1-KG-knS" firstAttribute="leading" secondItem="4Ag-aZ-ScX" secondAttribute="leading" id="Nm4-td-7wu"/>
+                            <constraint firstItem="oRd-ny-Rp6" firstAttribute="leading" secondItem="q9X-y2-Q3g" secondAttribute="leading" id="aFd-4r-M5l"/>
+                            <constraint firstAttribute="trailing" secondItem="Vz1-KG-knS" secondAttribute="trailing" id="buw-cn-Olv"/>
+                            <constraint firstItem="q9X-y2-Q3g" firstAttribute="bottom" secondItem="oRd-ny-Rp6" secondAttribute="bottom" identifier="KeyboardConstraint" id="hpc-9v-vna"/>
+                            <constraint firstItem="Vz1-KG-knS" firstAttribute="top" secondItem="4Ag-aZ-ScX" secondAttribute="top" id="tc7-jf-4x9"/>
+                            <constraint firstItem="oRd-ny-Rp6" firstAttribute="top" secondItem="q9X-y2-Q3g" secondAttribute="top" id="xXG-gS-Gww"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Vaj-Bd-pgT">
+                        <barButtonItem key="backBarButtonItem" title="passcode" id="jwC-lh-wPV"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="icon-misc" id="gLa-Xm-VG5">
+                            <connections>
+                                <segue destination="qNU-ah-yuG" kind="custom" customClass="StorkPopoverSegue" customModule="Raivo" customModuleProvider="target" id="gUw-ag-rhy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="biometricButton" destination="VFf-yI-PgO" id="TXe-Co-6iy"/>
+                        <outlet property="passcodeField" destination="hr9-XI-BmF" id="03y-gn-quq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tv-D2-TdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="487"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" name="color-tint-red"/>
+    <resources>
+        <image name="app-icon" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="icon-misc" width="30" height="30"/>
+        <image name="pattern" width="67" height="100"/>
+        <namedColor name="color-tint-red">
+            <color red="0.90980392156862744" green="0.050980392156862744" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

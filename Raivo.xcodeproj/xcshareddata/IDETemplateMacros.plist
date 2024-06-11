@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>FILEHEADER</key>
+        <string>
+//
+// Raivo OTP
+//
+// Copyright (c) 2023 Mobime. All rights reserved. 
+//
+// View the license that applies to the Raivo OTP source 
+// code and published services to learn how you can use
+// Raivo OTP.
+//
+// https://raivo-otp.com/license/.</string>
+    </dict>
+</plist>

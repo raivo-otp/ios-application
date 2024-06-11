@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequestPhotoLibraryViewController" customModule="Raivo" customModuleProvider="target">
+            <connections>
+                <outlet property="btnAllow" destination="ams-GA-HGc" id="Bpn-0r-Zny"/>
+                <outlet property="lblSubTitle" destination="Tcj-Me-WBh" id="WO6-RU-X2L"/>
+                <outlet property="view" destination="N5g-NJ-ycg" id="Mcv-QM-qt5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="N5g-NJ-ycg">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rg-el-Ueq">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="794"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bad-cw-hR1">
+                            <rect key="frame" x="20" y="250.5" width="374" height="293"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIT-Jm-3O7">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="175"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-icon" translatesAutoresizingMaskIntoConstraints="NO" id="e83-lf-5ij">
+                                            <rect key="frame" x="99.5" y="0.0" width="175" height="175"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="175" id="dRL-0e-GCR"/>
+                                                <constraint firstAttribute="width" secondItem="e83-lf-5ij" secondAttribute="height" multiplier="1:1" id="thf-3m-bg6"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="e83-lf-5ij" firstAttribute="centerX" secondItem="bIT-Jm-3O7" secondAttribute="centerX" id="0vL-hY-3ia"/>
+                                        <constraint firstItem="e83-lf-5ij" firstAttribute="centerY" secondItem="bIT-Jm-3O7" secondAttribute="centerY" id="YhX-vf-aNe"/>
+                                        <constraint firstAttribute="height" secondItem="e83-lf-5ij" secondAttribute="height" id="xAw-4b-B9f"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo OTP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDq-Oc-4Ei">
+                                    <rect key="frame" x="0.0" y="183" width="374" height="41"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo needs access to your photo library to enable custom icons. You can disable access from your device settings at any time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcj-Me-WBh">
+                                    <rect key="frame" x="0.0" y="232" width="374" height="61"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="bad-cw-hR1" firstAttribute="centerY" secondItem="9rg-el-Ueq" secondAttribute="centerY" id="3lf-ON-roJ"/>
+                        <constraint firstItem="bad-cw-hR1" firstAttribute="leading" secondItem="9rg-el-Ueq" secondAttribute="leading" constant="20" id="bWi-f3-s2X"/>
+                        <constraint firstAttribute="trailing" secondItem="bad-cw-hR1" secondAttribute="trailing" constant="20" id="yuZ-KJ-8i3"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ams-GA-HGc">
+                    <rect key="frame" x="16" y="794" width="382" height="52"/>
+                    <color key="backgroundColor" red="0.90980392156862744" green="0.050980392156862744" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Allow access"/>
+                    <connections>
+                        <action selector="onBtnAllow:" destination="-1" eventType="touchUpInside" id="552-KB-sn5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXw-PP-GiA">
+                    <rect key="frame" x="10" y="53" width="96.5" height="43"/>
+                    <color key="tintColor" red="0.90980392160000001" green="0.050980392159999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                        <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="onBtnCancel:" destination="-1" eventType="touchUpInside" id="EGC-mX-ydZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="FOt-n1-YLa"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ams-GA-HGc" firstAttribute="leading" secondItem="FOt-n1-YLa" secondAttribute="leading" constant="16" id="ERX-Qa-vOQ"/>
+                <constraint firstItem="FOt-n1-YLa" firstAttribute="trailing" secondItem="9rg-el-Ueq" secondAttribute="trailing" id="T8R-n8-Tca"/>
+                <constraint firstItem="9rg-el-Ueq" firstAttribute="leading" secondItem="FOt-n1-YLa" secondAttribute="leading" id="YWe-ZN-6jQ"/>
+                <constraint firstItem="FOt-n1-YLa" firstAttribute="bottom" secondItem="ams-GA-HGc" secondAttribute="bottom" constant="16" id="Zi1-l3-cUg"/>
+                <constraint firstItem="FOt-n1-YLa" firstAttribute="trailing" secondItem="ams-GA-HGc" secondAttribute="trailing" constant="16" id="d8J-HD-QxJ"/>
+                <constraint firstItem="JXw-PP-GiA" firstAttribute="leading" secondItem="FOt-n1-YLa" secondAttribute="leading" constant="10" id="ePV-GP-zBA"/>
+                <constraint firstItem="9rg-el-Ueq" firstAttribute="top" secondItem="N5g-NJ-ycg" secondAttribute="top" id="fFV-LG-sLt"/>
+                <constraint firstItem="ams-GA-HGc" firstAttribute="top" secondItem="9rg-el-Ueq" secondAttribute="bottom" id="mT6-Bf-KOC"/>
+                <constraint firstItem="JXw-PP-GiA" firstAttribute="top" secondItem="FOt-n1-YLa" secondAttribute="top" constant="5" id="zIC-iS-zdd"/>
+            </constraints>
+            <point key="canvasLocation" x="-704.34782608695662" y="1.3392857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="app-icon" width="341.33334350585938" height="341.33334350585938"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

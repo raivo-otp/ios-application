@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="jpu-Ev-k8S">
+            <objects>
+                <viewController restorationIdentifier="SearchStubController" storyboardIdentifier="SearchStubController" id="3fu-P0-KYe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m9f-7z-bfb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VJX-QR-P9d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="tabbar-search" id="sDp-5N-GOt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dTz-NN-Voq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2980" y="-305"/>
+        </scene>
+        <!--Scan a QR code-->
+        <scene sceneID="f4l-0E-nB9">
+            <objects>
+                <viewController id="I4h-xK-fAb" customClass="MainScanPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zc4-fI-UmP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-pd-f2P">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raivo does not have the required camera permissions to scan for QR codes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNY-AU-Znv">
+                                        <rect key="frame" x="15" y="230.5" width="345" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="LNY-AU-Znv" firstAttribute="leading" secondItem="tRN-pd-f2P" secondAttribute="leading" constant="15" id="f48-Mp-NLN"/>
+                                    <constraint firstAttribute="trailing" secondItem="LNY-AU-Znv" secondAttribute="trailing" constant="15" id="m3z-lU-ZNi"/>
+                                    <constraint firstItem="LNY-AU-Znv" firstAttribute="centerY" secondItem="tRN-pd-f2P" secondAttribute="centerY" id="tAa-yS-yb4"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPC-LA-oL8">
+                                <rect key="frame" x="16" y="552" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.91081506010000002" green="0.050439722839999999" blue="0.2000719607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="15" maxX="10" maxY="15"/>
+                                <state key="normal" title="Don't have a QR code? Continue manually!"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="x2c-1h-doB" kind="show" identifier="MainCreateManualOneTimePasswordSegue" id="ap9-86-9w1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aJL-SM-eC0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordScan"/>
+                        <constraints>
+                            <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="tRN-pd-f2P" secondAttribute="trailing" id="1eu-JZ-uEw"/>
+                            <constraint firstItem="aJL-SM-eC0" firstAttribute="bottom" secondItem="MPC-LA-oL8" secondAttribute="bottom" constant="16" id="BOu-Xm-SvN"/>
+                            <constraint firstItem="MPC-LA-oL8" firstAttribute="leading" secondItem="aJL-SM-eC0" secondAttribute="leading" constant="16" id="DMr-J8-JFz"/>
+                            <constraint firstItem="tRN-pd-f2P" firstAttribute="leading" secondItem="aJL-SM-eC0" secondAttribute="leading" id="Jwh-F1-8OQ"/>
+                            <constraint firstItem="tRN-pd-f2P" firstAttribute="bottom" secondItem="aJL-SM-eC0" secondAttribute="bottom" id="MFu-eB-Sq4"/>
+                            <constraint firstItem="aJL-SM-eC0" firstAttribute="trailing" secondItem="MPC-LA-oL8" secondAttribute="trailing" constant="16" id="Y92-dK-r9H"/>
+                            <constraint firstItem="tRN-pd-f2P" firstAttribute="top" secondItem="aJL-SM-eC0" secondAttribute="top" id="mN2-dN-LLc"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scan" image="tabbar-scan" id="QAq-ma-gUB"/>
+                    <navigationItem key="navigationItem" title="Scan a QR code" largeTitleDisplayMode="always" id="cBj-RV-F7Z"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="cameraPreview" destination="tRN-pd-f2P" id="dYG-ya-qIu"/>
+                        <outlet property="cameraUnavailableLabel" destination="LNY-AU-Znv" id="Ndc-97-EAA"/>
+                        <segue destination="x2c-1h-doB" kind="show" identifier="MainCreateScannedOneTimePasswordSegue" id="POH-4S-sTl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eig-ku-mOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3929" y="412"/>
+        </scene>
+        <!--Add-->
+        <scene sceneID="JiU-sJ-Ajr">
+            <objects>
+                <viewController id="x2c-1h-doB" customClass="MainCreatePasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BE6-kL-9Iw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="agh-vy-GIo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordAdd"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add" largeTitleDisplayMode="always" id="B8I-jh-gwg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wRy-iv-iCx">
+                            <connections>
+                                <action selector="onSave:" destination="x2c-1h-doB" id="DQW-cP-VvT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqi-7u-P3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4894" y="412"/>
+        </scene>
+        <!--Passwords-->
+        <scene sceneID="zgE-9c-30Q">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="aG0-Sx-MMn" customClass="MainPasswordsViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qHX-Uj-Cbk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZYE-xS-Xob">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WSM-vr-gJL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainPasswords"/>
+                        <constraints>
+                            <constraint firstItem="ZYE-xS-Xob" firstAttribute="top" secondItem="qHX-Uj-Cbk" secondAttribute="top" id="I0H-VF-U3U"/>
+                            <constraint firstItem="WSM-vr-gJL" firstAttribute="trailing" secondItem="ZYE-xS-Xob" secondAttribute="trailing" id="sxN-To-Rfm"/>
+                            <constraint firstItem="ZYE-xS-Xob" firstAttribute="leading" secondItem="WSM-vr-gJL" secondAttribute="leading" id="uak-2h-iJg"/>
+                            <constraint firstAttribute="bottom" secondItem="ZYE-xS-Xob" secondAttribute="bottom" identifier="KeyboardConstraint" id="zDH-kG-cff"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Passwords" largeTitleDisplayMode="never" id="Rqw-bM-Zhl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eG7-Fh-ajV">
+                            <connections>
+                                <segue destination="I4h-xK-fAb" kind="show" identifier="MainScanQuickResponseCodeSegue" id="DeW-jW-R6d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ZYE-xS-Xob" id="6DY-i7-Rot"/>
+                        <segue destination="6aa-25-buz" kind="show" identifier="MainOneTimePasswordSelectedSegue" id="3L5-BL-qpg"/>
+                        <segue destination="jnb-LR-dDu" kind="show" identifier="MainQuickResponseCodeSelectedSegue" id="4r2-Ji-KpJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="brY-NW-mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3934" y="-1080"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="ZaQ-AD-jZ3">
+            <objects>
+                <viewController id="6aa-25-buz" customClass="MainEditPasswordViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nqk-RL-Ogy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="j0L-dn-8mA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordEdit"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit" largeTitleDisplayMode="always" id="fWU-Md-GCH">
+                        <barButtonItem key="backBarButtonItem" title="Edit" id="gLm-9e-Sec"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0r9-Ba-kbs">
+                            <connections>
+                                <action selector="onSave:" destination="6aa-25-buz" id="7Qd-im-Y5h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1n-HP-L86" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4894" y="-1433"/>
+        </scene>
+        <!--QR code-->
+        <scene sceneID="gFG-zR-oMG">
+            <objects>
+                <viewController id="jnb-LR-dDu" customClass="MainQuickResponseCodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bkg-Mc-WAk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oXZ-Dr-lMs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainPasswordQuickResponseCode"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR code" largeTitleDisplayMode="always" id="v6q-mk-7lO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzA-ZB-Aga" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4894" y="-705"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Ogz-oo-NQf">
+            <objects>
+                <navigationController id="JqB-dd-yVm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="tabbar-misc" id="Fj5-sw-Yre"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OZY-Ml-0et">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NSd-7i-At7" kind="relationship" relationship="rootViewController" id="ELQ-8b-ZsS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibK-2H-Xjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2977" y="1182"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="1TX-0c-T7X">
+            <objects>
+                <viewController id="NSd-7i-At7" customClass="MainMiscViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tiu-g6-CWn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6fs-mC-1eZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainSettings"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="5Cb-dt-5Cj"/>
+                    <connections>
+                        <segue destination="F9t-JF-c77" kind="show" identifier="MainChangePasscodeSegue" id="xHJ-LE-rn2"/>
+                        <segue destination="P2U-OT-7BE" kind="show" identifier="MainDataExportSegue" id="r8T-aZ-TpT"/>
+                        <segue destination="sEj-Kk-mZP" kind="show" identifier="MainDataImportSegue" id="r8T-aZ-Tpt"/>
+                        <segue destination="r26-NN-T5X" kind="show" identifier="MainChangeAppIconSegue" id="iHC-A0-yPr"/>
+                        <segue destination="Oub-Y9-5bZ" kind="show" identifier="MainReceiversSegue" id="rWU-EU-9ek"/>
+                        <segue destination="DXg-HA-DGt" kind="show" identifier="MainDonateSegue" id="klT-oe-U82"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lc6-jd-fiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3930" y="1182"/>
+        </scene>
+        <!--Change passcode-->
+        <scene sceneID="0zb-Hm-etg">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="F9t-JF-c77" customClass="MainChangePasscodeViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RLv-3W-khe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="9wa-hk-cHr" customClass="PatternImage" customModule="Raivo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvi-ii-oP4">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1k-E7-fs8">
+                                        <rect key="frame" x="0.0" y="234.5" width="375" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-NT-HA5">
+                                        <rect key="frame" x="8" y="265.5" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umv-KD-VhE" userLabel="View Passcode" customClass="UIPasscodeField" customModule="Raivo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="286" width="375" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hFO-xS-1xs"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="I1k-E7-fs8" secondAttribute="trailing" id="6cO-Sr-JxO"/>
+                                    <constraint firstItem="umv-KD-VhE" firstAttribute="leading" secondItem="bvi-ii-oP4" secondAttribute="leading" id="Ydd-DW-0Gq"/>
+                                    <constraint firstItem="Mi3-NT-HA5" firstAttribute="leading" secondItem="bvi-ii-oP4" secondAttribute="leading" constant="8" id="cBj-0f-juD"/>
+                                    <constraint firstAttribute="trailing" secondItem="umv-KD-VhE" secondAttribute="trailing" id="gHH-SN-Fmm"/>
+                                    <constraint firstItem="Mi3-NT-HA5" firstAttribute="centerY" secondItem="bvi-ii-oP4" secondAttribute="centerY" id="ggP-2C-xLP"/>
+                                    <constraint firstItem="I1k-E7-fs8" firstAttribute="leading" secondItem="bvi-ii-oP4" secondAttribute="leading" id="iJ2-ge-fIj"/>
+                                    <constraint firstItem="Mi3-NT-HA5" firstAttribute="top" secondItem="I1k-E7-fs8" secondAttribute="bottom" constant="8" id="kFG-br-wsk"/>
+                                    <constraint firstItem="umv-KD-VhE" firstAttribute="top" secondItem="Mi3-NT-HA5" secondAttribute="bottom" id="qIn-2P-nZQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mi3-NT-HA5" secondAttribute="trailing" constant="8" id="sPs-7P-eXf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ons-YR-CD1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mainChangePasscode"/>
+                        <constraints>
+                            <constraint firstItem="Ons-YR-CD1" firstAttribute="bottom" secondItem="bvi-ii-oP4" secondAttribute="bottom" identifier="KeyboardConstraint" id="0YB-jZ-fzy"/>
+                            <constraint firstItem="bvi-ii-oP4" firstAttribute="top" secondItem="Ons-YR-CD1" secondAttribute="top" id="1Jm-BZ-NhU"/>
+                            <constraint firstItem="bvi-ii-oP4" firstAttribute="leading" secondItem="Ons-YR-CD1" secondAttribute="leading" id="HuN-Zh-KJV"/>
+                            <constraint firstItem="Ons-YR-CD1" firstAttribute="trailing" secondItem="9wa-hk-cHr" secondAttribute="trailing" id="YKm-0V-87o"/>
+                            <constraint firstItem="9wa-hk-cHr" firstAttribute="top" secondItem="RLv-3W-khe" secondAttribute="top" id="eod-Va-AUf"/>
+                            <constraint firstItem="Ons-YR-CD1" firstAttribute="trailing" secondItem="bvi-ii-oP4" secondAttribute="trailing" id="gmH-VI-ClQ"/>
+                            <constraint firstAttribute="bottom" secondItem="9wa-hk-cHr" secondAttribute="bottom" id="pnl-AX-7aR"/>
+                            <constraint firstItem="9wa-hk-cHr" firstAttribute="leading" secondItem="Ons-YR-CD1" secondAttribute="leading" id="v84-o6-Omc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Change passcode" id="R3d-hy-Vna"/>
+                    <connections>
+                        <outlet property="viewExtra" destination="Mi3-NT-HA5" id="CZF-ZS-h8e"/>
+                        <outlet property="viewPasscode" destination="umv-KD-VhE" id="4Yw-FB-3XC"/>
+                        <outlet property="viewTitle" destination="I1k-E7-fs8" id="v4e-Hl-ao2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OI5-9A-Ein" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4890" y="1182"/>
+        </scene>
+        <!--Passwords-->
+        <scene sceneID="d7d-tb-6Dc">
+            <objects>
+                <navigationController id="j5u-qg-LTV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Passwords" image="tabbar-passwords" id="Jpk-b9-jm1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="GN6-3m-WBS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aG0-Sx-MMn" kind="relationship" relationship="rootViewController" id="qyN-q7-KdZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4pS-ya-tLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2980" y="-1080"/>
+        </scene>
+        <!--Application icon-->
+        <scene sceneID="Qvq-vD-bWC">
+            <objects>
+                <hostingController title="Application icon" hidesBottomBarWhenPushed="YES" id="r26-NN-T5X" customClass="MainChangeAppIconViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Application icon" id="COZ-7k-pqg"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPk-bI-fsn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4889" y="2708"/>
+        </scene>
+        <!--Donate-->
+        <scene sceneID="I11-7z-EM0">
+            <objects>
+                <hostingController id="DXg-HA-DGt" customClass="MainDonateViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Donate" id="kRH-0p-9Wd"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrf-Fp-pBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4889" y="4214"/>
+        </scene>
+        <!--Receivers-->
+        <scene sceneID="UBh-Km-rzB">
+            <objects>
+                <hostingController title="Receivers" id="Oub-Y9-5bZ" customClass="MainReceiversViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Receivers" id="n3n-Xb-T6D"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHU-Q8-vNa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4894" y="3463"/>
+        </scene>
+        <!--ZIP archive-->
+        <scene sceneID="LZi-lN-Rxm">
+            <objects>
+                <hostingController title="ZIP archive" hidesBottomBarWhenPushed="YES" id="P2U-OT-7BE" customClass="MainDataExportViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Export ZIP archive" id="Kdu-4v-3f4"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kAw-hS-gYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4889" y="1950"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="cUE-Wc-pa4">
+            <objects>
+                <tabBarController restorationIdentifier="MainRootController" storyboardIdentifier="MainRootController" id="zK7-fc-90e" userLabel="Main" customClass="MainEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ZJJ-qn-Xez"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sY2-RF-ZGl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="selectedImageTintColor" name="color-tint-red"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="j5u-qg-LTV" kind="relationship" relationship="viewControllers" id="F57-jh-f8D"/>
+                        <segue destination="3fu-P0-KYe" kind="relationship" relationship="viewControllers" id="BzW-oZ-wWl"/>
+                        <segue destination="JqB-dd-yVm" kind="relationship" relationship="viewControllers" id="Y33-LH-qeV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oaa-3w-TyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2062" y="35"/>
+        </scene>
+        <!--ZIP archive import-->
+        <scene sceneID="JGB-Vm-qMY">
+            <objects>
+                <hostingController title="ZIP archive import" hidesBottomBarWhenPushed="YES" id="sEj-Kk-mZP" customClass="MainDataImportViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Import ZIP archive" id="UaO-RP-VXt"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0l7-ej-48l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5639" y="1950"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ap9-86-9w1"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" name="color-tint-red"/>
+    <resources>
+        <image name="pattern" width="67" height="100"/>
+        <image name="tabbar-misc" width="30" height="30"/>
+        <image name="tabbar-passwords" width="30" height="30"/>
+        <image name="tabbar-scan" width="30" height="30"/>
+        <image name="tabbar-search" width="30" height="30"/>
+        <namedColor name="color-tint-red">
+            <color red="0.90980392156862744" green="0.050980392156862744" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
