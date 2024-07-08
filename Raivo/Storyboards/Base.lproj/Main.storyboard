@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zK7-fc-90e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6I9-Fl-ETD">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -370,10 +370,25 @@
             </objects>
             <point key="canvasLocation" x="4889" y="1950"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wMa-sG-kBA">
+            <objects>
+                <navigationController restorationIdentifier="MainRootController" storyboardIdentifier="MainRootController" navigationBarHidden="YES" id="6I9-Fl-ETD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LeZ-nn-k2M">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zK7-fc-90e" kind="relationship" relationship="rootViewController" id="061-LI-0ai"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVE-Gr-6zW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1177" y="35"/>
+        </scene>
         <!--Main-->
         <scene sceneID="cUE-Wc-pa4">
             <objects>
-                <tabBarController restorationIdentifier="MainRootController" storyboardIdentifier="MainRootController" id="zK7-fc-90e" userLabel="Main" customClass="MainEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="zK7-fc-90e" userLabel="Main" customClass="MainEntryViewController" customModule="Raivo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZJJ-qn-Xez"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sY2-RF-ZGl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>

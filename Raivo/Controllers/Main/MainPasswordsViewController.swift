@@ -417,22 +417,24 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     func popupRatingForImport() {
         let alert = UIAlertController(title: "Hooray", message: "You've successfully recovered your keys with Raivo 🚀🚀🚀\n\nWe're thrilled that you had a smooth experience. If you're as excited as we are, we'd love to hear your thoughts.", preferredStyle: UIAlertController.Style.alert)
 
-        alert.addAction(UIAlertAction(title: "Yes, Sure ❤️", style: UIAlertAction.Style.cancel, handler: { action in
+        alert.addAction(UIAlertAction(title: "no", style: UIAlertAction.Style.default, handler: nil))
+
+        alert.addAction(UIAlertAction(title: "Yes, Sure ❤️", style: UIAlertAction.Style.destructive, handler: { action in
             UserDefaults.standard.setValue(true, forKey: "com.mobime.raivo.rating")
             UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id1459042137?action=write-review")!, options: [:], completionHandler: nil)
                                       }))
-        alert.addAction(UIAlertAction(title: "later", style: UIAlertAction.Style.destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     func popupRatingWhenAdd() {
-        let alert = UIAlertController(title: "Congratulations", message: "It looks like you're enjoying Raivo Authenticator! If you have a moment, we'd love to hear from you", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Congratulations", message: "It looks like you're enjoying Raivo Authenticator!\n🥰🥰🥰🥰\n\nIf you have a moment for us, we'd love to hear from you!", preferredStyle: UIAlertController.Style.alert)
 
-        alert.addAction(UIAlertAction(title: "Yes, Sure", style: UIAlertAction.Style.cancel, handler: { action in
+        alert.addAction(UIAlertAction(title: "no", style: UIAlertAction.Style.default, handler: nil))
+
+        alert.addAction(UIAlertAction(title: "Yes, Sure ❤️", style: UIAlertAction.Style.destructive, handler: { action in
             UserDefaults.standard.setValue(true, forKey: "com.mobime.raivo.rating")
             UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id1459042137?action=write-review")!, options: [:], completionHandler: nil)
                                       }))
-        alert.addAction(UIAlertAction(title: "later", style: UIAlertAction.Style.destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }

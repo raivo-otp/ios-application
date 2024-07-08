@@ -1,9 +1,9 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2023 Mobime. All rights reserved. 
+// Copyright (c) 2023 Mobime. All rights reserved.
 //
-// View the license that applies to the Raivo OTP source 
+// View the license that applies to the Raivo OTP source
 // code and published services to learn how you can use
 // Raivo OTP.
 //
@@ -21,15 +21,25 @@ final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType, ImagePickerM
     public var iconValue: String? = nil {
         willSet {
             if newValue?.count ?? 0 > 0 {
-                options = PasswordIconTypeFormOption.options_including_clear
+                if iconType == PasswordIconTypeFormOption.OPTION_CUSTOM_ICONS.value {
+                    let filePath = (newValue ?? "").replacingOccurrences(of: "file://", with: "")
+                    let url = URL(fileURLWithPath: filePath)
+                    if FileManager.default.fileExists(atPath: url.path) {
+                        options = PasswordIconTypeFormOption.options_including_clear
+                    } else {
+                        options = PasswordIconTypeFormOption.options
+                    }
+                } else {
+                    options = PasswordIconTypeFormOption.options_including_clear
+                }
             } else {
                 options = PasswordIconTypeFormOption.options
             }
         }
     }
 
-	var senderRow: IconFormRow?
-	var imagePicker: ImagePickerModule?
+    var senderRow: IconFormRow?
+    var imagePicker: ImagePickerModule?
     
     convenience init(tag: String?, controller: UIViewController, _ initializer: (IconFormRow) -> Void = { _ in }) {
         self.init(tag: tag)
@@ -46,8 +56,8 @@ final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType, ImagePickerM
                 self.clearSelector(controller, row)
             case PasswordIconTypeFormOption.OPTION_RAIVO_REPOSITORY:
                 self.raivoRepositorySelector(controller, row)
-			case PasswordIconTypeFormOption.OPTION_CUSTOM_ICONS:
-				self.customIconSelector(controller, row)
+            case PasswordIconTypeFormOption.OPTION_CUSTOM_ICONS:
+                self.customIconSelector(controller, row)
             default:
                 return
             }
@@ -72,64 +82,76 @@ final class IconFormRow: _ActionSheetRow<IconFormRowCell>, RowType, ImagePickerM
 
         sender.navigationController?.pushViewController(controller, animated: true)
     }
-	
-	private func customIconSelector(_ sender: UIViewController, _ row: IconFormRow) {
-		self.senderRow = row
-		
-		let status = PHPhotoLibrary.authorizationStatus()
-		
-		if status == .authorized || status == .limited {
-			self.startSelectingImage(sender, row)
-		} else if status == .denied {
-			self.gotoPhotoLibraryRequestView(sender, row)
-		} else {
-			self.gotoPhotoLibraryRequestView(sender, row)
-		}
-	}
-	
-	func gotoPhotoLibraryRequestView(_ sender: UIViewController, _ row: IconFormRow) {
-		let controller = RequestPhotoLibraryViewController()
-		//guard let controller = Bundle.main.loadNibNamed("RequestPhotoLibraryViewController", owner: nil, options: nil)?[0] as? RequestPhotoLibraryViewController else {
-		//	return
-		//}
+    
+    private func customIconSelector(_ sender: UIViewController, _ row: IconFormRow) {
+        self.senderRow = row
+        
+        let status = PHPhotoLibrary.authorizationStatus()
+        
+        if status == .authorized || status == .limited {
+            self.startSelectingImage(sender, row)
+        } else if status == .denied {
+            self.gotoPhotoLibraryRequestView(sender, row)
+        } else {
+            self.gotoPhotoLibraryRequestView(sender, row)
+        }
+    }
+    
+    func gotoPhotoLibraryRequestView(_ sender: UIViewController, _ row: IconFormRow) {
+        let controller = RequestPhotoLibraryViewController()
 
-		controller.set(dismissCallback: {
-			let status = PHPhotoLibrary.authorizationStatus()
-			if status == .authorized || status == .limited {
-				self.startSelectingImage(sender, row)
-			}
-		})
+        controller.sender = sender
+        controller.set(dismissCallback: { image in
+            //let status = PHPhotoLibrary.authorizationStatus()
+            //if status == .authorized || status == .limited {
+            //    self.startSelectingImage(sender, row)
+            //}
+            if let image = image {
+                self.setSelectedImage(image)
+            }
+        })
 
-		//sender.navigationController?.pushViewController(controller, animated: true)
-		controller.modalPresentationStyle = .fullScreen
-		sender.present(controller, animated: true)
-	}
-	
-	func startSelectingImage(_ sender: UIViewController, _ row: IconFormRow) {
-		self.imagePicker = ImagePickerModule(sender)
-		self.imagePicker?.delegate = self
-		self.imagePicker?.startImagePicking()
-	}
-	
-	func imagePickerModule(_ module: ImagePickerModule, completeWithImage image: UIImage) {
-		if let data = image.jpegData(compressionQuality: 1.0) {
-			let fileName = UUID().uuidString
-			let filePath = getDocumentsDirectory().appendingPathComponent(fileName + ".jpg")
-			try? data.write(to: filePath)
-			
-			self.senderRow?.iconType = PasswordIconTypeFormOption.OPTION_CUSTOM_ICONS.value
-			self.senderRow?.iconValue = filePath.absoluteString
+        controller.modalPresentationStyle = .fullScreen
+        
+        if let viewController = UIApplication.shared.windows.first?.rootViewController as? UINavigationController {
+            //viewController.present(controller, animated: true)
+            viewController.pushViewController(controller, animated: true)
+        }
+    }
+    
+    func startSelectingImage(_ sender: UIViewController, _ row: IconFormRow) {
+        self.imagePicker = ImagePickerModule(sender)
+        self.imagePicker?.delegate = self
+        self.imagePicker?.startImagePicking()
+    }
+    
+    func imagePickerModule(_ module: ImagePickerModule, completeWithImage image: UIImage) {
+        self.setSelectedImage(image)
+    }
+    
+    func imagePickerModuleRequestRemovePhoto(_ module: ImagePickerModule) {
+        
+    }
+    
+    func imagePickerModuleCanceledSeleting(_ module: ImagePickerModule) {
+        
+    }
+    
+    func setSelectedImage(_ image: UIImage) {
+        if let data = image.jpegData(compressionQuality: 1.0) {
+            let fileName = UUID().uuidString
+            let filePath = getDocumentsDirectory().appendingPathComponent(fileName + ".jpg")
+            try? data.write(to: filePath)
+            
+            self.senderRow?.iconType = PasswordIconTypeFormOption.OPTION_CUSTOM_ICONS.value
+            self.senderRow?.iconValue = filePath.absoluteString
 
-			self.senderRow?.reload()
-		}
-	}
-	
-	func imagePickerModuleRequestRemovePhoto(_ module: ImagePickerModule) {
-		
-	}
-	
-	func getDocumentsDirectory() -> URL {
-		let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-		return paths[0]
-	}
+            self.senderRow?.reload()
+        }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
 }

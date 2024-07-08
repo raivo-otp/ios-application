@@ -13,11 +13,12 @@ import UIKit
 
 protocol ImagePickerModuleDelegate: AnyObject {
     func imagePickerModule(_ module: ImagePickerModule, completeWithImage image:UIImage)
-	func imagePickerModuleRequestRemovePhoto(_ module: ImagePickerModule)
+    func imagePickerModuleRequestRemovePhoto(_ module: ImagePickerModule)
+    func imagePickerModuleCanceledSeleting(_ module: ImagePickerModule)
 }
 
 class ImagePickerModule: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-	var imagePicker = UIImagePickerController()
+    var imagePicker = UIImagePickerController()
 
     weak var viewController: UIViewController!
     weak var delegate: ImagePickerModuleDelegate?
@@ -28,8 +29,8 @@ class ImagePickerModule: NSObject, UIImagePickerControllerDelegate, UINavigation
         self.viewController = viewController
     }
     
-	func startImagePicking() {
-		self.openGallery()
+    func startImagePicking() {
+        self.openGallery()
     }
     
     internal func openCamera() {
@@ -61,6 +62,7 @@ class ImagePickerModule: NSObject, UIImagePickerControllerDelegate, UINavigation
     }
     
     internal func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.delegate?.imagePickerModuleCanceledSeleting(self)
         picker.dismiss(animated: true) {
         }
     }
@@ -70,7 +72,7 @@ class ImagePickerModule: NSObject, UIImagePickerControllerDelegate, UINavigation
 
         //let imagePhoto: UIImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         let imagePhoto: UIImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
-		self.delegate?.imagePickerModule(self, completeWithImage: imagePhoto)
+        self.delegate?.imagePickerModule(self, completeWithImage: imagePhoto)
     }
 }
 

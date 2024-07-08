@@ -1,9 +1,9 @@
 //
 // Raivo OTP
 //
-// Copyright (c) 2023 Mobime. All rights reserved. 
+// Copyright (c) 2023 Mobime. All rights reserved.
 //
-// View the license that applies to the Raivo OTP source 
+// View the license that applies to the Raivo OTP source
 // code and published services to learn how you can use
 // Raivo OTP.
 //
@@ -58,9 +58,9 @@ class CounterBasedPasswordCell: PasswordCell {
             placeholderImage: UIImage(named: "vector-empty-item"),
             context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
         )
-		
-		icon.layer.cornerRadius = icon.bounds.height/2
-		icon.clipsToBounds = true
+        
+        icon.layer.cornerRadius = icon.bounds.height/2
+        icon.clipsToBounds = true
     }
     
     override internal func updateState(force: Bool = false) {
