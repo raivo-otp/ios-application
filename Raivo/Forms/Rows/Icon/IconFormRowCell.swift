@@ -28,6 +28,7 @@ class IconFormRowCell: AlertSelectorCell<PasswordIconTypeFormOption> {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		let iconType = (row as! IconFormRow).iconType
         let iconValue = (row as! IconFormRow).iconValue
         
         guard let value = iconValue, iconValue?.count ?? 0 > 0 else {
@@ -35,11 +36,21 @@ class IconFormRowCell: AlertSelectorCell<PasswordIconTypeFormOption> {
             return
         }
         
-        iconView.sd_setImage(
-            with: URL(string: AppHelper.iconsURL + value),
-            placeholderImage: UIImage(named: "vector-empty-item"),
-            context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
-        )
+		if iconType == PasswordIconTypeFormOption.OPTION_RAIVO_REPOSITORY.value {
+			iconView.sd_setImage(
+				with: URL(string: AppHelper.iconsURL + value),
+				placeholderImage: UIImage(named: "vector-empty-item"),
+				context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
+			)
+		} else {
+			iconView.sd_setImage(
+				with: URL(string: value),
+				placeholderImage: UIImage(named: "vector-empty-item"),
+				context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
+			)
+			iconView.layer.cornerRadius = iconView.bounds.height/2
+			iconView.clipsToBounds = true
+		}
     }
     
 }

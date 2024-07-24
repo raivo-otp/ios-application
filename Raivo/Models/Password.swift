@@ -95,6 +95,8 @@ class Password: Object {
         switch iconType {
         case PasswordIconTypeFormOption.OPTION_RAIVO_REPOSITORY.value:
             return URL(string: AppHelper.iconsURL + self.iconValue.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!)
+		case PasswordIconTypeFormOption.OPTION_CUSTOM_ICONS.value:
+			return URL(string: self.iconValue)
         default:
             return nil
         }

@@ -76,6 +76,8 @@ class MainEditPasswordViewController: FormViewController {
                     password!.syncing = SyncerHelper.shared.getSyncer().recordsRequireSync
                     password!.synced = !SyncerHelper.shared.getSyncer().recordsRequireSync
                     successfullySaved = true
+					
+					MainPasswordsViewController.isAddedNew = true
                 }
             }
         }

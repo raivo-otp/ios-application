@@ -35,6 +35,7 @@ class AppHelper {
     
     /// The release bundle identifier (e.g. com.apple.mainapp).
     public static let releaseIdentifier = "com.finnwea.Raivo"
+	//public static let releaseIdentifier = "com.finnwea.Raivo"
     
     /// The main bundle build number (e.g. 1, 2 or 3).
     ///

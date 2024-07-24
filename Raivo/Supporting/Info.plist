@@ -183,6 +183,10 @@
 	<string>$(PRODUCT_NAME) uses the camera to scan QR codes</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>$(PRODUCT_NAME) uses FaceID to unlock the app</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME) uses photolibrary to pick image for password icon</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) uses photolibrary to pick image for password icon</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

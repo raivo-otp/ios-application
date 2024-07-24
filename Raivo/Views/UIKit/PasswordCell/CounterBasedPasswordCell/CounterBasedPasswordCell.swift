@@ -58,6 +58,9 @@ class CounterBasedPasswordCell: PasswordCell {
             placeholderImage: UIImage(named: "vector-empty-item"),
             context: [.imageTransformer: ImageFilterHelper.shared.getCurrentTransformerPipeline(self)]
         )
+		
+		icon.layer.cornerRadius = icon.bounds.height/2
+		icon.clipsToBounds = true
     }
     
     override internal func updateState(force: Bool = false) {
