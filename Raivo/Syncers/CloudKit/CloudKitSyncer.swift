@@ -15,7 +15,8 @@ import RealmSwift
 
 class CloudKitSyncer: BaseSyncer, SyncerProtocol {
     
-    public static let containerName = "iCloud.com.finnwea.Raivo"
+    //public static let containerName = "iCloud.com.finnwea.Raivo"
+	public static let containerName = "iCloud.com.finnwea.Raivo"
         
     var name = "Apple iCloud"
     
