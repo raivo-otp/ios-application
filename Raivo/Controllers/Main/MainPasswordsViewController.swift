@@ -418,23 +418,43 @@ class MainPasswordsViewController: UIViewController, UITableViewDataSource, UITa
     
     func popupRatingForImport() {
         let alert = UIAlertController(title: "Hooray", message: "You've successfully recovered your keys with Raivo 🚀🚀🚀\n\nWe're thrilled that you had a smooth experience. If you're as excited as we are, we'd love to hear your thoughts.", preferredStyle: UIAlertController.Style.alert)
-        // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "Yes, Sure ❤️", style: UIAlertAction.Style.cancel, handler: { action in
+        
+        let laterAction = UIAlertAction(title: "later", style: UIAlertAction.Style.default, handler: nil)
+        laterAction.setValue(UIColor.lightGray, forKey: "titleTextColor")
+        
+        let yesAction = UIAlertAction(title: "Yes, Sure ❤️", style: UIAlertAction.Style.default, handler: { action in
             UserDefaults.standard.setValue(true, forKey: "com.mobime.raivo.rating")
             UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id1459042137?action=write-review")!, options: [:], completionHandler: nil)
-                                      }))
-        alert.addAction(UIAlertAction(title: "later", style: UIAlertAction.Style.destructive, handler: nil))
+        })
+        
+        yesAction.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        alert.addAction(laterAction)
+        alert.addAction(yesAction)
+        
+        alert.preferredAction = yesAction
+        
         self.present(alert, animated: true, completion: nil)
     }
     
     func popupRatingWhenAdd() {
         let alert = UIAlertController(title: "Congratulations", message: "It looks like you're enjoying Raivo Authenticator! If you have a moment, we'd love to hear from you", preferredStyle: UIAlertController.Style.alert)
-        // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "Yes, Sure", style: UIAlertAction.Style.cancel, handler: { action in
+        
+        let laterAction = UIAlertAction(title: "Later", style: UIAlertAction.Style.default, handler: nil)
+        laterAction.setValue(UIColor.lightGray, forKey: "titleTextColor")
+        
+        let yesAction = UIAlertAction(title: "Yes, Sure", style: UIAlertAction.Style.default, handler: { action in
             UserDefaults.standard.setValue(true, forKey: "com.mobime.raivo.rating")
             UIApplication.shared.open(URL(string: "https://apps.apple.com/app/id1459042137?action=write-review")!, options: [:], completionHandler: nil)
-                                      }))
-        alert.addAction(UIAlertAction(title: "later", style: UIAlertAction.Style.destructive, handler: nil))
+        })
+        
+        yesAction.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        alert.addAction(laterAction)
+        alert.addAction(yesAction)
+        
+        alert.preferredAction = yesAction
+        
         self.present(alert, animated: true, completion: nil)
     }
 }
