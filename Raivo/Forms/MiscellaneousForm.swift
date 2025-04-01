@@ -366,7 +366,7 @@ class MiscellaneousForm {
         form +++ Section("About Raivo", { section in
             section.tag = "about"
         })
-    
+
             <<< LabelRow("version", { row in
                 row.title = "Version"
                 row.value = AppHelper.version + " (build-" + String(AppHelper.build) + ")"
@@ -394,7 +394,9 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-changelog")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://raivo-otp.com/changelog/")!, options: [:])
+                if let url = URL(string: "https://raivo-otp.com/changelog/") {
+                    controller.openUrlInApp(url, title: "Changelog")
+                }
             })
         
             <<< ButtonRow("report_a_bug", { row in
@@ -403,22 +405,26 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-bug")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://raivo-otp.com/support/")!, options: [:])
+                if let url = URL(string: "https://raivo-otp.com/support/") {
+                    controller.openUrlInApp(url, title: "Support")
+                }
             })
     }
-    
+
     private func buildLegalSection(_ controller: UIViewController) {
         form +++ Section("Legal", { section in
             section.tag = "legal"
         })
-    
+
             <<< ButtonRow("privacy_policy", { row in
                 row.title = "Privacy policy"
             }).cellUpdate({ cell, row in
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-privacy")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://raivo-otp.com/privacy-policy/")!, options: [:])
+                if let url = URL(string: "https://raivo-otp.com/privacy-policy/") {
+                    controller.openUrlInApp(url, title: "Privacy Policy")
+                }
             })
             
             <<< ButtonRow("security_policy", { row in
@@ -427,7 +433,9 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-security")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://raivo-otp.com/security-policy/")!, options: [:])
+                if let url = URL(string: "https://raivo-otp.com/security-policy/") {
+                    controller.openUrlInApp(url, title: "Security Policy")
+                }
             })
             
             <<< ButtonRow("license", { row in
@@ -436,7 +444,9 @@ class MiscellaneousForm {
                 cell.textLabel?.textAlignment = .left
                 cell.imageView?.image = UIImage(named: "form-license")
             }).onCellSelection({ cell, row in
-                UIApplication.shared.open(URL(string: "https://raivo-otp.com/license/")!, options: [:])
+                if let url = URL(string: "https://raivo-otp.com/license/") {
+                    controller.openUrlInApp(url, title: "License")
+                }
             })
     }
     
