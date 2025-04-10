@@ -3,7 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
+<<<<<<< HEAD
 	objectVersion = 54;
+=======
+	objectVersion = 53;
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -208,10 +212,13 @@
 		70FA4C552287546D00A3B754 /* IconFormSelectorViewEmptyList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */; };
 		70FFB33728B8A47800C1A112 /* MainDonateViewObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FFB33628B8A47800C1A112 /* MainDonateViewObservable.swift */; };
 		70FFB33A28B8A57B00C1A112 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 70FFB33928B8A57B00C1A112 /* SwiftyStoreKit */; };
+<<<<<<< HEAD
 		EB759D432C0E9E2B00374C1B /* PhotoLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB759D422C0E9E2B00374C1B /* PhotoLibraryManager.swift */; };
 		EB759D452C0EAA2200374C1B /* ImagePickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB759D442C0EAA2200374C1B /* ImagePickerModule.swift */; };
 		EBD0E0132C0EF6C900F52E86 /* RequestPhotoLibraryViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0E0112C0EF6C800F52E86 /* RequestPhotoLibraryViewController .swift */; };
 		EBD0E0142C0EF6C900F52E86 /* RequestPhotoLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD0E0122C0EF6C800F52E86 /* RequestPhotoLibraryViewController.xib */; };
+=======
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -423,10 +430,13 @@
 		70FA4C522287543500A3B754 /* IconFormSelectorViewEmptyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFormSelectorViewEmptyList.swift; sourceTree = "<group>"; };
 		70FA4C542287546D00A3B754 /* IconFormSelectorViewEmptyList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconFormSelectorViewEmptyList.xib; sourceTree = "<group>"; };
 		70FFB33628B8A47800C1A112 /* MainDonateViewObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDonateViewObservable.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		EB759D422C0E9E2B00374C1B /* PhotoLibraryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibraryManager.swift; sourceTree = "<group>"; };
 		EB759D442C0EAA2200374C1B /* ImagePickerModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerModule.swift; sourceTree = "<group>"; };
 		EBD0E0112C0EF6C800F52E86 /* RequestPhotoLibraryViewController .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RequestPhotoLibraryViewController .swift"; sourceTree = "<group>"; };
 		EBD0E0122C0EF6C800F52E86 /* RequestPhotoLibraryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestPhotoLibraryViewController.xib; sourceTree = "<group>"; };
+=======
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -746,8 +756,11 @@
 			children = (
 				7077A345227F19CA00338CA3 /* IconFormRaivoRepositorySelectorViewController.swift */,
 				7077A349227F224200338CA3 /* IconFormRaivoRepositorySelectorViewController.xib */,
+<<<<<<< HEAD
 				EBD0E0112C0EF6C800F52E86 /* RequestPhotoLibraryViewController .swift */,
 				EBD0E0122C0EF6C800F52E86 /* RequestPhotoLibraryViewController.xib */,
+=======
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 			);
 			path = Selectors;
 			sourceTree = "<group>";
@@ -1078,8 +1091,11 @@
 				70617A582270DBD80032076A /* QueryHelper.swift */,
 				7092B9AB26C9442C00B10065 /* ReceiverHelper.swift */,
 				704EC48E2A457AEA00D113DE /* StoryboardHelper.swift */,
+<<<<<<< HEAD
 				EB759D422C0E9E2B00374C1B /* PhotoLibraryManager.swift */,
 				EB759D442C0EAA2200374C1B /* ImagePickerModule.swift */,
+=======
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1230,7 +1246,11 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1430;
+<<<<<<< HEAD
 				ORGANIZATIONNAME = Mobime;
+=======
+				ORGANIZATIONNAME = "Mobime";
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				TargetAttributes = {
 					700908C021FCCE5F00603AA2 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1311,7 +1331,10 @@
 				709FA2B82676922400BDB44D /* app-icon-light-tint-small@2x.png in Resources */,
 				70AF719028A0369E00F1D44C /* app-icon-halo@2x.png in Resources */,
 				700908E521FCE37B00603AA2 /* Auth.storyboard in Resources */,
+<<<<<<< HEAD
 				EBD0E0142C0EF6C900F52E86 /* RequestPhotoLibraryViewController.xib in Resources */,
+=======
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				70AF718B28A0299500F1D44C /* app-icon-pelican@1x.png in Resources */,
 				700908CF21FCCE6100603AA2 /* Splash.storyboard in Resources */,
 				709FA2C32676922400BDB44D /* app-icon-light-tint-large@1x.png in Resources */,
@@ -1371,7 +1394,10 @@
 				70C80DAA229F070A00413801 /* UIDigitField.swift in Sources */,
 				70675F262677D874009A7AE9 /* AppIconObject.swift in Sources */,
 				70B585EF2309D3BE00AD1754 /* SetupPasscodeViewController.swift in Sources */,
+<<<<<<< HEAD
 				EB759D432C0E9E2B00374C1B /* PhotoLibraryManager.swift in Sources */,
+=======
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				700908C721FCCE5F00603AA2 /* MainEntryViewController.swift in Sources */,
 				1F108CD729CFD5FA007D7D8F /* MainDataImportViewController.swift in Sources */,
 				70B585EA2309BED700AD1754 /* SetupEncryptionInitialViewController.swift in Sources */,
@@ -1386,7 +1412,10 @@
 				705E432023E5D01B00D26619 /* AddTappedUriFeature.swift in Sources */,
 				70C80DAB229F070A00413801 /* UIPasscodeShadowField.swift in Sources */,
 				7059680B22994CCF0032D70F /* StateHelper.swift in Sources */,
+<<<<<<< HEAD
 				EB759D452C0EAA2200374C1B /* ImagePickerModule.swift in Sources */,
+=======
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				700B993628BBE1F3002F5731 /* MainDonateViewController.swift in Sources */,
 				7077A34C227F610700338CA3 /* PasswordIconTypeFormOption.swift in Sources */,
 				70FA4C4C2287366C00A3B754 /* MiscellaneousIconsEffectFormOption.swift in Sources */,
@@ -1396,7 +1425,10 @@
 				7059680D22997EFB0032D70F /* SyncerHelper.swift in Sources */,
 				70ED04DF26763A16005C4D14 /* MainChangeAppIconViewController.swift in Sources */,
 				7079EBD322F638DA00F9D340 /* BiometricHelper.swift in Sources */,
+<<<<<<< HEAD
 				EBD0E0132C0EF6C900F52E86 /* RequestPhotoLibraryViewController .swift in Sources */,
+=======
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				70684DEF225A1BF70038BDB4 /* main.swift in Sources */,
 				70BC3EDC22566408005C98EF /* CloudKitSyncer.swift in Sources */,
 				707EDA5C23846C32000B0A97 /* BannerHelper.swift in Sources */,
@@ -1594,6 +1626,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+<<<<<<< HEAD
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.raivo.Debug;
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1664,7 +1700,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 86FV9NKGR4;
+=======
+				CURRENT_PROJECT_VERSION = 86;
+				DEVELOPMENT_TEAM = 564B4ETY69;
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1672,7 +1713,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo;
+=======
+				MARKETING_VERSION = 1.4.21;
+				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo.Debug;
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1689,7 +1735,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Raivo/Raivo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 86FV9NKGR4;
+=======
+				CURRENT_PROJECT_VERSION = 86;
+				DEVELOPMENT_TEAM = 564B4ETY69;
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				INFOPLIST_FILE = "$(SRCROOT)/Raivo/Supporting/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1697,7 +1748,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.finnwea.Raivo;
+=======
+				MARKETING_VERSION = 1.4.21;
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1711,7 +1766,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 86FV9NKGR4;
+=======
+				DEVELOPMENT_TEAM = 564B4ETY69;
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				INFOPLIST_FILE = RaivoUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1734,7 +1793,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 86FV9NKGR4;
+=======
+				DEVELOPMENT_TEAM = 564B4ETY69;
+>>>>>>> 75832ce (Temporary solution for the new iOS to build on simulators)
 				INFOPLIST_FILE = RaivoUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
