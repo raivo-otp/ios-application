@@ -129,7 +129,12 @@ class ApplicationPrincipal: UIApplication {
     }
     
     /// Open the given URL (by the native UIApplication.open handler
+<<<<<<< HEAD
     override func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil) {
+=======
+    /// Temporary solution for the new iOS to build on simulators
+    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil) {
+>>>>>>> 5a85f48 (Update ApplicationPrincipal.swift)
         super.open(url, options: options, completionHandler: completion)
     }
     
